@@ -1,0 +1,7 @@
+/xbe
+/bin/
+/dist/
+*.exe
+*.out
+*.test
+.DS_Store
