@@ -27,7 +27,29 @@ type jsonAPIResource struct {
 }
 
 type jsonAPIRelationship struct {
-	Data *jsonAPIResourceIdentifier `json:"data"`
+	Data *jsonAPIResourceIdentifier `json:"-"`
+	raw  json.RawMessage
+}
+
+func (r *jsonAPIRelationship) UnmarshalJSON(data []byte) error {
+	// Parse the wrapper object
+	var wrapper struct {
+		Data json.RawMessage `json:"data"`
+	}
+	if err := json.Unmarshal(data, &wrapper); err != nil {
+		return err
+	}
+	r.raw = wrapper.Data
+
+	// Try to parse as single object (has_one)
+	if len(wrapper.Data) > 0 && wrapper.Data[0] == '{' {
+		var single jsonAPIResourceIdentifier
+		if err := json.Unmarshal(wrapper.Data, &single); err == nil {
+			r.Data = &single
+		}
+	}
+	// If it's an array (has_many) or null, Data stays nil
+	return nil
 }
 
 type jsonAPIResourceIdentifier struct {
@@ -175,4 +197,14 @@ func defaultBaseURL() string {
 		return value
 	}
 	return "https://server.x-b-e.com"
+}
+
+// decodeHTMLEntities replaces common HTML entities with their character equivalents
+func decodeHTMLEntities(s string) string {
+	s = strings.ReplaceAll(s, "&quot;", "\"")
+	s = strings.ReplaceAll(s, "&amp;", "&")
+	s = strings.ReplaceAll(s, "&lt;", "<")
+	s = strings.ReplaceAll(s, "&gt;", ">")
+	s = strings.ReplaceAll(s, "&#39;", "'")
+	return s
 }

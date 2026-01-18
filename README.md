@@ -60,8 +60,31 @@ xbe
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
-│   └── brokers             Browse broker/branch information
-│       └── list            List brokers with filtering
+│   ├── posts               Browse and view posts
+│   │   ├── list            List posts with filtering
+│   │   └── show <id>       Show post details
+│   ├── brokers             Browse broker/branch information
+│   │   └── list            List brokers with filtering
+│   ├── users               Browse users (for creator lookup)
+│   │   └── list            List users with filtering
+│   ├── material-suppliers  Browse material suppliers
+│   │   └── list            List suppliers with filtering
+│   ├── customers           Browse customers
+│   │   └── list            List customers with filtering
+│   ├── truckers            Browse trucking companies
+│   │   └── list            List truckers with filtering
+│   ├── features            Browse product features
+│   │   ├── list            List features with filtering
+│   │   └── show <id>       Show feature details
+│   ├── release-notes       Browse release notes
+│   │   ├── list            List release notes with filtering
+│   │   └── show <id>       Show release note details
+│   ├── press-releases      Browse press releases
+│   │   ├── list            List press releases
+│   │   └── show <id>       Show press release details
+│   └── glossary-terms      Browse glossary terms
+│       ├── list            List glossary terms with filtering
+│       └── show <id>       Show glossary term details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```
@@ -132,6 +155,31 @@ xbe view newsletters show 456
 xbe view newsletters list --json --limit 10
 ```
 
+### Posts
+
+```bash
+# List recent posts
+xbe view posts list
+
+# Filter by status
+xbe view posts list --status published
+
+# Filter by post type
+xbe view posts list --post-type basic
+
+# Filter by date range
+xbe view posts list --published-at-min 2024-01-01 --published-at-max 2024-06-30
+
+# Filter by creator
+xbe view posts list --creator "User|123"
+
+# View full post content
+xbe view posts show 789
+
+# Get JSON output for scripting
+xbe view posts list --json --limit 10
+```
+
 ### Brokers
 
 ```bash
@@ -143,6 +191,52 @@ xbe view brokers list --company-name "Acme"
 
 # Get broker ID for use in newsletter filtering
 xbe view brokers list --company-name "Acme" --json | jq '.[0].id'
+```
+
+### Users, Material Suppliers, Customers, Truckers
+
+Use these commands to look up IDs for filtering posts by creator.
+
+```bash
+# Find a user ID
+xbe view users list --name "John"
+
+# Find a material supplier ID
+xbe view material-suppliers list --name "Acme"
+
+# Find a customer ID
+xbe view customers list --name "Smith"
+
+# Find a trucker ID
+xbe view truckers list --name "Express"
+
+# Then filter posts by that creator
+xbe view posts list --creator "User|123"
+xbe view posts list --creator "MaterialSupplier|456"
+xbe view posts list --creator "Customer|789"
+xbe view posts list --creator "Trucker|101"
+```
+
+### Features, Release Notes, Press Releases, Glossary Terms
+
+```bash
+# List product features
+xbe view features list
+xbe view features list --pdca-stage plan
+xbe view features show 123
+
+# List release notes
+xbe view release-notes list
+xbe view release-notes list --q "trucking"
+xbe view release-notes show 456
+
+# List press releases
+xbe view press-releases list
+xbe view press-releases show 789
+
+# List glossary terms
+xbe view glossary-terms list
+xbe view glossary-terms show 101
 ```
 
 ## Output Formats
