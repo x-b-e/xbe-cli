@@ -23,6 +23,13 @@ macOS + Linux (downloads the latest release):
 curl -fsSL https://raw.githubusercontent.com/x-b-e/xbe-cli/main/scripts/install.sh | bash
 ```
 
+By default this installs to `/usr/local/bin` if writable; otherwise it installs to `~/.local/bin` and prints a PATH hint.
+To override:
+
+```
+INSTALL_DIR=/usr/local/bin USE_SUDO=1 curl -fsSL https://raw.githubusercontent.com/x-b-e/xbe-cli/main/scripts/install.sh | bash
+```
+
 To update later, rerun the command above or use:
 
 ```
