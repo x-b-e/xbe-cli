@@ -12,7 +12,8 @@ these operations modify data and require authentication.
 
 Resources:
   material-transactions  Manage material transaction status (submit, accept, reject)
-  glossary-terms         Manage glossary term definitions`,
+  glossary-terms         Manage glossary term definitions
+  lane-summary           Generate lane (cycle) summaries`,
 	Example: `  # Submit a material transaction
   xbe do material-transactions submit 123
 
@@ -26,7 +27,10 @@ Resources:
   xbe do glossary-terms update 123 --definition "New definition"
 
   # Delete a glossary term
-  xbe do glossary-terms delete 123 --confirm`,
+  xbe do glossary-terms delete 123 --confirm
+
+  # Generate a lane summary by origin/destination
+  xbe do lane-summary create --group-by origin,destination --filter broker=123 --filter transaction_at_min=2025-01-17T00:00:00Z --filter transaction_at_max=2025-01-17T23:59:59Z`,
 	Annotations: map[string]string{"group": GroupCore},
 }
 

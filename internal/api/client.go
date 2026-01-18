@@ -83,6 +83,11 @@ func (c *Client) Post(ctx context.Context, path string, jsonBody []byte) ([]byte
 	return c.doWithBody(ctx, http.MethodPost, path, jsonBody)
 }
 
+// PostWithQuery performs a POST request to the given path with query params and a JSON body.
+func (c *Client) PostWithQuery(ctx context.Context, path string, query url.Values, jsonBody []byte) ([]byte, int, error) {
+	return c.doWithBodyAndQuery(ctx, http.MethodPost, path, query, jsonBody)
+}
+
 // Patch performs a PATCH request to the given path with a JSON body.
 func (c *Client) Patch(ctx context.Context, path string, jsonBody []byte) ([]byte, int, error) {
 	return c.doWithBody(ctx, http.MethodPatch, path, jsonBody)
@@ -94,6 +99,10 @@ func (c *Client) Delete(ctx context.Context, path string) ([]byte, int, error) {
 }
 
 func (c *Client) doWithBody(ctx context.Context, method, path string, body []byte) ([]byte, int, error) {
+	return c.doWithBodyAndQuery(ctx, method, path, nil, body)
+}
+
+func (c *Client) doWithBodyAndQuery(ctx context.Context, method, path string, query url.Values, body []byte) ([]byte, int, error) {
 	base, err := url.Parse(c.BaseURL)
 	if err != nil {
 		return nil, 0, fmt.Errorf("invalid base url: %w", err)
@@ -101,6 +110,9 @@ func (c *Client) doWithBody(ctx context.Context, method, path string, body []byt
 
 	path = "/" + strings.TrimLeft(path, "/")
 	base.Path = strings.TrimRight(base.Path, "/") + path
+	if query != nil {
+		base.RawQuery = query.Encode()
+	}
 
 	var bodyReader io.Reader
 	if body != nil {
