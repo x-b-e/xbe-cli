@@ -18,6 +18,7 @@ type newslettersListOptions struct {
 	BaseURL          string
 	Token            string
 	JSON             bool
+	NoAuth           bool
 	Limit            int
 	Offset           int
 	IsPublished      string
@@ -50,6 +51,7 @@ func init() {
 
 func initNewslettersListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().Int("limit", 0, "Page size (defaults to server default)")
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("is-published", "true", "Filter by published status (true/false)")
@@ -73,7 +75,9 @@ func runNewslettersList(cmd *cobra.Command, _ []string) error {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
 	}
-	if strings.TrimSpace(opts.Token) == "" {
+	if opts.NoAuth {
+		opts.Token = ""
+	} else if strings.TrimSpace(opts.Token) == "" {
 		if token, _, err := auth.ResolveToken(opts.BaseURL, ""); err == nil {
 			opts.Token = token
 		} else if !errors.Is(err, auth.ErrNotFound) {
@@ -133,6 +137,10 @@ func runNewslettersList(cmd *cobra.Command, _ []string) error {
 
 func parseNewslettersListOptions(cmd *cobra.Command) (newslettersListOptions, error) {
 	jsonOut, err := cmd.Flags().GetBool("json")
+	if err != nil {
+		return newslettersListOptions{}, err
+	}
+	noAuth, err := cmd.Flags().GetBool("no-auth")
 	if err != nil {
 		return newslettersListOptions{}, err
 	}
@@ -201,6 +209,7 @@ func parseNewslettersListOptions(cmd *cobra.Command) (newslettersListOptions, er
 		BaseURL:          baseURL,
 		Token:            token,
 		JSON:             jsonOut,
+		NoAuth:           noAuth,
 		Limit:            limit,
 		Offset:           offset,
 		IsPublished:      isPublished,

@@ -16,6 +16,7 @@ type newslettersShowOptions struct {
 	BaseURL string
 	Token   string
 	JSON    bool
+	NoAuth  bool
 }
 
 type newsletterDetails struct {
@@ -47,6 +48,7 @@ func init() {
 
 func initNewslettersShowFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -57,7 +59,9 @@ func runNewslettersShow(cmd *cobra.Command, args []string) error {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
 	}
-	if strings.TrimSpace(opts.Token) == "" {
+	if opts.NoAuth {
+		opts.Token = ""
+	} else if strings.TrimSpace(opts.Token) == "" {
 		if token, _, err := auth.ResolveToken(opts.BaseURL, ""); err == nil {
 			opts.Token = token
 		} else if !errors.Is(err, auth.ErrNotFound) {
@@ -113,11 +117,16 @@ func parseNewslettersShowOptions(cmd *cobra.Command) (newslettersShowOptions, er
 	if err != nil {
 		return newslettersShowOptions{}, err
 	}
+	noAuth, err := cmd.Flags().GetBool("no-auth")
+	if err != nil {
+		return newslettersShowOptions{}, err
+	}
 
 	return newslettersShowOptions{
 		BaseURL: baseURL,
 		Token:   token,
 		JSON:    jsonOut,
+		NoAuth:  noAuth,
 	}, nil
 }
 
