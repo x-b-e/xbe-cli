@@ -28,16 +28,20 @@ const (
 // ResolveToken returns the token for a base URL, honoring flag/env/store precedence.
 func ResolveToken(baseURL, flagToken string) (string, TokenSource, error) {
 	if strings.TrimSpace(flagToken) != "" {
-		return strings.TrimSpace(flagToken), TokenSourceFlag, nil
+		return normalizeToken(flagToken), TokenSourceFlag, nil
 	}
 	if token, ok := EnvToken(); ok {
-		return token, TokenSourceEnv, nil
+		return normalizeToken(token), TokenSourceEnv, nil
 	}
 
 	store := DefaultStore()
 	normalized := NormalizeBaseURL(baseURL)
 
 	if token, source, err := store.Get(normalized); err == nil {
+		token = normalizeToken(token)
+		if token == "" {
+			return "", TokenSourceNone, ErrNotFound
+		}
 		return token, source, nil
 	} else if errors.Is(err, ErrNotFound) {
 		return "", TokenSourceNone, ErrNotFound
@@ -60,6 +64,10 @@ func EnvToken() (string, bool) {
 // NormalizeBaseURL ensures consistent token keys.
 func NormalizeBaseURL(baseURL string) string {
 	return strings.TrimRight(strings.TrimSpace(baseURL), "/")
+}
+
+func normalizeToken(token string) string {
+	return strings.TrimSpace(token)
 }
 
 // Store abstracts token storage.

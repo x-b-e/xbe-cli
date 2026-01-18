@@ -5,6 +5,7 @@ import (
 	"errors"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 type fileStore struct {
@@ -35,7 +36,7 @@ func (s *fileStore) Set(baseURL, token string) error {
 	if config.Tokens == nil {
 		config.Tokens = map[string]string{}
 	}
-	config.Tokens[baseURL] = token
+	config.Tokens[baseURL] = strings.TrimSpace(token)
 	return s.save(config)
 }
 
