@@ -9,3 +9,4 @@ make build
 ./xbe --help
 ./xbe version
 ./xbe view newsletters list
+./xbe view brokers list

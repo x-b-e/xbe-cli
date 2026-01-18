@@ -226,13 +226,6 @@ func parseNewslettersListOptions(cmd *cobra.Command) (newslettersListOptions, er
 	}, nil
 }
 
-func setFilterIfPresent(query url.Values, key, value string) {
-	value = strings.TrimSpace(value)
-	if value != "" {
-		query.Set(key, value)
-	}
-}
-
 func renderNewslettersTable(cmd *cobra.Command, resp jsonAPIResponse) error {
 	rows := buildNewsletterRows(resp)
 	if len(rows) == 0 {
