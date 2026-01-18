@@ -2,12 +2,14 @@ package cli
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/url"
 	"strings"
 
 	"github.com/spf13/cobra"
 	"github.com/xbe-inc/xbe-cli/internal/api"
+	"github.com/xbe-inc/xbe-cli/internal/auth"
 )
 
 type newslettersShowOptions struct {
@@ -46,7 +48,7 @@ func init() {
 func initNewslettersShowFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
-	cmd.Flags().String("token", defaultToken(), "API token (optional)")
+	cmd.Flags().String("token", "", "API token (optional)")
 }
 
 func runNewslettersShow(cmd *cobra.Command, args []string) error {
@@ -54,6 +56,14 @@ func runNewslettersShow(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
+	}
+	if strings.TrimSpace(opts.Token) == "" {
+		if token, _, err := auth.ResolveToken(opts.BaseURL, ""); err == nil {
+			opts.Token = token
+		} else if !errors.Is(err, auth.ErrNotFound) {
+			fmt.Fprintln(cmd.ErrOrStderr(), err)
+			return err
+		}
 	}
 
 	id := strings.TrimSpace(args[0])

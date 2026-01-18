@@ -176,13 +176,3 @@ func defaultBaseURL() string {
 	}
 	return "https://server.x-b-e.com"
 }
-
-func defaultToken() string {
-	if value := strings.TrimSpace(os.Getenv("XBE_TOKEN")); value != "" {
-		return value
-	}
-	if value := strings.TrimSpace(os.Getenv("XBE_API_TOKEN")); value != "" {
-		return value
-	}
-	return ""
-}

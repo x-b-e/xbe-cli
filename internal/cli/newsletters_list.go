@@ -2,6 +2,7 @@ package cli
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/url"
 	"strconv"
@@ -10,6 +11,7 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/xbe-inc/xbe-cli/internal/api"
+	"github.com/xbe-inc/xbe-cli/internal/auth"
 )
 
 type newslettersListOptions struct {
@@ -62,7 +64,7 @@ func initNewslettersListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("published-on-max", "", "Filter to newsletters published on or before this date (YYYY-MM-DD)")
 	cmd.Flags().String("has-published-on", "", "Filter by presence of published-on date (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
-	cmd.Flags().String("token", defaultToken(), "API token (optional)")
+	cmd.Flags().String("token", "", "API token (optional)")
 }
 
 func runNewslettersList(cmd *cobra.Command, _ []string) error {
@@ -70,6 +72,14 @@ func runNewslettersList(cmd *cobra.Command, _ []string) error {
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
+	}
+	if strings.TrimSpace(opts.Token) == "" {
+		if token, _, err := auth.ResolveToken(opts.BaseURL, ""); err == nil {
+			opts.Token = token
+		} else if !errors.Is(err, auth.ErrNotFound) {
+			fmt.Fprintln(cmd.ErrOrStderr(), err)
+			return err
+		}
 	}
 
 	client := api.NewClient(opts.BaseURL, opts.Token)
