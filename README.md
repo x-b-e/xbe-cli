@@ -1,26 +1,102 @@
 # xbe-cli
 
-A Go-based CLI for XBE.
+The CLI for the XBE platform, designed to make it easy for agents to interact with XBE. We'll add capabilities bit by bit, leveraging the existing API and various client component designs; today it supports authentication plus newsletters and brokers.
 
-## Install
-Download the release archive for your OS/arch from the GitHub Releases page, extract it, and move `xbe` into your PATH.
-
-Example (macOS arm64):
+## Quick start
+1) Install the CLI (see below).
+2) Store a token:
 
 ```
-VERSION=0.1.0
-curl -L https://github.com/x-b-e/xbe-cli/releases/download/v${VERSION}/xbe_${VERSION}_darwin_arm64.tar.gz | tar -xz
-sudo mv xbe /usr/local/bin/xbe
+xbe auth login --token "YOUR_TOKEN"
 ```
 
-## Update
-Repeat the install steps with the latest release version. Checksums are published alongside each release.
+3) List newsletters:
+
+```
+xbe view newsletters list
+```
+
+## Install (copy/paste)
+macOS + Linux (downloads the latest release):
+
+```
+curl -fsSL https://raw.githubusercontent.com/x-b-e/xbe-cli/main/scripts/install.sh | bash
+```
+
+To update later, rerun the command above or use:
+
+```
+xbe update
+```
+
+Windows: download the zip from GitHub Releases, extract `xbe.exe`, and place it somewhere on your PATH.
+
+## Authentication
+The CLI reads tokens in this order:
+
+1) `--token`
+2) `XBE_TOKEN` or `XBE_API_TOKEN`
+3) Stored token from `xbe auth login`
+
+You can create an API token in the XBE client:
+
+```
+https://client.x-b-e.com/#/browse/users/me/api-tokens
+```
+
+Commands:
+
+- `xbe auth login` stores a token (keychain if available, otherwise config file).
+- `xbe auth status` shows whether a token is set for the current base URL.
+- `xbe auth logout` removes the stored token.
+
+You can also read a token from stdin:
+
+```
+cat token.txt | xbe auth login --token-stdin
+```
+
+## Configuration
+- Base URL default: `https://server.x-b-e.com`
+- Override with `--base-url` or `XBE_BASE_URL` / `XBE_API_BASE_URL`
+- File token storage path: `~/.config/xbe/config.json` (respects `XDG_CONFIG_HOME`)
+
+## Output formats
+- Default output is human-readable tables or details.
+- Add `--json` to `list` and `show` commands for machine-readable output.
+
+## Examples
+List published newsletters for a broker:
+
+```
+xbe view newsletters list --broker-id 123
+```
+
+Search newsletters:
+
+```
+xbe view newsletters list --q "interest rates"
+```
+
+List brokers as JSON:
+
+```
+xbe view brokers list --json
+```
+
+Show a newsletter as JSON:
+
+```
+xbe view newsletters show 42 --json
+```
 
 ## Build
+```
 make build
+```
 
 ## Run
+```
 ./xbe --help
 ./xbe version
-./xbe view newsletters list
-./xbe view brokers list
+```
