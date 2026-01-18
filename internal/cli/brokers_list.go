@@ -34,8 +34,38 @@ func newBrokersListCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "list",
 		Short: "List brokers",
-		Long:  "List brokers.",
-		RunE:  runBrokersList,
+		Long: `List brokers with filtering and pagination.
+
+Returns a list of brokers (branches) registered on the XBE platform.
+Results are sorted alphabetically by company name.
+
+Output Columns (table format):
+  ID       Unique broker identifier (use with --broker-id in newsletter commands)
+  COMPANY  Company/organization name
+
+Pagination:
+  Use --limit and --offset to paginate through large result sets.`,
+		Example: `  # List all brokers
+  xbe view brokers list
+
+  # Search by company name (partial match)
+  xbe view brokers list --company-name "Insurance"
+
+  # List only active brokers
+  xbe view brokers list --is-active true
+
+  # Paginate results
+  xbe view brokers list --limit 50 --offset 100
+
+  # Get JSON output for scripting
+  xbe view brokers list --json
+
+  # Find broker ID for newsletter filtering
+  xbe view brokers list --company-name "Acme" --json | jq '.[0].id'
+
+  # List without authentication
+  xbe view brokers list --no-auth`,
+		RunE: runBrokersList,
 	}
 	initBrokersListFlags(cmd)
 	return cmd

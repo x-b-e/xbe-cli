@@ -34,9 +34,34 @@ type newsletterDetails struct {
 func newNewslettersShowCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "show <id>",
-		Short: "Show a newsletter",
-		Args:  cobra.ExactArgs(1),
-		RunE:  runNewslettersShow,
+		Short: "Show newsletter details",
+		Long: `Show the full details of a specific newsletter.
+
+Retrieves and displays comprehensive information about a newsletter including
+its full body content, metadata, and publication status.
+
+Output Fields (table format):
+  ID            Unique newsletter identifier
+  Summary       Brief summary of the content
+  Published     Publication date
+  Organization  The broker/organization that published it
+  Status        Publication flags (published, public)
+  User Scopes   Access scopes for the authenticated user
+  Audio URL     Link to audio version (if available)
+  Body          Full newsletter content
+
+Arguments:
+  <id>          The newsletter ID (required). You can find IDs using the list command.`,
+		Example: `  # View a newsletter by ID
+  xbe view newsletters show 123
+
+  # Get newsletter as JSON
+  xbe view newsletters show 123 --json
+
+  # View without authentication (only works for public newsletters)
+  xbe view newsletters show 123 --no-auth`,
+		Args: cobra.ExactArgs(1),
+		RunE: runNewslettersShow,
 	}
 	initNewslettersShowFlags(cmd)
 	return cmd

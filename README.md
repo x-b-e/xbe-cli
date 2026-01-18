@@ -1,109 +1,215 @@
-# xbe-cli
+# XBE CLI
 
-The CLI for the XBE platform, designed to make it easy for agents to interact with XBE. We'll add capabilities bit by bit, leveraging the existing API and various client component designs; today it supports authentication plus newsletters and brokers.
+A command-line interface for the [XBE platform](https://www.x-b-e.com), providing programmatic access to newsletters, broker data, and platform services. Designed for both interactive use and automation by AI agents.
 
-## Quick start
-1) Install the CLI (see below).
-2) Store a token:
+## What is XBE?
 
-```
-xbe auth login --token "YOUR_TOKEN"
-```
+XBE is a business operations platform for the heavy materials, logistics, and construction industries. It provides end-to-end visibility from quarry to customer, managing materials (asphalt, concrete, aggregates), logistics coordination, and construction operations. The XBE CLI lets you access platform data programmatically.
 
-3) List newsletters:
+## Quick Start
 
-```
+```bash
+# 1. Install
+curl -fsSL https://raw.githubusercontent.com/x-b-e/xbe-cli/main/scripts/install.sh | bash
+
+# 2. Authenticate
+xbe auth login
+
+# 3. Browse newsletters
 xbe view newsletters list
+
+# 4. View a specific newsletter
+xbe view newsletters show <id>
 ```
 
-## Install (copy/paste)
-macOS + Linux (downloads the latest release):
+## Installation
 
-```
+### macOS and Linux
+
+```bash
 curl -fsSL https://raw.githubusercontent.com/x-b-e/xbe-cli/main/scripts/install.sh | bash
 ```
 
-By default this installs to `/usr/local/bin` if writable; otherwise it installs to `~/.local/bin` and prints a PATH hint.
-To override:
+Installs to `/usr/local/bin` if writable, otherwise `~/.local/bin`.
 
-```
+To specify a custom location:
+
+```bash
 INSTALL_DIR=/usr/local/bin USE_SUDO=1 curl -fsSL https://raw.githubusercontent.com/x-b-e/xbe-cli/main/scripts/install.sh | bash
 ```
 
-To update later, rerun the command above or use:
+### Windows
 
-```
+Download the latest release from [GitHub Releases](https://github.com/x-b-e/xbe-cli/releases), extract `xbe.exe`, and add it to your PATH.
+
+### Updating
+
+```bash
 xbe update
 ```
 
-Windows: download the zip from GitHub Releases, extract `xbe.exe`, and place it somewhere on your PATH.
+## Command Reference
+
+```
+xbe
+├── auth                    Manage authentication credentials
+│   ├── login               Store an access token
+│   ├── status              Show authentication status
+│   └── logout              Remove stored token
+├── view                    Browse and view XBE content
+│   ├── newsletters         Browse and view newsletters
+│   │   ├── list            List newsletters with filtering
+│   │   └── show <id>       Show newsletter details
+│   └── brokers             Browse broker/branch information
+│       └── list            List brokers with filtering
+├── update                  Show update instructions
+└── version                 Print the CLI version
+```
+
+Run `xbe --help` for comprehensive documentation, or `xbe <command> --help` for details on any command.
 
 ## Authentication
-The CLI reads tokens in this order:
 
-1) `--token`
-2) `XBE_TOKEN` or `XBE_API_TOKEN`
-3) Stored token from `xbe auth login`
+### Getting a Token
 
-You can create an API token in the XBE client:
+Create an API token in the XBE client: https://client.x-b-e.com/#/browse/users/me/api-tokens
 
+### Storing Your Token
+
+```bash
+# Interactive (secure prompt, recommended)
+xbe auth login
+
+# Via flag
+xbe auth login --token "YOUR_TOKEN"
+
+# Via stdin (for password managers)
+op read "op://Vault/XBE/token" | xbe auth login --token-stdin
 ```
-https://client.x-b-e.com/#/browse/users/me/api-tokens
+
+Tokens are stored securely in your system's credential storage:
+- **macOS**: Keychain
+- **Linux**: Secret Service (GNOME Keyring, KWallet)
+- **Windows**: Credential Manager
+
+Fallback: `~/.config/xbe/config.json`
+
+### Token Resolution Order
+
+1. `--token` flag
+2. `XBE_TOKEN` or `XBE_API_TOKEN` environment variable
+3. System keychain
+4. Config file
+
+### Managing Authentication
+
+```bash
+xbe auth status   # Check if authenticated
+xbe auth logout   # Remove stored token
 ```
 
-Commands:
+## Usage Examples
 
-- `xbe auth login` stores a token (keychain if available, otherwise config file).
-- `xbe auth status` shows whether a token is set for the current base URL.
-- `xbe auth logout` removes the stored token.
+### Newsletters
 
-You can also read a token from stdin:
+```bash
+# List recent published newsletters
+xbe view newsletters list
 
+# Search by keyword
+xbe view newsletters list --q "market analysis"
+
+# Filter by broker
+xbe view newsletters list --broker-id 123
+
+# Filter by date range
+xbe view newsletters list --published-on-min 2024-01-01 --published-on-max 2024-06-30
+
+# View full newsletter content
+xbe view newsletters show 456
+
+# Get JSON output for scripting
+xbe view newsletters list --json --limit 10
 ```
-cat token.txt | xbe auth login --token-stdin
+
+### Brokers
+
+```bash
+# List all brokers
+xbe view brokers list
+
+# Search by company name
+xbe view brokers list --company-name "Acme"
+
+# Get broker ID for use in newsletter filtering
+xbe view brokers list --company-name "Acme" --json | jq '.[0].id'
 ```
+
+## Output Formats
+
+All `list` and `show` commands support two output formats:
+
+| Format | Flag | Use Case |
+|--------|------|----------|
+| Table | (default) | Human-readable, interactive use |
+| JSON | `--json` | Scripting, automation, AI agents |
 
 ## Configuration
-- Base URL default: `https://server.x-b-e.com`
-- Override with `--base-url` or `XBE_BASE_URL` / `XBE_API_BASE_URL`
-- File token storage path: `~/.config/xbe/config.json` (respects `XDG_CONFIG_HOME`)
 
-## Output formats
-- Default output is human-readable tables or details.
-- Add `--json` to `list` and `show` commands for machine-readable output.
+| Setting | Default | Override |
+|---------|---------|----------|
+| Base URL | `https://app.x-b-e.com` | `--base-url` or `XBE_BASE_URL` |
+| Config directory | `~/.config/xbe` | `XDG_CONFIG_HOME` |
 
-## Examples
-List published newsletters for a broker:
+## Environment Variables
 
+| Variable | Description |
+|----------|-------------|
+| `XBE_TOKEN` | API access token |
+| `XBE_API_TOKEN` | API access token (alternative) |
+| `XBE_BASE_URL` | API base URL |
+| `XDG_CONFIG_HOME` | Config directory (default: `~/.config`) |
+
+## For AI Agents
+
+This CLI is designed with AI agents in mind:
+
+- **Comprehensive `--help`**: Run `xbe --help` to get a complete overview of all commands, flags, and configuration options
+- **JSON output**: Use `--json` for structured, parseable output
+- **Predictable errors**: Error messages are written to stderr
+- **No interactive prompts in automation**: Use `--token` or environment variables
+
+### Agent Bootstrap Example
+
+```bash
+# Discover all capabilities
+xbe --help
+
+# Authenticate
+export XBE_TOKEN="your-token"
+
+# Explore available content
+xbe view newsletters list --json --limit 5
+xbe view brokers list --json --limit 5
 ```
-xbe view newsletters list --broker-id 123
-```
 
-Search newsletters:
+## Development
 
-```
-xbe view newsletters list --q "interest rates"
-```
+### Build
 
-List brokers as JSON:
-
-```
-xbe view brokers list --json
-```
-
-Show a newsletter as JSON:
-
-```
-xbe view newsletters show 42 --json
-```
-
-## Build
-```
+```bash
 make build
 ```
 
-## Run
-```
+### Run
+
+```bash
 ./xbe --help
 ./xbe version
+```
+
+### Test
+
+```bash
+make test
 ```

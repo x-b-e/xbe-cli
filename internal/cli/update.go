@@ -17,7 +17,23 @@ type updateOutput struct {
 var updateCmd = &cobra.Command{
 	Use:   "update",
 	Short: "Show update instructions",
-	RunE:  runUpdate,
+	Long: `Show instructions for updating the XBE CLI to the latest version.
+
+Displays the appropriate update command for your platform:
+  - macOS/Linux: Shell script that downloads and installs the latest release
+  - Windows: Manual download instructions
+
+You can optionally pin to a specific version using the --tag flag.`,
+	Example: `  # Show update command for latest version
+  xbe update
+
+  # Pin to a specific version
+  xbe update --tag v0.1.0
+
+  # Get update info as JSON (for automation)
+  xbe update --json`,
+	Annotations: map[string]string{"group": GroupUtility},
+	RunE:        runUpdate,
 }
 
 func init() {

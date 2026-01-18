@@ -15,25 +15,83 @@ import (
 
 var authCmd = &cobra.Command{
 	Use:   "auth",
-	Short: "Authentication helpers",
+	Short: "Manage authentication credentials",
+	Long: `Manage authentication credentials for the XBE API.
+
+The auth commands help you securely store and manage API tokens. Tokens are
+stored in your system's secure credential storage:
+  - macOS: Keychain
+  - Linux: Secret Service (GNOME Keyring, KWallet)
+  - Windows: Credential Manager
+
+If secure storage is unavailable, tokens are stored in ~/.config/xbe/config.json
+
+Token Resolution Order:
+  1. --token flag (highest priority)
+  2. XBE_TOKEN or XBE_API_TOKEN environment variable
+  3. System keychain
+  4. Config file (lowest priority)`,
+	Annotations: map[string]string{"group": GroupAuth},
 }
 
 var authLoginCmd = &cobra.Command{
 	Use:   "login",
 	Short: "Store an access token",
-	RunE:  runAuthLogin,
+	Long: `Store an access token for API authentication.
+
+The token will be stored securely in your system's credential storage.
+You can provide the token via:
+  - Interactive prompt (most secure, hides input)
+  - --token flag
+  - --token-stdin flag (for piping from password managers)
+
+Tokens are stored per base URL, allowing you to have different tokens
+for different XBE environments (e.g., staging vs production).`,
+	Example: `  # Interactive login (prompts for token securely)
+  xbe auth login
+
+  # Provide token via flag
+  xbe auth login --token YOUR_TOKEN
+
+  # Pipe token from a password manager
+  op read "op://Vault/XBE/token" | xbe auth login --token-stdin
+
+  # Store token for a different environment
+  xbe auth login --base-url https://staging.x-b-e.com`,
+	RunE: runAuthLogin,
 }
 
 var authStatusCmd = &cobra.Command{
 	Use:   "status",
-	Short: "Show auth status",
-	RunE:  runAuthStatus,
+	Short: "Show authentication status",
+	Long: `Show the current authentication status.
+
+Displays whether a token is configured for the specified base URL and
+where the token is being loaded from (flag, environment, keychain, or file).
+
+This is useful for debugging authentication issues or verifying your
+configuration before running other commands.`,
+	Example: `  # Check auth status for default URL
+  xbe auth status
+
+  # Check auth status for a specific environment
+  xbe auth status --base-url https://staging.x-b-e.com`,
+	RunE: runAuthStatus,
 }
 
 var authLogoutCmd = &cobra.Command{
 	Use:   "logout",
 	Short: "Remove stored token",
-	RunE:  runAuthLogout,
+	Long: `Remove the stored authentication token.
+
+Deletes the token from secure storage for the specified base URL.
+This does not affect tokens stored in environment variables.`,
+	Example: `  # Remove token for default URL
+  xbe auth logout
+
+  # Remove token for a specific environment
+  xbe auth logout --base-url https://staging.x-b-e.com`,
+	RunE: runAuthLogout,
 }
 
 func init() {

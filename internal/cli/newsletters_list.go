@@ -38,8 +38,53 @@ func newNewslettersListCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "list",
 		Short: "List newsletters",
-		Long:  "List published newsletters.",
-		RunE:  runNewslettersList,
+		Long: `List published newsletters with filtering and pagination.
+
+Returns a list of newsletters matching the specified criteria. By default,
+only published newsletters are shown, sorted by publication date (newest first).
+
+Output Columns (table format):
+  ID            Unique newsletter identifier
+  PUBLISHED     Publication date
+  SUMMARY       Brief summary of the newsletter content
+  ORGANIZATION  The broker/organization that published the newsletter
+
+Pagination:
+  Use --limit and --offset to paginate through large result sets.
+  The server has a default page size if --limit is not specified.
+
+Filtering:
+  Multiple filters can be combined. All filters use AND logic.`,
+		Example: `  # List recent newsletters (default: published only)
+  xbe view newsletters list
+
+  # Search newsletters by keyword
+  xbe view newsletters list --q "interest rates"
+
+  # Filter by broker ID
+  xbe view newsletters list --broker-id 123
+
+  # Filter by date range
+  xbe view newsletters list --published-on-min 2024-01-01 --published-on-max 2024-06-30
+
+  # Filter by exact publication date
+  xbe view newsletters list --published-on 2024-03-15
+
+  # Show only public newsletters
+  xbe view newsletters list --is-public true
+
+  # Include unpublished newsletters (requires auth)
+  xbe view newsletters list --is-published ""
+
+  # Paginate results
+  xbe view newsletters list --limit 20 --offset 40
+
+  # Output as JSON for scripting
+  xbe view newsletters list --json
+
+  # Access without authentication (public content only)
+  xbe view newsletters list --no-auth --is-public true`,
+		RunE: runNewslettersList,
 	}
 	initNewslettersListFlags(cmd)
 	return cmd
