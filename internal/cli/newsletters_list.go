@@ -3,13 +3,10 @@ package cli
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"net/url"
-	"os"
 	"strconv"
 	"strings"
 	"text/tabwriter"
-	"time"
 
 	"github.com/spf13/cobra"
 	"github.com/xbe-inc/xbe-cli/internal/api"
@@ -34,53 +31,38 @@ type newslettersListOptions struct {
 	HasPublishedOn   string
 }
 
-type jsonAPIResponse struct {
-	Data     []jsonAPIResource `json:"data"`
-	Included []jsonAPIResource `json:"included"`
-}
-
-type jsonAPIResource struct {
-	ID            string                         `json:"id"`
-	Type          string                         `json:"type"`
-	Attributes    map[string]any                 `json:"attributes"`
-	Relationships map[string]jsonAPIRelationship `json:"relationships"`
-}
-
-type jsonAPIRelationship struct {
-	Data *jsonAPIResourceIdentifier `json:"data"`
-}
-
-type jsonAPIResourceIdentifier struct {
-	ID   string `json:"id"`
-	Type string `json:"type"`
-}
-
-var newslettersListCmd = &cobra.Command{
-	Use:   "list",
-	Short: "List newsletters",
-	Long:  "List published newsletters up to today.",
-	RunE:  runNewslettersList,
+func newNewslettersListCmd() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "list",
+		Short: "List newsletters",
+		Long:  "List published newsletters.",
+		RunE:  runNewslettersList,
+	}
+	initNewslettersListFlags(cmd)
+	return cmd
 }
 
 func init() {
-	newslettersCmd.AddCommand(newslettersListCmd)
+	newslettersCmd.AddCommand(newNewslettersListCmd())
+}
 
-	newslettersListCmd.Flags().Bool("json", false, "Output JSON")
-	newslettersListCmd.Flags().Int("limit", 0, "Page size (defaults to server default)")
-	newslettersListCmd.Flags().Int("offset", 0, "Page offset")
-	newslettersListCmd.Flags().String("is-published", "true", "Filter by published status (true/false)")
-	newslettersListCmd.Flags().String("is-public", "", "Filter by public status (true/false)")
-	newslettersListCmd.Flags().String("q", "", "Search newsletters")
-	newslettersListCmd.Flags().String("has-organization", "", "Filter by presence of organization (true/false)")
-	newslettersListCmd.Flags().String("organization", "", "Filter by organization (e.g., Broker|123)")
-	newslettersListCmd.Flags().String("organization-type", "", "Filter by organization type (e.g., Broker)")
-	newslettersListCmd.Flags().Int("broker-id", 0, "Filter by broker organization id")
-	newslettersListCmd.Flags().String("published-on", "", "Filter to newsletters published on this date (YYYY-MM-DD)")
-	newslettersListCmd.Flags().String("published-on-min", "", "Filter to newsletters published on or after this date (YYYY-MM-DD)")
-	newslettersListCmd.Flags().String("published-on-max", "", "Filter to newsletters published on or before this date (YYYY-MM-DD)")
-	newslettersListCmd.Flags().String("has-published-on", "", "Filter by presence of published-on date (true/false)")
-	newslettersListCmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
-	newslettersListCmd.Flags().String("token", defaultToken(), "API token (optional)")
+func initNewslettersListFlags(cmd *cobra.Command) {
+	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Int("limit", 0, "Page size (defaults to server default)")
+	cmd.Flags().Int("offset", 0, "Page offset")
+	cmd.Flags().String("is-published", "true", "Filter by published status (true/false)")
+	cmd.Flags().String("is-public", "", "Filter by public status (true/false)")
+	cmd.Flags().String("q", "", "Search newsletters")
+	cmd.Flags().String("has-organization", "", "Filter by presence of organization (true/false)")
+	cmd.Flags().String("organization", "", "Filter by organization (e.g., Broker|123)")
+	cmd.Flags().String("organization-type", "", "Filter by organization type (e.g., Broker)")
+	cmd.Flags().Int("broker-id", 0, "Filter by broker organization id")
+	cmd.Flags().String("published-on", "", "Filter to newsletters published on this date (YYYY-MM-DD)")
+	cmd.Flags().String("published-on-min", "", "Filter to newsletters published on or after this date (YYYY-MM-DD)")
+	cmd.Flags().String("published-on-max", "", "Filter to newsletters published on or before this date (YYYY-MM-DD)")
+	cmd.Flags().String("has-published-on", "", "Filter by presence of published-on date (true/false)")
+	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
+	cmd.Flags().String("token", defaultToken(), "API token (optional)")
 }
 
 func runNewslettersList(cmd *cobra.Command, _ []string) error {
@@ -275,113 +257,4 @@ func buildNewsletterRows(resp jsonAPIResponse) []newsletterRow {
 	}
 
 	return rows
-}
-
-func resolveOrganization(resource jsonAPIResource, included map[string]map[string]any) string {
-	rel, ok := resource.Relationships["organization"]
-	if !ok || rel.Data == nil {
-		return "XBE Horizon"
-	}
-
-	key := resourceKey(rel.Data.Type, rel.Data.ID)
-	if attrs, ok := included[key]; ok {
-		name := firstNonEmpty(
-			stringAttr(attrs, "company-name"),
-			stringAttr(attrs, "name"),
-			stringAttr(attrs, "title"),
-		)
-		if name != "" {
-			return name
-		}
-	}
-
-	return fmt.Sprintf("%s:%s", rel.Data.Type, rel.Data.ID)
-}
-
-func resourceKey(typ, id string) string {
-	return typ + "|" + id
-}
-
-func stringAttr(attrs map[string]any, key string) string {
-	if attrs == nil {
-		return ""
-	}
-	value, ok := attrs[key]
-	if !ok || value == nil {
-		return ""
-	}
-	switch typed := value.(type) {
-	case string:
-		return typed
-	case fmt.Stringer:
-		return typed.String()
-	default:
-		return fmt.Sprintf("%v", typed)
-	}
-}
-
-func firstNonEmpty(values ...string) string {
-	for _, value := range values {
-		if strings.TrimSpace(value) != "" {
-			return value
-		}
-	}
-	return ""
-}
-
-func truncateString(value string, max int) string {
-	value = strings.TrimSpace(value)
-	if max <= 0 || len(value) <= max {
-		return value
-	}
-	if max < 4 {
-		return value[:max]
-	}
-	return value[:max-3] + "..."
-}
-
-func formatDate(value string) string {
-	value = strings.TrimSpace(value)
-	if value == "" {
-		return ""
-	}
-	if parsed, err := time.Parse(time.RFC3339, value); err == nil {
-		return parsed.Format("2006-01-02")
-	}
-	if _, err := time.Parse("2006-01-02", value); err == nil {
-		return value
-	}
-	return value
-}
-
-func writeJSON(out io.Writer, value any) error {
-	pretty, err := json.MarshalIndent(value, "", "  ")
-	if err != nil {
-		return err
-	}
-	if _, err := out.Write(pretty); err != nil {
-		return err
-	}
-	_, err = fmt.Fprintln(out)
-	return err
-}
-
-func defaultBaseURL() string {
-	if value := strings.TrimSpace(os.Getenv("XBE_BASE_URL")); value != "" {
-		return value
-	}
-	if value := strings.TrimSpace(os.Getenv("XBE_API_BASE_URL")); value != "" {
-		return value
-	}
-	return "https://server.x-b-e.com"
-}
-
-func defaultToken() string {
-	if value := strings.TrimSpace(os.Getenv("XBE_TOKEN")); value != "" {
-		return value
-	}
-	if value := strings.TrimSpace(os.Getenv("XBE_API_TOKEN")); value != "" {
-		return value
-	}
-	return ""
 }
