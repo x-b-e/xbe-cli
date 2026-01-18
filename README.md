@@ -56,6 +56,17 @@ xbe
 │   ├── login               Store an access token
 │   ├── status              Show authentication status
 │   └── logout              Remove stored token
+├── do                      Create, update, and delete XBE resources
+│   ├── material-transactions  Manage material transaction status
+│   │   ├── submit           Submit a material transaction
+│   │   ├── accept           Accept a material transaction
+│   │   └── reject           Reject a material transaction
+│   ├── glossary-terms       Manage glossary terms
+│   │   ├── create           Create a glossary term
+│   │   ├── update           Update a glossary term
+│   │   └── delete           Delete a glossary term
+│   └── lane-summary         Generate lane (cycle) summaries
+│       └── create           Create a lane summary (cycle summary)
 ├── view                    Browse and view XBE content
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
@@ -237,6 +248,35 @@ xbe view press-releases show 789
 # List glossary terms
 xbe view glossary-terms list
 xbe view glossary-terms show 101
+```
+
+### Lane Summary (Cycle Summary)
+
+```bash
+# Generate a lane summary grouped by origin/destination
+xbe do lane-summary create \
+  --group-by origin,destination \
+  --filter broker=123 \
+  --filter transaction_at_min=2025-01-11T00:00:00Z \
+  --filter transaction_at_max=2025-01-17T23:59:59Z
+
+# Focus on pickup/delivery dwell minutes for higher-volume lanes
+xbe do lane-summary create \
+  --group-by origin,destination \
+  --filter broker=123 \
+  --filter transaction_at_min=2025-01-11T00:00:00Z \
+  --filter transaction_at_max=2025-01-17T23:59:59Z \
+  --min-transactions 25 \
+  --metrics material_transaction_count,pickup_dwell_minutes_mean,pickup_dwell_minutes_median,pickup_dwell_minutes_p90,delivery_dwell_minutes_mean,delivery_dwell_minutes_median,delivery_dwell_minutes_p90
+
+# Include effective cost per hour
+xbe do lane-summary create \
+  --group-by origin,destination \
+  --filter broker=123 \
+  --filter transaction_at_min=2025-01-11T00:00:00Z \
+  --filter transaction_at_max=2025-01-17T23:59:59Z \
+  --min-transactions 25 \
+  --metrics material_transaction_count,delivery_dwell_minutes_median,effective_cost_per_hour_median
 ```
 
 ## Output Formats
