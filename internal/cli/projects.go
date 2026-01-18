@@ -8,7 +8,9 @@ var projectsCmd = &cobra.Command{
 	Long: `Browse and view projects on the XBE platform.
 
 Projects represent construction or delivery projects that organize
-job sites, materials, and logistics operations.
+job production plans, project revenue items, along with
+project related reference information such
+as cost codes, materials and trailer classifications
 
 Commands:
   list    List projects with filtering and pagination`,
