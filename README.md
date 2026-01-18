@@ -172,26 +172,15 @@ All `list` and `show` commands support two output formats:
 
 ## For AI Agents
 
-This CLI is designed with AI agents in mind:
+This CLI is designed for AI agents. To have an agent use it:
 
-- **Comprehensive `--help`**: Run `xbe --help` to get a complete overview of all commands, flags, and configuration options
-- **JSON output**: Use `--json` for structured, parseable output
-- **Predictable errors**: Error messages are written to stderr
-- **No interactive prompts in automation**: Use `--token` or environment variables
+1. Install the CLI (see above)
+2. Authenticate (see above)
+3. Tell the agent to run `xbe --help` to learn what the CLI can do
 
-### Agent Bootstrap Example
+That's it. The `--help` output contains everything the agent needs: available commands, authentication details, configuration options, and examples. The agent can drill down with `xbe <command> --help` for specifics.
 
-```bash
-# Discover all capabilities
-xbe --help
-
-# Authenticate
-export XBE_TOKEN="your-token"
-
-# Explore available content
-xbe view newsletters list --json --limit 5
-xbe view brokers list --json --limit 5
-```
+All commands support `--json` for structured output that's easy for agents to parse.
 
 ## Development
 
