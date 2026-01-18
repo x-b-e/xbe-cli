@@ -1,6 +1,6 @@
 BINARY_NAME := xbe
 PKG := ./...
-VERSION ?= dev
+VERSION ?= $(shell cat VERSION 2>/dev/null || echo dev)
 
 .PHONY: build
 build:
