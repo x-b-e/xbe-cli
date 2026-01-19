@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"net/url"
+	"sort"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -95,6 +96,8 @@ type lineItem struct {
 	ID                    string `json:"id"`
 	Title                 string `json:"title,omitempty"`
 	Status                string `json:"status,omitempty"`
+	DueOn                 string `json:"due_on,omitempty"`
+	CreatedAt             string `json:"created_at,omitempty"`
 	Description           string `json:"description,omitempty"`
 	ResponsiblePersonID   string `json:"responsible_person_id,omitempty"`
 	ResponsiblePersonName string `json:"responsible_person_name,omitempty"`
@@ -423,6 +426,8 @@ func buildActionItemDetails(resp jsonAPISingleResponse) actionItemDetails {
 						ID:          li.ID,
 						Title:       strings.TrimSpace(stringAttr(li.Attributes, "title")),
 						Status:      stringAttr(li.Attributes, "status"),
+						DueOn:       formatDate(stringAttr(li.Attributes, "due-on")),
+						CreatedAt:   stringAttr(li.Attributes, "created-at"),
 						Description: strings.TrimSpace(stringAttr(li.Attributes, "description")),
 					}
 					if rpRel, ok := li.Relationships["responsible-person"]; ok && rpRel.Data != nil {
@@ -435,6 +440,10 @@ func buildActionItemDetails(resp jsonAPISingleResponse) actionItemDetails {
 				}
 			}
 		}
+		// Sort line items by created_at (oldest first)
+		sort.Slice(details.LineItems, func(i, j int) bool {
+			return details.LineItems[i].CreatedAt < details.LineItems[j].CreatedAt
+		})
 	}
 
 	// Key results (array with nested key-result and objective)
@@ -667,6 +676,9 @@ func renderActionItemDetails(cmd *cobra.Command, d actionItemDetails, opts actio
 				fmt.Fprintf(out, "  %d. [%s] %s\n", i+1, li.Status, title)
 			} else {
 				fmt.Fprintf(out, "  %d. %s\n", i+1, title)
+			}
+			if li.DueOn != "" {
+				fmt.Fprintf(out, "     Due: %s\n", li.DueOn)
 			}
 			if li.ResponsiblePersonName != "" {
 				fmt.Fprintf(out, "     Responsible: %s\n", li.ResponsiblePersonName)
