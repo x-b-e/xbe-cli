@@ -34,7 +34,7 @@ Content Types:
   glossary-terms         Industry and product terminology definitions`,
 	Example: `  # Browse action items
   xbe view action-items list
-  xbe view action-items list --status open --kind feature
+  xbe view action-items list --status in_progress --kind feature
 
   # Browse material transactions
   xbe view material-transactions list --date 2025-01-18

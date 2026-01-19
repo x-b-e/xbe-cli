@@ -52,10 +52,10 @@ Filtering:
   Multiple filters can be combined. All filters use AND logic.
 
 Status Values:
-  open, editing, ready_for_work, in_progress, in_verification, on_hold
+  editing, ready_for_work, in_progress, in_verification, complete, on_hold
 
 Kind Values:
-  feature, integration, sombrero, bug_fix
+  feature, integration, sombrero, bug_fix, change_management, data_seeding, training
 
 Sorting:
   Use --sort to specify sort order. Prefix with - for descending.
@@ -64,15 +64,15 @@ Sorting:
   xbe view action-items list
 
   # Filter by status
-  xbe view action-items list --status open
   xbe view action-items list --status in_progress
+  xbe view action-items list --status ready_for_work
 
   # Filter by kind
   xbe view action-items list --kind bug_fix
   xbe view action-items list --kind feature
 
   # Combine filters
-  xbe view action-items list --status open --kind feature
+  xbe view action-items list --status in_progress --kind feature
 
   # Filter by project
   xbe view action-items list --project 123
@@ -106,8 +106,8 @@ func initActionItemsListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().Int("limit", 0, "Page size (defaults to server default)")
 	cmd.Flags().Int("offset", 0, "Page offset")
-	cmd.Flags().String("status", "", "Filter by status (open/editing/ready_for_work/in_progress/in_verification/on_hold)")
-	cmd.Flags().String("kind", "", "Filter by kind (feature/integration/sombrero/bug_fix)")
+	cmd.Flags().String("status", "", "Filter by status (editing/ready_for_work/in_progress/in_verification/complete/on_hold)")
+	cmd.Flags().String("kind", "", "Filter by kind (feature/integration/sombrero/bug_fix/change_management/data_seeding/training)")
 	cmd.Flags().String("project", "", "Filter by project ID")
 	cmd.Flags().String("tracker", "", "Filter by tracker ID")
 	cmd.Flags().String("sort", "", "Sort order (default: action_item_tracker.priority,id)")
@@ -144,7 +144,7 @@ func runActionItemsList(cmd *cobra.Command, _ []string) error {
 	query.Set("fields[truckers]", "company-name")
 	query.Set("fields[material-suppliers]", "name")
 	query.Set("fields[developers]", "name")
-	query.Set("fields[action-item-trackers]", "name,priority")
+	query.Set("fields[action-item-trackers]", "priority")
 
 	if opts.Limit > 0 {
 		query.Set("page[limit]", strconv.Itoa(opts.Limit))
