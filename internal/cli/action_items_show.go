@@ -13,10 +13,11 @@ import (
 )
 
 type actionItemsShowOptions struct {
-	BaseURL string
-	Token   string
-	JSON    bool
-	NoAuth  bool
+	BaseURL         string
+	Token           string
+	JSON            bool
+	NoAuth          bool
+	ShowAllComments bool
 }
 
 type actionItemDetails struct {
@@ -92,6 +93,8 @@ type teamMember struct {
 
 type lineItem struct {
 	ID                    string `json:"id"`
+	Title                 string `json:"title,omitempty"`
+	Status                string `json:"status,omitempty"`
 	Description           string `json:"description,omitempty"`
 	ResponsiblePersonID   string `json:"responsible_person_id,omitempty"`
 	ResponsiblePersonName string `json:"responsible_person_name,omitempty"`
@@ -163,6 +166,7 @@ func init() {
 func initActionItemsShowFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
+	cmd.Flags().Bool("show-all-comments", false, "Show all comments (default shows 3 most recent)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -229,20 +233,22 @@ func runActionItemsShow(cmd *cobra.Command, args []string) error {
 		return writeJSON(cmd.OutOrStdout(), details)
 	}
 
-	return renderActionItemDetails(cmd, details)
+	return renderActionItemDetails(cmd, details, opts)
 }
 
 func parseActionItemsShowOptions(cmd *cobra.Command) (actionItemsShowOptions, error) {
 	jsonOut, _ := cmd.Flags().GetBool("json")
 	noAuth, _ := cmd.Flags().GetBool("no-auth")
+	showAllComments, _ := cmd.Flags().GetBool("show-all-comments")
 	baseURL, _ := cmd.Flags().GetString("base-url")
 	token, _ := cmd.Flags().GetString("token")
 
 	return actionItemsShowOptions{
-		BaseURL: baseURL,
-		Token:   token,
-		JSON:    jsonOut,
-		NoAuth:  noAuth,
+		BaseURL:         baseURL,
+		Token:           token,
+		JSON:            jsonOut,
+		NoAuth:          noAuth,
+		ShowAllComments: showAllComments,
 	}, nil
 }
 
@@ -415,6 +421,8 @@ func buildActionItemDetails(resp jsonAPISingleResponse) actionItemDetails {
 				if li, ok := included[resourceKey(ref.Type, ref.ID)]; ok {
 					item := lineItem{
 						ID:          li.ID,
+						Title:       strings.TrimSpace(stringAttr(li.Attributes, "title")),
+						Status:      stringAttr(li.Attributes, "status"),
 						Description: strings.TrimSpace(stringAttr(li.Attributes, "description")),
 					}
 					if rpRel, ok := li.Relationships["responsible-person"]; ok && rpRel.Data != nil {
@@ -502,7 +510,7 @@ func buildActionItemDetails(resp jsonAPISingleResponse) actionItemDetails {
 	return details
 }
 
-func renderActionItemDetails(cmd *cobra.Command, d actionItemDetails) error {
+func renderActionItemDetails(cmd *cobra.Command, d actionItemDetails, opts actionItemsShowOptions) error {
 	out := cmd.OutOrStdout()
 
 	// Core info
@@ -647,7 +655,19 @@ func renderActionItemDetails(cmd *cobra.Command, d actionItemDetails) error {
 		fmt.Fprintf(out, "Line Items (%d):\n", len(d.LineItems))
 		fmt.Fprintln(out, strings.Repeat("-", 40))
 		for i, li := range d.LineItems {
-			fmt.Fprintf(out, "  %d. %s\n", i+1, li.Description)
+			// Show title with status if available
+			title := li.Title
+			if title == "" {
+				title = li.Description
+			}
+			if title == "" {
+				title = "(no title)"
+			}
+			if li.Status != "" {
+				fmt.Fprintf(out, "  %d. [%s] %s\n", i+1, li.Status, title)
+			} else {
+				fmt.Fprintf(out, "  %d. %s\n", i+1, title)
+			}
 			if li.ResponsiblePersonName != "" {
 				fmt.Fprintf(out, "     Responsible: %s\n", li.ResponsiblePersonName)
 			}
@@ -668,12 +688,23 @@ func renderActionItemDetails(cmd *cobra.Command, d actionItemDetails) error {
 		}
 	}
 
-	// Comments
+	// Comments (show 3 most recent by default, all with --show-all-comments)
 	if len(d.Comments) > 0 {
-		fmt.Fprintln(out, "")
-		fmt.Fprintf(out, "Comments (%d):\n", len(d.Comments))
+		totalComments := len(d.Comments)
+		commentsToShow := d.Comments
+
+		// By default, show only 3 most recent (comments are ordered newest first from API)
+		if !opts.ShowAllComments && totalComments > 3 {
+			// Take the first 3 (most recent)
+			commentsToShow = d.Comments[:3]
+			fmt.Fprintln(out, "")
+			fmt.Fprintf(out, "Comments (showing 3 of %d, use --show-all-comments for all):\n", totalComments)
+		} else {
+			fmt.Fprintln(out, "")
+			fmt.Fprintf(out, "Comments (%d):\n", totalComments)
+		}
 		fmt.Fprintln(out, strings.Repeat("-", 40))
-		for _, c := range d.Comments {
+		for _, c := range commentsToShow {
 			if c.CreatedBy != "" {
 				fmt.Fprintf(out, "  [%s] %s:\n", c.CreatedAt, c.CreatedBy)
 			} else {
