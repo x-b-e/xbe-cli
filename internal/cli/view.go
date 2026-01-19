@@ -18,10 +18,12 @@ newsletters, posts, and broker information. All view commands support:
 Content Types:
   material-transactions  Material movement records (loads, weights, timing)
   job-production-plans   Job production plans (daily work schedules)
+  memberships            User-organization relationships and roles
   newsletters            Published market newsletters with analysis and insights
   posts                  Status updates, announcements, and various post types
   brokers                Broker/branch information and metadata
   users                  Platform users (for looking up creator IDs)
+  transport-orders       Transport orders (basic list)
   material-suppliers     Material supplier companies
   customers              Customer companies
   truckers               Trucking companies
@@ -35,6 +37,10 @@ Content Types:
 
   # Browse job production plans
   xbe view job-production-plans list --start-on 2025-01-18
+
+  # Browse memberships
+  xbe view memberships list --broker 123
+  xbe view memberships list --q "John"
 
   # Browse newsletters
   xbe view newsletters list

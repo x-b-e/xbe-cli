@@ -55,18 +55,21 @@ xbe
 ├── auth                    Manage authentication credentials
 │   ├── login               Store an access token
 │   ├── status              Show authentication status
+│   ├── whoami              Show the current authenticated user
 │   └── logout              Remove stored token
 ├── do                      Create, update, and delete XBE resources
-│   ├── material-transactions  Manage material transaction status
-│   │   ├── submit           Submit a material transaction
-│   │   ├── accept           Accept a material transaction
-│   │   └── reject           Reject a material transaction
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
 │   │   └── delete           Delete a glossary term
-│   └── lane-summary         Generate lane (cycle) summaries
-│       └── create           Create a lane summary (cycle summary)
+│   ├── lane-summary         Generate lane (cycle) summaries
+│   │   └── create           Create a lane summary
+│   ├── material-transaction-summary  Generate material transaction summaries
+│   │   └── create           Create a material transaction summary
+│   └── memberships          Manage user-organization memberships
+│       ├── create           Create a membership
+│       ├── update           Update a membership
+│       └── delete           Delete a membership
 ├── view                    Browse and view XBE content
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
@@ -84,6 +87,9 @@ xbe
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
+│   ├── memberships         Browse user-organization memberships
+│   │   ├── list            List memberships with filtering
+│   │   └── show <id>       Show membership details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
@@ -138,7 +144,8 @@ Fallback: `~/.config/xbe/config.json`
 ### Managing Authentication
 
 ```bash
-xbe auth status   # Check if authenticated
+xbe auth status   # Check if a token is configured
+xbe auth whoami   # Verify token and show current user
 xbe auth logout   # Remove stored token
 ```
 
@@ -277,6 +284,88 @@ xbe do lane-summary create \
   --filter transaction_at_max=2025-01-17T23:59:59Z \
   --min-transactions 25 \
   --metrics material_transaction_count,delivery_dwell_minutes_median,effective_cost_per_hour_median
+```
+
+### Material Transaction Summary
+
+```bash
+# Summary grouped by material site
+xbe do material-transaction-summary create \
+  --filter broker=123 \
+  --filter date_min=2025-01-01 \
+  --filter date_max=2025-01-31
+
+# Summary by customer segment (internal/external)
+xbe do material-transaction-summary create \
+  --group-by customer_segment \
+  --filter broker=123
+
+# Summary by month and material type
+xbe do material-transaction-summary create \
+  --group-by month,material_type_fully_qualified_name_base \
+  --filter broker=123 \
+  --filter material_type_fully_qualified_name_base="Asphalt Mixture" \
+  --sort month:asc
+
+# Summary by direction (inbound/outbound)
+xbe do material-transaction-summary create \
+  --group-by direction \
+  --filter broker=123
+
+# Summary with all metrics
+xbe do material-transaction-summary create \
+  --group-by material_site \
+  --filter broker=123 \
+  --all-metrics
+
+# High-volume results only
+xbe do material-transaction-summary create \
+  --filter broker=123 \
+  --min-transactions 100
+```
+
+### Memberships
+
+Memberships define the relationship between users and organizations (brokers, customers, truckers, material suppliers, developers).
+
+```bash
+# List your memberships
+xbe view memberships list --user 1
+
+# List memberships for a broker
+xbe view memberships list --broker 123
+
+# Search by user name
+xbe view memberships list --q "John"
+
+# Filter by role
+xbe view memberships list --kind manager
+xbe view memberships list --kind operations
+
+# Show full membership details
+xbe view memberships show 456
+
+# Create a membership (organization format: Type|ID)
+xbe do memberships create --user 123 --organization "Broker|456" --kind manager
+
+# Create with additional attributes
+xbe do memberships create \
+  --user 123 \
+  --organization "Broker|456" \
+  --kind manager \
+  --title "Regional Manager" \
+  --is-admin true
+
+# Update a membership
+xbe do memberships update 789 --kind operations --title "Driver"
+
+# Update permissions
+xbe do memberships update 789 \
+  --can-see-rates-as-manager true \
+  --is-rate-editor true
+
+# Delete a membership (requires --confirm)
+xbe do memberships delete 789 --confirm
 ```
 
 ## Output Formats

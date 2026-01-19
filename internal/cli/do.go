@@ -11,26 +11,30 @@ The do command provides write access to XBE platform data. Unlike view commands,
 these operations modify data and require authentication.
 
 Resources:
-  material-transactions  Manage material transaction status (submit, accept, reject)
-  glossary-terms         Manage glossary term definitions
-  lane-summary           Generate lane (cycle) summaries`,
-	Example: `  # Submit a material transaction
-  xbe do material-transactions submit 123
-
-  # Accept a material transaction
-  xbe do material-transactions accept 123
-
-  # Reject with a comment
-  xbe do material-transactions reject 123 --comment "Missing data"
-
-  # Update a glossary term
+  glossary-terms                   Manage glossary term definitions
+  lane-summary                     Generate lane (cycle) summaries
+  material-transaction-summary     Generate material transaction summaries
+  memberships                      Manage user-organization memberships`,
+	Example: `  # Update a glossary term
   xbe do glossary-terms update 123 --definition "New definition"
 
   # Delete a glossary term
   xbe do glossary-terms delete 123 --confirm
 
   # Generate a lane summary by origin/destination
-  xbe do lane-summary create --group-by origin,destination --filter broker=123 --filter transaction_at_min=2025-01-17T00:00:00Z --filter transaction_at_max=2025-01-17T23:59:59Z`,
+  xbe do lane-summary create --group-by origin,destination --filter broker=123
+
+  # Generate a material transaction summary by material site
+  xbe do material-transaction-summary create --group-by material_site --filter broker=123
+
+  # Create a membership
+  xbe do memberships create --user 123 --organization Broker|4 --kind manager
+
+  # Update a membership
+  xbe do memberships update 686 --kind operations
+
+  # Delete a membership
+  xbe do memberships delete 686 --confirm`,
 	Annotations: map[string]string{"group": GroupCore},
 }
 
