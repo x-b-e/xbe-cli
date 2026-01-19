@@ -20,41 +20,41 @@ type materialTransactionsShowOptions struct {
 }
 
 type materialTransactionDetails struct {
-	ID              string  `json:"id"`
-	Status          string  `json:"status"`
-	TransactionAt   string  `json:"transaction_at"`
-	TransactionDate string  `json:"transaction_date"`
-	TicketNumber    string  `json:"ticket_number"`
-	TicketBOLNumber string  `json:"ticket_bol_number,omitempty"`
-	IsVoided        bool    `json:"is_voided"`
+	ID              string `json:"id"`
+	Status          string `json:"status"`
+	TransactionAt   string `json:"transaction_at"`
+	TransactionDate string `json:"transaction_date"`
+	TicketNumber    string `json:"ticket_number"`
+	TicketBOLNumber string `json:"ticket_bol_number,omitempty"`
+	IsVoided        bool   `json:"is_voided"`
 
 	// Weights
-	NetWeightLbs   float64 `json:"net_weight_lbs"`
-	GrossWeightLbs float64 `json:"gross_weight_lbs"`
-	TareWeightLbs  float64 `json:"tare_weight_lbs"`
+	NetWeightLbs    float64 `json:"net_weight_lbs"`
+	GrossWeightLbs  float64 `json:"gross_weight_lbs"`
+	TareWeightLbs   float64 `json:"tare_weight_lbs"`
 	MaxGVMWeightLbs float64 `json:"max_gvm_weight_lbs,omitempty"`
-	Tons           float64 `json:"tons"`
+	Tons            float64 `json:"tons"`
 
 	// Timing
-	CycleMinutes          float64 `json:"cycle_minutes,omitempty"`
-	PickupDwellMinutes    float64 `json:"pickup_dwell_minutes,omitempty"`
-	LoadedDrivingMinutes  float64 `json:"loaded_driving_minutes,omitempty"`
-	DeliveryDwellMinutes  float64 `json:"delivery_dwell_minutes,omitempty"`
+	CycleMinutes         float64 `json:"cycle_minutes,omitempty"`
+	PickupDwellMinutes   float64 `json:"pickup_dwell_minutes,omitempty"`
+	LoadedDrivingMinutes float64 `json:"loaded_driving_minutes,omitempty"`
+	DeliveryDwellMinutes float64 `json:"delivery_dwell_minutes,omitempty"`
 
 	// Relationships
-	MaterialType       string `json:"material_type,omitempty"`
-	MaterialTypeID     string `json:"material_type_id,omitempty"`
-	MaterialSite       string `json:"material_site,omitempty"`
-	MaterialSiteID     string `json:"material_site_id,omitempty"`
-	MaterialSupplier   string `json:"material_supplier,omitempty"`
-	MaterialSupplierID string `json:"material_supplier_id,omitempty"`
-	Origin             string `json:"origin,omitempty"`
-	OriginID           string `json:"origin_id,omitempty"`
-	OriginType         string `json:"origin_type,omitempty"`
-	Destination        string `json:"destination,omitempty"`
-	DestinationID      string `json:"destination_id,omitempty"`
-	DestinationType    string `json:"destination_type,omitempty"`
-	JobProductionPlan  string `json:"job_production_plan,omitempty"`
+	MaterialType        string `json:"material_type,omitempty"`
+	MaterialTypeID      string `json:"material_type_id,omitempty"`
+	MaterialSite        string `json:"material_site,omitempty"`
+	MaterialSiteID      string `json:"material_site_id,omitempty"`
+	MaterialSupplier    string `json:"material_supplier,omitempty"`
+	MaterialSupplierID  string `json:"material_supplier_id,omitempty"`
+	Origin              string `json:"origin,omitempty"`
+	OriginID            string `json:"origin_id,omitempty"`
+	OriginType          string `json:"origin_type,omitempty"`
+	Destination         string `json:"destination,omitempty"`
+	DestinationID       string `json:"destination_id,omitempty"`
+	DestinationType     string `json:"destination_type,omitempty"`
+	JobProductionPlan   string `json:"job_production_plan,omitempty"`
 	JobProductionPlanID string `json:"job_production_plan_id,omitempty"`
 
 	// Status changes

@@ -279,12 +279,12 @@ func buildMembershipRows(resp jsonAPIResponse) []membershipRow {
 	rows := make([]membershipRow, 0, len(resp.Data))
 	for _, resource := range resp.Data {
 		row := membershipRow{
-			ID:      resource.ID,
-			Kind:    stringAttr(resource.Attributes, "kind"),
-			IsAdmin: boolAttr(resource.Attributes, "is-admin"),
-			Title:   strings.TrimSpace(stringAttr(resource.Attributes, "title")),
+			ID:         resource.ID,
+			Kind:       stringAttr(resource.Attributes, "kind"),
+			IsAdmin:    boolAttr(resource.Attributes, "is-admin"),
+			Title:      strings.TrimSpace(stringAttr(resource.Attributes, "title")),
 			ExternalID: strings.TrimSpace(stringAttr(resource.Attributes, "external-employee-id")),
-			ColorHex: strings.TrimSpace(stringAttr(resource.Attributes, "color-hex")),
+			ColorHex:   strings.TrimSpace(stringAttr(resource.Attributes, "color-hex")),
 		}
 
 		// Get user info

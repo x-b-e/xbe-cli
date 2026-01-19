@@ -264,16 +264,16 @@ func renderPostsFeed(cmd *cobra.Command, resp jsonAPIResponse) error {
 }
 
 var (
-	markdownHeaderRegex     = regexp.MustCompile(`(?m)^#{1,6}\s*`)
-	markdownBoldRegex       = regexp.MustCompile(`\*\*([^*]+)\*\*`)
-	markdownItalicRegex     = regexp.MustCompile(`\*([^*]+)\*`)
-	markdownLinkRegex       = regexp.MustCompile(`\[([^\]]+)\]\([^)]+\)`)
-	markdownTableRowRegex   = regexp.MustCompile(`(?m)^\|.+\|$`)
-	markdownTableSepRegex   = regexp.MustCompile(`(?m)^\|[\s\-:│|]+`)
-	markdownDashLineRegex   = regexp.MustCompile(`(?m)^[\s\-:│|]+$`)
-	markdownMultiNewline    = regexp.MustCompile(`\n{3,}`)
-	markdownMultiSpace      = regexp.MustCompile(`[ \t]+`)
-	markdownLeadingNewline  = regexp.MustCompile(`^\n+`)
+	markdownHeaderRegex    = regexp.MustCompile(`(?m)^#{1,6}\s*`)
+	markdownBoldRegex      = regexp.MustCompile(`\*\*([^*]+)\*\*`)
+	markdownItalicRegex    = regexp.MustCompile(`\*([^*]+)\*`)
+	markdownLinkRegex      = regexp.MustCompile(`\[([^\]]+)\]\([^)]+\)`)
+	markdownTableRowRegex  = regexp.MustCompile(`(?m)^\|.+\|$`)
+	markdownTableSepRegex  = regexp.MustCompile(`(?m)^\|[\s\-:│|]+`)
+	markdownDashLineRegex  = regexp.MustCompile(`(?m)^[\s\-:│|]+$`)
+	markdownMultiNewline   = regexp.MustCompile(`\n{3,}`)
+	markdownMultiSpace     = regexp.MustCompile(`[ \t]+`)
+	markdownLeadingNewline = regexp.MustCompile(`^\n+`)
 )
 
 func stripMarkdown(s string) string {

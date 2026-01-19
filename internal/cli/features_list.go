@@ -15,17 +15,17 @@ import (
 )
 
 type featuresListOptions struct {
-	BaseURL             string
-	Token               string
-	JSON                bool
-	NoAuth              bool
-	Limit               int
-	Offset              int
-	PDCAStage           string
+	BaseURL               string
+	Token                 string
+	JSON                  bool
+	NoAuth                bool
+	Limit                 int
+	Offset                int
+	PDCAStage             string
 	DifferentiationDegree string
-	Scale               string
-	ReleasedOnMin       string
-	ReleasedOnMax       string
+	Scale                 string
+	ReleasedOnMin         string
+	ReleasedOnMax         string
 }
 
 func newFeaturesListCmd() *cobra.Command {
@@ -197,17 +197,17 @@ func parseFeaturesListOptions(cmd *cobra.Command) (featuresListOptions, error) {
 	}
 
 	return featuresListOptions{
-		BaseURL:             baseURL,
-		Token:               token,
-		JSON:                jsonOut,
-		NoAuth:              noAuth,
-		Limit:               limit,
-		Offset:              offset,
-		PDCAStage:           pdcaStage,
+		BaseURL:               baseURL,
+		Token:                 token,
+		JSON:                  jsonOut,
+		NoAuth:                noAuth,
+		Limit:                 limit,
+		Offset:                offset,
+		PDCAStage:             pdcaStage,
 		DifferentiationDegree: differentiationDegree,
-		Scale:               scale,
-		ReleasedOnMin:       releasedOnMin,
-		ReleasedOnMax:       releasedOnMax,
+		Scale:                 scale,
+		ReleasedOnMin:         releasedOnMin,
+		ReleasedOnMax:         releasedOnMax,
 	}, nil
 }
 

@@ -501,12 +501,12 @@ func renderJobProductionPlansTable(cmd *cobra.Command, rows []jobProductionPlanR
 	}
 
 	const (
-		maxCustomer  = 18
-		maxJobName   = 25
-		maxPlanner   = 10
-		maxPM        = 10
-		maxMaterial  = 15
-		maxMixTypes  = 15
+		maxCustomer = 18
+		maxJobName  = 25
+		maxPlanner  = 10
+		maxPM       = 10
+		maxMaterial = 15
+		maxMixTypes = 15
 	)
 
 	writer := tabwriter.NewWriter(cmd.OutOrStdout(), 2, 4, 2, ' ', 0)

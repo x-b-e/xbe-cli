@@ -205,16 +205,16 @@ func renderPostDetails(cmd *cobra.Command, details postDetails) error {
 }
 
 var (
-	showHeaderRegex     = regexp.MustCompile(`(?m)^#{1,6}\s*`)
-	showBoldRegex       = regexp.MustCompile(`\*\*([^*]+)\*\*`)
-	showItalicRegex     = regexp.MustCompile(`\*([^*]+)\*`)
-	showLinkRegex       = regexp.MustCompile(`\[([^\]]+)\]\([^)]+\)`)
-	showTableRowRegex   = regexp.MustCompile(`(?m)^\|.+\|$`)
-	showTableSepRegex   = regexp.MustCompile(`(?m)^\|[\s\-:│|]+`)
-	showDashLineRegex   = regexp.MustCompile(`(?m)^[\s\-:│|]+$`)
-	showMultiNewline    = regexp.MustCompile(`\n{4,}`)
-	showMultiSpace      = regexp.MustCompile(`[ \t]+`)
-	showLeadingNewline  = regexp.MustCompile(`^\n+`)
+	showHeaderRegex    = regexp.MustCompile(`(?m)^#{1,6}\s*`)
+	showBoldRegex      = regexp.MustCompile(`\*\*([^*]+)\*\*`)
+	showItalicRegex    = regexp.MustCompile(`\*([^*]+)\*`)
+	showLinkRegex      = regexp.MustCompile(`\[([^\]]+)\]\([^)]+\)`)
+	showTableRowRegex  = regexp.MustCompile(`(?m)^\|.+\|$`)
+	showTableSepRegex  = regexp.MustCompile(`(?m)^\|[\s\-:│|]+`)
+	showDashLineRegex  = regexp.MustCompile(`(?m)^[\s\-:│|]+$`)
+	showMultiNewline   = regexp.MustCompile(`\n{4,}`)
+	showMultiSpace     = regexp.MustCompile(`[ \t]+`)
+	showLeadingNewline = regexp.MustCompile(`^\n+`)
 )
 
 // cleanMarkdownFull cleans markdown for full content display, preserving line structure
