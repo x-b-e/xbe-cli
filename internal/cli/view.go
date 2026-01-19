@@ -16,6 +16,7 @@ newsletters, posts, and broker information. All view commands support:
   --offset     Paginate through large result sets
 
 Content Types:
+  action-items           Work items (tasks, bugs, features) with status tracking
   material-transactions  Material movement records (loads, weights, timing)
   job-production-plans   Job production plans (daily work schedules)
   memberships            User-organization relationships and roles
@@ -31,7 +32,11 @@ Content Types:
   release-notes          Product release notes and updates
   press-releases         Official press releases and announcements
   glossary-terms         Industry and product terminology definitions`,
-	Example: `  # Browse material transactions
+	Example: `  # Browse action items
+  xbe view action-items list
+  xbe view action-items list --status open --kind feature
+
+  # Browse material transactions
   xbe view material-transactions list --date 2025-01-18
   xbe view material-transactions show 12345
 
