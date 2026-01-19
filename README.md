@@ -407,6 +407,24 @@ All commands support `--json` for structured output that's easy for agents to pa
 
 ## Development
 
+### Pre-requs
+```bash
+#OSX
+brew install go
+
+# Debian/Ubuntu
+sudo apt update && sudo apt install golang-go
+
+# Fedora
+sudo dnf install golang 
+
+# Windows - Chocolatey
+choco install golang
+
+# Windows - Scoop
+scoop install go
+```
+
 ### Build
 
 ```bash
