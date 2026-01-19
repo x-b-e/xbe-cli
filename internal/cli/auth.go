@@ -1,15 +1,20 @@
 package cli
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
+	"net/url"
 	"os"
+	"os/exec"
+	"runtime"
 	"strings"
 
 	"golang.org/x/term"
 
 	"github.com/spf13/cobra"
+	"github.com/xbe-inc/xbe-cli/internal/api"
 	"github.com/xbe-inc/xbe-cli/internal/auth"
 )
 
@@ -39,16 +44,21 @@ var authLoginCmd = &cobra.Command{
 	Short: "Store an access token",
 	Long: `Store an access token for API authentication.
 
-The token will be stored securely in your system's credential storage.
+In interactive mode, opens your browser to the API tokens page where you can
+create or copy a token. The token is validated before being stored.
+
 You can provide the token via:
-  - Interactive prompt (most secure, hides input)
+  - Interactive prompt (opens browser, hides input)
   - --token flag
   - --token-stdin flag (for piping from password managers)
 
 Tokens are stored per base URL, allowing you to have different tokens
 for different XBE environments (e.g., staging vs production).`,
-	Example: `  # Interactive login (prompts for token securely)
+	Example: `  # Interactive login (opens browser, prompts for token)
   xbe auth login
+
+  # Interactive login without opening browser
+  xbe auth login --no-web
 
   # Provide token via flag
   xbe auth login --token YOUR_TOKEN
@@ -102,6 +112,7 @@ func init() {
 
 	authLoginCmd.Flags().String("token", "", "Access token")
 	authLoginCmd.Flags().Bool("token-stdin", false, "Read token from stdin")
+	authLoginCmd.Flags().Bool("no-web", false, "Skip opening browser (for scripted/headless use)")
 	authLoginCmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 
 	authStatusCmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
@@ -122,9 +133,25 @@ func runAuthLogin(cmd *cobra.Command, _ []string) error {
 	if err != nil {
 		return err
 	}
+	noWeb, err := cmd.Flags().GetBool("no-web")
+	if err != nil {
+		return err
+	}
 
 	if tokenFlag != "" && useStdin {
 		return errors.New("use either --token or --token-stdin")
+	}
+
+	normalized := auth.NormalizeBaseURL(baseURL)
+
+	// Open browser in interactive mode (unless --no-web or using --token/--token-stdin)
+	if tokenFlag == "" && !useStdin && !noWeb && term.IsTerminal(int(os.Stdin.Fd())) {
+		url := tokenURL(baseURL)
+		fmt.Fprintf(cmd.OutOrStdout(), "Opening %s ...\n", url)
+		if err := openBrowser(url); err != nil {
+			// Non-fatal: continue with prompt even if browser fails
+			fmt.Fprintf(cmd.ErrOrStderr(), "Could not open browser: %v\n", err)
+		}
 	}
 
 	token, err := readToken(cmd, tokenFlag, useStdin)
@@ -135,13 +162,19 @@ func runAuthLogin(cmd *cobra.Command, _ []string) error {
 		return errors.New("token is required")
 	}
 
+	// Validate token before storing
+	result, err := validateToken(cmd, normalized, token)
+	if err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
+
 	store := auth.DefaultStore()
-	normalized := auth.NormalizeBaseURL(baseURL)
 	if err := store.Set(normalized, token); err != nil {
 		return err
 	}
 
-	fmt.Fprintf(cmd.OutOrStdout(), "Token stored for %s\n", normalized)
+	fmt.Fprintf(cmd.OutOrStdout(), "Logged in as %s (%s)\n", result.Name, result.Email)
 	return nil
 }
 
@@ -196,7 +229,7 @@ func readToken(cmd *cobra.Command, tokenFlag string, useStdin bool) (string, err
 	}
 
 	if term.IsTerminal(int(os.Stdin.Fd())) {
-		fmt.Fprint(cmd.ErrOrStderr(), "Access token: ")
+		fmt.Fprint(cmd.ErrOrStderr(), "Paste your API token: ")
 		b, err := term.ReadPassword(int(os.Stdin.Fd()))
 		fmt.Fprintln(cmd.ErrOrStderr())
 		if err != nil {
@@ -214,4 +247,53 @@ func readTokenFromStdin(r io.Reader) (string, error) {
 		return "", err
 	}
 	return strings.TrimSpace(string(b)), nil
+}
+
+func tokenURL(baseURL string) string {
+	if strings.Contains(baseURL, "staging") {
+		return "https://staging-client.x-b-e.com/#/browse/users/me/api-tokens"
+	}
+	return "https://client.x-b-e.com/#/browse/users/me/api-tokens"
+}
+
+func openBrowser(url string) error {
+	var cmd *exec.Cmd
+	switch runtime.GOOS {
+	case "darwin":
+		cmd = exec.Command("open", url)
+	case "linux":
+		cmd = exec.Command("xdg-open", url)
+	case "windows":
+		cmd = exec.Command("cmd", "/c", "start", url)
+	default:
+		return fmt.Errorf("unsupported platform: %s", runtime.GOOS)
+	}
+	return cmd.Start()
+}
+
+type tokenValidationResult struct {
+	Name  string
+	Email string
+}
+
+func validateToken(cmd *cobra.Command, baseURL, token string) (*tokenValidationResult, error) {
+	client := api.NewClient(baseURL, token)
+
+	query := url.Values{}
+	query.Set("fields[users]", "name,email-address")
+
+	body, _, err := client.Get(cmd.Context(), "/v1/users/me", query)
+	if err != nil {
+		return nil, fmt.Errorf("invalid token: %w", err)
+	}
+
+	var resp jsonAPISingleResponse
+	if err := json.Unmarshal(body, &resp); err != nil {
+		return nil, fmt.Errorf("failed to parse response: %w", err)
+	}
+
+	return &tokenValidationResult{
+		Name:  strings.TrimSpace(stringAttr(resp.Data.Attributes, "name")),
+		Email: strings.TrimSpace(stringAttr(resp.Data.Attributes, "email-address")),
+	}, nil
 }
