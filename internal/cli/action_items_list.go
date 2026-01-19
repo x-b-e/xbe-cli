@@ -25,6 +25,7 @@ type actionItemsListOptions struct {
 	Kind    string
 	Project string
 	Tracker string
+	Broker  string
 	Sort    string
 }
 
@@ -80,6 +81,9 @@ Sorting:
   # Filter by tracker
   xbe view action-items list --tracker 456
 
+  # Filter by broker
+  xbe view action-items list --broker 49
+
   # Sort by created date (descending)
   xbe view action-items list --sort -created-at
 
@@ -110,6 +114,7 @@ func initActionItemsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("kind", "", "Filter by kind (feature/integration/sombrero/bug_fix/change_management/data_seeding/training)")
 	cmd.Flags().String("project", "", "Filter by project ID")
 	cmd.Flags().String("tracker", "", "Filter by tracker ID")
+	cmd.Flags().String("broker", "", "Filter by broker ID")
 	cmd.Flags().String("sort", "", "Sort order (default: action_item_tracker.priority,id)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
@@ -158,6 +163,7 @@ func runActionItemsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[kind]", opts.Kind)
 	setFilterIfPresent(query, "filter[project]", opts.Project)
 	setFilterIfPresent(query, "filter[tracker]", opts.Tracker)
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
 
 	// Apply sort
 	if opts.Sort != "" {
@@ -198,6 +204,7 @@ func parseActionItemsListOptions(cmd *cobra.Command) (actionItemsListOptions, er
 	kind, _ := cmd.Flags().GetString("kind")
 	project, _ := cmd.Flags().GetString("project")
 	tracker, _ := cmd.Flags().GetString("tracker")
+	broker, _ := cmd.Flags().GetString("broker")
 	sort, _ := cmd.Flags().GetString("sort")
 	baseURL, _ := cmd.Flags().GetString("base-url")
 	token, _ := cmd.Flags().GetString("token")
@@ -213,6 +220,7 @@ func parseActionItemsListOptions(cmd *cobra.Command) (actionItemsListOptions, er
 		Kind:    kind,
 		Project: project,
 		Tracker: tracker,
+		Broker:  broker,
 		Sort:    sort,
 	}, nil
 }
