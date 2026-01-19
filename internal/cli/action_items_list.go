@@ -50,7 +50,18 @@ Pagination:
   Use --limit and --offset to paginate through large result sets.
 
 Filtering:
-  Multiple filters can be combined. All filters use AND logic.
+  Multiple filters can be combined. Different filter types use AND logic (intersection),
+  while multiple values within a filter use OR logic (union).
+
+  Comma-separated values:
+    --status and --kind accept comma-separated lists. For example:
+      --status in_progress,ready_for_work
+    This matches items that are in_progress OR ready_for_work.
+
+  Cross-filter intersection:
+    When combining different filters, they are intersected:
+      --status in_progress --kind feature
+    This matches items that are in_progress AND of kind feature.
 
 Status Values:
   editing, ready_for_work, in_progress, in_verification, complete, on_hold
@@ -68,12 +79,24 @@ Sorting:
   xbe view action-items list --status in_progress
   xbe view action-items list --status ready_for_work
 
+  # Filter by multiple statuses (comma-separated, matches any)
+  xbe view action-items list --status in_progress,ready_for_work
+
+  # Filter for all incomplete items (everything except complete)
+  xbe view action-items list --status editing,ready_for_work,in_progress,in_verification,on_hold
+
   # Filter by kind
   xbe view action-items list --kind bug_fix
   xbe view action-items list --kind feature
 
-  # Combine filters
+  # Filter by multiple kinds (comma-separated, matches any)
+  xbe view action-items list --kind feature,bug_fix
+
+  # Combine filters (intersection: must match both)
   xbe view action-items list --status in_progress --kind feature
+
+  # Combine with multiple values (in_progress OR ready_for_work) AND (feature OR bug_fix)
+  xbe view action-items list --status in_progress,ready_for_work --kind feature,bug_fix
 
   # Filter by project
   xbe view action-items list --project 123
@@ -110,8 +133,8 @@ func initActionItemsListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().Int("limit", 0, "Page size (defaults to server default)")
 	cmd.Flags().Int("offset", 0, "Page offset")
-	cmd.Flags().String("status", "", "Filter by status (editing/ready_for_work/in_progress/in_verification/complete/on_hold)")
-	cmd.Flags().String("kind", "", "Filter by kind (feature/integration/sombrero/bug_fix/change_management/data_seeding/training)")
+	cmd.Flags().String("status", "", "Filter by status (comma-separated: editing,ready_for_work,in_progress,in_verification,complete,on_hold)")
+	cmd.Flags().String("kind", "", "Filter by kind (comma-separated: feature,integration,sombrero,bug_fix,change_management,data_seeding,training)")
 	cmd.Flags().String("project", "", "Filter by project ID")
 	cmd.Flags().String("tracker", "", "Filter by tracker ID")
 	cmd.Flags().String("broker", "", "Filter by broker ID")
