@@ -37,6 +37,8 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 		fmt.Fprintln(out)
 		printQuickStart(out)
 		fmt.Fprintln(out)
+		printDataAnalysis(out)
+		fmt.Fprintln(out)
 		printCommandTree(out, cmd)
 		fmt.Fprintln(out)
 		printGlobalFlags(out)
@@ -97,6 +99,20 @@ func printQuickStart(out io.Writer) {
 	fmt.Fprintln(out)
 	fmt.Fprintln(out, "  # List brokers")
 	fmt.Fprintln(out, "  xbe view brokers list")
+}
+
+func printDataAnalysis(out io.Writer) {
+	fmt.Fprintln(out, "DATA ANALYSIS:")
+	fmt.Fprintln(out, "  Summary commands aggregate large datasets (like pivot tables) for analysis.")
+	fmt.Fprintln(out, "  Use these when you need totals, averages, or grouped statistics:")
+	fmt.Fprintln(out)
+	fmt.Fprintln(out, "  xbe do lane-summary create                   Aggregate hauling/cycle data")
+	fmt.Fprintln(out, "  xbe do material-transaction-summary create   Aggregate material transactions")
+	fmt.Fprintln(out)
+	fmt.Fprintln(out, "  Example: Summarize tons by material site for a date range")
+	fmt.Fprintln(out, "    xbe do material-transaction-summary create \\")
+	fmt.Fprintln(out, "      --group-by material_site \\")
+	fmt.Fprintln(out, "      --filter broker=123 --filter date_min=2025-01-01")
 }
 
 func printCommandTree(out io.Writer, root *cobra.Command) {
