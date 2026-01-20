@@ -198,22 +198,22 @@ Optional features:
   --beta-driver-movement-segment-durations (cycle_summary_beta_driver_movement_segment_durations)
   --optional-feature <name> (repeatable)`,
 		Example: `  # Lane summary grouped by origin and destination
-  xbe do lane-summary create --group-by origin,destination --filter broker=123 --filter transaction_at_min=2025-01-17T00:00:00Z --filter transaction_at_max=2025-01-17T23:59:59Z
+  xbe summarize lane-summary create --group-by origin,destination --filter broker=123 --filter transaction_at_min=2025-01-17T00:00:00Z --filter transaction_at_max=2025-01-17T23:59:59Z
 
   # Total summary (no group-by)
-  xbe do lane-summary create --group-by "" --filter broker=123 --filter date_min=2025-01-01 --filter date_max=2025-01-31
+  xbe summarize lane-summary create --group-by "" --filter broker=123 --filter date_min=2025-01-01 --filter date_max=2025-01-31
 
   # Include optional features
-  xbe do lane-summary create --filter broker=123 --use-driver-day-trip-lead-minutes --beta-driver-movement-segment-durations
+  xbe summarize lane-summary create --filter broker=123 --use-driver-day-trip-lead-minutes --beta-driver-movement-segment-durations
 
   # Limit to high-volume lanes only
-  xbe do lane-summary create --filter broker=123 --min-transactions 25
+  xbe summarize lane-summary create --filter broker=123 --min-transactions 25
 
   # Customize metrics
-  xbe do lane-summary create --filter broker=123 --metrics cycle_minutes_median,tons_sum
+  xbe summarize lane-summary create --filter broker=123 --metrics cycle_minutes_median,tons_sum
 
   # JSON output with explicit filters
-  xbe do lane-summary create --filters '{"broker":"123","has_trip":true}' --json`,
+  xbe summarize lane-summary create --filters '{"broker":"123","has_trip":true}' --json`,
 		Args: cobra.NoArgs,
 		RunE: runDoLaneSummaryCreate,
 	}

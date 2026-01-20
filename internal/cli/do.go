@@ -12,20 +12,12 @@ these operations modify data and require authentication.
 
 Resources:
   glossary-terms                   Manage glossary term definitions
-  lane-summary                     Generate lane (cycle) summaries
-  material-transaction-summary     Generate material transaction summaries
   memberships                      Manage user-organization memberships`,
 	Example: `  # Update a glossary term
   xbe do glossary-terms update 123 --definition "New definition"
 
   # Delete a glossary term
   xbe do glossary-terms delete 123 --confirm
-
-  # Generate a lane summary by origin/destination
-  xbe do lane-summary create --group-by origin,destination --filter broker=123
-
-  # Generate a material transaction summary by material site
-  xbe do material-transaction-summary create --group-by material_site --filter broker=123
 
   # Create a membership
   xbe do memberships create --user 123 --organization Broker|4 --kind manager

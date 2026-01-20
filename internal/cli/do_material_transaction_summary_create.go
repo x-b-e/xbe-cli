@@ -174,34 +174,34 @@ Filters:
   Metric filters:
     material_transaction_count__min          Minimum transaction count`,
 		Example: `  # Summary grouped by material site
-  xbe do material-transaction-summary create --group-by material_site --filter broker=123 --filter date_min=2025-01-01 --filter date_max=2025-01-31
+  xbe summarize material-transaction-summary create --group-by material_site --filter broker=123 --filter date_min=2025-01-01 --filter date_max=2025-01-31
 
   # Summary by customer segment
-  xbe do material-transaction-summary create --group-by customer_segment --filter broker=123
+  xbe summarize material-transaction-summary create --group-by customer_segment --filter broker=123
 
   # Summary by date
-  xbe do material-transaction-summary create --group-by date --filter broker=123 --filter date_min=2025-01-01 --filter date_max=2025-01-31
+  xbe summarize material-transaction-summary create --group-by date --filter broker=123 --filter date_min=2025-01-01 --filter date_max=2025-01-31
 
   # Summary by direction (inbound/outbound)
-  xbe do material-transaction-summary create --group-by direction --filter broker=123
+  xbe summarize material-transaction-summary create --group-by direction --filter broker=123
 
   # Summary by material type with all metrics
-  xbe do material-transaction-summary create --group-by material_type --filter broker=123 --all-metrics
+  xbe summarize material-transaction-summary create --group-by material_type --filter broker=123 --all-metrics
 
   # Summary by trucker and customer
-  xbe do material-transaction-summary create --group-by trucker,customer --filter broker=123
+  xbe summarize material-transaction-summary create --group-by trucker,customer --filter broker=123
 
   # Summary by month and year
-  xbe do material-transaction-summary create --group-by year,month --filter broker=123 --filter year=2025
+  xbe summarize material-transaction-summary create --group-by year,month --filter broker=123 --filter year=2025
 
   # Limit to high-volume results only
-  xbe do material-transaction-summary create --filter broker=123 --min-transactions 10
+  xbe summarize material-transaction-summary create --filter broker=123 --min-transactions 10
 
   # Total summary (no group-by)
-  xbe do material-transaction-summary create --group-by "" --filter broker=123 --filter date_min=2025-01-01
+  xbe summarize material-transaction-summary create --group-by "" --filter broker=123 --filter date_min=2025-01-01
 
   # JSON output
-  xbe do material-transaction-summary create --filter broker=123 --json`,
+  xbe summarize material-transaction-summary create --filter broker=123 --json`,
 		Args: cobra.NoArgs,
 		RunE: runDoMaterialTransactionSummaryCreate,
 	}
