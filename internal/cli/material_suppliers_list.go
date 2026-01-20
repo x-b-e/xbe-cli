@@ -15,14 +15,16 @@ import (
 )
 
 type materialSuppliersListOptions struct {
-	BaseURL  string
-	Token    string
-	JSON     bool
-	NoAuth   bool
-	Limit    int
-	Offset   int
-	Name     string
-	IsActive bool
+	BaseURL        string
+	Token          string
+	JSON           bool
+	NoAuth         bool
+	Limit          int
+	Offset         int
+	Name           string
+	IsActive       bool
+	Broker         string
+	IsBrokerActive string
 }
 
 func newMaterialSuppliersListCmd() *cobra.Command {
@@ -73,6 +75,8 @@ func initMaterialSuppliersListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("name", "", "Filter by name (partial match)")
 	cmd.Flags().Bool("active", false, "Filter to only active suppliers")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("is-broker-active", "", "Filter by broker active status (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -110,6 +114,8 @@ func runMaterialSuppliersList(cmd *cobra.Command, _ []string) error {
 	if opts.IsActive {
 		query.Set("filter[is_active]", "true")
 	}
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[is-broker-active]", opts.IsBrokerActive)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/material-suppliers", query)
 	if err != nil {
@@ -159,6 +165,14 @@ func parseMaterialSuppliersListOptions(cmd *cobra.Command) (materialSuppliersLis
 	if err != nil {
 		return materialSuppliersListOptions{}, err
 	}
+	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return materialSuppliersListOptions{}, err
+	}
+	isBrokerActive, err := cmd.Flags().GetString("is-broker-active")
+	if err != nil {
+		return materialSuppliersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return materialSuppliersListOptions{}, err
@@ -169,14 +183,16 @@ func parseMaterialSuppliersListOptions(cmd *cobra.Command) (materialSuppliersLis
 	}
 
 	return materialSuppliersListOptions{
-		BaseURL:  baseURL,
-		Token:    token,
-		JSON:     jsonOut,
-		NoAuth:   noAuth,
-		Limit:    limit,
-		Offset:   offset,
-		Name:     name,
-		IsActive: isActive,
+		BaseURL:        baseURL,
+		Token:          token,
+		JSON:           jsonOut,
+		NoAuth:         noAuth,
+		Limit:          limit,
+		Offset:         offset,
+		Name:           name,
+		IsActive:       isActive,
+		Broker:         broker,
+		IsBrokerActive: isBrokerActive,
 	}, nil
 }
 

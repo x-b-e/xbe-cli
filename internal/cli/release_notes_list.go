@@ -26,6 +26,7 @@ type releaseNotesListOptions struct {
 	Q             string
 	ReleasedOnMin string
 	ReleasedOnMax string
+	CreatedBy     string
 }
 
 func newReleaseNotesListCmd() *cobra.Command {
@@ -87,6 +88,7 @@ func initReleaseNotesListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("q", "", "Search release notes")
 	cmd.Flags().String("released-on-min", "", "Filter to release notes released on or after this date (YYYY-MM-DD)")
 	cmd.Flags().String("released-on-max", "", "Filter to release notes released on or before this date (YYYY-MM-DD)")
+	cmd.Flags().String("created-by", "", "Filter by creator user ID (comma-separated for multiple)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -124,6 +126,7 @@ func runReleaseNotesList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[q]", opts.Q)
 	setFilterIfPresent(query, "filter[released-on-min]", opts.ReleasedOnMin)
 	setFilterIfPresent(query, "filter[released-on-max]", opts.ReleasedOnMax)
+	setFilterIfPresent(query, "filter[created-by]", opts.CreatedBy)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/release-notes", query)
 	if err != nil {
@@ -185,6 +188,10 @@ func parseReleaseNotesListOptions(cmd *cobra.Command) (releaseNotesListOptions, 
 	if err != nil {
 		return releaseNotesListOptions{}, err
 	}
+	createdBy, err := cmd.Flags().GetString("created-by")
+	if err != nil {
+		return releaseNotesListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return releaseNotesListOptions{}, err
@@ -206,6 +213,7 @@ func parseReleaseNotesListOptions(cmd *cobra.Command) (releaseNotesListOptions, 
 		Q:             q,
 		ReleasedOnMin: releasedOnMin,
 		ReleasedOnMax: releasedOnMax,
+		CreatedBy:     createdBy,
 	}, nil
 }
 

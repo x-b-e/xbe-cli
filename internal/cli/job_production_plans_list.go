@@ -15,23 +15,42 @@ import (
 )
 
 type jobProductionPlansListOptions struct {
-	BaseURL      string
-	Token        string
-	JSON         bool
-	NoAuth       bool
-	Limit        int
-	Offset       int
-	StartOn      string
-	StartOnMin   string
-	StartOnMax   string
-	Status       string
-	Customer     string
-	Planner      string
-	ProjectMgr   string
-	JobSite      string
-	MaterialSite string
-	BusinessUnit string
-	Q            string
+	BaseURL                      string
+	Token                        string
+	JSON                         bool
+	NoAuth                       bool
+	Limit                        int
+	Offset                       int
+	StartOn                      string
+	StartOnMin                   string
+	StartOnMax                   string
+	Status                       string
+	Customer                     string
+	Planner                      string
+	ProjectMgr                   string
+	JobSite                      string
+	MaterialSite                 string
+	BusinessUnit                 string
+	Q                            string
+	Broker                       string
+	Project                      string
+	Trucker                      string
+	JobNumber                    string
+	JobName                      string
+	MaterialType                 string
+	MaterialSupplier             string
+	Contractor                   string
+	IsTemplate                   string
+	CreatedBy                    string
+	CostCode                     string
+	StartTimeMin                 string
+	StartTimeMax                 string
+	RemainingQuantityMin         string
+	RemainingQuantityMax         string
+	DefaultTrucker               string
+	NotCustomer                  string
+	TrailerClassificationOrEquiv string
+	IsOnlyForEquipmentMovement   string
 }
 
 type jobProductionPlanRow struct {
@@ -135,13 +154,32 @@ func initJobProductionPlansListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("start-on-min", "", "Start of date range (YYYY-MM-DD)")
 	cmd.Flags().String("start-on-max", "", "End of date range (YYYY-MM-DD)")
 	cmd.Flags().String("status", "", "Filter by status (editing/submitted/rejected/approved/cancelled/complete/abandoned/scrapped)")
-	cmd.Flags().String("customer", "", "Filter by customer ID")
-	cmd.Flags().String("planner", "", "Filter by planner user ID")
-	cmd.Flags().String("project-manager", "", "Filter by project manager user ID")
-	cmd.Flags().String("job-site", "", "Filter by job site ID")
-	cmd.Flags().String("material-site", "", "Filter by material site ID")
-	cmd.Flags().String("business-unit", "", "Filter by business unit ID")
+	cmd.Flags().String("customer", "", "Filter by customer ID (comma-separated for multiple)")
+	cmd.Flags().String("planner", "", "Filter by planner user ID (comma-separated for multiple)")
+	cmd.Flags().String("project-manager", "", "Filter by project manager user ID (comma-separated for multiple)")
+	cmd.Flags().String("job-site", "", "Filter by job site ID (comma-separated for multiple)")
+	cmd.Flags().String("material-site", "", "Filter by material site ID (comma-separated for multiple)")
+	cmd.Flags().String("business-unit", "", "Filter by business unit ID (comma-separated for multiple)")
 	cmd.Flags().String("q", "", "Search by job name or number")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("project", "", "Filter by project ID (comma-separated for multiple)")
+	cmd.Flags().String("trucker", "", "Filter by trucker ID (comma-separated for multiple)")
+	cmd.Flags().String("job-number", "", "Filter by job number (partial match)")
+	cmd.Flags().String("job-name", "", "Filter by job name (partial match)")
+	cmd.Flags().String("material-type", "", "Filter by material type ID (comma-separated for multiple)")
+	cmd.Flags().String("material-supplier", "", "Filter by material supplier ID (comma-separated for multiple)")
+	cmd.Flags().String("contractor", "", "Filter by contractor ID (comma-separated for multiple)")
+	cmd.Flags().String("is-template", "", "Filter by template status (true/false)")
+	cmd.Flags().String("created-by", "", "Filter by creator user ID (comma-separated for multiple)")
+	cmd.Flags().String("cost-code", "", "Filter by cost code ID (comma-separated for multiple)")
+	cmd.Flags().String("start-time-min", "", "Filter by minimum start time (HH:MM)")
+	cmd.Flags().String("start-time-max", "", "Filter by maximum start time (HH:MM)")
+	cmd.Flags().String("remaining-quantity-min", "", "Filter by minimum remaining quantity")
+	cmd.Flags().String("remaining-quantity-max", "", "Filter by maximum remaining quantity")
+	cmd.Flags().String("default-trucker", "", "Filter by default trucker ID (comma-separated for multiple)")
+	cmd.Flags().String("not-customer", "", "Exclude plans for customer ID (comma-separated for multiple)")
+	cmd.Flags().String("trailer-classification-or-equivalent", "", "Filter by trailer classification")
+	cmd.Flags().String("is-only-for-equipment-movement", "", "Filter by equipment movement only status (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -215,6 +253,25 @@ func runJobProductionPlansList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[material-site]", opts.MaterialSite)
 	setFilterIfPresent(query, "filter[business-unit]", opts.BusinessUnit)
 	setFilterIfPresent(query, "filter[q]", opts.Q)
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[project]", opts.Project)
+	setFilterIfPresent(query, "filter[trucker]", opts.Trucker)
+	setFilterIfPresent(query, "filter[job-number]", opts.JobNumber)
+	setFilterIfPresent(query, "filter[job-name]", opts.JobName)
+	setFilterIfPresent(query, "filter[material-type]", opts.MaterialType)
+	setFilterIfPresent(query, "filter[material-supplier]", opts.MaterialSupplier)
+	setFilterIfPresent(query, "filter[contractor]", opts.Contractor)
+	setFilterIfPresent(query, "filter[is-template]", opts.IsTemplate)
+	setFilterIfPresent(query, "filter[created-by]", opts.CreatedBy)
+	setFilterIfPresent(query, "filter[cost-code]", opts.CostCode)
+	setFilterIfPresent(query, "filter[start-time-min]", opts.StartTimeMin)
+	setFilterIfPresent(query, "filter[start-time-max]", opts.StartTimeMax)
+	setFilterIfPresent(query, "filter[remaining-quantity-min]", opts.RemainingQuantityMin)
+	setFilterIfPresent(query, "filter[remaining-quantity-max]", opts.RemainingQuantityMax)
+	setFilterIfPresent(query, "filter[default-trucker]", opts.DefaultTrucker)
+	setFilterIfPresent(query, "filter[not-customer]", opts.NotCustomer)
+	setFilterIfPresent(query, "filter[trailer-classification-or-equivalent]", opts.TrailerClassificationOrEquiv)
+	setFilterIfPresent(query, "filter[is-only-for-equipment-movement]", opts.IsOnlyForEquipmentMovement)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/job-production-plans", query)
 	if err != nil {
@@ -300,6 +357,82 @@ func parseJobProductionPlansListOptions(cmd *cobra.Command) (jobProductionPlansL
 	if err != nil {
 		return jobProductionPlansListOptions{}, err
 	}
+	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	project, err := cmd.Flags().GetString("project")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	trucker, err := cmd.Flags().GetString("trucker")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	jobNumber, err := cmd.Flags().GetString("job-number")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	jobName, err := cmd.Flags().GetString("job-name")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	materialType, err := cmd.Flags().GetString("material-type")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	materialSupplier, err := cmd.Flags().GetString("material-supplier")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	contractor, err := cmd.Flags().GetString("contractor")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	isTemplate, err := cmd.Flags().GetString("is-template")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	createdBy, err := cmd.Flags().GetString("created-by")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	costCode, err := cmd.Flags().GetString("cost-code")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	startTimeMin, err := cmd.Flags().GetString("start-time-min")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	startTimeMax, err := cmd.Flags().GetString("start-time-max")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	remainingQuantityMin, err := cmd.Flags().GetString("remaining-quantity-min")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	remainingQuantityMax, err := cmd.Flags().GetString("remaining-quantity-max")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	defaultTrucker, err := cmd.Flags().GetString("default-trucker")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	notCustomer, err := cmd.Flags().GetString("not-customer")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	trailerClassificationOrEquiv, err := cmd.Flags().GetString("trailer-classification-or-equivalent")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
+	isOnlyForEquipmentMovement, err := cmd.Flags().GetString("is-only-for-equipment-movement")
+	if err != nil {
+		return jobProductionPlansListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return jobProductionPlansListOptions{}, err
@@ -310,23 +443,42 @@ func parseJobProductionPlansListOptions(cmd *cobra.Command) (jobProductionPlansL
 	}
 
 	return jobProductionPlansListOptions{
-		BaseURL:      baseURL,
-		Token:        token,
-		JSON:         jsonOut,
-		NoAuth:       noAuth,
-		Limit:        limit,
-		Offset:       offset,
-		StartOn:      startOn,
-		StartOnMin:   startOnMin,
-		StartOnMax:   startOnMax,
-		Status:       status,
-		Customer:     customer,
-		Planner:      planner,
-		ProjectMgr:   projectMgr,
-		JobSite:      jobSite,
-		MaterialSite: materialSite,
-		BusinessUnit: businessUnit,
-		Q:            q,
+		BaseURL:                      baseURL,
+		Token:                        token,
+		JSON:                         jsonOut,
+		NoAuth:                       noAuth,
+		Limit:                        limit,
+		Offset:                       offset,
+		StartOn:                      startOn,
+		StartOnMin:                   startOnMin,
+		StartOnMax:                   startOnMax,
+		Status:                       status,
+		Customer:                     customer,
+		Planner:                      planner,
+		ProjectMgr:                   projectMgr,
+		JobSite:                      jobSite,
+		MaterialSite:                 materialSite,
+		BusinessUnit:                 businessUnit,
+		Q:                            q,
+		Broker:                       broker,
+		Project:                      project,
+		Trucker:                      trucker,
+		JobNumber:                    jobNumber,
+		JobName:                      jobName,
+		MaterialType:                 materialType,
+		MaterialSupplier:             materialSupplier,
+		Contractor:                   contractor,
+		IsTemplate:                   isTemplate,
+		CreatedBy:                    createdBy,
+		CostCode:                     costCode,
+		StartTimeMin:                 startTimeMin,
+		StartTimeMax:                 startTimeMax,
+		RemainingQuantityMin:         remainingQuantityMin,
+		RemainingQuantityMax:         remainingQuantityMax,
+		DefaultTrucker:               defaultTrucker,
+		NotCustomer:                  notCustomer,
+		TrailerClassificationOrEquiv: trailerClassificationOrEquiv,
+		IsOnlyForEquipmentMovement:   isOnlyForEquipmentMovement,
 	}, nil
 }
 

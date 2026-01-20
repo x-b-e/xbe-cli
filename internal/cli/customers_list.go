@@ -15,14 +15,19 @@ import (
 )
 
 type customersListOptions struct {
-	BaseURL  string
-	Token    string
-	JSON     bool
-	NoAuth   bool
-	Limit    int
-	Offset   int
-	Name     string
-	IsActive bool
+	BaseURL                    string
+	Token                      string
+	JSON                       bool
+	NoAuth                     bool
+	Limit                      int
+	Offset                     int
+	Name                       string
+	IsActive                   bool
+	Broker                     string
+	Favorite                   string
+	IsControlledByBroker       string
+	TrailerClassification      string
+	IsOnlyForEquipmentMovement string
 }
 
 func newCustomersListCmd() *cobra.Command {
@@ -73,6 +78,11 @@ func initCustomersListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("name", "", "Filter by company name (partial match)")
 	cmd.Flags().Bool("active", false, "Filter to only active customers")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("favorite", "", "Filter by favorite status (true/false)")
+	cmd.Flags().String("is-controlled-by-broker", "", "Filter by broker control status (true/false)")
+	cmd.Flags().String("trailer-classification", "", "Filter by trailer classification")
+	cmd.Flags().String("is-only-for-equipment-movement", "", "Filter by equipment movement only status (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -110,6 +120,11 @@ func runCustomersList(cmd *cobra.Command, _ []string) error {
 	if opts.IsActive {
 		query.Set("filter[is_active]", "true")
 	}
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[favorite]", opts.Favorite)
+	setFilterIfPresent(query, "filter[is-controlled-by-broker]", opts.IsControlledByBroker)
+	setFilterIfPresent(query, "filter[trailer-classification]", opts.TrailerClassification)
+	setFilterIfPresent(query, "filter[is-only-for-equipment-movement]", opts.IsOnlyForEquipmentMovement)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/customers", query)
 	if err != nil {
@@ -159,6 +174,26 @@ func parseCustomersListOptions(cmd *cobra.Command) (customersListOptions, error)
 	if err != nil {
 		return customersListOptions{}, err
 	}
+	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return customersListOptions{}, err
+	}
+	favorite, err := cmd.Flags().GetString("favorite")
+	if err != nil {
+		return customersListOptions{}, err
+	}
+	isControlledByBroker, err := cmd.Flags().GetString("is-controlled-by-broker")
+	if err != nil {
+		return customersListOptions{}, err
+	}
+	trailerClassification, err := cmd.Flags().GetString("trailer-classification")
+	if err != nil {
+		return customersListOptions{}, err
+	}
+	isOnlyForEquipmentMovement, err := cmd.Flags().GetString("is-only-for-equipment-movement")
+	if err != nil {
+		return customersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return customersListOptions{}, err
@@ -169,14 +204,19 @@ func parseCustomersListOptions(cmd *cobra.Command) (customersListOptions, error)
 	}
 
 	return customersListOptions{
-		BaseURL:  baseURL,
-		Token:    token,
-		JSON:     jsonOut,
-		NoAuth:   noAuth,
-		Limit:    limit,
-		Offset:   offset,
-		Name:     name,
-		IsActive: isActive,
+		BaseURL:                    baseURL,
+		Token:                      token,
+		JSON:                       jsonOut,
+		NoAuth:                     noAuth,
+		Limit:                      limit,
+		Offset:                     offset,
+		Name:                       name,
+		IsActive:                   isActive,
+		Broker:                     broker,
+		Favorite:                   favorite,
+		IsControlledByBroker:       isControlledByBroker,
+		TrailerClassification:      trailerClassification,
+		IsOnlyForEquipmentMovement: isOnlyForEquipmentMovement,
 	}, nil
 }
 

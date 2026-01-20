@@ -26,6 +26,7 @@ type postsListOptions struct {
 	PublishedAtMin string
 	PublishedAtMax string
 	Creator        string
+	SubjectPost    string
 }
 
 func newPostsListCmd() *cobra.Command {
@@ -101,6 +102,7 @@ func initPostsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("published-at-min", "", "Filter to posts published on or after this date (YYYY-MM-DD)")
 	cmd.Flags().String("published-at-max", "", "Filter to posts published on or before this date (YYYY-MM-DD)")
 	cmd.Flags().String("creator", "", "Filter by creator (e.g., User|123)")
+	cmd.Flags().String("subject-post", "", "Filter by subject post ID (comma-separated for multiple)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -139,6 +141,7 @@ func runPostsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[published-at-min]", opts.PublishedAtMin)
 	setFilterIfPresent(query, "filter[published-at-max]", opts.PublishedAtMax)
 	setFilterIfPresent(query, "filter[creator]", opts.Creator)
+	setFilterIfPresent(query, "filter[subject-post]", opts.SubjectPost)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/posts", query)
 	if err != nil {
@@ -200,6 +203,10 @@ func parsePostsListOptions(cmd *cobra.Command) (postsListOptions, error) {
 	if err != nil {
 		return postsListOptions{}, err
 	}
+	subjectPost, err := cmd.Flags().GetString("subject-post")
+	if err != nil {
+		return postsListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return postsListOptions{}, err
@@ -221,6 +228,7 @@ func parsePostsListOptions(cmd *cobra.Command) (postsListOptions, error) {
 		PublishedAtMin: publishedAtMin,
 		PublishedAtMax: publishedAtMax,
 		Creator:        creator,
+		SubjectPost:    subjectPost,
 	}, nil
 }
 

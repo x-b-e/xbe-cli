@@ -15,14 +15,21 @@ import (
 )
 
 type usersListOptions struct {
-	BaseURL string
-	Token   string
-	JSON    bool
-	NoAuth  bool
-	Limit   int
-	Offset  int
-	Name    string
-	IsAdmin bool
+	BaseURL                      string
+	Token                        string
+	JSON                         bool
+	NoAuth                       bool
+	Limit                        int
+	Offset                       int
+	Name                         string
+	IsAdmin                      bool
+	EmailAddress                 string
+	MobileNumber                 string
+	SlackID                      string
+	IsDriver                     string
+	IsSuspendedFromDriving       string
+	HavingCustomerMembershipWith string
+	HavingTruckerMembershipWith  string
 }
 
 func newUsersListCmd() *cobra.Command {
@@ -73,6 +80,13 @@ func initUsersListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("name", "", "Filter by name (partial match)")
 	cmd.Flags().Bool("is-admin", false, "Filter to only admins")
+	cmd.Flags().String("email-address", "", "Filter by email address")
+	cmd.Flags().String("mobile-number", "", "Filter by mobile number")
+	cmd.Flags().String("slack-id", "", "Filter by Slack ID")
+	cmd.Flags().String("is-driver", "", "Filter by driver status (true/false)")
+	cmd.Flags().String("is-suspended-from-driving", "", "Filter by driving suspension status (true/false)")
+	cmd.Flags().String("having-customer-membership-with", "", "Filter by customer membership (customer ID, comma-separated for multiple)")
+	cmd.Flags().String("having-trucker-membership-with", "", "Filter by trucker membership (trucker ID, comma-separated for multiple)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -108,6 +122,13 @@ func runUsersList(cmd *cobra.Command, _ []string) error {
 	if opts.IsAdmin {
 		query.Set("filter[is_admin]", "true")
 	}
+	setFilterIfPresent(query, "filter[email-address]", opts.EmailAddress)
+	setFilterIfPresent(query, "filter[mobile-number]", opts.MobileNumber)
+	setFilterIfPresent(query, "filter[slack-id]", opts.SlackID)
+	setFilterIfPresent(query, "filter[is-driver]", opts.IsDriver)
+	setFilterIfPresent(query, "filter[is-suspended-from-driving]", opts.IsSuspendedFromDriving)
+	setFilterIfPresent(query, "filter[having-customer-membership-with]", opts.HavingCustomerMembershipWith)
+	setFilterIfPresent(query, "filter[having-trucker-membership-with]", opts.HavingTruckerMembershipWith)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/users", query)
 	if err != nil {
@@ -157,6 +178,34 @@ func parseUsersListOptions(cmd *cobra.Command) (usersListOptions, error) {
 	if err != nil {
 		return usersListOptions{}, err
 	}
+	emailAddress, err := cmd.Flags().GetString("email-address")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	mobileNumber, err := cmd.Flags().GetString("mobile-number")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	slackID, err := cmd.Flags().GetString("slack-id")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	isDriver, err := cmd.Flags().GetString("is-driver")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	isSuspendedFromDriving, err := cmd.Flags().GetString("is-suspended-from-driving")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	havingCustomerMembershipWith, err := cmd.Flags().GetString("having-customer-membership-with")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	havingTruckerMembershipWith, err := cmd.Flags().GetString("having-trucker-membership-with")
+	if err != nil {
+		return usersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return usersListOptions{}, err
@@ -167,14 +216,21 @@ func parseUsersListOptions(cmd *cobra.Command) (usersListOptions, error) {
 	}
 
 	return usersListOptions{
-		BaseURL: baseURL,
-		Token:   token,
-		JSON:    jsonOut,
-		NoAuth:  noAuth,
-		Limit:   limit,
-		Offset:  offset,
-		Name:    name,
-		IsAdmin: isAdmin,
+		BaseURL:                      baseURL,
+		Token:                        token,
+		JSON:                         jsonOut,
+		NoAuth:                       noAuth,
+		Limit:                        limit,
+		Offset:                       offset,
+		Name:                         name,
+		IsAdmin:                      isAdmin,
+		EmailAddress:                 emailAddress,
+		MobileNumber:                 mobileNumber,
+		SlackID:                      slackID,
+		IsDriver:                     isDriver,
+		IsSuspendedFromDriving:       isSuspendedFromDriving,
+		HavingCustomerMembershipWith: havingCustomerMembershipWith,
+		HavingTruckerMembershipWith:  havingTruckerMembershipWith,
 	}, nil
 }
 

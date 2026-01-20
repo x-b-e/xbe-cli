@@ -15,14 +15,23 @@ import (
 )
 
 type materialSitesListOptions struct {
-	BaseURL string
-	Token   string
-	JSON    bool
-	NoAuth  bool
-	Limit   int
-	Offset  int
-	Name    string
-	Active  bool
+	BaseURL                    string
+	Token                      string
+	JSON                       bool
+	NoAuth                     bool
+	Limit                      int
+	Offset                     int
+	Name                       string
+	Active                     bool
+	Broker                     string
+	Q                          string
+	MaterialSupplier           string
+	OperatingStatus            string
+	Parent                     string
+	MaterialTypes              string
+	IsTicketMaker              string
+	IsBrokerActive             string
+	IsOnlyForEquipmentMovement string
 }
 
 type materialSiteRow struct {
@@ -78,6 +87,15 @@ func initMaterialSitesListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("limit", 50, "Page size")
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("name", "", "Filter by name (partial match)")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("q", "", "Full-text search")
+	cmd.Flags().String("material-supplier", "", "Filter by material supplier ID (comma-separated for multiple)")
+	cmd.Flags().String("operating-status", "", "Filter by operating status")
+	cmd.Flags().String("parent", "", "Filter by parent material site ID (comma-separated for multiple)")
+	cmd.Flags().String("material-types", "", "Filter by material type IDs (comma-separated)")
+	cmd.Flags().String("is-ticket-maker", "", "Filter by ticket maker status (true/false)")
+	cmd.Flags().String("is-broker-active", "", "Filter by broker active status (true/false)")
+	cmd.Flags().String("is-only-for-equipment-movement", "", "Filter by equipment movement only status (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -123,6 +141,15 @@ func runMaterialSitesList(cmd *cobra.Command, _ []string) error {
 	if opts.Active {
 		query.Set("filter[is-active-effective]", "true")
 	}
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[q]", opts.Q)
+	setFilterIfPresent(query, "filter[material-supplier]", opts.MaterialSupplier)
+	setFilterIfPresent(query, "filter[operating-status]", opts.OperatingStatus)
+	setFilterIfPresent(query, "filter[parent]", opts.Parent)
+	setFilterIfPresent(query, "filter[material-types]", opts.MaterialTypes)
+	setFilterIfPresent(query, "filter[is-ticket-maker]", opts.IsTicketMaker)
+	setFilterIfPresent(query, "filter[is-broker-active]", opts.IsBrokerActive)
+	setFilterIfPresent(query, "filter[is-only-for-equipment-movement]", opts.IsOnlyForEquipmentMovement)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/material-sites", query)
 	if err != nil {
@@ -172,6 +199,42 @@ func parseMaterialSitesListOptions(cmd *cobra.Command) (materialSitesListOptions
 	if err != nil {
 		return materialSitesListOptions{}, err
 	}
+	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	q, err := cmd.Flags().GetString("q")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	materialSupplier, err := cmd.Flags().GetString("material-supplier")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	operatingStatus, err := cmd.Flags().GetString("operating-status")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	parent, err := cmd.Flags().GetString("parent")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	materialTypes, err := cmd.Flags().GetString("material-types")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	isTicketMaker, err := cmd.Flags().GetString("is-ticket-maker")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	isBrokerActive, err := cmd.Flags().GetString("is-broker-active")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	isOnlyForEquipmentMovement, err := cmd.Flags().GetString("is-only-for-equipment-movement")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return materialSitesListOptions{}, err
@@ -182,14 +245,23 @@ func parseMaterialSitesListOptions(cmd *cobra.Command) (materialSitesListOptions
 	}
 
 	return materialSitesListOptions{
-		BaseURL: baseURL,
-		Token:   token,
-		JSON:    jsonOut,
-		NoAuth:  noAuth,
-		Active:  active,
-		Limit:   limit,
-		Offset:  offset,
-		Name:    name,
+		BaseURL:                    baseURL,
+		Token:                      token,
+		JSON:                       jsonOut,
+		NoAuth:                     noAuth,
+		Active:                     active,
+		Limit:                      limit,
+		Offset:                     offset,
+		Name:                       name,
+		Broker:                     broker,
+		Q:                          q,
+		MaterialSupplier:           materialSupplier,
+		OperatingStatus:            operatingStatus,
+		Parent:                     parent,
+		MaterialTypes:              materialTypes,
+		IsTicketMaker:              isTicketMaker,
+		IsBrokerActive:             isBrokerActive,
+		IsOnlyForEquipmentMovement: isOnlyForEquipmentMovement,
 	}, nil
 }
 

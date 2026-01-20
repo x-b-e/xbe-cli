@@ -15,13 +15,17 @@ import (
 )
 
 type businessUnitsListOptions struct {
-	BaseURL string
-	Token   string
-	JSON    bool
-	NoAuth  bool
-	Limit   int
-	Offset  int
-	Name    string
+	BaseURL         string
+	Token           string
+	JSON            bool
+	NoAuth          bool
+	Limit           int
+	Offset          int
+	Name            string
+	Broker          string
+	Parent          string
+	WithChildren    string
+	WithoutChildren string
 }
 
 type businessUnitRow struct {
@@ -68,6 +72,10 @@ func initBusinessUnitsListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("limit", 50, "Page size")
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("name", "", "Filter by name (partial match)")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("parent", "", "Filter by parent business unit ID (comma-separated for multiple)")
+	cmd.Flags().String("with-children", "", "Filter by whether unit has children (true/false)")
+	cmd.Flags().String("without-children", "", "Filter by whether unit has no children (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -109,6 +117,10 @@ func runBusinessUnitsList(cmd *cobra.Command, _ []string) error {
 	if opts.Name != "" {
 		query.Set("filter[company-name]", opts.Name)
 	}
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[parent]", opts.Parent)
+	setFilterIfPresent(query, "filter[with-children]", opts.WithChildren)
+	setFilterIfPresent(query, "filter[without-children]", opts.WithoutChildren)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/business-units", query)
 	if err != nil {
@@ -154,6 +166,22 @@ func parseBusinessUnitsListOptions(cmd *cobra.Command) (businessUnitsListOptions
 	if err != nil {
 		return businessUnitsListOptions{}, err
 	}
+	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return businessUnitsListOptions{}, err
+	}
+	parent, err := cmd.Flags().GetString("parent")
+	if err != nil {
+		return businessUnitsListOptions{}, err
+	}
+	withChildren, err := cmd.Flags().GetString("with-children")
+	if err != nil {
+		return businessUnitsListOptions{}, err
+	}
+	withoutChildren, err := cmd.Flags().GetString("without-children")
+	if err != nil {
+		return businessUnitsListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return businessUnitsListOptions{}, err
@@ -164,13 +192,17 @@ func parseBusinessUnitsListOptions(cmd *cobra.Command) (businessUnitsListOptions
 	}
 
 	return businessUnitsListOptions{
-		BaseURL: baseURL,
-		Token:   token,
-		JSON:    jsonOut,
-		NoAuth:  noAuth,
-		Limit:   limit,
-		Offset:  offset,
-		Name:    name,
+		BaseURL:         baseURL,
+		Token:           token,
+		JSON:            jsonOut,
+		NoAuth:          noAuth,
+		Limit:           limit,
+		Offset:          offset,
+		Name:            name,
+		Broker:          broker,
+		Parent:          parent,
+		WithChildren:    withChildren,
+		WithoutChildren: withoutChildren,
 	}, nil
 }
 

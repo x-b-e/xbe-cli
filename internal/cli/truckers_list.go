@@ -15,14 +15,21 @@ import (
 )
 
 type truckersListOptions struct {
-	BaseURL  string
-	Token    string
-	JSON     bool
-	NoAuth   bool
-	Limit    int
-	Offset   int
-	Name     string
-	IsActive bool
+	BaseURL                string
+	Token                  string
+	JSON                   bool
+	NoAuth                 bool
+	Limit                  int
+	Offset                 int
+	Name                   string
+	IsActive               bool
+	Broker                 string
+	Q                      string
+	PhoneNumber            string
+	Favorite               string
+	TrailerClassifications string
+	TaxIdentifier          string
+	ManagingCustomer       string
 }
 
 func newTruckersListCmd() *cobra.Command {
@@ -73,6 +80,13 @@ func initTruckersListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("name", "", "Filter by company name (partial match)")
 	cmd.Flags().Bool("active", false, "Filter to only active truckers")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("q", "", "Full-text search")
+	cmd.Flags().String("phone-number", "", "Filter by phone number")
+	cmd.Flags().String("favorite", "", "Filter by favorite status (true/false)")
+	cmd.Flags().String("trailer-classifications", "", "Filter by trailer classifications (comma-separated)")
+	cmd.Flags().String("tax-identifier", "", "Filter by tax identifier")
+	cmd.Flags().String("managing-customer", "", "Filter by managing customer ID (comma-separated for multiple)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -110,6 +124,13 @@ func runTruckersList(cmd *cobra.Command, _ []string) error {
 	if opts.IsActive {
 		query.Set("filter[is_active]", "true")
 	}
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[q]", opts.Q)
+	setFilterIfPresent(query, "filter[phone-number]", opts.PhoneNumber)
+	setFilterIfPresent(query, "filter[favorite]", opts.Favorite)
+	setFilterIfPresent(query, "filter[trailer-classifications]", opts.TrailerClassifications)
+	setFilterIfPresent(query, "filter[tax-identifier]", opts.TaxIdentifier)
+	setFilterIfPresent(query, "filter[managing-customer]", opts.ManagingCustomer)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/truckers", query)
 	if err != nil {
@@ -159,6 +180,34 @@ func parseTruckersListOptions(cmd *cobra.Command) (truckersListOptions, error) {
 	if err != nil {
 		return truckersListOptions{}, err
 	}
+	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	q, err := cmd.Flags().GetString("q")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	phoneNumber, err := cmd.Flags().GetString("phone-number")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	favorite, err := cmd.Flags().GetString("favorite")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	trailerClassifications, err := cmd.Flags().GetString("trailer-classifications")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	taxIdentifier, err := cmd.Flags().GetString("tax-identifier")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	managingCustomer, err := cmd.Flags().GetString("managing-customer")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return truckersListOptions{}, err
@@ -169,14 +218,21 @@ func parseTruckersListOptions(cmd *cobra.Command) (truckersListOptions, error) {
 	}
 
 	return truckersListOptions{
-		BaseURL:  baseURL,
-		Token:    token,
-		JSON:     jsonOut,
-		NoAuth:   noAuth,
-		Limit:    limit,
-		Offset:   offset,
-		Name:     name,
-		IsActive: isActive,
+		BaseURL:                baseURL,
+		Token:                  token,
+		JSON:                   jsonOut,
+		NoAuth:                 noAuth,
+		Limit:                  limit,
+		Offset:                 offset,
+		Name:                   name,
+		IsActive:               isActive,
+		Broker:                 broker,
+		Q:                      q,
+		PhoneNumber:            phoneNumber,
+		Favorite:               favorite,
+		TrailerClassifications: trailerClassifications,
+		TaxIdentifier:          taxIdentifier,
+		ManagingCustomer:       managingCustomer,
 	}, nil
 }
 

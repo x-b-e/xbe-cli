@@ -15,14 +15,17 @@ import (
 )
 
 type brokersListOptions struct {
-	BaseURL     string
-	Token       string
-	JSON        bool
-	NoAuth      bool
-	Limit       int
-	Offset      int
-	CompanyName string
-	IsActive    string
+	BaseURL               string
+	Token                 string
+	JSON                  bool
+	NoAuth                bool
+	Limit                 int
+	Offset                int
+	CompanyName           string
+	IsActive              string
+	IsDefault             string
+	SubDomain             string
+	TrailerClassification string
 }
 
 type brokerRow struct {
@@ -82,6 +85,9 @@ func initBrokersListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("company-name", "", "Filter by company name (partial match)")
 	cmd.Flags().String("is-active", "", "Filter by active status (true/false)")
+	cmd.Flags().String("is-default", "", "Filter by default status (true/false)")
+	cmd.Flags().String("sub-domain", "", "Filter by subdomain")
+	cmd.Flags().String("trailer-classification", "", "Filter by trailer classification")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -116,6 +122,9 @@ func runBrokersList(cmd *cobra.Command, _ []string) error {
 	}
 	setFilterIfPresent(query, "filter[company-name]", opts.CompanyName)
 	setFilterIfPresent(query, "filter[is-active]", opts.IsActive)
+	setFilterIfPresent(query, "filter[is-default]", opts.IsDefault)
+	setFilterIfPresent(query, "filter[sub-domain]", opts.SubDomain)
+	setFilterIfPresent(query, "filter[trailer-classification]", opts.TrailerClassification)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/brokers", query)
 	if err != nil {
@@ -165,6 +174,18 @@ func parseBrokersListOptions(cmd *cobra.Command) (brokersListOptions, error) {
 	if err != nil {
 		return brokersListOptions{}, err
 	}
+	isDefault, err := cmd.Flags().GetString("is-default")
+	if err != nil {
+		return brokersListOptions{}, err
+	}
+	subDomain, err := cmd.Flags().GetString("sub-domain")
+	if err != nil {
+		return brokersListOptions{}, err
+	}
+	trailerClassification, err := cmd.Flags().GetString("trailer-classification")
+	if err != nil {
+		return brokersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return brokersListOptions{}, err
@@ -175,14 +196,17 @@ func parseBrokersListOptions(cmd *cobra.Command) (brokersListOptions, error) {
 	}
 
 	return brokersListOptions{
-		BaseURL:     baseURL,
-		Token:       token,
-		JSON:        jsonOut,
-		NoAuth:      noAuth,
-		Limit:       limit,
-		Offset:      offset,
-		CompanyName: companyName,
-		IsActive:    isActive,
+		BaseURL:               baseURL,
+		Token:                 token,
+		JSON:                  jsonOut,
+		NoAuth:                noAuth,
+		Limit:                 limit,
+		Offset:                offset,
+		CompanyName:           companyName,
+		IsActive:              isActive,
+		IsDefault:             isDefault,
+		SubDomain:             subDomain,
+		TrailerClassification: trailerClassification,
 	}, nil
 }
 

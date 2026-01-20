@@ -15,18 +15,38 @@ import (
 )
 
 type actionItemsListOptions struct {
-	BaseURL string
-	Token   string
-	JSON    bool
-	NoAuth  bool
-	Limit   int
-	Offset  int
-	Status  string
-	Kind    string
-	Project string
-	Tracker string
-	Broker  string
-	Sort    string
+	BaseURL                 string
+	Token                   string
+	JSON                    bool
+	NoAuth                  bool
+	Limit                   int
+	Offset                  int
+	Status                  string
+	Kind                    string
+	Project                 string
+	Tracker                 string
+	Broker                  string
+	Sort                    string
+	Q                       string
+	DueOn                   string
+	DueOnMin                string
+	DueOnMax                string
+	CompletedOn             string
+	CompletedOnMin          string
+	CompletedOnMax          string
+	IsCompleted             string
+	ResponsiblePerson       string
+	ResponsibleOrganization string
+	TeamMember              string
+	CreatedBy               string
+	Priority                string
+	IsDeleted               string
+	ParentActionItem        string
+	Incident                string
+	RootCause               string
+	Meeting                 string
+	IsUnplanned             string
+	RequiresXBEFeature      string
 }
 
 func newActionItemsListCmd() *cobra.Command {
@@ -135,10 +155,30 @@ func initActionItemsListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("status", "", "Filter by status (comma-separated: editing,ready_for_work,in_progress,in_verification,complete,on_hold)")
 	cmd.Flags().String("kind", "", "Filter by kind (comma-separated: feature,integration,sombrero,bug_fix,change_management,data_seeding,training)")
-	cmd.Flags().String("project", "", "Filter by project ID")
-	cmd.Flags().String("tracker", "", "Filter by tracker ID")
-	cmd.Flags().String("broker", "", "Filter by broker ID")
+	cmd.Flags().String("project", "", "Filter by project ID (comma-separated for multiple)")
+	cmd.Flags().String("tracker", "", "Filter by tracker ID (comma-separated for multiple)")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
 	cmd.Flags().String("sort", "", "Sort order (default: action_item_tracker.priority,id)")
+	cmd.Flags().String("q", "", "Full-text search")
+	cmd.Flags().String("due-on", "", "Filter by due date (YYYY-MM-DD)")
+	cmd.Flags().String("due-on-min", "", "Filter by minimum due date (YYYY-MM-DD)")
+	cmd.Flags().String("due-on-max", "", "Filter by maximum due date (YYYY-MM-DD)")
+	cmd.Flags().String("completed-on", "", "Filter by completed date (YYYY-MM-DD)")
+	cmd.Flags().String("completed-on-min", "", "Filter by minimum completed date (YYYY-MM-DD)")
+	cmd.Flags().String("completed-on-max", "", "Filter by maximum completed date (YYYY-MM-DD)")
+	cmd.Flags().String("is-completed", "", "Filter by completion status (true/false)")
+	cmd.Flags().String("responsible-person", "", "Filter by responsible person user ID (comma-separated for multiple)")
+	cmd.Flags().String("responsible-organization", "", "Filter by responsible organization (Type|ID, comma-separated for multiple)")
+	cmd.Flags().String("team-member", "", "Filter by team member user ID (comma-separated for multiple)")
+	cmd.Flags().String("created-by", "", "Filter by creator user ID (comma-separated for multiple)")
+	cmd.Flags().String("priority", "", "Filter by priority")
+	cmd.Flags().String("is-deleted", "", "Filter by deleted status (true/false)")
+	cmd.Flags().String("parent-action-item", "", "Filter by parent action item ID (comma-separated for multiple)")
+	cmd.Flags().String("incident", "", "Filter by incident ID (comma-separated for multiple)")
+	cmd.Flags().String("root-cause", "", "Filter by root cause ID (comma-separated for multiple)")
+	cmd.Flags().String("meeting", "", "Filter by meeting ID (comma-separated for multiple)")
+	cmd.Flags().String("is-unplanned", "", "Filter by unplanned status (true/false)")
+	cmd.Flags().String("requires-xbe-feature", "", "Filter by XBE feature requirement (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -187,6 +227,26 @@ func runActionItemsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[project]", opts.Project)
 	setFilterIfPresent(query, "filter[tracker]", opts.Tracker)
 	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[q]", opts.Q)
+	setFilterIfPresent(query, "filter[due-on]", opts.DueOn)
+	setFilterIfPresent(query, "filter[due-on-min]", opts.DueOnMin)
+	setFilterIfPresent(query, "filter[due-on-max]", opts.DueOnMax)
+	setFilterIfPresent(query, "filter[completed-on]", opts.CompletedOn)
+	setFilterIfPresent(query, "filter[completed-on-min]", opts.CompletedOnMin)
+	setFilterIfPresent(query, "filter[completed-on-max]", opts.CompletedOnMax)
+	setFilterIfPresent(query, "filter[is-completed]", opts.IsCompleted)
+	setFilterIfPresent(query, "filter[responsible-person]", opts.ResponsiblePerson)
+	setFilterIfPresent(query, "filter[responsible-organization]", opts.ResponsibleOrganization)
+	setFilterIfPresent(query, "filter[team-member]", opts.TeamMember)
+	setFilterIfPresent(query, "filter[created-by]", opts.CreatedBy)
+	setFilterIfPresent(query, "filter[priority]", opts.Priority)
+	setFilterIfPresent(query, "filter[is-deleted]", opts.IsDeleted)
+	setFilterIfPresent(query, "filter[parent-action-item]", opts.ParentActionItem)
+	setFilterIfPresent(query, "filter[incident]", opts.Incident)
+	setFilterIfPresent(query, "filter[root-cause]", opts.RootCause)
+	setFilterIfPresent(query, "filter[meeting]", opts.Meeting)
+	setFilterIfPresent(query, "filter[is-unplanned]", opts.IsUnplanned)
+	setFilterIfPresent(query, "filter[requires-xbe-feature]", opts.RequiresXBEFeature)
 
 	// Apply sort
 	if opts.Sort != "" {
@@ -229,22 +289,62 @@ func parseActionItemsListOptions(cmd *cobra.Command) (actionItemsListOptions, er
 	tracker, _ := cmd.Flags().GetString("tracker")
 	broker, _ := cmd.Flags().GetString("broker")
 	sort, _ := cmd.Flags().GetString("sort")
+	q, _ := cmd.Flags().GetString("q")
+	dueOn, _ := cmd.Flags().GetString("due-on")
+	dueOnMin, _ := cmd.Flags().GetString("due-on-min")
+	dueOnMax, _ := cmd.Flags().GetString("due-on-max")
+	completedOn, _ := cmd.Flags().GetString("completed-on")
+	completedOnMin, _ := cmd.Flags().GetString("completed-on-min")
+	completedOnMax, _ := cmd.Flags().GetString("completed-on-max")
+	isCompleted, _ := cmd.Flags().GetString("is-completed")
+	responsiblePerson, _ := cmd.Flags().GetString("responsible-person")
+	responsibleOrganization, _ := cmd.Flags().GetString("responsible-organization")
+	teamMember, _ := cmd.Flags().GetString("team-member")
+	createdBy, _ := cmd.Flags().GetString("created-by")
+	priority, _ := cmd.Flags().GetString("priority")
+	isDeleted, _ := cmd.Flags().GetString("is-deleted")
+	parentActionItem, _ := cmd.Flags().GetString("parent-action-item")
+	incident, _ := cmd.Flags().GetString("incident")
+	rootCause, _ := cmd.Flags().GetString("root-cause")
+	meeting, _ := cmd.Flags().GetString("meeting")
+	isUnplanned, _ := cmd.Flags().GetString("is-unplanned")
+	requiresXBEFeature, _ := cmd.Flags().GetString("requires-xbe-feature")
 	baseURL, _ := cmd.Flags().GetString("base-url")
 	token, _ := cmd.Flags().GetString("token")
 
 	return actionItemsListOptions{
-		BaseURL: baseURL,
-		Token:   token,
-		JSON:    jsonOut,
-		NoAuth:  noAuth,
-		Limit:   limit,
-		Offset:  offset,
-		Status:  status,
-		Kind:    kind,
-		Project: project,
-		Tracker: tracker,
-		Broker:  broker,
-		Sort:    sort,
+		BaseURL:                 baseURL,
+		Token:                   token,
+		JSON:                    jsonOut,
+		NoAuth:                  noAuth,
+		Limit:                   limit,
+		Offset:                  offset,
+		Status:                  status,
+		Kind:                    kind,
+		Project:                 project,
+		Tracker:                 tracker,
+		Broker:                  broker,
+		Sort:                    sort,
+		Q:                       q,
+		DueOn:                   dueOn,
+		DueOnMin:                dueOnMin,
+		DueOnMax:                dueOnMax,
+		CompletedOn:             completedOn,
+		CompletedOnMin:          completedOnMin,
+		CompletedOnMax:          completedOnMax,
+		IsCompleted:             isCompleted,
+		ResponsiblePerson:       responsiblePerson,
+		ResponsibleOrganization: responsibleOrganization,
+		TeamMember:              teamMember,
+		CreatedBy:               createdBy,
+		Priority:                priority,
+		IsDeleted:               isDeleted,
+		ParentActionItem:        parentActionItem,
+		Incident:                incident,
+		RootCause:               rootCause,
+		Meeting:                 meeting,
+		IsUnplanned:             isUnplanned,
+		RequiresXBEFeature:      requiresXBEFeature,
 	}, nil
 }
 

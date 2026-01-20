@@ -16,28 +16,32 @@ import (
 )
 
 type materialTransactionsListOptions struct {
-	BaseURL           string
-	Token             string
-	JSON              bool
-	NoAuth            bool
-	Limit             int
-	Offset            int
-	Query             string
-	Status            string
-	TicketNumber      string
-	Date              string
-	DateMin           string
-	DateMax           string
-	MaterialType      string
-	MaterialSite      string
-	MaterialSupplier  string
-	JobProductionPlan string
-	Customer          string
-	Trucker           string
-	Broker            string
-	Project           string
-	IsVoided          string
-	IncludeAll        bool
+	BaseURL                string
+	Token                  string
+	JSON                   bool
+	NoAuth                 bool
+	Limit                  int
+	Offset                 int
+	Query                  string
+	Status                 string
+	TicketNumber           string
+	Date                   string
+	DateMin                string
+	DateMax                string
+	MaterialType           string
+	MaterialSite           string
+	MaterialSupplier       string
+	JobProductionPlan      string
+	Customer               string
+	Trucker                string
+	Broker                 string
+	Project                string
+	IsVoided               string
+	IncludeAll             bool
+	BusinessUnit           string
+	JobSite                string
+	HasShift               string
+	TenderJobScheduleShift string
 }
 
 func newMaterialTransactionsListCmd() *cobra.Command {
@@ -122,16 +126,20 @@ func initMaterialTransactionsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("date", "", "Filter by transaction date (YYYY-MM-DD)")
 	cmd.Flags().String("date-min", "", "Filter by minimum transaction date (YYYY-MM-DD)")
 	cmd.Flags().String("date-max", "", "Filter by maximum transaction date (YYYY-MM-DD)")
-	cmd.Flags().String("material-type", "", "Filter by material type ID")
-	cmd.Flags().String("material-site", "", "Filter by material site ID")
-	cmd.Flags().String("material-supplier", "", "Filter by material supplier ID")
-	cmd.Flags().String("job-production-plan", "", "Filter by job production plan ID")
-	cmd.Flags().String("customer", "", "Filter by customer ID")
-	cmd.Flags().String("trucker", "", "Filter by trucker ID")
-	cmd.Flags().String("broker", "", "Filter by broker ID")
-	cmd.Flags().String("project", "", "Filter by project ID")
+	cmd.Flags().String("material-type", "", "Filter by material type ID (comma-separated for multiple)")
+	cmd.Flags().String("material-site", "", "Filter by material site ID (comma-separated for multiple)")
+	cmd.Flags().String("material-supplier", "", "Filter by material supplier ID (comma-separated for multiple)")
+	cmd.Flags().String("job-production-plan", "", "Filter by job production plan ID (comma-separated for multiple)")
+	cmd.Flags().String("customer", "", "Filter by customer ID (comma-separated for multiple)")
+	cmd.Flags().String("trucker", "", "Filter by trucker ID (comma-separated for multiple)")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("project", "", "Filter by project ID (comma-separated for multiple)")
 	cmd.Flags().String("is-voided", "", "Filter by voided status (true/false)")
 	cmd.Flags().Bool("include-all", false, "Include invalidated and denied transactions")
+	cmd.Flags().String("business-unit", "", "Filter by business unit ID (comma-separated for multiple)")
+	cmd.Flags().String("job-site", "", "Filter by job site ID (comma-separated for multiple)")
+	cmd.Flags().String("has-shift", "", "Filter by whether transaction has a shift (true/false)")
+	cmd.Flags().String("tender-job-schedule-shift", "", "Filter by tender job schedule shift ID (comma-separated for multiple)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -187,6 +195,10 @@ func runMaterialTransactionsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[broker]", opts.Broker)
 	setFilterIfPresent(query, "filter[project]", opts.Project)
 	setFilterIfPresent(query, "filter[is_voided]", opts.IsVoided)
+	setFilterIfPresent(query, "filter[business_unit]", opts.BusinessUnit)
+	setFilterIfPresent(query, "filter[job_site]", opts.JobSite)
+	setFilterIfPresent(query, "filter[has_shift]", opts.HasShift)
+	setFilterIfPresent(query, "filter[tender_job_schedule_shift]", opts.TenderJobScheduleShift)
 
 	// Date filters
 	if opts.Date != "" {
@@ -310,6 +322,22 @@ func parseMaterialTransactionsListOptions(cmd *cobra.Command) (materialTransacti
 	if err != nil {
 		return materialTransactionsListOptions{}, err
 	}
+	businessUnit, err := cmd.Flags().GetString("business-unit")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	jobSite, err := cmd.Flags().GetString("job-site")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	hasShift, err := cmd.Flags().GetString("has-shift")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	tenderJobScheduleShift, err := cmd.Flags().GetString("tender-job-schedule-shift")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return materialTransactionsListOptions{}, err
@@ -320,28 +348,32 @@ func parseMaterialTransactionsListOptions(cmd *cobra.Command) (materialTransacti
 	}
 
 	return materialTransactionsListOptions{
-		BaseURL:           baseURL,
-		Token:             token,
-		JSON:              jsonOut,
-		NoAuth:            noAuth,
-		Limit:             limit,
-		Offset:            offset,
-		Query:             query,
-		Status:            status,
-		TicketNumber:      ticketNumber,
-		Date:              date,
-		DateMin:           dateMin,
-		DateMax:           dateMax,
-		MaterialType:      materialType,
-		MaterialSite:      materialSite,
-		MaterialSupplier:  materialSupplier,
-		JobProductionPlan: jobProductionPlan,
-		Customer:          customer,
-		Trucker:           trucker,
-		Broker:            broker,
-		Project:           project,
-		IsVoided:          isVoided,
-		IncludeAll:        includeAll,
+		BaseURL:                baseURL,
+		Token:                  token,
+		JSON:                   jsonOut,
+		NoAuth:                 noAuth,
+		Limit:                  limit,
+		Offset:                 offset,
+		Query:                  query,
+		Status:                 status,
+		TicketNumber:           ticketNumber,
+		Date:                   date,
+		DateMin:                dateMin,
+		DateMax:                dateMax,
+		MaterialType:           materialType,
+		MaterialSite:           materialSite,
+		MaterialSupplier:       materialSupplier,
+		JobProductionPlan:      jobProductionPlan,
+		Customer:               customer,
+		Trucker:                trucker,
+		Broker:                 broker,
+		Project:                project,
+		IsVoided:               isVoided,
+		IncludeAll:             includeAll,
+		BusinessUnit:           businessUnit,
+		JobSite:                jobSite,
+		HasShift:               hasShift,
+		TenderJobScheduleShift: tenderJobScheduleShift,
 	}, nil
 }
 

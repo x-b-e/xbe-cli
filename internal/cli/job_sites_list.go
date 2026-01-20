@@ -15,14 +15,21 @@ import (
 )
 
 type jobSitesListOptions struct {
-	BaseURL string
-	Token   string
-	JSON    bool
-	NoAuth  bool
-	Limit   int
-	Offset  int
-	Name    string
-	Active  bool
+	BaseURL         string
+	Token           string
+	JSON            bool
+	NoAuth          bool
+	Limit           int
+	Offset          int
+	Name            string
+	Active          bool
+	Broker          string
+	Customer        string
+	Q               string
+	MaterialSite    string
+	HasMaterialSite string
+	IsStockpiling   string
+	ActiveSince     string
 }
 
 type jobSiteRow struct {
@@ -78,6 +85,13 @@ func initJobSitesListFlags(cmd *cobra.Command) {
 	cmd.Flags().Int("limit", 50, "Page size")
 	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("name", "", "Filter by name (partial match)")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("customer", "", "Filter by customer ID (comma-separated for multiple)")
+	cmd.Flags().String("q", "", "Full-text search")
+	cmd.Flags().String("material-site", "", "Filter by material site ID (comma-separated for multiple)")
+	cmd.Flags().String("has-material-site", "", "Filter by whether site has material site (true/false)")
+	cmd.Flags().String("is-stockpiling", "", "Filter by stockpiling status (true/false)")
+	cmd.Flags().String("active-since", "", "Filter by activity since date (YYYY-MM-DD)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -123,6 +137,13 @@ func runJobSitesList(cmd *cobra.Command, _ []string) error {
 	if opts.Active {
 		query.Set("filter[is-active]", "true")
 	}
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[customer]", opts.Customer)
+	setFilterIfPresent(query, "filter[q]", opts.Q)
+	setFilterIfPresent(query, "filter[material-site]", opts.MaterialSite)
+	setFilterIfPresent(query, "filter[has-material-site]", opts.HasMaterialSite)
+	setFilterIfPresent(query, "filter[is-stockpiling]", opts.IsStockpiling)
+	setFilterIfPresent(query, "filter[active-since]", opts.ActiveSince)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/job-sites", query)
 	if err != nil {
@@ -172,6 +193,34 @@ func parseJobSitesListOptions(cmd *cobra.Command) (jobSitesListOptions, error) {
 	if err != nil {
 		return jobSitesListOptions{}, err
 	}
+	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	customer, err := cmd.Flags().GetString("customer")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	q, err := cmd.Flags().GetString("q")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	materialSite, err := cmd.Flags().GetString("material-site")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	hasMaterialSite, err := cmd.Flags().GetString("has-material-site")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	isStockpiling, err := cmd.Flags().GetString("is-stockpiling")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	activeSince, err := cmd.Flags().GetString("active-since")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return jobSitesListOptions{}, err
@@ -182,14 +231,21 @@ func parseJobSitesListOptions(cmd *cobra.Command) (jobSitesListOptions, error) {
 	}
 
 	return jobSitesListOptions{
-		BaseURL: baseURL,
-		Token:   token,
-		JSON:    jsonOut,
-		NoAuth:  noAuth,
-		Active:  active,
-		Limit:   limit,
-		Offset:  offset,
-		Name:    name,
+		BaseURL:         baseURL,
+		Token:           token,
+		JSON:            jsonOut,
+		NoAuth:          noAuth,
+		Active:          active,
+		Limit:           limit,
+		Offset:          offset,
+		Name:            name,
+		Broker:          broker,
+		Customer:        customer,
+		Q:               q,
+		MaterialSite:    materialSite,
+		HasMaterialSite: hasMaterialSite,
+		IsStockpiling:   isStockpiling,
+		ActiveSince:     activeSince,
 	}, nil
 }
 

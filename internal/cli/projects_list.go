@@ -15,16 +15,32 @@ import (
 )
 
 type projectsListOptions struct {
-	BaseURL      string
-	Token        string
-	JSON         bool
-	NoAuth       bool
-	Limit        int
-	Offset       int
-	Name         string
-	Status       string
-	CreatedAtMin string
-	CreatedAtMax string
+	BaseURL        string
+	Token          string
+	JSON           bool
+	NoAuth         bool
+	Limit          int
+	Offset         int
+	Name           string
+	Status         string
+	CreatedAtMin   string
+	CreatedAtMax   string
+	Broker         string
+	Customer       string
+	ProjectManager string
+	Estimator      string
+	Developer      string
+	ProjectOffice  string
+	Q              string
+	Number         string
+	IsActive       string
+	IsManaged      string
+	JobStartOn     string
+	JobStartOnMin  string
+	JobStartOnMax  string
+	DueOn          string
+	DueOnMin       string
+	DueOnMax       string
 }
 
 func newProjectsListCmd() *cobra.Command {
@@ -79,6 +95,22 @@ func initProjectsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("status", "", "Filter by project status")
 	cmd.Flags().String("created-at-min", "", "Filter by minimum created date (YYYY-MM-DD)")
 	cmd.Flags().String("created-at-max", "", "Filter by maximum created date (YYYY-MM-DD)")
+	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
+	cmd.Flags().String("customer", "", "Filter by customer ID (comma-separated for multiple)")
+	cmd.Flags().String("project-manager", "", "Filter by project manager user ID (comma-separated for multiple)")
+	cmd.Flags().String("estimator", "", "Filter by estimator user ID (comma-separated for multiple)")
+	cmd.Flags().String("developer", "", "Filter by developer ID (comma-separated for multiple)")
+	cmd.Flags().String("project-office", "", "Filter by project office ID (comma-separated for multiple)")
+	cmd.Flags().String("q", "", "Full-text search")
+	cmd.Flags().String("number", "", "Filter by project number")
+	cmd.Flags().String("is-active", "", "Filter by active status (true/false)")
+	cmd.Flags().String("is-managed", "", "Filter by managed status (true/false)")
+	cmd.Flags().String("job-start-on", "", "Filter by job start date (YYYY-MM-DD)")
+	cmd.Flags().String("job-start-on-min", "", "Filter by minimum job start date (YYYY-MM-DD)")
+	cmd.Flags().String("job-start-on-max", "", "Filter by maximum job start date (YYYY-MM-DD)")
+	cmd.Flags().String("due-on", "", "Filter by due date (YYYY-MM-DD)")
+	cmd.Flags().String("due-on-min", "", "Filter by minimum due date (YYYY-MM-DD)")
+	cmd.Flags().String("due-on-max", "", "Filter by maximum due date (YYYY-MM-DD)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -114,6 +146,22 @@ func runProjectsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[status]", opts.Status)
 	setFilterIfPresent(query, "filter[created_at_min]", opts.CreatedAtMin)
 	setFilterIfPresent(query, "filter[created_at_max]", opts.CreatedAtMax)
+	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[customer]", opts.Customer)
+	setFilterIfPresent(query, "filter[project-manager]", opts.ProjectManager)
+	setFilterIfPresent(query, "filter[estimator]", opts.Estimator)
+	setFilterIfPresent(query, "filter[developer]", opts.Developer)
+	setFilterIfPresent(query, "filter[project-office]", opts.ProjectOffice)
+	setFilterIfPresent(query, "filter[q]", opts.Q)
+	setFilterIfPresent(query, "filter[number]", opts.Number)
+	setFilterIfPresent(query, "filter[is-active]", opts.IsActive)
+	setFilterIfPresent(query, "filter[is-managed]", opts.IsManaged)
+	setFilterIfPresent(query, "filter[job-start-on]", opts.JobStartOn)
+	setFilterIfPresent(query, "filter[job-start-on-min]", opts.JobStartOnMin)
+	setFilterIfPresent(query, "filter[job-start-on-max]", opts.JobStartOnMax)
+	setFilterIfPresent(query, "filter[due-on]", opts.DueOn)
+	setFilterIfPresent(query, "filter[due-on-min]", opts.DueOnMin)
+	setFilterIfPresent(query, "filter[due-on-max]", opts.DueOnMax)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/projects", query)
 	if err != nil {
@@ -171,6 +219,70 @@ func parseProjectsListOptions(cmd *cobra.Command) (projectsListOptions, error) {
 	if err != nil {
 		return projectsListOptions{}, err
 	}
+	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	customer, err := cmd.Flags().GetString("customer")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	projectManager, err := cmd.Flags().GetString("project-manager")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	estimator, err := cmd.Flags().GetString("estimator")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	developer, err := cmd.Flags().GetString("developer")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	projectOffice, err := cmd.Flags().GetString("project-office")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	q, err := cmd.Flags().GetString("q")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	number, err := cmd.Flags().GetString("number")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	isActive, err := cmd.Flags().GetString("is-active")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	isManaged, err := cmd.Flags().GetString("is-managed")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	jobStartOn, err := cmd.Flags().GetString("job-start-on")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	jobStartOnMin, err := cmd.Flags().GetString("job-start-on-min")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	jobStartOnMax, err := cmd.Flags().GetString("job-start-on-max")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	dueOn, err := cmd.Flags().GetString("due-on")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	dueOnMin, err := cmd.Flags().GetString("due-on-min")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	dueOnMax, err := cmd.Flags().GetString("due-on-max")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return projectsListOptions{}, err
@@ -181,16 +293,32 @@ func parseProjectsListOptions(cmd *cobra.Command) (projectsListOptions, error) {
 	}
 
 	return projectsListOptions{
-		BaseURL:      baseURL,
-		Token:        token,
-		JSON:         jsonOut,
-		NoAuth:       noAuth,
-		Limit:        limit,
-		Offset:       offset,
-		Name:         name,
-		Status:       status,
-		CreatedAtMin: createdAtMin,
-		CreatedAtMax: createdAtMax,
+		BaseURL:        baseURL,
+		Token:          token,
+		JSON:           jsonOut,
+		NoAuth:         noAuth,
+		Limit:          limit,
+		Offset:         offset,
+		Name:           name,
+		Status:         status,
+		CreatedAtMin:   createdAtMin,
+		CreatedAtMax:   createdAtMax,
+		Broker:         broker,
+		Customer:       customer,
+		ProjectManager: projectManager,
+		Estimator:      estimator,
+		Developer:      developer,
+		ProjectOffice:  projectOffice,
+		Q:              q,
+		Number:         number,
+		IsActive:       isActive,
+		IsManaged:      isManaged,
+		JobStartOn:     jobStartOn,
+		JobStartOnMin:  jobStartOnMin,
+		JobStartOnMax:  jobStartOnMax,
+		DueOn:          dueOn,
+		DueOnMin:       dueOnMin,
+		DueOnMax:       dueOnMax,
 	}, nil
 }
 
