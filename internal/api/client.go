@@ -9,10 +9,20 @@ import (
 	"strings"
 	"time"
 
+	"github.com/xbe-inc/xbe-cli/internal/telemetry"
 	"github.com/xbe-inc/xbe-cli/internal/version"
 )
 
 const defaultBaseURL = "https://server.x-b-e.com"
+
+// Package-level telemetry provider for HTTP instrumentation
+var telemetryProvider *telemetry.Provider
+
+// SetTelemetryProvider sets the telemetry provider for HTTP instrumentation.
+// This should be called before creating any clients.
+func SetTelemetryProvider(tp *telemetry.Provider) {
+	telemetryProvider = tp
+}
 
 // Client is a minimal HTTP client for the XBE API.
 type Client struct {
@@ -27,12 +37,19 @@ func NewClient(baseURL, token string) *Client {
 		baseURL = defaultBaseURL
 	}
 
+	httpClient := &http.Client{
+		Timeout: 30 * time.Second,
+	}
+
+	// Wrap transport with telemetry instrumentation if available
+	if telemetryProvider != nil {
+		httpClient.Transport = telemetryProvider.HTTPTransport(http.DefaultTransport)
+	}
+
 	return &Client{
-		BaseURL: strings.TrimRight(baseURL, "/"),
-		Token:   strings.TrimSpace(token),
-		HTTPClient: &http.Client{
-			Timeout: 30 * time.Second,
-		},
+		BaseURL:    strings.TrimRight(baseURL, "/"),
+		Token:      strings.TrimSpace(token),
+		HTTPClient: httpClient,
 	}
 }
 
