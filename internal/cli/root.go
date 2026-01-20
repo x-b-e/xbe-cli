@@ -81,13 +81,25 @@ func telemetryPreRun(cmd *cobra.Command, args []string) error {
 
 	ctx := cmd.Context()
 
+	// Parse command hierarchy
+	cmdInfo := telemetry.ParseCommandPath(cmd.CommandPath())
+
+	// Build span attributes
+	spanAttrs := []attribute.KeyValue{
+		attribute.String("command.name", cmdInfo.Name),
+		attribute.String("command.path", cmdInfo.Path),
+	}
+	if cmdInfo.Action != "" {
+		spanAttrs = append(spanAttrs, attribute.String("command.action", cmdInfo.Action))
+	}
+	if cmdInfo.Group != "" {
+		spanAttrs = append(spanAttrs, attribute.String("command.group", cmdInfo.Group))
+	}
+
 	// Start a span for this command
 	ctx, span := telemetryProvider.Tracer().Start(ctx,
 		"xbe.command."+cmd.Name(),
-		trace.WithAttributes(
-			attribute.String("command.name", cmd.Name()),
-			attribute.String("command.path", cmd.CommandPath()),
-		),
+		trace.WithAttributes(spanAttrs...),
 	)
 
 	// Store span and start time in context
@@ -135,7 +147,8 @@ func finalizeTelemetry(cmdErr error) {
 	span.End()
 
 	// Record command metrics with correct success status
-	telemetryProvider.RecordCommand(ctx, lastExecutedCmd.Name(), lastExecutedCmd.CommandPath(), success, time.Since(startTime))
+	cmdInfo := telemetry.ParseCommandPath(lastExecutedCmd.CommandPath())
+	telemetryProvider.RecordCommand(ctx, cmdInfo, success, time.Since(startTime))
 
 	// Clear the tracked command
 	lastExecutedCmd = nil

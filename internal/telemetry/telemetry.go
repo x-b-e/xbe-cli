@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
@@ -139,16 +140,64 @@ func (p *Provider) HTTPTransport(base http.RoundTripper) http.RoundTripper {
 	return otelhttp.NewTransport(base)
 }
 
+// CommandInfo holds parsed command hierarchy information.
+type CommandInfo struct {
+	Name   string // The leaf command (e.g., "list")
+	Group  string // The resource group (e.g., "action-items")
+	Action string // The top-level action (e.g., "view")
+	Path   string // Full command path (e.g., "xbe view action-items list")
+}
+
+// ParseCommandPath extracts command hierarchy from a command path.
+// For "xbe view action-items list":
+//   - Action = "view"
+//   - Group = "action-items"
+//   - Name = "list"
+func ParseCommandPath(commandPath string) CommandInfo {
+	parts := strings.Fields(commandPath)
+	info := CommandInfo{Path: commandPath}
+
+	switch len(parts) {
+	case 0:
+		// Empty path
+	case 1:
+		// Just "xbe"
+		info.Name = parts[0]
+	case 2:
+		// "xbe <action>" (e.g., "xbe version")
+		info.Name = parts[1]
+	case 3:
+		// "xbe <action> <group>" (e.g., "xbe view action-items")
+		info.Action = parts[1]
+		info.Name = parts[2]
+	default:
+		// "xbe <action> <group> <name>" or deeper
+		info.Action = parts[1]
+		info.Group = parts[len(parts)-2]
+		info.Name = parts[len(parts)-1]
+	}
+
+	return info
+}
+
 // RecordCommand records metrics for a completed command execution.
-func (p *Provider) RecordCommand(ctx context.Context, name string, commandPath string, success bool, duration time.Duration) {
+func (p *Provider) RecordCommand(ctx context.Context, cmdInfo CommandInfo, success bool, duration time.Duration) {
 	if p.noop || p.instruments == nil {
 		return
 	}
 
 	attrs := []attribute.KeyValue{
-		attribute.String("command.name", name),
-		attribute.String("command.path", commandPath),
+		attribute.String("command.name", cmdInfo.Name),
+		attribute.String("command.path", cmdInfo.Path),
 		attribute.Bool("success", success),
+	}
+
+	// Add action and group if present
+	if cmdInfo.Action != "" {
+		attrs = append(attrs, attribute.String("command.action", cmdInfo.Action))
+	}
+	if cmdInfo.Group != "" {
+		attrs = append(attrs, attribute.String("command.group", cmdInfo.Group))
 	}
 
 	p.instruments.commandCount.Add(ctx, 1, metric.WithAttributes(attrs...))
