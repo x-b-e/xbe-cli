@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/pflag"
 )
 
 // Command group annotations
@@ -223,9 +224,80 @@ func printSubcommands(out io.Writer, cmd *cobra.Command) {
 	}
 }
 
+// Global flags that appear on most commands (documented in root help)
+var (
+	paginationFlags = map[string]bool{"limit": true, "offset": true, "sort": true}
+	outputFlags     = map[string]bool{"json": true}
+	connectionFlags = map[string]bool{"base-url": true, "token": true, "no-auth": true}
+)
+
 func printFlags(out io.Writer, cmd *cobra.Command) {
 	fmt.Fprintln(out, "FLAGS:")
-	fmt.Fprint(out, cmd.LocalFlags().FlagUsages())
+
+	// Collect command-specific flags (filters), skip global flags
+	filters := []string{}
+	hasGlobalFlags := false
+
+	cmd.LocalFlags().VisitAll(func(f *pflag.Flag) {
+		if f.Hidden || f.Name == "help" {
+			return
+		}
+
+		// Check if this is a global flag
+		if paginationFlags[f.Name] || outputFlags[f.Name] || connectionFlags[f.Name] {
+			hasGlobalFlags = true
+			return
+		}
+
+		filters = append(filters, formatFlag(f))
+	})
+
+	// Print command-specific flags
+	for _, usage := range filters {
+		fmt.Fprint(out, usage)
+	}
+
+	// Reference global flags if any were present
+	if hasGlobalFlags {
+		if len(filters) > 0 {
+			fmt.Fprintln(out)
+		}
+		fmt.Fprintln(out, "  Use 'xbe --help' for global flags (--json, --limit, --base-url, etc.)")
+	}
+}
+
+// formatFlag formats a single flag for display, matching Cobra's format
+func formatFlag(f *pflag.Flag) string {
+	var buf strings.Builder
+
+	if f.Shorthand != "" {
+		buf.WriteString(fmt.Sprintf("  -%s, --%s", f.Shorthand, f.Name))
+	} else {
+		buf.WriteString(fmt.Sprintf("      --%s", f.Name))
+	}
+
+	varType, usage := pflag.UnquoteUsage(f)
+	if varType != "" {
+		buf.WriteString(" ")
+		buf.WriteString(varType)
+	}
+
+	// Calculate padding for alignment (similar to Cobra's default)
+	padding := 28 - buf.Len()
+	if padding < 1 {
+		padding = 1
+	}
+	buf.WriteString(strings.Repeat(" ", padding))
+
+	buf.WriteString(usage)
+
+	// Add default value if not zero value
+	if f.DefValue != "" && f.DefValue != "false" && f.DefValue != "0" && f.DefValue != "[]" {
+		buf.WriteString(fmt.Sprintf(" (default %q)", f.DefValue))
+	}
+
+	buf.WriteString("\n")
+	return buf.String()
 }
 
 // wrapText wraps text at the specified width, preserving existing newlines.
