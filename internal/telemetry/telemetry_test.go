@@ -185,7 +185,8 @@ func TestRecordCommand_Noop(t *testing.T) {
 	}
 
 	// Should not panic when called on no-op provider
-	provider.RecordCommand(ctx, "test", "xbe test", true, time.Second)
+	cmdInfo := CommandInfo{Name: "test", Path: "xbe test"}
+	provider.RecordCommand(ctx, cmdInfo, true, time.Second)
 }
 
 func TestRecordCommand_Enabled(t *testing.T) {
@@ -201,8 +202,44 @@ func TestRecordCommand_Enabled(t *testing.T) {
 	defer provider.Shutdown(ctx)
 
 	// Should not panic when called on enabled provider
-	provider.RecordCommand(ctx, "test", "xbe test", true, time.Second)
-	provider.RecordCommand(ctx, "test", "xbe test", false, 500*time.Millisecond)
+	cmdInfo := CommandInfo{Name: "test", Path: "xbe test"}
+	provider.RecordCommand(ctx, cmdInfo, true, time.Second)
+	provider.RecordCommand(ctx, cmdInfo, false, 500*time.Millisecond)
+}
+
+func TestParseCommandPath(t *testing.T) {
+	tests := []struct {
+		path           string
+		expectedAction string
+		expectedGroup  string
+		expectedName   string
+	}{
+		{"xbe", "", "", "xbe"},
+		{"xbe version", "", "", "version"},
+		{"xbe view action-items", "view", "", "action-items"},
+		{"xbe view action-items list", "view", "action-items", "list"},
+		{"xbe view action-items show", "view", "action-items", "show"},
+		{"xbe edit brokers update", "edit", "brokers", "update"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.path, func(t *testing.T) {
+			info := ParseCommandPath(tt.path)
+
+			if info.Action != tt.expectedAction {
+				t.Errorf("Action: got %q, want %q", info.Action, tt.expectedAction)
+			}
+			if info.Group != tt.expectedGroup {
+				t.Errorf("Group: got %q, want %q", info.Group, tt.expectedGroup)
+			}
+			if info.Name != tt.expectedName {
+				t.Errorf("Name: got %q, want %q", info.Name, tt.expectedName)
+			}
+			if info.Path != tt.path {
+				t.Errorf("Path: got %q, want %q", info.Path, tt.path)
+			}
+		})
+	}
 }
 
 func TestTracer_NoopWhenDisabled(t *testing.T) {
