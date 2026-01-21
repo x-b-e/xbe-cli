@@ -60,6 +60,19 @@ XBE CLI is a Cobra-based command-line tool for the XBE platform.
 5. Support `--json` flag for machine-readable output
 6. Include `Use`, `Short`, `Long`, and `Example` in command definition
 
+### Resource Decisions
+
+See `RESOURCE_DECISIONS.md` for tracking which server resources to implement in the CLI.
+
+When considering a new resource:
+1. Check if it's already in the decisions file
+2. If pending, discuss with the user before implementing
+3. If implementing, move it to the "Implemented" section
+4. If skipping, add it to "Skipped" with the reason and date
+5. Check the server's policy file (`app/policies/*_policy.rb`) to see if the resource is read-only
+
+Resources marked as `abstract` in the server are not real API endpoints and should be skipped.
+
 ### Flag Display in Help Output
 
 Subcommand help shows only command-specific flags. Global flags (`--json`, `--limit`, `--offset`, `--sort`, `--base-url`, `--token`, `--no-auth`) are documented in `xbe --help` and referenced via a one-liner in subcommand help.

@@ -12,8 +12,13 @@ these operations modify data and require authentication.
 
 Resources:
   action-items                     Manage action items (tasks, bugs, features)
+  certification-types              Manage certification types
+  equipment-classifications        Manage equipment classifications
+  external-identification-types    Manage external identification types
   glossary-terms                   Manage glossary term definitions
-  memberships                      Manage user-organization memberships`,
+  labor-classifications            Manage labor classifications (worker types)
+  memberships                      Manage user-organization memberships
+  tag-categories                   Manage tag categories`,
 	Example: `  # Create an action item
   xbe do action-items create --title "Fix production bug" --kind bug_fix
 
@@ -36,7 +41,16 @@ Resources:
   xbe do memberships update 686 --kind operations
 
   # Delete a membership
-  xbe do memberships delete 686 --confirm`,
+  xbe do memberships delete 686 --confirm
+
+  # Create a labor classification
+  xbe do labor-classifications create --name "Raker" --abbreviation "raker"
+
+  # Update a labor classification
+  xbe do labor-classifications update 123 --name "Senior Raker"
+
+  # Delete a labor classification
+  xbe do labor-classifications delete 123 --confirm`,
 	Annotations: map[string]string{"group": GroupCore},
 }
 
