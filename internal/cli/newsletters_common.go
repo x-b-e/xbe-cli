@@ -143,6 +143,30 @@ func boolAttr(attrs map[string]any, key string) bool {
 	}
 }
 
+func intAttr(attrs map[string]any, key string) int {
+	if attrs == nil {
+		return 0
+	}
+	value, ok := attrs[key]
+	if !ok || value == nil {
+		return 0
+	}
+	switch typed := value.(type) {
+	case int:
+		return typed
+	case int64:
+		return int(typed)
+	case float64:
+		return int(typed)
+	case string:
+		var result int
+		fmt.Sscanf(typed, "%d", &result)
+		return result
+	default:
+		return 0
+	}
+}
+
 func firstNonEmpty(values ...string) string {
 	for _, value := range values {
 		if strings.TrimSpace(value) != "" {
