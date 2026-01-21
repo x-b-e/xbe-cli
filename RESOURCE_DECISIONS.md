@@ -35,6 +35,16 @@ This file tracks decisions about which server resources to implement in the CLI.
 | `developer-trucker-certification-classifications` | list | create, update, delete | Developer-scoped |
 | `truck-scopes` | list | create, update, delete | Polymorphic org-scoped, geocoded address |
 
+### Credential Resources (View + Do)
+
+| Resource | View | Do | Notes |
+|----------|------|-----|-------|
+| `user-credentials` | list | create, update, delete | Credentials for users, filters: user, user-credential-classification, issued-on min/max, expires-on min/max, active-on |
+| `tractor-credentials` | list | create, update, delete | Credentials for tractors, filters: tractor, tractor-trailer-credential-classification, issued-on min/max, expires-on min/max, active-on |
+| `trailer-credentials` | list | create, update, delete | Credentials for trailers, filters: trailer, tractor-trailer-credential-classification, issued-on min/max, expires-on min/max, active-on |
+| `certifications` | list | create, update, delete | Certifications for polymorphic certifiable entities, filters: certification-type, status, expires-within-days, expires-before, broker |
+| `certification-requirements` | list | create, update, delete | Requirements defining certifications needed by entities, filters: certification-type, required-by (Type\|ID format) |
+
 ### Reference Resources (View Only)
 
 | Resource | View | Do | Notes |
