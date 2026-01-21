@@ -35,6 +35,12 @@ type costCodeRow struct {
 	Code        string `json:"code"`
 	Description string `json:"description,omitempty"`
 	IsActive    bool   `json:"is_active"`
+	Customer    string `json:"customer,omitempty"`
+	CustomerID  string `json:"customer_id,omitempty"`
+	Trucker     string `json:"trucker,omitempty"`
+	TruckerID   string `json:"trucker_id,omitempty"`
+	Broker      string `json:"broker,omitempty"`
+	BrokerID    string `json:"broker_id,omitempty"`
 }
 
 func newCostCodesListCmd() *cobra.Command {
@@ -51,6 +57,9 @@ Output Columns:
   CODE         Cost code value
   DESCRIPTION  Description of the cost code
   ACTIVE       Whether the cost code is active
+  CUSTOMER     Customer name (if associated)
+  TRUCKER      Trucker name (if associated)
+  BROKER       Broker name (if associated)
 
 Filters:
   --customer     Filter by customer ID
@@ -124,7 +133,11 @@ func runCostCodesList(cmd *cobra.Command, _ []string) error {
 
 	query := url.Values{}
 	query.Set("sort", "code")
-	query.Set("fields[cost-codes]", "code,description,is-active")
+	query.Set("fields[cost-codes]", "code,description,is-active,customer,trucker,broker")
+	query.Set("fields[customers]", "company-name")
+	query.Set("fields[truckers]", "company-name")
+	query.Set("fields[brokers]", "company-name")
+	query.Set("include", "customer,trucker,broker")
 
 	if opts.Limit > 0 {
 		query.Set("page[limit]", strconv.Itoa(opts.Limit))
@@ -196,6 +209,12 @@ func parseCostCodesListOptions(cmd *cobra.Command) (costCodesListOptions, error)
 }
 
 func buildCostCodeRows(resp jsonAPIResponse) []costCodeRow {
+	included := make(map[string]jsonAPIResource)
+	for _, inc := range resp.Included {
+		key := resourceKey(inc.Type, inc.ID)
+		included[key] = inc
+	}
+
 	rows := make([]costCodeRow, 0, len(resp.Data))
 	for _, resource := range resp.Data {
 		row := costCodeRow{
@@ -204,6 +223,28 @@ func buildCostCodeRows(resp jsonAPIResponse) []costCodeRow {
 			Description: stringAttr(resource.Attributes, "description"),
 			IsActive:    boolAttr(resource.Attributes, "is-active"),
 		}
+
+		if rel, ok := resource.Relationships["customer"]; ok && rel.Data != nil {
+			row.CustomerID = rel.Data.ID
+			if customer, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+				row.Customer = stringAttr(customer.Attributes, "company-name")
+			}
+		}
+
+		if rel, ok := resource.Relationships["trucker"]; ok && rel.Data != nil {
+			row.TruckerID = rel.Data.ID
+			if trucker, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+				row.Trucker = stringAttr(trucker.Attributes, "company-name")
+			}
+		}
+
+		if rel, ok := resource.Relationships["broker"]; ok && rel.Data != nil {
+			row.BrokerID = rel.Data.ID
+			if broker, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+				row.Broker = stringAttr(broker.Attributes, "company-name")
+			}
+		}
+
 		rows = append(rows, row)
 	}
 	return rows
@@ -216,17 +257,20 @@ func renderCostCodesTable(cmd *cobra.Command, rows []costCodeRow) error {
 	}
 
 	writer := tabwriter.NewWriter(cmd.OutOrStdout(), 2, 4, 2, ' ', 0)
-	fmt.Fprintln(writer, "ID\tCODE\tDESCRIPTION\tACTIVE")
+	fmt.Fprintln(writer, "ID\tCODE\tDESCRIPTION\tACTIVE\tCUSTOMER\tTRUCKER\tBROKER")
 	for _, row := range rows {
 		active := "no"
 		if row.IsActive {
 			active = "yes"
 		}
-		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\n",
+		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
 			row.ID,
 			truncateString(row.Code, 20),
-			truncateString(row.Description, 40),
+			truncateString(row.Description, 30),
 			active,
+			truncateString(row.Customer, 20),
+			truncateString(row.Trucker, 20),
+			truncateString(row.Broker, 20),
 		)
 	}
 	return writer.Flush()

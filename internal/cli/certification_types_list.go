@@ -32,6 +32,7 @@ type certificationTypeRow struct {
 	Name               string `json:"name"`
 	CanApplyTo         string `json:"can_apply_to,omitempty"`
 	RequiresExpiration bool   `json:"requires_expiration"`
+	CanDelete          bool   `json:"can_delete"`
 	CanBeRequirementOf string `json:"can_be_requirement_of,omitempty"`
 	Broker             string `json:"broker,omitempty"`
 	BrokerID           string `json:"broker_id,omitempty"`
@@ -51,6 +52,8 @@ Output Columns:
   NAME         Certification name
   APPLIES TO   What the certification applies to (driver, trucker, equipment)
   EXPIRES      Whether the certification requires an expiration date
+  CAN DELETE   Whether the certification type can be deleted
+  REQUIREMENT  What the certification can be a requirement of
   BROKER       Broker name
 
 Filters:
@@ -116,7 +119,7 @@ func runCertificationTypesList(cmd *cobra.Command, _ []string) error {
 
 	query := url.Values{}
 	query.Set("sort", "name")
-	query.Set("fields[certification-types]", "name,can-apply-to,requires-expiration,can-be-requirement-of,broker")
+	query.Set("fields[certification-types]", "name,can-apply-to,requires-expiration,can-delete,can-be-requirement-of,broker")
 	query.Set("fields[brokers]", "company-name")
 	query.Set("include", "broker")
 
@@ -194,6 +197,7 @@ func buildCertificationTypeRows(resp jsonAPIResponse) []certificationTypeRow {
 			Name:               stringAttr(resource.Attributes, "name"),
 			CanApplyTo:         stringAttr(resource.Attributes, "can-apply-to"),
 			RequiresExpiration: boolAttr(resource.Attributes, "requires-expiration"),
+			CanDelete:          boolAttr(resource.Attributes, "can-delete"),
 			CanBeRequirementOf: strings.Join(stringSliceAttr(resource.Attributes, "can-be-requirement-of"), ", "),
 		}
 
@@ -216,18 +220,24 @@ func renderCertificationTypesTable(cmd *cobra.Command, rows []certificationTypeR
 	}
 
 	writer := tabwriter.NewWriter(cmd.OutOrStdout(), 2, 4, 2, ' ', 0)
-	fmt.Fprintln(writer, "ID\tNAME\tAPPLIES TO\tEXPIRES\tBROKER")
+	fmt.Fprintln(writer, "ID\tNAME\tAPPLIES TO\tEXPIRES\tCAN DELETE\tREQUIREMENT\tBROKER")
 	for _, row := range rows {
 		expires := "no"
 		if row.RequiresExpiration {
 			expires = "yes"
 		}
-		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\n",
+		canDelete := "no"
+		if row.CanDelete {
+			canDelete = "yes"
+		}
+		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
 			row.ID,
 			truncateString(row.Name, 30),
-			truncateString(row.CanApplyTo, 15),
+			truncateString(row.CanApplyTo, 10),
 			expires,
-			truncateString(row.Broker, 25),
+			canDelete,
+			truncateString(row.CanBeRequirementOf, 25),
+			truncateString(row.Broker, 20),
 		)
 	}
 	return writer.Flush()

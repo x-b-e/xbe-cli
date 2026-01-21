@@ -29,6 +29,9 @@ type cultureValueRow struct {
 	Name             string `json:"name"`
 	Description      string `json:"description,omitempty"`
 	SequencePosition int    `json:"sequence_position"`
+	Organization     string `json:"organization,omitempty"`
+	OrganizationID   string `json:"organization_id,omitempty"`
+	OrganizationType string `json:"organization_type,omitempty"`
 }
 
 func newCultureValuesListCmd() *cobra.Command {
@@ -45,6 +48,7 @@ Output Columns:
   NAME         Value name
   DESCRIPTION  Value description
   POSITION     Display order position
+  ORGANIZATION Organization name
 
 Filters:
   --organization  Filter by organization (format: Type|ID, e.g., Broker|123)`,
@@ -100,7 +104,11 @@ func runCultureValuesList(cmd *cobra.Command, _ []string) error {
 
 	query := url.Values{}
 	query.Set("sort", "name")
-	query.Set("fields[culture-values]", "name,description,sequence-position")
+	query.Set("fields[culture-values]", "name,description,sequence-index,organization")
+	query.Set("fields[brokers]", "company-name")
+	query.Set("fields[truckers]", "company-name")
+	query.Set("fields[customers]", "company-name")
+	query.Set("include", "organization")
 
 	if opts.Limit > 0 {
 		query.Set("page[limit]", strconv.Itoa(opts.Limit))
@@ -154,14 +162,32 @@ func parseCultureValuesListOptions(cmd *cobra.Command) (cultureValuesListOptions
 }
 
 func buildCultureValueRows(resp jsonAPIResponse) []cultureValueRow {
+	included := make(map[string]jsonAPIResource)
+	for _, inc := range resp.Included {
+		key := resourceKey(inc.Type, inc.ID)
+		included[key] = inc
+	}
+
 	rows := make([]cultureValueRow, 0, len(resp.Data))
 	for _, resource := range resp.Data {
 		row := cultureValueRow{
 			ID:               resource.ID,
 			Name:             stringAttr(resource.Attributes, "name"),
 			Description:      stringAttr(resource.Attributes, "description"),
-			SequencePosition: intAttr(resource.Attributes, "sequence-position"),
+			SequencePosition: intAttr(resource.Attributes, "sequence-index"),
 		}
+
+		if rel, ok := resource.Relationships["organization"]; ok && rel.Data != nil {
+			row.OrganizationID = rel.Data.ID
+			row.OrganizationType = rel.Data.Type
+			if org, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+				row.Organization = stringAttr(org.Attributes, "company-name")
+				if row.Organization == "" {
+					row.Organization = stringAttr(org.Attributes, "name")
+				}
+			}
+		}
+
 		rows = append(rows, row)
 	}
 	return rows
@@ -174,17 +200,15 @@ func renderCultureValuesTable(cmd *cobra.Command, rows []cultureValueRow) error 
 	}
 
 	writer := tabwriter.NewWriter(cmd.OutOrStdout(), 2, 4, 2, ' ', 0)
-	fmt.Fprintln(writer, "ID\tNAME\tDESCRIPTION\tPOSITION")
+	fmt.Fprintln(writer, "ID\tNAME\tDESCRIPTION\tPOSITION\tORGANIZATION")
 	for _, row := range rows {
-		position := ""
-		if row.SequencePosition > 0 {
-			position = strconv.Itoa(row.SequencePosition)
-		}
-		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\n",
+		position := strconv.Itoa(row.SequencePosition)
+		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\n",
 			row.ID,
 			truncateString(row.Name, 25),
-			truncateString(row.Description, 40),
+			truncateString(row.Description, 35),
 			position,
+			truncateString(row.Organization, 25),
 		)
 	}
 	return writer.Flush()

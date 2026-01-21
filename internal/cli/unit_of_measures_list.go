@@ -33,6 +33,8 @@ type unitOfMeasureRow struct {
 	Metric            string `json:"metric,omitempty"`
 	MeasurementSystem string `json:"measurement_system,omitempty"`
 	IsCalculated      bool   `json:"is_calculated"`
+	CalculationType   string `json:"calculation_type,omitempty"`
+	IsQuantified      bool   `json:"is_quantified"`
 }
 
 func newUnitOfMeasuresListCmd() *cobra.Command {
@@ -51,6 +53,8 @@ Output Columns:
   METRIC         Metric type (e.g., mass, volume, time)
   SYSTEM         Measurement system (e.g., imperial, metric)
   CALCULATED     Whether the unit is calculated
+  CALC TYPE      Calculation type (if calculated)
+  QUANTIFIED     Whether the unit is quantified
 
 Filters:
   --name                Filter by name (partial match, case-insensitive)
@@ -113,7 +117,7 @@ func runUnitOfMeasuresList(cmd *cobra.Command, _ []string) error {
 
 	query := url.Values{}
 	query.Set("sort", "name")
-	query.Set("fields[unit-of-measures]", "name,abbreviation,metric,measurement-system,is-calculated")
+	query.Set("fields[unit-of-measures]", "name,abbreviation,metric,measurement-system,is-calculated,calculation-type,is-quantified")
 
 	if opts.Limit > 0 {
 		query.Set("page[limit]", strconv.Itoa(opts.Limit))
@@ -182,6 +186,8 @@ func buildUnitOfMeasureRows(resp jsonAPIResponse) []unitOfMeasureRow {
 			Metric:            stringAttr(resource.Attributes, "metric"),
 			MeasurementSystem: stringAttr(resource.Attributes, "measurement-system"),
 			IsCalculated:      boolAttr(resource.Attributes, "is-calculated"),
+			CalculationType:   stringAttr(resource.Attributes, "calculation-type"),
+			IsQuantified:      boolAttr(resource.Attributes, "is-quantified"),
 		}
 		rows = append(rows, row)
 	}
@@ -195,19 +201,25 @@ func renderUnitOfMeasuresTable(cmd *cobra.Command, rows []unitOfMeasureRow) erro
 	}
 
 	writer := tabwriter.NewWriter(cmd.OutOrStdout(), 2, 4, 2, ' ', 0)
-	fmt.Fprintln(writer, "ID\tNAME\tABBREVIATION\tMETRIC\tSYSTEM\tCALCULATED")
+	fmt.Fprintln(writer, "ID\tNAME\tABBREVIATION\tMETRIC\tSYSTEM\tCALCULATED\tCALC TYPE\tQUANTIFIED")
 	for _, row := range rows {
 		calculated := "no"
 		if row.IsCalculated {
 			calculated = "yes"
 		}
-		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\t%s\n",
+		quantified := "no"
+		if row.IsQuantified {
+			quantified = "yes"
+		}
+		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
 			row.ID,
 			truncateString(row.Name, 25),
 			truncateString(row.Abbreviation, 10),
 			truncateString(row.Metric, 15),
 			truncateString(row.MeasurementSystem, 10),
 			calculated,
+			truncateString(row.CalculationType, 15),
+			quantified,
 		)
 	}
 	return writer.Flush()
