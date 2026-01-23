@@ -77,6 +77,8 @@ xbe
 │   ├── job-production-plan-broadcast-messages  Manage job production plan broadcast messages
 │   │   ├── create           Create a broadcast message
 │   │   └── update           Update a broadcast message
+│   ├── job-production-plan-material-site-changes  Manage job production plan material site changes
+│   │   └── create           Create a material site change
 │   ├── job-production-plan-duplications  Duplicate job production plan templates
 │   │   └── create           Duplicate a job production plan template
 │   ├── memberships          Manage user-organization memberships
@@ -103,6 +105,9 @@ xbe
 │   ├── job-production-plan-broadcast-messages  Browse job production plan broadcast messages
 │   │   ├── list            List broadcast messages
 │   │   └── show <id>       Show broadcast message details
+│   ├── job-production-plan-material-site-changes  Browse job production plan material site changes
+│   │   ├── list            List material site changes
+│   │   └── show <id>       Show material site change details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
 │   ├── users               Browse users (for creator lookup)
@@ -529,6 +534,32 @@ xbe do job-production-plan-broadcast-messages create \
 
 # Hide a broadcast message
 xbe do job-production-plan-broadcast-messages update 456 --is-hidden
+```
+
+### Job Production Plan Material Site Changes
+
+Material site changes swap material sites (and optionally material types) on a job production plan.
+
+```bash
+# List material site changes
+xbe view job-production-plan-material-site-changes list
+
+# Show material site change details
+xbe view job-production-plan-material-site-changes show 123
+
+# Swap material sites
+xbe do job-production-plan-material-site-changes create \
+  --job-production-plan 123 \
+  --old-material-site 456 \
+  --new-material-site 789
+
+# Swap material site and material type
+xbe do job-production-plan-material-site-changes create \
+  --job-production-plan 123 \
+  --old-material-site 456 \
+  --new-material-site 789 \
+  --old-material-type 111 \
+  --new-material-type 222
 ```
 
 ### Job Production Plan Duplications
