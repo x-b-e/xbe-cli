@@ -104,10 +104,14 @@ xbe
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
-│   └── memberships          Manage user-organization memberships
-│       ├── create           Create a membership
-│       ├── update           Update a membership
-│       └── delete           Delete a membership
+│   ├── memberships          Manage user-organization memberships
+│   │   ├── create           Create a membership
+│   │   ├── update           Update a membership
+│   │   └── delete           Delete a membership
+│   └── maintenance-requirement-parts Manage maintenance requirement parts
+│       ├── create           Create a maintenance requirement part
+│       ├── update           Update a maintenance requirement part
+│       └── delete           Delete a maintenance requirement part
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -131,6 +135,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── maintenance-requirement-parts Browse maintenance requirement parts
+│   │   ├── list            List maintenance requirement parts
+│   │   └── show <id>       Show maintenance requirement part details
 │   ├── driver-movement-segments Browse driver movement segments
 │   │   ├── list            List movement segments with filtering
 │   │   └── show <id>       Show movement segment details
