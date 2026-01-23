@@ -92,6 +92,8 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-transaction-denials  Deny material transactions
+│   │   └── create           Deny a material transaction
 │   ├── material-purchase-orders Manage material purchase orders
 │   │   ├── create           Create a material purchase order
 │   │   ├── update           Update a material purchase order
@@ -401,6 +403,18 @@ xbe do material-transaction-summary create \
 xbe do material-transaction-summary create \
   --filter broker=123 \
   --min-transactions 100
+```
+
+### Material Transaction Denials
+
+Material transaction denials set a transaction's status to denied. Comments are required
+for submitted or accepted transactions.
+
+```bash
+# Deny a material transaction
+xbe do material-transaction-denials create \
+  --material-transaction 123 \
+  --comment "Load contaminated"
 ```
 
 ### Material Mix Design Matches
