@@ -108,6 +108,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── geofence-restriction-violations  Browse geofence restriction violations
+│   │   ├── list            List geofence restriction violations
+│   │   └── show <id>       Show geofence restriction violation details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
