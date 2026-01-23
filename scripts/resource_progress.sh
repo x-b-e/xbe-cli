@@ -19,7 +19,7 @@ SERVER_ROOT="${XBE_SERVER_DIR:-${SERVER_ROOT:-$DEFAULT_SERVER_ROOT}}"
 RATE_WINDOW_HOURS="${RATE_WINDOW_HOURS:-4}"
 MERGE_QUEUE_FILE="${OUTER_LOOP_MERGE_QUEUE_FILE:-$ROOT_DIR/.outer_loop_merge_queue.txt}"
 
-python3 - "$ROOT_DIR" "$SERVER_ROOT" "$RESOURCE_FILE" "$RATE_WINDOW_HOURS" "$MERGE_QUEUE_FILE" <<'PY'
+python3 - "$ROOT_DIR" "$SERVER_ROOT" "$RESOURCE_FILE" "$RATE_WINDOW_HOURS" "$MERGE_QUEUE_FILE" "$DEFAULT_SERVER_ROOT" <<'PY'
 import os
 import re
 import subprocess
@@ -31,6 +31,7 @@ server_root = sys.argv[2]
 resource_file = sys.argv[3]
 rate_window_hours = float(sys.argv[4])
 merge_queue_file = sys.argv[5]
+default_server_root = sys.argv[6]
 
 def run_git(args):
     return subprocess.check_output(["git", "-C", root] + args, text=True).strip()
@@ -65,10 +66,25 @@ skipped = parse_bullets(lines, "Skipped (intentional)")
 not_reviewed = parse_bullets(lines, "Not Yet Reviewed")
 
 cli_dir = os.path.join(root, "internal", "cli")
-server_routes = os.path.join(server_root, "config", "routes.rb")
-if not os.path.isfile(server_routes):
-    print(f"error: server routes not found at {server_routes}", file=sys.stderr)
-    sys.exit(1)
+
+def load_server_resources(root_path):
+    routes_path = os.path.join(root_path, "config", "routes.rb")
+    if not os.path.isfile(routes_path):
+        return None, routes_path
+    routes_text = open(routes_path, "r", encoding="utf-8").read()
+    resources = {name.replace("_", "-") for name in re.findall(r"jsonapi_resources\\s+:([a-z0-9_]+)", routes_text)}
+    return resources, routes_path
+
+server_resources, server_routes = load_server_resources(server_root)
+if not server_resources:
+    if default_server_root and default_server_root != server_root:
+        server_resources, server_routes = load_server_resources(default_server_root)
+    if not server_resources:
+        if server_routes is None or not os.path.isfile(server_routes):
+            print(f"error: server routes not found at {server_routes}", file=sys.stderr)
+        else:
+            print(f\"error: no jsonapi_resources found in {server_routes}\", file=sys.stderr)
+        sys.exit(1)
 
 var_re = re.compile(r"var\\s+(\\w+)\\s*=\\s*&cobra\\.Command\\s*{", re.M)
 use_re = re.compile(r"Use:\\s*\\\"([^\\\"]+)\\\"")
@@ -115,10 +131,6 @@ for filename in os.listdir(cli_dir):
                     command_resources.add(use)
 
 routes_text = open(server_routes, "r", encoding="utf-8").read()
-server_resources = {name.replace("_", "-") for name in re.findall(r"jsonapi_resources\\s+:([a-z0-9_]+)", routes_text)}
-if not server_resources:
-    print("error: no jsonapi_resources found in routes.rb", file=sys.stderr)
-    sys.exit(1)
 
 alias_map = {
     "lane-summary": "cycle-summaries",
