@@ -78,6 +78,10 @@ xbe
 │   │   ├── create           Create a shift set time card constraint
 │   │   ├── update           Update a shift set time card constraint
 │   │   └── delete           Delete a shift set time card constraint
+│   ├── time-card-cost-code-allocations Manage time card cost code allocations
+│   │   ├── create           Create a time card cost code allocation
+│   │   ├── update           Update a time card cost code allocation
+│   │   └── delete           Delete a time card cost code allocation
 │   ├── resource-unavailabilities Manage resource unavailabilities
 │   │   ├── create           Create a resource unavailability
 │   │   ├── update           Update a resource unavailability
@@ -172,6 +176,9 @@ xbe
 │   ├── shift-set-time-card-constraints Browse shift set time card constraints
 │   │   ├── list            List shift set time card constraints
 │   │   └── show <id>       Show shift set time card constraint details
+│   ├── time-card-cost-code-allocations Browse time card cost code allocations
+│   │   ├── list            List time card cost code allocations
+│   │   └── show <id>       Show time card cost code allocation details
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
