@@ -127,6 +127,7 @@ material-suppliers
 material-transaction-shift-assignments
 material-transaction-summary
 material-transactions
+material-type-material-site-inventory-locations
 material-types
 memberships
 newsletters
@@ -343,7 +344,6 @@ material-transaction-status-changes
 material-transaction-submissions
 material-transaction-ticket-generators
 material-type-conversions
-material-type-material-site-inventory-locations
 material-type-unavailabilities
 material-unit-of-measure-quantities
 resource-unavailabilities

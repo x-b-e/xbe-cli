@@ -92,6 +92,10 @@ xbe
 │   │   ├── create           Create a material site reading material type
 │   │   ├── update           Update a material site reading material type
 │   │   └── delete           Delete a material site reading material type
+│   ├── material-type-material-site-inventory-locations  Manage material type material site inventory locations
+│   │   ├── create           Create a material type material site inventory location
+│   │   ├── update           Update a material type material site inventory location
+│   │   └── delete           Delete a material type material site inventory location
 │   ├── material-purchase-order-release-redemptions  Manage material purchase order release redemptions
 │   │   ├── create           Create a release redemption
 │   │   ├── update           Update a release redemption
@@ -160,6 +164,9 @@ xbe
 │   ├── material-site-reading-material-types  Browse material site reading material types
 │   │   ├── list            List material site reading material types with filtering
 │   │   └── show <id>       Show material site reading material type details
+│   ├── material-type-material-site-inventory-locations  Browse material type material site inventory locations
+│   │   ├── list            List material type material site inventory locations with filtering
+│   │   └── show <id>       Show material type material site inventory location details
 │   ├── material-purchase-order-release-redemptions  Browse material purchase order release redemptions
 │   │   ├── list            List release redemptions with filtering
 │   │   └── show <id>       Show release redemption details
