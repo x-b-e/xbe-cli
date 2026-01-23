@@ -120,6 +120,8 @@ xbe
 │   │   └── delete           Delete a time card pre-approval
 │   ├── time-card-unscrappages Manage time card unscrappages
 │   │   └── create           Create a time card unscrappage
+│   ├── time-sheet-rejections Manage time sheet rejections
+│   │   └── create           Reject a time sheet
 │   ├── time-sheet-line-item-equipment-requirements Manage time sheet line item equipment requirements
 │   │   ├── create           Create a time sheet line item equipment requirement
 │   │   ├── update           Update a time sheet line item equipment requirement
@@ -222,6 +224,9 @@ xbe
 │   ├── time-card-unscrappages Browse time card unscrappages
 │   │   ├── list            List time card unscrappages
 │   │   └── show <id>       Show time card unscrappage details
+│   ├── time-sheet-rejections Browse time sheet rejections
+│   │   ├── list            List time sheet rejections
+│   │   └── show <id>       Show time sheet rejection details
 │   ├── time-sheet-line-item-equipment-requirements Browse time sheet line item equipment requirements
 │   │   ├── list            List time sheet line item equipment requirements with filtering
 │   │   └── show <id>       Show time sheet line item equipment requirement details
