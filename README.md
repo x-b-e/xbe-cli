@@ -79,6 +79,10 @@ xbe
 │   ├── job-production-plan-alarm-subscribers  Manage job production plan alarm subscribers
 │   │   ├── create           Create an alarm subscriber
 │   │   └── delete           Delete an alarm subscriber
+│   ├── job-production-plan-change-sets        Manage job production plan change sets
+│   │   ├── create           Create a change set
+│   │   ├── update           Update a change set
+│   │   └── delete           Delete a change set
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -112,6 +116,9 @@ xbe
 │   ├── job-production-plan-alarm-subscribers  Browse job production plan alarm subscribers
 │   │   ├── list            List alarm subscribers with filtering
 │   │   └── show <id>       Show alarm subscriber details
+│   ├── job-production-plan-change-sets        Browse job production plan change sets
+│   │   ├── list            List change sets with filtering
+│   │   └── show <id>       Show change set details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
