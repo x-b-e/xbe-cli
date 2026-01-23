@@ -118,6 +118,7 @@ job-production-plans
 job-production-plan-uncompletions
 job-production-plan-service-type-unit-of-measure-cohorts
 job-sites
+lineup-dispatches
 lineup-dispatch-shifts
 labor-classifications
 laborers

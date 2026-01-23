@@ -86,6 +86,10 @@ xbe
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
 │   │   └── create           Create a job schedule shift start site change
+│   ├── lineup-dispatches    Manage lineup dispatches
+│   │   ├── create           Create a lineup dispatch
+│   │   ├── update           Update a lineup dispatch
+│   │   └── delete           Delete a lineup dispatch
 │   ├── job-production-plan-material-types Manage job production plan material types
 │   │   ├── create           Create a job production plan material type
 │   │   ├── update           Update a job production plan material type
@@ -148,6 +152,9 @@ xbe
 │   ├── job-schedule-shift-start-site-changes Browse job schedule shift start site changes
 │   │   ├── list            List job schedule shift start site changes
 │   │   └── show <id>       Show job schedule shift start site change details
+│   ├── lineup-dispatches   Browse lineup dispatches
+│   │   ├── list            List lineup dispatches with filtering
+│   │   └── show <id>       Show lineup dispatch details
 │   ├── lineup-dispatch-shifts Browse lineup dispatch shifts
 │   │   ├── list            List lineup dispatch shifts with filtering
 │   │   └── show <id>       Show lineup dispatch shift details
