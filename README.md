@@ -90,6 +90,8 @@ xbe
 │   │   └── create           Scrap a time card
 │   ├── time-card-unapprovals Unapprove time cards
 │   │   └── create           Unapprove a time card
+│   ├── invoice-approvals    Approve invoices
+│   │   └── create           Approve an invoice
 │   ├── time-sheet-approvals Approve time sheets
 │   │   └── create           Approve a time sheet
 │   ├── time-sheet-unapprovals Unapprove time sheets
@@ -219,6 +221,9 @@ xbe
 │   ├── time-card-unapprovals Browse time card unapprovals
 │   │   ├── list            List time card unapprovals
 │   │   └── show <id>       Show time card unapproval details
+│   ├── invoice-approvals   Browse invoice approvals
+│   │   ├── list            List invoice approvals
+│   │   └── show <id>       Show invoice approval details
 │   ├── time-sheet-approvals Browse time sheet approvals
 │   │   ├── list            List time sheet approvals
 │   │   └── show <id>       Show time sheet approval details

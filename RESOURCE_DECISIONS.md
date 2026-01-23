@@ -112,6 +112,7 @@ glossary-terms
 incident-tags
 incidents
 inventory-changes
+invoice-approvals
 job-production-plan-cancellation-reason-types
 job-production-plan-job-site-location-estimates
 job-production-plan-summary
