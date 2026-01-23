@@ -74,6 +74,7 @@ var resourceCategories = map[string][]string{
 	"equipment-movement-requirements":              {CatFleet},
 	"equipment-movement-trip-job-production-plans": {CatFleet},
 	"hos-ruleset-assignments":                      {CatFleet},
+	"resource-unavailabilities":                    {CatFleet},
 	"tractors":                                     {CatFleet},
 	"trailers":                                     {CatFleet},
 	"transport-orders":                             {CatFleet},

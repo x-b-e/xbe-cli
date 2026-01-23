@@ -74,6 +74,10 @@ xbe
 │   │   ├── create           Create a driver day constraint
 │   │   ├── update           Update a driver day constraint
 │   │   └── delete           Delete a driver day constraint
+│   ├── resource-unavailabilities Manage resource unavailabilities
+│   │   ├── create           Create a resource unavailability
+│   │   ├── update           Update a resource unavailability
+│   │   └── delete           Delete a resource unavailability
 │   ├── equipment-movement-requirements Manage equipment movement requirements
 │   │   ├── create           Create an equipment movement requirement
 │   │   ├── update           Update an equipment movement requirement
@@ -161,6 +165,9 @@ xbe
 │   ├── driver-day-constraints Browse driver day constraints
 │   │   ├── list            List driver day constraints
 │   │   └── show <id>       Show driver day constraint details
+│   ├── resource-unavailabilities Browse resource unavailabilities
+│   │   ├── list            List resource unavailabilities
+│   │   └── show <id>       Show resource unavailability details
 │   ├── driver-movement-segment-sets Browse driver movement segment sets
 │   │   ├── list            List driver movement segment sets
 │   │   └── show <id>       Show driver movement segment set details
@@ -565,6 +572,38 @@ xbe do crew-assignment-confirmations create \
 
 # Update a confirmation
 xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
+```
+
+### Resource Unavailabilities
+
+Resource unavailabilities define time ranges when a user, equipment, trailer, or tractor is unavailable.
+
+```bash
+# List resource unavailabilities
+xbe view resource-unavailabilities list
+
+# Filter by resource
+xbe view resource-unavailabilities list --resource-type User --resource-id 123
+
+# Filter by organization
+xbe view resource-unavailabilities list --organization "Broker|456"
+
+# Show unavailability details
+xbe view resource-unavailabilities show 789
+
+# Create a resource unavailability
+xbe do resource-unavailabilities create \
+  --resource-type User \
+  --resource-id 123 \
+  --start-at "2025-01-01T08:00:00Z" \
+  --end-at "2025-01-01T17:00:00Z" \
+  --description "PTO"
+
+# Update an unavailability
+xbe do resource-unavailabilities update 789 --end-at "2025-01-01T18:00:00Z"
+
+# Delete an unavailability (requires --confirm)
+xbe do resource-unavailabilities delete 789 --confirm
 ```
 
 ### Crew Rates

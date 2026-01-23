@@ -160,6 +160,7 @@ quality-control-classifications
 rates
 reaction-classifications
 release-notes
+resource-unavailabilities
 service-types
 shift-feedback-reasons
 shift-feedbacks
