@@ -225,15 +225,12 @@ print(f"timestamp: {now}")
 print(f"implemented: {len(implemented_server)}")
 print(f"remaining: {len(remaining)}")
 print(f"unmerged_worker_commits: {len(unmerged_impl)}")
+print(f"remaining_after_unmerged: {max(0, len(remaining) - len(unmerged_impl))}")
 print(f"rate_per_hour: {run_rate:.2f}")
 if run_rate > 0:
     remaining_after_unmerged = max(0, len(remaining) - len(unmerged_impl))
     hours_left_after_unmerged = remaining_after_unmerged / run_rate
-    days_left_after_unmerged = hours_left_after_unmerged / 24
-    print(f"remaining_after_unmerged: {remaining_after_unmerged}")
     print(f"eta_hours: {hours_left_after_unmerged:.1f}")
-    print(f"eta_days: {days_left_after_unmerged:.2f}")
 else:
     print("eta_hours: n/a")
-    print("eta_days: n/a")
 PY
