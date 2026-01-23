@@ -28,6 +28,7 @@ OUTER_LOOP_WORKER_ID="${OUTER_LOOP_WORKER_ID:-}"
 OUTER_LOOP_AUTO_COMMIT="${OUTER_LOOP_AUTO_COMMIT:-1}"
 OUTER_LOOP_REFRESH_RESOURCE_DECISIONS="${OUTER_LOOP_REFRESH_RESOURCE_DECISIONS:-1}"
 OUTER_LOOP_MODE="${OUTER_LOOP_MODE:-standalone}"
+MAX_RESOURCE_ATTEMPTS=3
 
 if [[ ! -f "$RESOURCE_FILE" ]]; then
   echo "RESOURCE_DECISIONS.md not found at $RESOURCE_FILE" >&2
@@ -674,6 +675,30 @@ run_tests() {
   return $status
 }
 
+build_cli() {
+  log "Running: make build"
+  set +e
+  (cd "$ROOT_DIR" && make build) 2>&1 | tee -a "$LOG_FILE"
+  local status=${PIPESTATUS[0]}
+  set -e
+  return $status
+}
+
+run_integration_test() {
+  local resource="$1"
+  local test_file="tests/resources/${resource//-/_}_test.sh"
+  if [[ ! -f "$ROOT_DIR/$test_file" ]]; then
+    log "Missing integration test: $test_file"
+    return 1
+  fi
+  log "Running: bash $test_file"
+  set +e
+  (cd "$ROOT_DIR" && bash "$test_file") 2>&1 | tee -a "$LOG_FILE"
+  local status=${PIPESTATUS[0]}
+  set -e
+  return $status
+}
+
 while true; do
   refresh_resource_decisions
   if [[ -n "$OUTER_LOOP_QUEUE_FILE" ]]; then
@@ -709,8 +734,14 @@ while true; do
     update_work_queue "$resource" "in progress" "started by outer loop"
   fi
 
-  set +e
-  agent_prompt=$(cat <<EOF
+  attempt=1
+  while true; do
+    set +e
+    attempt_note=""
+    if [[ "$attempt" -gt 1 ]]; then
+      attempt_note=$'\n'"Previous attempt failed integration tests. Review $LOG_FILE and fix issues before rerunning."
+    fi
+    agent_prompt=$(cat <<EOF
 Implement resource: ${resource}
 
 Follow the Resource Implementation Spec in RESOURCE_DECISIONS.md. Focus on this single resource.
@@ -720,49 +751,75 @@ Follow the Resource Implementation Spec in RESOURCE_DECISIONS.md. Focus on this 
 - Keep changes scoped to this resource.
 - Run gofmt on modified Go files.
 - Run go test ./... and fix failures before finishing.
+- Run make build and the resource integration test (tests/resources/${resource//-/_}_test.sh).
+${attempt_note}
 
 If you get blocked, explain why in your final response and stop.
 EOF
 )
-  run_agent "$agent_prompt"
-  codex_status=$?
-  set -e
+    run_agent "$agent_prompt"
+    codex_status=$?
+    set -e
 
-  refresh_resource_decisions
+    refresh_resource_decisions
 
-  if [[ $codex_status -ne 0 ]]; then
-    log "Codex session failed for ${resource} (exit ${codex_status})."
-    if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
-      update_work_queue "$resource" "blocked" "codex session failed"
-    fi
-    continue
-  fi
-
-  if ! run_tests; then
-    log "Tests failed after ${resource}."
-    if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
-      update_work_queue "$resource" "blocked" "go test ./... failed"
-    fi
-    continue
-  fi
-
-  if is_implemented "$resource"; then
-    log "Completed: ${resource}"
-    if [[ "$OUTER_LOOP_AUTO_COMMIT" == "1" ]]; then
-      if [[ -n "$(git -C "$ROOT_DIR" status --porcelain)" ]]; then
-        git -C "$ROOT_DIR" add -A
-        git -C "$ROOT_DIR" commit -m "Implement ${resource}"
+    if [[ $codex_status -ne 0 ]]; then
+      log "Codex session failed for ${resource} (exit ${codex_status})."
+      if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
+        update_work_queue "$resource" "blocked" "codex session failed"
       fi
+      break
     fi
-    if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
-      remove_from_work_queue "$resource"
+
+    if ! build_cli; then
+      log "Build failed after ${resource}."
+      if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
+        update_work_queue "$resource" "blocked" "make build failed"
+      fi
+      break
     fi
-  else
+
+    if ! run_tests; then
+      log "Tests failed after ${resource}."
+      if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
+        update_work_queue "$resource" "blocked" "go test ./... failed"
+      fi
+      break
+    fi
+
+    if ! run_integration_test "$resource"; then
+      log "Integration test failed for ${resource}."
+      if [[ "$attempt" -ge "$MAX_RESOURCE_ATTEMPTS" ]]; then
+        if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
+          update_work_queue "$resource" "blocked" "integration test failed"
+        fi
+        break
+      fi
+      attempt=$((attempt + 1))
+      log "Retrying ${resource} (attempt ${attempt}/${MAX_RESOURCE_ATTEMPTS})"
+      continue
+    fi
+
+    if is_implemented "$resource"; then
+      log "Completed: ${resource}"
+      if [[ "$OUTER_LOOP_AUTO_COMMIT" == "1" ]]; then
+        if [[ -n "$(git -C "$ROOT_DIR" status --porcelain)" ]]; then
+          git -C "$ROOT_DIR" add -A
+          git -C "$ROOT_DIR" commit -m "Implement ${resource}"
+        fi
+      fi
+      if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
+        remove_from_work_queue "$resource"
+      fi
+      break
+    fi
+
     log "Blocked or incomplete: ${resource}"
     if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then
       update_work_queue "$resource" "blocked" "implementation incomplete"
     fi
-  fi
+    break
+  done
 
   if [[ -n "${OUTER_LOOP_MAX_ITER}" ]]; then
     OUTER_LOOP_MAX_ITER=$((OUTER_LOOP_MAX_ITER - 1))
