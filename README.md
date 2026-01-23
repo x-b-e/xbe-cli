@@ -78,6 +78,9 @@ xbe
 │   │   ├── create           Create an equipment movement requirement
 │   │   ├── update           Update an equipment movement requirement
 │   │   └── delete           Delete an equipment movement requirement
+│   ├── equipment-movement-trip-job-production-plans Manage equipment movement trip job production plans
+│   │   ├── create           Create an equipment movement trip job production plan link
+│   │   └── delete           Delete an equipment movement trip job production plan link
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -99,6 +102,9 @@ xbe
 │   ├── equipment-movement-requirements Browse equipment movement requirements
 │   │   ├── list            List equipment movement requirements
 │   │   └── show <id>       Show equipment movement requirement details
+│   ├── equipment-movement-trip-job-production-plans Browse equipment movement trip job production plans
+│   │   ├── list            List equipment movement trip job production plans
+│   │   └── show <id>       Show equipment movement trip job production plan details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
