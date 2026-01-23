@@ -108,6 +108,7 @@ external-identifications
 features
 geofences
 glossary-terms
+hos-events
 incident-tags
 incidents
 job-production-plan-cancellation-reason-types
@@ -228,7 +229,6 @@ hos-annotations
 hos-availability-snapshots
 hos-day-regulation-sets
 hos-days
-hos-events
 hos-ruleset-assignments
 hos-violations
 inventory-capacities

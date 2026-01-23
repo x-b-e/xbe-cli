@@ -110,6 +110,9 @@ xbe
 │   ├── driver-day-shortfall-calculations Browse driver day shortfall calculations
 │   │   ├── list            List driver day shortfall calculations
 │   │   └── show <id>       Show driver day shortfall calculation details
+│   ├── hos-events          Browse hours-of-service (HOS) events
+│   │   ├── list            List HOS events with filtering
+│   │   └── show <id>       Show HOS event details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
