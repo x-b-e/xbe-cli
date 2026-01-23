@@ -74,6 +74,10 @@ xbe
 │   │   ├── create           Create a driver day adjustment
 │   │   ├── update           Update a driver day adjustment
 │   │   └── delete           Delete a driver day adjustment
+│   ├── driver-managers      Manage driver managers
+│   │   ├── create           Create a driver manager
+│   │   ├── update           Update a driver manager
+│   │   └── delete           Delete a driver manager
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -120,6 +124,9 @@ xbe
 │   ├── driver-day-adjustments Browse driver day adjustments
 │   │   ├── list            List driver day adjustments with filtering
 │   │   └── show <id>       Show driver day adjustment details
+│   ├── driver-managers     Browse driver managers
+│   │   ├── list            List driver managers with filtering
+│   │   └── show <id>       Show driver manager details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
@@ -442,6 +449,39 @@ xbe view driver-assignment-acknowledgements show 789
 
 # Create an acknowledgement
 xbe do driver-assignment-acknowledgements create --tender-job-schedule-shift 123 --driver 456
+```
+
+### Driver Managers
+
+Driver managers link manager memberships to managed memberships within a trucker.
+
+```bash
+# List driver managers
+xbe view driver-managers list
+
+# Filter by trucker
+xbe view driver-managers list --trucker 123
+
+# Filter by manager membership
+xbe view driver-managers list --manager-membership 456
+
+# Filter by managed membership
+xbe view driver-managers list --managed-membership 789
+
+# Filter by manager user
+xbe view driver-managers list --manager-user 654
+
+# Show driver manager details
+xbe view driver-managers show 321
+
+# Create a driver manager
+xbe do driver-managers create --trucker 123 --manager-membership 456 --managed-membership 789
+
+# Update a driver manager
+xbe do driver-managers update 321 --manager-membership 456
+
+# Delete a driver manager (requires --confirm)
+xbe do driver-managers delete 321 --confirm
 ```
 
 ### Crew Rates
