@@ -98,6 +98,10 @@ xbe
 │   │   ├── create           Create a resource unavailability
 │   │   ├── update           Update a resource unavailability
 │   │   └── delete           Delete a resource unavailability
+│   ├── tractor-odometer-readings Manage tractor odometer readings
+│   │   ├── create           Create a tractor odometer reading
+│   │   ├── update           Update a tractor odometer reading
+│   │   └── delete           Delete a tractor odometer reading
 │   ├── equipment-movement-requirements Manage equipment movement requirements
 │   │   ├── create           Create an equipment movement requirement
 │   │   ├── update           Update an equipment movement requirement
@@ -212,6 +216,9 @@ xbe
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
+│   ├── tractor-odometer-readings Browse tractor odometer readings
+│   │   ├── list            List tractor odometer readings
+│   │   └── show <id>       Show tractor odometer reading details
 │   ├── driver-movement-segment-sets Browse driver movement segment sets
 │   │   ├── list            List driver movement segment sets
 │   │   └── show <id>       Show driver movement segment set details
@@ -651,6 +658,36 @@ xbe do resource-unavailabilities update 789 --end-at "2025-01-01T18:00:00Z"
 
 # Delete an unavailability (requires --confirm)
 xbe do resource-unavailabilities delete 789 --confirm
+```
+
+### Tractor Odometer Readings
+
+Tractor odometer readings capture mileage readings for tractors.
+
+```bash
+# List tractor odometer readings
+xbe view tractor-odometer-readings list
+
+# Filter by tractor
+xbe view tractor-odometer-readings list --tractor 123
+
+# Show reading details
+xbe view tractor-odometer-readings show 456
+
+# Create a reading
+xbe do tractor-odometer-readings create \
+  --tractor 123 \
+  --unit-of-measure 456 \
+  --value 120345.6 \
+  --state-code IL \
+  --reading-on 2025-01-15 \
+  --reading-time 08:30
+
+# Update a reading
+xbe do tractor-odometer-readings update 456 --value 120400 --state-code CA
+
+# Delete a reading (requires --confirm)
+xbe do tractor-odometer-readings delete 456 --confirm
 ```
 
 ### Crew Rates

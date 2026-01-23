@@ -172,6 +172,7 @@ time-sheet-line-item-classifications
 time-sheet-status-changes
 time-sheet-unapprovals
 tractor-credentials
+tractor-odometer-readings
 tractor-trailer-credential-classifications
 tractors
 trailer-classifications
