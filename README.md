@@ -728,10 +728,38 @@ xbe do job-production-plan-safety-risks-suggestions create \
   --job-production-plan 123 \
   --options '{"include_other_incidents":true}'
 
-# Generate synchronously (wait for risks)
-xbe do job-production-plan-safety-risks-suggestions create \
+  # Generate synchronously (wait for risks)
+  xbe do job-production-plan-safety-risks-suggestions create \
+    --job-production-plan 123 \
+    --is-async=false
+```
+
+### Job Production Plan Trucking Incident Detectors
+
+Job production plan trucking incident detectors analyze material transactions
+and identify potential trucking incidents based on ordering inconsistencies.
+
+```bash
+# List trucking incident detectors
+xbe view job-production-plan-trucking-incident-detectors list
+
+# Filter by job production plan
+xbe view job-production-plan-trucking-incident-detectors list --job-production-plan 123
+
+# Filter by performed status
+xbe view job-production-plan-trucking-incident-detectors list --is-performed true
+
+# Show detector details
+xbe view job-production-plan-trucking-incident-detectors show 456
+
+# Run a detector
+xbe do job-production-plan-trucking-incident-detectors create --job-production-plan 123
+
+# Run as of a timestamp and persist incident changes
+xbe do job-production-plan-trucking-incident-detectors create \
   --job-production-plan 123 \
-  --is-async=false
+  --as-of "2026-01-23T00:00:00Z" \
+  --persist-changes
 ```
 
 ### Job Production Plan Material Type Quality Control Requirements
