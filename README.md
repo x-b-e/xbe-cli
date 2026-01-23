@@ -62,6 +62,8 @@ xbe
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
 │   │   └── delete           Delete an application setting
+│   ├── hos-days              Manage HOS days
+│   │   └── update            Update an HOS day
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -82,6 +84,9 @@ xbe
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
+│   ├── hos-days             Browse HOS days
+│   │   ├── list            List HOS days with filtering
+│   │   └── show <id>       Show HOS day details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
