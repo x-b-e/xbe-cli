@@ -719,11 +719,7 @@ while true; do
     continue
   fi
 
-  if [[ -n "$OUTER_LOOP_WORKER_ID" ]]; then
-    log "[worker ${OUTER_LOOP_WORKER_ID}] Next resource: ${resource}"
-  else
-    log "Next resource: ${resource}"
-  fi
+  log "Next resource: ${resource}"
 
   if [[ "$OUTER_LOOP_DRY_RUN" == "1" ]]; then
     log "DRY RUN: would process ${resource}"
