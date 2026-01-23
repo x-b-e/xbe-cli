@@ -222,7 +222,8 @@ if merge_queue_file and os.path.exists(merge_queue_file):
 
 now = time.strftime("%Y-%m-%d %H:%M:%S")
 print(f"timestamp: {now}")
-print(f"implemented: {len(implemented_server)}")
+implemented_total = len(implemented_server) + len(unmerged_impl)
+print(f"implemented: {implemented_total}")
 print(f"remaining: {len(remaining)}")
 print(f"unmerged_worker_commits: {len(unmerged_impl)}")
 print(f"remaining_after_unmerged: {max(0, len(remaining) - len(unmerged_impl))}")
