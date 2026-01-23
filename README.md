@@ -506,6 +506,33 @@ xbe do equipment-movement-stops update 456 --sequence-position 2
 xbe do equipment-movement-stops delete 456 --confirm
 ```
 
+### Equipment Utilization Readings
+
+Equipment utilization readings capture odometer and hourmeter values for equipment.
+
+```bash
+# List readings
+xbe view equipment-utilization-readings list
+
+# Filter by equipment
+xbe view equipment-utilization-readings list --equipment 123
+
+# Filter by reported-at range
+xbe view equipment-utilization-readings list --reported-at-min 2025-01-01T00:00:00Z --reported-at-max 2025-01-31T23:59:59Z
+
+# Show a reading
+xbe view equipment-utilization-readings show 456
+
+# Create a reading
+xbe do equipment-utilization-readings create --equipment 123 --reported-at 2025-01-01T08:00:00Z --odometer 100
+
+# Update a reading
+xbe do equipment-utilization-readings update 456 --hourmeter 12
+
+# Delete a reading (requires --confirm)
+xbe do equipment-utilization-readings delete 456 --confirm
+```
+
 ### Driver Day Adjustment Plans
 
 Driver day adjustment plans define per-trucker adjustments applied to driver day recaps.
