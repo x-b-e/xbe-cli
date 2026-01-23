@@ -86,6 +86,10 @@ xbe
 │   │   └── delete           Delete a material transaction diversion
 │   ├── material-transaction-shift-assignments  Manage material transaction shift assignments
 │   │   └── create           Create a material transaction shift assignment
+│   ├── transport-order-materials  Manage transport order materials
+│   │   ├── create           Create a transport order material
+│   │   ├── update           Update a transport order material
+│   │   └── delete           Delete a transport order material
 │   ├── service-type-unit-of-measure-quantities  Manage service type unit of measure quantities
 │   │   ├── create           Create a service type unit of measure quantity
 │   │   ├── update           Update a service type unit of measure quantity
@@ -192,6 +196,9 @@ xbe
 │   ├── material-transaction-shift-assignments  Browse material transaction shift assignments
 │   │   ├── list            List material transaction shift assignments with filtering
 │   │   └── show <id>       Show assignment details
+│   ├── transport-order-materials  Browse transport order materials
+│   │   ├── list            List transport order materials with filtering
+│   │   └── show <id>       Show transport order material details
 │   ├── service-type-unit-of-measure-quantities  Browse service type unit of measure quantities
 │   │   ├── list            List service type unit of measure quantities with filtering
 │   │   └── show <id>       Show service type unit of measure quantity details

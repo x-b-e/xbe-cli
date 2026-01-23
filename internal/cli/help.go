@@ -80,9 +80,10 @@ var resourceCategories = map[string][]string{
 	"equipment-location-events":                         {CatFleet},
 	"equipment-movement-trip-customer-cost-allocations": {CatFleet},
 	"maintenance-requirement-rule-evaluation-clerks":    {CatFleet},
-	"tractors":         {CatFleet},
-	"trailers":         {CatFleet},
-	"transport-orders": {CatFleet},
+	"tractors":                  {CatFleet},
+	"trailers":                  {CatFleet},
+	"transport-order-materials": {CatFleet},
+	"transport-orders":          {CatFleet},
 
 	// Materials
 	"material-transaction-acceptances":                {CatMaterials},
