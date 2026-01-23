@@ -82,6 +82,10 @@ xbe
 │   │   └── delete           Delete an inventory estimate
 │   ├── job-production-plan-approvals Approve job production plans
 │   │   └── create           Approve a job production plan
+│   ├── job-production-plan-material-types Manage job production plan material types
+│   │   ├── create           Create a job production plan material type
+│   │   ├── update           Update a job production plan material type
+│   │   └── delete           Delete a job production plan material type
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -122,6 +126,9 @@ xbe
 │   ├── job-production-plan-duplication-works Browse job production plan duplication work
 │   │   ├── list            List duplication work with filtering
 │   │   └── show <id>       Show duplication work details
+│   ├── job-production-plan-material-types Browse job production plan material types
+│   │   ├── list            List job production plan material types with filtering
+│   │   └── show <id>       Show job production plan material type details
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details
