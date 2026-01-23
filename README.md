@@ -97,6 +97,10 @@ xbe
 │   │   ├── create           Add a service type unit of measure
 │   │   ├── update           Update a service type unit of measure
 │   │   └── delete           Delete a service type unit of measure
+│   ├── job-production-plan-trailer-classifications Manage job production plan trailer classifications
+│   │   ├── create           Add a trailer classification
+│   │   ├── update           Update a trailer classification
+│   │   └── delete           Delete a trailer classification
 │   ├── job-production-plan-locations Manage job production plan locations
 │   │   ├── create           Create a job production plan location
 │   │   ├── update           Update a job production plan location
@@ -144,6 +148,9 @@ xbe
 │   ├── job-production-plan-service-type-unit-of-measures Browse job production plan service type unit of measures
 │   │   ├── list            List job production plan service type unit of measures
 │   │   └── show <id>       Show job production plan service type unit of measure details
+│   ├── job-production-plan-trailer-classifications Browse job production plan trailer classifications
+│   │   ├── list            List job production plan trailer classifications
+│   │   └── show <id>       Show job production plan trailer classification details
 │   ├── job-production-plan-locations Browse job production plan locations
 │   │   ├── list            List job production plan locations
 │   │   └── show <id>       Show job production plan location details
