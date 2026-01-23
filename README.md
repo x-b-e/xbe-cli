@@ -131,6 +131,8 @@ xbe
 │   │   ├── create           Create a job schedule shift
 │   │   ├── update           Update a job schedule shift
 │   │   └── delete           Delete a job schedule shift
+│   ├── shift-time-card-requisitions  Manage shift time card requisitions
+│   │   └── create           Create a shift time card requisition
 │   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules
 │   │   └── create           Request evaluation for equipment
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Generate lineup trucker assignment recommendations
@@ -208,6 +210,9 @@ xbe
 │   ├── job-schedule-shifts  Browse job schedule shifts
 │   │   ├── list            List job schedule shifts with filtering
 │   │   └── show <id>       Show job schedule shift details
+│   ├── shift-time-card-requisitions  Browse shift time card requisitions
+│   │   ├── list            List shift time card requisitions with filtering
+│   │   └── show <id>       Show shift time card requisition details
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
 │   │   ├── list            List recommendations with filtering
 │   │   └── show <id>       Show recommendation details

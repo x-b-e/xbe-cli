@@ -66,6 +66,7 @@ var resourceCategories = map[string][]string{
 	"lineup-job-schedule-shift-trucker-assignment-recommendations": {CatProjects},
 	"lineup-scenario-lineups":                                      {CatProjects},
 	"lineup-scenario-truckers":                                     {CatProjects},
+	"shift-time-card-requisitions":                                 {CatProjects},
 	"project-categories":                                           {CatProjects},
 	"project-divisions":                                            {CatProjects},
 	"project-offices":                                              {CatProjects},

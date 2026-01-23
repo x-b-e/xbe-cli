@@ -160,6 +160,7 @@ service-types
 shift-feedback-reasons
 shift-feedbacks
 shift-summary
+shift-time-card-requisitions
 stakeholder-classifications
 tag-categories
 tags
@@ -356,7 +357,6 @@ shift-counters
 shift-scope-matches
 shift-scope-tenders
 shift-set-time-card-constraints
-shift-time-card-requisitions
 site-events
 time-card-approval-audits
 time-card-approvals
