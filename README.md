@@ -74,6 +74,10 @@ xbe
 │   │   ├── create           Create a driver day constraint
 │   │   ├── update           Update a driver day constraint
 │   │   └── delete           Delete a driver day constraint
+│   ├── shift-set-time-card-constraints Manage shift set time card constraints
+│   │   ├── create           Create a shift set time card constraint
+│   │   ├── update           Update a shift set time card constraint
+│   │   └── delete           Delete a shift set time card constraint
 │   ├── resource-unavailabilities Manage resource unavailabilities
 │   │   ├── create           Create a resource unavailability
 │   │   ├── update           Update a resource unavailability
@@ -165,6 +169,9 @@ xbe
 │   ├── driver-day-constraints Browse driver day constraints
 │   │   ├── list            List driver day constraints
 │   │   └── show <id>       Show driver day constraint details
+│   ├── shift-set-time-card-constraints Browse shift set time card constraints
+│   │   ├── list            List shift set time card constraints
+│   │   └── show <id>       Show shift set time card constraint details
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
