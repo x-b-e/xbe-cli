@@ -74,6 +74,9 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── job-production-plan-broadcast-messages  Manage job production plan broadcast messages
+│   │   ├── create           Create a broadcast message
+│   │   └── update           Update a broadcast message
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -95,6 +98,9 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── job-production-plan-broadcast-messages  Browse job production plan broadcast messages
+│   │   ├── list            List broadcast messages
+│   │   └── show <id>       Show broadcast message details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
 │   ├── users               Browse users (for creator lookup)
@@ -497,6 +503,30 @@ xbe view driver-movement-observations list --is-current
 
 # Show observation details
 xbe view driver-movement-observations show 456
+```
+
+### Job Production Plan Broadcast Messages
+
+Broadcast messages notify participants on a job production plan.
+
+```bash
+# List messages for a job production plan
+xbe view job-production-plan-broadcast-messages list --job-production-plan 123
+
+# Include hidden messages
+xbe view job-production-plan-broadcast-messages list --job-production-plan 123 --is-hidden true
+
+# Show message details
+xbe view job-production-plan-broadcast-messages show 456
+
+# Create a broadcast message
+xbe do job-production-plan-broadcast-messages create \
+  --job-production-plan 123 \
+  --message "Crew arrival moved to 7:30 AM" \
+  --summary "Start time update"
+
+# Hide a broadcast message
+xbe do job-production-plan-broadcast-messages update 456 --is-hidden
 ```
 
 ### Crew Requirement Credential Classifications
