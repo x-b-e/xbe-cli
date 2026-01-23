@@ -108,6 +108,10 @@ xbe
 │   ├── lineup-scenario-lineups  Manage lineup scenario lineups
 │   │   ├── create           Create a lineup scenario lineup
 │   │   └── delete           Delete a lineup scenario lineup
+│   ├── lineup-scenario-truckers  Manage lineup scenario truckers
+│   │   ├── create           Create a lineup scenario trucker
+│   │   ├── update           Update a lineup scenario trucker
+│   │   └── delete           Delete a lineup scenario trucker
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -162,6 +166,9 @@ xbe
 │   ├── lineup-scenario-lineups  Browse lineup scenario lineups
 │   │   ├── list            List lineup scenario lineups with filtering
 │   │   └── show <id>       Show lineup scenario lineup details
+│   ├── lineup-scenario-truckers  Browse lineup scenario truckers
+│   │   ├── list            List lineup scenario truckers with filtering
+│   │   └── show <id>       Show lineup scenario trucker details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details

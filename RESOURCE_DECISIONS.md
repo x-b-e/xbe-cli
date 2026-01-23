@@ -120,6 +120,7 @@ lane-summary
 languages
 lineup-job-schedule-shift-trucker-assignment-recommendations
 lineup-scenario-lineups
+lineup-scenario-truckers
 material-mix-designs
 material-sites
 material-suppliers
