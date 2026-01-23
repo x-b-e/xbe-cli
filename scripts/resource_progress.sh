@@ -239,18 +239,13 @@ if oldest_ct and newest_ct:
     print(f"run_newest: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(newest_ct))}")
 print(f"rate_per_hour: {run_rate:.2f}")
 if run_rate > 0:
-    hours_left = len(remaining) / run_rate
-    days_left = hours_left / 24
     remaining_after_unmerged = max(0, len(remaining) - len(unmerged_impl))
     hours_left_after_unmerged = remaining_after_unmerged / run_rate
     days_left_after_unmerged = hours_left_after_unmerged / 24
-    print(f"eta_hours: {hours_left:.1f}")
-    print(f"eta_days: {days_left:.2f}")
-    print(f"eta_hours_after_unmerged: {hours_left_after_unmerged:.1f}")
-    print(f"eta_days_after_unmerged: {days_left_after_unmerged:.2f}")
+    print(f"remaining_after_unmerged: {remaining_after_unmerged}")
+    print(f"eta_hours: {hours_left_after_unmerged:.1f}")
+    print(f"eta_days: {days_left_after_unmerged:.2f}")
 else:
     print("eta_hours: n/a")
     print("eta_days: n/a")
-    print("eta_hours_after_unmerged: n/a")
-    print("eta_days_after_unmerged: n/a")
 PY
