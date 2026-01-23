@@ -169,6 +169,7 @@ stakeholder-classifications
 tag-categories
 tags
 time-card-invoices
+time-sheet-line-items
 time-sheet-line-item-classifications
 tractor-credentials
 tractor-trailer-credential-classifications

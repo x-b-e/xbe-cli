@@ -96,6 +96,10 @@ xbe
 │   │   ├── create           Create a time card time change
 │   │   ├── update           Update a time card time change
 │   │   └── delete           Delete a time card time change
+│   ├── time-sheet-line-items Manage time sheet line items
+│   │   ├── create           Create a time sheet line item
+│   │   ├── update           Update a time sheet line item
+│   │   └── delete           Delete a time sheet line item
 │   ├── lineup-job-schedule-shifts Manage lineup job schedule shifts
 │   │   ├── create           Create a lineup job schedule shift
 │   │   ├── update           Update a lineup job schedule shift
@@ -215,6 +219,9 @@ xbe
 │   ├── time-card-time-changes Browse time card time changes
 │   │   ├── list            List time card time changes with filtering
 │   │   └── show <id>       Show time card time change details
+│   ├── time-sheet-line-items Browse time sheet line items
+│   │   ├── list            List time sheet line items with filtering
+│   │   └── show <id>       Show time sheet line item details
 │   ├── lineup-job-schedule-shifts Browse lineup job schedule shifts
 │   │   ├── list            List lineup job schedule shifts
 │   │   └── show <id>       Show lineup job schedule shift details
