@@ -70,6 +70,10 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── driver-day-adjustments Manage driver day adjustments
+│   │   ├── create           Create a driver day adjustment
+│   │   ├── update           Update a driver day adjustment
+│   │   └── delete           Delete a driver day adjustment
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -113,6 +117,9 @@ xbe
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
+│   ├── driver-day-adjustments Browse driver day adjustments
+│   │   ├── list            List driver day adjustments with filtering
+│   │   └── show <id>       Show driver day adjustment details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
