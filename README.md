@@ -82,6 +82,8 @@ xbe
 │   │   ├── create           Create a time card cost code allocation
 │   │   ├── update           Update a time card cost code allocation
 │   │   └── delete           Delete a time card cost code allocation
+│   ├── time-card-scrappages Scrap time cards
+│   │   └── create           Scrap a time card
 │   ├── resource-unavailabilities Manage resource unavailabilities
 │   │   ├── create           Create a resource unavailability
 │   │   ├── update           Update a resource unavailability
@@ -179,6 +181,9 @@ xbe
 │   ├── time-card-cost-code-allocations Browse time card cost code allocations
 │   │   ├── list            List time card cost code allocations
 │   │   └── show <id>       Show time card cost code allocation details
+│   ├── time-card-scrappages Browse time card scrappages
+│   │   ├── list            List time card scrappages
+│   │   └── show <id>       Show time card scrappage details
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
