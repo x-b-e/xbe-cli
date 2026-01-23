@@ -78,6 +78,8 @@ xbe
 │   │   ├── create           Create a driver day adjustment
 │   │   ├── update           Update a driver day adjustment
 │   │   └── delete           Delete a driver day adjustment
+│   ├── hos-annotations      Manage HOS annotations
+│   │   └── delete           Delete a HOS annotation
 │   ├── driver-managers      Manage driver managers
 │   │   ├── create           Create a driver manager
 │   │   ├── update           Update a driver manager
@@ -134,6 +136,9 @@ xbe
 │   ├── driver-managers     Browse driver managers
 │   │   ├── list            List driver managers with filtering
 │   │   └── show <id>       Show driver manager details
+│   ├── hos-annotations     Browse HOS annotations
+│   │   ├── list            List HOS annotations with filtering
+│   │   └── show <id>       Show HOS annotation details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
@@ -489,6 +494,27 @@ xbe do driver-managers update 321 --manager-membership 456
 
 # Delete a driver manager (requires --confirm)
 xbe do driver-managers delete 321 --confirm
+```
+
+### HOS Annotations
+
+HOS annotations capture comments and metadata for hours-of-service days and events.
+
+```bash
+# List HOS annotations
+xbe view hos-annotations list
+
+# Filter by HOS day
+xbe view hos-annotations list --hos-day 123
+
+# Filter by HOS event
+xbe view hos-annotations list --hos-event 456
+
+# Show annotation details
+xbe view hos-annotations show 789
+
+# Delete a HOS annotation (requires --confirm)
+xbe do hos-annotations delete 789 --confirm
 ```
 
 ### Crew Rates

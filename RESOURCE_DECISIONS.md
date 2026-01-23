@@ -109,6 +109,7 @@ external-identifications
 features
 geofences
 glossary-terms
+hos-annotations
 incident-tags
 incidents
 job-production-plan-cancellation-reason-types
