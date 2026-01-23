@@ -74,10 +74,13 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
-│   └── memberships          Manage user-organization memberships
-│       ├── create           Create a membership
-│       ├── update           Update a membership
-│       └── delete           Delete a membership
+│   ├── memberships          Manage user-organization memberships
+│   │   ├── create           Create a membership
+│   │   ├── update           Update a membership
+│   │   └── delete           Delete a membership
+│   └── equipment-movement-stop-requirements  Manage equipment movement stop requirements
+│       ├── create           Create a stop requirement
+│       └── delete           Delete a stop requirement
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -113,9 +116,12 @@ xbe
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
-│   └── glossary-terms      Browse glossary terms
-│       ├── list            List glossary terms with filtering
-│       └── show <id>       Show glossary term details
+│   ├── glossary-terms      Browse glossary terms
+│   │   ├── list            List glossary terms with filtering
+│   │   └── show <id>       Show glossary term details
+│   └── equipment-movement-stop-requirements  Browse equipment movement stop requirements
+│       ├── list            List stop requirements
+│       └── show <id>       Show stop requirement details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```
@@ -504,6 +510,36 @@ xbe do crew-requirement-credential-classifications create \
 
 # Delete a link (requires --confirm)
 xbe do crew-requirement-credential-classifications delete 456 --confirm
+```
+
+### Equipment Movement Stop Requirements
+
+Equipment movement stop requirements link equipment movement stops to movement requirements.
+
+```bash
+# List stop requirements
+xbe view equipment-movement-stop-requirements list
+
+# Filter by stop
+xbe view equipment-movement-stop-requirements list --stop 123
+
+# Filter by requirement
+xbe view equipment-movement-stop-requirements list --requirement 456
+
+# Filter by kind
+xbe view equipment-movement-stop-requirements list --kind origin
+
+# Show stop requirement details
+xbe view equipment-movement-stop-requirements show 789
+
+# Create a stop requirement
+xbe do equipment-movement-stop-requirements create --stop 123 --requirement 456
+
+# Create with explicit kind
+xbe do equipment-movement-stop-requirements create --stop 123 --requirement 456 --kind destination
+
+# Delete a stop requirement (requires --confirm)
+xbe do equipment-movement-stop-requirements delete 789 --confirm
 ```
 
 ## Output Formats
