@@ -123,6 +123,7 @@ labor-classifications
 laborers
 lane-summary
 languages
+lineup-scenario-solutions
 material-mix-designs
 material-sites
 material-suppliers

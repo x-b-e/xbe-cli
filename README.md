@@ -97,6 +97,8 @@ xbe
 │   │   └── create           Apply a job production plan schedule change
 │   ├── job-schedule-shift-splits Split job schedule shifts
 │   │   └── create           Split a job schedule shift
+│   ├── lineup-scenario-solutions Solve lineup scenarios
+│   │   └── create           Create a lineup scenario solution
 │   ├── job-production-plan-display-unit-of-measures Manage job production plan display unit of measures
 │   │   ├── create           Add a display unit of measure
 │   │   ├── update           Update a display unit of measure
@@ -174,6 +176,9 @@ xbe
 │   ├── job-schedule-shift-splits Browse job schedule shift splits
 │   │   ├── list            List job schedule shift splits
 │   │   └── show <id>       Show job schedule shift split details
+│   ├── lineup-scenario-solutions Browse lineup scenario solutions
+│   │   ├── list            List lineup scenario solutions
+│   │   └── show <id>       Show lineup scenario solution details
 │   ├── geofence-restrictions Browse geofence restrictions
 │   │   ├── list            List geofence restrictions
 │   │   └── show <id>       Show geofence restriction details
