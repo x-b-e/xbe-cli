@@ -211,6 +211,9 @@ xbe
 │   │   └── show <id>       Show service type unit of measure quantity details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
+│   ├── commitment-simulation-periods  Browse commitment simulation periods
+│   │   ├── list            List commitment simulation periods with filtering
+│   │   └── show <id>       Show commitment simulation period details
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
 │   ├── memberships         Browse user-organization memberships
