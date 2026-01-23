@@ -494,6 +494,25 @@ xbe do material-mix-design-matches create \
 xbe do material-mix-design-matches create --material-type 123 --as-of "2026-01-23T00:00:00Z" --json
 ```
 
+### Shift Scope Matches
+
+Shift scope matches evaluate whether a rate or shift set time card constraint
+matches a tender's shifts, returning a summary and match details.
+
+```bash
+# Match a tender against a rate
+xbe do shift-scope-matches create --tender 123 --rate 456
+
+# Match using a shift set time card constraint
+xbe do shift-scope-matches create --tender 123 --shift-set-time-card-constraint 789
+
+# Include match SQL when permitted
+xbe do shift-scope-matches create --tender 123 --rate 456 --show-matching-shift-sql
+
+# JSON output
+xbe do shift-scope-matches create --tender 123 --rate 456 --json
+```
+
 ### Memberships
 
 Memberships define the relationship between users and organizations (brokers, customers, truckers, material suppliers, developers).
