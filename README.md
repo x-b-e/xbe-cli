@@ -103,6 +103,8 @@ xbe
 │   │   ├── create           Create a job schedule shift
 │   │   ├── update           Update a job schedule shift
 │   │   └── delete           Delete a job schedule shift
+│   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules
+│   │   └── create           Request evaluation for equipment
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Generate lineup trucker assignment recommendations
 │   │   └── create           Generate recommendations for a shift
 │   ├── lineup-scenario-lineups  Manage lineup scenario lineups
@@ -593,6 +595,15 @@ xbe do equipment-location-events update 456 --event-at 2025-01-16T12:00:00Z \
 
 # Delete an equipment location event (requires --confirm)
 xbe do equipment-location-events delete 456 --confirm
+```
+
+### Maintenance Requirement Rule Evaluation Clerks
+
+Trigger evaluations of maintenance requirement rules for equipment.
+
+```bash
+# Request evaluation for equipment
+xbe do maintenance-requirement-rule-evaluation-clerks create --equipment 456
 ```
 
 ### Equipment Movement Trip Customer Cost Allocations
