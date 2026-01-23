@@ -62,6 +62,7 @@ var resourceCategories = map[string][]string{
 
 	// Fleet & Transport
 	"driver-movement-segments":                            {CatFleet},
+	"equipment-movement-trips":                            {CatFleet},
 	"equipment-movement-trip-dispatch-fulfillment-clerks": {CatFleet},
 	"tractors":         {CatFleet},
 	"trailers":         {CatFleet},

@@ -463,6 +463,30 @@ xbe view driver-movement-segments list --driver-movement-segment-set 123
 xbe view driver-movement-segments show 456
 ```
 
+### Equipment Movement Trips
+
+Equipment movement trips track equipment transfers between stops.
+
+```bash
+# List trips
+xbe view equipment-movement-trips list
+
+# Filter by broker
+xbe view equipment-movement-trips list --broker 123
+
+# Show trip details
+xbe view equipment-movement-trips show 456
+
+# Create a trip
+xbe do equipment-movement-trips create --broker 123 --job-number "EMT-100"
+
+# Update mobilization timing
+xbe do equipment-movement-trips update 456 --explicit-driver-day-mobilization-before-minutes 30
+
+# Delete a trip (requires --confirm)
+xbe do equipment-movement-trips delete 456 --confirm
+```
+
 ### Equipment Movement Trip Dispatch Fulfillment Clerks
 
 Equipment movement trip dispatch fulfillment clerks trigger the fulfillment workflow for a dispatch.
