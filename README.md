@@ -86,6 +86,10 @@ xbe
 │   │   ├── create           Create an inventory estimate
 │   │   ├── update           Update an inventory estimate
 │   │   └── delete           Delete an inventory estimate
+│   ├── customer-commitments Manage customer commitments
+│   │   ├── create           Create a customer commitment
+│   │   ├── update           Update a customer commitment
+│   │   └── delete           Delete a customer commitment
 │   ├── job-production-plan-approvals Approve job production plans
 │   │   └── create           Approve a job production plan
 │   ├── job-production-plan-uncompletions Uncomplete job production plans
@@ -207,6 +211,9 @@ xbe
 │   │   └── show <id>       Show service site details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
+│   ├── customer-commitments Browse customer commitments
+│   │   ├── list            List customer commitments with filtering
+│   │   └── show <id>       Show customer commitment details
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
 │   ├── driver-day-adjustment-plans Browse driver day adjustment plans
