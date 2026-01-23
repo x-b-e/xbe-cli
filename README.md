@@ -129,6 +129,10 @@ xbe
 │   │   ├── create           Create a material site reading
 │   │   ├── update           Update a material site reading
 │   │   └── delete           Delete a material site reading
+│   ├── tractor-fuel-consumption-readings Manage tractor fuel consumption readings
+│   │   ├── create           Create a tractor fuel consumption reading
+│   │   ├── update           Update a tractor fuel consumption reading
+│   │   └── delete           Delete a tractor fuel consumption reading
 │   ├── material-type-conversions Manage material type conversions
 │   │   ├── create           Create a material type conversion
 │   │   ├── update           Update a material type conversion
@@ -177,6 +181,9 @@ xbe
 │   ├── material-site-readings Browse material site readings
 │   │   ├── list            List material site readings
 │   │   └── show <id>       Show material site reading details
+│   ├── tractor-fuel-consumption-readings Browse tractor fuel consumption readings
+│   │   ├── list            List tractor fuel consumption readings
+│   │   └── show <id>       Show tractor fuel consumption reading details
 │   ├── material-type-conversions Browse material type conversions
 │   │   ├── list            List material type conversions
 │   │   └── show <id>       Show material type conversion details

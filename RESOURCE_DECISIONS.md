@@ -172,6 +172,7 @@ time-card-invoices
 time-sheet-line-items
 time-sheet-line-item-classifications
 tractor-credentials
+tractor-fuel-consumption-readings
 tractor-trailer-credential-classifications
 tractors
 trailer-classifications
