@@ -83,6 +83,10 @@ xbe
 │   │   └── delete           Delete an equipment movement trip job production plan link
 │   ├── job-production-plan-cancellations Cancel job production plans
 │   │   └── create           Cancel a job production plan
+│   ├── job-production-plan-display-unit-of-measures Manage job production plan display unit of measures
+│   │   ├── create           Add a display unit of measure
+│   │   ├── update           Update a display unit of measure
+│   │   └── delete           Delete a display unit of measure
 │   ├── geofence-restrictions Manage geofence restrictions
 │   │   ├── create           Create a geofence restriction
 │   │   ├── update           Update a geofence restriction
@@ -117,6 +121,9 @@ xbe
 │   ├── job-production-plan-cancellations Browse job production plan cancellations
 │   │   ├── list            List job production plan cancellations
 │   │   └── show <id>       Show job production plan cancellation details
+│   ├── job-production-plan-display-unit-of-measures Browse job production plan display unit of measures
+│   │   ├── list            List job production plan display unit of measures
+│   │   └── show <id>       Show job production plan display unit of measure details
 │   ├── geofence-restrictions Browse geofence restrictions
 │   │   ├── list            List geofence restrictions
 │   │   └── show <id>       Show geofence restriction details
