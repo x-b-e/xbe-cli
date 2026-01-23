@@ -74,6 +74,10 @@ xbe
 │   │   ├── create           Create a driver day constraint
 │   │   ├── update           Update a driver day constraint
 │   │   └── delete           Delete a driver day constraint
+│   ├── equipment-movement-requirements Manage equipment movement requirements
+│   │   ├── create           Create an equipment movement requirement
+│   │   ├── update           Update an equipment movement requirement
+│   │   └── delete           Delete an equipment movement requirement
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -92,6 +96,9 @@ xbe
 │   ├── driver-movement-segment-sets Browse driver movement segment sets
 │   │   ├── list            List driver movement segment sets
 │   │   └── show <id>       Show driver movement segment set details
+│   ├── equipment-movement-requirements Browse equipment movement requirements
+│   │   ├── list            List equipment movement requirements
+│   │   └── show <id>       Show equipment movement requirement details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
@@ -489,6 +496,33 @@ xbe view driver-movement-segment-sets list --driver 456
 
 # Show full details
 xbe view driver-movement-segment-sets show 789
+```
+
+### Equipment Movement Requirements
+
+Equipment movement requirements define equipment movement timing and locations.
+
+```bash
+# List requirements
+xbe view equipment-movement-requirements list
+
+# Filter by broker or equipment
+xbe view equipment-movement-requirements list --broker 123
+xbe view equipment-movement-requirements list --equipment 456
+
+# Show details
+xbe view equipment-movement-requirements show 789
+
+# Create a requirement
+xbe do equipment-movement-requirements create --broker 123 --equipment 456 \
+  --origin-at-min "2025-01-01T08:00:00Z" --destination-at-max "2025-01-01T17:00:00Z" \
+  --note "Move to yard"
+
+# Update a requirement
+xbe do equipment-movement-requirements update 789 --note "Updated note"
+
+# Delete a requirement (requires --confirm)
+xbe do equipment-movement-requirements delete 789 --confirm
 ```
 
 ## Output Formats
