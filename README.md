@@ -133,6 +133,10 @@ xbe
 │   │   └── delete           Delete a job schedule shift
 │   ├── shift-time-card-requisitions  Manage shift time card requisitions
 │   │   └── create           Create a shift time card requisition
+│   ├── time-cards          Manage time cards
+│   │   ├── create           Create a time card
+│   │   ├── update           Update a time card
+│   │   └── delete           Delete a time card
 │   ├── time-card-submissions  Submit time cards
 │   │   └── create           Submit a time card
 │   ├── time-card-approvals  Approve time cards
@@ -219,6 +223,9 @@ xbe
 │   ├── shift-time-card-requisitions  Browse shift time card requisitions
 │   │   ├── list            List shift time card requisitions with filtering
 │   │   └── show <id>       Show shift time card requisition details
+│   ├── time-cards          Browse time cards
+│   │   ├── list            List time cards with filtering
+│   │   └── show <id>       Show time card details
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
 │   │   ├── list            List recommendations with filtering
 │   │   └── show <id>       Show recommendation details
