@@ -78,6 +78,10 @@ xbe
 │   │   ├── create           Create an equipment movement requirement
 │   │   ├── update           Update an equipment movement requirement
 │   │   └── delete           Delete an equipment movement requirement
+│   ├── maintenance-requirement-rules Manage maintenance requirement rules
+│   │   ├── create           Create a maintenance requirement rule
+│   │   ├── update           Update a maintenance requirement rule
+│   │   └── delete           Delete a maintenance requirement rule
 │   ├── equipment-movement-trip-job-production-plans Manage equipment movement trip job production plans
 │   │   ├── create           Create an equipment movement trip job production plan link
 │   │   └── delete           Delete an equipment movement trip job production plan link
@@ -145,6 +149,9 @@ xbe
 │   ├── equipment-movement-requirements Browse equipment movement requirements
 │   │   ├── list            List equipment movement requirements
 │   │   └── show <id>       Show equipment movement requirement details
+│   ├── maintenance-requirement-rules Browse maintenance requirement rules
+│   │   ├── list            List maintenance requirement rules
+│   │   └── show <id>       Show maintenance requirement rule details
 │   ├── equipment-movement-trip-job-production-plans Browse equipment movement trip job production plans
 │   │   ├── list            List equipment movement trip job production plans
 │   │   └── show <id>       Show equipment movement trip job production plan details
@@ -632,6 +639,36 @@ xbe do equipment-movement-requirements update 789 --note "Updated note"
 
 # Delete a requirement (requires --confirm)
 xbe do equipment-movement-requirements delete 789 --confirm
+```
+
+### Maintenance Requirement Rules
+
+Maintenance requirement rules define maintenance or inspection requirements for equipment,
+equipment classifications, or business units.
+
+```bash
+# List rules
+xbe view maintenance-requirement-rules list
+
+# Filter by scope
+xbe view maintenance-requirement-rules list --broker 111
+xbe view maintenance-requirement-rules list --equipment 123
+xbe view maintenance-requirement-rules list --equipment-classification 456
+xbe view maintenance-requirement-rules list --business-unit 789
+xbe view maintenance-requirement-rules list --is-active false
+
+# Create a rule
+xbe do maintenance-requirement-rules create \
+  --rule "Service every 100 hours" \
+  --broker 123 \
+  --equipment-classification 456 \
+  --is-active
+
+# Update a rule
+xbe do maintenance-requirement-rules update 789 --rule "Updated rule" --is-active=false
+
+# Delete a rule (requires --confirm)
+xbe do maintenance-requirement-rules delete 789 --confirm
 ```
 
 ## Output Formats

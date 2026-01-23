@@ -124,6 +124,7 @@ laborers
 lane-summary
 languages
 lineup-scenario-solutions
+maintenance-requirement-rules
 material-mix-designs
 material-sites
 material-suppliers
