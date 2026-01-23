@@ -84,6 +84,8 @@ xbe
 │   │   └── create           Approve a job production plan
 │   ├── job-production-plan-uncompletions Uncomplete job production plans
 │   │   └── create           Uncomplete a job production plan
+│   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
+│   │   └── create           Create a job schedule shift start site change
 │   ├── job-production-plan-material-types Manage job production plan material types
 │   │   ├── create           Create a job production plan material type
 │   │   ├── update           Update a job production plan material type
@@ -143,6 +145,9 @@ xbe
 │   ├── job-production-plan-time-card-approvers Browse job production plan time card approvers
 │   │   ├── list            List job production plan time card approvers with filtering
 │   │   └── show <id>       Show job production plan time card approver details
+│   ├── job-schedule-shift-start-site-changes Browse job schedule shift start site changes
+│   │   ├── list            List job schedule shift start site changes
+│   │   └── show <id>       Show job schedule shift start site change details
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details

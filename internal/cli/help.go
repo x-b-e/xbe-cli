@@ -58,6 +58,7 @@ var resourceCategories = map[string][]string{
 	"job-production-plan-service-type-unit-of-measure-cohorts": {CatProjects},
 	"job-production-plan-time-card-approvers":                  {CatProjects},
 	"job-production-plans":                                     {CatProjects},
+	"job-schedule-shift-start-site-changes":                    {CatProjects},
 	"job-sites":                                                {CatProjects},
 	"project-categories":                                       {CatProjects},
 	"project-divisions":                                        {CatProjects},
