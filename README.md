@@ -78,6 +78,10 @@ xbe
 │   │   ├── create           Create a driver day adjustment
 │   │   ├── update           Update a driver day adjustment
 │   │   └── delete           Delete a driver day adjustment
+│   ├── job-site-times        Manage job site times
+│   │   ├── create           Create a job site time
+│   │   ├── update           Update a job site time
+│   │   └── delete           Delete a job site time
 │   ├── hos-annotations      Manage HOS annotations
 │   │   └── delete           Delete a HOS annotation
 │   ├── driver-managers      Manage driver managers
@@ -133,6 +137,9 @@ xbe
 │   ├── driver-day-adjustments Browse driver day adjustments
 │   │   ├── list            List driver day adjustments with filtering
 │   │   └── show <id>       Show driver day adjustment details
+│   ├── job-site-times       Browse job site times
+│   │   ├── list            List job site times with filtering
+│   │   └── show <id>       Show job site time details
 │   ├── driver-managers     Browse driver managers
 │   │   ├── list            List driver managers with filtering
 │   │   └── show <id>       Show driver manager details
@@ -761,6 +768,38 @@ xbe do job-production-plan-safety-risks-suggestions create \
   xbe do job-production-plan-safety-risks-suggestions create \
     --job-production-plan 123 \
     --is-async=false
+```
+
+### Job Site Times
+
+Job site times track the time a user spent at a job site for a job production plan.
+
+```bash
+# List job site times
+xbe view job-site-times list
+
+# Filter by job production plan
+xbe view job-site-times list --job-production-plan 123
+
+# Filter by user
+xbe view job-site-times list --user 456
+
+# Show job site time details
+xbe view job-site-times show 789
+
+# Create a job site time
+xbe do job-site-times create \
+  --job-production-plan 123 \
+  --user 456 \
+  --start-at 2026-01-23T08:00:00Z \
+  --end-at 2026-01-23T10:00:00Z \
+  --description "On site"
+
+# Update a job site time
+xbe do job-site-times update 789 --description "Updated notes"
+
+# Delete a job site time (requires --confirm)
+xbe do job-site-times delete 789 --confirm
 ```
 
 ### Job Production Plan Trucking Incident Detectors
