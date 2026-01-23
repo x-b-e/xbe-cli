@@ -76,6 +76,9 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── job-production-plan-alarm-subscribers  Manage job production plan alarm subscribers
+│   │   ├── create           Create an alarm subscriber
+│   │   └── delete           Delete an alarm subscriber
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -106,6 +109,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── job-production-plan-alarm-subscribers  Browse job production plan alarm subscribers
+│   │   ├── list            List alarm subscribers with filtering
+│   │   └── show <id>       Show alarm subscriber details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
