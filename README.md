@@ -96,6 +96,8 @@ xbe
 │   │   └── create           Address a rejected invoice
 │   ├── invoice-rejections   Reject sent invoices
 │   │   └── create           Reject a sent invoice
+│   ├── invoice-revisionables Mark invoices as revisionable
+│   │   └── create           Mark an invoice as revisionable
 │   ├── time-card-time-changes Manage time card time changes
 │   │   ├── create           Create a time card time change
 │   │   ├── update           Update a time card time change
