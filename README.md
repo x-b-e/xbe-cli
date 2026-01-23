@@ -677,6 +677,36 @@ xbe do lineup-scenario-lineup-job-schedule-shifts create --lineup-scenario 123 -
 xbe do lineup-scenario-lineup-job-schedule-shifts delete 789 --confirm
 ```
 
+### Lineup Scenario Trailers
+
+Lineup scenario trailers attach trailers to lineup scenario truckers.
+
+```bash
+# List lineup scenario trailers
+xbe view lineup-scenario-trailers list
+
+# Filter by lineup scenario trucker
+xbe view lineup-scenario-trailers list --lineup-scenario-trucker 123
+
+# Filter by lineup scenario
+xbe view lineup-scenario-trailers list --lineup-scenario 456
+
+# Filter by trailer
+xbe view lineup-scenario-trailers list --trailer 789
+
+# Show lineup scenario trailer details
+xbe view lineup-scenario-trailers show 123
+
+# Create a lineup scenario trailer
+xbe do lineup-scenario-trailers create --lineup-scenario-trucker 123 --trailer 456
+
+# Update a lineup scenario trailer
+xbe do lineup-scenario-trailers update 123 --last-assigned-on 2024-01-01
+
+# Delete a lineup scenario trailer (requires --confirm)
+xbe do lineup-scenario-trailers delete 123 --confirm
+```
+
 ### Job Schedule Shift Managed Toggles
 
 Job schedule shift managed toggles flip a shift between managed and unmanaged.
