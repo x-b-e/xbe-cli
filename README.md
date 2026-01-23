@@ -99,6 +99,10 @@ xbe
 │   │   ├── create           Create a job production plan safety risk
 │   │   ├── update           Update a job production plan safety risk
 │   │   └── delete           Delete a job production plan safety risk
+│   ├── job-schedule-shifts  Manage job schedule shifts
+│   │   ├── create           Create a job schedule shift
+│   │   ├── update           Update a job schedule shift
+│   │   └── delete           Delete a job schedule shift
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -144,6 +148,9 @@ xbe
 │   ├── job-production-plan-safety-risks       Browse job production plan safety risks
 │   │   ├── list            List job production plan safety risks with filtering
 │   │   └── show <id>       Show job production plan safety risk details
+│   ├── job-schedule-shifts  Browse job schedule shifts
+│   │   ├── list            List job schedule shifts with filtering
+│   │   └── show <id>       Show job schedule shift details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
