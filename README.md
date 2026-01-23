@@ -119,6 +119,9 @@ xbe
 │   ├── driver-day-shortfall-calculations Browse driver day shortfall calculations
 │   │   ├── list            List driver day shortfall calculations
 │   │   └── show <id>       Show driver day shortfall calculation details
+│   ├── job-production-plan-duplication-works Browse job production plan duplication work
+│   │   ├── list            List duplication work with filtering
+│   │   └── show <id>       Show duplication work details
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details
