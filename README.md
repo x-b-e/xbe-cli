@@ -76,6 +76,8 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-transaction-acceptances  Manage material transaction acceptances
+│   │   └── create           Accept a material transaction
 │   ├── material-site-mergers  Merge material sites
 │   │   └── create           Merge a material site
 │   ├── material-site-reading-material-types  Manage material site reading material types
