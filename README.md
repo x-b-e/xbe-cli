@@ -84,6 +84,8 @@ xbe
 │   │   ├── create           Create a material transaction diversion
 │   │   ├── update           Update a material transaction diversion
 │   │   └── delete           Delete a material transaction diversion
+│   ├── material-transaction-shift-assignments  Manage material transaction shift assignments
+│   │   └── create           Create a material transaction shift assignment
 │   ├── material-site-mergers  Merge material sites
 │   │   └── create           Merge a material site
 │   ├── material-site-reading-material-types  Manage material site reading material types
@@ -164,6 +166,9 @@ xbe
 │   ├── material-transaction-diversions  Browse material transaction diversions
 │   │   ├── list            List material transaction diversions with filtering
 │   │   └── show <id>       Show diversion details
+│   ├── material-transaction-shift-assignments  Browse material transaction shift assignments
+│   │   ├── list            List material transaction shift assignments with filtering
+│   │   └── show <id>       Show assignment details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies

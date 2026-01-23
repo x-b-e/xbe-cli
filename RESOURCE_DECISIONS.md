@@ -124,6 +124,7 @@ lineup-scenario-truckers
 material-mix-designs
 material-sites
 material-suppliers
+material-transaction-shift-assignments
 material-transaction-summary
 material-transactions
 material-types
@@ -338,7 +339,6 @@ material-transaction-inspections
 material-transaction-invalidations
 material-transaction-preloads
 material-transaction-rejections
-material-transaction-shift-assignments
 material-transaction-status-changes
 material-transaction-submissions
 material-transaction-ticket-generators
