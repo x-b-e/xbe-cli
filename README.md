@@ -416,6 +416,28 @@ xbe do crew-assignment-confirmations create \
 xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
 ```
 
+### Crew Rates
+
+Crew rates define pricing for labor/equipment by classification, resource, or craft class.
+
+```bash
+# List crew rates for a broker
+xbe view crew-rates list --broker 123 --is-active true
+
+# Filter by resource classification
+xbe view crew-rates list --resource-classification-type LaborClassification --resource-classification-id 456
+
+# Create a crew rate
+xbe do crew-rates create --price-per-unit 75.00 --start-on 2025-01-01 --is-active true \
+  --broker 123 --resource-classification-type LaborClassification --resource-classification-id 456
+
+# Update a crew rate
+xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
+
+# Delete a crew rate (requires --confirm)
+xbe do crew-rates delete 789 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:
