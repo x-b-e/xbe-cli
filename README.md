@@ -131,6 +131,8 @@ xbe
 │   │   └── create           Create a material transaction summary
 │   ├── material-transaction-field-scopes Manage material transaction field scopes
 │   │   └── create           Create a material transaction field scope
+│   ├── material-transaction-rejections Reject material transactions
+│   │   └── create           Reject a material transaction
 │   ├── inventory-changes   Manage inventory changes
 │   │   ├── create           Create an inventory change
 │   │   └── delete           Delete an inventory change
@@ -219,6 +221,9 @@ xbe
 │   ├── material-transaction-field-scopes Browse material transaction field scopes
 │   │   ├── list            List material transaction field scopes
 │   │   └── show <id>       Show material transaction field scope details
+│   ├── material-transaction-rejections Browse material transaction rejections
+│   │   ├── list            List material transaction rejections
+│   │   └── show <id>       Show material transaction rejection details
 │   ├── material-site-inventory-locations Browse material site inventory locations
 │   │   ├── list            List material site inventory locations
 │   │   └── show <id>       Show material site inventory location details
