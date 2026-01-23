@@ -448,6 +448,37 @@ xbe do crew-requirements update 456 --note "Updated note" --requires-inbound-mov
 xbe do crew-requirements delete 456 --confirm
 ```
 
+### Equipment Requirements
+
+Equipment requirements manage equipment-specific crew requirements.
+
+```bash
+# List equipment requirements
+xbe view equipment-requirements list
+
+# Filter by assignment candidate
+xbe view equipment-requirements list --is-assignment-candidate-for 123
+
+# Show equipment requirement details
+xbe view equipment-requirements show 456
+
+# Create an equipment requirement
+xbe do equipment-requirements create \
+  --job-production-plan 123 \
+  --resource-classification-type equipment-classifications \
+  --resource-classification-id 456 \
+  --resource-type equipment \
+  --resource-id 789 \
+  --start-at "2025-01-01T08:00:00Z" \
+  --end-at "2025-01-01T16:00:00Z"
+
+# Update an equipment requirement
+xbe do equipment-requirements update 456 --note "Updated note" --requires-inbound-movement true
+
+# Delete an equipment requirement (requires --confirm)
+xbe do equipment-requirements delete 456 --confirm
+```
+
 ### Crew Rates
 
 Crew rates define pricing for labor/equipment by classification, resource, or craft class.
