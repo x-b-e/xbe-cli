@@ -133,6 +133,8 @@ xbe
 │   │   └── delete           Delete a job schedule shift
 │   ├── shift-time-card-requisitions  Manage shift time card requisitions
 │   │   └── create           Create a shift time card requisition
+│   ├── time-card-submissions  Submit time cards
+│   │   └── create           Submit a time card
 │   ├── time-card-approvals  Approve time cards
 │   │   └── create           Approve a time card
 │   ├── time-card-rejections  Reject time cards
