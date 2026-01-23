@@ -61,10 +61,11 @@ var resourceCategories = map[string][]string{
 	"projects":                                      {CatProjects},
 
 	// Fleet & Transport
-	"driver-day-adjustment-plans": {CatFleet},
-	"tractors":                    {CatFleet},
-	"trailers":                    {CatFleet},
-	"transport-orders":            {CatFleet},
+	"driver-day-adjustment-plans":       {CatFleet},
+	"driver-day-shortfall-calculations": {CatFleet},
+	"tractors":                          {CatFleet},
+	"trailers":                          {CatFleet},
+	"transport-orders":                  {CatFleet},
 
 	// Materials
 	"material-sites":        {CatMaterials},

@@ -49,9 +49,9 @@ Use this checklist for every resource. Treat it as the definition of “done.”
 ## Status Summary
 
 - Server resources (routes): 665
-- CLI command resources: 102
-- Server resources covered by commands: 102
-- Remaining (after skips + pending + not yet reviewed): 556
+- CLI command resources: 103
+- Server resources covered by commands: 103
+- Remaining (after skips + pending + not yet reviewed): 555
 
 ## CLI Alias Notes
 
@@ -99,6 +99,7 @@ developers
 device-location-event-summary
 devices
 driver-day-summary
+driver-day-shortfall-calculations
 equipment
 equipment-classifications
 equipment-rentals
@@ -187,7 +188,7 @@ These need a decision before implementation work proceeds.
 
 ## Remaining (by priority)
 
-### Highest (Core operations & scheduling) (201)
+### Highest (Core operations & scheduling) (200)
 
 ```
 crew-assignment-confirmations
@@ -201,7 +202,6 @@ driver-day-adjustment-plans
 driver-day-adjustments
 driver-day-constraints
 driver-day-shortfall-allocations
-driver-day-shortfall-calculations
 driver-day-trips-adjustments
 driver-managers
 driver-movement-observations

@@ -74,6 +74,8 @@ xbe
 │   │   ├── create           Create a driver day adjustment plan
 │   │   ├── update           Update a driver day adjustment plan
 │   │   └── delete           Delete a driver day adjustment plan
+│   ├── driver-day-shortfall-calculations Calculate driver day shortfall allocations
+│   │   └── create           Create a driver day shortfall calculation
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -105,6 +107,9 @@ xbe
 │   ├── driver-day-adjustment-plans Browse driver day adjustment plans
 │   │   ├── list            List driver day adjustment plans
 │   │   └── show <id>       Show driver day adjustment plan details
+│   ├── driver-day-shortfall-calculations Browse driver day shortfall calculations
+│   │   ├── list            List driver day shortfall calculations
+│   │   └── show <id>       Show driver day shortfall calculation details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
@@ -466,6 +471,26 @@ xbe do driver-day-adjustment-plans update 456 --content "Updated plan" \
 
 # Delete a plan (requires --confirm)
 xbe do driver-day-adjustment-plans delete 456 --confirm
+```
+
+### Driver Day Shortfall Calculations
+
+Driver day shortfall calculations allocate shortfall quantities across time cards and constraints.
+
+```bash
+# Create a calculation
+xbe do driver-day-shortfall-calculations create \
+  --time-card-ids 101,102 \
+  --driver-day-time-card-constraint-ids 55,56
+
+# Exclude time cards from allocation
+xbe do driver-day-shortfall-calculations create \
+  --time-card-ids 101,102,103 \
+  --unallocatable-time-card-ids 103 \
+  --driver-day-time-card-constraint-ids 55,56
+
+# Show a calculation (when available)
+xbe view driver-day-shortfall-calculations show <id>
 ```
 
 ## Output Formats
