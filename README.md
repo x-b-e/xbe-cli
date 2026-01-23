@@ -438,6 +438,30 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
+### Driver Day Trips Adjustments
+
+Driver day trips adjustments track edits to a driver's trip sequence for a shift.
+
+```bash
+# List adjustments
+xbe view driver-day-trips-adjustments list --status editing
+
+# Create an adjustment
+xbe do driver-day-trips-adjustments create \
+  --tender-job-schedule-shift 123 \
+  --old-trips-attributes '[{"note":"Original trip"}]' \
+  --description "Adjust trip order" \
+  --status editing
+
+# Update an adjustment
+xbe do driver-day-trips-adjustments update 456 \
+  --new-trips-attributes '[{"note":"Updated trip"}]' \
+  --description "Updated adjustment"
+
+# Delete an adjustment
+xbe do driver-day-trips-adjustments delete 456 --confirm
+```
+
 ### Crew Requirement Credential Classifications
 
 Crew requirement credential classifications link crew requirements to the credential
