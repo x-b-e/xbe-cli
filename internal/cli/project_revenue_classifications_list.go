@@ -25,6 +25,7 @@ type projectRevenueClassificationsListOptions struct {
 	Broker    string
 	HasBroker string
 	Parent    string
+	// NOTE: project-phase-cost-items filter removed due to server-side 500 error
 }
 
 func newProjectRevenueClassificationsListCmd() *cobra.Command {

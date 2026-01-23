@@ -15,21 +15,28 @@ import (
 )
 
 type usersListOptions struct {
-	BaseURL                      string
-	Token                        string
-	JSON                         bool
-	NoAuth                       bool
-	Limit                        int
-	Offset                       int
-	Name                         string
-	IsAdmin                      bool
-	EmailAddress                 string
-	MobileNumber                 string
-	SlackID                      string
-	IsDriver                     string
-	IsSuspendedFromDriving       string
-	HavingCustomerMembershipWith string
-	HavingTruckerMembershipWith  string
+	BaseURL                            string
+	Token                              string
+	JSON                               bool
+	NoAuth                             bool
+	Limit                              int
+	Offset                             int
+	Name                               string
+	IsAdmin                            bool
+	EmailAddress                       string
+	MobileNumber                       string
+	SlackID                            string
+	IsDriver                           string
+	IsSuspendedFromDriving             string
+	HavingCustomerMembershipWith       string
+	HavingTruckerMembershipWith        string
+	IsAvailableForQuestionAssignment   string
+	DarkMode                           string
+	EmailAddressLike                   string
+	HavingManagerTruckerMembershipWith string
+	// NOTE: driven-for-trucker filter removed due to server-side 503 timeout
+	CanManageProjectsFor string
+	HasNotifaiText       string
 }
 
 func newUsersListCmd() *cobra.Command {
@@ -87,6 +94,12 @@ func initUsersListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("is-suspended-from-driving", "", "Filter by driving suspension status (true/false)")
 	cmd.Flags().String("having-customer-membership-with", "", "Filter by customer membership (customer ID, comma-separated for multiple)")
 	cmd.Flags().String("having-trucker-membership-with", "", "Filter by trucker membership (trucker ID, comma-separated for multiple)")
+	cmd.Flags().String("is-available-for-question-assignment", "", "Filter by question assignment availability (true/false)")
+	cmd.Flags().String("dark-mode", "", "Filter by dark mode setting")
+	cmd.Flags().String("email-address-like", "", "Filter by email address (partial match)")
+	cmd.Flags().String("having-manager-trucker-membership-with", "", "Filter by manager trucker membership (trucker ID, comma-separated)")
+	cmd.Flags().String("can-manage-projects-for", "", "Filter by can manage projects for (customer ID, comma-separated)")
+	cmd.Flags().String("has-notifai-text", "", "Filter by having NotifAI text (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -129,6 +142,12 @@ func runUsersList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[is-suspended-from-driving]", opts.IsSuspendedFromDriving)
 	setFilterIfPresent(query, "filter[having-customer-membership-with]", opts.HavingCustomerMembershipWith)
 	setFilterIfPresent(query, "filter[having-trucker-membership-with]", opts.HavingTruckerMembershipWith)
+	setFilterIfPresent(query, "filter[is-available-for-question-assignment]", opts.IsAvailableForQuestionAssignment)
+	setFilterIfPresent(query, "filter[dark-mode]", opts.DarkMode)
+	setFilterIfPresent(query, "filter[email-address-like]", opts.EmailAddressLike)
+	setFilterIfPresent(query, "filter[having-manager-trucker-membership-with]", opts.HavingManagerTruckerMembershipWith)
+	setFilterIfPresent(query, "filter[can-manage-projects-for]", opts.CanManageProjectsFor)
+	setFilterIfPresent(query, "filter[has-notifai-text]", opts.HasNotifaiText)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/users", query)
 	if err != nil {
@@ -206,6 +225,30 @@ func parseUsersListOptions(cmd *cobra.Command) (usersListOptions, error) {
 	if err != nil {
 		return usersListOptions{}, err
 	}
+	isAvailableForQuestionAssignment, err := cmd.Flags().GetString("is-available-for-question-assignment")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	darkMode, err := cmd.Flags().GetString("dark-mode")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	emailAddressLike, err := cmd.Flags().GetString("email-address-like")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	havingManagerTruckerMembershipWith, err := cmd.Flags().GetString("having-manager-trucker-membership-with")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	canManageProjectsFor, err := cmd.Flags().GetString("can-manage-projects-for")
+	if err != nil {
+		return usersListOptions{}, err
+	}
+	hasNotifaiText, err := cmd.Flags().GetString("has-notifai-text")
+	if err != nil {
+		return usersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return usersListOptions{}, err
@@ -216,21 +259,27 @@ func parseUsersListOptions(cmd *cobra.Command) (usersListOptions, error) {
 	}
 
 	return usersListOptions{
-		BaseURL:                      baseURL,
-		Token:                        token,
-		JSON:                         jsonOut,
-		NoAuth:                       noAuth,
-		Limit:                        limit,
-		Offset:                       offset,
-		Name:                         name,
-		IsAdmin:                      isAdmin,
-		EmailAddress:                 emailAddress,
-		MobileNumber:                 mobileNumber,
-		SlackID:                      slackID,
-		IsDriver:                     isDriver,
-		IsSuspendedFromDriving:       isSuspendedFromDriving,
-		HavingCustomerMembershipWith: havingCustomerMembershipWith,
-		HavingTruckerMembershipWith:  havingTruckerMembershipWith,
+		BaseURL:                            baseURL,
+		Token:                              token,
+		JSON:                               jsonOut,
+		NoAuth:                             noAuth,
+		Limit:                              limit,
+		Offset:                             offset,
+		Name:                               name,
+		IsAdmin:                            isAdmin,
+		EmailAddress:                       emailAddress,
+		MobileNumber:                       mobileNumber,
+		SlackID:                            slackID,
+		IsDriver:                           isDriver,
+		IsSuspendedFromDriving:             isSuspendedFromDriving,
+		HavingCustomerMembershipWith:       havingCustomerMembershipWith,
+		HavingTruckerMembershipWith:        havingTruckerMembershipWith,
+		IsAvailableForQuestionAssignment:   isAvailableForQuestionAssignment,
+		DarkMode:                           darkMode,
+		EmailAddressLike:                   emailAddressLike,
+		HavingManagerTruckerMembershipWith: havingManagerTruckerMembershipWith,
+		CanManageProjectsFor:               canManageProjectsFor,
+		HasNotifaiText:                     hasNotifaiText,
 	}, nil
 }
 

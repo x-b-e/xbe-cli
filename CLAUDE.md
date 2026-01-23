@@ -73,6 +73,36 @@ When considering a new resource:
 
 Resources marked as `abstract` in the server are not real API endpoints and should be skipped.
 
+### Resource Buildout Workflow
+
+When building out new resources in batches:
+
+1. **Plan**: Review server resources at `/Users/seandevine/Code/server/app/resources/v1/` and propose logical groupings
+2. **Implement**: For each resource, create:
+   - Parent command file (e.g., `truckers.go` for view, `do_truckers.go` for do)
+   - List command (`truckers_list.go`)
+   - CRUD commands if writable (`do_truckers_create.go`, `do_truckers_update.go`, `do_truckers_delete.go`)
+3. **Test on staging**: Use `--base-url https://server-staging.x-b-e.com --token <token>` to test:
+   - List with all filters
+   - Create with required fields
+   - Update each attribute individually
+   - Delete with `--confirm`
+4. **Update tracking**: Add implemented resources to `RESOURCE_DECISIONS.md`
+5. **Format and build**: Run `gofmt -w internal/cli/*.go && make build && make test`
+6. **Release**: Commit, push, tag (increment minor version), and create GitHub release
+
+**Server resource inspection**:
+- Resource file: `/Users/seandevine/Code/server/app/resources/v1/<name>_resource.rb`
+- Policy file: `/Users/seandevine/Code/server/app/policies/<name>_policy.rb`
+- Check `attributes`, `relationships`, `filters` in resource file
+- Check `create?`, `update?`, `destroy?` in policy file for write permissions
+
+**Common patterns**:
+- Polymorphic relationships use `Type|ID` format (e.g., `--certifies-type truckers --certifies-id 123`)
+- Date filters often have `[min]` and `[max]` variants
+- Use `cmd.Flags().Changed()` for optional update fields
+- Include `query.Set("include", "...")` when relationships need linkage data
+
 ### Flag Display in Help Output
 
 Subcommand help shows only command-specific flags. Global flags (`--json`, `--limit`, `--offset`, `--sort`, `--base-url`, `--token`, `--no-auth`) are documented in `xbe --help` and referenced via a one-liner in subcommand help.

@@ -103,6 +103,7 @@ func initPostsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("published-at-max", "", "Filter to posts published on or before this date (YYYY-MM-DD)")
 	cmd.Flags().String("creator", "", "Filter by creator (e.g., User|123)")
 	cmd.Flags().String("subject-post", "", "Filter by subject post ID (comma-separated for multiple)")
+	// NOTE: similar-to-text filter removed due to performance issues (OpenAI embedding calls too slow for posts)
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }

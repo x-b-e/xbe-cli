@@ -15,17 +15,22 @@ import (
 )
 
 type brokersListOptions struct {
-	BaseURL               string
-	Token                 string
-	JSON                  bool
-	NoAuth                bool
-	Limit                 int
-	Offset                int
-	CompanyName           string
-	IsActive              string
-	IsDefault             string
-	SubDomain             string
-	TrailerClassification string
+	BaseURL                                               string
+	Token                                                 string
+	JSON                                                  bool
+	NoAuth                                                bool
+	Limit                                                 int
+	Offset                                                int
+	CompanyName                                           string
+	IsActive                                              string
+	IsDefault                                             string
+	SubDomain                                             string
+	TrailerClassification                                 string
+	QuickbooksEnabled                                     string
+	CanCustomersSeeDriverContactInformation               string
+	CanCustomerOperationsSeeDriverContactInformation      string
+	HasHelpText                                           string
+	SkipTenderJobScheduleShiftStartingSellerNotifications string
 }
 
 type brokerRow struct {
@@ -88,6 +93,11 @@ func initBrokersListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("is-default", "", "Filter by default status (true/false)")
 	cmd.Flags().String("sub-domain", "", "Filter by subdomain")
 	cmd.Flags().String("trailer-classification", "", "Filter by trailer classification")
+	cmd.Flags().String("quickbooks-enabled", "", "Filter by QuickBooks enabled status (true/false)")
+	cmd.Flags().String("can-customers-see-driver-contact-information", "", "Filter by customer driver contact visibility (true/false)")
+	cmd.Flags().String("can-customer-operations-see-driver-contact-information", "", "Filter by customer ops driver contact visibility (true/false)")
+	cmd.Flags().String("has-help-text", "", "Filter by help text presence (true/false)")
+	cmd.Flags().String("skip-tender-job-schedule-shift-starting-seller-notifications", "", "Filter by skip tender notifications (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -125,6 +135,11 @@ func runBrokersList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[is-default]", opts.IsDefault)
 	setFilterIfPresent(query, "filter[sub-domain]", opts.SubDomain)
 	setFilterIfPresent(query, "filter[trailer-classification]", opts.TrailerClassification)
+	setFilterIfPresent(query, "filter[quickbooks-enabled]", opts.QuickbooksEnabled)
+	setFilterIfPresent(query, "filter[can-customers-see-driver-contact-information]", opts.CanCustomersSeeDriverContactInformation)
+	setFilterIfPresent(query, "filter[can-customer-operations-see-driver-contact-information]", opts.CanCustomerOperationsSeeDriverContactInformation)
+	setFilterIfPresent(query, "filter[has-help-text]", opts.HasHelpText)
+	setFilterIfPresent(query, "filter[skip-tender-job-schedule-shift-starting-seller-notifications]", opts.SkipTenderJobScheduleShiftStartingSellerNotifications)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/brokers", query)
 	if err != nil {
@@ -186,6 +201,26 @@ func parseBrokersListOptions(cmd *cobra.Command) (brokersListOptions, error) {
 	if err != nil {
 		return brokersListOptions{}, err
 	}
+	quickbooksEnabled, err := cmd.Flags().GetString("quickbooks-enabled")
+	if err != nil {
+		return brokersListOptions{}, err
+	}
+	canCustomersSeeDriverContactInfo, err := cmd.Flags().GetString("can-customers-see-driver-contact-information")
+	if err != nil {
+		return brokersListOptions{}, err
+	}
+	canCustomerOpsSeeDriverContactInfo, err := cmd.Flags().GetString("can-customer-operations-see-driver-contact-information")
+	if err != nil {
+		return brokersListOptions{}, err
+	}
+	hasHelpText, err := cmd.Flags().GetString("has-help-text")
+	if err != nil {
+		return brokersListOptions{}, err
+	}
+	skipTenderNotifications, err := cmd.Flags().GetString("skip-tender-job-schedule-shift-starting-seller-notifications")
+	if err != nil {
+		return brokersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return brokersListOptions{}, err
@@ -196,17 +231,22 @@ func parseBrokersListOptions(cmd *cobra.Command) (brokersListOptions, error) {
 	}
 
 	return brokersListOptions{
-		BaseURL:               baseURL,
-		Token:                 token,
-		JSON:                  jsonOut,
-		NoAuth:                noAuth,
-		Limit:                 limit,
-		Offset:                offset,
-		CompanyName:           companyName,
-		IsActive:              isActive,
-		IsDefault:             isDefault,
-		SubDomain:             subDomain,
-		TrailerClassification: trailerClassification,
+		BaseURL:                                 baseURL,
+		Token:                                   token,
+		JSON:                                    jsonOut,
+		NoAuth:                                  noAuth,
+		Limit:                                   limit,
+		Offset:                                  offset,
+		CompanyName:                             companyName,
+		IsActive:                                isActive,
+		IsDefault:                               isDefault,
+		SubDomain:                               subDomain,
+		TrailerClassification:                   trailerClassification,
+		QuickbooksEnabled:                       quickbooksEnabled,
+		CanCustomersSeeDriverContactInformation: canCustomersSeeDriverContactInfo,
+		CanCustomerOperationsSeeDriverContactInformation: canCustomerOpsSeeDriverContactInfo,
+		HasHelpText: hasHelpText,
+		SkipTenderJobScheduleShiftStartingSellerNotifications: skipTenderNotifications,
 	}, nil
 }
 

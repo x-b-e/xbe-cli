@@ -26,6 +26,7 @@ type featuresListOptions struct {
 	Scale                 string
 	ReleasedOnMin         string
 	ReleasedOnMax         string
+	SimilarToText         string
 }
 
 func newFeaturesListCmd() *cobra.Command {
@@ -89,6 +90,7 @@ func initFeaturesListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("scale", "", "Filter by scale")
 	cmd.Flags().String("released-on-min", "", "Filter to features released on or after this date (YYYY-MM-DD)")
 	cmd.Flags().String("released-on-max", "", "Filter to features released on or before this date (YYYY-MM-DD)")
+	cmd.Flags().String("similar-to-text", "", "Filter by semantic similarity to text (uses AI embedding search)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -126,6 +128,7 @@ func runFeaturesList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[scale]", opts.Scale)
 	setFilterIfPresent(query, "filter[released-on-min]", opts.ReleasedOnMin)
 	setFilterIfPresent(query, "filter[released-on-max]", opts.ReleasedOnMax)
+	setFilterIfPresent(query, "filter[similar-to-text]", opts.SimilarToText)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/features", query)
 	if err != nil {
@@ -187,6 +190,10 @@ func parseFeaturesListOptions(cmd *cobra.Command) (featuresListOptions, error) {
 	if err != nil {
 		return featuresListOptions{}, err
 	}
+	similarToText, err := cmd.Flags().GetString("similar-to-text")
+	if err != nil {
+		return featuresListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return featuresListOptions{}, err
@@ -208,6 +215,7 @@ func parseFeaturesListOptions(cmd *cobra.Command) (featuresListOptions, error) {
 		Scale:                 scale,
 		ReleasedOnMin:         releasedOnMin,
 		ReleasedOnMax:         releasedOnMax,
+		SimilarToText:         similarToText,
 	}, nil
 }
 

@@ -15,16 +15,17 @@ import (
 )
 
 type projectCostClassificationsListOptions struct {
-	BaseURL   string
-	Token     string
-	JSON      bool
-	NoAuth    bool
-	Limit     int
-	Offset    int
-	Name      string
-	Broker    string
-	HasBroker string
-	Parent    string
+	BaseURL               string
+	Token                 string
+	JSON                  bool
+	NoAuth                bool
+	Limit                 int
+	Offset                int
+	Name                  string
+	Broker                string
+	HasBroker             string
+	Parent                string
+	ProjectPhaseCostItems string
 }
 
 func newProjectCostClassificationsListCmd() *cobra.Command {
@@ -80,6 +81,7 @@ func initProjectCostClassificationsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("broker", "", "Filter by broker ID")
 	cmd.Flags().String("has-broker", "", "Filter by broker presence (true/false)")
 	cmd.Flags().String("parent", "", "Filter by parent classification ID")
+	cmd.Flags().String("project-phase-cost-items", "", "Filter by project phase cost item IDs (comma-separated)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -122,6 +124,7 @@ func runProjectCostClassificationsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[broker]", opts.Broker)
 	setFilterIfPresent(query, "filter[has_broker]", opts.HasBroker)
 	setFilterIfPresent(query, "filter[parent]", opts.Parent)
+	setFilterIfPresent(query, "filter[project-phase-cost-items]", opts.ProjectPhaseCostItems)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/project-cost-classifications", query)
 	if err != nil {
@@ -155,20 +158,22 @@ func parseProjectCostClassificationsListOptions(cmd *cobra.Command) (projectCost
 	broker, _ := cmd.Flags().GetString("broker")
 	hasBroker, _ := cmd.Flags().GetString("has-broker")
 	parent, _ := cmd.Flags().GetString("parent")
+	projectPhaseCostItems, _ := cmd.Flags().GetString("project-phase-cost-items")
 	baseURL, _ := cmd.Flags().GetString("base-url")
 	token, _ := cmd.Flags().GetString("token")
 
 	return projectCostClassificationsListOptions{
-		BaseURL:   baseURL,
-		Token:     token,
-		JSON:      jsonOut,
-		NoAuth:    noAuth,
-		Limit:     limit,
-		Offset:    offset,
-		Name:      name,
-		Broker:    broker,
-		HasBroker: hasBroker,
-		Parent:    parent,
+		BaseURL:               baseURL,
+		Token:                 token,
+		JSON:                  jsonOut,
+		NoAuth:                noAuth,
+		Limit:                 limit,
+		Offset:                offset,
+		Name:                  name,
+		Broker:                broker,
+		HasBroker:             hasBroker,
+		Parent:                parent,
+		ProjectPhaseCostItems: projectPhaseCostItems,
 	}, nil
 }
 

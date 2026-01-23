@@ -15,17 +15,33 @@ import (
 )
 
 type materialTypesListOptions struct {
-	BaseURL            string
-	Token              string
-	JSON               bool
-	NoAuth             bool
-	Limit              int
-	Offset             int
-	Broker             string
-	Name               string
-	Q                  string
-	IsArchived         string
-	ParentMaterialType string
+	BaseURL                     string
+	Token                       string
+	JSON                        bool
+	NoAuth                      bool
+	Limit                       int
+	Offset                      int
+	Broker                      string
+	Name                        string
+	Q                           string
+	IsArchived                  string
+	ParentMaterialType          string
+	MaterialSites               string
+	ForMaterialSuppliers        string
+	HasMaterialSupplier         string
+	RequiringMixDesign          string
+	MissingRequiredMixDesign    string
+	MaterialSupplier            string
+	ParentMaterialTypeID        string
+	MaterialSubTypes            string
+	ExplicitDisplayName         string
+	UltimateParentMaterialType  string
+	UltimateParentQualifiedName string
+	HierarchyLike               string
+	MixDesignDescriptionLike    string
+	IsSoftDeleted               string
+	IsAvailableAt               string
+	HasInventoryEstimates       string
 }
 
 type materialTypeRow struct {
@@ -93,6 +109,22 @@ func initMaterialTypesListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("q", "", "General search")
 	cmd.Flags().String("is-archived", "", "Filter by archived status (true/false)")
 	cmd.Flags().String("parent-material-type", "", "Filter by parent material type ID")
+	cmd.Flags().String("material-sites", "", "Filter by material site IDs (comma-separated)")
+	cmd.Flags().String("for-material-suppliers", "", "Filter for material suppliers (comma-separated IDs)")
+	cmd.Flags().String("has-material-supplier", "", "Filter by having material supplier (true/false)")
+	cmd.Flags().String("requiring-mix-design", "", "Filter by requiring mix design (true/false)")
+	cmd.Flags().String("missing-required-mix-design", "", "Filter by missing required mix design (true/false)")
+	cmd.Flags().String("material-supplier", "", "Filter by material supplier ID")
+	cmd.Flags().String("parent-material-type-id", "", "Filter by parent material type ID (empty for top-level)")
+	cmd.Flags().String("material-sub-types", "", "Filter by material sub type IDs (comma-separated)")
+	cmd.Flags().String("explicit-display-name", "", "Filter by explicit display name")
+	cmd.Flags().String("ultimate-parent-material-type", "", "Filter by ultimate parent material type ID")
+	cmd.Flags().String("ultimate-parent-qualified-name", "", "Filter by ultimate parent qualified name")
+	cmd.Flags().String("hierarchy-like", "", "Filter by hierarchy (partial match)")
+	cmd.Flags().String("mix-design-description-like", "", "Filter by mix design description (partial match)")
+	cmd.Flags().String("is-soft-deleted", "", "Filter by soft deleted status (true/false)")
+	cmd.Flags().String("is-available-at", "", "Filter by availability at datetime (ISO 8601)")
+	cmd.Flags().String("has-inventory-estimates", "", "Filter by having inventory estimates (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -135,6 +167,22 @@ func runMaterialTypesList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[q]", opts.Q)
 	setFilterIfPresent(query, "filter[is-archived]", opts.IsArchived)
 	setFilterIfPresent(query, "filter[parent-material-type]", opts.ParentMaterialType)
+	setFilterIfPresent(query, "filter[material-sites]", opts.MaterialSites)
+	setFilterIfPresent(query, "filter[for-material-suppliers]", opts.ForMaterialSuppliers)
+	setFilterIfPresent(query, "filter[has-material-supplier]", opts.HasMaterialSupplier)
+	setFilterIfPresent(query, "filter[requiring-mix-design]", opts.RequiringMixDesign)
+	setFilterIfPresent(query, "filter[missing-required-mix-design]", opts.MissingRequiredMixDesign)
+	setFilterIfPresent(query, "filter[material-supplier]", opts.MaterialSupplier)
+	setFilterIfPresent(query, "filter[parent-material-type-id]", opts.ParentMaterialTypeID)
+	setFilterIfPresent(query, "filter[material-sub-types]", opts.MaterialSubTypes)
+	setFilterIfPresent(query, "filter[explicit-display-name]", opts.ExplicitDisplayName)
+	setFilterIfPresent(query, "filter[ultimate-parent-material-type]", opts.UltimateParentMaterialType)
+	setFilterIfPresent(query, "filter[ultimate-parent-qualified-name]", opts.UltimateParentQualifiedName)
+	setFilterIfPresent(query, "filter[hierarchy-like]", opts.HierarchyLike)
+	setFilterIfPresent(query, "filter[mix-design-description-like]", opts.MixDesignDescriptionLike)
+	setFilterIfPresent(query, "filter[is-soft-deleted]", opts.IsSoftDeleted)
+	setFilterIfPresent(query, "filter[is-available-at]", opts.IsAvailableAt)
+	setFilterIfPresent(query, "filter[has-inventory-estimates]", opts.HasInventoryEstimates)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/material-types", query)
 	if err != nil {
@@ -169,21 +217,53 @@ func parseMaterialTypesListOptions(cmd *cobra.Command) (materialTypesListOptions
 	q, _ := cmd.Flags().GetString("q")
 	isArchived, _ := cmd.Flags().GetString("is-archived")
 	parentMaterialType, _ := cmd.Flags().GetString("parent-material-type")
+	materialSites, _ := cmd.Flags().GetString("material-sites")
+	forMaterialSuppliers, _ := cmd.Flags().GetString("for-material-suppliers")
+	hasMaterialSupplier, _ := cmd.Flags().GetString("has-material-supplier")
+	requiringMixDesign, _ := cmd.Flags().GetString("requiring-mix-design")
+	missingRequiredMixDesign, _ := cmd.Flags().GetString("missing-required-mix-design")
+	materialSupplier, _ := cmd.Flags().GetString("material-supplier")
+	parentMaterialTypeID, _ := cmd.Flags().GetString("parent-material-type-id")
+	materialSubTypes, _ := cmd.Flags().GetString("material-sub-types")
+	explicitDisplayName, _ := cmd.Flags().GetString("explicit-display-name")
+	ultimateParentMaterialType, _ := cmd.Flags().GetString("ultimate-parent-material-type")
+	ultimateParentQualifiedName, _ := cmd.Flags().GetString("ultimate-parent-qualified-name")
+	hierarchyLike, _ := cmd.Flags().GetString("hierarchy-like")
+	mixDesignDescriptionLike, _ := cmd.Flags().GetString("mix-design-description-like")
+	isSoftDeleted, _ := cmd.Flags().GetString("is-soft-deleted")
+	isAvailableAt, _ := cmd.Flags().GetString("is-available-at")
+	hasInventoryEstimates, _ := cmd.Flags().GetString("has-inventory-estimates")
 	baseURL, _ := cmd.Flags().GetString("base-url")
 	token, _ := cmd.Flags().GetString("token")
 
 	return materialTypesListOptions{
-		BaseURL:            baseURL,
-		Token:              token,
-		JSON:               jsonOut,
-		NoAuth:             noAuth,
-		Limit:              limit,
-		Offset:             offset,
-		Broker:             broker,
-		Name:               name,
-		Q:                  q,
-		IsArchived:         isArchived,
-		ParentMaterialType: parentMaterialType,
+		BaseURL:                     baseURL,
+		Token:                       token,
+		JSON:                        jsonOut,
+		NoAuth:                      noAuth,
+		Limit:                       limit,
+		Offset:                      offset,
+		Broker:                      broker,
+		Name:                        name,
+		Q:                           q,
+		IsArchived:                  isArchived,
+		ParentMaterialType:          parentMaterialType,
+		MaterialSites:               materialSites,
+		ForMaterialSuppliers:        forMaterialSuppliers,
+		HasMaterialSupplier:         hasMaterialSupplier,
+		RequiringMixDesign:          requiringMixDesign,
+		MissingRequiredMixDesign:    missingRequiredMixDesign,
+		MaterialSupplier:            materialSupplier,
+		ParentMaterialTypeID:        parentMaterialTypeID,
+		MaterialSubTypes:            materialSubTypes,
+		ExplicitDisplayName:         explicitDisplayName,
+		UltimateParentMaterialType:  ultimateParentMaterialType,
+		UltimateParentQualifiedName: ultimateParentQualifiedName,
+		HierarchyLike:               hierarchyLike,
+		MixDesignDescriptionLike:    mixDesignDescriptionLike,
+		IsSoftDeleted:               isSoftDeleted,
+		IsAvailableAt:               isAvailableAt,
+		HasInventoryEstimates:       hasInventoryEstimates,
 	}, nil
 }
 

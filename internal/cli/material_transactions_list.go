@@ -16,32 +16,58 @@ import (
 )
 
 type materialTransactionsListOptions struct {
-	BaseURL                string
-	Token                  string
-	JSON                   bool
-	NoAuth                 bool
-	Limit                  int
-	Offset                 int
-	Query                  string
-	Status                 string
-	TicketNumber           string
-	Date                   string
-	DateMin                string
-	DateMax                string
-	MaterialType           string
-	MaterialSite           string
-	MaterialSupplier       string
-	JobProductionPlan      string
-	Customer               string
-	Trucker                string
-	Broker                 string
-	Project                string
-	IsVoided               string
-	IncludeAll             bool
-	BusinessUnit           string
-	JobSite                string
-	HasShift               string
-	TenderJobScheduleShift string
+	BaseURL                                         string
+	Token                                           string
+	JSON                                            bool
+	NoAuth                                          bool
+	Limit                                           int
+	Offset                                          int
+	Query                                           string
+	Status                                          string
+	TicketNumber                                    string
+	Date                                            string
+	DateMin                                         string
+	DateMax                                         string
+	MaterialType                                    string
+	MaterialSite                                    string
+	MaterialSupplier                                string
+	JobProductionPlan                               string
+	Customer                                        string
+	Trucker                                         string
+	Broker                                          string
+	Project                                         string
+	IsVoided                                        string
+	IncludeAll                                      bool
+	BusinessUnit                                    string
+	JobSite                                         string
+	HasShift                                        string
+	TenderJobScheduleShift                          string
+	Source                                          string
+	SourceType                                      string
+	FromImportSource                                string
+	NotFromImportSource                             string
+	MaterialMixDesign                               string
+	MaterialTypeHierarchyLike                       string
+	MaterialTypeUltimateParentMaterialType          string
+	MaterialTypeNotUltimateParentMaterialType       string
+	LikelyJobProductionPlan                         string
+	ShiftTruckNumber                                string
+	ShiftJobNumber                                  string
+	RawTruckName                                    string
+	RawTruckerName                                  string
+	RawMaterialID                                   string
+	RawJobNumber                                    string
+	RawHaulerType                                   string
+	RawIsVoided                                     string
+	RawIsMillings                                   string
+	SalesCustomer                                   string
+	JobOrSalesCustomer                              string
+	TruckerShiftSet                                 string
+	Invoice                                         string
+	IsPlanDriverExpectingMaterialTransactionInspect string
+	ExplicitConfirmationOfMatchAccuracy             string
+	HasMaterialMixDesign                            string
+	MissingRequiredMixDesign                        string
 }
 
 func newMaterialTransactionsListCmd() *cobra.Command {
@@ -140,6 +166,32 @@ func initMaterialTransactionsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("job-site", "", "Filter by job site ID (comma-separated for multiple)")
 	cmd.Flags().String("has-shift", "", "Filter by whether transaction has a shift (true/false)")
 	cmd.Flags().String("tender-job-schedule-shift", "", "Filter by tender job schedule shift ID (comma-separated for multiple)")
+	cmd.Flags().String("source", "", "Filter by source (Type|ID, comma-separated for multiple)")
+	cmd.Flags().String("source-type", "", "Filter by source type")
+	cmd.Flags().String("from-import-source", "", "Filter by import source (comma-separated for multiple)")
+	cmd.Flags().String("not-from-import-source", "", "Exclude import source (comma-separated for multiple)")
+	cmd.Flags().String("material-mix-design", "", "Filter by material mix design ID (comma-separated for multiple)")
+	cmd.Flags().String("material-type-hierarchy-like", "", "Filter by material type hierarchy (partial match)")
+	cmd.Flags().String("material-type-ultimate-parent", "", "Filter by ultimate parent material type ID (comma-separated for multiple)")
+	cmd.Flags().String("material-type-not-ultimate-parent", "", "Exclude ultimate parent material type ID (comma-separated for multiple)")
+	cmd.Flags().String("likely-job-production-plan", "", "Filter by likely job production plan ID (comma-separated for multiple)")
+	cmd.Flags().String("shift-truck-number", "", "Filter by shift truck number")
+	cmd.Flags().String("shift-job-number", "", "Filter by shift job number")
+	cmd.Flags().String("raw-truck-name", "", "Filter by raw truck name")
+	cmd.Flags().String("raw-trucker-name", "", "Filter by raw trucker name")
+	cmd.Flags().String("raw-material-id", "", "Filter by raw material ID")
+	cmd.Flags().String("raw-job-number", "", "Filter by raw job number")
+	cmd.Flags().String("raw-hauler-type", "", "Filter by raw hauler type")
+	cmd.Flags().String("raw-is-voided", "", "Filter by raw voided status (true/false)")
+	cmd.Flags().String("raw-is-millings", "", "Filter by raw millings status (true/false)")
+	cmd.Flags().String("sales-customer", "", "Filter by sales customer ID (comma-separated for multiple)")
+	cmd.Flags().String("job-or-sales-customer", "", "Filter by job or sales customer ID (comma-separated for multiple)")
+	cmd.Flags().String("trucker-shift-set", "", "Filter by trucker shift set (driver day)")
+	cmd.Flags().String("invoice", "", "Filter by invoice ID (comma-separated for multiple)")
+	cmd.Flags().String("is-plan-driver-expecting-inspection", "", "Filter by driver expecting inspection (true/false)")
+	cmd.Flags().String("explicit-confirmation-of-match-accuracy", "", "Filter by explicit confirmation (true/false)")
+	cmd.Flags().String("has-material-mix-design", "", "Filter by having material mix design (true/false)")
+	cmd.Flags().String("missing-required-mix-design", "", "Filter by missing required mix design (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -199,6 +251,32 @@ func runMaterialTransactionsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[job_site]", opts.JobSite)
 	setFilterIfPresent(query, "filter[has_shift]", opts.HasShift)
 	setFilterIfPresent(query, "filter[tender_job_schedule_shift]", opts.TenderJobScheduleShift)
+	setFilterIfPresent(query, "filter[source]", opts.Source)
+	setFilterIfPresent(query, "filter[source_type]", opts.SourceType)
+	setFilterIfPresent(query, "filter[from_import_source]", opts.FromImportSource)
+	setFilterIfPresent(query, "filter[not_from_import_source]", opts.NotFromImportSource)
+	setFilterIfPresent(query, "filter[material_mix_design]", opts.MaterialMixDesign)
+	setFilterIfPresent(query, "filter[material_type_hierarchy_like]", opts.MaterialTypeHierarchyLike)
+	setFilterIfPresent(query, "filter[material_type_ultimate_parent_material_type]", opts.MaterialTypeUltimateParentMaterialType)
+	setFilterIfPresent(query, "filter[material_type_not_ultimate_parent_material_type]", opts.MaterialTypeNotUltimateParentMaterialType)
+	setFilterIfPresent(query, "filter[likely_job_production_plan]", opts.LikelyJobProductionPlan)
+	setFilterIfPresent(query, "filter[shift_truck_number]", opts.ShiftTruckNumber)
+	setFilterIfPresent(query, "filter[shift_job_number]", opts.ShiftJobNumber)
+	setFilterIfPresent(query, "filter[raw_truck_name]", opts.RawTruckName)
+	setFilterIfPresent(query, "filter[raw_trucker_name]", opts.RawTruckerName)
+	setFilterIfPresent(query, "filter[raw_material_id]", opts.RawMaterialID)
+	setFilterIfPresent(query, "filter[raw_job_number]", opts.RawJobNumber)
+	setFilterIfPresent(query, "filter[raw_hauler_type]", opts.RawHaulerType)
+	setFilterIfPresent(query, "filter[raw_is_voided]", opts.RawIsVoided)
+	setFilterIfPresent(query, "filter[raw_is_millings]", opts.RawIsMillings)
+	setFilterIfPresent(query, "filter[sales_customer]", opts.SalesCustomer)
+	setFilterIfPresent(query, "filter[job_or_sales_customer]", opts.JobOrSalesCustomer)
+	setFilterIfPresent(query, "filter[trucker_shift_set]", opts.TruckerShiftSet)
+	setFilterIfPresent(query, "filter[invoice]", opts.Invoice)
+	setFilterIfPresent(query, "filter[is_plan_driver_expecting_material_transaction_inspection]", opts.IsPlanDriverExpectingMaterialTransactionInspect)
+	setFilterIfPresent(query, "filter[explicit_confirmation_of_match_accuracy]", opts.ExplicitConfirmationOfMatchAccuracy)
+	setFilterIfPresent(query, "filter[has_material_mix_design]", opts.HasMaterialMixDesign)
+	setFilterIfPresent(query, "filter[missing_required_mix_design]", opts.MissingRequiredMixDesign)
 
 	// Date filters
 	if opts.Date != "" {
@@ -338,6 +416,110 @@ func parseMaterialTransactionsListOptions(cmd *cobra.Command) (materialTransacti
 	if err != nil {
 		return materialTransactionsListOptions{}, err
 	}
+	source, err := cmd.Flags().GetString("source")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	sourceType, err := cmd.Flags().GetString("source-type")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	fromImportSource, err := cmd.Flags().GetString("from-import-source")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	notFromImportSource, err := cmd.Flags().GetString("not-from-import-source")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	materialMixDesign, err := cmd.Flags().GetString("material-mix-design")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	materialTypeHierarchyLike, err := cmd.Flags().GetString("material-type-hierarchy-like")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	materialTypeUltimateParent, err := cmd.Flags().GetString("material-type-ultimate-parent")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	materialTypeNotUltimateParent, err := cmd.Flags().GetString("material-type-not-ultimate-parent")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	likelyJobProductionPlan, err := cmd.Flags().GetString("likely-job-production-plan")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	shiftTruckNumber, err := cmd.Flags().GetString("shift-truck-number")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	shiftJobNumber, err := cmd.Flags().GetString("shift-job-number")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	rawTruckName, err := cmd.Flags().GetString("raw-truck-name")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	rawTruckerName, err := cmd.Flags().GetString("raw-trucker-name")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	rawMaterialID, err := cmd.Flags().GetString("raw-material-id")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	rawJobNumber, err := cmd.Flags().GetString("raw-job-number")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	rawHaulerType, err := cmd.Flags().GetString("raw-hauler-type")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	rawIsVoided, err := cmd.Flags().GetString("raw-is-voided")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	rawIsMillings, err := cmd.Flags().GetString("raw-is-millings")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	salesCustomer, err := cmd.Flags().GetString("sales-customer")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	jobOrSalesCustomer, err := cmd.Flags().GetString("job-or-sales-customer")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	truckerShiftSet, err := cmd.Flags().GetString("trucker-shift-set")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	invoice, err := cmd.Flags().GetString("invoice")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	isPlanDriverExpectingInspection, err := cmd.Flags().GetString("is-plan-driver-expecting-inspection")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	explicitConfirmationOfMatchAccuracy, err := cmd.Flags().GetString("explicit-confirmation-of-match-accuracy")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	hasMaterialMixDesign, err := cmd.Flags().GetString("has-material-mix-design")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
+	missingRequiredMixDesign, err := cmd.Flags().GetString("missing-required-mix-design")
+	if err != nil {
+		return materialTransactionsListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return materialTransactionsListOptions{}, err
@@ -348,32 +530,58 @@ func parseMaterialTransactionsListOptions(cmd *cobra.Command) (materialTransacti
 	}
 
 	return materialTransactionsListOptions{
-		BaseURL:                baseURL,
-		Token:                  token,
-		JSON:                   jsonOut,
-		NoAuth:                 noAuth,
-		Limit:                  limit,
-		Offset:                 offset,
-		Query:                  query,
-		Status:                 status,
-		TicketNumber:           ticketNumber,
-		Date:                   date,
-		DateMin:                dateMin,
-		DateMax:                dateMax,
-		MaterialType:           materialType,
-		MaterialSite:           materialSite,
-		MaterialSupplier:       materialSupplier,
-		JobProductionPlan:      jobProductionPlan,
-		Customer:               customer,
-		Trucker:                trucker,
-		Broker:                 broker,
-		Project:                project,
-		IsVoided:               isVoided,
-		IncludeAll:             includeAll,
-		BusinessUnit:           businessUnit,
-		JobSite:                jobSite,
-		HasShift:               hasShift,
-		TenderJobScheduleShift: tenderJobScheduleShift,
+		BaseURL:                                baseURL,
+		Token:                                  token,
+		JSON:                                   jsonOut,
+		NoAuth:                                 noAuth,
+		Limit:                                  limit,
+		Offset:                                 offset,
+		Query:                                  query,
+		Status:                                 status,
+		TicketNumber:                           ticketNumber,
+		Date:                                   date,
+		DateMin:                                dateMin,
+		DateMax:                                dateMax,
+		MaterialType:                           materialType,
+		MaterialSite:                           materialSite,
+		MaterialSupplier:                       materialSupplier,
+		JobProductionPlan:                      jobProductionPlan,
+		Customer:                               customer,
+		Trucker:                                trucker,
+		Broker:                                 broker,
+		Project:                                project,
+		IsVoided:                               isVoided,
+		IncludeAll:                             includeAll,
+		BusinessUnit:                           businessUnit,
+		JobSite:                                jobSite,
+		HasShift:                               hasShift,
+		TenderJobScheduleShift:                 tenderJobScheduleShift,
+		Source:                                 source,
+		SourceType:                             sourceType,
+		FromImportSource:                       fromImportSource,
+		NotFromImportSource:                    notFromImportSource,
+		MaterialMixDesign:                      materialMixDesign,
+		MaterialTypeHierarchyLike:              materialTypeHierarchyLike,
+		MaterialTypeUltimateParentMaterialType: materialTypeUltimateParent,
+		MaterialTypeNotUltimateParentMaterialType: materialTypeNotUltimateParent,
+		LikelyJobProductionPlan:                   likelyJobProductionPlan,
+		ShiftTruckNumber:                          shiftTruckNumber,
+		ShiftJobNumber:                            shiftJobNumber,
+		RawTruckName:                              rawTruckName,
+		RawTruckerName:                            rawTruckerName,
+		RawMaterialID:                             rawMaterialID,
+		RawJobNumber:                              rawJobNumber,
+		RawHaulerType:                             rawHaulerType,
+		RawIsVoided:                               rawIsVoided,
+		RawIsMillings:                             rawIsMillings,
+		SalesCustomer:                             salesCustomer,
+		JobOrSalesCustomer:                        jobOrSalesCustomer,
+		TruckerShiftSet:                           truckerShiftSet,
+		Invoice:                                   invoice,
+		IsPlanDriverExpectingMaterialTransactionInspect: isPlanDriverExpectingInspection,
+		ExplicitConfirmationOfMatchAccuracy:             explicitConfirmationOfMatchAccuracy,
+		HasMaterialMixDesign:                            hasMaterialMixDesign,
+		MissingRequiredMixDesign:                        missingRequiredMixDesign,
 	}, nil
 }
 

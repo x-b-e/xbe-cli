@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"net/url"
+	"strconv"
 	"strings"
 	"text/tabwriter"
 
@@ -14,15 +15,18 @@ import (
 )
 
 type shiftFeedbackReasonsListOptions struct {
-	BaseURL       string
-	Token         string
-	JSON          bool
-	NoAuth        bool
-	Name          string
-	Kind          string
-	Slug          string
-	DefaultRating string
-	HasBot        string
+	BaseURL             string
+	Token               string
+	JSON                bool
+	NoAuth              bool
+	Limit               int
+	Offset              int
+	Name                string
+	Kind                string
+	Slug                string
+	DefaultRating       string
+	HasBot              string
+	HasCorrectiveAction string
 }
 
 func newShiftFeedbackReasonsListCmd() *cobra.Command {
@@ -70,11 +74,14 @@ func init() {
 func initShiftFeedbackReasonsListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
+	cmd.Flags().Int("limit", 0, "Page size (defaults to server default)")
+	cmd.Flags().Int("offset", 0, "Page offset")
 	cmd.Flags().String("name", "", "Filter by name")
 	cmd.Flags().String("kind", "", "Filter by kind")
 	cmd.Flags().String("slug", "", "Filter by slug")
 	cmd.Flags().String("default-rating", "", "Filter by default rating")
 	cmd.Flags().String("has-bot", "", "Filter by bot presence (true/false)")
+	cmd.Flags().String("has-corrective-action", "", "Filter by having corrective action (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -104,12 +111,19 @@ func runShiftFeedbackReasonsList(cmd *cobra.Command, _ []string) error {
 	query := url.Values{}
 	query.Set("sort", "name")
 	query.Set("fields[shift-feedback-reasons]", "name,kind,default-rating,slug,corrective-action")
+	if opts.Limit > 0 {
+		query.Set("page[limit]", strconv.Itoa(opts.Limit))
+	}
+	if opts.Offset > 0 {
+		query.Set("page[offset]", strconv.Itoa(opts.Offset))
+	}
 
 	setFilterIfPresent(query, "filter[name]", opts.Name)
 	setFilterIfPresent(query, "filter[kind]", opts.Kind)
 	setFilterIfPresent(query, "filter[slug]", opts.Slug)
 	setFilterIfPresent(query, "filter[default-rating]", opts.DefaultRating)
 	setFilterIfPresent(query, "filter[has-bot]", opts.HasBot)
+	setFilterIfPresent(query, "filter[has-corrective-action]", opts.HasCorrectiveAction)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/shift-feedback-reasons", query)
 	if err != nil {
@@ -137,24 +151,30 @@ func runShiftFeedbackReasonsList(cmd *cobra.Command, _ []string) error {
 func parseShiftFeedbackReasonsListOptions(cmd *cobra.Command) (shiftFeedbackReasonsListOptions, error) {
 	jsonOut, _ := cmd.Flags().GetBool("json")
 	noAuth, _ := cmd.Flags().GetBool("no-auth")
+	limit, _ := cmd.Flags().GetInt("limit")
+	offset, _ := cmd.Flags().GetInt("offset")
 	name, _ := cmd.Flags().GetString("name")
 	kind, _ := cmd.Flags().GetString("kind")
 	slug, _ := cmd.Flags().GetString("slug")
 	defaultRating, _ := cmd.Flags().GetString("default-rating")
 	hasBot, _ := cmd.Flags().GetString("has-bot")
+	hasCorrectiveAction, _ := cmd.Flags().GetString("has-corrective-action")
 	baseURL, _ := cmd.Flags().GetString("base-url")
 	token, _ := cmd.Flags().GetString("token")
 
 	return shiftFeedbackReasonsListOptions{
-		BaseURL:       baseURL,
-		Token:         token,
-		JSON:          jsonOut,
-		NoAuth:        noAuth,
-		Name:          name,
-		Kind:          kind,
-		Slug:          slug,
-		DefaultRating: defaultRating,
-		HasBot:        hasBot,
+		BaseURL:             baseURL,
+		Token:               token,
+		JSON:                jsonOut,
+		NoAuth:              noAuth,
+		Limit:               limit,
+		Offset:              offset,
+		Name:                name,
+		Kind:                kind,
+		Slug:                slug,
+		DefaultRating:       defaultRating,
+		HasBot:              hasBot,
+		HasCorrectiveAction: hasCorrectiveAction,
 	}, nil
 }
 

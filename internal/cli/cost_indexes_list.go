@@ -15,15 +15,18 @@ import (
 )
 
 type costIndexesListOptions struct {
-	BaseURL   string
-	Token     string
-	JSON      bool
-	NoAuth    bool
-	Limit     int
-	Offset    int
-	Broker    string
-	IsBroker  string
-	IsExpired string
+	BaseURL          string
+	Token            string
+	JSON             bool
+	NoAuth           bool
+	Limit            int
+	Offset           int
+	Broker           string
+	IsBroker         string
+	IsExpired        string
+	IsValidForBroker string
+	ExpiredAtMin     string
+	ExpiredAtMax     string
 }
 
 func newCostIndexesListCmd() *cobra.Command {
@@ -77,6 +80,9 @@ func initCostIndexesListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("broker", "", "Filter by broker ID")
 	cmd.Flags().String("is-broker", "", "Filter by broker presence (true/false)")
 	cmd.Flags().String("is-expired", "", "Filter by expiration status (true/false)")
+	cmd.Flags().String("is-valid-for-broker", "", "Filter by validity for broker (true/false)")
+	cmd.Flags().String("expired-at-min", "", "Filter by minimum expiration date (YYYY-MM-DD)")
+	cmd.Flags().String("expired-at-max", "", "Filter by maximum expiration date (YYYY-MM-DD)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -118,6 +124,9 @@ func runCostIndexesList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[broker]", opts.Broker)
 	setFilterIfPresent(query, "filter[is-broker]", opts.IsBroker)
 	setFilterIfPresent(query, "filter[is-expired]", opts.IsExpired)
+	setFilterIfPresent(query, "filter[is-valid-for-broker]", opts.IsValidForBroker)
+	setFilterIfPresent(query, "filter[expired-at-min]", opts.ExpiredAtMin)
+	setFilterIfPresent(query, "filter[expired-at-max]", opts.ExpiredAtMax)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/cost-indexes", query)
 	if err != nil {
@@ -150,19 +159,25 @@ func parseCostIndexesListOptions(cmd *cobra.Command) (costIndexesListOptions, er
 	broker, _ := cmd.Flags().GetString("broker")
 	isBroker, _ := cmd.Flags().GetString("is-broker")
 	isExpired, _ := cmd.Flags().GetString("is-expired")
+	isValidForBroker, _ := cmd.Flags().GetString("is-valid-for-broker")
+	expiredAtMin, _ := cmd.Flags().GetString("expired-at-min")
+	expiredAtMax, _ := cmd.Flags().GetString("expired-at-max")
 	baseURL, _ := cmd.Flags().GetString("base-url")
 	token, _ := cmd.Flags().GetString("token")
 
 	return costIndexesListOptions{
-		BaseURL:   baseURL,
-		Token:     token,
-		JSON:      jsonOut,
-		NoAuth:    noAuth,
-		Limit:     limit,
-		Offset:    offset,
-		Broker:    broker,
-		IsBroker:  isBroker,
-		IsExpired: isExpired,
+		BaseURL:          baseURL,
+		Token:            token,
+		JSON:             jsonOut,
+		NoAuth:           noAuth,
+		Limit:            limit,
+		Offset:           offset,
+		Broker:           broker,
+		IsBroker:         isBroker,
+		IsExpired:        isExpired,
+		IsValidForBroker: isValidForBroker,
+		ExpiredAtMin:     expiredAtMin,
+		ExpiredAtMax:     expiredAtMax,
 	}, nil
 }
 

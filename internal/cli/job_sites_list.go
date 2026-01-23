@@ -15,21 +15,26 @@ import (
 )
 
 type jobSitesListOptions struct {
-	BaseURL         string
-	Token           string
-	JSON            bool
-	NoAuth          bool
-	Limit           int
-	Offset          int
-	Name            string
-	Active          bool
-	Broker          string
-	Customer        string
-	Q               string
-	MaterialSite    string
-	HasMaterialSite string
-	IsStockpiling   string
-	ActiveSince     string
+	BaseURL                     string
+	Token                       string
+	JSON                        bool
+	NoAuth                      bool
+	Limit                       int
+	Offset                      int
+	Name                        string
+	NameLike                    string
+	Active                      bool
+	Broker                      string
+	BrokerID                    string
+	Customer                    string
+	Q                           string
+	MaterialSite                string
+	HasMaterialSite             string
+	IsStockpiling               string
+	ActiveSince                 string
+	AddressNear                 string
+	ExternalIdentificationValue string
+	ExternalJobNumber           string
 }
 
 type jobSiteRow struct {
@@ -84,7 +89,8 @@ func initJobSitesListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("active", false, "Show only active job sites")
 	cmd.Flags().Int("limit", 50, "Page size")
 	cmd.Flags().Int("offset", 0, "Page offset")
-	cmd.Flags().String("name", "", "Filter by name (partial match)")
+	cmd.Flags().String("name", "", "Filter by name (exact match)")
+	cmd.Flags().String("name-like", "", "Filter by name (partial/fuzzy match)")
 	cmd.Flags().String("broker", "", "Filter by broker ID (comma-separated for multiple)")
 	cmd.Flags().String("customer", "", "Filter by customer ID (comma-separated for multiple)")
 	cmd.Flags().String("q", "", "Full-text search")
@@ -92,6 +98,10 @@ func initJobSitesListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("has-material-site", "", "Filter by whether site has material site (true/false)")
 	cmd.Flags().String("is-stockpiling", "", "Filter by stockpiling status (true/false)")
 	cmd.Flags().String("active-since", "", "Filter by activity since date (YYYY-MM-DD)")
+	cmd.Flags().String("address-near", "", "Filter by proximity to address (lat,lng,radius_miles)")
+	cmd.Flags().String("broker-id", "", "Filter by broker ID (uses broker_id filter)")
+	cmd.Flags().String("external-identification-value", "", "Filter by external identification value")
+	cmd.Flags().String("external-job-number", "", "Filter by external job number")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -134,16 +144,21 @@ func runJobSitesList(cmd *cobra.Command, _ []string) error {
 	if opts.Name != "" {
 		query.Set("filter[name]", opts.Name)
 	}
+	setFilterIfPresent(query, "filter[name-like]", opts.NameLike)
 	if opts.Active {
 		query.Set("filter[is-active]", "true")
 	}
 	setFilterIfPresent(query, "filter[broker]", opts.Broker)
+	setFilterIfPresent(query, "filter[broker-id]", opts.BrokerID)
 	setFilterIfPresent(query, "filter[customer]", opts.Customer)
 	setFilterIfPresent(query, "filter[q]", opts.Q)
 	setFilterIfPresent(query, "filter[material-site]", opts.MaterialSite)
 	setFilterIfPresent(query, "filter[has-material-site]", opts.HasMaterialSite)
 	setFilterIfPresent(query, "filter[is-stockpiling]", opts.IsStockpiling)
 	setFilterIfPresent(query, "filter[active-since]", opts.ActiveSince)
+	setFilterIfPresent(query, "filter[address-near]", opts.AddressNear)
+	setFilterIfPresent(query, "filter[external-identification-value]", opts.ExternalIdentificationValue)
+	setFilterIfPresent(query, "filter[external-job-number]", opts.ExternalJobNumber)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/job-sites", query)
 	if err != nil {
@@ -193,7 +208,15 @@ func parseJobSitesListOptions(cmd *cobra.Command) (jobSitesListOptions, error) {
 	if err != nil {
 		return jobSitesListOptions{}, err
 	}
+	nameLike, err := cmd.Flags().GetString("name-like")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
 	broker, err := cmd.Flags().GetString("broker")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	brokerID, err := cmd.Flags().GetString("broker-id")
 	if err != nil {
 		return jobSitesListOptions{}, err
 	}
@@ -221,6 +244,18 @@ func parseJobSitesListOptions(cmd *cobra.Command) (jobSitesListOptions, error) {
 	if err != nil {
 		return jobSitesListOptions{}, err
 	}
+	addressNear, err := cmd.Flags().GetString("address-near")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	externalIdentificationValue, err := cmd.Flags().GetString("external-identification-value")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
+	externalJobNumber, err := cmd.Flags().GetString("external-job-number")
+	if err != nil {
+		return jobSitesListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return jobSitesListOptions{}, err
@@ -231,21 +266,26 @@ func parseJobSitesListOptions(cmd *cobra.Command) (jobSitesListOptions, error) {
 	}
 
 	return jobSitesListOptions{
-		BaseURL:         baseURL,
-		Token:           token,
-		JSON:            jsonOut,
-		NoAuth:          noAuth,
-		Active:          active,
-		Limit:           limit,
-		Offset:          offset,
-		Name:            name,
-		Broker:          broker,
-		Customer:        customer,
-		Q:               q,
-		MaterialSite:    materialSite,
-		HasMaterialSite: hasMaterialSite,
-		IsStockpiling:   isStockpiling,
-		ActiveSince:     activeSince,
+		BaseURL:                     baseURL,
+		Token:                       token,
+		JSON:                        jsonOut,
+		NoAuth:                      noAuth,
+		Active:                      active,
+		Limit:                       limit,
+		Offset:                      offset,
+		Name:                        name,
+		NameLike:                    nameLike,
+		Broker:                      broker,
+		BrokerID:                    brokerID,
+		Customer:                    customer,
+		Q:                           q,
+		MaterialSite:                materialSite,
+		HasMaterialSite:             hasMaterialSite,
+		IsStockpiling:               isStockpiling,
+		ActiveSince:                 activeSince,
+		AddressNear:                 addressNear,
+		ExternalIdentificationValue: externalIdentificationValue,
+		ExternalJobNumber:           externalJobNumber,
 	}, nil
 }
 

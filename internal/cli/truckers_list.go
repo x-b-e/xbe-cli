@@ -15,21 +15,29 @@ import (
 )
 
 type truckersListOptions struct {
-	BaseURL                string
-	Token                  string
-	JSON                   bool
-	NoAuth                 bool
-	Limit                  int
-	Offset                 int
-	Name                   string
-	IsActive               bool
-	Broker                 string
-	Q                      string
-	PhoneNumber            string
-	Favorite               string
-	TrailerClassifications string
-	TaxIdentifier          string
-	ManagingCustomer       string
+	BaseURL                        string
+	Token                          string
+	JSON                           bool
+	NoAuth                         bool
+	Limit                          int
+	Offset                         int
+	Name                           string
+	IsActive                       bool
+	Broker                         string
+	Q                              string
+	PhoneNumber                    string
+	Favorite                       string
+	TrailerClassifications         string
+	TaxIdentifier                  string
+	ManagingCustomer               string
+	CompanyAddressWithin           string
+	WithinCustomerTruckersOf       string
+	WithUninvoicedApprovedTimeCard string
+	BrokerVendorID                 string
+	BrokerRating                   string
+	// NOTE: earliest-tender-accepted-at-within-previous-year-min removed due to server-side SQL bug
+	LastShiftStartAtMin string
+	LastShiftStartAtMax string
 }
 
 func newTruckersListCmd() *cobra.Command {
@@ -87,6 +95,13 @@ func initTruckersListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("trailer-classifications", "", "Filter by trailer classifications (comma-separated)")
 	cmd.Flags().String("tax-identifier", "", "Filter by tax identifier")
 	cmd.Flags().String("managing-customer", "", "Filter by managing customer ID (comma-separated for multiple)")
+	cmd.Flags().String("company-address-within", "", "Filter by company address proximity (lat,lng:miles)")
+	cmd.Flags().String("within-customer-truckers-of", "", "Filter by customer truckers (customer ID, comma-separated for multiple)")
+	cmd.Flags().String("with-uninvoiced-approved-time-card", "", "Filter by having uninvoiced approved time card (true/false)")
+	cmd.Flags().String("broker-vendor-id", "", "Filter by broker vendor ID")
+	cmd.Flags().String("broker-rating", "", "Filter by broker rating (format: broker_id;rating1|rating2, e.g., 123;1|2|3)")
+	cmd.Flags().String("last-shift-start-at-min", "", "Filter by minimum last shift start datetime (ISO 8601)")
+	cmd.Flags().String("last-shift-start-at-max", "", "Filter by maximum last shift start datetime (ISO 8601)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -131,6 +146,13 @@ func runTruckersList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[trailer-classifications]", opts.TrailerClassifications)
 	setFilterIfPresent(query, "filter[tax-identifier]", opts.TaxIdentifier)
 	setFilterIfPresent(query, "filter[managing-customer]", opts.ManagingCustomer)
+	setFilterIfPresent(query, "filter[company-address-within]", opts.CompanyAddressWithin)
+	setFilterIfPresent(query, "filter[within-customer-truckers-of]", opts.WithinCustomerTruckersOf)
+	setFilterIfPresent(query, "filter[with-uninvoiced-approved-time-card]", opts.WithUninvoicedApprovedTimeCard)
+	setFilterIfPresent(query, "filter[broker-vendor-id]", opts.BrokerVendorID)
+	setFilterIfPresent(query, "filter[broker-rating]", opts.BrokerRating)
+	setFilterIfPresent(query, "filter[last-shift-start-at-min]", opts.LastShiftStartAtMin)
+	setFilterIfPresent(query, "filter[last-shift-start-at-max]", opts.LastShiftStartAtMax)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/truckers", query)
 	if err != nil {
@@ -208,6 +230,34 @@ func parseTruckersListOptions(cmd *cobra.Command) (truckersListOptions, error) {
 	if err != nil {
 		return truckersListOptions{}, err
 	}
+	companyAddressWithin, err := cmd.Flags().GetString("company-address-within")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	withinCustomerTruckersOf, err := cmd.Flags().GetString("within-customer-truckers-of")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	withUninvoicedApprovedTimeCard, err := cmd.Flags().GetString("with-uninvoiced-approved-time-card")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	brokerVendorID, err := cmd.Flags().GetString("broker-vendor-id")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	brokerRating, err := cmd.Flags().GetString("broker-rating")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	lastShiftStartAtMin, err := cmd.Flags().GetString("last-shift-start-at-min")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
+	lastShiftStartAtMax, err := cmd.Flags().GetString("last-shift-start-at-max")
+	if err != nil {
+		return truckersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return truckersListOptions{}, err
@@ -218,21 +268,28 @@ func parseTruckersListOptions(cmd *cobra.Command) (truckersListOptions, error) {
 	}
 
 	return truckersListOptions{
-		BaseURL:                baseURL,
-		Token:                  token,
-		JSON:                   jsonOut,
-		NoAuth:                 noAuth,
-		Limit:                  limit,
-		Offset:                 offset,
-		Name:                   name,
-		IsActive:               isActive,
-		Broker:                 broker,
-		Q:                      q,
-		PhoneNumber:            phoneNumber,
-		Favorite:               favorite,
-		TrailerClassifications: trailerClassifications,
-		TaxIdentifier:          taxIdentifier,
-		ManagingCustomer:       managingCustomer,
+		BaseURL:                        baseURL,
+		Token:                          token,
+		JSON:                           jsonOut,
+		NoAuth:                         noAuth,
+		Limit:                          limit,
+		Offset:                         offset,
+		Name:                           name,
+		IsActive:                       isActive,
+		Broker:                         broker,
+		Q:                              q,
+		PhoneNumber:                    phoneNumber,
+		Favorite:                       favorite,
+		TrailerClassifications:         trailerClassifications,
+		TaxIdentifier:                  taxIdentifier,
+		ManagingCustomer:               managingCustomer,
+		CompanyAddressWithin:           companyAddressWithin,
+		WithinCustomerTruckersOf:       withinCustomerTruckersOf,
+		WithUninvoicedApprovedTimeCard: withUninvoicedApprovedTimeCard,
+		BrokerVendorID:                 brokerVendorID,
+		BrokerRating:                   brokerRating,
+		LastShiftStartAtMin:            lastShiftStartAtMin,
+		LastShiftStartAtMax:            lastShiftStartAtMax,
 	}, nil
 }
 
