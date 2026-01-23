@@ -50,16 +50,17 @@ var resourceCategories = map[string][]string{
 	"release-notes":     {CatContent},
 
 	// Projects & Jobs
-	"action-items":                                  {CatProjects},
-	"crew-assignment-confirmations":                 {CatProjects},
-	"job-production-plan-cancellations":             {CatProjects},
-	"job-production-plan-cancellation-reason-types": {CatProjects},
-	"job-production-plans":                          {CatProjects},
-	"job-sites":                                     {CatProjects},
-	"project-categories":                            {CatProjects},
-	"project-divisions":                             {CatProjects},
-	"project-offices":                               {CatProjects},
-	"projects":                                      {CatProjects},
+	"action-items":                                    {CatProjects},
+	"crew-assignment-confirmations":                   {CatProjects},
+	"job-production-plan-cancellations":               {CatProjects},
+	"job-production-plan-cancellation-reason-types":   {CatProjects},
+	"job-production-plan-job-site-location-estimates": {CatProjects},
+	"job-production-plans":                            {CatProjects},
+	"job-sites":                                       {CatProjects},
+	"project-categories":                              {CatProjects},
+	"project-divisions":                               {CatProjects},
+	"project-offices":                                 {CatProjects},
+	"projects":                                        {CatProjects},
 
 	// Fleet & Transport
 	"driver-day-constraints":                       {CatFleet},

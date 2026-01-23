@@ -124,6 +124,9 @@ xbe
 │   ├── job-production-plan-display-unit-of-measures Browse job production plan display unit of measures
 │   │   ├── list            List job production plan display unit of measures
 │   │   └── show <id>       Show job production plan display unit of measure details
+│   ├── job-production-plan-job-site-location-estimates Browse job site location estimates
+│   │   ├── list            List job site location estimates
+│   │   └── show <id>       Show job site location estimate details
 │   ├── geofence-restrictions Browse geofence restrictions
 │   │   ├── list            List geofence restrictions
 │   │   └── show <id>       Show geofence restriction details
