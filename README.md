@@ -103,6 +103,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── driver-movement-segments Browse driver movement segments
+│   │   ├── list            List movement segments with filtering
+│   │   └── show <id>       Show movement segment details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
@@ -440,6 +443,24 @@ xbe do driver-assignment-refusals create \
   --tender-job-schedule-shift 123 \
   --driver 456 \
   --comment "Unable to cover the shift"
+```
+
+### Driver Movement Segments
+
+Driver movement segments represent contiguous moving or stationary intervals for a driver day.
+
+```bash
+# List recent segments
+xbe view driver-movement-segments list --limit 10
+
+# Filter moving segments
+xbe view driver-movement-segments list --is-moving true
+
+# Filter by segment set
+xbe view driver-movement-segments list --driver-movement-segment-set 123
+
+# Show segment details
+xbe view driver-movement-segments show 456
 ```
 
 ### Crew Rates
