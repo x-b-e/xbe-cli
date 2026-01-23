@@ -231,6 +231,9 @@ xbe
 │   ├── invoice-sends       Browse invoice sends
 │   │   ├── list            List invoice sends
 │   │   └── show <id>       Show invoice send details
+│   ├── invoice-status-changes Browse invoice status changes
+│   │   ├── list            List invoice status changes
+│   │   └── show <id>       Show invoice status change details
 │   ├── invoice-revisionizing-invoice-revisions Browse invoice revisionizing invoice revisions
 │   │   ├── list            List invoice revisionizing invoice revisions
 │   │   └── show <id>       Show invoice revisionizing invoice revision details

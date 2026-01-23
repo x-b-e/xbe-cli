@@ -114,6 +114,7 @@ incidents
 inventory-changes
 invoice-approvals
 invoice-sends
+invoice-status-changes
 job-production-plan-cancellation-reason-types
 job-production-plan-job-site-location-estimates
 job-production-plan-summary
