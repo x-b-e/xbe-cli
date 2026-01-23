@@ -371,6 +371,25 @@ xbe do material-transaction-summary create \
   --min-transactions 100
 ```
 
+### Material Mix Design Matches
+
+Material mix design matches find the best mix designs for a material type
+and optional material sites as of a timestamp.
+
+```bash
+# Match material mix designs for a material type
+xbe do material-mix-design-matches create --material-type 123 --as-of "2026-01-23T00:00:00Z"
+
+# Match with material sites
+xbe do material-mix-design-matches create \
+  --material-type 123 \
+  --as-of "2026-01-23T00:00:00Z" \
+  --material-sites 456,789
+
+# JSON output
+xbe do material-mix-design-matches create --material-type 123 --as-of "2026-01-23T00:00:00Z" --json
+```
+
 ### Memberships
 
 Memberships define the relationship between users and organizations (brokers, customers, truckers, material suppliers, developers).
