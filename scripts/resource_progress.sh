@@ -205,13 +205,16 @@ for b in worker_branches:
         if subj.startswith("Implement "):
             recent_unmerged_impl.add(sha)
 
-rate = (len(recent_unmerged_impl) / rate_window_hours) if rate_window_hours > 0 else 0.0
+window_rate = (len(recent_unmerged_impl) / rate_window_hours) if rate_window_hours > 0 else 0.0
 
 run_rate = 0.0
+span_hours = 0.0
+oldest_ct = None
+newest_ct = None
 if unmerged_ct:
-    min_ct = min(unmerged_ct.values())
-    max_ct = max(unmerged_ct.values())
-    span_hours = max(1e-9, (max_ct - min_ct) / 3600)
+    oldest_ct = min(unmerged_ct.values())
+    newest_ct = max(unmerged_ct.values())
+    span_hours = max(1e-9, (newest_ct - oldest_ct) / 3600)
     run_rate = len(unmerged_impl) / span_hours
 
 merge_queue_len = 0
@@ -232,13 +235,17 @@ print(f"unmerged_worker_commits: {len(unmerged_impl)}")
 print(f"merge_queue: {merge_queue_len}")
 print(f"rate_window_hours: {rate_window_hours:g}")
 print(f"recent_unmerged_commits: {len(recent_unmerged_impl)}")
-print(f"rate_per_hour: {rate:.2f}")
-print(f"rate_per_hour_run: {run_rate:.2f}")
-if rate > 0:
-    hours_left = len(remaining) / rate
+print(f"run_span_hours: {span_hours:.2f}")
+if oldest_ct and newest_ct:
+    print(f"run_oldest: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(oldest_ct))}")
+    print(f"run_newest: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(newest_ct))}")
+print(f"rate_per_hour: {run_rate:.2f}")
+print(f"rate_per_hour_window: {window_rate:.2f}")
+if run_rate > 0:
+    hours_left = len(remaining) / run_rate
     days_left = hours_left / 24
     remaining_after_unmerged = max(0, len(remaining) - len(unmerged_impl))
-    hours_left_after_unmerged = remaining_after_unmerged / rate
+    hours_left_after_unmerged = remaining_after_unmerged / run_rate
     days_left_after_unmerged = hours_left_after_unmerged / 24
     print(f"eta_hours: {hours_left:.1f}")
     print(f"eta_days: {days_left:.2f}")
