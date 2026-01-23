@@ -65,9 +65,10 @@ var resourceCategories = map[string][]string{
 	"driver-movement-segment-sets":                 {CatFleet},
 	"equipment-movement-requirements":              {CatFleet},
 	"equipment-movement-trip-job-production-plans": {CatFleet},
-	"tractors":         {CatFleet},
-	"trailers":         {CatFleet},
-	"transport-orders": {CatFleet},
+	"hos-ruleset-assignments":                      {CatFleet},
+	"tractors":                                     {CatFleet},
+	"trailers":                                     {CatFleet},
+	"transport-orders":                             {CatFleet},
 
 	// Materials
 	"material-sites":        {CatMaterials},

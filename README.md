@@ -511,6 +511,24 @@ xbe view driver-movement-segment-sets list --driver 456
 xbe view driver-movement-segment-sets show 789
 ```
 
+### HOS Ruleset Assignments
+
+HOS ruleset assignments track which HOS rule set applies to a driver at a given time.
+
+```bash
+# List HOS ruleset assignments
+xbe view hos-ruleset-assignments list
+
+# Filter by driver
+xbe view hos-ruleset-assignments list --driver 123
+
+# Filter by effective-at range
+xbe view hos-ruleset-assignments list --effective-at-min 2025-01-01T00:00:00Z --effective-at-max 2025-01-31T23:59:59Z
+
+# Show full details
+xbe view hos-ruleset-assignments show 456
+```
+
 ### Equipment Movement Requirements
 
 Equipment movement requirements define equipment movement timing and locations.
