@@ -110,6 +110,7 @@ glossary-terms
 incident-tags
 incidents
 job-production-plan-cancellation-reason-types
+job-production-plan-duplications
 job-production-plan-summary
 job-production-plans
 job-sites
@@ -246,7 +247,6 @@ job-production-plan-cost-codes
 job-production-plan-display-unit-of-measures
 job-production-plan-driver-movements
 job-production-plan-duplication-works
-job-production-plan-duplications
 job-production-plan-inspectors
 job-production-plan-job-site-changes
 job-production-plan-job-site-location-estimates

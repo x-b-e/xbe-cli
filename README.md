@@ -77,6 +77,8 @@ xbe
 │   ├── job-production-plan-broadcast-messages  Manage job production plan broadcast messages
 │   │   ├── create           Create a broadcast message
 │   │   └── update           Update a broadcast message
+│   ├── job-production-plan-duplications  Duplicate job production plan templates
+│   │   └── create           Duplicate a job production plan template
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -527,6 +529,24 @@ xbe do job-production-plan-broadcast-messages create \
 
 # Hide a broadcast message
 xbe do job-production-plan-broadcast-messages update 456 --is-hidden
+```
+
+### Job Production Plan Duplications
+
+Job production plan duplications copy a template into a new plan or template.
+
+```bash
+# Duplicate a template into a new plan
+xbe do job-production-plan-duplications create \
+  --job-production-plan-template 123 \
+  --start-on 2026-01-23
+
+# Duplicate into another customer and skip copying shifts
+xbe do job-production-plan-duplications create \
+  --job-production-plan-template 123 \
+  --start-on 2026-01-23 \
+  --new-customer 456 \
+  --skip-job-schedule-shifts
 ```
 
 ### Crew Requirement Credential Classifications
