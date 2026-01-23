@@ -105,6 +105,9 @@ xbe
 │   ├── job-production-plan-broadcast-messages  Browse job production plan broadcast messages
 │   │   ├── list            List broadcast messages
 │   │   └── show <id>       Show broadcast message details
+│   ├── job-production-plan-recaps  Browse job production plan recaps
+│   │   ├── list            List job production plan recaps
+│   │   └── show <id>       Show job production plan recap details
 │   ├── job-production-plan-material-site-changes  Browse job production plan material site changes
 │   │   ├── list            List material site changes
 │   │   └── show <id>       Show material site change details
@@ -534,6 +537,21 @@ xbe do job-production-plan-broadcast-messages create \
 
 # Hide a broadcast message
 xbe do job-production-plan-broadcast-messages update 456 --is-hidden
+```
+
+### Job Production Plan Recaps
+
+Job production plan recaps provide generated markdown summaries for a plan.
+
+```bash
+# List recaps
+xbe view job-production-plan-recaps list
+
+# Filter by job production plan
+xbe view job-production-plan-recaps list --plan 123
+
+# Show recap details
+xbe view job-production-plan-recaps show 456
 ```
 
 ### Job Production Plan Material Site Changes
