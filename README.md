@@ -255,6 +255,9 @@ xbe
 │   ├── invoice-generations Browse invoice generations
 │   │   ├── list            List invoice generations with filtering
 │   │   └── show <id>       Show invoice generation details
+│   ├── invoice-revisions   Browse invoice revisions
+│   │   ├── list            List invoice revisions with filtering
+│   │   └── show <id>       Show invoice revision details
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
 │   │   ├── list            List recommendations with filtering
 │   │   └── show <id>       Show recommendation details
