@@ -118,6 +118,8 @@ xbe
 │   │   ├── create           Create a time card pre-approval
 │   │   ├── update           Update a time card pre-approval
 │   │   └── delete           Delete a time card pre-approval
+│   ├── time-card-unscrappages Manage time card unscrappages
+│   │   └── create           Create a time card unscrappage
 │   ├── job-production-plan-service-type-unit-of-measure-cohorts Manage job production plan service type unit of measure cohorts
 │   │   ├── create           Create a job production plan service type unit of measure cohort link
 │   │   └── delete           Delete a job production plan service type unit of measure cohort link
@@ -213,6 +215,9 @@ xbe
 │   ├── time-card-pre-approvals Browse time card pre-approvals
 │   │   ├── list            List time card pre-approvals with filtering
 │   │   └── show <id>       Show time card pre-approval details
+│   ├── time-card-unscrappages Browse time card unscrappages
+│   │   ├── list            List time card unscrappages
+│   │   └── show <id>       Show time card unscrappage details
 │   ├── maintenance-requirement-sets Browse maintenance requirement sets
 │   │   ├── list            List maintenance requirement sets with filtering
 │   │   └── show <id>       Show maintenance requirement set details
