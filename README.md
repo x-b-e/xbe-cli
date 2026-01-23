@@ -438,6 +438,31 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
+### Driver Assignment Rules
+
+Driver assignment rules define constraints or guidance used when assigning drivers.
+
+```bash
+# List driver assignment rules
+xbe view driver-assignment-rules list
+
+# Filter by level
+xbe view driver-assignment-rules list --level-type Broker --level-id 123
+
+# Create a broker-level rule
+xbe do driver-assignment-rules create \
+  --rule "Drivers must be assigned by 6am" \
+  --level-type Broker \
+  --level-id 123 \
+  --is-active
+
+# Update a rule
+xbe do driver-assignment-rules update 789 --rule "Updated rule" --is-active=false
+
+# Delete a rule (requires --confirm)
+xbe do driver-assignment-rules delete 789 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:
