@@ -58,6 +58,10 @@ xbe
 │   ├── whoami              Show the current authenticated user
 │   └── logout              Remove stored token
 ├── do                      Create, update, and delete XBE resources
+│   ├── bidders             Manage bidders
+│   │   ├── create           Create a bidder
+│   │   ├── update           Update a bidder
+│   │   └── delete           Delete a bidder
 │   ├── application-settings Manage global application settings
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
@@ -173,6 +177,9 @@ xbe
 │   │   └── show <id>       Show post details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
+│   ├── bidders             Browse bidders
+│   │   ├── list            List bidders with filtering
+│   │   └── show <id>       Show bidder details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers

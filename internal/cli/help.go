@@ -32,6 +32,7 @@ const (
 // resourceCategories maps resource names to their categories
 var resourceCategories = map[string][]string{
 	// Organizations
+	"bidders":        {CatOrganizations},
 	"brokers":        {CatOrganizations},
 	"business-units": {CatOrganizations},
 	"customers":      {CatOrganizations},
