@@ -55,6 +55,7 @@ var resourceCategories = map[string][]string{
 	"driver-day-adjustments":                        {CatProjects},
 	"job-production-plan-cost-codes":                {CatProjects},
 	"job-production-plan-cancellation-reason-types": {CatProjects},
+	"job-production-plan-inspectors":                {CatProjects},
 	"job-production-plans":                          {CatProjects},
 	"job-sites":                                     {CatProjects},
 	"project-categories":                            {CatProjects},

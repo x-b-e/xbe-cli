@@ -638,6 +638,30 @@ xbe do job-production-plan-cost-codes update 456 --project-resource-classificati
 xbe do job-production-plan-cost-codes delete 456 --confirm
 ```
 
+### Job Production Plan Inspectors
+
+Job production plan inspectors assign inspectors (users) to job production plans.
+
+```bash
+# List job production plan inspectors
+xbe view job-production-plan-inspectors list
+
+# Filter by job production plan
+xbe view job-production-plan-inspectors list --job-production-plan-id 123
+
+# Filter by user
+xbe view job-production-plan-inspectors list --user 456
+
+# Show job production plan inspector details
+xbe view job-production-plan-inspectors show 789
+
+# Create a job production plan inspector
+xbe do job-production-plan-inspectors create --job-production-plan-id 123 --user 456
+
+# Delete a job production plan inspector (requires --confirm)
+xbe do job-production-plan-inspectors delete 789 --confirm
+```
+
 ### Inventory Capacities
 
 Inventory capacities define min/max storage levels and alert thresholds for a
