@@ -108,6 +108,10 @@ xbe
 │   │   ├── create           Create a material purchase order release
 │   │   ├── update           Update a material purchase order release
 │   │   └── delete           Delete a material purchase order release
+│   ├── material-site-readings Manage material site readings
+│   │   ├── create           Create a material site reading
+│   │   ├── update           Update a material site reading
+│   │   └── delete           Delete a material site reading
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -139,6 +143,9 @@ xbe
 │   ├── material-purchase-order-releases Browse material purchase order releases
 │   │   ├── list            List material purchase order releases
 │   │   └── show <id>       Show material purchase order release details
+│   ├── material-site-readings Browse material site readings
+│   │   ├── list            List material site readings
+│   │   └── show <id>       Show material site reading details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies

@@ -125,6 +125,7 @@ lane-summary
 languages
 material-mix-designs
 material-sites
+material-site-readings
 material-suppliers
 material-transaction-summary
 material-transactions
