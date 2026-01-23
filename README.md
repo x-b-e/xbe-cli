@@ -1273,6 +1273,36 @@ xbe do transport-order-project-transport-plan-strategy-set-predictions create --
 xbe do transport-order-project-transport-plan-strategy-set-predictions delete 456 --confirm
 ```
 
+### Transport Order Stops
+
+Transport order stops define pickup and delivery locations, scheduling windows,
+and sequencing for a transport order.
+
+```bash
+# List transport order stops
+xbe view transport-order-stops list
+
+# Filter by transport order
+xbe view transport-order-stops list --transport-order 123
+
+# Show stop details
+xbe view transport-order-stops show 456
+
+# Create a pickup stop
+xbe do transport-order-stops create \
+  --transport-order 123 \
+  --location 789 \
+  --role pickup \
+  --at-min 2026-01-23T08:00:00Z \
+  --at-max 2026-01-23T10:00:00Z
+
+# Update a stop status
+xbe do transport-order-stops update 456 --status started
+
+# Delete a stop (requires --confirm)
+xbe do transport-order-stops delete 456 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:

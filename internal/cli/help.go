@@ -83,7 +83,8 @@ var resourceCategories = map[string][]string{
 	"tractors": {CatFleet},
 	"trailers": {CatFleet},
 	"transport-order-project-transport-plan-strategy-set-predictions": {CatFleet},
-	"transport-orders": {CatFleet},
+	"transport-order-stops": {CatFleet},
+	"transport-orders":      {CatFleet},
 
 	// Materials
 	"inventory-capacities":           {CatMaterials},
