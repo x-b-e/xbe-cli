@@ -76,6 +76,8 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-site-mergers  Merge material sites
+│   │   └── create           Merge a material site
 │   ├── material-purchase-order-release-redemptions  Manage material purchase order release redemptions
 │   │   ├── create           Create a release redemption
 │   │   ├── update           Update a release redemption
