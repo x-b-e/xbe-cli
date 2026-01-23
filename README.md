@@ -106,6 +106,9 @@ xbe
 │   ├── driver-movement-segments Browse driver movement segments
 │   │   ├── list            List movement segments with filtering
 │   │   └── show <id>       Show movement segment details
+│   ├── hos-availability-snapshots Browse HOS availability snapshots
+│   │   ├── list            List availability snapshots with filtering
+│   │   └── show <id>       Show availability snapshot details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
