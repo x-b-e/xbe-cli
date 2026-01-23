@@ -90,6 +90,10 @@ xbe
 │   │   ├── create           Create a transport order material
 │   │   ├── update           Update a transport order material
 │   │   └── delete           Delete a transport order material
+│   ├── transport-references  Manage transport references
+│   │   ├── create           Create a transport reference
+│   │   ├── update           Update a transport reference
+│   │   └── delete           Delete a transport reference
 │   ├── service-type-unit-of-measure-quantities  Manage service type unit of measure quantities
 │   │   ├── create           Create a service type unit of measure quantity
 │   │   ├── update           Update a service type unit of measure quantity
@@ -199,6 +203,9 @@ xbe
 │   ├── transport-order-materials  Browse transport order materials
 │   │   ├── list            List transport order materials with filtering
 │   │   └── show <id>       Show transport order material details
+│   ├── transport-references  Browse transport references
+│   │   ├── list            List transport references with filtering
+│   │   └── show <id>       Show transport reference details
 │   ├── service-type-unit-of-measure-quantities  Browse service type unit of measure quantities
 │   │   ├── list            List service type unit of measure quantities with filtering
 │   │   └── show <id>       Show service type unit of measure quantity details

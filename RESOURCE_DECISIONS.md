@@ -173,6 +173,7 @@ trailer-credentials
 trailers
 transport-order-efficiency-summary
 transport-orders
+transport-references
 transport-summary
 trips
 truck-scopes
