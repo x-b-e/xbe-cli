@@ -187,6 +187,9 @@ xbe
 │   ├── time-card-approval-audits Browse time card approval audits
 │   │   ├── list            List time card approval audits with filtering
 │   │   └── show <id>       Show time card approval audit details
+│   ├── time-card-status-changes Browse time card status changes
+│   │   ├── list            List time card status changes with filtering
+│   │   └── show <id>       Show time card status change details
 │   ├── time-card-payroll-certifications Browse time card payroll certifications
 │   │   ├── list            List time card payroll certifications with filtering
 │   │   └── show <id>       Show time card payroll certification details
