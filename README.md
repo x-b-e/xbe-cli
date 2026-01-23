@@ -382,6 +382,40 @@ xbe do memberships update 789 \
 xbe do memberships delete 789 --confirm
 ```
 
+### Crew Assignment Confirmations
+
+Crew assignment confirmations record when a resource confirms a crew requirement assignment.
+
+```bash
+# List confirmations
+xbe view crew-assignment-confirmations list
+
+# Filter by crew requirement
+xbe view crew-assignment-confirmations list --crew-requirement 123
+
+# Filter by resource
+xbe view crew-assignment-confirmations list --resource-type laborers --resource-id 456
+
+# Show confirmation details
+xbe view crew-assignment-confirmations show 789
+
+# Confirm using assignment confirmation UUID
+xbe do crew-assignment-confirmations create \
+  --assignment-confirmation-uuid "uuid-here" \
+  --note "Confirmed" \
+  --is-explicit
+
+# Confirm using crew requirement + resource + start time
+xbe do crew-assignment-confirmations create \
+  --crew-requirement 123 \
+  --resource-type laborers \
+  --resource-id 456 \
+  --start-at "2025-01-01T08:00:00Z"
+
+# Update a confirmation
+xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:
