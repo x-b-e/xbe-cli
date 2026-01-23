@@ -108,10 +108,14 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
-│   └── maintenance-requirement-parts Manage maintenance requirement parts
-│       ├── create           Create a maintenance requirement part
-│       ├── update           Update a maintenance requirement part
-│       └── delete           Delete a maintenance requirement part
+│   ├── maintenance-requirement-parts Manage maintenance requirement parts
+│   │   ├── create           Create a maintenance requirement part
+│   │   ├── update           Update a maintenance requirement part
+│   │   └── delete           Delete a maintenance requirement part
+│   └── maintenance-requirement-set-maintenance-requirements Manage maintenance requirement set maintenance requirements
+│       ├── create           Create a maintenance requirement set maintenance requirement
+│       ├── update           Update a maintenance requirement set maintenance requirement
+│       └── delete           Delete a maintenance requirement set maintenance requirement
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -138,6 +142,9 @@ xbe
 │   ├── maintenance-requirement-parts Browse maintenance requirement parts
 │   │   ├── list            List maintenance requirement parts
 │   │   └── show <id>       Show maintenance requirement part details
+│   ├── maintenance-requirement-set-maintenance-requirements Browse maintenance requirement set maintenance requirements
+│   │   ├── list            List maintenance requirement set maintenance requirements
+│   │   └── show <id>       Show maintenance requirement set maintenance requirement details
 │   ├── driver-movement-segments Browse driver movement segments
 │   │   ├── list            List movement segments with filtering
 │   │   └── show <id>       Show movement segment details
