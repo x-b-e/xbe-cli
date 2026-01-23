@@ -119,6 +119,7 @@ laborers
 lane-summary
 languages
 lineup-job-schedule-shift-trucker-assignment-recommendations
+lineup-scenario-lineups
 material-mix-designs
 material-sites
 material-suppliers

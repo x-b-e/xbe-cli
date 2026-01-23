@@ -105,6 +105,9 @@ xbe
 │   │   └── delete           Delete a job schedule shift
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Generate lineup trucker assignment recommendations
 │   │   └── create           Generate recommendations for a shift
+│   ├── lineup-scenario-lineups  Manage lineup scenario lineups
+│   │   ├── create           Create a lineup scenario lineup
+│   │   └── delete           Delete a lineup scenario lineup
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -156,6 +159,9 @@ xbe
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
 │   │   ├── list            List recommendations with filtering
 │   │   └── show <id>       Show recommendation details
+│   ├── lineup-scenario-lineups  Browse lineup scenario lineups
+│   │   ├── list            List lineup scenario lineups with filtering
+│   │   └── show <id>       Show lineup scenario lineup details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
