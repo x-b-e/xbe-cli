@@ -76,6 +76,8 @@ xbe
 │   │   └── delete           Delete a driver day adjustment plan
 │   ├── driver-day-shortfall-calculations Calculate driver day shortfall allocations
 │   │   └── create           Create a driver day shortfall calculation
+│   ├── shift-counters       Count accepted shifts
+│   │   └── create           Create a shift counter
 │   ├── inventory-estimates  Manage inventory estimates
 │   │   ├── create           Create an inventory estimate
 │   │   ├── update           Update an inventory estimate
@@ -186,6 +188,8 @@ xbe
 │   ├── driver-day-shortfall-calculations Browse driver day shortfall calculations
 │   │   ├── list            List driver day shortfall calculations
 │   │   └── show <id>       Show driver day shortfall calculation details
+│   ├── shift-counters      Browse shift counters
+│   │   └── list            List shift counters
 │   ├── job-production-plan-duplication-works Browse job production plan duplication work
 │   │   ├── list            List duplication work with filtering
 │   │   └── show <id>       Show duplication work details
@@ -713,6 +717,21 @@ xbe do driver-day-shortfall-calculations create \
 
 # Show a calculation (when available)
 xbe view driver-day-shortfall-calculations show <id>
+```
+
+### Shift Counters
+
+Shift counters return the number of accepted tender job schedule shifts after a minimum start time.
+
+```bash
+# Count accepted shifts (default start)
+xbe do shift-counters create
+
+# Count accepted shifts after a date
+xbe do shift-counters create --start-at-min 2025-01-01T00:00:00Z
+
+# List counters (typically empty)
+xbe view shift-counters list
 ```
 
 ## Output Formats

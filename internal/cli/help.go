@@ -70,6 +70,7 @@ var resourceCategories = map[string][]string{
 	// Fleet & Transport
 	"driver-day-adjustment-plans":              {CatFleet},
 	"driver-day-shortfall-calculations":        {CatFleet},
+	"shift-counters":                           {CatFleet},
 	"equipment-utilization-readings":           {CatFleet},
 	"equipment-movement-requirement-locations": {CatFleet},
 	"maintenance-requirement-sets":             {CatFleet},
