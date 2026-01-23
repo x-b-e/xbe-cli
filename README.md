@@ -201,6 +201,9 @@ xbe
 │   ├── commitment-items    Browse commitment items
 │   │   ├── list            List commitment items
 │   │   └── show <id>       Show commitment item details
+│   ├── commitments         Browse commitments
+│   │   ├── list            List commitments
+│   │   └── show <id>       Show commitment details
 │   ├── driver-day-constraints Browse driver day constraints
 │   │   ├── list            List driver day constraints
 │   │   └── show <id>       Show driver day constraint details
