@@ -118,6 +118,7 @@ labor-classifications
 laborers
 lane-summary
 languages
+lineup-job-schedule-shift-trucker-assignment-recommendations
 material-mix-designs
 material-sites
 material-suppliers
@@ -295,7 +296,6 @@ lineup-dispatch-shifts
 lineup-dispatch-statuses
 lineup-dispatches
 lineup-job-production-plans
-lineup-job-schedule-shift-trucker-assignment-recommendations
 lineup-job-schedule-shifts
 lineup-scenario-generators
 lineup-scenario-lineup-job-schedule-shifts

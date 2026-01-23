@@ -103,6 +103,8 @@ xbe
 │   │   ├── create           Create a job schedule shift
 │   │   ├── update           Update a job schedule shift
 │   │   └── delete           Delete a job schedule shift
+│   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Generate lineup trucker assignment recommendations
+│   │   └── create           Generate recommendations for a shift
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -151,6 +153,9 @@ xbe
 │   ├── job-schedule-shifts  Browse job schedule shifts
 │   │   ├── list            List job schedule shifts with filtering
 │   │   └── show <id>       Show job schedule shift details
+│   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
+│   │   ├── list            List recommendations with filtering
+│   │   └── show <id>       Show recommendation details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
