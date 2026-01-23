@@ -92,6 +92,10 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-purchase-orders Manage material purchase orders
+│   │   ├── create           Create a material purchase order
+│   │   ├── update           Update a material purchase order
+│   │   └── delete           Delete a material purchase order
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -112,6 +116,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── material-purchase-orders Browse material purchase orders
+│   │   ├── list            List material purchase orders with filtering
+│   │   └── show <id>       Show material purchase order details
 │   ├── equipment-suppliers Browse equipment suppliers
 │   │   ├── list            List equipment suppliers with filtering
 │   │   └── show <id>       Show equipment supplier details
@@ -280,6 +287,24 @@ xbe view posts list --creator "User|123"
 xbe view posts list --creator "MaterialSupplier|456"
 xbe view posts list --creator "Customer|789"
 xbe view posts list --creator "Trucker|101"
+```
+
+### Material Purchase Orders
+
+```bash
+# List purchase orders for a supplier
+xbe view material-purchase-orders list --material-supplier 123
+
+# View a purchase order
+xbe view material-purchase-orders show 456
+
+# Create a purchase order
+xbe do material-purchase-orders create \
+  --broker 123 \
+  --material-supplier 456 \
+  --material-type 789 \
+  --unit-of-measure 10 \
+  --quantity 500
 ```
 
 ### Features, Release Notes, Press Releases, Glossary Terms
