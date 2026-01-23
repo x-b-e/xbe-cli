@@ -80,6 +80,10 @@ xbe
 │   │   └── create           Generate driver movement details
 │   ├── job-production-plan-job-site-changes Update job production plan job sites
 │   │   └── create           Create a job site change
+│   ├── job-production-plan-project-phase-revenue-items Manage job production plan project phase revenue items
+│   │   ├── create           Create a job production plan project phase revenue item
+│   │   ├── update           Update a job production plan project phase revenue item
+│   │   └── delete           Delete a job production plan project phase revenue item
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -116,6 +120,9 @@ xbe
 │   │   └── show <id>       Show movement segment details
 │   ├── job-production-plan-job-site-changes Browse job production plan job site changes
 │   │   └── show <id>       Show job site change details
+│   ├── job-production-plan-project-phase-revenue-items Browse job production plan project phase revenue items
+│   │   ├── list            List job production plan project phase revenue items
+│   │   └── show <id>       Show job production plan project phase revenue item details
 │   ├── hos-availability-snapshots Browse HOS availability snapshots
 │   │   ├── list            List availability snapshots with filtering
 │   │   └── show <id>       Show availability snapshot details
