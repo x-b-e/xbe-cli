@@ -113,6 +113,7 @@ incident-tags
 incidents
 job-production-plan-cancellation-reason-types
 job-production-plan-completions
+job-production-plan-job-site-changes
 job-production-plan-summary
 job-production-plans
 job-sites
@@ -249,7 +250,6 @@ job-production-plan-driver-movements
 job-production-plan-duplication-works
 job-production-plan-duplications
 job-production-plan-inspectors
-job-production-plan-job-site-changes
 job-production-plan-job-site-location-estimates
 job-production-plan-locations
 job-production-plan-material-site-changes

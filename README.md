@@ -78,6 +78,8 @@ xbe
 │   │   └── create           Complete a job production plan
 │   ├── job-production-plan-driver-movements Generate job production plan driver movements
 │   │   └── create           Generate driver movement details
+│   ├── job-production-plan-job-site-changes Update job production plan job sites
+│   │   └── create           Create a job site change
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -112,6 +114,8 @@ xbe
 │   ├── driver-movement-segments Browse driver movement segments
 │   │   ├── list            List movement segments with filtering
 │   │   └── show <id>       Show movement segment details
+│   ├── job-production-plan-job-site-changes Browse job production plan job site changes
+│   │   └── show <id>       Show job site change details
 │   ├── hos-availability-snapshots Browse HOS availability snapshots
 │   │   ├── list            List availability snapshots with filtering
 │   │   └── show <id>       Show availability snapshot details
