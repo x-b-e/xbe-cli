@@ -462,6 +462,24 @@ xbe do driver-day-trips-adjustments update 456 \
 xbe do driver-day-trips-adjustments delete 456 --confirm
 ```
 
+### Driver Movement Observations
+
+Driver movement observations summarize movement cycles for a job production plan.
+
+```bash
+# List observations
+xbe view driver-movement-observations list
+
+# Filter by job production plan
+xbe view driver-movement-observations list --plan 123
+
+# Only current observations
+xbe view driver-movement-observations list --is-current
+
+# Show observation details
+xbe view driver-movement-observations show 456
+```
+
 ### Crew Requirement Credential Classifications
 
 Crew requirement credential classifications link crew requirements to the credential
