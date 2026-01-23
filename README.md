@@ -78,6 +78,10 @@ xbe
 │   │   └── create           Create a material transaction summary
 │   ├── material-site-mergers  Merge material sites
 │   │   └── create           Merge a material site
+│   ├── material-site-reading-material-types  Manage material site reading material types
+│   │   ├── create           Create a material site reading material type
+│   │   ├── update           Update a material site reading material type
+│   │   └── delete           Delete a material site reading material type
 │   ├── material-purchase-order-release-redemptions  Manage material purchase order release redemptions
 │   │   ├── create           Create a release redemption
 │   │   ├── update           Update a release redemption
@@ -143,6 +147,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── material-site-reading-material-types  Browse material site reading material types
+│   │   ├── list            List material site reading material types with filtering
+│   │   └── show <id>       Show material site reading material type details
 │   ├── material-purchase-order-release-redemptions  Browse material purchase order release redemptions
 │   │   ├── list            List release redemptions with filtering
 │   │   └── show <id>       Show release redemption details

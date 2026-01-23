@@ -81,10 +81,11 @@ var resourceCategories = map[string][]string{
 
 	// Materials
 	"material-purchase-order-release-redemptions": {CatMaterials},
-	"material-sites":        {CatMaterials},
-	"material-suppliers":    {CatMaterials},
-	"material-transactions": {CatMaterials},
-	"material-types":        {CatMaterials},
+	"material-site-reading-material-types":        {CatMaterials},
+	"material-sites":                              {CatMaterials},
+	"material-suppliers":                          {CatMaterials},
+	"material-transactions":                       {CatMaterials},
+	"material-types":                              {CatMaterials},
 
 	// Certifications & Credentials
 	"certification-requirements": {CatCertifications},
