@@ -550,6 +550,15 @@ xbe do lineup-dispatch-fulfillment-clerks create \
   --lineup-dispatch 123
 ```
 
+### Lineup Dispatch Statuses
+
+Lineup dispatch statuses compute the offered tender percentage for a broker and lineup window.
+
+```bash
+# Check lineup dispatch status for a day window
+xbe do lineup-dispatch-statuses create --broker 123 --window day --date 2025-01-23
+```
+
 ### Crew Rates
 
 Crew rates define pricing for labor/equipment by classification, resource, or craft class.
