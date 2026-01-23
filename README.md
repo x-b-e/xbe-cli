@@ -1251,6 +1251,28 @@ xbe do inventory-capacities update 456 --threshold-tons 120
 xbe do inventory-capacities delete 456 --confirm
 ```
 
+### Transport Order Strategy Set Predictions
+
+Transport order strategy set predictions rank planning strategies for a transport
+order and return probability scores for each strategy set.
+
+```bash
+# List prediction records
+xbe view transport-order-project-transport-plan-strategy-set-predictions list
+
+# Filter by transport order
+xbe view transport-order-project-transport-plan-strategy-set-predictions list --transport-order 123
+
+# Show prediction details
+xbe view transport-order-project-transport-plan-strategy-set-predictions show 456
+
+# Generate predictions for a transport order
+xbe do transport-order-project-transport-plan-strategy-set-predictions create --transport-order 123
+
+# Delete a prediction record (requires --confirm)
+xbe do transport-order-project-transport-plan-strategy-set-predictions delete 456 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:

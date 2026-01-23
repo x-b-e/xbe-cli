@@ -175,6 +175,7 @@ trailer-classifications
 trailer-credentials
 trailers
 transport-order-efficiency-summary
+transport-order-project-transport-plan-strategy-set-predictions
 transport-orders
 transport-summary
 trips
