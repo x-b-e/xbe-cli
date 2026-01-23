@@ -107,6 +107,10 @@ xbe
 │   ├── job-production-plan-service-type-unit-of-measure-cohorts Manage job production plan service type unit of measure cohorts
 │   │   ├── create           Create a job production plan service type unit of measure cohort link
 │   │   └── delete           Delete a job production plan service type unit of measure cohort link
+│   ├── maintenance-requirement-maintenance-requirement-parts Manage maintenance requirement parts
+│   │   ├── create           Create a maintenance requirement part link
+│   │   ├── update           Update a maintenance requirement part link
+│   │   └── delete           Delete a maintenance requirement part link
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -156,6 +160,9 @@ xbe
 │   ├── job-production-plan-time-card-approvers Browse job production plan time card approvers
 │   │   ├── list            List job production plan time card approvers with filtering
 │   │   └── show <id>       Show job production plan time card approver details
+│   ├── maintenance-requirement-maintenance-requirement-parts Browse maintenance requirement parts
+│   │   ├── list            List maintenance requirement parts with filtering
+│   │   └── show <id>       Show maintenance requirement part details
 │   ├── job-schedule-shift-start-site-changes Browse job schedule shift start site changes
 │   │   ├── list            List job schedule shift start site changes
 │   │   └── show <id>       Show job schedule shift start site change details
