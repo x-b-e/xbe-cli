@@ -198,6 +198,9 @@ xbe
 │   ├── job-production-plan-service-type-unit-of-measures Browse job production plan service type unit of measures
 │   │   ├── list            List job production plan service type unit of measures
 │   │   └── show <id>       Show job production plan service type unit of measure details
+│   ├── service-type-unit-of-measures Browse service type unit of measures
+│   │   ├── list            List service type unit of measures
+│   │   └── show <id>       Show service type unit of measure details
 │   ├── job-production-plan-trailer-classifications Browse job production plan trailer classifications
 │   │   ├── list            List job production plan trailer classifications
 │   │   └── show <id>       Show job production plan trailer classification details
