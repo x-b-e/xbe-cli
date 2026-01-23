@@ -463,6 +463,16 @@ xbe view driver-movement-segments list --driver-movement-segment-set 123
 xbe view driver-movement-segments show 456
 ```
 
+### Equipment Movement Trip Dispatch Fulfillment Clerks
+
+Equipment movement trip dispatch fulfillment clerks trigger the fulfillment workflow for a dispatch.
+
+```bash
+# Run fulfillment for a dispatch
+xbe do equipment-movement-trip-dispatch-fulfillment-clerks create \
+  --equipment-movement-trip-dispatch 123
+```
+
 ### Crew Rates
 
 Crew rates define pricing for labor/equipment by classification, resource, or craft class.
