@@ -93,6 +93,8 @@ xbe
 │   │   └── create           Unsubmit a time card
 │   ├── time-sheet-submissions Submit time sheets
 │   │   └── create           Submit a time sheet
+│   ├── time-sheet-unsubmissions Unsubmit time sheets
+│   │   └── create           Unsubmit a time sheet
 │   ├── time-sheet-cost-code-allocations Manage time sheet cost code allocations
 │   │   ├── create           Create a time sheet cost code allocation
 │   │   ├── update           Update a time sheet cost code allocation
@@ -204,6 +206,9 @@ xbe
 │   ├── time-sheet-cost-code-allocations Browse time sheet cost code allocations
 │   │   ├── list            List time sheet cost code allocations with filtering
 │   │   └── show <id>       Show time sheet cost code allocation details
+│   ├── time-sheet-unsubmissions Browse time sheet unsubmissions
+│   │   ├── list            List time sheet unsubmissions
+│   │   └── show <id>       Show time sheet unsubmission details
 │   ├── service-events       Browse service events
 │   │   ├── list            List service events with filtering
 │   │   └── show <id>       Show service event details
@@ -1113,6 +1118,24 @@ xbe do time-sheet-submissions create --time-sheet 123
 
 # Submit with a comment
 xbe do time-sheet-submissions create --time-sheet 123 --comment "Ready for approval"
+```
+
+### Time Sheet Unsubmissions
+
+Time sheet unsubmissions move a time sheet back to editing status.
+
+```bash
+# List time sheet unsubmissions
+xbe view time-sheet-unsubmissions list
+
+# Show a time sheet unsubmission
+xbe view time-sheet-unsubmissions show 456
+
+# Unsubmit a time sheet
+xbe do time-sheet-unsubmissions create --time-sheet 123
+
+# Unsubmit with a comment
+xbe do time-sheet-unsubmissions create --time-sheet 123 --comment "Needs edits"
 ```
 
 ### Material Site Unavailabilities
