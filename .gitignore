@@ -6,3 +6,7 @@
 *.test
 .DS_Store
 .claude/
+.outer_loop_queue.txt
+.worktrees/
+logs/
+tmp/
