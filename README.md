@@ -416,6 +416,27 @@ xbe do crew-assignment-confirmations create \
 xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
 ```
 
+### Driver Assignment Acknowledgements
+
+Driver assignment acknowledgements record when a driver acknowledges a tender job schedule shift assignment.
+
+```bash
+# List acknowledgements
+xbe view driver-assignment-acknowledgements list
+
+# Filter by tender job schedule shift
+xbe view driver-assignment-acknowledgements list --tender-job-schedule-shift 123
+
+# Filter by driver
+xbe view driver-assignment-acknowledgements list --driver 456
+
+# Show acknowledgement details
+xbe view driver-assignment-acknowledgements show 789
+
+# Create an acknowledgement
+xbe do driver-assignment-acknowledgements create --tender-job-schedule-shift 123 --driver 456
+```
+
 ### Crew Rates
 
 Crew rates define pricing for labor/equipment by classification, resource, or craft class.
