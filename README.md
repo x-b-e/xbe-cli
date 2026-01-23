@@ -141,6 +141,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── work-order-assignments Manage work order assignments
+│   │   ├── create           Create a work order assignment
+│   │   ├── update           Update a work order assignment
+│   │   └── delete           Delete a work order assignment
 │   ├── service-type-unit-of-measure-cohorts Manage service type unit of measure cohorts
 │   │   ├── create           Create a service type unit of measure cohort
 │   │   ├── update           Update a service type unit of measure cohort
@@ -194,6 +198,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── work-order-assignments Browse work order assignments
+│   │   ├── list            List work order assignments
+│   │   └── show <id>       Show work order assignment details
 │   ├── service-type-unit-of-measure-cohorts Browse service type unit of measure cohorts
 │   │   ├── list            List service type unit of measure cohorts
 │   │   └── show <id>       Show service type unit of measure cohort details
