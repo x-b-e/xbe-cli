@@ -10,3 +10,4 @@
 .worktrees/
 logs/
 tmp/
+.outer_loop_scripts/
