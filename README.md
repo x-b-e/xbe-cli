@@ -135,6 +135,10 @@ xbe
 │   │   ├── create           Create a job production plan safety risk
 │   │   ├── update           Update a job production plan safety risk
 │   │   └── delete           Delete a job production plan safety risk
+│   ├── commitment-simulation-sets  Manage commitment simulation sets
+│   │   ├── create           Create a commitment simulation set
+│   │   ├── update           Update a commitment simulation set
+│   │   └── delete           Delete a commitment simulation set
 │   ├── job-schedule-shifts  Manage job schedule shifts
 │   │   ├── create           Create a job schedule shift
 │   │   ├── update           Update a job schedule shift
@@ -211,6 +215,9 @@ xbe
 │   │   └── show <id>       Show service type unit of measure quantity details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
+│   ├── commitment-simulation-sets  Browse commitment simulation sets
+│   │   ├── list            List commitment simulation sets with filtering
+│   │   └── show <id>       Show commitment simulation set details
 │   ├── commitment-simulation-periods  Browse commitment simulation periods
 │   │   ├── list            List commitment simulation periods with filtering
 │   │   └── show <id>       Show commitment simulation period details
