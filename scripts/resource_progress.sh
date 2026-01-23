@@ -158,19 +158,6 @@ for cmd in command_resources:
 
 remaining = server_resources - implemented_server - skipped - pending - not_reviewed
 
-# Rate window
-since_arg = f"{rate_window_hours} hours ago"
-log_lines = run_git(["log", "--all", f"--since={since_arg}", "--format=%H %s"]).splitlines()
-recent_impl = set()
-for line in log_lines:
-    if " " not in line:
-        continue
-    sha, subj = line.split(" ", 1)
-    if subj.startswith("Implement "):
-        recent_impl.add(sha)
-
-rate = (len(recent_impl) / rate_window_hours) if rate_window_hours > 0 else 0.0
-
 # Unmerged implement commits on worker branches
 worker_branches = []
 branch_lines = run_git(["branch", "--list", "--format=%(refname:short)", "outer-loop-worker-*"]).splitlines()
@@ -192,6 +179,26 @@ for b in worker_branches:
         if subj.startswith("Implement "):
             unmerged_impl.add(sha)
 
+# Rate window (unmerged commits only)
+since_arg = f"{rate_window_hours} hours ago"
+recent_unmerged_impl = set()
+for b in worker_branches:
+    try:
+        out = run_git(["log", "--format=%H %ct %s", f"--since={since_arg}", f"main..{b}"])
+    except subprocess.CalledProcessError:
+        continue
+    for line in out.splitlines():
+        if " " not in line:
+            continue
+        parts = line.split(" ", 2)
+        if len(parts) != 3:
+            continue
+        sha, _ct, subj = parts
+        if subj.startswith("Implement "):
+            recent_unmerged_impl.add(sha)
+
+rate = (len(recent_unmerged_impl) / rate_window_hours) if rate_window_hours > 0 else 0.0
+
 merge_queue_len = 0
 if merge_queue_file and os.path.exists(merge_queue_file):
     with open(merge_queue_file, "r", encoding="utf-8") as f:
@@ -209,14 +216,21 @@ print(f"not_reviewed: {len(not_reviewed)}")
 print(f"unmerged_worker_commits: {len(unmerged_impl)}")
 print(f"merge_queue: {merge_queue_len}")
 print(f"rate_window_hours: {rate_window_hours:g}")
-print(f"recent_impl_commits: {len(recent_impl)}")
+print(f"recent_unmerged_commits: {len(recent_unmerged_impl)}")
 print(f"rate_per_hour: {rate:.2f}")
 if rate > 0:
     hours_left = len(remaining) / rate
     days_left = hours_left / 24
+    remaining_after_unmerged = max(0, len(remaining) - len(unmerged_impl))
+    hours_left_after_unmerged = remaining_after_unmerged / rate
+    days_left_after_unmerged = hours_left_after_unmerged / 24
     print(f"eta_hours: {hours_left:.1f}")
     print(f"eta_days: {days_left:.2f}")
+    print(f"eta_hours_after_unmerged: {hours_left_after_unmerged:.1f}")
+    print(f"eta_days_after_unmerged: {days_left_after_unmerged:.2f}")
 else:
     print("eta_hours: n/a")
     print("eta_days: n/a")
+    print("eta_hours_after_unmerged: n/a")
+    print("eta_days_after_unmerged: n/a")
 PY
