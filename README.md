@@ -438,6 +438,32 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
+### Crew Requirement Credential Classifications
+
+Crew requirement credential classifications link crew requirements to the credential
+classifications they require.
+
+```bash
+# List crew requirement credential classifications
+xbe view crew-requirement-credential-classifications list
+
+# Filter by crew requirement
+xbe view crew-requirement-credential-classifications list --crew-requirement 123
+
+# Show link details
+xbe view crew-requirement-credential-classifications show 456
+
+# Create a link
+xbe do crew-requirement-credential-classifications create \
+  --crew-requirement-type labor-requirements \
+  --crew-requirement 123 \
+  --credential-classification-type user-credential-classifications \
+  --credential-classification 456
+
+# Delete a link (requires --confirm)
+xbe do crew-requirement-credential-classifications delete 456 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:
