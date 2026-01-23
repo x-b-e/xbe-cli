@@ -92,6 +92,10 @@ xbe
 │   │   └── delete           Delete a job production plan project phase revenue item
 │   ├── job-schedule-shift-start-at-changes Reschedule job schedule shifts
 │   │   └── create           Create a start-at change
+│   ├── lineup-job-schedule-shifts Manage lineup job schedule shifts
+│   │   ├── create           Create a lineup job schedule shift
+│   │   ├── update           Update a lineup job schedule shift
+│   │   └── delete           Delete a lineup job schedule shift
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -140,6 +144,9 @@ xbe
 │   ├── job-schedule-shift-start-at-changes Browse job schedule shift start-at changes
 │   │   ├── list            List start-at changes
 │   │   └── show <id>       Show start-at change details
+│   ├── lineup-job-schedule-shifts Browse lineup job schedule shifts
+│   │   ├── list            List lineup job schedule shifts
+│   │   └── show <id>       Show lineup job schedule shift details
 │   ├── job-production-plan-project-phase-revenue-items Browse job production plan project phase revenue items
 │   │   ├── list            List job production plan project phase revenue items
 │   │   └── show <id>       Show job production plan project phase revenue item details
