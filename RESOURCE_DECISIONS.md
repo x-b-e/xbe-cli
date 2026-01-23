@@ -116,6 +116,7 @@ job-production-plan-cancellation-reason-types
 job-production-plan-job-site-location-estimates
 job-production-plan-summary
 job-production-plan-service-type-unit-of-measures
+job-production-plan-unabandonments
 job-production-plans
 job-sites
 labor-classifications
@@ -279,7 +280,6 @@ job-production-plan-supply-demand-balances
 job-production-plan-time-card-approvers
 job-production-plan-trailer-classifications
 job-production-plan-trucking-incident-detectors
-job-production-plan-unabandonments
 job-production-plan-unapprovals
 job-production-plan-uncancellations
 job-production-plan-uncompletions

@@ -85,6 +85,8 @@ xbe
 │   │   └── create           Cancel a job production plan
 │   ├── job-production-plan-rejections Reject job production plans
 │   │   └── create           Reject a job production plan
+│   ├── job-production-plan-unabandonments Unabandon job production plans
+│   │   └── create           Unabandon a job production plan
 │   ├── job-production-plan-recap-generations Generate job production plan recaps
 │   │   └── create           Generate a job production plan recap
 │   ├── job-production-plan-schedule-changes Apply schedule changes to job production plans
@@ -142,6 +144,9 @@ xbe
 │   ├── job-production-plan-rejections Browse job production plan rejections
 │   │   ├── list            List job production plan rejections
 │   │   └── show <id>       Show job production plan rejection details
+│   ├── job-production-plan-unabandonments Browse job production plan unabandonments
+│   │   ├── list            List job production plan unabandonments
+│   │   └── show <id>       Show job production plan unabandonment details
 │   ├── job-production-plan-display-unit-of-measures Browse job production plan display unit of measures
 │   │   ├── list            List job production plan display unit of measures
 │   │   └── show <id>       Show job production plan display unit of measure details
