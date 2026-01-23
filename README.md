@@ -62,6 +62,10 @@ xbe
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
 │   │   └── delete           Delete a glossary term
+│   ├── platform-statuses    Manage platform status updates
+│   │   ├── create           Create a platform status
+│   │   ├── update           Update a platform status
+│   │   └── delete           Delete a platform status
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -99,6 +103,9 @@ xbe
 │   ├── press-releases      Browse press releases
 │   │   ├── list            List press releases
 │   │   └── show <id>       Show press release details
+│   ├── platform-statuses   Browse platform status updates
+│   │   ├── list            List platform statuses
+│   │   └── show <id>       Show platform status details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details

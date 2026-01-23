@@ -13,7 +13,6 @@ Last updated: 2026-01-23
 
 | Resource / Command | Status | Notes |
 |--------------------|--------|-------|
-| platform-statuses | in progress | started by outer loop |
 | application-settings | planned | low risk read-only |
 
 ## Resource Implementation Spec
