@@ -261,6 +261,9 @@ xbe
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details
+│   ├── transport-routes    Browse transport routes
+│   │   ├── list            List transport routes with filtering
+│   │   └── show <id>       Show transport route details
 │   ├── site-events         Browse site events
 │   │   ├── list            List site events with filtering
 │   │   └── show <id>       Show site event details
@@ -712,6 +715,24 @@ xbe do equipment-utilization-readings update 456 --hourmeter 12
 
 # Delete a reading (requires --confirm)
 xbe do equipment-utilization-readings delete 456 --confirm
+```
+
+### Transport Routes
+
+Transport routes represent computed paths between origin and destination coordinates.
+
+```bash
+# List routes near an origin location
+xbe view transport-routes list --near-origin-location "40.7128|-74.0060|10"
+
+# List routes near a destination location
+xbe view transport-routes list --near-destination-location "34.0522|-118.2437|25"
+
+# Show a route
+xbe view transport-routes show 123
+
+# JSON output
+xbe view transport-routes list --json --limit 10
 ```
 
 ### Driver Day Adjustment Plans
