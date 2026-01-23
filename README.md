@@ -78,9 +78,13 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
-│   └── equipment-movement-stop-requirements  Manage equipment movement stop requirements
-│       ├── create           Create a stop requirement
-│       └── delete           Delete a stop requirement
+│   ├── equipment-movement-stop-requirements  Manage equipment movement stop requirements
+│   │   ├── create           Create a stop requirement
+│   │   └── delete           Delete a stop requirement
+│   └── equipment-movement-trip-dispatches  Manage equipment movement trip dispatches
+│       ├── create           Create a trip dispatch
+│       ├── update           Update a trip dispatch
+│       └── delete           Delete a trip dispatch
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -119,9 +123,12 @@ xbe
 │   ├── glossary-terms      Browse glossary terms
 │   │   ├── list            List glossary terms with filtering
 │   │   └── show <id>       Show glossary term details
-│   └── equipment-movement-stop-requirements  Browse equipment movement stop requirements
-│       ├── list            List stop requirements
-│       └── show <id>       Show stop requirement details
+│   ├── equipment-movement-stop-requirements  Browse equipment movement stop requirements
+│   │   ├── list            List stop requirements
+│   │   └── show <id>       Show stop requirement details
+│   └── equipment-movement-trip-dispatches  Browse equipment movement trip dispatches
+│       ├── list            List trip dispatches
+│       └── show <id>       Show trip dispatch details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```
@@ -540,6 +547,36 @@ xbe do equipment-movement-stop-requirements create --stop 123 --requirement 456 
 
 # Delete a stop requirement (requires --confirm)
 xbe do equipment-movement-stop-requirements delete 789 --confirm
+```
+
+### Equipment Movement Trip Dispatches
+
+Equipment movement trip dispatches orchestrate creation and assignment of movement trips.
+
+```bash
+# List trip dispatches
+xbe view equipment-movement-trip-dispatches list
+
+# Filter by status
+xbe view equipment-movement-trip-dispatches list --status pending
+
+# Filter by trip
+xbe view equipment-movement-trip-dispatches list --equipment-movement-trip 123
+
+# Show trip dispatch details
+xbe view equipment-movement-trip-dispatches show 456
+
+# Create from an existing trip
+xbe do equipment-movement-trip-dispatches create --equipment-movement-trip 123
+
+# Create from a movement requirement
+xbe do equipment-movement-trip-dispatches create --equipment-movement-requirement 456
+
+# Update assignments
+xbe do equipment-movement-trip-dispatches update 456 --driver 789 --trailer 321
+
+# Delete a trip dispatch (requires --confirm)
+xbe do equipment-movement-trip-dispatches delete 456 --confirm
 ```
 
 ## Output Formats
