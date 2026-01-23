@@ -76,6 +76,8 @@ xbe
 │   │   └── create           Abandon a job production plan
 │   ├── job-production-plan-completions Complete job production plans
 │   │   └── create           Complete a job production plan
+│   ├── job-production-plan-driver-movements Generate job production plan driver movements
+│   │   └── create           Generate driver movement details
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
