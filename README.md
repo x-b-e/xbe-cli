@@ -83,6 +83,10 @@ xbe
 │   │   ├── create           Create a change set
 │   │   ├── update           Update a change set
 │   │   └── delete           Delete a change set
+│   ├── job-production-plan-material-sites     Manage job production plan material sites
+│   │   ├── create           Create a job production plan material site
+│   │   ├── update           Update a job production plan material site
+│   │   └── delete           Delete a job production plan material site
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -119,6 +123,9 @@ xbe
 │   ├── job-production-plan-change-sets        Browse job production plan change sets
 │   │   ├── list            List change sets with filtering
 │   │   └── show <id>       Show change set details
+│   ├── job-production-plan-material-sites     Browse job production plan material sites
+│   │   ├── list            List job production plan material sites with filtering
+│   │   └── show <id>       Show job production plan material site details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
