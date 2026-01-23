@@ -526,6 +526,31 @@ xbe view equipment-location-estimates list --equipment 123 \
 xbe view equipment-location-estimates list --equipment 123 --json
 ```
 
+### Equipment Movement Stop Completions
+
+Equipment movement stop completions record when a movement stop was completed.
+
+```bash
+# List stop completions
+xbe view equipment-movement-stop-completions list
+
+# Filter by stop
+xbe view equipment-movement-stop-completions list --stop 123
+
+# Create a completion
+xbe do equipment-movement-stop-completions create \
+  --stop 123 \
+  --completed-at 2026-01-23T12:34:56Z
+
+# Update a completion
+xbe do equipment-movement-stop-completions update 456 \
+  --completed-at 2026-01-23T13:00:00Z \
+  --note "Gate locked"
+
+# Delete a completion (requires --confirm)
+xbe do equipment-movement-stop-completions delete 456 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:
