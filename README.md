@@ -81,6 +81,8 @@ xbe
 │   ├── equipment-movement-trip-job-production-plans Manage equipment movement trip job production plans
 │   │   ├── create           Create an equipment movement trip job production plan link
 │   │   └── delete           Delete an equipment movement trip job production plan link
+│   ├── job-production-plan-cancellations Cancel job production plans
+│   │   └── create           Cancel a job production plan
 │   ├── geofence-restrictions Manage geofence restrictions
 │   │   ├── create           Create a geofence restriction
 │   │   ├── update           Update a geofence restriction
@@ -112,6 +114,9 @@ xbe
 │   ├── equipment-movement-trip-job-production-plans Browse equipment movement trip job production plans
 │   │   ├── list            List equipment movement trip job production plans
 │   │   └── show <id>       Show equipment movement trip job production plan details
+│   ├── job-production-plan-cancellations Browse job production plan cancellations
+│   │   ├── list            List job production plan cancellations
+│   │   └── show <id>       Show job production plan cancellation details
 │   ├── geofence-restrictions Browse geofence restrictions
 │   │   ├── list            List geofence restrictions
 │   │   └── show <id>       Show geofence restriction details
