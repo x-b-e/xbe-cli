@@ -70,6 +70,10 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── driver-day-constraints Manage driver day constraints
+│   │   ├── create           Create a driver day constraint
+│   │   ├── update           Update a driver day constraint
+│   │   └── delete           Delete a driver day constraint
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -82,6 +86,9 @@ xbe
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
+│   ├── driver-day-constraints Browse driver day constraints
+│   │   ├── list            List driver day constraints
+│   │   └── show <id>       Show driver day constraint details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
