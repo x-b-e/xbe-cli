@@ -115,6 +115,7 @@ inventory-changes
 job-production-plan-cancellation-reason-types
 job-production-plan-job-site-location-estimates
 job-production-plan-summary
+job-production-plan-service-type-unit-of-measures
 job-production-plans
 job-sites
 labor-classifications
@@ -270,7 +271,6 @@ job-production-plan-scrappages
 job-production-plan-segment-sets
 job-production-plan-segments
 job-production-plan-service-type-unit-of-measure-cohorts
-job-production-plan-service-type-unit-of-measures
 job-production-plan-status-changes
 job-production-plan-submissions
 job-production-plan-subscriptions

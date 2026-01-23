@@ -93,6 +93,10 @@ xbe
 │   │   ├── create           Add a display unit of measure
 │   │   ├── update           Update a display unit of measure
 │   │   └── delete           Delete a display unit of measure
+│   ├── job-production-plan-service-type-unit-of-measures Manage job production plan service type unit of measures
+│   │   ├── create           Add a service type unit of measure
+│   │   ├── update           Update a service type unit of measure
+│   │   └── delete           Delete a service type unit of measure
 │   ├── job-production-plan-locations Manage job production plan locations
 │   │   ├── create           Create a job production plan location
 │   │   ├── update           Update a job production plan location
@@ -137,6 +141,9 @@ xbe
 │   ├── job-production-plan-display-unit-of-measures Browse job production plan display unit of measures
 │   │   ├── list            List job production plan display unit of measures
 │   │   └── show <id>       Show job production plan display unit of measure details
+│   ├── job-production-plan-service-type-unit-of-measures Browse job production plan service type unit of measures
+│   │   ├── list            List job production plan service type unit of measures
+│   │   └── show <id>       Show job production plan service type unit of measure details
 │   ├── job-production-plan-locations Browse job production plan locations
 │   │   ├── list            List job production plan locations
 │   │   └── show <id>       Show job production plan location details
