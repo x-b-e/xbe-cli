@@ -91,6 +91,8 @@ xbe
 │   │   └── delete           Delete a time card payroll certification
 │   ├── time-card-unsubmissions Unsubmit time cards
 │   │   └── create           Unsubmit a time card
+│   ├── time-sheet-submissions Submit time sheets
+│   │   └── create           Submit a time sheet
 │   ├── time-sheet-cost-code-allocations Manage time sheet cost code allocations
 │   │   ├── create           Create a time sheet cost code allocation
 │   │   ├── update           Update a time sheet cost code allocation
@@ -1099,6 +1101,18 @@ xbe do time-sheet-cost-code-allocations update 456 \
 
 # Delete a time sheet cost code allocation (requires --confirm)
 xbe do time-sheet-cost-code-allocations delete 456 --confirm
+```
+
+### Time Sheet Submissions
+
+Time sheet submissions move a time sheet into submitted status.
+
+```bash
+# Submit a time sheet
+xbe do time-sheet-submissions create --time-sheet 123
+
+# Submit with a comment
+xbe do time-sheet-submissions create --time-sheet 123 --comment "Ready for approval"
 ```
 
 ### Material Site Unavailabilities
