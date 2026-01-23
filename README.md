@@ -70,6 +70,10 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── driver-day-adjustment-plans Manage driver day adjustment plans
+│   │   ├── create           Create a driver day adjustment plan
+│   │   ├── update           Update a driver day adjustment plan
+│   │   └── delete           Delete a driver day adjustment plan
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -98,6 +102,9 @@ xbe
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
+│   ├── driver-day-adjustment-plans Browse driver day adjustment plans
+│   │   ├── list            List driver day adjustment plans
+│   │   └── show <id>       Show driver day adjustment plan details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
@@ -506,6 +513,29 @@ xbe do driver-assignment-rules update 789 --rule "Updated rule" --is-active=fals
 
 # Delete a rule (requires --confirm)
 xbe do driver-assignment-rules delete 789 --confirm
+```
+
+### Driver Day Adjustment Plans
+
+Driver day adjustment plans define per-trucker adjustments applied to driver day recaps.
+
+```bash
+# List plans for a trucker
+xbe view driver-day-adjustment-plans list --trucker 123
+
+# Show a plan
+xbe view driver-day-adjustment-plans show 456
+
+# Create a plan
+xbe do driver-day-adjustment-plans create --trucker 123 --content "Adjusted start time" \
+  --start-at "2025-01-15T08:00:00Z"
+
+# Update a plan
+xbe do driver-day-adjustment-plans update 456 --content "Updated plan" \
+  --start-at "2025-01-16T06:00:00Z"
+
+# Delete a plan (requires --confirm)
+xbe do driver-day-adjustment-plans delete 456 --confirm
 ```
 
 ## Output Formats
