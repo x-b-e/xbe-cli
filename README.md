@@ -83,6 +83,8 @@ xbe
 │   │   ├── create           Create a change set
 │   │   ├── update           Update a change set
 │   │   └── delete           Delete a change set
+│   ├── job-production-plan-scrappages         Manage job production plan scrappages
+│   │   └── create           Scrap a job production plan
 │   ├── job-production-plan-material-sites     Manage job production plan material sites
 │   │   ├── create           Create a job production plan material site
 │   │   ├── update           Update a job production plan material site
