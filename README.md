@@ -104,6 +104,10 @@ xbe
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-transaction-cost-code-allocations Manage material transaction cost code allocations
+│   │   ├── create           Create a material transaction cost code allocation
+│   │   ├── update           Update a material transaction cost code allocation
+│   │   └── delete           Delete a material transaction cost code allocation
 │   ├── material-purchase-order-releases Manage material purchase order releases
 │   │   ├── create           Create a material purchase order release
 │   │   ├── update           Update a material purchase order release
@@ -143,6 +147,9 @@ xbe
 │   ├── material-purchase-order-releases Browse material purchase order releases
 │   │   ├── list            List material purchase order releases
 │   │   └── show <id>       Show material purchase order release details
+│   ├── material-transaction-cost-code-allocations Browse material transaction cost code allocations
+│   │   ├── list            List material transaction cost code allocations
+│   │   └── show <id>       Show material transaction cost code allocation details
 │   ├── material-site-readings Browse material site readings
 │   │   ├── list            List material site readings
 │   │   └── show <id>       Show material site reading details

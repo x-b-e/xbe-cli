@@ -128,6 +128,7 @@ material-sites
 material-site-readings
 material-suppliers
 material-transaction-summary
+material-transaction-cost-code-allocations
 material-transactions
 material-types
 memberships
@@ -329,7 +330,6 @@ material-site-subscriptions
 material-site-unavailabilities
 material-supplier-memberships
 material-transaction-acceptances
-material-transaction-cost-code-allocations
 material-transaction-denials
 material-transaction-diversions
 material-transaction-field-scopes
