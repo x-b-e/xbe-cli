@@ -584,6 +584,36 @@ xbe do equipment-movement-stop-completions update 456 \
 xbe do equipment-movement-stop-completions delete 456 --confirm
 ```
 
+### Job Production Plan Alarms
+
+Job production plan alarms notify subscribers when production reaches
+specified tonnage thresholds or exceeds latency targets.
+
+```bash
+# List alarms
+xbe view job-production-plan-alarms list
+
+# Filter by job production plan
+xbe view job-production-plan-alarms list --job-production-plan 123
+
+# Show alarm details
+xbe view job-production-plan-alarms show 456
+
+# Create an alarm
+xbe do job-production-plan-alarms create \
+  --job-production-plan 123 \
+  --tons 150 \
+  --base-material-type-fully-qualified-name "Asphalt Mixture" \
+  --max-latency-minutes 45 \
+  --note "Alert at 150 tons"
+
+# Update an alarm
+xbe do job-production-plan-alarms update 456 --tons 200 --note "Updated trigger"
+
+# Delete an alarm (requires --confirm)
+xbe do job-production-plan-alarms delete 456 --confirm
+```
+
 ### Inventory Capacities
 
 Inventory capacities define min/max storage levels and alert thresholds for a
