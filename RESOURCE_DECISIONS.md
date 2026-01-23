@@ -99,6 +99,7 @@ developers
 device-location-event-summary
 devices
 driver-day-summary
+driver-movement-segment-sets
 equipment
 equipment-classifications
 equipment-rentals
@@ -205,7 +206,6 @@ driver-day-shortfall-calculations
 driver-day-trips-adjustments
 driver-managers
 driver-movement-observations
-driver-movement-segment-sets
 driver-movement-segments
 equipment-location-estimates
 equipment-location-events

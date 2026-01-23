@@ -89,6 +89,9 @@ xbe
 │   ├── driver-day-constraints Browse driver day constraints
 │   │   ├── list            List driver day constraints
 │   │   └── show <id>       Show driver day constraint details
+│   ├── driver-movement-segment-sets Browse driver movement segment sets
+│   │   ├── list            List driver movement segment sets
+│   │   └── show <id>       Show driver movement segment set details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
@@ -468,6 +471,24 @@ xbe do driver-assignment-rules update 789 --rule "Updated rule" --is-active=fals
 
 # Delete a rule (requires --confirm)
 xbe do driver-assignment-rules delete 789 --confirm
+```
+
+### Driver Movement Segment Sets
+
+Driver movement segment sets summarize driver movement segments for a driver day.
+
+```bash
+# List driver movement segment sets
+xbe view driver-movement-segment-sets list
+
+# Filter by driver day
+xbe view driver-movement-segment-sets list --driver-day 123
+
+# Filter by driver
+xbe view driver-movement-segment-sets list --driver 456
+
+# Show full details
+xbe view driver-movement-segment-sets show 789
 ```
 
 ## Output Formats
