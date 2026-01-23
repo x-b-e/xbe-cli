@@ -614,6 +614,30 @@ xbe do job-production-plan-alarms update 456 --tons 200 --note "Updated trigger"
 xbe do job-production-plan-alarms delete 456 --confirm
 ```
 
+### Job Production Plan Cost Codes
+
+Job production plan cost codes map cost codes to job production plans.
+
+```bash
+# List job production plan cost codes
+xbe view job-production-plan-cost-codes list
+
+# Filter by job production plan
+xbe view job-production-plan-cost-codes list --job-production-plan 123
+
+# Show job production plan cost code details
+xbe view job-production-plan-cost-codes show 456
+
+# Create a job production plan cost code
+xbe do job-production-plan-cost-codes create --job-production-plan 123 --cost-code 789
+
+# Update a job production plan cost code
+xbe do job-production-plan-cost-codes update 456 --project-resource-classification 321
+
+# Delete a job production plan cost code (requires --confirm)
+xbe do job-production-plan-cost-codes delete 456 --confirm
+```
+
 ### Inventory Capacities
 
 Inventory capacities define min/max storage levels and alert thresholds for a
