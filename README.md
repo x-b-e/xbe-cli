@@ -141,6 +141,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── broker-commitments   Manage broker commitments
+│   │   ├── create           Create a broker commitment
+│   │   ├── update           Update a broker commitment
+│   │   └── delete           Delete a broker commitment
 │   ├── work-order-assignments Manage work order assignments
 │   │   ├── create           Create a work order assignment
 │   │   ├── update           Update a work order assignment
@@ -198,6 +202,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── broker-commitments  Browse broker commitments
+│   │   ├── list            List broker commitments
+│   │   └── show <id>       Show broker commitment details
 │   ├── work-order-assignments Browse work order assignments
 │   │   ├── list            List work order assignments
 │   │   └── show <id>       Show work order assignment details
@@ -373,6 +380,23 @@ xbe view brokers list --company-name "Acme"
 
 # Get broker ID for use in newsletter filtering
 xbe view brokers list --company-name "Acme" --json | jq '.[0].id'
+```
+
+### Broker Commitments
+
+```bash
+# List broker commitments
+xbe view broker-commitments list
+
+# Filter by broker or trucker
+xbe view broker-commitments list --broker 123
+xbe view broker-commitments list --trucker 456
+
+# Create a broker commitment
+xbe do broker-commitments create --status active --broker 123 --trucker 456 --label "Q1"
+
+# Show broker commitment details
+xbe view broker-commitments show 789
 ```
 
 ### Users, Material Suppliers, Customers, Truckers
