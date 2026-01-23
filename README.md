@@ -129,6 +129,8 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-transaction-field-scopes Manage material transaction field scopes
+│   │   └── create           Create a material transaction field scope
 │   ├── inventory-changes   Manage inventory changes
 │   │   ├── create           Create an inventory change
 │   │   └── delete           Delete an inventory change
@@ -214,6 +216,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── material-transaction-field-scopes Browse material transaction field scopes
+│   │   ├── list            List material transaction field scopes
+│   │   └── show <id>       Show material transaction field scope details
 │   ├── material-site-inventory-locations Browse material site inventory locations
 │   │   ├── list            List material site inventory locations
 │   │   └── show <id>       Show material site inventory location details
