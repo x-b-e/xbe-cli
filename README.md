@@ -450,6 +450,34 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
+### Equipment Movement Requirement Locations
+
+Equipment movement requirement locations define named coordinates used as origins and destinations.
+
+```bash
+# List locations
+xbe view equipment-movement-requirement-locations list
+
+# Filter by broker
+xbe view equipment-movement-requirement-locations list --broker 123
+
+# Show a location
+xbe view equipment-movement-requirement-locations show 456
+
+# Create a location
+xbe do equipment-movement-requirement-locations create \
+  --broker 123 \
+  --latitude 37.7749 \
+  --longitude -122.4194 \
+  --name "Main Yard"
+
+# Update a location
+xbe do equipment-movement-requirement-locations update 456 --name "Updated Yard"
+
+# Delete a location (requires --confirm)
+xbe do equipment-movement-requirement-locations delete 456 --confirm
+```
+
 ### Driver Day Adjustment Plans
 
 Driver day adjustment plans define per-trucker adjustments applied to driver day recaps.
