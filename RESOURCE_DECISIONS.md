@@ -116,6 +116,7 @@ job-production-plan-completions
 job-production-plan-job-site-changes
 job-production-plan-segments
 job-production-plan-summary
+job-production-plan-supply-demand-balances
 job-production-plans
 job-sites
 labor-classifications
@@ -275,7 +276,6 @@ job-production-plan-status-changes
 job-production-plan-submissions
 job-production-plan-subscriptions
 job-production-plan-supply-demand-balance-calculators
-job-production-plan-supply-demand-balances
 job-production-plan-time-card-approvers
 job-production-plan-trailer-classifications
 job-production-plan-trucking-incident-detectors

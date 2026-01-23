@@ -127,6 +127,9 @@ xbe
 │   ├── job-production-plan-segments Browse job production plan segments
 │   │   ├── list            List job production plan segments
 │   │   └── show <id>       Show job production plan segment details
+│   ├── job-production-plan-supply-demand-balances Browse job production plan supply/demand balances
+│   │   ├── list            List supply/demand balances
+│   │   └── show <id>       Show supply/demand balance details
 │   ├── job-production-plan-schedule-change-works Browse job production plan schedule change works
 │   │   ├── list            List schedule change works with filtering
 │   │   └── show <id>       Show schedule change work details
