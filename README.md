@@ -78,6 +78,10 @@ xbe
 │   │   └── create           Create a material transaction summary
 │   ├── material-transaction-acceptances  Manage material transaction acceptances
 │   │   └── create           Accept a material transaction
+│   ├── material-transaction-diversions   Manage material transaction diversions
+│   │   ├── create           Create a material transaction diversion
+│   │   ├── update           Update a material transaction diversion
+│   │   └── delete           Delete a material transaction diversion
 │   ├── material-site-mergers  Merge material sites
 │   │   └── create           Merge a material site
 │   ├── material-site-reading-material-types  Manage material site reading material types
@@ -155,6 +159,9 @@ xbe
 │   ├── material-purchase-order-release-redemptions  Browse material purchase order release redemptions
 │   │   ├── list            List release redemptions with filtering
 │   │   └── show <id>       Show release redemption details
+│   ├── material-transaction-diversions  Browse material transaction diversions
+│   │   ├── list            List material transaction diversions with filtering
+│   │   └── show <id>       Show diversion details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
