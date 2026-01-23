@@ -63,6 +63,7 @@ var resourceCategories = map[string][]string{
 
 	// Fleet & Transport
 	"geofence-restriction-violations": {CatFleet},
+	"hos-day-regulation-sets":         {CatFleet},
 	"tractors":                        {CatFleet},
 	"trailers":                        {CatFleet},
 	"transport-orders":                {CatFleet},

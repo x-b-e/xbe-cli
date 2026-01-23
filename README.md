@@ -111,6 +111,9 @@ xbe
 │   ├── geofence-restriction-violations  Browse geofence restriction violations
 │   │   ├── list            List geofence restriction violations
 │   │   └── show <id>       Show geofence restriction violation details
+│   ├── hos-day-regulation-sets  Browse HOS day regulation sets
+│   │   ├── list            List HOS day regulation sets
+│   │   └── show <id>       Show HOS day regulation set details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
