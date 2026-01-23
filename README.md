@@ -88,6 +88,10 @@ xbe
 │   │   └── create           Unapprove a time card
 │   ├── time-sheet-approvals Approve time sheets
 │   │   └── create           Approve a time sheet
+│   ├── time-sheet-no-shows  Manage time sheet no-shows
+│   │   ├── create           Create a time sheet no-show
+│   │   ├── update           Update a time sheet no-show
+│   │   └── delete           Delete a time sheet no-show
 │   ├── resource-unavailabilities Manage resource unavailabilities
 │   │   ├── create           Create a resource unavailability
 │   │   ├── update           Update a resource unavailability
@@ -194,6 +198,9 @@ xbe
 │   ├── time-sheet-approvals Browse time sheet approvals
 │   │   ├── list            List time sheet approvals
 │   │   └── show <id>       Show time sheet approval details
+│   ├── time-sheet-no-shows Browse time sheet no-shows
+│   │   ├── list            List time sheet no-shows
+│   │   └── show <id>       Show time sheet no-show details
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
