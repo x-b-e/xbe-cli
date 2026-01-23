@@ -64,6 +64,7 @@ var resourceCategories = map[string][]string{
 	"job-schedule-shift-is-managed-toggles":                          {CatProjects},
 	"job-sites":                                                      {CatProjects},
 	"lineup-job-production-plans":                                    {CatProjects},
+	"lineup-scenario-lineup-job-schedule-shifts":                     {CatProjects},
 	"project-categories":                                             {CatProjects},
 	"project-divisions":                                              {CatProjects},
 	"project-offices":                                                {CatProjects},

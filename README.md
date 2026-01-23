@@ -653,6 +653,30 @@ xbe do lineup-job-production-plans create --lineup 123 --job-production-plan 456
 xbe do lineup-job-production-plans delete 789 --confirm
 ```
 
+### Lineup Scenario Lineup Job Schedule Shifts
+
+Lineup scenario lineup job schedule shifts connect lineup scenarios to lineup job schedule shifts.
+
+```bash
+# List lineup scenario lineup job schedule shifts
+xbe view lineup-scenario-lineup-job-schedule-shifts list
+
+# Filter by lineup scenario
+xbe view lineup-scenario-lineup-job-schedule-shifts list --lineup-scenario 123
+
+# Filter by lineup job schedule shift
+xbe view lineup-scenario-lineup-job-schedule-shifts list --lineup-job-schedule-shift 456
+
+# Show lineup scenario lineup job schedule shift details
+xbe view lineup-scenario-lineup-job-schedule-shifts show 789
+
+# Create a lineup scenario lineup job schedule shift
+xbe do lineup-scenario-lineup-job-schedule-shifts create --lineup-scenario 123 --lineup-job-schedule-shift 456
+
+# Delete a lineup scenario lineup job schedule shift (requires --confirm)
+xbe do lineup-scenario-lineup-job-schedule-shifts delete 789 --confirm
+```
+
 ### Job Schedule Shift Managed Toggles
 
 Job schedule shift managed toggles flip a shift between managed and unmanaged.
