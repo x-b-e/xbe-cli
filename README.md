@@ -81,6 +81,10 @@ xbe
 │   ├── equipment-movement-trip-job-production-plans Manage equipment movement trip job production plans
 │   │   ├── create           Create an equipment movement trip job production plan link
 │   │   └── delete           Delete an equipment movement trip job production plan link
+│   ├── labor-requirements   Manage labor requirements
+│   │   ├── create           Create a labor requirement
+│   │   ├── update           Update a labor requirement
+│   │   └── delete           Delete a labor requirement
 │   ├── job-production-plan-cancellations Cancel job production plans
 │   │   └── create           Cancel a job production plan
 │   ├── job-production-plan-rejections Reject job production plans
@@ -140,6 +144,9 @@ xbe
 │   ├── equipment-movement-trip-job-production-plans Browse equipment movement trip job production plans
 │   │   ├── list            List equipment movement trip job production plans
 │   │   └── show <id>       Show equipment movement trip job production plan details
+│   ├── labor-requirements   Browse labor requirements
+│   │   ├── list            List labor requirements
+│   │   └── show <id>       Show labor requirement details
 │   ├── job-production-plan-cancellations Browse job production plan cancellations
 │   │   ├── list            List job production plan cancellations
 │   │   └── show <id>       Show job production plan cancellation details
