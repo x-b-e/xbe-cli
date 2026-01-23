@@ -662,6 +662,37 @@ xbe do job-production-plan-inspectors create --job-production-plan-id 123 --user
 xbe do job-production-plan-inspectors delete 789 --confirm
 ```
 
+### Job Production Plan Material Type Quality Control Requirements
+
+Job production plan material type quality control requirements attach quality
+control classifications to job production plan material types.
+
+```bash
+# List requirements
+xbe view job-production-plan-material-type-quality-control-requirements list
+
+# Filter by job production plan material type
+xbe view job-production-plan-material-type-quality-control-requirements list --job-production-plan-material-type 123
+
+# Filter by quality control classification
+xbe view job-production-plan-material-type-quality-control-requirements list --quality-control-classification 456
+
+# Show requirement details
+xbe view job-production-plan-material-type-quality-control-requirements show 789
+
+# Create a requirement
+xbe do job-production-plan-material-type-quality-control-requirements create \
+  --job-production-plan-material-type 123 \
+  --quality-control-classification 456 \
+  --note "Temperature check"
+
+# Update a requirement
+xbe do job-production-plan-material-type-quality-control-requirements update 789 --note "Updated note"
+
+# Delete a requirement (requires --confirm)
+xbe do job-production-plan-material-type-quality-control-requirements delete 789 --confirm
+```
+
 ### Inventory Capacities
 
 Inventory capacities define min/max storage levels and alert thresholds for a
