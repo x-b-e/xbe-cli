@@ -124,6 +124,7 @@ maintenance-requirement-rule-maintenance-requirement-sets
 material-mix-designs
 material-sites
 material-suppliers
+material-transaction-inspection-rejections
 material-transaction-summary
 material-transactions
 material-types
@@ -332,7 +333,6 @@ material-transaction-cost-code-allocations
 material-transaction-denials
 material-transaction-diversions
 material-transaction-field-scopes
-material-transaction-inspection-rejections
 material-transaction-inspections
 material-transaction-invalidations
 material-transaction-preloads

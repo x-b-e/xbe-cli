@@ -94,6 +94,10 @@ xbe
 │   │   └── create           Create a material transaction summary
 │   ├── material-transaction-denials  Deny material transactions
 │   │   └── create           Deny a material transaction
+│   ├── material-transaction-inspection-rejections Manage material transaction inspection rejections
+│   │   ├── create           Create a material transaction inspection rejection
+│   │   ├── update           Update a material transaction inspection rejection
+│   │   └── delete           Delete a material transaction inspection rejection
 │   ├── material-purchase-orders Manage material purchase orders
 │   │   ├── create           Create a material purchase order
 │   │   ├── update           Update a material purchase order
@@ -128,6 +132,9 @@ xbe
 │   ├── material-site-unavailabilities Browse material site unavailabilities
 │   │   ├── list            List material site unavailabilities with filtering
 │   │   └── show <id>       Show material site unavailability details
+│   ├── material-transaction-inspection-rejections Browse material transaction inspection rejections
+│   │   ├── list            List material transaction inspection rejections with filtering
+│   │   └── show <id>       Show material transaction inspection rejection details
 │   ├── equipment-suppliers Browse equipment suppliers
 │   │   ├── list            List equipment suppliers with filtering
 │   │   └── show <id>       Show equipment supplier details
@@ -415,6 +422,25 @@ for submitted or accepted transactions.
 xbe do material-transaction-denials create \
   --material-transaction 123 \
   --comment "Load contaminated"
+```
+
+### Material Transaction Inspection Rejections
+
+Material transaction inspection rejections record rejected quantities and notes for inspections.
+
+```bash
+# List rejections for an inspection
+xbe view material-transaction-inspection-rejections list --material-transaction-inspection 123
+
+# Create a rejection
+xbe do material-transaction-inspection-rejections create \
+  --material-transaction-inspection 123 \
+  --unit-of-measure 45 \
+  --quantity 10 \
+  --note "Excess moisture"
+
+# Update a rejection note
+xbe do material-transaction-inspection-rejections update 456 --note "Updated note"
 ```
 
 ### Material Mix Design Matches
