@@ -115,6 +115,7 @@ inventory-estimates
 job-production-plan-cancellation-reason-types
 job-production-plan-summary
 job-production-plans
+job-production-plan-uncompletions
 job-production-plan-service-type-unit-of-measure-cohorts
 job-sites
 labor-classifications

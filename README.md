@@ -82,6 +82,8 @@ xbe
 │   │   └── delete           Delete an inventory estimate
 │   ├── job-production-plan-approvals Approve job production plans
 │   │   └── create           Approve a job production plan
+│   ├── job-production-plan-uncompletions Uncomplete job production plans
+│   │   └── create           Uncomplete a job production plan
 │   ├── job-production-plan-material-types Manage job production plan material types
 │   │   ├── create           Create a job production plan material type
 │   │   ├── update           Update a job production plan material type
