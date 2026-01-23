@@ -119,6 +119,10 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-supplier-memberships Manage material supplier memberships
+│   │   ├── create           Create a material supplier membership
+│   │   ├── update           Update a material supplier membership
+│   │   └── delete           Delete a material supplier membership
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -139,6 +143,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── material-supplier-memberships Browse material supplier memberships
+│   │   ├── list            List material supplier memberships with filtering
+│   │   └── show <id>       Show material supplier membership details
 │   ├── material-site-measures Browse material site measures
 │   │   ├── list            List material site measures with filtering
 │   │   └── show <id>       Show material site measure details
@@ -476,6 +483,33 @@ xbe do memberships update 789 \
 
 # Delete a membership (requires --confirm)
 xbe do memberships delete 789 --confirm
+```
+
+### Material Supplier Memberships
+
+Material supplier memberships link users to material suppliers and control role settings and notifications.
+
+```bash
+# List material supplier memberships
+xbe view material-supplier-memberships list
+
+# Filter by material supplier
+xbe view material-supplier-memberships list --material-supplier 123
+
+# Show membership details
+xbe view material-supplier-memberships show 456
+
+# Create a membership
+xbe do material-supplier-memberships create --user 123 --material-supplier 456
+
+# Update a membership
+xbe do material-supplier-memberships update 456 --kind manager --title "Operations Manager"
+
+# Update notifications
+xbe do material-supplier-memberships update 456 --enable-recap-notifications true
+
+# Delete a membership (requires --confirm)
+xbe do material-supplier-memberships delete 456 --confirm
 ```
 
 ### Crew Assignment Confirmations
