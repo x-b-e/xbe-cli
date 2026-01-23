@@ -127,6 +127,7 @@ lineup-scenario-solutions
 maintenance-requirement-rules
 material-mix-designs
 material-sites
+material-site-subscriptions
 material-suppliers
 material-transaction-summary
 material-transactions
@@ -326,7 +327,6 @@ material-site-mergers
 material-site-mixing-lots
 material-site-reading-material-types
 material-site-readings
-material-site-subscriptions
 material-site-unavailabilities
 material-supplier-memberships
 material-transaction-acceptances

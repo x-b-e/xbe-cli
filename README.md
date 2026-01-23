@@ -136,6 +136,10 @@ xbe
 │   │   ├── create           Create a material site inventory location
 │   │   ├── update           Update a material site inventory location
 │   │   └── delete           Delete a material site inventory location
+│   ├── material-site-subscriptions Manage material site subscriptions
+│   │   ├── create           Create a material site subscription
+│   │   ├── update           Update a material site subscription
+│   │   └── delete           Delete a material site subscription
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -213,6 +217,9 @@ xbe
 │   ├── material-site-inventory-locations Browse material site inventory locations
 │   │   ├── list            List material site inventory locations
 │   │   └── show <id>       Show material site inventory location details
+│   ├── material-site-subscriptions Browse material site subscriptions
+│   │   ├── list            List material site subscriptions
+│   │   └── show <id>       Show material site subscription details
 │   ├── inventory-changes   Browse and view inventory changes
 │   │   ├── list            List inventory changes with filtering
 │   │   └── show <id>       Show inventory change details
