@@ -598,7 +598,26 @@ xbe do job-production-plan-submissions create \
   --comment "Ready for review"
 
 # Submit while suppressing notifications
-xbe do job-production-plan-submissions create \
+  xbe do job-production-plan-submissions create \
+    --job-production-plan 123 \
+    --suppress-status-change-notifications
+```
+
+### Job Production Plan Uncancellations
+
+Job production plan uncancellations restore cancelled plans to their previous status.
+
+```bash
+# Uncancel a job production plan
+xbe do job-production-plan-uncancellations create --job-production-plan 123
+
+# Uncancel with a comment
+xbe do job-production-plan-uncancellations create \
+  --job-production-plan 123 \
+  --comment "Reopen plan"
+
+# Uncancel while suppressing notifications
+xbe do job-production-plan-uncancellations create \
   --job-production-plan 123 \
   --suppress-status-change-notifications
 ```
