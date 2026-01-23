@@ -90,6 +90,9 @@ xbe
 │   │   ├── create           Create a lineup dispatch
 │   │   ├── update           Update a lineup dispatch
 │   │   └── delete           Delete a lineup dispatch
+│   ├── lineup-scenario-generators Generate lineup scenarios
+│   │   ├── create           Create a lineup scenario generator
+│   │   └── delete           Delete a lineup scenario generator
 │   ├── job-production-plan-material-types Manage job production plan material types
 │   │   ├── create           Create a job production plan material type
 │   │   ├── update           Update a job production plan material type
@@ -155,6 +158,9 @@ xbe
 │   ├── lineup-dispatches   Browse lineup dispatches
 │   │   ├── list            List lineup dispatches with filtering
 │   │   └── show <id>       Show lineup dispatch details
+│   ├── lineup-scenario-generators Browse lineup scenario generators
+│   │   ├── list            List lineup scenario generators with filtering
+│   │   └── show <id>       Show lineup scenario generator details
 │   ├── lineup-dispatch-shifts Browse lineup dispatch shifts
 │   │   ├── list            List lineup dispatch shifts with filtering
 │   │   └── show <id>       Show lineup dispatch shift details
