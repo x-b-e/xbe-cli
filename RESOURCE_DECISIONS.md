@@ -113,6 +113,7 @@ incident-tags
 incidents
 inventory-changes
 invoice-approvals
+invoice-sends
 job-production-plan-cancellation-reason-types
 job-production-plan-job-site-location-estimates
 job-production-plan-summary

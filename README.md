@@ -92,6 +92,8 @@ xbe
 │   │   └── create           Unapprove a time card
 │   ├── invoice-approvals    Approve invoices
 │   │   └── create           Approve an invoice
+│   ├── invoice-sends Send invoices
+│   │   └── create           Send an invoice
 │   ├── invoice-pdf-emails   Email invoice PDFs
 │   │   └── create           Email an invoice PDF
 │   ├── time-sheet-approvals Approve time sheets
@@ -226,6 +228,9 @@ xbe
 │   ├── invoice-approvals   Browse invoice approvals
 │   │   ├── list            List invoice approvals
 │   │   └── show <id>       Show invoice approval details
+│   ├── invoice-sends       Browse invoice sends
+│   │   ├── list            List invoice sends
+│   │   └── show <id>       Show invoice send details
 │   ├── invoice-revisionizing-invoice-revisions Browse invoice revisionizing invoice revisions
 │   │   ├── list            List invoice revisionizing invoice revisions
 │   │   └── show <id>       Show invoice revisionizing invoice revision details
