@@ -101,6 +101,7 @@ devices
 driver-day-summary
 equipment
 equipment-classifications
+equipment-location-events
 equipment-rentals
 external-identification-types
 external-identifications

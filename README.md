@@ -470,6 +470,32 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
+### Equipment Location Events
+
+Equipment location events track equipment positions over time.
+
+```bash
+# List equipment location events
+xbe view equipment-location-events list
+
+# Filter by equipment and time range
+xbe view equipment-location-events list --equipment 123 --event-at-min 2025-01-01T00:00:00Z --event-at-max 2025-01-31T23:59:59Z
+
+# Show event details
+xbe view equipment-location-events show 456
+
+# Create an equipment location event
+xbe do equipment-location-events create --equipment 123 --event-at 2025-01-15T12:00:00Z \
+  --event-latitude 40.7128 --event-longitude -74.0060 --provenance gps
+
+# Update an equipment location event
+xbe do equipment-location-events update 456 --event-at 2025-01-16T12:00:00Z \
+  --event-latitude 41.0000 --event-longitude -73.9000 --provenance map
+
+# Delete an equipment location event (requires --confirm)
+xbe do equipment-location-events delete 456 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:
