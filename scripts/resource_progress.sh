@@ -205,8 +205,6 @@ for b in worker_branches:
         if subj.startswith("Implement "):
             recent_unmerged_impl.add(sha)
 
-window_rate = (len(recent_unmerged_impl) / rate_window_hours) if rate_window_hours > 0 else 0.0
-
 run_rate = 0.0
 span_hours = 0.0
 oldest_ct = None
@@ -240,7 +238,6 @@ if oldest_ct and newest_ct:
     print(f"run_oldest: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(oldest_ct))}")
     print(f"run_newest: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(newest_ct))}")
 print(f"rate_per_hour: {run_rate:.2f}")
-print(f"rate_per_hour_window: {window_rate:.2f}")
 if run_rate > 0:
     hours_left = len(remaining) / run_rate
     days_left = hours_left / 24
