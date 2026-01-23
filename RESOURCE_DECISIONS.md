@@ -130,6 +130,7 @@ material-sites
 material-site-subscriptions
 material-suppliers
 material-transaction-summary
+material-transaction-ticket-generators
 material-transactions
 material-types
 memberships

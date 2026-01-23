@@ -135,6 +135,10 @@ xbe
 │   │   └── create           Reject a material transaction
 │   ├── material-transaction-submissions Submit material transactions
 │   │   └── create           Submit a material transaction
+│   ├── material-transaction-ticket-generators Manage material transaction ticket generators
+│   │   ├── create           Create a material transaction ticket generator
+│   │   ├── update           Update a material transaction ticket generator
+│   │   └── delete           Delete a material transaction ticket generator
 │   ├── inventory-changes   Manage inventory changes
 │   │   ├── create           Create an inventory change
 │   │   └── delete           Delete an inventory change
@@ -229,6 +233,9 @@ xbe
 │   ├── material-transaction-submissions Browse material transaction submissions
 │   │   ├── list            List material transaction submissions
 │   │   └── show <id>       Show material transaction submission details
+│   ├── material-transaction-ticket-generators Browse material transaction ticket generators
+│   │   ├── list            List material transaction ticket generators
+│   │   └── show <id>       Show material transaction ticket generator details
 │   ├── material-site-inventory-locations Browse material site inventory locations
 │   │   ├── list            List material site inventory locations
 │   │   └── show <id>       Show material site inventory location details
