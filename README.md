@@ -127,6 +127,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── service-type-unit-of-measure-cohorts Manage service type unit of measure cohorts
+│   │   ├── create           Create a service type unit of measure cohort
+│   │   ├── update           Update a service type unit of measure cohort
+│   │   └── delete           Delete a service type unit of measure cohort
 │   ├── maintenance-requirement-parts Manage maintenance requirement parts
 │   │   ├── create           Create a maintenance requirement part
 │   │   ├── update           Update a maintenance requirement part
@@ -173,6 +177,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── service-type-unit-of-measure-cohorts Browse service type unit of measure cohorts
+│   │   ├── list            List service type unit of measure cohorts
+│   │   └── show <id>       Show service type unit of measure cohort details
 │   ├── maintenance-requirement-parts Browse maintenance requirement parts
 │   │   ├── list            List maintenance requirement parts
 │   │   └── show <id>       Show maintenance requirement part details

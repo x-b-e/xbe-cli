@@ -160,6 +160,7 @@ rates
 reaction-classifications
 release-notes
 service-types
+service-type-unit-of-measure-cohorts
 shift-feedback-reasons
 shift-feedbacks
 shift-summary

@@ -124,14 +124,15 @@ var resourceCategories = map[string][]string{
 	"user-credential-classifications":                 {CatClassifications},
 
 	// Reference Data
-	"application-settings":          {CatReference},
-	"culture-values":                {CatReference},
-	"external-identification-types": {CatReference},
-	"languages":                     {CatReference},
-	"service-types":                 {CatReference},
-	"tag-categories":                {CatReference},
-	"tags":                          {CatReference},
-	"unit-of-measures":              {CatReference},
+	"application-settings":                 {CatReference},
+	"culture-values":                       {CatReference},
+	"external-identification-types":        {CatReference},
+	"languages":                            {CatReference},
+	"service-type-unit-of-measure-cohorts": {CatReference},
+	"service-types":                        {CatReference},
+	"tag-categories":                       {CatReference},
+	"tags":                                 {CatReference},
+	"unit-of-measures":                     {CatReference},
 }
 
 // categoryOrder defines the display order and titles for categories
