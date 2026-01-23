@@ -103,6 +103,7 @@ equipment
 equipment-classifications
 equipment-location-estimates
 equipment-rentals
+equipment-suppliers
 external-identification-types
 external-identifications
 features
@@ -220,7 +221,6 @@ equipment-movement-trip-dispatches
 equipment-movement-trip-job-production-plans
 equipment-movement-trips
 equipment-requirements
-equipment-suppliers
 equipment-utilization-readings
 geofence-restriction-violations
 geofence-restrictions

@@ -70,6 +70,10 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── equipment-suppliers  Manage equipment suppliers
+│   │   ├── create           Create an equipment supplier
+│   │   ├── update           Update an equipment supplier
+│   │   └── delete           Delete an equipment supplier
 │   ├── driver-day-adjustments Manage driver day adjustments
 │   │   ├── create           Create a driver day adjustment
 │   │   ├── update           Update a driver day adjustment
@@ -102,6 +106,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── equipment-suppliers Browse equipment suppliers
+│   │   ├── list            List equipment suppliers with filtering
+│   │   └── show <id>       Show equipment supplier details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
