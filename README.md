@@ -108,6 +108,9 @@ xbe
 │   │   ├── create           Create a material transaction cost code allocation
 │   │   ├── update           Update a material transaction cost code allocation
 │   │   └── delete           Delete a material transaction cost code allocation
+│   ├── material-transaction-preloads Manage material transaction preloads
+│   │   ├── create           Create a material transaction preload
+│   │   └── delete           Delete a material transaction preload
 │   ├── material-purchase-order-releases Manage material purchase order releases
 │   │   ├── create           Create a material purchase order release
 │   │   ├── update           Update a material purchase order release
@@ -150,6 +153,9 @@ xbe
 │   ├── material-transaction-cost-code-allocations Browse material transaction cost code allocations
 │   │   ├── list            List material transaction cost code allocations
 │   │   └── show <id>       Show material transaction cost code allocation details
+│   ├── material-transaction-preloads Browse material transaction preloads
+│   │   ├── list            List material transaction preloads
+│   │   └── show <id>       Show material transaction preload details
 │   ├── material-site-readings Browse material site readings
 │   │   ├── list            List material site readings
 │   │   └── show <id>       Show material site reading details
