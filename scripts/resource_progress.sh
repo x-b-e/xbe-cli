@@ -72,7 +72,7 @@ def load_server_resources(root_path):
     if not os.path.isfile(routes_path):
         return None, routes_path
     routes_text = open(routes_path, "r", encoding="utf-8").read()
-    resources = {name.replace("_", "-") for name in re.findall(r"jsonapi_resources\\s+:([a-z0-9_]+)", routes_text)}
+    resources = {name.replace("_", "-") for name in re.findall(r"jsonapi_resources\s+:([a-z0-9_]+)", routes_text)}
     return resources, routes_path
 
 server_resources, server_routes = load_server_resources(server_root)
@@ -83,11 +83,11 @@ if not server_resources:
         if server_routes is None or not os.path.isfile(server_routes):
             print(f"error: server routes not found at {server_routes}", file=sys.stderr)
         else:
-            print(f\"error: no jsonapi_resources found in {server_routes}\", file=sys.stderr)
+            print(f"error: no jsonapi_resources found in {server_routes}", file=sys.stderr)
         sys.exit(1)
 
-var_re = re.compile(r"var\\s+(\\w+)\\s*=\\s*&cobra\\.Command\\s*{", re.M)
-use_re = re.compile(r"Use:\\s*\\\"([^\\\"]+)\\\"")
+var_re = re.compile(r"var\s+(\w+)\s*=\s*&cobra\.Command\s*{", re.M)
+use_re = re.compile(r"Use:\s*\"([^\"]+)\"")
 var_use = {}
 for filename in os.listdir(cli_dir):
     if not filename.endswith(".go"):
@@ -116,7 +116,7 @@ for filename in os.listdir(cli_dir):
         if um:
             var_use[name] = um.group(1)
 
-add_re = re.compile(r"(viewCmd|doCmd|summarizeCmd)\\.AddCommand\\(([^\\)]*)\\)", re.S)
+add_re = re.compile(r"(viewCmd|doCmd|summarizeCmd)\.AddCommand\(([^\)]*)\)", re.S)
 command_resources = set()
 for filename in os.listdir(cli_dir):
     if not filename.endswith(".go"):
