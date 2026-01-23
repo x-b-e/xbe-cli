@@ -416,6 +416,38 @@ xbe do crew-assignment-confirmations create \
 xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
 ```
 
+### Crew Requirements
+
+Crew requirements schedule labor or equipment needs on job production plans.
+
+```bash
+# List requirements
+xbe view crew-requirements list
+
+# Filter by job production plan
+xbe view crew-requirements list --job-production-plan 123
+
+# Show requirement details
+xbe view crew-requirements show 456
+
+# Create an equipment requirement
+xbe do crew-requirements create \
+  --requirement-type equipment \
+  --job-production-plan 123 \
+  --resource-classification-type equipment-classifications \
+  --resource-classification-id 456 \
+  --resource-type equipment \
+  --resource-id 789 \
+  --start-at "2025-01-01T08:00:00Z" \
+  --end-at "2025-01-01T16:00:00Z"
+
+# Update a requirement
+xbe do crew-requirements update 456 --note "Updated note" --requires-inbound-movement true
+
+# Delete a requirement (requires --confirm)
+xbe do crew-requirements delete 456 --confirm
+```
+
 ### Crew Rates
 
 Crew rates define pricing for labor/equipment by classification, resource, or craft class.
