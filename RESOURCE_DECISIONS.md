@@ -129,6 +129,7 @@ material-sites
 material-suppliers
 material-transaction-summary
 material-transactions
+material-type-unavailabilities
 material-types
 memberships
 newsletters

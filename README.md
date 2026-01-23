@@ -123,6 +123,10 @@ xbe
 │   │   ├── create           Create a material transaction inspection
 │   │   ├── update           Update a material transaction inspection
 │   │   └── delete           Delete a material transaction inspection
+│   ├── material-type-unavailabilities Manage material type unavailabilities
+│   │   ├── create           Create a material type unavailability
+│   │   ├── update           Update a material type unavailability
+│   │   └── delete           Delete a material type unavailability
 │   ├── material-supplier-memberships Manage material supplier memberships
 │   │   ├── create           Create a material supplier membership
 │   │   ├── update           Update a material supplier membership
@@ -156,6 +160,9 @@ xbe
 │   ├── material-site-mixing-lots Browse material site mixing lots
 │   │   ├── list            List material site mixing lots with filtering
 │   │   └── show <id>       Show material site mixing lot details
+│   ├── material-type-unavailabilities Browse material type unavailabilities
+│   │   ├── list            List material type unavailabilities with filtering
+│   │   └── show <id>       Show material type unavailability details
 │   ├── material-transaction-inspections Browse material transaction inspections
 │   │   ├── list            List material transaction inspections with filtering
 │   │   └── show <id>       Show material transaction inspection details
