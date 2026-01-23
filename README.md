@@ -496,6 +496,29 @@ xbe do equipment-location-events update 456 --event-at 2025-01-16T12:00:00Z \
 xbe do equipment-location-events delete 456 --confirm
 ```
 
+### Equipment Movement Trip Customer Cost Allocations
+
+Customer cost allocations define how equipment movement trip costs are split across customers.
+
+```bash
+# List allocations
+xbe view equipment-movement-trip-customer-cost-allocations list
+
+# Filter by trip
+xbe view equipment-movement-trip-customer-cost-allocations list --trip 123
+
+# Show allocation details
+xbe view equipment-movement-trip-customer-cost-allocations show 456
+
+# Update allocation (use customers from the trip requirements)
+xbe do equipment-movement-trip-customer-cost-allocations update 456 \
+  --is-explicit true \
+  --allocation '{"details":[{"customer_id":789,"percentage":"1"}]}'
+
+# Delete allocation (requires --confirm)
+xbe do equipment-movement-trip-customer-cost-allocations delete 456 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:
