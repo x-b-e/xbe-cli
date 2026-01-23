@@ -86,6 +86,8 @@ xbe
 │   │   └── create           Scrap a time card
 │   ├── time-card-unapprovals Unapprove time cards
 │   │   └── create           Unapprove a time card
+│   ├── time-sheet-approvals Approve time sheets
+│   │   └── create           Approve a time sheet
 │   ├── resource-unavailabilities Manage resource unavailabilities
 │   │   ├── create           Create a resource unavailability
 │   │   ├── update           Update a resource unavailability
@@ -189,6 +191,9 @@ xbe
 │   ├── time-card-unapprovals Browse time card unapprovals
 │   │   ├── list            List time card unapprovals
 │   │   └── show <id>       Show time card unapproval details
+│   ├── time-sheet-approvals Browse time sheet approvals
+│   │   ├── list            List time sheet approvals
+│   │   └── show <id>       Show time sheet approval details
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
