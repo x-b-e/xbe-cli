@@ -135,6 +135,8 @@ xbe
 │   │   └── create           Create a shift time card requisition
 │   ├── time-card-approvals  Approve time cards
 │   │   └── create           Approve a time card
+│   ├── time-card-rejections  Reject time cards
+│   │   └── create           Reject a time card
 │   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules
 │   │   └── create           Request evaluation for equipment
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Generate lineup trucker assignment recommendations
