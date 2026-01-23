@@ -506,6 +506,26 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
+### Equipment Location Estimates
+
+Equipment location estimates return the most recent known location for equipment.
+
+```bash
+# Estimate location for a specific equipment ID
+xbe view equipment-location-estimates list --equipment 123
+
+# Estimate location as of a specific time
+xbe view equipment-location-estimates list --equipment 123 --as-of 2026-01-23T12:00:00Z
+
+# Constrain the event window
+xbe view equipment-location-estimates list --equipment 123 \
+  --earliest-event-at 2026-01-22T00:00:00Z \
+  --latest-event-at 2026-01-23T00:00:00Z
+
+# Output as JSON
+xbe view equipment-location-estimates list --equipment 123 --json
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:

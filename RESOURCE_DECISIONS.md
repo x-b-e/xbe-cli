@@ -101,6 +101,7 @@ devices
 driver-day-summary
 equipment
 equipment-classifications
+equipment-location-estimates
 equipment-rentals
 external-identification-types
 external-identifications
@@ -207,7 +208,6 @@ driver-managers
 driver-movement-observations
 driver-movement-segment-sets
 driver-movement-segments
-equipment-location-estimates
 equipment-location-events
 equipment-movement-requirement-locations
 equipment-movement-requirements
