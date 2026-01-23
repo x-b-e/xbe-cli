@@ -109,6 +109,9 @@ xbe
 │   ├── hos-availability-snapshots Browse HOS availability snapshots
 │   │   ├── list            List availability snapshots with filtering
 │   │   └── show <id>       Show availability snapshot details
+│   ├── hos-violations      Browse HOS violations
+│   │   ├── list            List HOS violations with filtering
+│   │   └── show <id>       Show HOS violation details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
