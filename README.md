@@ -662,6 +662,35 @@ xbe do job-production-plan-inspectors create --job-production-plan-id 123 --user
 xbe do job-production-plan-inspectors delete 789 --confirm
 ```
 
+### Job Production Plan Safety Risks Suggestions
+
+Job production plan safety risks suggestions generate AI safety risk lists for a
+job production plan.
+
+```bash
+# List safety risks suggestions
+xbe view job-production-plan-safety-risks-suggestions list
+
+# Filter by job production plan
+xbe view job-production-plan-safety-risks-suggestions list --job-production-plan 123
+
+# Show suggestion details
+xbe view job-production-plan-safety-risks-suggestions show 456
+
+# Generate safety risks suggestions
+xbe do job-production-plan-safety-risks-suggestions create --job-production-plan 123
+
+# Generate with options
+xbe do job-production-plan-safety-risks-suggestions create \
+  --job-production-plan 123 \
+  --options '{"include_other_incidents":true}'
+
+# Generate synchronously (wait for risks)
+xbe do job-production-plan-safety-risks-suggestions create \
+  --job-production-plan 123 \
+  --is-async=false
+```
+
 ### Job Production Plan Material Type Quality Control Requirements
 
 Job production plan material type quality control requirements attach quality

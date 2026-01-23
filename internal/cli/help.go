@@ -57,6 +57,7 @@ var resourceCategories = map[string][]string{
 	"job-production-plan-cancellation-reason-types":                  {CatProjects},
 	"job-production-plan-inspectors":                                 {CatProjects},
 	"job-production-plan-material-type-quality-control-requirements": {CatProjects},
+	"job-production-plan-safety-risks-suggestions":                   {CatProjects},
 	"job-production-plans":                                           {CatProjects},
 	"job-sites":                                                      {CatProjects},
 	"project-categories":                                             {CatProjects},
