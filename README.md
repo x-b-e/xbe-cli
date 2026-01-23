@@ -139,6 +139,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── material-site-measures Browse material site measures
+│   │   ├── list            List material site measures with filtering
+│   │   └── show <id>       Show material site measure details
 │   ├── inventory-estimates Browse inventory estimates
 │   │   ├── list            List inventory estimates with filtering
 │   │   └── show <id>       Show inventory estimate details
