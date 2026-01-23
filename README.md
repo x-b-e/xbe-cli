@@ -182,6 +182,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── work-order-service-codes Manage work order service codes
+│   │   ├── create           Create a work order service code
+│   │   ├── update           Update a work order service code
+│   │   └── delete           Delete a work order service code
 │   └── transport-order-stop-materials Manage transport order stop materials
 │       ├── create           Create a transport order stop material
 │       ├── update           Update a transport order stop material
@@ -320,6 +324,9 @@ xbe
 │   ├── transport-order-stop-materials Browse transport order stop materials
 │   │   ├── list            List transport order stop materials
 │   │   └── show <id>       Show transport order stop material details
+│   ├── work-order-service-codes Browse work order service codes
+│   │   ├── list            List work order service codes
+│   │   └── show <id>       Show work order service code details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details

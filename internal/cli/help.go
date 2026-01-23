@@ -127,6 +127,7 @@ var resourceCategories = map[string][]string{
 	"trailer-classifications":                         {CatClassifications},
 	"truck-scopes":                                    {CatClassifications},
 	"user-credential-classifications":                 {CatClassifications},
+	"work-order-service-codes":                        {CatClassifications},
 
 	// Reference Data
 	"application-settings":          {CatReference},

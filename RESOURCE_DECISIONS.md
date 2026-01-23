@@ -189,6 +189,7 @@ unit-of-measures
 user-credential-classifications
 user-credentials
 users
+work-order-service-codes
 work-orders
 ```
 
