@@ -86,6 +86,9 @@ xbe
 │   │   ├── create           Create a job production plan material type
 │   │   ├── update           Update a job production plan material type
 │   │   └── delete           Delete a job production plan material type
+│   ├── job-production-plan-service-type-unit-of-measure-cohorts Manage job production plan service type unit of measure cohorts
+│   │   ├── create           Create a job production plan service type unit of measure cohort link
+│   │   └── delete           Delete a job production plan service type unit of measure cohort link
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -129,6 +132,9 @@ xbe
 │   ├── job-production-plan-material-types Browse job production plan material types
 │   │   ├── list            List job production plan material types with filtering
 │   │   └── show <id>       Show job production plan material type details
+│   ├── job-production-plan-service-type-unit-of-measure-cohorts Browse job production plan service type unit of measure cohorts
+│   │   ├── list            List job production plan service type unit of measure cohorts with filtering
+│   │   └── show <id>       Show job production plan service type unit of measure cohort details
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details
