@@ -584,6 +584,25 @@ xbe do equipment-movement-stop-completions update 456 \
 xbe do equipment-movement-stop-completions delete 456 --confirm
 ```
 
+### Job Production Plan Submissions
+
+Job production plan submissions move plans from editing or rejected to submitted.
+
+```bash
+# Submit a job production plan
+xbe do job-production-plan-submissions create --job-production-plan 123
+
+# Submit with a comment
+xbe do job-production-plan-submissions create \
+  --job-production-plan 123 \
+  --comment "Ready for review"
+
+# Submit while suppressing notifications
+xbe do job-production-plan-submissions create \
+  --job-production-plan 123 \
+  --suppress-status-change-notifications
+```
+
 ### Job Production Plan Alarms
 
 Job production plan alarms notify subscribers when production reaches
