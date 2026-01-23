@@ -111,6 +111,7 @@ geofence-restrictions
 glossary-terms
 incident-tags
 incidents
+inventory-changes
 job-production-plan-cancellation-reason-types
 job-production-plan-summary
 job-production-plans

@@ -89,6 +89,9 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── inventory-changes   Manage inventory changes
+│   │   ├── create           Create an inventory change
+│   │   └── delete           Delete an inventory change
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -124,6 +127,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── inventory-changes   Browse and view inventory changes
+│   │   ├── list            List inventory changes with filtering
+│   │   └── show <id>       Show inventory change details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
