@@ -120,6 +120,9 @@ xbe
 │   │   └── show <id>       Show movement segment details
 │   ├── job-production-plan-job-site-changes Browse job production plan job site changes
 │   │   └── show <id>       Show job site change details
+│   ├── job-production-plan-schedule-change-works Browse job production plan schedule change works
+│   │   ├── list            List schedule change works with filtering
+│   │   └── show <id>       Show schedule change work details
 │   ├── job-production-plan-project-phase-revenue-items Browse job production plan project phase revenue items
 │   │   ├── list            List job production plan project phase revenue items
 │   │   └── show <id>       Show job production plan project phase revenue item details
