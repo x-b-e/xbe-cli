@@ -638,6 +638,30 @@ xbe do job-production-plan-cost-codes update 456 --project-resource-classificati
 xbe do job-production-plan-cost-codes delete 456 --confirm
 ```
 
+### Job Production Plan Segment Sets
+
+Job production plan segment sets group plan segments and define offsets.
+
+```bash
+# List job production plan segment sets
+xbe view job-production-plan-segment-sets list
+
+# Filter by job production plan
+xbe view job-production-plan-segment-sets list --job-production-plan 123
+
+# Show job production plan segment set details
+xbe view job-production-plan-segment-sets show 456
+
+# Create a job production plan segment set
+xbe do job-production-plan-segment-sets create --job-production-plan 123 --name "AM shift"
+
+# Update a job production plan segment set
+xbe do job-production-plan-segment-sets update 456 --start-offset-minutes 15 --is-default
+
+# Delete a job production plan segment set (requires --confirm)
+xbe do job-production-plan-segment-sets delete 456 --confirm
+```
+
 ### Job Production Plan Inspectors
 
 Job production plan inspectors assign inspectors (users) to job production plans.
