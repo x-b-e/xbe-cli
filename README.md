@@ -82,6 +82,8 @@ xbe
 │   │   └── delete           Delete a safety risk communication suggestion
 │   ├── job-production-plan-material-site-changes  Manage job production plan material site changes
 │   │   └── create           Create a material site change
+│   ├── job-production-plan-status-changes  Manage job production plan status changes
+│   │   └── update           Update a job production plan status change
 │   ├── job-production-plan-duplications  Duplicate job production plan templates
 │   │   └── create           Duplicate a job production plan template
 │   ├── memberships          Manage user-organization memberships
@@ -117,6 +119,9 @@ xbe
 │   ├── job-production-plan-material-site-changes  Browse job production plan material site changes
 │   │   ├── list            List material site changes
 │   │   └── show <id>       Show material site change details
+│   ├── job-production-plan-status-changes  Browse job production plan status changes
+│   │   ├── list            List job production plan status changes
+│   │   └── show <id>       Show job production plan status change details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
 │   ├── users               Browse users (for creator lookup)
@@ -613,6 +618,22 @@ xbe do job-production-plan-material-site-changes create \
   --new-material-site 789 \
   --old-material-type 111 \
   --new-material-type 222
+```
+
+### Job Production Plan Status Changes
+
+Status changes record lifecycle transitions for job production plans.
+
+```bash
+# List recent status changes
+xbe view job-production-plan-status-changes list
+
+# Show status change details
+xbe view job-production-plan-status-changes show 123
+
+# Set a cancellation reason type
+xbe do job-production-plan-status-changes update 123 \
+  --job-production-plan-cancellation-reason-type 456
 ```
 
 ### Job Production Plan Duplications
