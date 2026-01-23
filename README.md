@@ -76,6 +76,8 @@ xbe
 │   │   └── create           Abandon a job production plan
 │   ├── job-production-plan-completions Complete job production plans
 │   │   └── create           Complete a job production plan
+│   ├── job-production-plan-unscrappages Unscrap job production plans
+│   │   └── create           Unscrap a job production plan
 │   ├── job-production-plan-driver-movements Generate job production plan driver movements
 │   │   └── create           Generate driver movement details
 │   ├── job-production-plan-job-site-changes Update job production plan job sites

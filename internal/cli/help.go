@@ -54,6 +54,7 @@ var resourceCategories = map[string][]string{
 	"crew-assignment-confirmations":                 {CatProjects},
 	"job-production-plan-abandonments":              {CatProjects},
 	"job-production-plan-completions":               {CatProjects},
+	"job-production-plan-unscrappages":              {CatProjects},
 	"job-production-plan-cancellation-reason-types": {CatProjects},
 	"job-production-plan-driver-movements":          {CatProjects},
 	"job-production-plan-segments":                  {CatProjects},
