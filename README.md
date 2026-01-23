@@ -81,6 +81,10 @@ xbe
 │   ├── equipment-movement-trip-job-production-plans Manage equipment movement trip job production plans
 │   │   ├── create           Create an equipment movement trip job production plan link
 │   │   └── delete           Delete an equipment movement trip job production plan link
+│   ├── geofence-restrictions Manage geofence restrictions
+│   │   ├── create           Create a geofence restriction
+│   │   ├── update           Update a geofence restriction
+│   │   └── delete           Delete a geofence restriction
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -105,6 +109,9 @@ xbe
 │   ├── equipment-movement-trip-job-production-plans Browse equipment movement trip job production plans
 │   │   ├── list            List equipment movement trip job production plans
 │   │   └── show <id>       Show equipment movement trip job production plan details
+│   ├── geofence-restrictions Browse geofence restrictions
+│   │   ├── list            List geofence restrictions
+│   │   └── show <id>       Show geofence restriction details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details

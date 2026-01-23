@@ -107,6 +107,7 @@ external-identification-types
 external-identifications
 features
 geofences
+geofence-restrictions
 glossary-terms
 incident-tags
 incidents
