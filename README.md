@@ -132,6 +132,10 @@ xbe
 │   ├── inventory-changes   Manage inventory changes
 │   │   ├── create           Create an inventory change
 │   │   └── delete           Delete an inventory change
+│   ├── material-site-inventory-locations Manage material site inventory locations
+│   │   ├── create           Create a material site inventory location
+│   │   ├── update           Update a material site inventory location
+│   │   └── delete           Delete a material site inventory location
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -206,6 +210,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── material-site-inventory-locations Browse material site inventory locations
+│   │   ├── list            List material site inventory locations
+│   │   └── show <id>       Show material site inventory location details
 │   ├── inventory-changes   Browse and view inventory changes
 │   │   ├── list            List inventory changes with filtering
 │   │   └── show <id>       Show inventory change details
