@@ -70,6 +70,10 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── commitment-items     Manage commitment items
+│   │   ├── create           Create a commitment item
+│   │   ├── update           Update a commitment item
+│   │   └── delete           Delete a commitment item
 │   ├── driver-day-constraints Manage driver day constraints
 │   │   ├── create           Create a driver day constraint
 │   │   ├── update           Update a driver day constraint
@@ -194,6 +198,9 @@ xbe
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
+│   ├── commitment-items    Browse commitment items
+│   │   ├── list            List commitment items
+│   │   └── show <id>       Show commitment item details
 │   ├── driver-day-constraints Browse driver day constraints
 │   │   ├── list            List driver day constraints
 │   │   └── show <id>       Show driver day constraint details
