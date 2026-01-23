@@ -226,6 +226,9 @@ xbe
 │   ├── invoice-approvals   Browse invoice approvals
 │   │   ├── list            List invoice approvals
 │   │   └── show <id>       Show invoice approval details
+│   ├── invoice-revisionizing-invoice-revisions Browse invoice revisionizing invoice revisions
+│   │   ├── list            List invoice revisionizing invoice revisions
+│   │   └── show <id>       Show invoice revisionizing invoice revision details
 │   ├── time-sheet-approvals Browse time sheet approvals
 │   │   ├── list            List time sheet approvals
 │   │   └── show <id>       Show time sheet approval details
