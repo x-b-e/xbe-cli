@@ -155,6 +155,8 @@ xbe
 │   │   └── create           Approve a time card
 │   ├── time-card-rejections  Reject time cards
 │   │   └── create           Reject a time card
+│   ├── invoice-generations  Generate invoices
+│   │   └── create           Create an invoice generation
 │   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules
 │   │   └── create           Request evaluation for equipment
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Generate lineup trucker assignment recommendations
@@ -250,6 +252,9 @@ xbe
 │   ├── time-cards          Browse time cards
 │   │   ├── list            List time cards with filtering
 │   │   └── show <id>       Show time card details
+│   ├── invoice-generations Browse invoice generations
+│   │   ├── list            List invoice generations with filtering
+│   │   └── show <id>       Show invoice generation details
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
 │   │   ├── list            List recommendations with filtering
 │   │   └── show <id>       Show recommendation details
