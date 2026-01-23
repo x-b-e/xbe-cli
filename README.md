@@ -622,6 +622,16 @@ xbe do job-production-plan-uncancellations create \
   --suppress-status-change-notifications
 ```
 
+### Job Schedule Shift Managed Toggles
+
+Job schedule shift managed toggles flip a shift between managed and unmanaged.
+Shifts must not be cancelled, tied to unmanaged tenders, or have time cards.
+
+```bash
+# Toggle managed status for a job schedule shift
+xbe do job-schedule-shift-is-managed-toggles create --job-schedule-shift 123
+```
+
 ### Job Production Plan Alarms
 
 Job production plan alarms notify subscribers when production reaches
