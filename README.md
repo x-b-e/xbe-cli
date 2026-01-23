@@ -77,6 +77,9 @@ xbe
 │   ├── job-production-plan-broadcast-messages  Manage job production plan broadcast messages
 │   │   ├── create           Create a broadcast message
 │   │   └── update           Update a broadcast message
+│   ├── job-production-plan-safety-risk-communication-suggestions  Generate safety risk communication suggestions
+│   │   ├── create           Generate a safety risk communication suggestion
+│   │   └── delete           Delete a safety risk communication suggestion
 │   ├── job-production-plan-material-site-changes  Manage job production plan material site changes
 │   │   └── create           Create a material site change
 │   ├── job-production-plan-duplications  Duplicate job production plan templates
@@ -105,6 +108,9 @@ xbe
 │   ├── job-production-plan-broadcast-messages  Browse job production plan broadcast messages
 │   │   ├── list            List broadcast messages
 │   │   └── show <id>       Show broadcast message details
+│   ├── job-production-plan-safety-risk-communication-suggestions  Browse safety risk communication suggestions
+│   │   ├── list            List safety risk communication suggestions
+│   │   └── show <id>       Show safety risk communication suggestion details
 │   ├── job-production-plan-recaps  Browse job production plan recaps
 │   │   ├── list            List job production plan recaps
 │   │   └── show <id>       Show job production plan recap details
@@ -537,6 +543,35 @@ xbe do job-production-plan-broadcast-messages create \
 
 # Hide a broadcast message
 xbe do job-production-plan-broadcast-messages update 456 --is-hidden
+```
+
+### Job Production Plan Safety Risk Communication Suggestions
+
+Safety risk communication suggestions generate draft plans for communicating
+job safety risks and remediation strategies.
+
+```bash
+# List suggestions
+xbe view job-production-plan-safety-risk-communication-suggestions list
+
+# Filter by job production plan
+xbe view job-production-plan-safety-risk-communication-suggestions list --job-production-plan 123
+
+# Show suggestion details
+xbe view job-production-plan-safety-risk-communication-suggestions show 456
+
+# Create a suggestion (async by default)
+xbe do job-production-plan-safety-risk-communication-suggestions create \
+  --job-production-plan 123
+
+# Create synchronously with options
+xbe do job-production-plan-safety-risk-communication-suggestions create \
+  --job-production-plan 123 \
+  --is-async=false \
+  --options '{"temperature":0.2}'
+
+# Delete a suggestion
+xbe do job-production-plan-safety-risk-communication-suggestions delete 456 --confirm
 ```
 
 ### Job Production Plan Recaps
