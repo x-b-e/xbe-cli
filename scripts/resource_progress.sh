@@ -225,8 +225,6 @@ print(f"timestamp: {now}")
 implemented_total = len(implemented_server) + len(unmerged_impl)
 print(f"implemented: {implemented_total}")
 print(f"remaining: {len(remaining)}")
-print(f"unmerged_worker_commits: {len(unmerged_impl)}")
-print(f"remaining_after_unmerged: {max(0, len(remaining) - len(unmerged_impl))}")
 print(f"rate_per_hour: {run_rate:.2f}")
 if run_rate > 0:
     remaining_after_unmerged = max(0, len(remaining) - len(unmerged_impl))
