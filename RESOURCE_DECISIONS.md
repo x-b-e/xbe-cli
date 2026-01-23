@@ -112,6 +112,7 @@ glossary-terms
 hos-violations
 incident-tags
 incidents
+invoice-addresses
 job-production-plan-cancellation-reason-types
 job-production-plan-completions
 job-production-plan-job-site-changes

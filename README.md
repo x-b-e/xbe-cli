@@ -92,6 +92,8 @@ xbe
 │   │   └── delete           Delete a job production plan project phase revenue item
 │   ├── job-schedule-shift-start-at-changes Reschedule job schedule shifts
 │   │   └── create           Create a start-at change
+│   ├── invoice-addresses    Address rejected invoices
+│   │   └── create           Address a rejected invoice
 │   ├── time-card-time-changes Manage time card time changes
 │   │   ├── create           Create a time card time change
 │   │   ├── update           Update a time card time change
