@@ -163,6 +163,7 @@ service-types
 service-type-unit-of-measure-cohorts
 shift-feedback-reasons
 shift-feedbacks
+shift-scope-tenders
 shift-summary
 stakeholder-classifications
 tag-categories

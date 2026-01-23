@@ -100,6 +100,8 @@ xbe
 │   │   ├── create           Create a lineup scenario trailer lineup job schedule shift
 │   │   ├── update           Update a lineup scenario trailer lineup job schedule shift
 │   │   └── delete           Delete a lineup scenario trailer lineup job schedule shift
+│   ├── shift-scope-tenders  Find tenders for a shift scope
+│   │   └── create           Find tenders for a shift scope
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -626,6 +628,19 @@ Lineup dispatch statuses compute the offered tender percentage for a broker and 
 ```bash
 # Check lineup dispatch status for a day window
 xbe do lineup-dispatch-statuses create --broker 123 --window day --date 2025-01-23
+```
+
+### Shift Scope Tenders
+
+Shift scope tenders return tender IDs that match a shift scope, optionally filtered by tender creation time.
+
+```bash
+# Find tenders for a shift scope
+xbe do shift-scope-tenders create --shift-scope 123
+
+# Filter by created_at window and limit results
+xbe do shift-scope-tenders create --shift-scope 123 \
+  --created-at-min 2025-01-01 --created-at-max 2025-01-31 --limit 5
 ```
 
 ### Crew Rates
