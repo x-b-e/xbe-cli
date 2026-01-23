@@ -224,10 +224,10 @@ now = time.strftime("%Y-%m-%d %H:%M:%S")
 print(f"timestamp: {now}")
 implemented_total = len(implemented_server) + len(unmerged_impl)
 print(f"implemented: {implemented_total}")
-print(f"remaining: {len(remaining)}")
+remaining_after_unmerged = max(0, len(remaining) - len(unmerged_impl))
+print(f"remaining: {remaining_after_unmerged}")
 print(f"rate_per_hour: {run_rate:.2f}")
 if run_rate > 0:
-    remaining_after_unmerged = max(0, len(remaining) - len(unmerged_impl))
     hours_left_after_unmerged = remaining_after_unmerged / run_rate
     print(f"eta_hours: {hours_left_after_unmerged:.1f}")
 else:
