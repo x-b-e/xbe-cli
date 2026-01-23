@@ -74,9 +74,10 @@ var resourceCategories = map[string][]string{
 	// Fleet & Transport
 	"equipment-suppliers": {CatFleet},
 	"hos-annotations":     {CatFleet},
-	"tractors":            {CatFleet},
-	"trailers":            {CatFleet},
-	"transport-orders":    {CatFleet},
+	"maintenance-requirement-rule-maintenance-requirement-sets": {CatFleet},
+	"tractors":         {CatFleet},
+	"trailers":         {CatFleet},
+	"transport-orders": {CatFleet},
 
 	// Materials
 	"inventory-capacities":  {CatMaterials},

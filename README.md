@@ -591,6 +591,33 @@ xbe do equipment-movement-stop-completions update 456 \
 xbe do equipment-movement-stop-completions delete 456 --confirm
 ```
 
+### Maintenance Requirement Rule Maintenance Requirement Sets
+
+Maintenance requirement rule maintenance requirement sets link maintenance requirement rules
+to template maintenance requirement sets.
+
+```bash
+# List maintenance requirement rule maintenance requirement sets
+xbe view maintenance-requirement-rule-maintenance-requirement-sets list
+
+# Filter by maintenance requirement rule
+xbe view maintenance-requirement-rule-maintenance-requirement-sets list --maintenance-requirement-rule 123
+
+# Filter by maintenance requirement set
+xbe view maintenance-requirement-rule-maintenance-requirement-sets list --maintenance-requirement-set 456
+
+# Show maintenance requirement rule maintenance requirement set details
+xbe view maintenance-requirement-rule-maintenance-requirement-sets show 789
+
+# Create a maintenance requirement rule maintenance requirement set
+xbe do maintenance-requirement-rule-maintenance-requirement-sets create \
+  --maintenance-requirement-rule 123 \
+  --maintenance-requirement-set 456
+
+# Delete a maintenance requirement rule maintenance requirement set (requires --confirm)
+xbe do maintenance-requirement-rule-maintenance-requirement-sets delete 789 --confirm
+```
+
 ### Job Production Plan Submissions
 
 Job production plan submissions move plans from editing or rejected to submitted.
