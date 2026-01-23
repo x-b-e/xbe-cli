@@ -84,6 +84,7 @@ var resourceCategories = map[string][]string{
 	"material-suppliers":                {CatMaterials},
 	"material-transaction-field-scopes": {CatMaterials},
 	"material-transaction-rejections":   {CatMaterials},
+	"material-transaction-submissions":  {CatMaterials},
 	"material-transactions":             {CatMaterials},
 	"material-types":                    {CatMaterials},
 
