@@ -206,6 +206,9 @@ xbe
 │   ├── inventory-estimates Browse inventory estimates
 │   │   ├── list            List inventory estimates with filtering
 │   │   └── show <id>       Show inventory estimate details
+│   ├── invoice-revisionizing-works Browse invoice revisionizing work
+│   │   ├── list            List invoice revisionizing work with filtering
+│   │   └── show <id>       Show invoice revisionizing work details
 │   ├── service-sites       Browse service sites
 │   │   ├── list            List service sites with filtering
 │   │   └── show <id>       Show service site details
