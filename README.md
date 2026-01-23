@@ -83,6 +83,8 @@ xbe
 │   │   └── delete           Delete an equipment movement trip job production plan link
 │   ├── job-production-plan-cancellations Cancel job production plans
 │   │   └── create           Cancel a job production plan
+│   ├── job-production-plan-rejections Reject job production plans
+│   │   └── create           Reject a job production plan
 │   ├── job-production-plan-recap-generations Generate job production plan recaps
 │   │   └── create           Generate a job production plan recap
 │   ├── job-production-plan-display-unit-of-measures Manage job production plan display unit of measures
@@ -127,6 +129,9 @@ xbe
 │   ├── job-production-plan-cancellations Browse job production plan cancellations
 │   │   ├── list            List job production plan cancellations
 │   │   └── show <id>       Show job production plan cancellation details
+│   ├── job-production-plan-rejections Browse job production plan rejections
+│   │   ├── list            List job production plan rejections
+│   │   └── show <id>       Show job production plan rejection details
 │   ├── job-production-plan-display-unit-of-measures Browse job production plan display unit of measures
 │   │   ├── list            List job production plan display unit of measures
 │   │   └── show <id>       Show job production plan display unit of measure details
