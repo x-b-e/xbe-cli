@@ -80,6 +80,8 @@ xbe
 │   │   ├── create           Create an inventory estimate
 │   │   ├── update           Update an inventory estimate
 │   │   └── delete           Delete an inventory estimate
+│   ├── job-production-plan-approvals Approve job production plans
+│   │   └── create           Approve a job production plan
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
