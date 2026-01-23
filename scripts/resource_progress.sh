@@ -66,6 +66,9 @@ not_reviewed = parse_bullets(lines, "Not Yet Reviewed")
 
 cli_dir = os.path.join(root, "internal", "cli")
 server_routes = os.path.join(server_root, "config", "routes.rb")
+if not os.path.isfile(server_routes):
+    print(f"error: server routes not found at {server_routes}", file=sys.stderr)
+    sys.exit(1)
 
 var_re = re.compile(r"var\\s+(\\w+)\\s*=\\s*&cobra\\.Command\\s*{", re.M)
 use_re = re.compile(r"Use:\\s*\\\"([^\\\"]+)\\\"")
@@ -113,6 +116,9 @@ for filename in os.listdir(cli_dir):
 
 routes_text = open(server_routes, "r", encoding="utf-8").read()
 server_resources = {name.replace("_", "-") for name in re.findall(r"jsonapi_resources\\s+:([a-z0-9_]+)", routes_text)}
+if not server_resources:
+    print("error: no jsonapi_resources found in routes.rb", file=sys.stderr)
+    sys.exit(1)
 
 alias_map = {
     "lane-summary": "cycle-summaries",
@@ -155,9 +161,9 @@ rate = (len(recent_impl) / rate_window_hours) if rate_window_hours > 0 else 0.0
 
 # Unmerged implement commits on worker branches
 worker_branches = []
-branch_lines = run_git(["branch", "--list", "outer-loop-worker-*"]).splitlines()
+branch_lines = run_git(["branch", "--list", "--format=%(refname:short)", "outer-loop-worker-*"]).splitlines()
 for line in branch_lines:
-    name = line.strip().lstrip("*").strip()
+    name = line.strip()
     if name:
         worker_branches.append(name)
 
