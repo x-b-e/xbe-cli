@@ -96,6 +96,10 @@ xbe
 │   │   ├── create           Create a material purchase order
 │   │   ├── update           Update a material purchase order
 │   │   └── delete           Delete a material purchase order
+│   ├── material-site-unavailabilities Manage material site unavailabilities
+│   │   ├── create           Create a material site unavailability
+│   │   ├── update           Update a material site unavailability
+│   │   └── delete           Delete a material site unavailability
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -119,6 +123,9 @@ xbe
 │   ├── material-purchase-orders Browse material purchase orders
 │   │   ├── list            List material purchase orders with filtering
 │   │   └── show <id>       Show material purchase order details
+│   ├── material-site-unavailabilities Browse material site unavailabilities
+│   │   ├── list            List material site unavailabilities with filtering
+│   │   └── show <id>       Show material site unavailability details
 │   ├── equipment-suppliers Browse equipment suppliers
 │   │   ├── list            List equipment suppliers with filtering
 │   │   └── show <id>       Show equipment supplier details
@@ -949,6 +956,34 @@ xbe do job-site-times update 789 --description "Updated notes"
 
 # Delete a job site time (requires --confirm)
 xbe do job-site-times delete 789 --confirm
+```
+
+### Material Site Unavailabilities
+
+Material site unavailabilities track downtime windows for material sites.
+
+```bash
+# List material site unavailabilities
+xbe view material-site-unavailabilities list
+
+# Filter by material site
+xbe view material-site-unavailabilities list --material-site 123
+
+# Show material site unavailability details
+xbe view material-site-unavailabilities show 456
+
+# Create a material site unavailability
+xbe do material-site-unavailabilities create \
+  --material-site 123 \
+  --start-at 2026-01-24T08:00:00Z \
+  --end-at 2026-01-24T12:00:00Z \
+  --description "Planned maintenance"
+
+# Update a material site unavailability
+xbe do material-site-unavailabilities update 456 --description "Updated notes"
+
+# Delete a material site unavailability (requires --confirm)
+xbe do material-site-unavailabilities delete 456 --confirm
 ```
 
 ### Job Production Plan Trucking Incident Detectors
