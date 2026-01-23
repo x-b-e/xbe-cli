@@ -72,6 +72,8 @@ xbe
 │   │   └── delete           Delete a platform status
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
+│   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
+│   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
 │   └── memberships          Manage user-organization memberships

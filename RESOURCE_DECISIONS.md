@@ -99,6 +99,7 @@ developers
 device-location-event-summary
 devices
 driver-day-summary
+driver-day-shortfall-allocations
 equipment
 equipment-classifications
 equipment-rentals
@@ -200,7 +201,6 @@ driver-assignment-rules
 driver-day-adjustment-plans
 driver-day-adjustments
 driver-day-constraints
-driver-day-shortfall-allocations
 driver-day-shortfall-calculations
 driver-day-trips-adjustments
 driver-managers
