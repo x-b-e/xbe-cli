@@ -169,6 +169,7 @@ stakeholder-classifications
 tag-categories
 tags
 time-sheet-line-item-classifications
+time-sheet-status-changes
 tractor-credentials
 tractor-trailer-credential-classifications
 tractors
@@ -382,7 +383,6 @@ time-sheet-line-item-equipment-requirements
 time-sheet-line-items
 time-sheet-no-shows
 time-sheet-rejections
-time-sheet-status-changes
 time-sheet-submissions
 time-sheet-unapprovals
 time-sheet-unsubmissions

@@ -201,6 +201,9 @@ xbe
 │   ├── time-sheet-no-shows Browse time sheet no-shows
 │   │   ├── list            List time sheet no-shows
 │   │   └── show <id>       Show time sheet no-show details
+│   ├── time-sheet-status-changes Browse time sheet status changes
+│   │   ├── list            List time sheet status changes
+│   │   └── show <id>       Show time sheet status change details
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
