@@ -478,6 +478,34 @@ xbe do equipment-movement-requirement-locations update 456 --name "Updated Yard"
 xbe do equipment-movement-requirement-locations delete 456 --confirm
 ```
 
+### Equipment Movement Stops
+
+Equipment movement stops define the ordered locations within an equipment movement trip.
+
+```bash
+# List stops
+xbe view equipment-movement-stops list
+
+# Filter by trip
+xbe view equipment-movement-stops list --trip 123
+
+# Show a stop
+xbe view equipment-movement-stops show 456
+
+# Create a stop
+xbe do equipment-movement-stops create \
+  --trip 123 \
+  --location 456 \
+  --sequence-position 1 \
+  --scheduled-arrival-at "2025-01-01T08:00:00Z"
+
+# Update a stop
+xbe do equipment-movement-stops update 456 --sequence-position 2
+
+# Delete a stop (requires --confirm)
+xbe do equipment-movement-stops delete 456 --confirm
+```
+
 ### Driver Day Adjustment Plans
 
 Driver day adjustment plans define per-trucker adjustments applied to driver day recaps.
