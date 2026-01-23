@@ -106,6 +106,7 @@ var resourceCategories = map[string][]string{
 	"user-credential-classifications":                 {CatClassifications},
 
 	// Reference Data
+	"application-settings":          {CatReference},
 	"culture-values":                {CatReference},
 	"external-identification-types": {CatReference},
 	"languages":                     {CatReference},

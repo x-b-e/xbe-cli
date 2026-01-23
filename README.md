@@ -58,6 +58,10 @@ xbe
 │   ├── whoami              Show the current authenticated user
 │   └── logout              Remove stored token
 ├── do                      Create, update, and delete XBE resources
+│   ├── application-settings Manage global application settings
+│   │   ├── create           Create an application setting
+│   │   ├── update           Update an application setting
+│   │   └── delete           Delete an application setting
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -75,6 +79,9 @@ xbe
 │       ├── update           Update a membership
 │       └── delete           Delete a membership
 ├── view                    Browse and view XBE content
+│   ├── application-settings Browse application settings
+│   │   ├── list            List application settings
+│   │   └── show <id>       Show application setting details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details

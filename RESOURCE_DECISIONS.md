@@ -13,7 +13,7 @@ Last updated: 2026-01-23
 
 | Resource / Command | Status | Notes |
 |--------------------|--------|-------|
-| application-settings | planned | low risk read-only |
+| _TBD_ | planned | — |
 
 ## Resource Implementation Spec
 
@@ -49,9 +49,9 @@ Use this checklist for every resource. Treat it as the definition of “done.”
 ## Status Summary
 
 - Server resources (routes): 665
-- CLI command resources: 101
-- Server resources covered by commands: 101
-- Remaining (after skips + pending + not yet reviewed): 557
+- CLI command resources: 102
+- Server resources covered by commands: 102
+- Remaining (after skips + pending + not yet reviewed): 556
 
 ## CLI Alias Notes
 
