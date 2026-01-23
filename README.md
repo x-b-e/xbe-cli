@@ -437,6 +437,30 @@ xbe view driver-assignment-acknowledgements show 789
 xbe do driver-assignment-acknowledgements create --tender-job-schedule-shift 123 --driver 456
 ```
 
+### Driver Assignment Refusals
+
+Driver assignment refusals record when a driver declines a tender job schedule shift assignment.
+
+```bash
+# List refusals
+xbe view driver-assignment-refusals list
+
+# Filter by tender job schedule shift
+xbe view driver-assignment-refusals list --tender-job-schedule-shift 123
+
+# Filter by driver
+xbe view driver-assignment-refusals list --driver 456
+
+# Show refusal details
+xbe view driver-assignment-refusals show 789
+
+# Create a refusal
+xbe do driver-assignment-refusals create \
+  --tender-job-schedule-shift 123 \
+  --driver 456 \
+  --comment "Unable to cover the shift"
+```
+
 ### Crew Rates
 
 Crew rates define pricing for labor/equipment by classification, resource, or craft class.
