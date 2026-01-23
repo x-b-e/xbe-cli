@@ -222,21 +222,9 @@ if merge_queue_file and os.path.exists(merge_queue_file):
 
 now = time.strftime("%Y-%m-%d %H:%M:%S")
 print(f"timestamp: {now}")
-print(f"server_resources: {len(server_resources)}")
-print(f"command_resources: {len(command_resources)}")
-print(f"implemented_server: {len(implemented_server)}")
+print(f"implemented: {len(implemented_server)}")
 print(f"remaining: {len(remaining)}")
-print(f"pending: {len(pending)}")
-print(f"skipped: {len(skipped)}")
-print(f"not_reviewed: {len(not_reviewed)}")
 print(f"unmerged_worker_commits: {len(unmerged_impl)}")
-print(f"merge_queue: {merge_queue_len}")
-print(f"rate_window_hours: {rate_window_hours:g}")
-print(f"recent_unmerged_commits: {len(recent_unmerged_impl)}")
-print(f"run_span_hours: {span_hours:.2f}")
-if oldest_ct and newest_ct:
-    print(f"run_oldest: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(oldest_ct))}")
-    print(f"run_newest: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(newest_ct))}")
 print(f"rate_per_hour: {run_rate:.2f}")
 if run_rate > 0:
     remaining_after_unmerged = max(0, len(remaining) - len(unmerged_impl))
