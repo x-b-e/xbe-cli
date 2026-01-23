@@ -167,17 +167,25 @@ for line in branch_lines:
         worker_branches.append(name)
 
 unmerged_impl = set()
+unmerged_ct = {}
 for b in worker_branches:
     try:
-        out = run_git(["log", "--format=%H %s", f"main..{b}"])
+        out = run_git(["log", "--format=%H %ct %s", f"main..{b}"])
     except subprocess.CalledProcessError:
         continue
     for line in out.splitlines():
         if " " not in line:
             continue
-        sha, subj = line.split(" ", 1)
+        parts = line.split(" ", 2)
+        if len(parts) != 3:
+            continue
+        sha, ct, subj = parts
         if subj.startswith("Implement "):
             unmerged_impl.add(sha)
+            try:
+                unmerged_ct.setdefault(sha, int(ct))
+            except ValueError:
+                pass
 
 # Rate window (unmerged commits only)
 since_arg = f"{rate_window_hours} hours ago"
@@ -199,6 +207,13 @@ for b in worker_branches:
 
 rate = (len(recent_unmerged_impl) / rate_window_hours) if rate_window_hours > 0 else 0.0
 
+run_rate = 0.0
+if unmerged_ct:
+    min_ct = min(unmerged_ct.values())
+    max_ct = max(unmerged_ct.values())
+    span_hours = max(1e-9, (max_ct - min_ct) / 3600)
+    run_rate = len(unmerged_impl) / span_hours
+
 merge_queue_len = 0
 if merge_queue_file and os.path.exists(merge_queue_file):
     with open(merge_queue_file, "r", encoding="utf-8") as f:
@@ -218,6 +233,7 @@ print(f"merge_queue: {merge_queue_len}")
 print(f"rate_window_hours: {rate_window_hours:g}")
 print(f"recent_unmerged_commits: {len(recent_unmerged_impl)}")
 print(f"rate_per_hour: {rate:.2f}")
+print(f"rate_per_hour_run: {run_rate:.2f}")
 if rate > 0:
     hours_left = len(remaining) / rate
     days_left = hours_left / 24
