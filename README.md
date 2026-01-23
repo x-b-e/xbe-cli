@@ -120,6 +120,10 @@ xbe
 │   │   └── delete           Delete a time card pre-approval
 │   ├── time-card-unscrappages Manage time card unscrappages
 │   │   └── create           Create a time card unscrappage
+│   ├── time-sheet-line-item-equipment-requirements Manage time sheet line item equipment requirements
+│   │   ├── create           Create a time sheet line item equipment requirement
+│   │   ├── update           Update a time sheet line item equipment requirement
+│   │   └── delete           Delete a time sheet line item equipment requirement
 │   ├── job-production-plan-service-type-unit-of-measure-cohorts Manage job production plan service type unit of measure cohorts
 │   │   ├── create           Create a job production plan service type unit of measure cohort link
 │   │   └── delete           Delete a job production plan service type unit of measure cohort link
@@ -218,6 +222,9 @@ xbe
 │   ├── time-card-unscrappages Browse time card unscrappages
 │   │   ├── list            List time card unscrappages
 │   │   └── show <id>       Show time card unscrappage details
+│   ├── time-sheet-line-item-equipment-requirements Browse time sheet line item equipment requirements
+│   │   ├── list            List time sheet line item equipment requirements with filtering
+│   │   └── show <id>       Show time sheet line item equipment requirement details
 │   ├── maintenance-requirement-sets Browse maintenance requirement sets
 │   │   ├── list            List maintenance requirement sets with filtering
 │   │   └── show <id>       Show maintenance requirement set details

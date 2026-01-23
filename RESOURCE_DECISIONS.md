@@ -167,6 +167,7 @@ stakeholder-classifications
 tag-categories
 tags
 time-sheet-line-item-classifications
+time-sheet-line-item-equipment-requirements
 tractor-credentials
 tractor-trailer-credential-classifications
 tractors
