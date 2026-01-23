@@ -107,6 +107,10 @@ xbe
 │   ├── job-production-plan-service-type-unit-of-measure-cohorts Manage job production plan service type unit of measure cohorts
 │   │   ├── create           Create a job production plan service type unit of measure cohort link
 │   │   └── delete           Delete a job production plan service type unit of measure cohort link
+│   ├── maintenance-requirement-sets Manage maintenance requirement sets
+│   │   ├── create           Create a maintenance requirement set
+│   │   ├── update           Update a maintenance requirement set
+│   │   └── delete           Delete a maintenance requirement set
 │   ├── maintenance-requirement-maintenance-requirement-parts Manage maintenance requirement parts
 │   │   ├── create           Create a maintenance requirement part link
 │   │   ├── update           Update a maintenance requirement part link
@@ -160,6 +164,9 @@ xbe
 │   ├── job-production-plan-time-card-approvers Browse job production plan time card approvers
 │   │   ├── list            List job production plan time card approvers with filtering
 │   │   └── show <id>       Show job production plan time card approver details
+│   ├── maintenance-requirement-sets Browse maintenance requirement sets
+│   │   ├── list            List maintenance requirement sets with filtering
+│   │   └── show <id>       Show maintenance requirement set details
 │   ├── maintenance-requirement-maintenance-requirement-parts Browse maintenance requirement parts
 │   │   ├── list            List maintenance requirement parts with filtering
 │   │   └── show <id>       Show maintenance requirement part details
