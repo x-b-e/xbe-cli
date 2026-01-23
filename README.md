@@ -92,6 +92,10 @@ xbe
 │   │   └── delete           Delete a job production plan project phase revenue item
 │   ├── job-schedule-shift-start-at-changes Reschedule job schedule shifts
 │   │   └── create           Create a start-at change
+│   ├── time-card-time-changes Manage time card time changes
+│   │   ├── create           Create a time card time change
+│   │   ├── update           Update a time card time change
+│   │   └── delete           Delete a time card time change
 │   ├── lineup-job-schedule-shifts Manage lineup job schedule shifts
 │   │   ├── create           Create a lineup job schedule shift
 │   │   ├── update           Update a lineup job schedule shift
@@ -208,6 +212,9 @@ xbe
 │   ├── time-card-invoices  Browse time card invoices
 │   │   ├── list            List time card invoices with filtering
 │   │   └── show <id>       Show time card invoice details
+│   ├── time-card-time-changes Browse time card time changes
+│   │   ├── list            List time card time changes with filtering
+│   │   └── show <id>       Show time card time change details
 │   ├── lineup-job-schedule-shifts Browse lineup job schedule shifts
 │   │   ├── list            List lineup job schedule shifts
 │   │   └── show <id>       Show lineup job schedule shift details
