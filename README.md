@@ -86,6 +86,10 @@ xbe
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
 │   │   └── create           Create a job schedule shift start site change
+│   ├── service-sites       Manage service sites
+│   │   ├── create           Create a service site
+│   │   ├── update           Update a service site
+│   │   └── delete           Delete a service site
 │   ├── lineup-dispatches    Manage lineup dispatches
 │   │   ├── create           Create a lineup dispatch
 │   │   ├── update           Update a lineup dispatch
@@ -169,6 +173,9 @@ xbe
 │   ├── inventory-estimates Browse inventory estimates
 │   │   ├── list            List inventory estimates with filtering
 │   │   └── show <id>       Show inventory estimate details
+│   ├── service-sites       Browse service sites
+│   │   ├── list            List service sites with filtering
+│   │   └── show <id>       Show service site details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
