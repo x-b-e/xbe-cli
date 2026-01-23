@@ -178,10 +178,14 @@ xbe
 │   │   ├── create           Create a material site subscription
 │   │   ├── update           Update a material site subscription
 │   │   └── delete           Delete a material site subscription
-│   └── memberships          Manage user-organization memberships
-│       ├── create           Create a membership
-│       ├── update           Update a membership
-│       └── delete           Delete a membership
+│   ├── memberships          Manage user-organization memberships
+│   │   ├── create           Create a membership
+│   │   ├── update           Update a membership
+│   │   └── delete           Delete a membership
+│   └── transport-order-stop-materials Manage transport order stop materials
+│       ├── create           Create a transport order stop material
+│       ├── update           Update a transport order stop material
+│       └── delete           Delete a transport order stop material
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -313,6 +317,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── transport-order-stop-materials Browse transport order stop materials
+│   │   ├── list            List transport order stop materials
+│   │   └── show <id>       Show transport order stop material details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
