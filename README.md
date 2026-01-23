@@ -80,6 +80,10 @@ xbe
 │   │   └── create           Generate driver movement details
 │   ├── job-production-plan-job-site-changes Update job production plan job sites
 │   │   └── create           Create a job site change
+│   ├── job-production-plan-segments Manage job production plan segments
+│   │   ├── create           Create a job production plan segment
+│   │   ├── update           Update a job production plan segment
+│   │   └── delete           Delete a job production plan segment
 │   ├── job-production-plan-project-phase-revenue-items Manage job production plan project phase revenue items
 │   │   ├── create           Create a job production plan project phase revenue item
 │   │   ├── update           Update a job production plan project phase revenue item
@@ -120,6 +124,9 @@ xbe
 │   │   └── show <id>       Show movement segment details
 │   ├── job-production-plan-job-site-changes Browse job production plan job site changes
 │   │   └── show <id>       Show job site change details
+│   ├── job-production-plan-segments Browse job production plan segments
+│   │   ├── list            List job production plan segments
+│   │   └── show <id>       Show job production plan segment details
 │   ├── job-production-plan-schedule-change-works Browse job production plan schedule change works
 │   │   ├── list            List schedule change works with filtering
 │   │   └── show <id>       Show schedule change work details
