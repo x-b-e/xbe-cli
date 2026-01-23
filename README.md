@@ -78,6 +78,8 @@ xbe
 │   │   └── create           Create a material transaction summary
 │   ├── material-transaction-acceptances  Manage material transaction acceptances
 │   │   └── create           Accept a material transaction
+│   ├── material-transaction-invalidations  Manage material transaction invalidations
+│   │   └── create           Invalidate a material transaction
 │   ├── material-transaction-diversions   Manage material transaction diversions
 │   │   ├── create           Create a material transaction diversion
 │   │   ├── update           Update a material transaction diversion
