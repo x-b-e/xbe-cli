@@ -111,6 +111,7 @@ glossary-terms
 hos-events
 incident-tags
 incidents
+inventory-estimates
 job-production-plan-cancellation-reason-types
 job-production-plan-summary
 job-production-plans

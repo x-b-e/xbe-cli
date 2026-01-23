@@ -76,6 +76,10 @@ xbe
 │   │   └── delete           Delete a driver day adjustment plan
 │   ├── driver-day-shortfall-calculations Calculate driver day shortfall allocations
 │   │   └── create           Create a driver day shortfall calculation
+│   ├── inventory-estimates  Manage inventory estimates
+│   │   ├── create           Create an inventory estimate
+│   │   ├── update           Update an inventory estimate
+│   │   └── delete           Delete an inventory estimate
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -100,6 +104,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── inventory-estimates Browse inventory estimates
+│   │   ├── list            List inventory estimates with filtering
+│   │   └── show <id>       Show inventory estimate details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
