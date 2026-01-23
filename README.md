@@ -86,6 +86,9 @@ xbe
 │   │   ├── create           Create a job production plan material type
 │   │   ├── update           Update a job production plan material type
 │   │   └── delete           Delete a job production plan material type
+│   ├── job-production-plan-time-card-approvers Manage job production plan time card approvers
+│   │   ├── create           Create a job production plan time card approver
+│   │   └── delete           Delete a job production plan time card approver
 │   ├── job-production-plan-service-type-unit-of-measure-cohorts Manage job production plan service type unit of measure cohorts
 │   │   ├── create           Create a job production plan service type unit of measure cohort link
 │   │   └── delete           Delete a job production plan service type unit of measure cohort link
@@ -135,6 +138,9 @@ xbe
 │   ├── job-production-plan-service-type-unit-of-measure-cohorts Browse job production plan service type unit of measure cohorts
 │   │   ├── list            List job production plan service type unit of measure cohorts with filtering
 │   │   └── show <id>       Show job production plan service type unit of measure cohort details
+│   ├── job-production-plan-time-card-approvers Browse job production plan time card approvers
+│   │   ├── list            List job production plan time card approvers with filtering
+│   │   └── show <id>       Show job production plan time card approver details
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details
