@@ -142,6 +142,9 @@ xbe
 │   ├── material-site-measures Browse material site measures
 │   │   ├── list            List material site measures with filtering
 │   │   └── show <id>       Show material site measure details
+│   ├── material-site-mixing-lots Browse material site mixing lots
+│   │   ├── list            List material site mixing lots with filtering
+│   │   └── show <id>       Show material site mixing lot details
 │   ├── inventory-estimates Browse inventory estimates
 │   │   ├── list            List inventory estimates with filtering
 │   │   └── show <id>       Show inventory estimate details
