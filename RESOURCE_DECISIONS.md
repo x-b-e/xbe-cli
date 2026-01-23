@@ -112,6 +112,7 @@ hos-violations
 incident-tags
 incidents
 job-production-plan-cancellation-reason-types
+job-production-plan-completions
 job-production-plan-summary
 job-production-plans
 job-sites

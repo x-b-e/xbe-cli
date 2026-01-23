@@ -74,6 +74,8 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── job-production-plan-abandonments Abandon job production plans
 │   │   └── create           Abandon a job production plan
+│   ├── job-production-plan-completions Complete job production plans
+│   │   └── create           Complete a job production plan
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
