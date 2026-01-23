@@ -629,6 +629,30 @@ xbe do job-production-plan-uncancellations create \
   --suppress-status-change-notifications
 ```
 
+### Lineup Job Production Plans
+
+Lineup job production plans connect lineups to job production plans.
+
+```bash
+# List lineup job production plans
+xbe view lineup-job-production-plans list
+
+# Filter by lineup
+xbe view lineup-job-production-plans list --lineup 123
+
+# Filter by job production plan
+xbe view lineup-job-production-plans list --job-production-plan 456
+
+# Show lineup job production plan details
+xbe view lineup-job-production-plans show 789
+
+# Create a lineup job production plan
+xbe do lineup-job-production-plans create --lineup 123 --job-production-plan 456
+
+# Delete a lineup job production plan (requires --confirm)
+xbe do lineup-job-production-plans delete 789 --confirm
+```
+
 ### Job Schedule Shift Managed Toggles
 
 Job schedule shift managed toggles flip a shift between managed and unmanaged.
