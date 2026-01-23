@@ -584,6 +584,32 @@ xbe do equipment-movement-stop-completions update 456 \
 xbe do equipment-movement-stop-completions delete 456 --confirm
 ```
 
+### Inventory Capacities
+
+Inventory capacities define min/max storage levels and alert thresholds for a
+material site and material type.
+
+```bash
+# List inventory capacities
+xbe view inventory-capacities list
+
+# Filter by material site
+xbe view inventory-capacities list --material-site 123
+
+# Show capacity details
+xbe view inventory-capacities show 456
+
+# Create an inventory capacity
+xbe do inventory-capacities create --material-site 123 --material-type 789 \
+  --min-capacity-tons 50 --max-capacity-tons 500 --threshold-tons 75
+
+# Update capacity thresholds
+xbe do inventory-capacities update 456 --threshold-tons 120
+
+# Delete a capacity (requires --confirm)
+xbe do inventory-capacities delete 456 --confirm
+```
+
 ## Output Formats
 
 All `list` and `show` commands support two output formats:

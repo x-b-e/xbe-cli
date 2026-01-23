@@ -69,6 +69,7 @@ var resourceCategories = map[string][]string{
 	"transport-orders":    {CatFleet},
 
 	// Materials
+	"inventory-capacities":  {CatMaterials},
 	"material-sites":        {CatMaterials},
 	"material-suppliers":    {CatMaterials},
 	"material-transactions": {CatMaterials},
