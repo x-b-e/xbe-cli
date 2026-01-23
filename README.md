@@ -119,6 +119,10 @@ xbe
 │   │   ├── create           Create a material site reading
 │   │   ├── update           Update a material site reading
 │   │   └── delete           Delete a material site reading
+│   ├── material-type-conversions Manage material type conversions
+│   │   ├── create           Create a material type conversion
+│   │   ├── update           Update a material type conversion
+│   │   └── delete           Delete a material type conversion
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -159,6 +163,9 @@ xbe
 │   ├── material-site-readings Browse material site readings
 │   │   ├── list            List material site readings
 │   │   └── show <id>       Show material site reading details
+│   ├── material-type-conversions Browse material type conversions
+│   │   ├── list            List material type conversions
+│   │   └── show <id>       Show material type conversion details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies

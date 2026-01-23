@@ -130,6 +130,7 @@ material-suppliers
 material-transaction-summary
 material-transaction-cost-code-allocations
 material-transactions
+material-type-conversions
 material-types
 memberships
 newsletters
