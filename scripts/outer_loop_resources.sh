@@ -28,6 +28,7 @@ OUTER_LOOP_WORKER_ID="${OUTER_LOOP_WORKER_ID:-}"
 OUTER_LOOP_AUTO_COMMIT="${OUTER_LOOP_AUTO_COMMIT:-1}"
 OUTER_LOOP_REFRESH_RESOURCE_DECISIONS="${OUTER_LOOP_REFRESH_RESOURCE_DECISIONS:-1}"
 OUTER_LOOP_MODE="${OUTER_LOOP_MODE:-standalone}"
+OUTER_LOOP_MERGE_QUEUE_FILE="${OUTER_LOOP_MERGE_QUEUE_FILE:-}"
 MAX_RESOURCE_ATTEMPTS=3
 
 if [[ ! -f "$RESOURCE_FILE" ]]; then
@@ -637,6 +638,31 @@ except FileNotFoundError:
 PY
 }
 
+enqueue_merge() {
+  local commit_sha="$1"
+  if [[ -z "$OUTER_LOOP_MERGE_QUEUE_FILE" ]]; then
+    return 0
+  fi
+  python3 - "$OUTER_LOOP_MERGE_QUEUE_FILE" "$commit_sha" <<'PY'
+import fcntl
+import os
+import sys
+
+path = sys.argv[1]
+commit = sys.argv[2].strip()
+if not commit:
+    sys.exit(0)
+
+os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+with open(path, "a+") as f:
+    fcntl.flock(f, fcntl.LOCK_EX)
+    f.seek(0, os.SEEK_END)
+    f.write(commit + "\n")
+    f.flush()
+    fcntl.flock(f, fcntl.LOCK_UN)
+PY
+}
+
 run_agent() {
   local prompt="$1"
   local output_target="/dev/null"
@@ -802,6 +828,8 @@ EOF
         if [[ -n "$(git -C "$ROOT_DIR" status --porcelain)" ]]; then
           git -C "$ROOT_DIR" add -A
           git -C "$ROOT_DIR" commit -m "Implement ${resource}"
+          commit_sha="$(git -C "$ROOT_DIR" rev-parse HEAD)"
+          enqueue_merge "$commit_sha"
         fi
       fi
       if [[ "$OUTER_LOOP_MODE" != "worker" ]]; then

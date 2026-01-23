@@ -12,6 +12,7 @@ QUEUE_REBUILD="${OUTER_LOOP_QUEUE_REBUILD:-1}"
 QUEUE_LIMIT="${OUTER_LOOP_QUEUE_LIMIT:-}"
 REUSE_WORKTREES="${OUTER_LOOP_REUSE_WORKTREES:-0}"
 LOG_FILE="${LOG_FILE:-$ROOT_DIR/logs/outer_loop_dispatcher.log}"
+MERGE_QUEUE_FILE="${OUTER_LOOP_MERGE_QUEUE_FILE:-$ROOT_DIR/.outer_loop_merge_queue.txt}"
 
 AGENT="${AGENT:-codex}"
 CODEX_CMD="${CODEX_CMD:-codex}"
@@ -134,6 +135,89 @@ with open(queue_file, "w", encoding="utf-8") as f:
 PY
 }
 
+pop_merge_queue() {
+  python3 - "$MERGE_QUEUE_FILE" <<'PY'
+import fcntl
+import sys
+
+path = sys.argv[1]
+try:
+    with open(path, "r+") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        lines = [line.strip() for line in f.readlines()]
+        lines = [line for line in lines if line]
+        if not lines:
+            print("")
+            sys.exit(0)
+        next_item = lines[0]
+        f.seek(0)
+        f.truncate()
+        f.write("\n".join(lines[1:]) + ("\n" if len(lines) > 1 else ""))
+        fcntl.flock(f, fcntl.LOCK_UN)
+        print(next_item)
+except FileNotFoundError:
+    print("")
+    sys.exit(0)
+PY
+}
+
+merge_commit() {
+  local commit_sha="$1"
+  if git -C "$ROOT_DIR" merge-base --is-ancestor "$commit_sha" "$OUTER_LOOP_MAIN_BRANCH"; then
+    return 0
+  fi
+  if git -C "$ROOT_DIR" merge --no-ff -X "$OUTER_LOOP_MERGE_STRATEGY" -m "Merge $commit_sha" "$commit_sha"; then
+    return 0
+  fi
+
+  if git -C "$ROOT_DIR" rev-parse -q --verify MERGE_HEAD >/dev/null; then
+    if [[ "$OUTER_LOOP_MERGE_STRATEGY" == "ours" ]]; then
+      git -C "$ROOT_DIR" checkout --ours -- .
+    else
+      git -C "$ROOT_DIR" checkout --theirs -- .
+    fi
+    git -C "$ROOT_DIR" add -A
+    git -C "$ROOT_DIR" commit -m "Merge $commit_sha (auto-resolved)"
+    return 0
+  fi
+  return 1
+}
+
+merge_monitor() {
+  while true; do
+    commit_sha="$(pop_merge_queue)"
+    if [[ -n "$commit_sha" ]]; then
+      if ! merge_commit "$commit_sha"; then
+        log "Auto-merge failed for commit $commit_sha."
+        return 1
+      fi
+      continue
+    fi
+
+    any_running=0
+    for pid in "${pids[@]}"; do
+      if kill -0 "$pid" 2>/dev/null; then
+        any_running=1
+        break
+      fi
+    done
+
+    if [[ "$any_running" -eq 0 ]]; then
+      commit_sha="$(pop_merge_queue)"
+      if [[ -n "$commit_sha" ]]; then
+        if ! merge_commit "$commit_sha"; then
+          log "Auto-merge failed for commit $commit_sha."
+          return 1
+        fi
+        continue
+      fi
+      break
+    fi
+
+    sleep 2
+  done
+}
+
 if [[ "$QUEUE_REBUILD" == "1" || ! -f "$QUEUE_FILE" ]]; then
   build_queue
 fi
@@ -142,6 +226,14 @@ mkdir -p "$WORKTREE_BASE"
 
 if [[ -z "$OUTER_LOOP_MAIN_BRANCH" ]]; then
   OUTER_LOOP_MAIN_BRANCH="$(git -C "$ROOT_DIR" rev-parse --abbrev-ref HEAD)"
+fi
+
+if [[ "$OUTER_LOOP_AUTO_MERGE" == "1" ]]; then
+  if [[ -n "$(git -C "$ROOT_DIR" status --porcelain)" ]]; then
+    log "Main worktree has uncommitted changes; auto-merge is disabled until clean."
+    exit 1
+  fi
+  git -C "$ROOT_DIR" checkout "$OUTER_LOOP_MAIN_BRANCH" >/dev/null
 fi
 
 declare -a pids=()
@@ -177,6 +269,7 @@ for i in $(seq 1 "$WORKERS"); do
       RUN_TESTS="$RUN_TESTS" \
       OUTER_LOOP_MAX_ITER="$OUTER_LOOP_MAX_ITER" \
       OUTER_LOOP_QUEUE_FILE="$QUEUE_FILE" \
+      OUTER_LOOP_MERGE_QUEUE_FILE="$MERGE_QUEUE_FILE" \
       OUTER_LOOP_WORKER_ID="$i" \
       OUTER_LOOP_MODE="worker" \
       OUTER_LOOP_REFRESH_RESOURCE_DECISIONS="0" \
@@ -188,12 +281,24 @@ for i in $(seq 1 "$WORKERS"); do
   pids+=("$!")
 done
 
+merge_pid=""
+if [[ "$OUTER_LOOP_AUTO_MERGE" == "1" ]]; then
+  merge_monitor &
+  merge_pid=$!
+fi
+
 failed=0
 for pid in "${pids[@]}"; do
   if ! wait "$pid"; then
     failed=1
   fi
 done
+
+if [[ -n "$merge_pid" ]]; then
+  if ! wait "$merge_pid"; then
+    failed=1
+  fi
+fi
 
 if [[ "$failed" -ne 0 ]]; then
   log "One or more workers failed."

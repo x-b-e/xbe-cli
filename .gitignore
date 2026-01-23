@@ -7,6 +7,7 @@
 .DS_Store
 .claude/
 .outer_loop_queue.txt
+.outer_loop_merge_queue.txt
 .worktrees/
 logs/
 tmp/
