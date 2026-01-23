@@ -536,6 +536,30 @@ xbe do driver-day-adjustment-plans update 456 --content "Updated plan" \
 
 # Delete a plan (requires --confirm)
 xbe do driver-day-adjustment-plans delete 456 --confirm
+### Crew Requirement Credential Classifications
+
+Crew requirement credential classifications link crew requirements to the credential
+classifications they require.
+
+```bash
+# List crew requirement credential classifications
+xbe view crew-requirement-credential-classifications list
+
+# Filter by crew requirement
+xbe view crew-requirement-credential-classifications list --crew-requirement 123
+
+# Show link details
+xbe view crew-requirement-credential-classifications show 456
+
+# Create a link
+xbe do crew-requirement-credential-classifications create \
+  --crew-requirement-type labor-requirements \
+  --crew-requirement 123 \
+  --credential-classification-type user-credential-classifications \
+  --credential-classification 456
+
+# Delete a link (requires --confirm)
+xbe do crew-requirement-credential-classifications delete 456 --confirm
 ```
 
 ## Output Formats
