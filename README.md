@@ -514,6 +514,24 @@ xbe do material-transaction-summary create \
   --min-transactions 100
 ```
 
+### Commitment Simulations
+
+```bash
+# List commitment simulations
+xbe view commitment-simulations list
+
+# Filter by commitment and status
+xbe view commitment-simulations list --commitment 123 --status enqueued
+
+# Create a commitment simulation
+xbe do commitment-simulations create \
+  --commitment-type commitments \
+  --commitment-id 123 \
+  --start-on 2026-01-23 \
+  --end-on 2026-01-23 \
+  --iteration-count 100
+```
+
 ### Memberships
 
 Memberships define the relationship between users and organizations (brokers, customers, truckers, material suppliers, developers).
