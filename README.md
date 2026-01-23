@@ -86,6 +86,10 @@ xbe
 │   │   └── delete           Delete a material transaction diversion
 │   ├── material-transaction-shift-assignments  Manage material transaction shift assignments
 │   │   └── create           Create a material transaction shift assignment
+│   ├── service-type-unit-of-measure-quantities  Manage service type unit of measure quantities
+│   │   ├── create           Create a service type unit of measure quantity
+│   │   ├── update           Update a service type unit of measure quantity
+│   │   └── delete           Delete a service type unit of measure quantity
 │   ├── material-site-mergers  Merge material sites
 │   │   └── create           Merge a material site
 │   ├── material-site-reading-material-types  Manage material site reading material types
@@ -176,6 +180,9 @@ xbe
 │   ├── material-transaction-shift-assignments  Browse material transaction shift assignments
 │   │   ├── list            List material transaction shift assignments with filtering
 │   │   └── show <id>       Show assignment details
+│   ├── service-type-unit-of-measure-quantities  Browse service type unit of measure quantities
+│   │   ├── list            List service type unit of measure quantities with filtering
+│   │   └── show <id>       Show service type unit of measure quantity details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
