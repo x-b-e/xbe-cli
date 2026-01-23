@@ -96,6 +96,10 @@ xbe
 │   │   ├── create           Create a lineup job schedule shift
 │   │   ├── update           Update a lineup job schedule shift
 │   │   └── delete           Delete a lineup job schedule shift
+│   ├── lineup-scenario-trailer-lineup-job-schedule-shifts Manage lineup scenario trailer lineup job schedule shifts
+│   │   ├── create           Create a lineup scenario trailer lineup job schedule shift
+│   │   ├── update           Update a lineup scenario trailer lineup job schedule shift
+│   │   └── delete           Delete a lineup scenario trailer lineup job schedule shift
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -147,6 +151,9 @@ xbe
 │   ├── lineup-job-schedule-shifts Browse lineup job schedule shifts
 │   │   ├── list            List lineup job schedule shifts
 │   │   └── show <id>       Show lineup job schedule shift details
+│   ├── lineup-scenario-trailer-lineup-job-schedule-shifts Browse lineup scenario trailer lineup job schedule shifts
+│   │   ├── list            List lineup scenario trailer lineup job schedule shifts
+│   │   └── show <id>       Show lineup scenario trailer lineup job schedule shift details
 │   ├── job-production-plan-project-phase-revenue-items Browse job production plan project phase revenue items
 │   │   ├── list            List job production plan project phase revenue items
 │   │   └── show <id>       Show job production plan project phase revenue item details
