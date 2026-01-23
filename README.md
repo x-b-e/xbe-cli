@@ -76,6 +76,10 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-purchase-order-release-redemptions  Manage material purchase order release redemptions
+│   │   ├── create           Create a release redemption
+│   │   ├── update           Update a release redemption
+│   │   └── delete           Delete a release redemption
 │   ├── job-production-plan-alarm-subscribers  Manage job production plan alarm subscribers
 │   │   ├── create           Create an alarm subscriber
 │   │   └── delete           Delete an alarm subscriber
@@ -137,6 +141,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── material-purchase-order-release-redemptions  Browse material purchase order release redemptions
+│   │   ├── list            List release redemptions with filtering
+│   │   └── show <id>       Show release redemption details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
@@ -317,6 +324,23 @@ xbe view posts list --creator "User|123"
 xbe view posts list --creator "MaterialSupplier|456"
 xbe view posts list --creator "Customer|789"
 xbe view posts list --creator "Trucker|101"
+```
+
+### Material Purchase Order Release Redemptions
+
+```bash
+# List release redemptions
+xbe view material-purchase-order-release-redemptions list --limit 5
+
+# Filter by release or ticket number
+xbe view material-purchase-order-release-redemptions list --release 123
+xbe view material-purchase-order-release-redemptions list --ticket-number T-100
+
+# Show a redemption
+xbe view material-purchase-order-release-redemptions show 456
+
+# Create a redemption
+xbe do material-purchase-order-release-redemptions create --release 123 --ticket-number T-100
 ```
 
 ### Features, Release Notes, Press Releases, Glossary Terms
