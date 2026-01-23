@@ -104,6 +104,10 @@ xbe
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-purchase-order-releases Manage material purchase order releases
+│   │   ├── create           Create a material purchase order release
+│   │   ├── update           Update a material purchase order release
+│   │   └── delete           Delete a material purchase order release
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -132,6 +136,9 @@ xbe
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
+│   ├── material-purchase-order-releases Browse material purchase order releases
+│   │   ├── list            List material purchase order releases
+│   │   └── show <id>       Show material purchase order release details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
