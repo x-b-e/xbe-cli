@@ -82,6 +82,10 @@ xbe
 │   │   ├── create           Create a job site time
 │   │   ├── update           Update a job site time
 │   │   └── delete           Delete a job site time
+│   ├── time-card-approval-audits Manage time card approval audits
+│   │   ├── create           Create a time card approval audit
+│   │   ├── update           Update a time card approval audit
+│   │   └── delete           Delete a time card approval audit
 │   ├── service-events        Manage service events
 │   │   ├── create           Create a service event
 │   │   ├── update           Update a service event
@@ -177,6 +181,9 @@ xbe
 │   ├── job-site-times       Browse job site times
 │   │   ├── list            List job site times with filtering
 │   │   └── show <id>       Show job site time details
+│   ├── time-card-approval-audits Browse time card approval audits
+│   │   ├── list            List time card approval audits with filtering
+│   │   └── show <id>       Show time card approval audit details
 │   ├── service-events       Browse service events
 │   │   ├── list            List service events with filtering
 │   │   └── show <id>       Show service event details

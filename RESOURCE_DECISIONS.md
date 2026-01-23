@@ -163,6 +163,7 @@ shift-summary
 stakeholder-classifications
 tag-categories
 tags
+time-card-approval-audits
 time-sheet-line-item-classifications
 tractor-credentials
 tractor-trailer-credential-classifications
@@ -357,7 +358,6 @@ shift-scope-tenders
 shift-set-time-card-constraints
 shift-time-card-requisitions
 site-events
-time-card-approval-audits
 time-card-approvals
 time-card-cost-code-allocations
 time-card-invoices
