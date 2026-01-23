@@ -82,6 +82,10 @@ xbe
 │   │   ├── create           Create a job site time
 │   │   ├── update           Update a job site time
 │   │   └── delete           Delete a job site time
+│   ├── service-events        Manage service events
+│   │   ├── create           Create a service event
+│   │   ├── update           Update a service event
+│   │   └── delete           Delete a service event
 │   ├── hos-annotations      Manage HOS annotations
 │   │   └── delete           Delete a HOS annotation
 │   ├── driver-managers      Manage driver managers
@@ -173,6 +177,9 @@ xbe
 │   ├── job-site-times       Browse job site times
 │   │   ├── list            List job site times with filtering
 │   │   └── show <id>       Show job site time details
+│   ├── service-events       Browse service events
+│   │   ├── list            List service events with filtering
+│   │   └── show <id>       Show service event details
 │   ├── driver-managers     Browse driver managers
 │   │   ├── list            List driver managers with filtering
 │   │   └── show <id>       Show driver manager details

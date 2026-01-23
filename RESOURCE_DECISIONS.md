@@ -155,6 +155,7 @@ quality-control-classifications
 rates
 reaction-classifications
 release-notes
+service-events
 service-types
 shift-feedback-reasons
 shift-feedbacks
@@ -346,7 +347,6 @@ material-type-material-site-inventory-locations
 material-type-unavailabilities
 material-unit-of-measure-quantities
 resource-unavailabilities
-service-events
 service-sites
 service-type-unit-of-measure-cohorts
 service-type-unit-of-measure-quantities
