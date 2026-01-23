@@ -87,6 +87,10 @@ xbe
 │   │   ├── create           Add a display unit of measure
 │   │   ├── update           Update a display unit of measure
 │   │   └── delete           Delete a display unit of measure
+│   ├── job-production-plan-locations Manage job production plan locations
+│   │   ├── create           Create a job production plan location
+│   │   ├── update           Update a job production plan location
+│   │   └── delete           Delete a job production plan location
 │   ├── geofence-restrictions Manage geofence restrictions
 │   │   ├── create           Create a geofence restriction
 │   │   ├── update           Update a geofence restriction
@@ -124,6 +128,9 @@ xbe
 │   ├── job-production-plan-display-unit-of-measures Browse job production plan display unit of measures
 │   │   ├── list            List job production plan display unit of measures
 │   │   └── show <id>       Show job production plan display unit of measure details
+│   ├── job-production-plan-locations Browse job production plan locations
+│   │   ├── list            List job production plan locations
+│   │   └── show <id>       Show job production plan location details
 │   ├── job-production-plan-job-site-location-estimates Browse job site location estimates
 │   │   ├── list            List job site location estimates
 │   │   └── show <id>       Show job site location estimate details
