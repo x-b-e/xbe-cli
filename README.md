@@ -98,6 +98,10 @@ xbe
 │   │   ├── create           Create a material transaction inspection rejection
 │   │   ├── update           Update a material transaction inspection rejection
 │   │   └── delete           Delete a material transaction inspection rejection
+│   ├── material-unit-of-measure-quantities Manage material unit of measure quantities
+│   │   ├── create           Create a material unit of measure quantity
+│   │   ├── update           Update a material unit of measure quantity
+│   │   └── delete           Delete a material unit of measure quantity
 │   ├── material-purchase-orders Manage material purchase orders
 │   │   ├── create           Create a material purchase order
 │   │   ├── update           Update a material purchase order
@@ -135,6 +139,9 @@ xbe
 │   ├── material-transaction-inspection-rejections Browse material transaction inspection rejections
 │   │   ├── list            List material transaction inspection rejections with filtering
 │   │   └── show <id>       Show material transaction inspection rejection details
+│   ├── material-unit-of-measure-quantities Browse material unit of measure quantities
+│   │   ├── list            List material unit of measure quantities with filtering
+│   │   └── show <id>       Show material unit of measure quantity details
 │   ├── material-transaction-status-changes Browse material transaction status changes
 │   │   ├── list            List material transaction status changes with filtering
 │   │   └── show <id>       Show material transaction status change details
