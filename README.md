@@ -119,6 +119,10 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-transaction-inspections Manage material transaction inspections
+│   │   ├── create           Create a material transaction inspection
+│   │   ├── update           Update a material transaction inspection
+│   │   └── delete           Delete a material transaction inspection
 │   ├── material-supplier-memberships Manage material supplier memberships
 │   │   ├── create           Create a material supplier membership
 │   │   ├── update           Update a material supplier membership
@@ -152,6 +156,9 @@ xbe
 │   ├── material-site-mixing-lots Browse material site mixing lots
 │   │   ├── list            List material site mixing lots with filtering
 │   │   └── show <id>       Show material site mixing lot details
+│   ├── material-transaction-inspections Browse material transaction inspections
+│   │   ├── list            List material transaction inspections with filtering
+│   │   └── show <id>       Show material transaction inspection details
 │   ├── inventory-estimates Browse inventory estimates
 │   │   ├── list            List inventory estimates with filtering
 │   │   └── show <id>       Show inventory estimate details

@@ -78,13 +78,14 @@ var resourceCategories = map[string][]string{
 	"transport-orders":                         {CatFleet},
 
 	// Materials
-	"inventory-estimates":           {CatMaterials},
-	"material-site-measures":        {CatMaterials},
-	"material-sites":                {CatMaterials},
-	"material-supplier-memberships": {CatMaterials},
-	"material-suppliers":            {CatMaterials},
-	"material-transactions":         {CatMaterials},
-	"material-types":                {CatMaterials},
+	"inventory-estimates":              {CatMaterials},
+	"material-site-measures":           {CatMaterials},
+	"material-sites":                   {CatMaterials},
+	"material-supplier-memberships":    {CatMaterials},
+	"material-suppliers":               {CatMaterials},
+	"material-transaction-inspections": {CatMaterials},
+	"material-transactions":            {CatMaterials},
+	"material-types":                   {CatMaterials},
 
 	// Certifications & Credentials
 	"certification-requirements": {CatCertifications},
