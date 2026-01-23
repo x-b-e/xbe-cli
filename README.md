@@ -87,6 +87,8 @@ xbe
 │   │   └── create           Reject a job production plan
 │   ├── job-production-plan-recap-generations Generate job production plan recaps
 │   │   └── create           Generate a job production plan recap
+│   ├── job-production-plan-schedule-changes Apply schedule changes to job production plans
+│   │   └── create           Apply a job production plan schedule change
 │   ├── job-production-plan-display-unit-of-measures Manage job production plan display unit of measures
 │   │   ├── create           Add a display unit of measure
 │   │   ├── update           Update a display unit of measure
