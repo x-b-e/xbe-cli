@@ -91,6 +91,8 @@ xbe
 │   │   └── create           Generate a job production plan recap
 │   ├── job-production-plan-schedule-changes Apply schedule changes to job production plans
 │   │   └── create           Apply a job production plan schedule change
+│   ├── job-schedule-shift-splits Split job schedule shifts
+│   │   └── create           Split a job schedule shift
 │   ├── job-production-plan-display-unit-of-measures Manage job production plan display unit of measures
 │   │   ├── create           Add a display unit of measure
 │   │   ├── update           Update a display unit of measure
@@ -162,6 +164,9 @@ xbe
 │   ├── job-production-plan-job-site-location-estimates Browse job site location estimates
 │   │   ├── list            List job site location estimates
 │   │   └── show <id>       Show job site location estimate details
+│   ├── job-schedule-shift-splits Browse job schedule shift splits
+│   │   ├── list            List job schedule shift splits
+│   │   └── show <id>       Show job schedule shift split details
 │   ├── geofence-restrictions Browse geofence restrictions
 │   │   ├── list            List geofence restrictions
 │   │   └── show <id>       Show geofence restriction details
