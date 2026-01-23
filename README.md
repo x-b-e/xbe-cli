@@ -153,6 +153,9 @@ xbe
 │   │   ├── create           Create a broker commitment
 │   │   ├── update           Update a broker commitment
 │   │   └── delete           Delete a broker commitment
+│   ├── proffer-likes        Manage proffer likes
+│   │   ├── create           Create a proffer like
+│   │   └── delete           Delete a proffer like
 │   ├── work-order-assignments Manage work order assignments
 │   │   ├── create           Create a work order assignment
 │   │   ├── update           Update a work order assignment
@@ -179,6 +182,9 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── proffer-likes       Browse proffer likes
+│   │   ├── list            List proffer likes with filtering
+│   │   └── show <id>       Show proffer like details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
 │   ├── users               Browse users (for creator lookup)
