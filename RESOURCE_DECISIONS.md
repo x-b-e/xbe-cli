@@ -159,6 +159,7 @@ rates
 reaction-classifications
 release-notes
 service-types
+site-events
 shift-feedback-reasons
 shift-feedbacks
 shift-summary
@@ -360,7 +361,6 @@ shift-scope-matches
 shift-scope-tenders
 shift-set-time-card-constraints
 shift-time-card-requisitions
-site-events
 time-card-approval-audits
 time-card-approvals
 time-card-cost-code-allocations

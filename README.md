@@ -88,6 +88,10 @@ xbe
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
 │   │   └── create           Create a job schedule shift start site change
+│   ├── site-events          Manage site events
+│   │   ├── create           Create a site event
+│   │   ├── update           Update a site event
+│   │   └── delete           Delete a site event
 │   ├── service-sites       Manage service sites
 │   │   ├── create           Create a service site
 │   │   ├── update           Update a service site
@@ -226,6 +230,9 @@ xbe
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details
+│   ├── site-events         Browse site events
+│   │   ├── list            List site events with filtering
+│   │   └── show <id>       Show site event details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
