@@ -92,6 +92,8 @@ xbe
 │   │   └── create           Unapprove a time card
 │   ├── invoice-approvals    Approve invoices
 │   │   └── create           Approve an invoice
+│   ├── invoice-pdf-emails   Email invoice PDFs
+│   │   └── create           Email an invoice PDF
 │   ├── time-sheet-approvals Approve time sheets
 │   │   └── create           Approve a time sheet
 │   ├── time-sheet-unapprovals Unapprove time sheets
