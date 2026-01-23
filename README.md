@@ -91,6 +91,10 @@ xbe
 │   │   └── delete           Delete a time card payroll certification
 │   ├── time-card-unsubmissions Unsubmit time cards
 │   │   └── create           Unsubmit a time card
+│   ├── time-sheet-cost-code-allocations Manage time sheet cost code allocations
+│   │   ├── create           Create a time sheet cost code allocation
+│   │   ├── update           Update a time sheet cost code allocation
+│   │   └── delete           Delete a time sheet cost code allocation
 │   ├── service-events        Manage service events
 │   │   ├── create           Create a service event
 │   │   ├── update           Update a service event
@@ -195,6 +199,9 @@ xbe
 │   ├── time-card-payroll-certifications Browse time card payroll certifications
 │   │   ├── list            List time card payroll certifications with filtering
 │   │   └── show <id>       Show time card payroll certification details
+│   ├── time-sheet-cost-code-allocations Browse time sheet cost code allocations
+│   │   ├── list            List time sheet cost code allocations with filtering
+│   │   └── show <id>       Show time sheet cost code allocation details
 │   ├── service-events       Browse service events
 │   │   ├── list            List service events with filtering
 │   │   └── show <id>       Show service event details
@@ -1065,6 +1072,33 @@ xbe do job-site-times update 789 --description "Updated notes"
 
 # Delete a job site time (requires --confirm)
 xbe do job-site-times delete 789 --confirm
+```
+
+### Time Sheet Cost Code Allocations
+
+Time sheet cost code allocations split a time sheet's costs across cost codes.
+
+```bash
+# List time sheet cost code allocations
+xbe view time-sheet-cost-code-allocations list
+
+# Filter by time sheet
+xbe view time-sheet-cost-code-allocations list --time-sheet 123
+
+# Show allocation details
+xbe view time-sheet-cost-code-allocations show 456
+
+# Create a time sheet cost code allocation
+xbe do time-sheet-cost-code-allocations create \
+  --time-sheet 123 \
+  --details '[{"cost_code_id":"789","percentage":1}]'
+
+# Update allocation details
+xbe do time-sheet-cost-code-allocations update 456 \
+  --details '[{"cost_code_id":"789","percentage":1}]'
+
+# Delete a time sheet cost code allocation (requires --confirm)
+xbe do time-sheet-cost-code-allocations delete 456 --confirm
 ```
 
 ### Material Site Unavailabilities
