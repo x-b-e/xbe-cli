@@ -87,6 +87,10 @@ xbe
 │   │   ├── create           Create a job production plan material site
 │   │   ├── update           Update a job production plan material site
 │   │   └── delete           Delete a job production plan material site
+│   ├── job-production-plan-safety-risks       Manage job production plan safety risks
+│   │   ├── create           Create a job production plan safety risk
+│   │   ├── update           Update a job production plan safety risk
+│   │   └── delete           Delete a job production plan safety risk
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -126,6 +130,9 @@ xbe
 │   ├── job-production-plan-material-sites     Browse job production plan material sites
 │   │   ├── list            List job production plan material sites with filtering
 │   │   └── show <id>       Show job production plan material site details
+│   ├── job-production-plan-safety-risks       Browse job production plan safety risks
+│   │   ├── list            List job production plan safety risks with filtering
+│   │   └── show <id>       Show job production plan safety risk details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
