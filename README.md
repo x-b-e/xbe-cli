@@ -135,6 +135,9 @@ xbe
 │   ├── material-transaction-inspection-rejections Browse material transaction inspection rejections
 │   │   ├── list            List material transaction inspection rejections with filtering
 │   │   └── show <id>       Show material transaction inspection rejection details
+│   ├── material-transaction-status-changes Browse material transaction status changes
+│   │   ├── list            List material transaction status changes with filtering
+│   │   └── show <id>       Show material transaction status change details
 │   ├── equipment-suppliers Browse equipment suppliers
 │   │   ├── list            List equipment suppliers with filtering
 │   │   └── show <id>       Show equipment supplier details
@@ -441,6 +444,21 @@ xbe do material-transaction-inspection-rejections create \
 
 # Update a rejection note
 xbe do material-transaction-inspection-rejections update 456 --note "Updated note"
+```
+
+### Material Transaction Status Changes
+
+Material transaction status changes record status history for a transaction.
+
+```bash
+# List status changes for a material transaction
+xbe view material-transaction-status-changes list --material-transaction 123
+
+# Filter status changes by status
+xbe view material-transaction-status-changes list --status accepted
+
+# Show a specific status change
+xbe view material-transaction-status-changes show 456
 ```
 
 ### Material Mix Design Matches
