@@ -540,6 +540,16 @@ xbe do equipment-movement-trip-dispatch-fulfillment-clerks create \
   --equipment-movement-trip-dispatch 123
 ```
 
+### Lineup Dispatch Fulfillment Clerks
+
+Lineup dispatch fulfillment clerks trigger the fulfillment workflow for a lineup dispatch.
+
+```bash
+# Run fulfillment for a dispatch
+xbe do lineup-dispatch-fulfillment-clerks create \
+  --lineup-dispatch 123
+```
+
 ### Crew Rates
 
 Crew rates define pricing for labor/equipment by classification, resource, or craft class.
