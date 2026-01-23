@@ -90,6 +90,8 @@ xbe
 │   │   ├── create           Create a job production plan project phase revenue item
 │   │   ├── update           Update a job production plan project phase revenue item
 │   │   └── delete           Delete a job production plan project phase revenue item
+│   ├── job-schedule-shift-start-at-changes Reschedule job schedule shifts
+│   │   └── create           Create a start-at change
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -135,6 +137,9 @@ xbe
 │   ├── job-production-plan-schedule-change-works Browse job production plan schedule change works
 │   │   ├── list            List schedule change works with filtering
 │   │   └── show <id>       Show schedule change work details
+│   ├── job-schedule-shift-start-at-changes Browse job schedule shift start-at changes
+│   │   ├── list            List start-at changes
+│   │   └── show <id>       Show start-at change details
 │   ├── job-production-plan-project-phase-revenue-items Browse job production plan project phase revenue items
 │   │   ├── list            List job production plan project phase revenue items
 │   │   └── show <id>       Show job production plan project phase revenue item details
