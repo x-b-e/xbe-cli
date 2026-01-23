@@ -148,6 +148,9 @@ xbe
 │   ├── job-schedule-shift-start-site-changes Browse job schedule shift start site changes
 │   │   ├── list            List job schedule shift start site changes
 │   │   └── show <id>       Show job schedule shift start site change details
+│   ├── lineup-dispatch-shifts Browse lineup dispatch shifts
+│   │   ├── list            List lineup dispatch shifts with filtering
+│   │   └── show <id>       Show lineup dispatch shift details
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details
