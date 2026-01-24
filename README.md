@@ -441,6 +441,9 @@ xbe
 │   ├── job-schedule-shifts  Browse job schedule shifts
 │   │   ├── list            List job schedule shifts with filtering
 │   │   └── show <id>       Show job schedule shift details
+│   ├── key-result-status-changes  Browse key result status changes
+│   │   ├── list            List key result status changes
+│   │   └── show <id>       Show key result status change details
 │   ├── tender-job-schedule-shift-cancellations  Browse tender job schedule shift cancellations
 │   │   ├── list            List tender job schedule shift cancellations
 │   │   └── show <id>       Show tender job schedule shift cancellation details
