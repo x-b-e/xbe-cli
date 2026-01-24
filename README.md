@@ -109,6 +109,8 @@ xbe
 │   ├── project-transport-location-event-types Manage project transport location event types
 │   │   ├── create           Create a project transport location event type
 │   │   └── delete           Delete a project transport location event type
+│   ├── project-transport-plan-driver-assignment-recommendations Generate driver assignment recommendations
+│   │   └── create           Generate driver assignment recommendations
 │   ├── project-phase-cost-item-actuals Manage project phase cost item actuals
 │   │   ├── create           Create a project phase cost item actual
 │   │   ├── update           Update a project phase cost item actual
@@ -292,6 +294,9 @@ xbe
 │   ├── project-transport-location-event-types Browse project transport location event types
 │   │   ├── list            List project transport location event types with filtering
 │   │   └── show <id>       Show project transport location event type details
+│   ├── project-transport-plan-driver-assignment-recommendations Browse project transport plan driver assignment recommendations
+│   │   ├── list            List project transport plan driver assignment recommendations
+│   │   └── show <id>       Show project transport plan driver assignment recommendation details
 │   ├── project-phase-cost-item-actuals Browse project phase cost item actuals
 │   │   ├── list            List project phase cost item actuals with filtering
 │   │   └── show <id>       Show project phase cost item actual details
@@ -892,6 +897,23 @@ xbe do driver-day-shortfall-calculations create \
 
 # Show a calculation (when available)
 xbe view driver-day-shortfall-calculations show <id>
+```
+
+### Project Transport Plan Driver Assignment Recommendations
+
+Project transport plan driver assignment recommendations rank candidate drivers for a project transport plan driver.
+
+```bash
+# Generate recommendations for a driver assignment
+xbe do project-transport-plan-driver-assignment-recommendations create \
+  --project-transport-plan-driver 123
+
+# List recommendations (optionally filter by driver)
+xbe view project-transport-plan-driver-assignment-recommendations list \
+  --project-transport-plan-driver 123
+
+# Show recommendation details
+xbe view project-transport-plan-driver-assignment-recommendations show <id>
 ```
 
 ### Shift Counters
