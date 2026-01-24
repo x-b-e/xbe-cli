@@ -119,6 +119,10 @@ xbe
 │   │   ├── create           Create a project transport plan segment
 │   │   ├── update           Update a project transport plan segment
 │   │   └── delete           Delete a project transport plan segment
+│   ├── project-transport-plan-trailers Manage project transport plan trailers
+│   │   ├── create           Create a project transport plan trailer assignment
+│   │   ├── update           Update a project transport plan trailer assignment
+│   │   └── delete           Delete a project transport plan trailer assignment
 │   ├── project-transport-plan-driver-assignment-recommendations Generate driver assignment recommendations
 │   │   └── create           Generate driver assignment recommendations
 │   ├── project-transport-plan-trailer-assignment-recommendations Generate trailer assignment recommendations
@@ -315,6 +319,9 @@ xbe
 │   ├── project-transport-plan-segments Browse project transport plan segments
 │   │   ├── list            List project transport plan segments with filtering
 │   │   └── show <id>       Show project transport plan segment details
+│   ├── project-transport-plan-trailers Browse project transport plan trailers
+│   │   ├── list            List project transport plan trailers with filtering
+│   │   └── show <id>       Show project transport plan trailer details
 │   ├── project-transport-plan-strategies Browse project transport plan strategies
 │   │   ├── list            List project transport plan strategies with filtering
 │   │   └── show <id>       Show project transport plan strategy details
@@ -1055,6 +1062,30 @@ xbe view project-transport-plan-segments show <id>
 
 # Delete a segment (requires --confirm)
 xbe do project-transport-plan-segments delete <id> --confirm
+```
+
+### Project Transport Plan Trailers
+
+Project transport plan trailers assign trailers across a segment range within a plan.
+
+```bash
+# Create a trailer assignment
+xbe do project-transport-plan-trailers create \
+  --project-transport-plan 123 \
+  --segment-start 456 \
+  --segment-end 789
+
+# Update status or trailer
+xbe do project-transport-plan-trailers update 101 --status active --trailer 555
+
+# List trailer assignments for a plan
+xbe view project-transport-plan-trailers list --project-transport-plan 123
+
+# Show trailer assignment details
+xbe view project-transport-plan-trailers show <id>
+
+# Delete a trailer assignment (requires --confirm)
+xbe do project-transport-plan-trailers delete <id> --confirm
 ```
 
 ### Project Transport Plan Planned Event Time Schedules
