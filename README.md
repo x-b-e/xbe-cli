@@ -322,6 +322,9 @@ xbe
 │   ├── project-transport-plan-drivers  Browse project transport plan drivers
 │   │   ├── list            List project transport plan drivers with filtering
 │   │   └── show <id>       Show project transport plan driver details
+│   ├── project-transport-plan-strategy-sets  Browse project transport plan strategy sets
+│   │   ├── list            List project transport plan strategy sets with filtering
+│   │   └── show <id>       Show project transport plan strategy set details
 │   ├── project-transport-plan-segment-sets  Browse project transport plan segment sets
 │   │   ├── list            List project transport plan segment sets with filtering
 │   │   └── show <id>       Show project transport plan segment set details

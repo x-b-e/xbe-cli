@@ -148,6 +148,7 @@ project-revenue-classifications
 project-transport-event-types
 project-transport-locations
 project-transport-plan-drivers
+project-transport-plan-strategy-sets
 projects
 ptp-driver-summary
 ptp-event-summary

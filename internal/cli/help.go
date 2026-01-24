@@ -90,6 +90,7 @@ var resourceCategories = map[string][]string{
 	"maintenance-requirement-rule-evaluation-clerks":    {CatFleet},
 	"project-transport-locations":                       {CatFleet},
 	"project-transport-plan-drivers":                    {CatFleet},
+	"project-transport-plan-strategy-sets":              {CatFleet},
 	"tractors":                                          {CatFleet},
 	"trailers":                                          {CatFleet},
 	"transport-order-materials":                         {CatFleet},
