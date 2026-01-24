@@ -424,6 +424,9 @@ xbe
 │   │   ├── list            List organization invoices batch PDF generations with filtering
 │   │   ├── show <id>       Show organization invoices batch PDF generation details
 │   │   └── download-all <id> Download all completed PDFs for a PDF generation
+│   ├── integration-invoices-batch-exports Browse integration invoices batch exports
+│   │   ├── list            List integration invoices batch exports with filtering
+│   │   └── show <id>       Show integration invoices batch export details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
