@@ -213,6 +213,10 @@ xbe
 │   ├── rate-agreement-copier-works Manage rate agreement copier works
 │   │   ├── create           Create a rate agreement copier work
 │   │   └── update           Update a rate agreement copier work
+│   ├── retainer-payments   Manage retainer payments
+│   │   ├── create           Create a retainer payment
+│   │   ├── update           Update a retainer payment
+│   │   └── delete           Delete a retainer payment
 │   ├── maintenance-requirement-parts Manage maintenance requirement parts
 │   │   ├── create           Create a maintenance requirement part
 │   │   ├── update           Update a maintenance requirement part
@@ -300,6 +304,9 @@ xbe
 │   ├── retainer-earning-statuses Browse retainer earning statuses
 │   │   ├── list            List retainer earning statuses with filtering
 │   │   └── show <id>       Show retainer earning status details
+│   ├── retainer-payments  Browse retainer payments
+│   │   ├── list            List retainer payments with filtering
+│   │   └── show <id>       Show retainer payment details
 │   ├── project-abandonments Browse project abandonments
 │   │   ├── list            List project abandonments
 │   │   └── show <id>       Show project abandonment details
