@@ -174,6 +174,10 @@ xbe
 │   ├── project-customers   Manage project customers
 │   │   ├── create           Create a project customer
 │   │   └── delete           Delete a project customer
+│   ├── project-transport-organizations Manage project transport organizations
+│   │   ├── create           Create a project transport organization
+│   │   ├── update           Update a project transport organization
+│   │   └── delete           Delete a project transport organization
 │   ├── project-project-cost-classifications Manage project project cost classifications
 │   │   ├── create           Create a project project cost classification
 │   │   ├── update           Update a project project cost classification
@@ -331,6 +335,9 @@ xbe
 │   ├── project-customers   Browse project customers
 │   │   ├── list            List project customers
 │   │   └── show <id>       Show project customer details
+│   ├── project-transport-organizations Browse project transport organizations
+│   │   ├── list            List project transport organizations
+│   │   └── show <id>       Show project transport organization details
 │   ├── project-project-cost-classifications Browse project project cost classifications
 │   │   ├── list            List project project cost classifications
 │   │   └── show <id>       Show project project cost classification details
