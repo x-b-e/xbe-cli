@@ -94,6 +94,8 @@ xbe
 │   │   └── create           Approve a job production plan
 │   ├── project-approvals    Approve projects
 │   │   └── create           Approve a project
+│   ├── project-submissions  Submit projects
+│   │   └── create           Submit a project
 │   ├── project-bid-locations Manage project bid locations
 │   │   ├── create           Create a project bid location
 │   │   ├── update           Update a project bid location
@@ -273,6 +275,9 @@ xbe
 │   ├── project-approvals   Browse project approvals
 │   │   ├── list            List project approvals
 │   │   └── show <id>       Show project approval details
+│   ├── project-submissions Browse project submissions
+│   │   ├── list            List project submissions
+│   │   └── show <id>       Show project submission details
 │   ├── project-bid-locations Browse project bid locations
 │   │   ├── list            List project bid locations with filtering
 │   │   └── show <id>       Show project bid location details
