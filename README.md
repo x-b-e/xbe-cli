@@ -338,6 +338,9 @@ xbe
 │   ├── project-transport-organizations Browse project transport organizations
 │   │   ├── list            List project transport organizations
 │   │   └── show <id>       Show project transport organization details
+│   ├── project-transport-plan-event-location-prediction-autopsies Browse project transport plan event location prediction autopsies
+│   │   ├── list            List project transport plan event location prediction autopsies
+│   │   └── show <id>       Show project transport plan event location prediction autopsy details
 │   ├── project-project-cost-classifications Browse project project cost classifications
 │   │   ├── list            List project project cost classifications
 │   │   └── show <id>       Show project project cost classification details
