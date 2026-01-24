@@ -184,6 +184,10 @@ xbe
 │   │   ├── create           Create a time sheet line item
 │   │   ├── update           Update a time sheet line item
 │   │   └── delete           Delete a time sheet line item
+│   ├── lineups             Manage lineups
+│   │   ├── create           Create a lineup
+│   │   ├── update           Update a lineup
+│   │   └── delete           Delete a lineup
 │   ├── lineup-job-schedule-shifts Manage lineup job schedule shifts
 │   │   ├── create           Create a lineup job schedule shift
 │   │   ├── update           Update a lineup job schedule shift
@@ -465,6 +469,9 @@ xbe
 │   ├── time-sheet-line-items Browse time sheet line items
 │   │   ├── list            List time sheet line items with filtering
 │   │   └── show <id>       Show time sheet line item details
+│   ├── lineups             Browse lineups
+│   │   ├── list            List lineups
+│   │   └── show <id>       Show lineup details
 │   ├── lineup-job-schedule-shifts Browse lineup job schedule shifts
 │   │   ├── list            List lineup job schedule shifts
 │   │   └── show <id>       Show lineup job schedule shift details

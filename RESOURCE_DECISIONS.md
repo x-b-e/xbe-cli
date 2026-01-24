@@ -132,6 +132,7 @@ labor-classifications
 laborers
 lane-summary
 languages
+lineups
 material-mix-designs
 material-sites
 material-site-readings
@@ -601,7 +602,6 @@ key-result-status-changes
 key-result-unscrappages
 key-results
 liability-incidents
-lineups
 login-code-redemptions
 login-code-requests
 lowest-losing-bid-prediction-subject-details
