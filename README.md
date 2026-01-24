@@ -212,6 +212,8 @@ xbe
 │   │   └── create           Create a material transaction field scope
 │   ├── tender-job-schedule-shifts-material-transactions-checksums Generate tender job schedule shift material transaction checksums
 │   │   └── create           Create a checksum
+│   ├── tender-rejections    Reject tenders
+│   │   └── create           Reject a tender
 │   ├── material-transaction-rejections Reject material transactions
 │   │   └── create           Reject a material transaction
 │   ├── material-transaction-submissions Submit material transactions
@@ -427,6 +429,9 @@ xbe
 │   ├── tender-job-schedule-shifts-material-transactions-checksums Browse tender job schedule shift material transaction checksums
 │   │   ├── list            List checksum records
 │   │   └── show <id>       Show checksum details
+│   ├── tender-rejections   Browse tender rejections
+│   │   ├── list            List tender rejections
+│   │   └── show <id>       Show tender rejection details
 │   ├── material-transaction-rejections Browse material transaction rejections
 │   │   ├── list            List material transaction rejections
 │   │   └── show <id>       Show material transaction rejection details
