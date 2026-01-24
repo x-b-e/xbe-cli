@@ -575,6 +575,8 @@ xbe
 │   ├── press-releases      Browse press releases
 │   │   ├── list            List press releases
 │   │   └── show <id>       Show press release details
+│   ├── place-predictions   Browse place predictions
+│   │   └── list            List place predictions by query
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details

@@ -261,6 +261,7 @@ Some resources may have dependencies preventing deletion. Check staging manually
 - incident-tags
 - job-production-plans
 - languages
+- place-predictions
 - material-transactions
 - material-types
 - newsletters
