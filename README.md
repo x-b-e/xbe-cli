@@ -84,6 +84,8 @@ xbe
 │   │   └── create           Cancel a project
 │   ├── project-completions Complete projects
 │   │   └── create           Complete a project
+│   ├── project-duplications Duplicate projects
+│   │   └── create           Duplicate a project
 │   ├── job-production-plan-driver-movements Generate job production plan driver movements
 │   │   └── create           Generate driver movement details
 │   ├── job-production-plan-job-site-changes Update job production plan job sites
