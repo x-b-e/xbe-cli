@@ -253,6 +253,9 @@ xbe
 │   │   ├── create           Create a tractor fuel consumption reading
 │   │   ├── update           Update a tractor fuel consumption reading
 │   │   └── delete           Delete a tractor fuel consumption reading
+│   ├── raw-transport-drivers Manage raw transport drivers
+│   │   ├── create           Create a raw transport driver
+│   │   └── delete           Delete a raw transport driver
 │   ├── material-type-conversions Manage material type conversions
 │   │   ├── create           Create a material type conversion
 │   │   ├── update           Update a material type conversion
@@ -403,6 +406,9 @@ xbe
 │   ├── tractor-fuel-consumption-readings Browse tractor fuel consumption readings
 │   │   ├── list            List tractor fuel consumption readings
 │   │   └── show <id>       Show tractor fuel consumption reading details
+│   ├── raw-transport-drivers Browse raw transport drivers
+│   │   ├── list            List raw transport drivers
+│   │   └── show <id>       Show raw transport driver details
 │   ├── material-type-conversions Browse material type conversions
 │   │   ├── list            List material type conversions
 │   │   └── show <id>       Show material type conversion details
