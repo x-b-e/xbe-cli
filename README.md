@@ -178,6 +178,10 @@ xbe
 │   │   ├── create           Create a project transport organization
 │   │   ├── update           Update a project transport organization
 │   │   └── delete           Delete a project transport organization
+│   ├── project-transport-plan-events Manage project transport plan events
+│   │   ├── create           Create a project transport plan event
+│   │   ├── update           Update a project transport plan event
+│   │   └── delete           Delete a project transport plan event
 │   ├── project-project-cost-classifications Manage project project cost classifications
 │   │   ├── create           Create a project project cost classification
 │   │   ├── update           Update a project project cost classification
@@ -338,6 +342,9 @@ xbe
 │   ├── project-transport-organizations Browse project transport organizations
 │   │   ├── list            List project transport organizations
 │   │   └── show <id>       Show project transport organization details
+│   ├── project-transport-plan-events Browse project transport plan events
+│   │   ├── list            List project transport plan events
+│   │   └── show <id>       Show project transport plan event details
 │   ├── project-transport-plan-event-location-prediction-autopsies Browse project transport plan event location prediction autopsies
 │   │   ├── list            List project transport plan event location prediction autopsies
 │   │   └── show <id>       Show project transport plan event location prediction autopsy details
