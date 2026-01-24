@@ -208,6 +208,10 @@ xbe
 │   │   ├── create           Create a work order assignment
 │   │   ├── update           Update a work order assignment
 │   │   └── delete           Delete a work order assignment
+│   ├── action-item-team-members Manage action item team members
+│   │   ├── create           Create an action item team member
+│   │   ├── update           Update an action item team member
+│   │   └── delete           Delete an action item team member
 │   ├── service-type-unit-of-measure-cohorts Manage service type unit of measure cohorts
 │   │   ├── create           Create a service type unit of measure cohort
 │   │   ├── update           Update a service type unit of measure cohort
@@ -277,6 +281,9 @@ xbe
 │   ├── work-order-assignments Browse work order assignments
 │   │   ├── list            List work order assignments
 │   │   └── show <id>       Show work order assignment details
+│   ├── action-item-team-members Browse action item team members
+│   │   ├── list            List action item team members
+│   │   └── show <id>       Show action item team member details
 │   ├── service-type-unit-of-measure-cohorts Browse service type unit of measure cohorts
 │   │   ├── list            List service type unit of measure cohorts
 │   │   └── show <id>       Show service type unit of measure cohort details
