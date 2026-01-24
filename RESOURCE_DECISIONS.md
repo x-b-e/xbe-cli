@@ -210,6 +210,7 @@ trucker-invoices
 trucker-insurances
 truckers
 unit-of-measures
+user-device-location-tracking-requests
 user-credential-classifications
 user-credentials
 users
@@ -689,7 +690,6 @@ trucker-shift-sets
 user-auth-token-resets
 user-creator-feed-creators
 user-creator-feeds
-user-device-location-tracking-requests
 user-languages
 user-location-estimates
 user-location-events

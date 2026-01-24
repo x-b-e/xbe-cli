@@ -88,6 +88,8 @@ xbe
 │   │   └── create           Generate a signed URL for a file attachment
 │   ├── login-code-requests  Request login codes
 │   │   └── create           Request a login code
+│   ├── user-device-location-tracking-requests Request user device location tracking
+│   │   └── create           Send a location tracking request
 │   ├── saml-code-redemptions Redeem SAML login codes
 │   │   └── create           Redeem a SAML login code
 │   ├── sourcing-searches    Find matching truckers and trailers for a customer tender
