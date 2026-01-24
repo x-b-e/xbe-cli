@@ -205,6 +205,10 @@ xbe
 │   │   ├── create           Create a broker membership
 │   │   ├── update           Update a broker membership
 │   │   └── delete           Delete a broker membership
+│   ├── business-unit-memberships Manage business unit memberships
+│   │   ├── create           Create a business unit membership
+│   │   ├── update           Update a business unit membership
+│   │   └── delete           Delete a business unit membership
 │   ├── broker-commitments   Manage broker commitments
 │   │   ├── create           Create a broker commitment
 │   │   ├── update           Update a broker commitment
@@ -293,6 +297,9 @@ xbe
 │   ├── broker-memberships  Browse broker memberships
 │   │   ├── list            List broker memberships with filtering
 │   │   └── show <id>       Show broker membership details
+│   ├── business-unit-memberships Browse business unit memberships
+│   │   ├── list            List business unit memberships with filtering
+│   │   └── show <id>       Show business unit membership details
 │   ├── broker-commitments  Browse broker commitments
 │   │   ├── list            List broker commitments
 │   │   └── show <id>       Show broker commitment details
@@ -775,6 +782,27 @@ xbe do broker-memberships update 789 --title "Dispatcher" --is-rate-editor true
 
 # Delete a broker membership (requires --confirm)
 xbe do broker-memberships delete 789 --confirm
+```
+
+### Business Unit Memberships
+
+Business unit memberships associate broker memberships with specific business units.
+
+```bash
+# List business unit memberships
+xbe view business-unit-memberships list --business-unit 123
+
+# Show business unit membership details
+xbe view business-unit-memberships show 456
+
+# Create a business unit membership
+xbe do business-unit-memberships create --business-unit 123 --membership 456 --kind technician
+
+# Update a business unit membership
+xbe do business-unit-memberships update 789 --kind general
+
+# Delete a business unit membership (requires --confirm)
+xbe do business-unit-memberships delete 789 --confirm
 ```
 
 ### Crew Assignment Confirmations
