@@ -153,6 +153,10 @@ xbe
 │   │   ├── create           Create a location prediction
 │   │   ├── update           Update a location prediction
 │   │   └── delete           Delete a location prediction
+│   ├── predictions         Manage predictions
+│   │   ├── create           Create a prediction
+│   │   ├── update           Update a prediction
+│   │   └── delete           Delete a prediction
 │   ├── prediction-subject-bids Manage prediction subject bids
 │   │   ├── create           Create a prediction subject bid
 │   │   ├── update           Update a prediction subject bid
@@ -444,6 +448,9 @@ xbe
 │   ├── project-transport-plan-event-location-predictions Browse project transport plan event location predictions
 │   │   ├── list            List project transport plan event location predictions
 │   │   └── show <id>       Show project transport plan event location prediction details
+│   ├── predictions         Browse predictions
+│   │   ├── list            List predictions
+│   │   └── show <id>       Show prediction details
 │   ├── prediction-subject-bids Browse prediction subject bids
 │   │   ├── list            List prediction subject bids with filtering
 │   │   └── show <id>       Show prediction subject bid details
@@ -1516,6 +1523,30 @@ xbe view project-transport-plan-event-location-predictions show <id>
 
 # Delete a prediction (requires --confirm)
 xbe do project-transport-plan-event-location-predictions delete <id> --confirm
+```
+
+### Predictions
+
+Predictions capture probability distributions for a prediction subject, along with status and scoring metadata.
+
+```bash
+# Create a prediction
+xbe do predictions create \
+  --prediction-subject 123 \
+  --status draft \
+  --probability-distribution '{"class_name":"TriangularDistribution","minimum":100,"mode":120,"maximum":140}'
+
+# List predictions filtered by prediction subject
+xbe view predictions list --prediction-subject 123
+
+# Show prediction details
+xbe view predictions show <id>
+
+# Update prediction status
+xbe do predictions update <id> --status submitted
+
+# Delete a prediction (requires --confirm)
+xbe do predictions delete <id> --confirm
 ```
 
 ### Prediction Subject Bids
