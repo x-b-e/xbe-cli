@@ -289,10 +289,14 @@ xbe
 │   │   ├── create           Create a proffer
 │   │   ├── update           Update a proffer
 │   │   └── delete           Delete a proffer
-│   └── developer-trucker-certification-multipliers Manage developer trucker certification multipliers
-│       ├── create           Create a developer trucker certification multiplier
-│       ├── update           Update a developer trucker certification multiplier
-│       └── delete           Delete a developer trucker certification multiplier
+│   ├── developer-trucker-certification-multipliers Manage developer trucker certification multipliers
+│   │   ├── create           Create a developer trucker certification multiplier
+│   │   ├── update           Update a developer trucker certification multiplier
+│   │   └── delete           Delete a developer trucker certification multiplier
+│   └── objective-stakeholder-classification-quotes Manage objective stakeholder classification quotes
+│       ├── create           Create an objective stakeholder classification quote
+│       ├── update           Update an objective stakeholder classification quote
+│       └── delete           Delete an objective stakeholder classification quote
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -539,9 +543,12 @@ xbe
 │   ├── glossary-terms      Browse glossary terms
 │   │   ├── list            List glossary terms with filtering
 │   │   └── show <id>       Show glossary term details
-│   └── developer-trucker-certification-multipliers Browse developer trucker certification multipliers
-│       ├── list            List developer trucker certification multipliers with filtering
-│       └── show <id>       Show developer trucker certification multiplier details
+│   ├── developer-trucker-certification-multipliers Browse developer trucker certification multipliers
+│   │   ├── list            List developer trucker certification multipliers with filtering
+│   │   └── show <id>       Show developer trucker certification multiplier details
+│   └── objective-stakeholder-classification-quotes Browse objective stakeholder classification quotes
+│       ├── list            List objective stakeholder classification quotes with filtering
+│       └── show <id>       Show objective stakeholder classification quote details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```
@@ -1065,6 +1072,39 @@ xbe do developer-trucker-certification-multipliers update 789 --multiplier 0.9
 
 # Delete a multiplier
 xbe do developer-trucker-certification-multipliers delete 789 --confirm
+```
+
+### Objective Stakeholder Classification Quotes
+
+```bash
+# List quotes
+xbe view objective-stakeholder-classification-quotes list
+
+# Filter by classification
+xbe view objective-stakeholder-classification-quotes list --objective-stakeholder-classification 123
+
+# Filter by interest degree range
+xbe view objective-stakeholder-classification-quotes list --interest-degree-min 2 --interest-degree-max 5
+
+# Show quote details
+xbe view objective-stakeholder-classification-quotes show 456
+
+# Create a quote
+xbe do objective-stakeholder-classification-quotes create \
+  --objective-stakeholder-classification 123 \
+  --content "Stakeholder values transparency"
+
+# Create a generated quote
+xbe do objective-stakeholder-classification-quotes create \
+  --objective-stakeholder-classification 123 \
+  --content "Generated summary" \
+  --is-generated
+
+# Update a quote
+xbe do objective-stakeholder-classification-quotes update 456 --content "Updated content"
+
+# Delete a quote (requires --confirm)
+xbe do objective-stakeholder-classification-quotes delete 456 --confirm
 ```
 
 ### Material Supplier Memberships
