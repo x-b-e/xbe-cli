@@ -218,6 +218,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── rate-agreements      Manage rate agreements
+│   │   ├── create           Create a rate agreement
+│   │   ├── update           Update a rate agreement
+│   │   └── delete           Delete a rate agreement
 │   └── proffers             Manage proffers
 │       ├── create           Create a proffer
 │       ├── update           Update a proffer
@@ -270,6 +274,9 @@ xbe
 │   │   └── show <id>       Show service site details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
+│   ├── rate-agreements     Browse rate agreements
+│   │   ├── list            List rate agreements with filtering
+│   │   └── show <id>       Show rate agreement details
 │   ├── customer-commitments Browse customer commitments
 │   │   ├── list            List customer commitments with filtering
 │   │   └── show <id>       Show customer commitment details
@@ -819,6 +826,30 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 
 # Delete a crew rate (requires --confirm)
 xbe do crew-rates delete 789 --confirm
+```
+
+### Rate Agreements
+
+Rate agreements define negotiated pricing between sellers (brokers or truckers) and buyers (customers or brokers).
+
+```bash
+# List rate agreements
+xbe view rate-agreements list
+
+# Filter by seller and buyer
+xbe view rate-agreements list --seller "Broker|123" --buyer "Customer|456"
+
+# Show a rate agreement
+xbe view rate-agreements show 789
+
+# Create a rate agreement
+xbe do rate-agreements create --name "Standard" --status active --seller "Broker|123" --buyer "Customer|456"
+
+# Update a rate agreement
+xbe do rate-agreements update 789 --status inactive
+
+# Delete a rate agreement (requires --confirm)
+xbe do rate-agreements delete 789 --confirm
 ```
 
 ### Equipment Movement Requirement Locations
