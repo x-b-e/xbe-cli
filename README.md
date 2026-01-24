@@ -394,6 +394,9 @@ xbe
 │   ├── material-transaction-preloads Browse material transaction preloads
 │   │   ├── list            List material transaction preloads
 │   │   └── show <id>       Show material transaction preload details
+│   ├── raw-material-transaction-import-results Browse raw material transaction import results
+│   │   ├── list            List raw material transaction import results
+│   │   └── show <id>       Show raw material transaction import result details
 │   ├── material-site-readings Browse material site readings
 │   │   ├── list            List material site readings
 │   │   └── show <id>       Show material site reading details
