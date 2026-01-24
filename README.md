@@ -206,6 +206,10 @@ xbe
 │   │   ├── create           Create a project transport plan driver assignment
 │   │   ├── update           Update a project transport plan driver assignment
 │   │   └── delete           Delete a project transport plan driver assignment
+│   ├── project-transport-plan-segment-sets  Manage project transport plan segment sets
+│   │   ├── create           Create a project transport plan segment set
+│   │   ├── update           Update a project transport plan segment set
+│   │   └── delete           Delete a project transport plan segment set
 │   ├── profit-improvements  Manage profit improvements
 │   │   ├── create           Create a profit improvement
 │   │   ├── update           Update a profit improvement
@@ -315,6 +319,9 @@ xbe
 │   ├── project-transport-plan-drivers  Browse project transport plan drivers
 │   │   ├── list            List project transport plan drivers with filtering
 │   │   └── show <id>       Show project transport plan driver details
+│   ├── project-transport-plan-segment-sets  Browse project transport plan segment sets
+│   │   ├── list            List project transport plan segment sets with filtering
+│   │   └── show <id>       Show project transport plan segment set details
 │   ├── shift-time-card-requisitions  Browse shift time card requisitions
 │   │   ├── list            List shift time card requisitions with filtering
 │   │   └── show <id>       Show shift time card requisition details
