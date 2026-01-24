@@ -277,6 +277,9 @@ xbe
 │   ├── rate-agreements     Browse rate agreements
 │   │   ├── list            List rate agreements with filtering
 │   │   └── show <id>       Show rate agreement details
+│   ├── retainer-payment-deductions Browse retainer payment deductions
+│   │   ├── list            List retainer payment deductions
+│   │   └── show <id>       Show retainer payment deduction details
 │   ├── customer-commitments Browse customer commitments
 │   │   ├── list            List customer commitments with filtering
 │   │   └── show <id>       Show customer commitment details

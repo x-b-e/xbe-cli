@@ -167,6 +167,7 @@ quality-control-classifications
 rates
 reaction-classifications
 release-notes
+retainer-payment-deductions
 service-types
 site-events
 shift-feedback-reasons
