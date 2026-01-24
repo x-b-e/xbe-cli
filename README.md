@@ -313,6 +313,9 @@ xbe
 │   ├── project-transport-plan-segments Browse project transport plan segments
 │   │   ├── list            List project transport plan segments with filtering
 │   │   └── show <id>       Show project transport plan segment details
+│   ├── project-transport-plan-strategies Browse project transport plan strategies
+│   │   ├── list            List project transport plan strategies with filtering
+│   │   └── show <id>       Show project transport plan strategy details
 │   ├── project-transport-plan-driver-assignment-recommendations Browse project transport plan driver assignment recommendations
 │   │   ├── list            List project transport plan driver assignment recommendations
 │   │   └── show <id>       Show project transport plan driver assignment recommendation details
@@ -988,6 +991,24 @@ xbe view project-transport-plan-event-location-predictions show <id>
 
 # Delete a prediction (requires --confirm)
 xbe do project-transport-plan-event-location-predictions delete <id> --confirm
+```
+
+### Project Transport Plan Strategies
+
+Project transport plan strategies define ordered steps and patterns used for transport planning.
+
+```bash
+# List strategies
+xbe view project-transport-plan-strategies list
+
+# Filter by name
+xbe view project-transport-plan-strategies list --name "Default"
+
+# Filter by step pattern
+xbe view project-transport-plan-strategies list --step-pattern "pickup-dropoff"
+
+# Show strategy details
+xbe view project-transport-plan-strategies show <id>
 ```
 
 ### Project Transport Plan Segments
