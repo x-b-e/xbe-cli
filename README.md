@@ -158,6 +158,10 @@ xbe
 │   │   └── delete           Delete a project margin matrix
 │   ├── prediction-knowledge-bases Manage prediction knowledge bases
 │   │   └── create           Create a prediction knowledge base
+│   ├── prediction-subjects Manage prediction subjects
+│   │   ├── create           Create a prediction subject
+│   │   ├── update           Update a prediction subject
+│   │   └── delete           Delete a prediction subject
 │   ├── prediction-subject-recap-generations Generate prediction subject recaps
 │   │   └── create           Generate a prediction subject recap
 │   ├── project-phase-cost-items Manage project phase cost items
@@ -502,6 +506,9 @@ xbe
 │   ├── prediction-knowledge-bases Browse prediction knowledge bases
 │   │   ├── list            List prediction knowledge bases
 │   │   └── show <id>       Show prediction knowledge base details
+│   ├── prediction-subjects Browse prediction subjects
+│   │   ├── list            List prediction subjects
+│   │   └── show <id>       Show prediction subject details
 │   ├── project-phase-cost-items Browse project phase cost items
 │   │   ├── list            List project phase cost items
 │   │   └── show <id>       Show project phase cost item details
