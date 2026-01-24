@@ -113,6 +113,8 @@ xbe
 │   │   ├── create           Create a location prediction
 │   │   ├── update           Update a location prediction
 │   │   └── delete           Delete a location prediction
+│   ├── project-transport-plan-planned-event-time-schedules Generate planned event time schedules
+│   │   └── create           Generate a planned event time schedule
 │   ├── project-transport-plan-driver-assignment-recommendations Generate driver assignment recommendations
 │   │   └── create           Generate driver assignment recommendations
 │   ├── project-phase-cost-item-actuals Manage project phase cost item actuals
@@ -301,6 +303,9 @@ xbe
 │   ├── project-transport-plan-event-location-predictions Browse project transport plan event location predictions
 │   │   ├── list            List project transport plan event location predictions
 │   │   └── show <id>       Show project transport plan event location prediction details
+│   ├── project-transport-plan-planned-event-time-schedules Browse project transport plan planned event time schedules
+│   │   ├── list            List project transport plan planned event time schedules
+│   │   └── show <id>       Show project transport plan planned event time schedule details
 │   ├── project-transport-plan-driver-assignment-recommendations Browse project transport plan driver assignment recommendations
 │   │   ├── list            List project transport plan driver assignment recommendations
 │   │   └── show <id>       Show project transport plan driver assignment recommendation details
@@ -976,6 +981,28 @@ xbe view project-transport-plan-event-location-predictions show <id>
 
 # Delete a prediction (requires --confirm)
 xbe do project-transport-plan-event-location-predictions delete <id> --confirm
+```
+
+### Project Transport Plan Planned Event Time Schedules
+
+Project transport plan planned event time schedules compute planned event times and warnings.
+
+```bash
+# Generate a schedule for a project transport plan
+xbe do project-transport-plan-planned-event-time-schedules create \
+  --project-transport-plan 123
+
+# Generate a schedule from explicit event data
+xbe do project-transport-plan-planned-event-time-schedules create \
+  --transport-order 456 \
+  --plan-data '{"events":[{"location_id":1,"event_type_id":2}]}'
+
+# List schedules filtered by project transport plan
+xbe view project-transport-plan-planned-event-time-schedules list \
+  --project-transport-plan 123
+
+# Show schedule details
+xbe view project-transport-plan-planned-event-time-schedules show <id>
 ```
 
 ### Shift Counters
