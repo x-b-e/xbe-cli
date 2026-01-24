@@ -284,6 +284,10 @@ xbe
 │   ├── customer-truckers     Manage customer trucker links
 │   │   ├── create           Create a customer trucker link
 │   │   └── delete           Delete a customer trucker link
+│   ├── developer-certified-weighers  Manage developer certified weighers
+│   │   ├── create           Create a developer certified weigher
+│   │   ├── update           Update a developer certified weigher
+│   │   └── delete           Delete a developer certified weigher
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -371,6 +375,9 @@ xbe
 │   ├── customer-truckers     Browse customer trucker links
 │   │   ├── list            List customer truckers with filtering
 │   │   └── show <id>       Show customer trucker details
+│   ├── developer-certified-weighers  Browse developer certified weighers
+│   │   ├── list            List developer certified weighers with filtering
+│   │   └── show <id>       Show developer certified weigher details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details

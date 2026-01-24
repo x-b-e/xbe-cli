@@ -127,6 +127,7 @@ var resourceCategories = map[string][]string{
 	"certification-requirements":   {CatCertifications},
 	"certification-types":          {CatCertifications},
 	"certifications":               {CatCertifications},
+	"developer-certified-weighers": {CatCertifications},
 	"tractor-credentials":          {CatCertifications},
 	"trailer-credentials":          {CatCertifications},
 	"user-credentials":             {CatCertifications},
