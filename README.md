@@ -319,6 +319,10 @@ xbe
 │   │   ├── create           Create a cost code trucking cost summary
 │   │   ├── update           Update a cost code trucking cost summary
 │   │   └── delete           Delete a cost code trucking cost summary
+│   ├── pave-frame-actual-statistics  Manage pave frame actual statistics
+│   │   ├── create           Create a pave frame actual statistic
+│   │   ├── update           Update a pave frame actual statistic
+│   │   └── delete           Delete a pave frame actual statistic
 │   ├── broker-trucker-ratings  Manage broker trucker ratings
 │   │   ├── create           Create a broker trucker rating
 │   │   ├── update           Update a broker trucker rating
@@ -456,6 +460,9 @@ xbe
 │   ├── cost-code-trucking-cost-summaries  Browse cost code trucking cost summaries
 │   │   ├── list            List cost code trucking cost summaries with filtering
 │   │   └── show <id>       Show cost code trucking cost summary details
+│   ├── pave-frame-actual-statistics  Browse pave frame actual statistics
+│   │   ├── list            List pave frame actual statistics with filtering
+│   │   └── show <id>       Show pave frame actual statistic details
 │   ├── business-unit-equipments  Browse business unit equipment links
 │   │   ├── list            List business unit equipment links with filtering
 │   │   └── show <id>       Show business unit equipment details
