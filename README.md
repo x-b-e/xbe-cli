@@ -142,6 +142,8 @@ xbe
 │   │   └── delete           Delete a project bid location
 │   ├── project-estimate-file-imports Import project estimate files
 │   │   └── create           Import a project estimate file
+│   ├── projects-file-imports Import projects files
+│   │   └── create           Import projects from a file
 │   ├── project-labor-classifications Manage project labor classifications
 │   │   ├── create           Create a project labor classification
 │   │   ├── update           Update a project labor classification
@@ -443,6 +445,9 @@ xbe
 │   │   └── show <id>       Show project bid location details
 │   ├── project-estimate-file-imports Browse project estimate file imports
 │   │   └── list            List project estimate file imports
+│   ├── projects-file-imports Browse projects file imports
+│   │   ├── list            List projects file imports
+│   │   └── show <id>       Show projects file import details
 │   ├── project-labor-classifications Browse project labor classifications
 │   │   ├── list            List project labor classifications with filtering
 │   │   └── show <id>       Show project labor classification details
