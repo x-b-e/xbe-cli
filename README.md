@@ -930,6 +930,27 @@ xbe do customer-vendors update 789 --external-accounting-customer-vendor-id "ACC
 xbe do customer-vendors delete 789 --confirm
 ```
 
+### Trading Partners
+
+```bash
+# List trading partner links
+xbe view trading-partners list
+
+# Filter by organization and partner
+xbe view trading-partners list --organization "Broker|123"
+xbe view trading-partners list --partner "Customer|456"
+
+# Show a trading partner link
+xbe view trading-partners show 789
+
+# Create a trading partner link
+xbe do trading-partners create --organization "Broker|123" --partner "Customer|456" \
+  --trading-partner-type BrokerCustomer
+
+# Delete a trading partner link
+xbe do trading-partners delete 789 --confirm
+```
+
 ### Broker Project Transport Event Types
 
 ```bash
