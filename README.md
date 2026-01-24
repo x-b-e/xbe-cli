@@ -174,6 +174,10 @@ xbe
 │   ├── project-customers   Manage project customers
 │   │   ├── create           Create a project customer
 │   │   └── delete           Delete a project customer
+│   ├── project-truckers   Manage project truckers
+│   │   ├── create           Create a project trucker
+│   │   ├── update           Update a project trucker
+│   │   └── delete           Delete a project trucker
 │   ├── project-transport-organizations Manage project transport organizations
 │   │   ├── create           Create a project transport organization
 │   │   ├── update           Update a project transport organization
@@ -347,6 +351,9 @@ xbe
 │   ├── project-customers   Browse project customers
 │   │   ├── list            List project customers
 │   │   └── show <id>       Show project customer details
+│   ├── project-truckers   Browse project truckers
+│   │   ├── list            List project truckers
+│   │   └── show <id>       Show project trucker details
 │   ├── project-transport-organizations Browse project transport organizations
 │   │   ├── list            List project transport organizations
 │   │   └── show <id>       Show project transport organization details
