@@ -127,6 +127,7 @@ var resourceCategories = map[string][]string{
 	// Materials
 	"cycle-time-comparisons":                       {CatMaterials},
 	"lehman-roberts-apex-viewpoint-ticket-exports": {CatMaterials},
+	"superior-bowen-apex-viewpoint-ticket-exports": {CatMaterials},
 	"material-purchase-order-releases":             {CatMaterials},
 	"material-site-readings":                       {CatMaterials},
 	"material-sites":                               {CatMaterials},

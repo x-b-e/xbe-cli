@@ -265,6 +265,8 @@ xbe
 │   │   └── create           Create a project phase revenue item actual export
 │   ├── lehman-roberts-apex-viewpoint-ticket-exports Generate Lehman Roberts Apex Viewpoint ticket exports
 │   │   └── create           Create a ticket export
+│   ├── superior-bowen-apex-viewpoint-ticket-exports Generate Superior Bowen Apex Viewpoint ticket exports
+│   │   └── create           Create a ticket export
 │   ├── ozinga-tk-batch-file-exports Generate Ozinga TK batch file exports
 │   │   └── create           Create an export
 │   ├── material-transaction-cost-code-allocations Manage material transaction cost code allocations
@@ -465,6 +467,8 @@ xbe
 │   │   ├── list            List project phase revenue item actual exports
 │   │   └── show <id>       Show project phase revenue item actual export details
 │   ├── lehman-roberts-apex-viewpoint-ticket-exports Browse Lehman Roberts Apex Viewpoint ticket exports
+│   │   └── list            List Apex Viewpoint ticket exports
+│   ├── superior-bowen-apex-viewpoint-ticket-exports Browse Superior Bowen Apex Viewpoint ticket exports
 │   │   └── list            List Apex Viewpoint ticket exports
 │   ├── raw-material-transaction-import-results Browse raw material transaction import results
 │   │   ├── list            List raw material transaction import results
