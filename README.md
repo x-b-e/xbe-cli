@@ -307,6 +307,8 @@ xbe
 │   ├── incident-headline-suggestions  Manage incident headline suggestions
 │   │   ├── create           Create an incident headline suggestion
 │   │   └── delete           Delete an incident headline suggestion
+│   ├── prompt-prescriptions  Request prompt prescriptions
+│   │   └── create           Create a prompt prescription
 │   ├── incident-tag-incidents  Manage incident tag incident links
 │   │   ├── create           Create an incident tag incident link
 │   │   └── delete           Delete an incident tag incident link
@@ -365,6 +367,9 @@ xbe
 │   ├── incident-headline-suggestions  Browse incident headline suggestions
 │   │   ├── list            List incident headline suggestions
 │   │   └── show <id>       Show incident headline suggestion details
+│   ├── prompt-prescriptions  Browse prompt prescriptions
+│   │   ├── list            List prompt prescriptions
+│   │   └── show <id>       Show prompt prescription details
 │   ├── incident-tag-incidents  Browse incident tag incident links
 │   │   ├── list            List incident tag incident links with filtering
 │   │   └── show <id>       Show incident tag incident details
@@ -727,6 +732,28 @@ xbe do incident-headline-suggestions create --incident 123 --options '{"temperat
 
 # Show full suggestion details
 xbe view incident-headline-suggestions show 456
+```
+
+### Prompt Prescriptions
+
+```bash
+# List prompt prescriptions
+xbe view prompt-prescriptions list --limit 10
+
+# Filter by email address
+xbe view prompt-prescriptions list --email-address "name@example.com"
+
+# Submit a prompt prescription request
+xbe do prompt-prescriptions create \
+  --email-address "name@example.com" \
+  --name "Alex Builder" \
+  --organization-name "Concrete Co" \
+  --location-name "Austin, TX" \
+  --role "Operations Manager" \
+  --symptoms "Rising costs and scheduling delays"
+
+# Show full prompt prescription details
+xbe view prompt-prescriptions show 789
 ```
 
 ### Incident Tag Incidents

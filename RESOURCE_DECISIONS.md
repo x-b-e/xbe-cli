@@ -146,6 +146,7 @@ parking-sites
 posts
 prediction-agents
 press-releases
+prompt-prescriptions
 process-non-processed-time-card-time-changes
 profit-improvement-categories
 project-categories
