@@ -79,6 +79,7 @@ var resourceCategories = map[string][]string{
 	"invoices":                                           {CatProjects},
 	"trucker-invoices":                                   {CatProjects},
 	"organization-invoices-batch-pdf-generations":        {CatProjects},
+	"ozinga-tk-batch-file-exports":                       {CatProjects},
 	"key-result-changes":                                 {CatProjects},
 	"key-result-unscrappages":                            {CatProjects},
 	"invoice-rejections":                                 {CatProjects},
