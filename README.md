@@ -449,6 +449,9 @@ xbe
 │   ├── raw-material-transaction-sales-customers  Browse raw material transaction sales customers
 │   │   ├── list            List raw material transaction sales customers with filtering
 │   │   └── show <id>       Show raw material transaction sales customer details
+│   ├── raw-records         Browse ingest raw records
+│   │   ├── list            List raw records with filtering
+│   │   └── show <id>       Show raw record details
 │   ├── transport-order-materials  Browse transport order materials
 │   │   ├── list            List transport order materials with filtering
 │   │   └── show <id>       Show transport order material details
@@ -1325,6 +1328,24 @@ xbe do equipment-location-events update 456 --event-at 2025-01-16T12:00:00Z \
 
 # Delete an equipment location event (requires --confirm)
 xbe do equipment-location-events delete 456 --confirm
+```
+
+### Raw Records
+
+Raw records capture inbound integration payloads and processing status.
+
+```bash
+# List raw records
+xbe view raw-records list
+
+# Filter by external record
+xbe view raw-records list --external-record-type Equipment --external-record-id 123
+
+# Filter by internal record
+xbe view raw-records list --internal-record "Project|456"
+
+# Show raw record details
+xbe view raw-records show 789
 ```
 
 ### Maintenance Requirement Rule Evaluation Clerks
