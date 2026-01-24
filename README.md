@@ -121,6 +121,8 @@ xbe
 │   │   └── delete           Delete a project transport plan segment
 │   ├── project-transport-plan-driver-assignment-recommendations Generate driver assignment recommendations
 │   │   └── create           Generate driver assignment recommendations
+│   ├── project-transport-plan-trailer-assignment-recommendations Generate trailer assignment recommendations
+│   │   └── create           Generate trailer assignment recommendations
 │   ├── project-phase-cost-item-actuals Manage project phase cost item actuals
 │   │   ├── create           Create a project phase cost item actual
 │   │   ├── update           Update a project phase cost item actual
@@ -319,6 +321,9 @@ xbe
 │   ├── project-transport-plan-driver-assignment-recommendations Browse project transport plan driver assignment recommendations
 │   │   ├── list            List project transport plan driver assignment recommendations
 │   │   └── show <id>       Show project transport plan driver assignment recommendation details
+│   ├── project-transport-plan-trailer-assignment-recommendations Browse project transport plan trailer assignment recommendations
+│   │   ├── list            List project transport plan trailer assignment recommendations
+│   │   └── show <id>       Show project transport plan trailer assignment recommendation details
 │   ├── project-phase-cost-item-actuals Browse project phase cost item actuals
 │   │   ├── list            List project phase cost item actuals with filtering
 │   │   └── show <id>       Show project phase cost item actual details
@@ -963,6 +968,23 @@ xbe view project-transport-plan-driver-assignment-recommendations list \
 
 # Show recommendation details
 xbe view project-transport-plan-driver-assignment-recommendations show <id>
+```
+
+### Project Transport Plan Trailer Assignment Recommendations
+
+Project transport plan trailer assignment recommendations rank candidate trailers for a project transport plan trailer.
+
+```bash
+# Generate recommendations for a trailer assignment
+xbe do project-transport-plan-trailer-assignment-recommendations create \
+  --project-transport-plan-trailer 123
+
+# List recommendations (optionally filter by trailer)
+xbe view project-transport-plan-trailer-assignment-recommendations list \
+  --project-transport-plan-trailer 123
+
+# Show recommendation details
+xbe view project-transport-plan-trailer-assignment-recommendations show <id>
 ```
 
 ### Project Transport Plan Event Location Predictions
