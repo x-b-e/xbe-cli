@@ -180,6 +180,10 @@ xbe
 │   │   ├── create           Create a project phase cost item quantity estimate
 │   │   ├── update           Update a project phase cost item quantity estimate
 │   │   └── delete           Delete a project phase cost item quantity estimate
+│   ├── project-phase-revenue-item-quantity-estimates  Manage project phase revenue item quantity estimates
+│   │   ├── create           Create a project phase revenue item quantity estimate
+│   │   ├── update           Update a project phase revenue item quantity estimate
+│   │   └── delete           Delete a project phase revenue item quantity estimate
 │   ├── project-material-type-quality-control-requirements  Manage project material type quality control requirements
 │   │   ├── create           Create a project material type quality control requirement
 │   │   ├── update           Update a project material type quality control requirement
@@ -275,6 +279,9 @@ xbe
 │   ├── project-phase-cost-item-quantity-estimates  Browse project phase cost item quantity estimates
 │   │   ├── list            List project phase cost item quantity estimates with filtering
 │   │   └── show <id>       Show project phase cost item quantity estimate details
+│   ├── project-phase-revenue-item-quantity-estimates  Browse project phase revenue item quantity estimates
+│   │   ├── list            List project phase revenue item quantity estimates with filtering
+│   │   └── show <id>       Show project phase revenue item quantity estimate details
 │   ├── project-material-type-quality-control-requirements  Browse project material type quality control requirements
 │   │   ├── list            List project material type quality control requirements with filtering
 │   │   └── show <id>       Show project material type quality control requirement details
