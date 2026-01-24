@@ -287,6 +287,8 @@ xbe
 │   │   ├── create           Create a material transaction inspection
 │   │   ├── update           Update a material transaction inspection
 │   │   └── delete           Delete a material transaction inspection
+│   ├── raw-material-transactions Manage raw material transactions
+│   │   └── update           Update a raw material transaction
 │   ├── material-type-unavailabilities Manage material type unavailabilities
 │   │   ├── create           Create a material type unavailability
 │   │   ├── update           Update a material type unavailability
@@ -377,6 +379,9 @@ xbe
 │   ├── material-transaction-inspections Browse material transaction inspections
 │   │   ├── list            List material transaction inspections with filtering
 │   │   └── show <id>       Show material transaction inspection details
+│   ├── raw-material-transactions Browse raw material transactions
+│   │   ├── list            List raw material transactions with filtering
+│   │   └── show <id>       Show raw material transaction details
 │   ├── inventory-estimates Browse inventory estimates
 │   │   ├── list            List inventory estimates with filtering
 │   │   └── show <id>       Show inventory estimate details
