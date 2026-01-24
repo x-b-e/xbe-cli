@@ -172,6 +172,10 @@ xbe
 │   │   ├── create           Create a project estimate set
 │   │   ├── update           Update a project estimate set
 │   │   └── delete           Delete a project estimate set
+│   ├── project-material-type-quality-control-requirements  Manage project material type quality control requirements
+│   │   ├── create           Create a project material type quality control requirement
+│   │   ├── update           Update a project material type quality control requirement
+│   │   └── delete           Delete a project material type quality control requirement
 │   ├── profit-improvements  Manage profit improvements
 │   │   ├── create           Create a profit improvement
 │   │   ├── update           Update a profit improvement
@@ -257,6 +261,9 @@ xbe
 │   ├── project-estimate-sets  Browse project estimate sets
 │   │   ├── list            List project estimate sets with filtering
 │   │   └── show <id>       Show project estimate set details
+│   ├── project-material-type-quality-control-requirements  Browse project material type quality control requirements
+│   │   ├── list            List project material type quality control requirements with filtering
+│   │   └── show <id>       Show project material type quality control requirement details
 │   ├── shift-time-card-requisitions  Browse shift time card requisitions
 │   │   ├── list            List shift time card requisitions with filtering
 │   │   └── show <id>       Show shift time card requisition details
