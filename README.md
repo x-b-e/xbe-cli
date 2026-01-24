@@ -281,6 +281,9 @@ xbe
 │   │   ├── create           Create a customer membership
 │   │   ├── update           Update a customer membership
 │   │   └── delete           Delete a customer membership
+│   ├── customer-truckers     Manage customer trucker links
+│   │   ├── create           Create a customer trucker link
+│   │   └── delete           Delete a customer trucker link
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -365,6 +368,9 @@ xbe
 │   ├── customer-memberships  Browse customer memberships
 │   │   ├── list            List customer memberships with filtering
 │   │   └── show <id>       Show customer membership details
+│   ├── customer-truckers     Browse customer trucker links
+│   │   ├── list            List customer truckers with filtering
+│   │   └── show <id>       Show customer trucker details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details

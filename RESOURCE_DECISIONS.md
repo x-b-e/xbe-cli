@@ -97,6 +97,7 @@ custom-work-order-statuses
 customer-certification-types
 customer-memberships
 customer-settings
+customer-truckers
 customers
 developer-reference-types
 developer-references
