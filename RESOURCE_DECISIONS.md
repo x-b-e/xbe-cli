@@ -103,6 +103,7 @@ developer-reference-types
 developer-references
 developer-trucker-certification-classifications
 developers
+dispatch-user-matchers
 device-location-event-summary
 devices
 driver-day-summary

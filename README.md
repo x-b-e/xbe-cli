@@ -284,6 +284,8 @@ xbe
 │   ├── customer-truckers     Manage customer trucker links
 │   │   ├── create           Create a customer trucker link
 │   │   └── delete           Delete a customer trucker link
+│   ├── dispatch-user-matchers  Match dispatch users by phone number
+│   │   └── create           Match a dispatch user by phone number
 │   ├── developer-certified-weighers  Manage developer certified weighers
 │   │   ├── create           Create a developer certified weigher
 │   │   ├── update           Update a developer certified weigher
