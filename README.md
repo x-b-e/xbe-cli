@@ -62,6 +62,10 @@ xbe
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
 │   │   └── delete           Delete an application setting
+│   ├── administrative-incidents Manage administrative incidents
+│   │   ├── create           Create an administrative incident
+│   │   ├── update           Update an administrative incident
+│   │   └── delete           Delete an administrative incident
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -246,6 +250,9 @@ xbe
 │   │   └── show <id>       Show proffer like details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
+│   ├── administrative-incidents Browse administrative incidents
+│   │   ├── list            List administrative incidents with filtering
+│   │   └── show <id>       Show administrative incident details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
