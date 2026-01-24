@@ -296,6 +296,8 @@ xbe
 │   │   └── delete           Delete a customer trucker link
 │   ├── dispatch-user-matchers  Match dispatch users by phone number
 │   │   └── create           Match a dispatch user by phone number
+│   ├── login-code-redemptions  Redeem login codes for auth tokens
+│   │   └── create           Redeem a login code
 │   ├── incident-headline-suggestions  Manage incident headline suggestions
 │   │   ├── create           Create an incident headline suggestion
 │   │   └── delete           Delete an incident headline suggestion
