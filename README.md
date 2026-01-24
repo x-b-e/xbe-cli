@@ -225,6 +225,10 @@ xbe
 │   │   ├── create           Create a retainer deduction
 │   │   ├── update           Update a retainer deduction
 │   │   └── delete           Delete a retainer deduction
+│   ├── retainer-periods  Manage retainer periods
+│   │   ├── create           Create a retainer period
+│   │   ├── update           Update a retainer period
+│   │   └── delete           Delete a retainer period
 │   ├── rate-agreement-copiers  Copy rate agreements to target organizations
 │   │   └── create           Copy a rate agreement to a target organization
 │   └── memberships          Manage user-organization memberships
@@ -362,6 +366,9 @@ xbe
 │   ├── retainer-deductions  Browse retainer deductions
 │   │   ├── list            List retainer deductions with filtering
 │   │   └── show <id>       Show retainer deduction details
+│   ├── retainer-periods  Browse retainer periods
+│   │   ├── list            List retainer periods with filtering
+│   │   └── show <id>       Show retainer period details
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
 │   │   ├── list            List recommendations with filtering
 │   │   └── show <id>       Show recommendation details

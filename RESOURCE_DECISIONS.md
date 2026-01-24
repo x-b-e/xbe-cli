@@ -162,6 +162,7 @@ quality-control-classifications
 rates
 reaction-classifications
 release-notes
+retainer-periods
 service-types
 shift-feedback-reasons
 shift-feedbacks
@@ -500,7 +501,6 @@ retainer-deductions
 retainer-earning-statuses
 retainer-payment-deductions
 retainer-payments
-retainer-periods
 retainers
 tender-acceptances
 tender-cancellations
