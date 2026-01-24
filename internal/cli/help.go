@@ -32,16 +32,17 @@ const (
 // resourceCategories maps resource names to their categories
 var resourceCategories = map[string][]string{
 	// Organizations
-	"brokers":                 {CatOrganizations},
-	"business-units":          {CatOrganizations},
-	"customers":               {CatOrganizations},
-	"customer-memberships":    {CatOrganizations},
-	"customer-truckers":       {CatOrganizations, CatFleet},
-	"dispatch-user-matchers":  {CatOrganizations},
-	"login-code-redemptions":  {CatOrganizations},
-	"developers":              {CatOrganizations},
-	"memberships":             {CatOrganizations},
-	"organization-formatters": {CatOrganizations},
+	"brokers":                              {CatOrganizations},
+	"business-units":                       {CatOrganizations},
+	"customers":                            {CatOrganizations},
+	"customer-memberships":                 {CatOrganizations},
+	"customer-truckers":                    {CatOrganizations, CatFleet},
+	"dispatch-user-matchers":               {CatOrganizations},
+	"login-code-redemptions":               {CatOrganizations},
+	"developers":                           {CatOrganizations},
+	"memberships":                          {CatOrganizations},
+	"organization-formatters":              {CatOrganizations},
+	"organization-invoices-batch-invoices": {CatOrganizations},
 	"organization-invoices-batch-invoice-status-changes": {CatOrganizations},
 	"truckers":   {CatOrganizations, CatFleet}, // appears in both
 	"api-tokens": {CatOrganizations},
