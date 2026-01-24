@@ -36,6 +36,7 @@ var resourceCategories = map[string][]string{
 	"brokers":                 {CatOrganizations},
 	"broker-vendors":          {CatOrganizations},
 	"business-unit-customers": {CatOrganizations},
+	"business-unit-laborers":  {CatOrganizations},
 	"business-units":          {CatOrganizations},
 	"customers":               {CatOrganizations},
 	"developers":              {CatOrganizations},

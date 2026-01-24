@@ -82,6 +82,7 @@ broker-project-transport-event-types
 broker-settings
 broker-vendors
 brokers
+business-unit-laborers
 business-units
 certification-requirements
 certification-types
@@ -554,7 +555,6 @@ broker-vendors
 built-time-cards
 business-unit-customers
 business-unit-equipments
-business-unit-laborers
 business-unit-memberships
 change-requests
 contractors

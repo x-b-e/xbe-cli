@@ -608,6 +608,28 @@ xbe do business-unit-customers create --business-unit 123 --customer 456
 xbe do business-unit-customers delete 789 --confirm
 ```
 
+### Business Unit Laborers
+
+```bash
+# List business unit laborer links
+xbe view business-unit-laborers list
+
+# Filter by business unit
+xbe view business-unit-laborers list --business-unit 123
+
+# Filter by laborer
+xbe view business-unit-laborers list --laborer 456
+
+# Show a business unit laborer link
+xbe view business-unit-laborers show 789
+
+# Create a business unit laborer link
+xbe do business-unit-laborers create --business-unit 123 --laborer 456
+
+# Delete a business unit laborer link
+xbe do business-unit-laborers delete 789 --confirm
+```
+
 ### Broker Customers
 
 ```bash
