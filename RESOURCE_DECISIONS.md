@@ -175,6 +175,7 @@ shift-summary
 stakeholder-classifications
 tag-categories
 tags
+tender-returns
 time-card-invoices
 time-sheet-line-items
 time-sheet-line-item-classifications
@@ -521,7 +522,6 @@ tender-offers
 tender-raters
 tender-re-rates
 tender-rejections
-tender-returns
 tender-status-changes
 ```
 

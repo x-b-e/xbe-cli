@@ -164,6 +164,8 @@ xbe
 │   │   └── delete           Delete a lineup scenario trailer lineup job schedule shift
 │   ├── shift-scope-tenders  Find tenders for a shift scope
 │   │   └── create           Find tenders for a shift scope
+│   ├── tender-returns       Return tenders
+│   │   └── create           Return a tender
 │   ├── driver-day-shortfall-allocations Allocate driver day shortfall quantities
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -310,6 +312,9 @@ xbe
 │   ├── project-abandonments Browse project abandonments
 │   │   ├── list            List project abandonments
 │   │   └── show <id>       Show project abandonment details
+│   ├── tender-returns      Browse tender returns
+│   │   ├── list            List tender returns
+│   │   └── show <id>       Show tender return details
 │   ├── project-cancellations Browse project cancellations
 │   │   ├── list            List project cancellations
 │   │   └── show <id>       Show project cancellation details
@@ -807,6 +812,21 @@ xbe do tender-job-schedule-shifts update 789 --seller-operations-contact 456
 
 # Delete a shift
 xbe do tender-job-schedule-shifts delete 789 --confirm
+```
+
+### Tender Returns
+
+Tender returns record when accepted tenders are returned.
+
+```bash
+# List tender returns
+xbe view tender-returns list
+
+# Show tender return details
+xbe view tender-returns show 123
+
+# Return a tender
+xbe do tender-returns create --tender-type broker-tenders --tender-id 123 --comment "Returned"
 ```
 
 ### Driver Movement Segments
