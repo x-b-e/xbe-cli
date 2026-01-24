@@ -162,6 +162,8 @@ xbe
 │   │   └── create           Scrap a job production plan
 │   ├── job-production-plan-unapprovals        Manage job production plan unapprovals
 │   │   └── create           Unapprove a job production plan
+│   ├── job-production-plan-material-transaction-summaries  Summarize material transactions for a job production plan
+│   │   └── create           Generate a material transaction summary
 │   ├── job-production-plan-material-sites     Manage job production plan material sites
 │   │   ├── create           Create a job production plan material site
 │   │   ├── update           Update a job production plan material site

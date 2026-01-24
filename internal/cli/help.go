@@ -74,6 +74,7 @@ var resourceCategories = map[string][]string{
 	"job-production-plan-alarm-subscribers":                        {CatProjects},
 	"job-production-plan-subscriptions":                            {CatProjects},
 	"job-production-plan-change-sets":                              {CatProjects},
+	"job-production-plan-material-transaction-summaries":           {CatProjects},
 	"job-production-plan-scrappages":                               {CatProjects},
 	"job-production-plan-unapprovals":                              {CatProjects},
 	"job-production-plan-safety-risks":                             {CatProjects},

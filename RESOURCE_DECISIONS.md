@@ -122,6 +122,7 @@ incident-tag-incidents
 incidents
 jobs
 job-production-plan-cancellation-reason-types
+job-production-plan-material-transaction-summaries
 job-production-plan-summary
 job-production-plans
 job-sites
