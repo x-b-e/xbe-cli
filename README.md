@@ -73,6 +73,8 @@ xbe
 │   ├── base-summary-templates Manage base summary templates
 │   │   ├── create           Create a base summary template
 │   │   └── delete           Delete a base summary template
+│   ├── email-address-statuses Check email address status
+│   │   └── create           Check an email address
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -1442,6 +1444,18 @@ xbe do shift-counters create --start-at-min 2025-01-01T00:00:00Z
 
 # List counters (typically empty)
 xbe view shift-counters list
+```
+
+### Email Address Statuses
+
+Email address statuses report whether an email address is on the rejection list (create-only).
+
+```bash
+# Check an email address
+xbe do email-address-statuses create --email-address "user@example.com"
+
+# JSON output
+xbe do email-address-statuses create --email-address "user@example.com" --json
 ```
 
 ## Output Formats

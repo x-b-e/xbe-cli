@@ -154,6 +154,7 @@ var resourceCategories = map[string][]string{
 	"application-settings":          {CatReference},
 	"base-summary-templates":        {CatReference},
 	"culture-values":                {CatReference},
+	"email-address-statuses":        {CatReference},
 	"external-identification-types": {CatReference},
 	"languages":                     {CatReference},
 	"service-types":                 {CatReference},
