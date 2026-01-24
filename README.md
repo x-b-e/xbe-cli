@@ -610,6 +610,32 @@ xbe do broker-customers update 789 --external-accounting-broker-customer-id "ACC
 xbe do broker-customers delete 789 --confirm
 ```
 
+### Broker Project Transport Event Types
+
+```bash
+# List broker project transport event types
+xbe view broker-project-transport-event-types list
+
+# Filter by broker or event type
+xbe view broker-project-transport-event-types list --broker 123
+xbe view broker-project-transport-event-types list --project-transport-event-type 456
+
+# Show a broker project transport event type
+xbe view broker-project-transport-event-types show 789
+
+# Create a broker project transport event type
+xbe do broker-project-transport-event-types create \
+  --broker 123 \
+  --project-transport-event-type 456 \
+  --code "PICK"
+
+# Update the broker-specific code
+xbe do broker-project-transport-event-types update 789 --code "DROP"
+
+# Delete a broker project transport event type
+xbe do broker-project-transport-event-types delete 789 --confirm
+```
+
 ### Users, Material Suppliers, Customers, Truckers
 
 Use these commands to look up IDs for filtering posts by creator.
