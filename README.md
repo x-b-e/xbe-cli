@@ -172,6 +172,10 @@ xbe
 │   │   ├── create           Create a project estimate set
 │   │   ├── update           Update a project estimate set
 │   │   └── delete           Delete a project estimate set
+│   ├── project-phase-dates-estimates  Manage project phase dates estimates
+│   │   ├── create           Create a project phase dates estimate
+│   │   ├── update           Update a project phase dates estimate
+│   │   └── delete           Delete a project phase dates estimate
 │   ├── project-phase-cost-item-quantity-estimates  Manage project phase cost item quantity estimates
 │   │   ├── create           Create a project phase cost item quantity estimate
 │   │   ├── update           Update a project phase cost item quantity estimate
@@ -265,6 +269,9 @@ xbe
 │   ├── project-estimate-sets  Browse project estimate sets
 │   │   ├── list            List project estimate sets with filtering
 │   │   └── show <id>       Show project estimate set details
+│   ├── project-phase-dates-estimates  Browse project phase dates estimates
+│   │   ├── list            List project phase dates estimates with filtering
+│   │   └── show <id>       Show project phase dates estimate details
 │   ├── project-phase-cost-item-quantity-estimates  Browse project phase cost item quantity estimates
 │   │   ├── list            List project phase cost item quantity estimates with filtering
 │   │   └── show <id>       Show project phase cost item quantity estimate details
