@@ -401,6 +401,8 @@ xbe
 │   ├── organization-formatters  Manage organization formatters
 │   │   ├── create           Create an organization formatter
 │   │   └── update           Update an organization formatter
+│   ├── organization-invoices-batch-file-exports  Export organization invoices batch files
+│   │   └── create           Export an organization invoices batch file
 │   └── organization-invoices-batch-pdf-templates  Manage organization invoices batch PDF templates
 │       ├── create           Create an organization invoices batch PDF template
 │       └── update           Update an organization invoices batch PDF template
