@@ -187,6 +187,8 @@ xbe
 │   │   └── create           Accept a tender
 │   ├── tender-offers        Offer tenders
 │   │   └── create           Offer a tender
+│   ├── tender-re-rates      Re-rate tenders
+│   │   └── create           Re-rate tenders
 │   ├── tender-job-schedule-shift-time-card-reviews Manage tender job schedule shift time card reviews
 │   │   ├── create           Create a time card review
 │   │   └── delete           Delete a time card review
@@ -380,6 +382,9 @@ xbe
 │   ├── tender-offers       Browse tender offers
 │   │   ├── list            List tender offers
 │   │   └── show <id>       Show tender offer details
+│   ├── tender-re-rates     Browse tender re-rates
+│   │   ├── list            List tender re-rates
+│   │   └── show <id>       Show tender re-rate details
 │   ├── tender-job-schedule-shift-time-card-reviews Browse tender job schedule shift time card reviews
 │   │   ├── list            List tender job schedule shift time card reviews
 │   │   └── show <id>       Show tender job schedule shift time card review details

@@ -177,6 +177,7 @@ stakeholder-classifications
 tag-categories
 tags
 tender-acceptances
+tender-re-rates
 tender-job-schedule-shift-time-card-reviews
 time-sheet-line-item-classifications
 time-sheet-line-item-equipment-requirements
@@ -518,7 +519,6 @@ tender-job-schedule-shifts
 tender-job-schedule-shifts-material-transactions-checksums
 tender-offers
 tender-raters
-tender-re-rates
 tender-rejections
 tender-returns
 tender-status-changes
