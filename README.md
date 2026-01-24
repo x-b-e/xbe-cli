@@ -291,6 +291,8 @@ xbe
 │   ├── incident-headline-suggestions  Manage incident headline suggestions
 │   │   ├── create           Create an incident headline suggestion
 │   │   └── delete           Delete an incident headline suggestion
+│   ├── incident-request-cancellations  Cancel incident requests
+│   │   └── create           Cancel an incident request
 │   ├── expected-time-of-arrivals  Manage expected time of arrivals
 │   │   ├── create           Create an expected time of arrival
 │   │   ├── update           Update an expected time of arrival
@@ -632,6 +634,13 @@ xbe do incident-headline-suggestions create --incident 123 --options '{"temperat
 
 # Show full suggestion details
 xbe view incident-headline-suggestions show 456
+```
+
+### Incident Request Cancellations
+
+```bash
+# Cancel an incident request
+xbe do incident-request-cancellations create --incident-request 123 --comment "No longer needed"
 ```
 
 ### Brokers
