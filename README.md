@@ -70,6 +70,8 @@ xbe
 │   │   ├── create           Create a customer incident default assignee
 │   │   ├── update           Update a customer incident default assignee
 │   │   └── delete           Delete a customer incident default assignee
+│   ├── device-diagnostics  Manage device diagnostics
+│   │   └── create           Create a device diagnostic
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -280,6 +282,9 @@ xbe
 │   ├── customer-incident-default-assignees Browse customer incident default assignees
 │   │   ├── list            List customer incident default assignees
 │   │   └── show <id>       Show customer incident default assignee details
+│   ├── device-diagnostics  Browse device diagnostics
+│   │   ├── list            List device diagnostics
+│   │   └── show <id>       Show device diagnostic details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
@@ -1122,6 +1127,30 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 
 # Delete a crew rate (requires --confirm)
 xbe do crew-rates delete 789 --confirm
+```
+
+### Device Diagnostics
+
+Device diagnostics capture tracking state, permissions, and device health snapshots from mobile devices.
+
+```bash
+# List recent diagnostics
+xbe view device-diagnostics list --limit 10
+
+# Filter by device identifier or user
+xbe view device-diagnostics list --device-identifier "ABC-123"
+xbe view device-diagnostics list --user 456
+
+# Show a specific diagnostic
+xbe view device-diagnostics show 789
+
+# Create a diagnostic snapshot
+xbe do device-diagnostics create --device-identifier "ABC-123" --is-tracking=true --permission-status authorized
+
+# Include a changeset payload
+xbe do device-diagnostics create --device-identifier "ABC-123" \
+  --changeset '{"battery_level":85,"network":"wifi"}' \
+  --changed-at 2025-01-01T12:00:00Z
 ```
 
 ## Output Formats
