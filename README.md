@@ -253,8 +253,12 @@ xbe
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-site-reading-summary Generate material site reading summaries
+│   │   └── create           Create a material site reading summary
 │   ├── haskell-lemon-outbound-material-transaction-exports Generate Haskell Lemon outbound material transaction exports
 │   │   └── create           Create an outbound material transaction export
+│   ├── material-transactions-exports Generate material transaction exports
+│   │   └── create           Create a material transaction export
 │   ├── lehman-roberts-apex-viewpoint-ticket-exports Generate Lehman Roberts Apex Viewpoint ticket exports
 │   │   └── create           Create a ticket export
 │   ├── material-transaction-cost-code-allocations Manage material transaction cost code allocations
@@ -445,6 +449,9 @@ xbe
 │   ├── haskell-lemon-outbound-material-transaction-exports Browse Haskell Lemon outbound material transaction exports
 │   │   ├── list            List outbound material transaction exports
 │   │   └── show <id>       Show outbound material transaction export details
+│   ├── material-transactions-exports Browse material transaction exports
+│   │   ├── list            List material transaction exports
+│   │   └── show <id>       Show material transaction export details
 │   ├── lehman-roberts-apex-viewpoint-ticket-exports Browse Lehman Roberts Apex Viewpoint ticket exports
 │   │   └── list            List Apex Viewpoint ticket exports
 │   ├── raw-material-transaction-import-results Browse raw material transaction import results
@@ -1072,6 +1079,27 @@ xbe do material-transaction-summary create \
 xbe do material-transaction-summary create \
   --filter broker=123 \
   --min-transactions 100
+```
+
+### Material Site Reading Summary
+
+```bash
+# Minute-level readings for a material site measure
+xbe summarize material-site-reading-summary create \
+  --group-by minute \
+  --filter material_site=123 \
+  --filter material_site_measure=456 \
+  --filter reading_at_min=2025-01-01T00:00:00Z \
+  --filter reading_at_max=2025-01-01T00:30:00Z
+
+# Hourly rollup with material type presence filter
+xbe summarize material-site-reading-summary create \
+  --group-by hour \
+  --filter material_site=123 \
+  --filter material_site_measure=456 \
+  --filter reading_at_min=2025-01-01T00:00:00Z \
+  --filter reading_at_max=2025-01-01T12:00:00Z \
+  --filter material_site_reading_material_type_presence=true
 ```
 
 ### Memberships

@@ -131,6 +131,7 @@ var resourceCategories = map[string][]string{
 	"raw-material-transaction-import-results":      {CatMaterials},
 	"material-type-conversions":                    {CatMaterials},
 	"material-transaction-preloads":                {CatMaterials},
+	"material-transactions-exports":                {CatMaterials},
 	"material-transactions":                        {CatMaterials},
 	"material-types":                               {CatMaterials},
 
