@@ -145,6 +145,7 @@ project-categories
 project-cost-classifications
 project-cost-codes
 project-divisions
+project-estimate-file-imports
 project-offices
 project-phases
 project-resource-classifications

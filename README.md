@@ -98,6 +98,8 @@ xbe
 │   │   ├── create           Create a project bid location
 │   │   ├── update           Update a project bid location
 │   │   └── delete           Delete a project bid location
+│   ├── project-estimate-file-imports Import project estimate files
+│   │   └── create           Import a project estimate file
 │   ├── job-production-plan-uncompletions Uncomplete job production plans
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
@@ -258,6 +260,8 @@ xbe
 │   ├── project-bid-locations Browse project bid locations
 │   │   ├── list            List project bid locations with filtering
 │   │   └── show <id>       Show project bid location details
+│   ├── project-estimate-file-imports Browse project estimate file imports
+│   │   └── list            List project estimate file imports
 │   ├── time-card-pre-approvals Browse time card pre-approvals
 │   │   ├── list            List time card pre-approvals with filtering
 │   │   └── show <id>       Show time card pre-approval details
