@@ -318,6 +318,10 @@ xbe
 │   │   ├── create           Create a prediction agent
 │   │   ├── update           Update a prediction agent
 │   │   └── delete           Delete a prediction agent
+│   ├── prediction-subject-gap-portions  Manage prediction subject gap portions
+│   │   ├── create           Create a prediction subject gap portion
+│   │   ├── update           Update a prediction subject gap portion
+│   │   └── delete           Delete a prediction subject gap portion
 │   ├── lowest-losing-bid-prediction-subject-details  Manage lowest losing bid prediction subject details
 │   │   ├── create           Create a detail record
 │   │   ├── update           Update a detail record
@@ -388,6 +392,9 @@ xbe
 │   ├── prediction-agents   Browse prediction agents
 │   │   ├── list            List prediction agents with filtering
 │   │   └── show <id>       Show prediction agent details
+│   ├── prediction-subject-gap-portions  Browse prediction subject gap portions
+│   │   ├── list            List prediction subject gap portions with filtering
+│   │   └── show <id>       Show prediction subject gap portion details
 │   ├── lowest-losing-bid-prediction-subject-details  Browse lowest losing bid prediction subject details
 │   │   ├── list            List details with filtering
 │   │   └── show <id>       Show detail record
@@ -1125,6 +1132,36 @@ xbe do prediction-agents update 456 --custom-instructions "Focus on recent perfo
 
 # Delete a prediction agent (requires --confirm)
 xbe do prediction-agents delete 456 --confirm
+```
+
+### Prediction Subject Gap Portions
+
+Prediction subject gap portions explain portions of a prediction subject gap.
+
+```bash
+# List prediction subject gap portions
+xbe view prediction-subject-gap-portions list
+
+# Filter by prediction subject gap
+xbe view prediction-subject-gap-portions list --prediction-subject-gap 123
+
+# Filter by status
+xbe view prediction-subject-gap-portions list --status draft
+
+# Show prediction subject gap portion details
+xbe view prediction-subject-gap-portions show 456
+
+# Create a prediction subject gap portion
+xbe do prediction-subject-gap-portions create --prediction-subject-gap 123 --name "Labor" --amount 42 --status draft
+
+# Update a prediction subject gap portion
+xbe do prediction-subject-gap-portions update 456 --amount 45 --description "Updated description"
+
+# Approve a prediction subject gap portion
+xbe do prediction-subject-gap-portions update 456 --status approved
+
+# Delete a prediction subject gap portion (requires --confirm)
+xbe do prediction-subject-gap-portions delete 456 --confirm
 ```
 
 ### Lowest Losing Bid Prediction Subject Details
