@@ -176,6 +176,7 @@ shift-summary
 stakeholder-classifications
 tag-categories
 tags
+tender-job-schedule-shifts-material-transactions-checksums
 time-sheet-line-item-classifications
 time-sheet-status-changes
 time-sheet-unapprovals
@@ -512,7 +513,6 @@ tender-job-schedule-shift-cancellations
 tender-job-schedule-shift-drivers
 tender-job-schedule-shift-time-card-reviews
 tender-job-schedule-shifts
-tender-job-schedule-shifts-material-transactions-checksums
 tender-offers
 tender-raters
 tender-re-rates

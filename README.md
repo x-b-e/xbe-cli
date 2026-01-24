@@ -210,6 +210,8 @@ xbe
 │   │   └── create           Create a material transaction summary
 │   ├── material-transaction-field-scopes Manage material transaction field scopes
 │   │   └── create           Create a material transaction field scope
+│   ├── tender-job-schedule-shifts-material-transactions-checksums Generate tender job schedule shift material transaction checksums
+│   │   └── create           Create a checksum
 │   ├── material-transaction-rejections Reject material transactions
 │   │   └── create           Reject a material transaction
 │   ├── material-transaction-submissions Submit material transactions
@@ -422,6 +424,9 @@ xbe
 │   ├── material-transaction-field-scopes Browse material transaction field scopes
 │   │   ├── list            List material transaction field scopes
 │   │   └── show <id>       Show material transaction field scope details
+│   ├── tender-job-schedule-shifts-material-transactions-checksums Browse tender job schedule shift material transaction checksums
+│   │   ├── list            List checksum records
+│   │   └── show <id>       Show checksum details
 │   ├── material-transaction-rejections Browse material transaction rejections
 │   │   ├── list            List material transaction rejections
 │   │   └── show <id>       Show material transaction rejection details
@@ -703,6 +708,27 @@ xbe do material-transaction-summary create \
 xbe do material-transaction-summary create \
   --filter broker=123 \
   --min-transactions 100
+```
+
+### Tender Job Schedule Shift Material Transaction Checksums
+
+```bash
+# Generate checksum diagnostics for a job number and time window
+xbe do tender-job-schedule-shifts-material-transactions-checksums create \
+  --raw-job-number 3882 \
+  --transaction-at-min 2025-01-01T00:00:00Z \
+  --transaction-at-max 2025-01-02T00:00:00Z
+
+# Include material sites and a job production plan context
+xbe do tender-job-schedule-shifts-material-transactions-checksums create \
+  --raw-job-number 3882 \
+  --transaction-at-min 2025-01-01T00:00:00Z \
+  --transaction-at-max 2025-01-02T00:00:00Z \
+  --material-site-ids 101,102 \
+  --job-production-plan-id 555
+
+# View a checksum record
+xbe view tender-job-schedule-shifts-material-transactions-checksums show 123
 ```
 
 ### Memberships
