@@ -86,6 +86,8 @@ xbe
 │   │   └── create           Create a device diagnostic
 │   ├── file-attachment-signed-urls Generate signed URLs for file attachments
 │   │   └── create           Generate a signed URL for a file attachment
+│   ├── login-code-requests  Request login codes
+│   │   └── create           Request a login code
 │   ├── file-imports         Manage file imports
 │   │   ├── create           Create a file import
 │   │   ├── update           Update a file import
