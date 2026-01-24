@@ -146,6 +146,7 @@ material-types
 memberships
 newsletters
 parking-sites
+pave-frame-actual-hours
 posts
 press-releases
 proffers
@@ -630,7 +631,6 @@ organization-invoices-batch-pdf-templates
 organization-invoices-batch-processes
 organization-invoices-batch-status-changes
 organization-invoices-batches
-pave-frame-actual-hours
 place-predictions
 places
 platform-statuses

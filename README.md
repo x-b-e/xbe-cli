@@ -89,6 +89,10 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── pave-frame-actual-hours Manage pave frame actual hours
+│   │   ├── create           Create a pave frame actual hour
+│   │   ├── update           Update a pave frame actual hour
+│   │   └── delete           Delete a pave frame actual hour
 │   ├── device-location-events Record device location events
 │   │   └── create           Create a device location event
 │   ├── driver-day-adjustment-plans Manage driver day adjustment plans
@@ -549,6 +553,9 @@ xbe
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
+│   ├── pave-frame-actual-hours Browse pave frame actual hours
+│   │   ├── list            List pave frame actual hours
+│   │   └── show <id>       Show pave frame actual hour details
 │   ├── base-summary-templates Browse base summary templates
 │   │   ├── list            List base summary templates with filtering
 │   │   └── show <id>       Show base summary template details
