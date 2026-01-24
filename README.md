@@ -174,6 +174,10 @@ xbe
 │   │   └── create           Rate a tender
 │   ├── invoice-generations  Generate invoices
 │   │   └── create           Create an invoice generation
+│   ├── broker-invoices     Manage broker invoices
+│   │   ├── create           Create a broker invoice
+│   │   ├── update           Update a broker invoice
+│   │   └── delete           Delete a broker invoice
 │   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules
 │   │   └── create           Request evaluation for equipment
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Generate lineup trucker assignment recommendations
@@ -399,6 +403,9 @@ xbe
 │   ├── invoice-revisions   Browse invoice revisions
 │   │   ├── list            List invoice revisions with filtering
 │   │   └── show <id>       Show invoice revision details
+│   ├── broker-invoices     Browse broker invoices
+│   │   ├── list            List broker invoices with filtering
+│   │   └── show <id>       Show broker invoice details
 │   ├── profit-improvements  Browse profit improvements
 │   │   ├── list            List profit improvements with filtering
 │   │   └── show <id>       Show profit improvement details
