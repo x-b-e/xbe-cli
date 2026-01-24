@@ -163,6 +163,10 @@ xbe
 │   │   ├── create           Create a project bid location material type
 │   │   ├── update           Update a project bid location material type
 │   │   └── delete           Delete a project bid location material type
+│   ├── project-material-types Manage project material types
+│   │   ├── create           Create a project material type
+│   │   ├── update           Update a project material type
+│   │   └── delete           Delete a project material type
 │   ├── project-customers   Manage project customers
 │   │   ├── create           Create a project customer
 │   │   └── delete           Delete a project customer
@@ -310,6 +314,9 @@ xbe
 │   ├── project-bid-location-material-types Browse project bid location material types
 │   │   ├── list            List project bid location material types
 │   │   └── show <id>       Show project bid location material type details
+│   ├── project-material-types Browse project material types
+│   │   ├── list            List project material types
+│   │   └── show <id>       Show project material type details
 │   ├── project-customers   Browse project customers
 │   │   ├── list            List project customers
 │   │   └── show <id>       Show project customer details
@@ -488,6 +495,18 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Project Material Types
+
+```bash
+# List material types for a project
+xbe view project-material-types list --project 123
+
+# Filter by pickup-at-min window
+xbe view project-material-types list \
+  --pickup-at-min-min 2026-01-01T00:00:00Z \
+  --pickup-at-min-max 2026-01-02T00:00:00Z
 ```
 
 ### Brokers
