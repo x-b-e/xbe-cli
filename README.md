@@ -330,6 +330,10 @@ xbe
 │   │   └── create           Redeem a login code
 │   ├── user-auth-token-resets  Reset user auth tokens
 │   │   └── create           Reset a user's auth token
+│   ├── user-creator-feeds   Manage user creator feeds
+│   │   ├── create           Create a user creator feed
+│   │   ├── update           Update a user creator feed
+│   │   └── delete           Delete a user creator feed
 │   ├── incident-headline-suggestions  Manage incident headline suggestions
 │   │   ├── create           Create an incident headline suggestion
 │   │   └── delete           Delete an incident headline suggestion
@@ -455,6 +459,9 @@ xbe
 │   │   └── show <id>       Show detail record
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
+│   ├── user-creator-feeds   Browse user creator feeds
+│   │   ├── list            List user creator feeds with filtering
+│   │   └── show <id>       Show user creator feed details
 │   ├── api-tokens          Browse API tokens
 │   │   ├── list            List API tokens with filtering
 │   │   └── show <id>       Show API token details
