@@ -391,6 +391,9 @@ xbe
 │   ├── answer-feedbacks    Browse answer feedbacks
 │   │   ├── list            List answer feedbacks
 │   │   └── show <id>       Show answer feedback details
+│   ├── answers             Browse answers
+│   │   ├── list            List answers
+│   │   └── show <id>       Show answer details
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
