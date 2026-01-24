@@ -265,6 +265,10 @@ xbe
 │   │   ├── create           Create a broker certification type
 │   │   ├── update           Update a broker certification type
 │   │   └── delete           Delete a broker certification type
+│   ├── customer-certification-types  Manage customer certification types
+│   │   ├── create           Create a customer certification type
+│   │   ├── update           Update a customer certification type
+│   │   └── delete           Delete a customer certification type
 │   ├── broker-equipment-classifications  Manage broker equipment classifications
 │   │   ├── create           Create a broker equipment classification
 │   │   ├── update           Update a broker equipment classification
@@ -301,6 +305,9 @@ xbe
 │   ├── broker-certification-types  Browse broker certification types
 │   │   ├── list            List broker certification types with filtering
 │   │   └── show <id>       Show broker certification type details
+│   ├── customer-certification-types  Browse customer certification types
+│   │   ├── list            List customer certification types with filtering
+│   │   └── show <id>       Show customer certification type details
 │   ├── broker-equipment-classifications  Browse broker equipment classifications
 │   │   ├── list            List broker equipment classifications with filtering
 │   │   └── show <id>       Show broker equipment classification details
