@@ -259,6 +259,8 @@ xbe
 │   │   └── create           Create an outbound material transaction export
 │   ├── material-transactions-exports Generate material transaction exports
 │   │   └── create           Create a material transaction export
+│   ├── project-actuals-exports Generate project actuals exports
+│   │   └── create           Create a project actuals export
 │   ├── lehman-roberts-apex-viewpoint-ticket-exports Generate Lehman Roberts Apex Viewpoint ticket exports
 │   │   └── create           Create a ticket export
 │   ├── ozinga-tk-batch-file-exports Generate Ozinga TK batch file exports
@@ -454,6 +456,9 @@ xbe
 │   ├── material-transactions-exports Browse material transaction exports
 │   │   ├── list            List material transaction exports
 │   │   └── show <id>       Show material transaction export details
+│   ├── project-actuals-exports Browse project actuals exports
+│   │   ├── list            List project actuals exports
+│   │   └── show <id>       Show project actuals export details
 │   ├── lehman-roberts-apex-viewpoint-ticket-exports Browse Lehman Roberts Apex Viewpoint ticket exports
 │   │   └── list            List Apex Viewpoint ticket exports
 │   ├── raw-material-transaction-import-results Browse raw material transaction import results
