@@ -166,6 +166,8 @@ xbe
 │   ├── project-customers   Manage project customers
 │   │   ├── create           Create a project customer
 │   │   └── delete           Delete a project customer
+│   ├── project-import-file-verifications Verify project import files
+│   │   └── create           Create a project import file verification
 │   ├── geofence-restrictions Manage geofence restrictions
 │   │   ├── create           Create a geofence restriction
 │   │   ├── update           Update a geofence restriction
@@ -311,6 +313,8 @@ xbe
 │   ├── project-customers   Browse project customers
 │   │   ├── list            List project customers
 │   │   └── show <id>       Show project customer details
+│   ├── project-import-file-verifications Browse project import file verifications
+│   │   └── list            List project import file verifications
 │   ├── job-production-plan-job-site-location-estimates Browse job site location estimates
 │   │   ├── list            List job site location estimates
 │   │   └── show <id>       Show job site location estimate details
