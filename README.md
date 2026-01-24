@@ -221,6 +221,10 @@ xbe
 │   │   ├── create           Create a profit improvement
 │   │   ├── update           Update a profit improvement
 │   │   └── delete           Delete a profit improvement
+│   ├── retainer-deductions  Manage retainer deductions
+│   │   ├── create           Create a retainer deduction
+│   │   ├── update           Update a retainer deduction
+│   │   └── delete           Delete a retainer deduction
 │   ├── rate-agreement-copiers  Copy rate agreements to target organizations
 │   │   └── create           Copy a rate agreement to a target organization
 │   └── memberships          Manage user-organization memberships
@@ -355,6 +359,9 @@ xbe
 │   ├── profit-improvements  Browse profit improvements
 │   │   ├── list            List profit improvements with filtering
 │   │   └── show <id>       Show profit improvement details
+│   ├── retainer-deductions  Browse retainer deductions
+│   │   ├── list            List retainer deductions with filtering
+│   │   └── show <id>       Show retainer deduction details
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
 │   │   ├── list            List recommendations with filtering
 │   │   └── show <id>       Show recommendation details
