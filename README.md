@@ -260,6 +260,10 @@ xbe
 │   │   ├── create           Create a broker equipment classification
 │   │   ├── update           Update a broker equipment classification
 │   │   └── delete           Delete a broker equipment classification
+│   ├── broker-trucker-ratings  Manage broker trucker ratings
+│   │   ├── create           Create a broker trucker rating
+│   │   ├── update           Update a broker trucker rating
+│   │   └── delete           Delete a broker trucker rating
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -288,6 +292,9 @@ xbe
 │   ├── broker-equipment-classifications  Browse broker equipment classifications
 │   │   ├── list            List broker equipment classifications with filtering
 │   │   └── show <id>       Show broker equipment classification details
+│   ├── broker-trucker-ratings  Browse broker trucker ratings
+│   │   ├── list            List broker trucker ratings with filtering
+│   │   └── show <id>       Show broker trucker rating details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── api-tokens          Browse API tokens
