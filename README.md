@@ -86,6 +86,10 @@ xbe
 │   │   └── create           Complete a project
 │   ├── project-duplications Duplicate projects
 │   │   └── create           Duplicate a project
+│   ├── project-trailer-classifications Manage project trailer classifications
+│   │   ├── create           Create a project trailer classification
+│   │   ├── update           Update a project trailer classification
+│   │   └── delete           Delete a project trailer classification
 │   ├── project-margin-matrices Manage project margin matrices
 │   │   ├── create           Create a project margin matrix
 │   │   └── delete           Delete a project margin matrix
@@ -280,6 +284,9 @@ xbe
 │   ├── project-status-changes Browse project status changes
 │   │   ├── list            List project status changes with filtering
 │   │   └── show <id>       Show project status change details
+│   ├── project-trailer-classifications Browse project trailer classifications
+│   │   ├── list            List project trailer classifications
+│   │   └── show <id>       Show project trailer classification details
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
