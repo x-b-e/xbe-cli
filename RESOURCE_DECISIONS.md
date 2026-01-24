@@ -117,6 +117,7 @@ features
 geofences
 glossary-terms
 incident-tags
+incident-tag-incidents
 incidents
 job-production-plan-cancellation-reason-types
 job-production-plan-summary
@@ -582,7 +583,6 @@ incident-request-cancellations
 incident-request-rejections
 incident-requests
 incident-subscriptions
-incident-tag-incidents
 incident-unit-of-measure-quantities
 invoices
 jobs

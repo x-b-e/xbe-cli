@@ -291,6 +291,9 @@ xbe
 │   ├── incident-headline-suggestions  Manage incident headline suggestions
 │   │   ├── create           Create an incident headline suggestion
 │   │   └── delete           Delete an incident headline suggestion
+│   ├── incident-tag-incidents  Manage incident tag incident links
+│   │   ├── create           Create an incident tag incident link
+│   │   └── delete           Delete an incident tag incident link
 │   ├── incident-request-cancellations  Cancel incident requests
 │   │   └── create           Cancel an incident request
 │   ├── expected-time-of-arrivals  Manage expected time of arrivals
@@ -322,6 +325,9 @@ xbe
 │   ├── incident-headline-suggestions  Browse incident headline suggestions
 │   │   ├── list            List incident headline suggestions
 │   │   └── show <id>       Show incident headline suggestion details
+│   ├── incident-tag-incidents  Browse incident tag incident links
+│   │   ├── list            List incident tag incident links with filtering
+│   │   └── show <id>       Show incident tag incident details
 │   ├── hos-days             Browse HOS days
 │   │   ├── list            List HOS days with filtering
 │   │   └── show <id>       Show HOS day details
@@ -634,6 +640,25 @@ xbe do incident-headline-suggestions create --incident 123 --options '{"temperat
 
 # Show full suggestion details
 xbe view incident-headline-suggestions show 456
+```
+
+### Incident Tag Incidents
+
+```bash
+# List incident tag incident links
+xbe view incident-tag-incidents list --limit 10
+
+# Filter by incident
+xbe view incident-tag-incidents list --incident 123
+
+# Filter by incident tag
+xbe view incident-tag-incidents list --incident-tag 456
+
+# Create a tag link
+xbe do incident-tag-incidents create --incident 123 --incident-tag 456
+
+# Delete a tag link
+xbe do incident-tag-incidents delete 789 --confirm
 ```
 
 ### Incident Request Cancellations
