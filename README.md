@@ -76,6 +76,8 @@ xbe
 │   │   └── delete           Delete a customer incident default assignee
 │   ├── device-diagnostics  Manage device diagnostics
 │   │   └── create           Create a device diagnostic
+│   ├── file-attachment-signed-urls Generate signed URLs for file attachments
+│   │   └── create           Generate a signed URL for a file attachment
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
