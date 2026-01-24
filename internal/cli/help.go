@@ -90,6 +90,7 @@ var resourceCategories = map[string][]string{
 	"incident-request-rejections":                              {CatProjects},
 	"incident-unit-of-measure-quantities":                      {CatProjects},
 	"liability-incidents":                                      {CatProjects},
+	"prediction-subject-bids":                                  {CatProjects},
 	"service-sites":                                            {CatProjects},
 	"project-categories":                                       {CatProjects},
 	"project-divisions":                                        {CatProjects},

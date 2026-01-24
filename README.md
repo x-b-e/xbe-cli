@@ -153,6 +153,10 @@ xbe
 │   │   ├── create           Create a location prediction
 │   │   ├── update           Update a location prediction
 │   │   └── delete           Delete a location prediction
+│   ├── prediction-subject-bids Manage prediction subject bids
+│   │   ├── create           Create a prediction subject bid
+│   │   ├── update           Update a prediction subject bid
+│   │   └── delete           Delete a prediction subject bid
 │   ├── project-transport-plan-planned-event-time-schedules Generate planned event time schedules
 │   │   └── create           Generate a planned event time schedule
 │   ├── project-transport-plan-segments Manage project transport plan segments
@@ -436,6 +440,9 @@ xbe
 │   ├── project-transport-plan-event-location-predictions Browse project transport plan event location predictions
 │   │   ├── list            List project transport plan event location predictions
 │   │   └── show <id>       Show project transport plan event location prediction details
+│   ├── prediction-subject-bids Browse prediction subject bids
+│   │   ├── list            List prediction subject bids with filtering
+│   │   └── show <id>       Show prediction subject bid details
 │   ├── project-transport-plan-planned-event-time-schedules Browse project transport plan planned event time schedules
 │   │   ├── list            List project transport plan planned event time schedules
 │   │   └── show <id>       Show project transport plan planned event time schedule details
@@ -1502,6 +1509,30 @@ xbe view project-transport-plan-event-location-predictions show <id>
 
 # Delete a prediction (requires --confirm)
 xbe do project-transport-plan-event-location-predictions delete <id> --confirm
+```
+
+### Prediction Subject Bids
+
+Prediction subject bids capture bidder amounts tied to a prediction subject's lowest losing bid detail.
+
+```bash
+# Create a prediction subject bid
+xbe do prediction-subject-bids create \
+  --bidder 123 \
+  --lowest-losing-bid-prediction-subject-detail 456 \
+  --amount 120000
+
+# List bids filtered by prediction subject
+xbe view prediction-subject-bids list --prediction-subject 789
+
+# Show bid details
+xbe view prediction-subject-bids show <id>
+
+# Update a bid amount
+xbe do prediction-subject-bids update <id> --amount 125000
+
+# Delete a bid (requires --confirm)
+xbe do prediction-subject-bids delete <id> --confirm
 ```
 
 ### Project Transport Plan Strategies
