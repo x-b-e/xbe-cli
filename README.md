@@ -596,6 +596,9 @@ xbe
 │   ├── meeting-attendees   Browse meeting attendees
 │   │   ├── list            List meeting attendees with filtering
 │   │   └── show <id>       Show meeting attendee details
+│   ├── search-catalog-entries Browse search catalog entries
+│   │   ├── list            List search catalog entries with filtering
+│   │   └── show <id>       Show search catalog entry details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details

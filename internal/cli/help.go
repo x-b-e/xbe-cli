@@ -178,6 +178,7 @@ var resourceCategories = map[string][]string{
 	"external-identification-types": {CatReference},
 	"languages":                     {CatReference},
 	"model-filter-infos":            {CatReference},
+	"search-catalog-entries":        {CatReference},
 	"service-types":                 {CatReference},
 	"tag-categories":                {CatReference},
 	"tags":                          {CatReference},

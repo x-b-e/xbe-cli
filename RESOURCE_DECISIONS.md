@@ -181,6 +181,7 @@ raw-transport-orders
 reaction-classifications
 release-notes
 retainer-payment-deductions
+search-catalog-entries
 service-types
 site-events
 shift-feedback-reasons
