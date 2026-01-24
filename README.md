@@ -184,6 +184,10 @@ xbe
 │   │   ├── create           Create a job production plan segment
 │   │   ├── update           Update a job production plan segment
 │   │   └── delete           Delete a job production plan segment
+│   ├── production-measurements Manage production measurements
+│   │   ├── create           Create a production measurement
+│   │   ├── update           Update a production measurement
+│   │   └── delete           Delete a production measurement
 │   ├── job-production-plan-project-phase-revenue-items Manage job production plan project phase revenue items
 │   │   ├── create           Create a job production plan project phase revenue item
 │   │   ├── update           Update a job production plan project phase revenue item
@@ -446,6 +450,9 @@ xbe
 │   ├── job-production-plan-segments Browse job production plan segments
 │   │   ├── list            List job production plan segments
 │   │   └── show <id>       Show job production plan segment details
+│   ├── production-measurements Browse production measurements
+│   │   ├── list            List production measurements
+│   │   └── show <id>       Show production measurement details
 │   ├── job-production-plan-supply-demand-balances Browse job production plan supply/demand balances
 │   │   ├── list            List supply/demand balances
 │   │   └── show <id>       Show supply/demand balance details
