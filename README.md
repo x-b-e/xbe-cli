@@ -190,6 +190,10 @@ xbe
 │   │   ├── create           Create a lineup
 │   │   ├── update           Update a lineup
 │   │   └── delete           Delete a lineup
+│   ├── meetings           Manage meetings
+│   │   ├── create           Create a meeting
+│   │   ├── update           Update a meeting
+│   │   └── delete           Delete a meeting
 │   ├── lineup-job-schedule-shifts Manage lineup job schedule shifts
 │   │   ├── create           Create a lineup job schedule shift
 │   │   ├── update           Update a lineup job schedule shift
@@ -481,6 +485,9 @@ xbe
 │   ├── lineups             Browse lineups
 │   │   ├── list            List lineups
 │   │   └── show <id>       Show lineup details
+│   ├── meetings            Browse meetings
+│   │   ├── list            List meetings
+│   │   └── show <id>       Show meeting details
 │   ├── lineup-job-schedule-shifts Browse lineup job schedule shifts
 │   │   ├── list            List lineup job schedule shifts
 │   │   └── show <id>       Show lineup job schedule shift details
@@ -734,6 +741,33 @@ xbe view key-result-changes list --objective 456
 
 # Show key result change details
 xbe view key-result-changes show 789
+```
+
+### Meetings
+
+```bash
+# List meetings
+xbe view meetings list
+
+# Filter by organization (Type|ID)
+xbe view meetings list --organization "Broker|123"
+
+# Filter by organizer
+xbe view meetings list --organizer 456
+
+# Show meeting details
+xbe view meetings show 789
+
+# Create a meeting
+xbe do meetings create --organization-type brokers --organization-id 123 \
+  --subject "Weekly Safety Meeting" \
+  --start-at 2025-01-15T14:00:00Z --end-at 2025-01-15T15:00:00Z
+
+# Update a meeting summary
+xbe do meetings update 789 --summary "Reviewed safety topics and action items"
+
+# Delete a meeting
+xbe do meetings delete 789 --confirm
 ```
 
 ### Users, Material Suppliers, Customers, Truckers

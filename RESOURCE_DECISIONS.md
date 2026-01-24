@@ -143,6 +143,7 @@ material-transaction-cost-code-allocations
 material-transactions
 material-type-conversions
 material-types
+meetings
 memberships
 newsletters
 parking-sites
