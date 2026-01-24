@@ -90,6 +90,10 @@ xbe
 │   │   ├── create           Create a project trailer classification
 │   │   ├── update           Update a project trailer classification
 │   │   └── delete           Delete a project trailer classification
+│   ├── project-transport-plan-assignment-rules Manage project transport plan assignment rules
+│   │   ├── create           Create a project transport plan assignment rule
+│   │   ├── update           Update a project transport plan assignment rule
+│   │   └── delete           Delete a project transport plan assignment rule
 │   ├── project-margin-matrices Manage project margin matrices
 │   │   ├── create           Create a project margin matrix
 │   │   └── delete           Delete a project margin matrix
@@ -287,6 +291,9 @@ xbe
 │   ├── project-trailer-classifications Browse project trailer classifications
 │   │   ├── list            List project trailer classifications
 │   │   └── show <id>       Show project trailer classification details
+│   ├── project-transport-plan-assignment-rules Browse project transport plan assignment rules
+│   │   ├── list            List project transport plan assignment rules
+│   │   └── show <id>       Show project transport plan assignment rule details
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
