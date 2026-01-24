@@ -116,6 +116,8 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── cycle-time-comparisons Compare cycle times between two locations
+│   │   └── create           Create a cycle time comparison
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── job-production-plan-abandonments Abandon job production plans

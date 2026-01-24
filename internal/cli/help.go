@@ -121,6 +121,7 @@ var resourceCategories = map[string][]string{
 	"user-location-requests":                              {CatFleet},
 
 	// Materials
+	"cycle-time-comparisons":                  {CatMaterials},
 	"material-purchase-order-releases":        {CatMaterials},
 	"material-site-readings":                  {CatMaterials},
 	"material-sites":                          {CatMaterials},
