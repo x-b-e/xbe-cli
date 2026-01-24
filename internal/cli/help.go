@@ -46,8 +46,9 @@ var resourceCategories = map[string][]string{
 	"open-door-issues":        {CatOrganizations},
 	"organization-invoices-batch-invoice-batchings": {CatOrganizations},
 	"organization-invoices-batch-invoice-failures":  {CatOrganizations},
-	"truckers": {CatOrganizations, CatFleet}, // appears in both
-	"users":    {CatOrganizations},
+	"organization-invoices-batch-pdf-files":         {CatOrganizations},
+	"truckers":                                      {CatOrganizations, CatFleet}, // appears in both
+	"users":                                         {CatOrganizations},
 
 	// Content & Publishing
 	"features":          {CatContent},
