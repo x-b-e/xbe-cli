@@ -205,6 +205,7 @@ transport-orders
 transport-summary
 trips
 truck-scopes
+trucker-application-approvals
 trucker-insurances
 truckers
 unit-of-measures
@@ -676,7 +677,6 @@ tenders
 ticket-report-dispatches
 ticket-report-imports
 trading-partners
-trucker-application-approvals
 trucker-applications
 trucker-brokerages
 trucker-invoice-payments

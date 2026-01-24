@@ -824,6 +824,19 @@ xbe do customer-application-approvals create --customer-application 123 --credit
 xbe do customer-application-approvals create --customer-application 123 --credit-limit 1000000 --json
 ```
 
+### Trucker Application Approvals
+
+```bash
+# Approve a trucker application
+xbe do trucker-application-approvals create --trucker-application 123
+
+# Also add the application user as a trucker manager
+xbe do trucker-application-approvals create --trucker-application 123 --add-application-user-as-trucker-manager
+
+# Output as JSON
+xbe do trucker-application-approvals create --trucker-application 123 --json
+```
+
 ### Customer Incident Default Assignees
 
 ```bash
