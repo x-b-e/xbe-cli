@@ -375,6 +375,9 @@ xbe
 │   │   └── delete           Delete an incident headline suggestion
 │   ├── prompt-prescriptions  Request prompt prescriptions
 │   │   └── create           Create a prompt prescription
+│   ├── comment-reactions    Manage comment reactions
+│   │   ├── create           Create a comment reaction
+│   │   └── delete           Delete a comment reaction
 │   ├── incident-tag-incidents  Manage incident tag incident links
 │   │   ├── create           Create an incident tag incident link
 │   │   └── delete           Delete an incident tag incident link
@@ -465,6 +468,9 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── comment-reactions   Browse comment reactions
+│   │   ├── list            List comment reactions with filtering
+│   │   └── show <id>       Show comment reaction details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
 │   ├── broker-certification-types  Browse broker certification types

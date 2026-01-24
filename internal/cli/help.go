@@ -57,6 +57,7 @@ var resourceCategories = map[string][]string{
 
 	// Content & Publishing
 	"answer-related-contents": {CatContent},
+	"comment-reactions":       {CatContent},
 	"features":                {CatContent},
 	"glossary-terms":          {CatContent},
 	"newsletters":             {CatContent},
