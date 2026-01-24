@@ -168,6 +168,10 @@ xbe
 │   │   ├── create           Create a lineup scenario trucker
 │   │   ├── update           Update a lineup scenario trucker
 │   │   └── delete           Delete a lineup scenario trucker
+│   ├── profit-improvements  Manage profit improvements
+│   │   ├── create           Create a profit improvement
+│   │   ├── update           Update a profit improvement
+│   │   └── delete           Delete a profit improvement
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -258,6 +262,9 @@ xbe
 │   ├── invoice-revisions   Browse invoice revisions
 │   │   ├── list            List invoice revisions with filtering
 │   │   └── show <id>       Show invoice revision details
+│   ├── profit-improvements  Browse profit improvements
+│   │   ├── list            List profit improvements with filtering
+│   │   └── show <id>       Show profit improvement details
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Browse lineup trucker assignment recommendations
 │   │   ├── list            List recommendations with filtering
 │   │   └── show <id>       Show recommendation details
