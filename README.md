@@ -318,6 +318,10 @@ xbe
 │   │   ├── create           Create a prediction agent
 │   │   ├── update           Update a prediction agent
 │   │   └── delete           Delete a prediction agent
+│   ├── prediction-subject-memberships  Manage prediction subject memberships
+│   │   ├── create           Create a prediction subject membership
+│   │   ├── update           Update a prediction subject membership
+│   │   └── delete           Delete a prediction subject membership
 │   ├── prediction-subject-gap-portions  Manage prediction subject gap portions
 │   │   ├── create           Create a prediction subject gap portion
 │   │   ├── update           Update a prediction subject gap portion
@@ -392,6 +396,9 @@ xbe
 │   ├── prediction-agents   Browse prediction agents
 │   │   ├── list            List prediction agents with filtering
 │   │   └── show <id>       Show prediction agent details
+│   ├── prediction-subject-memberships  Browse prediction subject memberships
+│   │   ├── list            List prediction subject memberships with filtering
+│   │   └── show <id>       Show prediction subject membership details
 │   ├── prediction-subject-gap-portions  Browse prediction subject gap portions
 │   │   ├── list            List prediction subject gap portions with filtering
 │   │   └── show <id>       Show prediction subject gap portion details
@@ -1132,6 +1139,33 @@ xbe do prediction-agents update 456 --custom-instructions "Focus on recent perfo
 
 # Delete a prediction agent (requires --confirm)
 xbe do prediction-agents delete 456 --confirm
+```
+
+### Prediction Subject Memberships
+
+Prediction subject memberships link users to prediction subjects and define their permissions.
+
+```bash
+# List prediction subject memberships
+xbe view prediction-subject-memberships list
+
+# Filter by prediction subject
+xbe view prediction-subject-memberships list --prediction-subject 123
+
+# Filter by user
+xbe view prediction-subject-memberships list --user 456
+
+# Show prediction subject membership details
+xbe view prediction-subject-memberships show 789
+
+# Create a prediction subject membership
+xbe do prediction-subject-memberships create --prediction-subject 123 --user 456
+
+# Update membership permissions
+xbe do prediction-subject-memberships update 789 --can-manage-memberships true
+
+# Delete a prediction subject membership (requires --confirm)
+xbe do prediction-subject-memberships delete 789 --confirm
 ```
 
 ### Prediction Subject Gap Portions
