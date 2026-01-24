@@ -101,6 +101,10 @@ xbe
 │   │   ├── create           Create a customer commitment
 │   │   ├── update           Update a customer commitment
 │   │   └── delete           Delete a customer commitment
+│   ├── customer-retainers   Manage customer retainers
+│   │   ├── create           Create a customer retainer
+│   │   ├── update           Update a customer retainer
+│   │   └── delete           Delete a customer retainer
 │   ├── action-item-key-results Manage action item key result links
 │   │   ├── create           Create an action item key result link
 │   │   └── delete           Delete an action item key result link
@@ -310,6 +314,9 @@ xbe
 │   ├── rate-agreements     Browse rate agreements
 │   │   ├── list            List rate agreements with filtering
 │   │   └── show <id>       Show rate agreement details
+│   ├── customer-retainers  Browse customer retainers
+│   │   ├── list            List customer retainers with filtering
+│   │   └── show <id>       Show customer retainer details
 │   ├── retainer-payment-deductions Browse retainer payment deductions
 │   │   ├── list            List retainer payment deductions
 │   │   └── show <id>       Show retainer payment deduction details
