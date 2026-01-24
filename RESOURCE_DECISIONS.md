@@ -154,6 +154,7 @@ project-revenue-classifications
 project-transport-event-types
 project-transport-plan-event-location-predictions
 project-transport-plan-segments
+project-unabandonments
 projects
 ptp-driver-summary
 ptp-event-summary
@@ -495,7 +496,6 @@ project-transport-plan-trailer-assignment-recommendations
 project-transport-plan-trailers
 project-transport-plans
 project-truckers
-project-unabandonments
 rate-adjustments
 rate-agreement-copier-works
 rate-agreement-copiers
