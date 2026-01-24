@@ -119,6 +119,7 @@ glossary-terms
 incident-tags
 incident-tag-incidents
 incidents
+jobs
 job-production-plan-cancellation-reason-types
 job-production-plan-summary
 job-production-plans
@@ -585,7 +586,6 @@ incident-requests
 incident-subscriptions
 incident-unit-of-measure-quantities
 invoices
-jobs
 key-result-changes
 key-result-scrappages
 key-result-status-changes

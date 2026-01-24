@@ -150,6 +150,10 @@ xbe
 │   │   ├── create           Create a job production plan safety risk
 │   │   ├── update           Update a job production plan safety risk
 │   │   └── delete           Delete a job production plan safety risk
+│   ├── jobs               Manage jobs
+│   │   ├── create           Create a job
+│   │   ├── update           Update a job
+│   │   └── delete           Delete a job
 │   ├── commitment-simulation-sets  Manage commitment simulation sets
 │   │   ├── create           Create a commitment simulation set
 │   │   ├── update           Update a commitment simulation set
@@ -431,6 +435,9 @@ xbe
 │   ├── job-production-plan-safety-risks       Browse job production plan safety risks
 │   │   ├── list            List job production plan safety risks with filtering
 │   │   └── show <id>       Show job production plan safety risk details
+│   ├── jobs               Browse jobs
+│   │   ├── list            List jobs with filtering
+│   │   └── show <id>       Show job details
 │   ├── job-schedule-shifts  Browse job schedule shifts
 │   │   ├── list            List job schedule shifts with filtering
 │   │   └── show <id>       Show job schedule shift details
