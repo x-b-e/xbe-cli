@@ -397,6 +397,8 @@ xbe
 │   ├── device-diagnostics  Browse device diagnostics
 │   │   ├── list            List device diagnostics
 │   │   └── show <id>       Show device diagnostic details
+│   ├── user-location-estimates Browse user location estimates
+│   │   └── list            List user location estimates
 │   ├── file-imports        Browse file imports
 │   │   ├── list            List file imports with filtering
 │   │   └── show <id>       Show file import details
@@ -1419,6 +1421,25 @@ xbe do device-diagnostics create --device-identifier "ABC-123" --is-tracking=tru
 xbe do device-diagnostics create --device-identifier "ABC-123" \
   --changeset '{"battery_level":85,"network":"wifi"}' \
   --changed-at 2025-01-01T12:00:00Z
+```
+
+### User Location Estimates
+
+User location estimates compute the most recent known location for a user based on location events.
+
+```bash
+# Estimate the current location for a user
+xbe view user-location-estimates list --user 123
+
+# Use a custom as-of time
+xbe view user-location-estimates list --user 123 --as-of 2025-01-01T12:00:00Z
+
+# Override the event window and latency thresholds
+xbe view user-location-estimates list --user 123 \
+  --earliest-event-at 2025-01-01T00:00:00Z \
+  --latest-event-at 2025-01-02T00:00:00Z \
+  --max-abs-latency-seconds 3600 \
+  --max-latest-seconds 86400
 ```
 
 ## Output Formats

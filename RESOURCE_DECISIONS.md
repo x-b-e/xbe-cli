@@ -213,6 +213,7 @@ unit-of-measures
 user-device-location-tracking-requests
 user-credential-classifications
 user-credentials
+user-location-estimates
 users
 work-order-assignments
 work-orders
