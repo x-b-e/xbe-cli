@@ -380,6 +380,9 @@ xbe
 │   │   └── show <id>       Show contractor details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
+│   ├── user-creator-feed-creators Browse user creator feed creators
+│   │   ├── list            List user creator feed creators with filtering
+│   │   └── show <id>       Show user creator feed creator details
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
 │   ├── material-supplier-memberships Browse material supplier memberships
