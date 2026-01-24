@@ -80,6 +80,7 @@ bidders
 broker-customers
 broker-project-transport-event-types
 broker-settings
+broker-vendors
 brokers
 business-units
 certification-requirements

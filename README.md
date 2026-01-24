@@ -610,6 +610,30 @@ xbe do broker-customers update 789 --external-accounting-broker-customer-id "ACC
 xbe do broker-customers delete 789 --confirm
 ```
 
+### Broker Vendors
+
+```bash
+# List broker-vendor relationships
+xbe view broker-vendors list
+
+# Filter by broker and vendor
+xbe view broker-vendors list --broker 123
+xbe view broker-vendors list --partner "Trucker|456"
+
+# Show a broker-vendor relationship
+xbe view broker-vendors show 789
+
+# Create a broker-vendor relationship
+xbe do broker-vendors create --broker 123 --vendor "Trucker|456" \
+  --external-accounting-broker-vendor-id "ACCT-42"
+
+# Update external accounting ID
+xbe do broker-vendors update 789 --external-accounting-broker-vendor-id "ACCT-43"
+
+# Delete a broker-vendor relationship
+xbe do broker-vendors delete 789 --confirm
+```
+
 ### Broker Project Transport Event Types
 
 ```bash
