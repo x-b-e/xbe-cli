@@ -163,6 +163,8 @@ xbe
 │   │   └── create           Cancel a tender
 │   ├── tender-job-schedule-shift-cancellations  Cancel tender job schedule shifts
 │   │   └── create           Cancel a tender job schedule shift
+│   ├── tender-raters        Rate tenders
+│   │   └── create           Rate a tender
 │   ├── invoice-generations  Generate invoices
 │   │   └── create           Create an invoice generation
 │   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules

@@ -84,6 +84,7 @@ var resourceCategories = map[string][]string{
 	"project-subscriptions":                                        {CatProjects},
 	"projects":                                                     {CatProjects},
 	"profit-improvements":                                          {CatProjects},
+	"tender-raters":                                                {CatProjects},
 	"retainer-deductions":                                          {CatProjects},
 	"retainer-periods":                                             {CatProjects},
 
