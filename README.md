@@ -115,6 +115,10 @@ xbe
 │   │   └── delete           Delete a location prediction
 │   ├── project-transport-plan-planned-event-time-schedules Generate planned event time schedules
 │   │   └── create           Generate a planned event time schedule
+│   ├── project-transport-plan-segments Manage project transport plan segments
+│   │   ├── create           Create a project transport plan segment
+│   │   ├── update           Update a project transport plan segment
+│   │   └── delete           Delete a project transport plan segment
 │   ├── project-transport-plan-driver-assignment-recommendations Generate driver assignment recommendations
 │   │   └── create           Generate driver assignment recommendations
 │   ├── project-phase-cost-item-actuals Manage project phase cost item actuals
@@ -306,6 +310,9 @@ xbe
 │   ├── project-transport-plan-planned-event-time-schedules Browse project transport plan planned event time schedules
 │   │   ├── list            List project transport plan planned event time schedules
 │   │   └── show <id>       Show project transport plan planned event time schedule details
+│   ├── project-transport-plan-segments Browse project transport plan segments
+│   │   ├── list            List project transport plan segments with filtering
+│   │   └── show <id>       Show project transport plan segment details
 │   ├── project-transport-plan-driver-assignment-recommendations Browse project transport plan driver assignment recommendations
 │   │   ├── list            List project transport plan driver assignment recommendations
 │   │   └── show <id>       Show project transport plan driver assignment recommendation details
@@ -981,6 +988,30 @@ xbe view project-transport-plan-event-location-predictions show <id>
 
 # Delete a prediction (requires --confirm)
 xbe do project-transport-plan-event-location-predictions delete <id> --confirm
+```
+
+### Project Transport Plan Segments
+
+Project transport plan segments connect origin and destination stops within a plan.
+
+```bash
+# Create a segment
+xbe do project-transport-plan-segments create \
+  --project-transport-plan 123 \
+  --origin 456 \
+  --destination 789
+
+# Update segment miles
+xbe do project-transport-plan-segments update 101 --miles 12.5
+
+# List segments for a plan
+xbe view project-transport-plan-segments list --project-transport-plan 123
+
+# Show segment details
+xbe view project-transport-plan-segments show <id>
+
+# Delete a segment (requires --confirm)
+xbe do project-transport-plan-segments delete <id> --confirm
 ```
 
 ### Project Transport Plan Planned Event Time Schedules

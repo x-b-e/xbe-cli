@@ -153,6 +153,7 @@ project-resource-classifications
 project-revenue-classifications
 project-transport-event-types
 project-transport-plan-event-location-predictions
+project-transport-plan-segments
 projects
 ptp-driver-summary
 ptp-event-summary
@@ -483,7 +484,6 @@ project-transport-plan-segment-drivers
 project-transport-plan-segment-sets
 project-transport-plan-segment-tractors
 project-transport-plan-segment-trailers
-project-transport-plan-segments
 project-transport-plan-stop-insertions
 project-transport-plan-stop-order-stops
 project-transport-plan-stops
