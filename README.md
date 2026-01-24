@@ -58,6 +58,10 @@ xbe
 │   ├── whoami              Show the current authenticated user
 │   └── logout              Remove stored token
 ├── do                      Create, update, and delete XBE resources
+│   ├── answer-feedbacks    Manage answer feedbacks
+│   │   ├── create           Create answer feedback
+│   │   ├── update           Update answer feedback
+│   │   └── delete           Delete answer feedback
 │   ├── application-settings Manage global application settings
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
@@ -384,6 +388,9 @@ xbe
 │       ├── update           Update a maintenance requirement set maintenance requirement
 │       └── delete           Delete a maintenance requirement set maintenance requirement
 ├── view                    Browse and view XBE content
+│   ├── answer-feedbacks    Browse answer feedbacks
+│   │   ├── list            List answer feedbacks
+│   │   └── show <id>       Show answer feedback details
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
