@@ -81,6 +81,8 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── device-location-events Record device location events
+│   │   └── create           Create a device location event
 │   ├── driver-day-adjustment-plans Manage driver day adjustment plans
 │   │   ├── create           Create a driver day adjustment plan
 │   │   ├── update           Update a driver day adjustment plan
@@ -1405,6 +1407,26 @@ xbe view project-transport-plan-planned-event-time-schedules list \
 
 # Show schedule details
 xbe view project-transport-plan-planned-event-time-schedules show <id>
+```
+
+### Device Location Events
+
+Device location events capture device-reported GPS activity for users. The API currently supports create-only access.
+
+```bash
+# Create an event from payload
+xbe do device-location-events create --device-identifier "ios:ABC123" \
+  --payload '{"uuid":"evt-1","timestamp":"2025-01-01T00:00:00Z","activity":{"type":"walking"},"coords":{"latitude":40.0,"longitude":-74.0}}'
+
+# Create an event with explicit fields
+xbe do device-location-events create --device-identifier "ios:ABC123" \
+  --event-id "evt-2" --event-at 2025-01-01T00:05:00Z --event-description "moving" \
+  --event-latitude 40.1 --event-longitude -74.1
+
+# JSON output
+xbe do device-location-events create --device-identifier "ios:ABC123" \
+  --payload '{"uuid":"evt-3","timestamp":"2025-01-01T00:10:00Z","activity":{"type":"still"},"coords":{"latitude":40.2,"longitude":-74.2}}' \
+  --json
 ```
 
 ### Shift Counters
