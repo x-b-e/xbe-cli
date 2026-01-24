@@ -96,6 +96,8 @@ xbe
 │   │   └── create           Create an organization invoices batch file
 │   ├── organization-invoices-batch-invoice-unbatchings Unbatch organization invoices batch invoices
 │   │   └── create           Unbatch an organization invoices batch invoice
+│   ├── organization-invoices-batch-pdf-generations Manage organization invoices batch PDF generations
+│   │   └── create           Create an organization invoices batch PDF generation
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -349,6 +351,10 @@ xbe
 │   ├── organization-invoices-batch-invoice-unbatchings Browse organization invoices batch invoice unbatchings
 │   │   ├── list            List organization invoices batch invoice unbatchings
 │   │   └── show <id>       Show organization invoices batch invoice unbatching details
+│   ├── organization-invoices-batch-pdf-generations Browse organization invoices batch PDF generations
+│   │   ├── list            List organization invoices batch PDF generations with filtering
+│   │   ├── show <id>       Show organization invoices batch PDF generation details
+│   │   └── download-all <id> Download all completed PDFs for a PDF generation
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
