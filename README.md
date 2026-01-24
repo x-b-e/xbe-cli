@@ -586,6 +586,28 @@ xbe view brokers list --company-name "Acme"
 xbe view brokers list --company-name "Acme" --json | jq '.[0].id'
 ```
 
+### Business Unit Customers
+
+```bash
+# List business unit customer links
+xbe view business-unit-customers list
+
+# Filter by business unit
+xbe view business-unit-customers list --business-unit 123
+
+# Filter by customer
+xbe view business-unit-customers list --customer 456
+
+# Show a business unit customer link
+xbe view business-unit-customers show 789
+
+# Create a business unit customer link
+xbe do business-unit-customers create --business-unit 123 --customer 456
+
+# Delete a business unit customer link
+xbe do business-unit-customers delete 789 --confirm
+```
+
 ### Broker Customers
 
 ```bash
