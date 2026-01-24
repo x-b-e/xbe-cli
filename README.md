@@ -305,6 +305,10 @@ xbe
 │   │   ├── create           Create a broker equipment classification
 │   │   ├── update           Update a broker equipment classification
 │   │   └── delete           Delete a broker equipment classification
+│   ├── cost-code-trucking-cost-summaries  Manage cost code trucking cost summaries
+│   │   ├── create           Create a cost code trucking cost summary
+│   │   ├── update           Update a cost code trucking cost summary
+│   │   └── delete           Delete a cost code trucking cost summary
 │   ├── broker-trucker-ratings  Manage broker trucker ratings
 │   │   ├── create           Create a broker trucker rating
 │   │   ├── update           Update a broker trucker rating
@@ -435,6 +439,9 @@ xbe
 │   ├── broker-equipment-classifications  Browse broker equipment classifications
 │   │   ├── list            List broker equipment classifications with filtering
 │   │   └── show <id>       Show broker equipment classification details
+│   ├── cost-code-trucking-cost-summaries  Browse cost code trucking cost summaries
+│   │   ├── list            List cost code trucking cost summaries with filtering
+│   │   └── show <id>       Show cost code trucking cost summary details
 │   ├── business-unit-equipments  Browse business unit equipment links
 │   │   ├── list            List business unit equipment links with filtering
 │   │   └── show <id>       Show business unit equipment details

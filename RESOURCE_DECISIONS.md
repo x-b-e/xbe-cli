@@ -88,6 +88,7 @@ certification-types
 certifications
 comments
 cost-codes
+cost-code-trucking-cost-summaries
 cost-index-entries
 cost-indexes
 craft-classes
