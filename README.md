@@ -244,6 +244,10 @@ xbe
 │   │   └── delete           Delete a retainer period
 │   ├── rate-agreement-copiers  Copy rate agreements to target organizations
 │   │   └── create           Copy a rate agreement to a target organization
+│   ├── broker-certification-types  Manage broker certification types
+│   │   ├── create           Create a broker certification type
+│   │   ├── update           Update a broker certification type
+│   │   └── delete           Delete a broker certification type
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -266,6 +270,9 @@ xbe
 │   │   └── show <id>       Show post details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
+│   ├── broker-certification-types  Browse broker certification types
+│   │   ├── list            List broker certification types with filtering
+│   │   └── show <id>       Show broker certification type details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── api-tokens          Browse API tokens

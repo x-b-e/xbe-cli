@@ -78,6 +78,7 @@ When a CLI command does not match a server resource name, use these mappings.
 action-items
 action-item-tracker-update-requests
 api-tokens
+broker-certification-types
 broker-settings
 brokers
 business-units
@@ -530,7 +531,6 @@ administrative-incidents
 ai-work-order-generations
 application-settings
 base-summary-templates
-broker-certification-types
 broker-customers
 broker-equipment-classifications
 broker-invoices
