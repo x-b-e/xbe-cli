@@ -253,10 +253,14 @@ xbe
 │   │   ├── create           Create a rate agreement
 │   │   ├── update           Update a rate agreement
 │   │   └── delete           Delete a rate agreement
-│   └── proffers             Manage proffers
-│       ├── create           Create a proffer
-│       ├── update           Update a proffer
-│       └── delete           Delete a proffer
+│   ├── proffers             Manage proffers
+│   │   ├── create           Create a proffer
+│   │   ├── update           Update a proffer
+│   │   └── delete           Delete a proffer
+│   └── developer-trucker-certification-multipliers Manage developer trucker certification multipliers
+│       ├── create           Create a developer trucker certification multiplier
+│       ├── update           Update a developer trucker certification multiplier
+│       └── delete           Delete a developer trucker certification multiplier
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -476,9 +480,12 @@ xbe
 │   ├── base-summary-templates Browse base summary templates
 │   │   ├── list            List base summary templates with filtering
 │   │   └── show <id>       Show base summary template details
-│   └── glossary-terms      Browse glossary terms
-│       ├── list            List glossary terms with filtering
-│       └── show <id>       Show glossary term details
+│   ├── glossary-terms      Browse glossary terms
+│   │   ├── list            List glossary terms with filtering
+│   │   └── show <id>       Show glossary term details
+│   └── developer-trucker-certification-multipliers Browse developer trucker certification multipliers
+│       ├── list            List developer trucker certification multipliers with filtering
+│       └── show <id>       Show developer trucker certification multiplier details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```
@@ -942,6 +949,34 @@ xbe do memberships update 789 \
 
 # Delete a membership (requires --confirm)
 xbe do memberships delete 789 --confirm
+```
+
+### Developer Trucker Certification Multipliers
+
+```bash
+# List multipliers
+xbe view developer-trucker-certification-multipliers list
+
+# Filter by developer trucker certification
+xbe view developer-trucker-certification-multipliers list --developer-trucker-certification 123
+
+# Filter by trailer
+xbe view developer-trucker-certification-multipliers list --trailer 456
+
+# Show multiplier details
+xbe view developer-trucker-certification-multipliers show 789
+
+# Create a multiplier
+xbe do developer-trucker-certification-multipliers create \
+  --developer-trucker-certification 123 \
+  --trailer 456 \
+  --multiplier 0.85
+
+# Update a multiplier
+xbe do developer-trucker-certification-multipliers update 789 --multiplier 0.9
+
+# Delete a multiplier
+xbe do developer-trucker-certification-multipliers delete 789 --confirm
 ```
 
 ### Material Supplier Memberships

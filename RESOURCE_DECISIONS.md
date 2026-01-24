@@ -102,6 +102,7 @@ customers
 developer-reference-types
 developer-references
 developer-trucker-certification-classifications
+developer-trucker-certification-multipliers
 developers
 device-location-event-summary
 devices

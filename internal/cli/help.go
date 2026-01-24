@@ -111,12 +111,13 @@ var resourceCategories = map[string][]string{
 	"material-types":                   {CatMaterials},
 
 	// Certifications & Credentials
-	"certification-requirements": {CatCertifications},
-	"certification-types":        {CatCertifications},
-	"certifications":             {CatCertifications},
-	"tractor-credentials":        {CatCertifications},
-	"trailer-credentials":        {CatCertifications},
-	"user-credentials":           {CatCertifications},
+	"certification-requirements":                  {CatCertifications},
+	"certification-types":                         {CatCertifications},
+	"certifications":                              {CatCertifications},
+	"developer-trucker-certification-multipliers": {CatCertifications},
+	"tractor-credentials":                         {CatCertifications},
+	"trailer-credentials":                         {CatCertifications},
+	"user-credentials":                            {CatCertifications},
 
 	// Classifications
 	"cost-codes":                 {CatClassifications},
