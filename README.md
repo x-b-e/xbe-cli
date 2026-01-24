@@ -586,6 +586,30 @@ xbe view brokers list --company-name "Acme"
 xbe view brokers list --company-name "Acme" --json | jq '.[0].id'
 ```
 
+### Broker Customers
+
+```bash
+# List broker-customer relationships
+xbe view broker-customers list
+
+# Filter by broker and customer
+xbe view broker-customers list --broker 123
+xbe view broker-customers list --partner "Customer|456"
+
+# Show a broker-customer relationship
+xbe view broker-customers show 789
+
+# Create a broker-customer relationship
+xbe do broker-customers create --broker 123 --customer 456 \
+  --external-accounting-broker-customer-id "ACCT-42"
+
+# Update external accounting ID
+xbe do broker-customers update 789 --external-accounting-broker-customer-id "ACCT-43"
+
+# Delete a broker-customer relationship
+xbe do broker-customers delete 789 --confirm
+```
+
 ### Users, Material Suppliers, Customers, Truckers
 
 Use these commands to look up IDs for filtering posts by creator.
