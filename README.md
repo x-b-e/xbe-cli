@@ -74,6 +74,10 @@ xbe
 │   │   ├── create           Create an incident participant
 │   │   ├── update           Update an incident participant
 │   │   └── delete           Delete an incident participant
+│   ├── incident-requests     Manage incident requests
+│   │   ├── create           Create an incident request
+│   │   ├── update           Update an incident request
+│   │   └── delete           Delete an incident request
 │   ├── customer-incident-default-assignees Manage customer incident default assignees
 │   │   ├── create           Create a customer incident default assignee
 │   │   ├── update           Update a customer incident default assignee
@@ -299,6 +303,9 @@ xbe
 │   ├── incident-participants Browse incident participants
 │   │   ├── list            List incident participants
 │   │   └── show <id>       Show incident participant details
+│   ├── incident-requests    Browse incident requests
+│   │   ├── list            List incident requests
+│   │   └── show <id>       Show incident request details
 │   ├── customer-incident-default-assignees Browse customer incident default assignees
 │   │   ├── list            List customer incident default assignees
 │   │   └── show <id>       Show customer incident default assignee details
