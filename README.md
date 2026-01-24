@@ -210,6 +210,9 @@ xbe
 │   │   ├── create           Create a project transport plan segment set
 │   │   ├── update           Update a project transport plan segment set
 │   │   └── delete           Delete a project transport plan segment set
+│   ├── project-transport-plan-stop-order-stops  Manage project transport plan stop order stops
+│   │   ├── create           Create a project transport plan stop order stop
+│   │   └── delete           Delete a project transport plan stop order stop
 │   ├── profit-improvements  Manage profit improvements
 │   │   ├── create           Create a profit improvement
 │   │   ├── update           Update a profit improvement
@@ -322,6 +325,9 @@ xbe
 │   ├── project-transport-plan-segment-sets  Browse project transport plan segment sets
 │   │   ├── list            List project transport plan segment sets with filtering
 │   │   └── show <id>       Show project transport plan segment set details
+│   ├── project-transport-plan-stop-order-stops  Browse project transport plan stop order stops
+│   │   ├── list            List project transport plan stop order stops with filtering
+│   │   └── show <id>       Show project transport plan stop order stop details
 │   ├── shift-time-card-requisitions  Browse shift time card requisitions
 │   │   ├── list            List shift time card requisitions with filtering
 │   │   └── show <id>       Show shift time card requisition details
