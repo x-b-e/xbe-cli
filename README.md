@@ -70,6 +70,10 @@ xbe
 │   │   ├── create           Create an efficiency incident
 │   │   ├── update           Update an efficiency incident
 │   │   └── delete           Delete an efficiency incident
+│   ├── incident-participants Manage incident participants
+│   │   ├── create           Create an incident participant
+│   │   ├── update           Update an incident participant
+│   │   └── delete           Delete an incident participant
 │   ├── customer-incident-default-assignees Manage customer incident default assignees
 │   │   ├── create           Create a customer incident default assignee
 │   │   ├── update           Update a customer incident default assignee
@@ -292,6 +296,9 @@ xbe
 │   ├── efficiency-incidents Browse efficiency incidents
 │   │   ├── list            List efficiency incidents with filtering
 │   │   └── show <id>       Show efficiency incident details
+│   ├── incident-participants Browse incident participants
+│   │   ├── list            List incident participants
+│   │   └── show <id>       Show incident participant details
 │   ├── customer-incident-default-assignees Browse customer incident default assignees
 │   │   ├── list            List customer incident default assignees
 │   │   └── show <id>       Show customer incident default assignee details

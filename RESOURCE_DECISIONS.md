@@ -115,6 +115,7 @@ features
 geofences
 glossary-terms
 hos-violations
+incident-participants
 incident-tags
 incidents
 invoice-addresses
@@ -584,7 +585,6 @@ file-attachment-signed-urls
 file-attachments
 file-imports
 incident-headline-suggestions
-incident-participants
 incident-request-approvals
 incident-request-cancellations
 incident-request-rejections
