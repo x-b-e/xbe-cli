@@ -288,6 +288,10 @@ xbe
 │   │   └── delete           Delete a customer trucker link
 │   ├── dispatch-user-matchers  Match dispatch users by phone number
 │   │   └── create           Match a dispatch user by phone number
+│   ├── expected-time-of-arrivals  Manage expected time of arrivals
+│   │   ├── create           Create an expected time of arrival
+│   │   ├── update           Update an expected time of arrival
+│   │   └── delete           Delete an expected time of arrival
 │   ├── developer-certified-weighers  Manage developer certified weighers
 │   │   ├── create           Create a developer certified weigher
 │   │   ├── update           Update a developer certified weigher
@@ -336,6 +340,9 @@ xbe
 │   ├── broker-trucker-ratings  Browse broker trucker ratings
 │   │   ├── list            List broker trucker ratings with filtering
 │   │   └── show <id>       Show broker trucker rating details
+│   ├── expected-time-of-arrivals  Browse expected time of arrival updates
+│   │   ├── list            List expected time of arrivals with filtering
+│   │   └── show <id>       Show expected time of arrival details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── api-tokens          Browse API tokens
@@ -927,6 +934,31 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 
 # Delete a crew rate (requires --confirm)
 xbe do crew-rates delete 789 --confirm
+```
+
+### Expected Time of Arrivals
+
+Expected time of arrivals track ETA updates for tender job schedule shifts.
+
+```bash
+# List expected time of arrivals
+xbe view expected-time-of-arrivals list
+
+# Filter by tender job schedule shift
+xbe view expected-time-of-arrivals list --tender-job-schedule-shift 123
+
+# Show expected time of arrival details
+xbe view expected-time-of-arrivals show 456
+
+# Create an expected time of arrival
+xbe do expected-time-of-arrivals create --tender-job-schedule-shift 123 --expected-at 2025-01-15T12:00:00Z \
+  --note "On the way"
+
+# Update an expected time of arrival
+xbe do expected-time-of-arrivals update 456 --unsure true --note "Awaiting confirmation"
+
+# Delete an expected time of arrival (requires --confirm)
+xbe do expected-time-of-arrivals delete 456 --confirm
 ```
 
 ### Equipment Location Events
