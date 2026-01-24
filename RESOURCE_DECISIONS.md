@@ -142,6 +142,7 @@ project-divisions
 project-estimate-sets
 project-offices
 project-phases
+project-rejections
 project-resource-classifications
 project-revenue-classifications
 project-transport-event-types
@@ -450,7 +451,6 @@ project-phase-revenue-item-actuals
 project-phase-revenue-item-quantity-estimates
 project-phase-revenue-items
 project-project-cost-classifications
-project-rejections
 project-revenue-item-price-estimates
 project-revenue-item-quantity-estimates
 project-revenue-items

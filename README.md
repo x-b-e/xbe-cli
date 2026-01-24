@@ -168,6 +168,8 @@ xbe
 │   │   ├── create           Create a lineup scenario trucker
 │   │   ├── update           Update a lineup scenario trucker
 │   │   └── delete           Delete a lineup scenario trucker
+│   ├── project-rejections  Reject projects
+│   │   └── create           Reject a project
 │   ├── project-estimate-sets  Manage project estimate sets
 │   │   ├── create           Create a project estimate set
 │   │   ├── update           Update a project estimate set
