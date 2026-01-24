@@ -90,6 +90,8 @@ xbe
 │   │   └── create           Request a login code
 │   ├── user-device-location-tracking-requests Request user device location tracking
 │   │   └── create           Send a location tracking request
+│   ├── user-location-requests Request user location
+│   │   └── create           Create a user location request
 │   ├── saml-code-redemptions Redeem SAML login codes
 │   │   └── create           Redeem a SAML login code
 │   ├── sourcing-searches    Find matching truckers and trailers for a customer tender
@@ -399,6 +401,9 @@ xbe
 │   │   └── show <id>       Show device diagnostic details
 │   ├── user-location-estimates Browse user location estimates
 │   │   └── list            List user location estimates
+│   ├── user-location-requests Browse user location requests
+│   │   ├── list            List user location requests
+│   │   └── show <id>       Show user location request details
 │   ├── file-imports        Browse file imports
 │   │   ├── list            List file imports with filtering
 │   │   └── show <id>       Show file import details

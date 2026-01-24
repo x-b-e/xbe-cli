@@ -214,6 +214,7 @@ user-device-location-tracking-requests
 user-credential-classifications
 user-credentials
 user-location-estimates
+user-location-requests
 users
 work-order-assignments
 work-orders
@@ -694,7 +695,6 @@ user-creator-feeds
 user-languages
 user-location-estimates
 user-location-events
-user-location-requests
 user-searches
 user-sourced-material-transaction-image-attribute-extractions
 vehicle-location-events
