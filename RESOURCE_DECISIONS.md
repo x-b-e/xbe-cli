@@ -149,6 +149,7 @@ newsletters
 parking-sites
 places
 posts
+prediction-knowledge-bases
 press-releases
 profit-improvement-categories
 project-abandonments

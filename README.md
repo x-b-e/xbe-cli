@@ -156,6 +156,8 @@ xbe
 │   ├── project-margin-matrices Manage project margin matrices
 │   │   ├── create           Create a project margin matrix
 │   │   └── delete           Delete a project margin matrix
+│   ├── prediction-knowledge-bases Manage prediction knowledge bases
+│   │   └── create           Create a prediction knowledge base
 │   ├── project-phase-cost-items Manage project phase cost items
 │   │   ├── create           Create a project phase cost item
 │   │   ├── update           Update a project phase cost item
@@ -495,6 +497,9 @@ xbe
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
+│   ├── prediction-knowledge-bases Browse prediction knowledge bases
+│   │   ├── list            List prediction knowledge bases
+│   │   └── show <id>       Show prediction knowledge base details
 │   ├── project-phase-cost-items Browse project phase cost items
 │   │   ├── list            List project phase cost items
 │   │   └── show <id>       Show project phase cost item details
