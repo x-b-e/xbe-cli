@@ -90,6 +90,8 @@ xbe
 │   │   └── create           Request a login code
 │   ├── saml-code-redemptions Redeem SAML login codes
 │   │   └── create           Redeem a SAML login code
+│   ├── sourcing-searches    Find matching truckers and trailers for a customer tender
+│   │   └── create           Run a sourcing search
 │   ├── file-imports         Manage file imports
 │   │   ├── create           Create a file import
 │   │   ├── update           Update a file import
