@@ -288,6 +288,9 @@ xbe
 │   │   └── delete           Delete a customer trucker link
 │   ├── dispatch-user-matchers  Match dispatch users by phone number
 │   │   └── create           Match a dispatch user by phone number
+│   ├── incident-headline-suggestions  Manage incident headline suggestions
+│   │   ├── create           Create an incident headline suggestion
+│   │   └── delete           Delete an incident headline suggestion
 │   ├── expected-time-of-arrivals  Manage expected time of arrivals
 │   │   ├── create           Create an expected time of arrival
 │   │   ├── update           Update an expected time of arrival
@@ -314,6 +317,9 @@ xbe
 │   ├── change-requests       Browse change requests
 │   │   ├── list            List change requests with filtering
 │   │   └── show <id>       Show change request details
+│   ├── incident-headline-suggestions  Browse incident headline suggestions
+│   │   ├── list            List incident headline suggestions
+│   │   └── show <id>       Show incident headline suggestion details
 │   ├── hos-days             Browse HOS days
 │   │   ├── list            List HOS days with filtering
 │   │   └── show <id>       Show HOS day details
@@ -607,6 +613,25 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Incident Headline Suggestions
+
+```bash
+# List recent incident headline suggestions
+xbe view incident-headline-suggestions list --limit 10
+
+# Filter by incident
+xbe view incident-headline-suggestions list --incident 123
+
+# Create a headline suggestion
+xbe do incident-headline-suggestions create --incident 123
+
+# Create with custom options
+xbe do incident-headline-suggestions create --incident 123 --options '{"temperature":0.4,"max_tokens":256}'
+
+# Show full suggestion details
+xbe view incident-headline-suggestions show 456
 ```
 
 ### Brokers
