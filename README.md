@@ -210,6 +210,9 @@ xbe
 │   │   ├── create           Create a service type unit of measure cohort
 │   │   ├── update           Update a service type unit of measure cohort
 │   │   └── delete           Delete a service type unit of measure cohort
+│   ├── rate-agreement-copier-works Manage rate agreement copier works
+│   │   ├── create           Create a rate agreement copier work
+│   │   └── update           Update a rate agreement copier work
 │   ├── maintenance-requirement-parts Manage maintenance requirement parts
 │   │   ├── create           Create a maintenance requirement part
 │   │   ├── update           Update a maintenance requirement part
@@ -291,6 +294,9 @@ xbe
 │   ├── job-production-plan-schedule-change-works Browse job production plan schedule change works
 │   │   ├── list            List schedule change works with filtering
 │   │   └── show <id>       Show schedule change work details
+│   ├── rate-agreement-copier-works Browse rate agreement copier works
+│   │   ├── list            List copier works with filtering and pagination
+│   │   └── show <id>       Show copier work details
 │   ├── project-abandonments Browse project abandonments
 │   │   ├── list            List project abandonments
 │   │   └── show <id>       Show project abandonment details
