@@ -113,6 +113,7 @@ var resourceCategories = map[string][]string{
 	"raw-transport-drivers":                               {CatFleet},
 	"raw-transport-projects":                              {CatFleet},
 	"raw-transport-trailers":                              {CatFleet},
+	"trucker-shift-sets":                                  {CatFleet},
 	"tractors":                                            {CatFleet},
 	"trailers":                                            {CatFleet},
 	"transport-orders":                                    {CatFleet},

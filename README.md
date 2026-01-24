@@ -213,6 +213,8 @@ xbe
 │   │   ├── create           Create a trucker invoice
 │   │   ├── update           Update a trucker invoice
 │   │   └── delete           Delete a trucker invoice
+│   ├── trucker-shift-sets  Manage trucker shift sets
+│   │   └── update           Update a trucker shift set
 │   ├── time-card-time-changes Manage time card time changes
 │   │   ├── create           Create a time card time change
 │   │   ├── update           Update a time card time change
@@ -453,6 +455,9 @@ xbe
 │   ├── trucker-referrals   Browse trucker referrals
 │   │   ├── list            List trucker referrals
 │   │   └── show <id>       Show trucker referral details
+│   ├── trucker-shift-sets  Browse trucker shift sets
+│   │   ├── list            List trucker shift sets with filtering
+│   │   └── show <id>       Show trucker shift set details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
