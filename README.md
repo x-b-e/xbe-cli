@@ -87,6 +87,8 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── haskell-lemon-inbound-material-transaction-exports  Generate Haskell Lemon inbound material transaction exports
+│   │   └── create           Create an inbound material transaction export
 │   ├── material-transaction-acceptances  Manage material transaction acceptances
 │   │   └── create           Accept a material transaction
 │   ├── material-transaction-invalidations  Manage material transaction invalidations
@@ -487,6 +489,9 @@ xbe
 │   ├── material-purchase-order-release-redemptions  Browse material purchase order release redemptions
 │   │   ├── list            List release redemptions with filtering
 │   │   └── show <id>       Show release redemption details
+│   ├── haskell-lemon-inbound-material-transaction-exports  Browse Haskell Lemon inbound material transaction exports
+│   │   ├── list            List Haskell Lemon inbound material transaction exports with filtering
+│   │   └── show <id>       Show Haskell Lemon inbound material transaction export details
 │   ├── material-transaction-diversions  Browse material transaction diversions
 │   │   ├── list            List material transaction diversions with filtering
 │   │   └── show <id>       Show diversion details
