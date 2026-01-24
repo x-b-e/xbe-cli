@@ -62,6 +62,9 @@ xbe
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
 │   │   └── delete           Delete an application setting
+│   ├── api-tokens           Manage API tokens
+│   │   ├── create           Create an API token
+│   │   └── update           Update an API token
 │   ├── action-item-tracker-update-requests  Manage action item tracker update requests
 │   │   ├── create           Create an update request
 │   │   ├── update           Update an update request
@@ -265,6 +268,9 @@ xbe
 │   │   └── list            List brokers with filtering
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
+│   ├── api-tokens          Browse API tokens
+│   │   ├── list            List API tokens with filtering
+│   │   └── show <id>       Show API token details
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
 │   ├── material-site-reading-material-types  Browse material site reading material types

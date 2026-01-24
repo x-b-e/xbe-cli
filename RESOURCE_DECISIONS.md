@@ -49,9 +49,9 @@ Use this checklist for every resource. Treat it as the definition of “done.”
 ## Status Summary
 
 - Server resources (routes): 665
-- CLI command resources: 102
-- Server resources covered by commands: 102
-- Remaining (after skips + pending + not yet reviewed): 556
+- CLI command resources: 103
+- Server resources covered by commands: 103
+- Remaining (after skips + pending + not yet reviewed): 555
 
 ## CLI Alias Notes
 
@@ -77,6 +77,7 @@ When a CLI command does not match a server resource name, use these mappings.
 ```
 action-items
 action-item-tracker-update-requests
+api-tokens
 broker-settings
 brokers
 business-units
@@ -527,7 +528,6 @@ action-item-team-members
 action-item-trackers
 administrative-incidents
 ai-work-order-generations
-api-tokens
 application-settings
 base-summary-templates
 broker-certification-types

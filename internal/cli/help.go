@@ -38,6 +38,7 @@ var resourceCategories = map[string][]string{
 	"developers":     {CatOrganizations},
 	"memberships":    {CatOrganizations},
 	"truckers":       {CatOrganizations, CatFleet}, // appears in both
+	"api-tokens":     {CatOrganizations},
 	"users":          {CatOrganizations},
 
 	// Content & Publishing
