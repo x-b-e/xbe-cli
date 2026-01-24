@@ -440,6 +440,9 @@ xbe
 │   ├── organization-formatters  Browse organization formatters
 │   │   ├── list            List organization formatters with filtering
 │   │   └── show <id>       Show organization formatter details
+│   ├── organization-invoices-batch-invoice-status-changes  Browse organization invoices batch invoice status changes
+│   │   ├── list            List organization invoices batch invoice status changes
+│   │   └── show <id>       Show organization invoices batch invoice status change details
 │   ├── job-production-plan-alarm-subscribers  Browse job production plan alarm subscribers
 │   │   ├── list            List alarm subscribers with filtering
 │   │   └── show <id>       Show alarm subscriber details
