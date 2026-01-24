@@ -182,6 +182,9 @@ xbe
 │   │   ├── create           Create a project transport plan event
 │   │   ├── update           Update a project transport plan event
 │   │   └── delete           Delete a project transport plan event
+│   ├── project-transport-plan-segment-drivers Manage project transport plan segment drivers
+│   │   ├── create           Create a project transport plan segment driver
+│   │   └── delete           Delete a project transport plan segment driver
 │   ├── project-project-cost-classifications Manage project project cost classifications
 │   │   ├── create           Create a project project cost classification
 │   │   ├── update           Update a project project cost classification
@@ -345,6 +348,9 @@ xbe
 │   ├── project-transport-plan-events Browse project transport plan events
 │   │   ├── list            List project transport plan events
 │   │   └── show <id>       Show project transport plan event details
+│   ├── project-transport-plan-segment-drivers Browse project transport plan segment drivers
+│   │   ├── list            List project transport plan segment drivers
+│   │   └── show <id>       Show project transport plan segment driver details
 │   ├── project-transport-plan-event-location-prediction-autopsies Browse project transport plan event location prediction autopsies
 │   │   ├── list            List project transport plan event location prediction autopsies
 │   │   └── show <id>       Show project transport plan event location prediction autopsy details
