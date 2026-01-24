@@ -326,10 +326,13 @@ xbe
 │   │   ├── create           Create a developer trucker certification
 │   │   ├── update           Update a developer trucker certification
 │   │   └── delete           Delete a developer trucker certification
-│   └── memberships          Manage user-organization memberships
-│       ├── create           Create a membership
-│       ├── update           Update a membership
-│       └── delete           Delete a membership
+│   ├── memberships          Manage user-organization memberships
+│   │   ├── create           Create a membership
+│   │   ├── update           Update a membership
+│   │   └── delete           Delete a membership
+│   └── organization-formatters  Manage organization formatters
+│       ├── create           Create an organization formatter
+│       └── update           Update an organization formatter
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -434,6 +437,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── organization-formatters  Browse organization formatters
+│   │   ├── list            List organization formatters with filtering
+│   │   └── show <id>       Show organization formatter details
 │   ├── job-production-plan-alarm-subscribers  Browse job production plan alarm subscribers
 │   │   ├── list            List alarm subscribers with filtering
 │   │   └── show <id>       Show alarm subscriber details
