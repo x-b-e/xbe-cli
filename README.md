@@ -89,6 +89,10 @@ xbe
 │   ├── project-margin-matrices Manage project margin matrices
 │   │   ├── create           Create a project margin matrix
 │   │   └── delete           Delete a project margin matrix
+│   ├── project-phase-cost-items Manage project phase cost items
+│   │   ├── create           Create a project phase cost item
+│   │   ├── update           Update a project phase cost item
+│   │   └── delete           Delete a project phase cost item
 │   ├── project-phase-cost-item-price-estimates Manage project phase cost item price estimates
 │   │   ├── create           Create a project phase cost item price estimate
 │   │   ├── update           Update a project phase cost item price estimate
@@ -272,6 +276,9 @@ xbe
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
+│   ├── project-phase-cost-items Browse project phase cost items
+│   │   ├── list            List project phase cost items
+│   │   └── show <id>       Show project phase cost item details
 │   ├── project-phase-cost-item-price-estimates Browse project phase cost item price estimates
 │   │   ├── list            List project phase cost item price estimates
 │   │   └── show <id>       Show project phase cost item price estimate details
