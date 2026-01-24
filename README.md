@@ -202,6 +202,10 @@ xbe
 │   │   ├── create           Create a project transport location
 │   │   ├── update           Update a project transport location
 │   │   └── delete           Delete a project transport location
+│   ├── project-transport-plans  Manage project transport plans
+│   │   ├── create           Create a project transport plan
+│   │   ├── update           Update a project transport plan
+│   │   └── delete           Delete a project transport plan
 │   ├── project-transport-plan-drivers  Manage project transport plan drivers
 │   │   ├── create           Create a project transport plan driver assignment
 │   │   ├── update           Update a project transport plan driver assignment
@@ -319,6 +323,9 @@ xbe
 │   ├── project-transport-locations  Browse project transport locations
 │   │   ├── list            List project transport locations with filtering
 │   │   └── show <id>       Show project transport location details
+│   ├── project-transport-plans  Browse project transport plans
+│   │   ├── list            List project transport plans with filtering
+│   │   └── show <id>       Show project transport plan details
 │   ├── project-transport-plan-drivers  Browse project transport plan drivers
 │   │   ├── list            List project transport plan drivers with filtering
 │   │   └── show <id>       Show project transport plan driver details
