@@ -631,6 +631,7 @@ organization-invoices-batch-pdf-templates
 organization-invoices-batch-processes
 organization-invoices-batch-status-changes
 organization-invoices-batches
+organization-project-actuals-exports
 pave-frame-actual-hours
 place-predictions
 places
@@ -715,7 +716,6 @@ marketing-metrics
 material-site-reading-summaries
 material-transactions-exports
 organization-invoices-batch-file-exports
-organization-project-actuals-exports
 ozinga-tk-batch-file-exports
 pave-frame-actual-statistics
 project-actuals-exports
