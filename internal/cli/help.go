@@ -122,16 +122,17 @@ var resourceCategories = map[string][]string{
 	"user-location-requests":                              {CatFleet},
 
 	// Materials
-	"cycle-time-comparisons":                  {CatMaterials},
-	"material-purchase-order-releases":        {CatMaterials},
-	"material-site-readings":                  {CatMaterials},
-	"material-sites":                          {CatMaterials},
-	"material-suppliers":                      {CatMaterials},
-	"raw-material-transaction-import-results": {CatMaterials},
-	"material-type-conversions":               {CatMaterials},
-	"material-transaction-preloads":           {CatMaterials},
-	"material-transactions":                   {CatMaterials},
-	"material-types":                          {CatMaterials},
+	"cycle-time-comparisons":                       {CatMaterials},
+	"lehman-roberts-apex-viewpoint-ticket-exports": {CatMaterials},
+	"material-purchase-order-releases":             {CatMaterials},
+	"material-site-readings":                       {CatMaterials},
+	"material-sites":                               {CatMaterials},
+	"material-suppliers":                           {CatMaterials},
+	"raw-material-transaction-import-results":      {CatMaterials},
+	"material-type-conversions":                    {CatMaterials},
+	"material-transaction-preloads":                {CatMaterials},
+	"material-transactions":                        {CatMaterials},
+	"material-types":                               {CatMaterials},
 
 	// Certifications & Credentials
 	"certification-requirements": {CatCertifications},

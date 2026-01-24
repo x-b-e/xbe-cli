@@ -255,6 +255,8 @@ xbe
 │   │   └── create           Create a material transaction summary
 │   ├── haskell-lemon-outbound-material-transaction-exports Generate Haskell Lemon outbound material transaction exports
 │   │   └── create           Create an outbound material transaction export
+│   ├── lehman-roberts-apex-viewpoint-ticket-exports Generate Lehman Roberts Apex Viewpoint ticket exports
+│   │   └── create           Create a ticket export
 │   ├── material-transaction-cost-code-allocations Manage material transaction cost code allocations
 │   │   ├── create           Create a material transaction cost code allocation
 │   │   ├── update           Update a material transaction cost code allocation
@@ -443,6 +445,8 @@ xbe
 │   ├── haskell-lemon-outbound-material-transaction-exports Browse Haskell Lemon outbound material transaction exports
 │   │   ├── list            List outbound material transaction exports
 │   │   └── show <id>       Show outbound material transaction export details
+│   ├── lehman-roberts-apex-viewpoint-ticket-exports Browse Lehman Roberts Apex Viewpoint ticket exports
+│   │   └── list            List Apex Viewpoint ticket exports
 │   ├── raw-material-transaction-import-results Browse raw material transaction import results
 │   │   ├── list            List raw material transaction import results
 │   │   └── show <id>       Show raw material transaction import result details
