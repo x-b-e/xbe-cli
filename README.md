@@ -82,6 +82,8 @@ xbe
 │   │   └── create           Abandon a project
 │   ├── project-cancellations Cancel projects
 │   │   └── create           Cancel a project
+│   ├── project-completions Complete projects
+│   │   └── create           Complete a project
 │   ├── job-production-plan-driver-movements Generate job production plan driver movements
 │   │   └── create           Generate driver movement details
 │   ├── job-production-plan-job-site-changes Update job production plan job sites
@@ -255,6 +257,9 @@ xbe
 │   ├── project-cancellations Browse project cancellations
 │   │   ├── list            List project cancellations
 │   │   └── show <id>       Show project cancellation details
+│   ├── project-completions Browse project completions
+│   │   ├── list            List project completions
+│   │   └── show <id>       Show project completion details
 │   ├── job-schedule-shift-start-at-changes Browse job schedule shift start-at changes
 │   │   ├── list            List start-at changes
 │   │   └── show <id>       Show start-at change details

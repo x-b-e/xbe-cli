@@ -74,6 +74,7 @@ var resourceCategories = map[string][]string{
 	"shift-scope-tenders":                                {CatProjects},
 	"project-abandonments":                               {CatProjects},
 	"project-cancellations":                              {CatProjects},
+	"project-completions":                                {CatProjects},
 	"project-categories":                                 {CatProjects},
 	"project-divisions":                                  {CatProjects},
 	"project-offices":                                    {CatProjects},
