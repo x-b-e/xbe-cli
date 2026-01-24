@@ -188,6 +188,10 @@ xbe
 │   │   ├── create           Create a material site subscription
 │   │   ├── update           Update a material site subscription
 │   │   └── delete           Delete a material site subscription
+│   ├── profit-improvement-subscriptions Manage profit improvement subscriptions
+│   │   ├── create           Create a profit improvement subscription
+│   │   ├── update           Update a profit improvement subscription
+│   │   └── delete           Delete a profit improvement subscription
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -339,6 +343,9 @@ xbe
 │   ├── material-site-subscriptions Browse material site subscriptions
 │   │   ├── list            List material site subscriptions
 │   │   └── show <id>       Show material site subscription details
+│   ├── profit-improvement-subscriptions Browse profit improvement subscriptions
+│   │   ├── list            List profit improvement subscriptions
+│   │   └── show <id>       Show profit improvement subscription details
 │   ├── inventory-changes   Browse and view inventory changes
 │   │   ├── list            List inventory changes with filtering
 │   │   └── show <id>       Show inventory change details
