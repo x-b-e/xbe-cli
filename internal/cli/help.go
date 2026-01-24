@@ -129,6 +129,7 @@ var resourceCategories = map[string][]string{
 	"transport-order-materials":                         {CatFleet},
 	"transport-orders":                                  {CatFleet},
 	"transport-references":                              {CatFleet},
+	"vehicle-location-events":                           {CatFleet},
 
 	// Materials
 	"material-transaction-acceptances":                {CatMaterials},

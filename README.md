@@ -1413,6 +1413,24 @@ xbe do equipment-location-events update 456 --event-at 2025-01-16T12:00:00Z \
 xbe do equipment-location-events delete 456 --confirm
 ```
 
+### Vehicle Location Events
+
+Vehicle location events track tractor and trailer positions over time.
+
+```bash
+# List vehicle location events
+xbe view vehicle-location-events list
+
+# Filter by tractor and time range
+xbe view vehicle-location-events list --tractor 123 --event-at-min 2025-01-01T00:00:00Z --event-at-max 2025-01-31T23:59:59Z
+
+# Include blended device location events (requires tractor or trailer)
+xbe view vehicle-location-events list --tractor 123 --include-device-location-events true
+
+# Show event details
+xbe view vehicle-location-events show 456
+```
+
 ### Raw Records
 
 Raw records capture inbound integration payloads and processing status.
