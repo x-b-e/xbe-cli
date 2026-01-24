@@ -66,6 +66,10 @@ xbe
 │   │   ├── create           Create an administrative incident
 │   │   ├── update           Update an administrative incident
 │   │   └── delete           Delete an administrative incident
+│   ├── efficiency-incidents Manage efficiency incidents
+│   │   ├── create           Create an efficiency incident
+│   │   ├── update           Update an efficiency incident
+│   │   └── delete           Delete an efficiency incident
 │   ├── customer-incident-default-assignees Manage customer incident default assignees
 │   │   ├── create           Create a customer incident default assignee
 │   │   ├── update           Update a customer incident default assignee
@@ -279,6 +283,9 @@ xbe
 │   ├── administrative-incidents Browse administrative incidents
 │   │   ├── list            List administrative incidents with filtering
 │   │   └── show <id>       Show administrative incident details
+│   ├── efficiency-incidents Browse efficiency incidents
+│   │   ├── list            List efficiency incidents with filtering
+│   │   └── show <id>       Show efficiency incident details
 │   ├── customer-incident-default-assignees Browse customer incident default assignees
 │   │   ├── list            List customer incident default assignees
 │   │   └── show <id>       Show customer incident default assignee details
