@@ -93,6 +93,7 @@ craft-classes
 crafts
 culture-values
 custom-work-order-statuses
+customer-application-approvals
 customer-settings
 customers
 developer-reference-types

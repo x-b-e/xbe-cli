@@ -587,6 +587,16 @@ xbe do broker-retainer-payment-forecasts create --broker 123 --date 2025-02-01
 xbe do broker-retainer-payment-forecasts create --broker 123 --json
 ```
 
+### Customer Application Approvals
+
+```bash
+# Approve a customer application
+xbe do customer-application-approvals create --customer-application 123 --credit-limit 1000000
+
+# Output as JSON
+xbe do customer-application-approvals create --customer-application 123 --credit-limit 1000000 --json
+```
+
 ### Project Status Changes
 
 ```bash
