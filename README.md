@@ -86,6 +86,9 @@ xbe
 │   │   └── create           Complete a project
 │   ├── project-duplications Duplicate projects
 │   │   └── create           Duplicate a project
+│   ├── project-margin-matrices Manage project margin matrices
+│   │   ├── create           Create a project margin matrix
+│   │   └── delete           Delete a project margin matrix
 │   ├── job-production-plan-driver-movements Generate job production plan driver movements
 │   │   └── create           Generate driver movement details
 │   ├── job-production-plan-job-site-changes Update job production plan job sites
@@ -262,6 +265,9 @@ xbe
 │   ├── project-completions Browse project completions
 │   │   ├── list            List project completions
 │   │   └── show <id>       Show project completion details
+│   ├── project-margin-matrices Browse project margin matrices
+│   │   ├── list            List project margin matrices
+│   │   └── show <id>       Show project margin matrix details
 │   ├── job-schedule-shift-start-at-changes Browse job schedule shift start-at changes
 │   │   ├── list            List start-at changes
 │   │   └── show <id>       Show start-at change details
