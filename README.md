@@ -69,6 +69,10 @@ xbe
 │   │   ├── create           Create an update request
 │   │   ├── update           Update an update request
 │   │   └── delete           Delete an update request
+│   ├── change-requests       Manage change requests
+│   │   ├── create           Create a change request
+│   │   ├── update           Update a change request
+│   │   └── delete           Delete a change request
 │   ├── hos-days              Manage HOS days
 │   │   └── update            Update an HOS day
 │   ├── glossary-terms       Manage glossary terms
@@ -280,6 +284,9 @@ xbe
 │   ├── action-item-tracker-update-requests  Browse action item tracker update requests
 │   │   ├── list            List update requests with filtering
 │   │   └── show <id>       Show update request details
+│   ├── change-requests       Browse change requests
+│   │   ├── list            List change requests with filtering
+│   │   └── show <id>       Show change request details
 │   ├── hos-days             Browse HOS days
 │   │   ├── list            List HOS days with filtering
 │   │   └── show <id>       Show HOS day details
