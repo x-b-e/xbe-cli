@@ -104,6 +104,10 @@ xbe
 │   │   ├── create           Create a project labor classification
 │   │   ├── update           Update a project labor classification
 │   │   └── delete           Delete a project labor classification
+│   ├── project-phase-cost-item-actuals Manage project phase cost item actuals
+│   │   ├── create           Create a project phase cost item actual
+│   │   ├── update           Update a project phase cost item actual
+│   │   └── delete           Delete a project phase cost item actual
 │   ├── job-production-plan-uncompletions Uncomplete job production plans
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
@@ -269,6 +273,9 @@ xbe
 │   ├── project-labor-classifications Browse project labor classifications
 │   │   ├── list            List project labor classifications with filtering
 │   │   └── show <id>       Show project labor classification details
+│   ├── project-phase-cost-item-actuals Browse project phase cost item actuals
+│   │   ├── list            List project phase cost item actuals with filtering
+│   │   └── show <id>       Show project phase cost item actual details
 │   ├── time-card-pre-approvals Browse time card pre-approvals
 │   │   ├── list            List time card pre-approvals with filtering
 │   │   └── show <id>       Show time card pre-approval details
