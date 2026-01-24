@@ -748,6 +748,36 @@ xbe do driver-assignment-refusals create \
   --comment "Unable to cover the shift"
 ```
 
+### Tender Job Schedule Shift Drivers
+
+Tender job schedule shift drivers link drivers to tendered job schedule shifts.
+
+```bash
+# List shift drivers
+xbe view tender-job-schedule-shift-drivers list
+
+# Filter by tender job schedule shift
+xbe view tender-job-schedule-shift-drivers list --tender-job-schedule-shift 123
+
+# Filter by user
+xbe view tender-job-schedule-shift-drivers list --user 456
+
+# Show shift driver details
+xbe view tender-job-schedule-shift-drivers show 789
+
+# Create a shift driver
+xbe do tender-job-schedule-shift-drivers create \
+  --tender-job-schedule-shift 123 \
+  --user 456 \
+  --is-primary
+
+# Update a shift driver
+xbe do tender-job-schedule-shift-drivers update 789 --is-primary true
+
+# Delete a shift driver
+xbe do tender-job-schedule-shift-drivers delete 789 --confirm
+```
+
 ### Driver Movement Segments
 
 Driver movement segments represent contiguous moving or stationary intervals for a driver day.
