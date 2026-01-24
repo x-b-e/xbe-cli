@@ -58,6 +58,10 @@ xbe
 │   ├── whoami              Show the current authenticated user
 │   └── logout              Remove stored token
 ├── do                      Create, update, and delete XBE resources
+│   ├── action-item-line-items Manage action item line items
+│   │   ├── create           Create an action item line item
+│   │   ├── update           Update an action item line item
+│   │   └── delete           Delete an action item line item
 │   ├── application-settings Manage global application settings
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
@@ -256,6 +260,9 @@ xbe
 │       ├── update           Update a transport order stop material
 │       └── delete           Delete a transport order stop material
 ├── view                    Browse and view XBE content
+│   ├── action-item-line-items Browse action item line items
+│   │   ├── list            List action item line items
+│   │   └── show <id>       Show action item line item details
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
