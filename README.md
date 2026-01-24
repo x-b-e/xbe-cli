@@ -221,6 +221,10 @@ xbe
 │   │   ├── create           Create an incident subscription
 │   │   ├── update           Update an incident subscription
 │   │   └── delete           Delete an incident subscription
+│   ├── incident-unit-of-measure-quantities Manage incident unit of measure quantities
+│   │   ├── create           Create an incident unit of measure quantity
+│   │   ├── update           Update an incident unit of measure quantity
+│   │   └── delete           Delete an incident unit of measure quantity
 │   ├── tender-acceptances   Accept tenders
 │   │   └── create           Accept a tender
 │   ├── tender-offers        Offer tenders
@@ -445,6 +449,9 @@ xbe
 │   ├── incident-subscriptions Browse incident subscriptions
 │   │   ├── list            List incident subscriptions with filtering
 │   │   └── show <id>       Show incident subscription details
+│   ├── incident-unit-of-measure-quantities Browse incident unit of measure quantities
+│   │   ├── list            List incident unit of measure quantities
+│   │   └── show <id>       Show incident unit of measure quantity details
 │   ├── tender-acceptances  Browse tender acceptances
 │   │   ├── list            List tender acceptances
 │   │   └── show <id>       Show tender acceptance details
