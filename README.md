@@ -185,6 +185,8 @@ xbe
 │   │   └── create           Reject a time sheet
 │   ├── tender-acceptances   Accept tenders
 │   │   └── create           Accept a tender
+│   ├── tender-offers        Offer tenders
+│   │   └── create           Offer a tender
 │   ├── tender-job-schedule-shift-time-card-reviews Manage tender job schedule shift time card reviews
 │   │   ├── create           Create a time card review
 │   │   └── delete           Delete a time card review
@@ -375,6 +377,9 @@ xbe
 │   ├── tender-acceptances  Browse tender acceptances
 │   │   ├── list            List tender acceptances
 │   │   └── show <id>       Show tender acceptance details
+│   ├── tender-offers       Browse tender offers
+│   │   ├── list            List tender offers
+│   │   └── show <id>       Show tender offer details
 │   ├── tender-job-schedule-shift-time-card-reviews Browse tender job schedule shift time card reviews
 │   │   ├── list            List tender job schedule shift time card reviews
 │   │   └── show <id>       Show tender job schedule shift time card review details
