@@ -93,6 +93,10 @@ xbe
 │   ├── action-item-key-results Manage action item key result links
 │   │   ├── create           Create an action item key result link
 │   │   └── delete           Delete an action item key result link
+│   ├── action-item-trackers Manage action item trackers
+│   │   ├── create           Create an action item tracker
+│   │   ├── update           Update an action item tracker
+│   │   └── delete           Delete an action item tracker
 │   ├── job-production-plan-approvals Approve job production plans
 │   │   └── create           Approve a job production plan
 │   ├── project-approvals    Approve projects
@@ -298,6 +302,9 @@ xbe
 │   ├── action-item-key-results Browse action item key result links
 │   │   ├── list            List action item key result links with filtering
 │   │   └── show <id>       Show action item key result details
+│   ├── action-item-trackers Browse action item trackers
+│   │   ├── list            List action item trackers
+│   │   └── show <id>       Show action item tracker details
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
 │   ├── driver-day-adjustment-plans Browse driver day adjustment plans
