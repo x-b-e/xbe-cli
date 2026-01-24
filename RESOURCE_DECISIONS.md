@@ -95,6 +95,7 @@ culture-values
 custom-work-order-statuses
 customer-application-approvals
 customer-settings
+customer-tenders
 customers
 developer-reference-types
 developer-references

@@ -221,6 +221,10 @@ xbe
 │   │   ├── create           Create a broker tender
 │   │   ├── update           Update a broker tender
 │   │   └── delete           Delete a broker tender
+│   ├── customer-tenders     Manage customer tenders
+│   │   ├── create           Create a customer tender
+│   │   ├── update           Update a customer tender
+│   │   └── delete           Delete a customer tender
 │   ├── proffer-likes        Manage proffer likes
 │   │   ├── create           Create a proffer like
 │   │   └── delete           Delete a proffer like
@@ -313,6 +317,9 @@ xbe
 │   ├── broker-tenders      Browse broker tenders
 │   │   ├── list            List broker tenders
 │   │   └── show <id>       Show broker tender details
+│   ├── customer-tenders    Browse customer tenders
+│   │   ├── list            List customer tenders
+│   │   └── show <id>       Show customer tender details
 │   ├── work-order-assignments Browse work order assignments
 │   │   ├── list            List work order assignments
 │   │   └── show <id>       Show work order assignment details
@@ -579,6 +586,23 @@ xbe do broker-tenders create --job 456 --broker 123 --trucker 789
 
 # Show broker tender details
 xbe view broker-tenders show 789
+```
+
+### Customer Tenders
+
+```bash
+# List customer tenders
+xbe view customer-tenders list
+
+# Filter by broker, job, or status
+xbe view customer-tenders list --broker 123 --status editing
+xbe view customer-tenders list --job 456
+
+# Create a customer tender
+xbe do customer-tenders create --job 456 --customer 123 --broker 789
+
+# Show customer tender details
+xbe view customer-tenders show 789
 ```
 
 ### Broker Retainer Payment Forecasts
