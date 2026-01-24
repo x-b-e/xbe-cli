@@ -94,6 +94,10 @@ xbe
 │   │   ├── create           Create a project transport plan assignment rule
 │   │   ├── update           Update a project transport plan assignment rule
 │   │   └── delete           Delete a project transport plan assignment rule
+│   ├── project-transport-plan-event-times Manage project transport plan event times
+│   │   ├── create           Create a project transport plan event time
+│   │   ├── update           Update a project transport plan event time
+│   │   └── delete           Delete a project transport plan event time
 │   ├── project-margin-matrices Manage project margin matrices
 │   │   ├── create           Create a project margin matrix
 │   │   └── delete           Delete a project margin matrix
@@ -294,6 +298,9 @@ xbe
 │   ├── project-transport-plan-assignment-rules Browse project transport plan assignment rules
 │   │   ├── list            List project transport plan assignment rules
 │   │   └── show <id>       Show project transport plan assignment rule details
+│   ├── project-transport-plan-event-times Browse project transport plan event times
+│   │   ├── list            List project transport plan event times with filtering
+│   │   └── show <id>       Show project transport plan event time details
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
