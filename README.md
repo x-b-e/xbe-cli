@@ -275,6 +275,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── meeting-attendees    Manage meeting attendees
+│   │   ├── create           Create a meeting attendee
+│   │   ├── update           Update a meeting attendee
+│   │   └── delete           Delete a meeting attendee
 │   ├── rate-agreements      Manage rate agreements
 │   │   ├── create           Create a rate agreement
 │   │   ├── update           Update a rate agreement
@@ -512,6 +516,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── meeting-attendees   Browse meeting attendees
+│   │   ├── list            List meeting attendees with filtering
+│   │   └── show <id>       Show meeting attendee details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
@@ -952,6 +959,38 @@ xbe do commitment-simulations create \
   --start-on 2026-01-23 \
   --end-on 2026-01-23 \
   --iteration-count 100
+```
+
+### Meeting Attendees
+
+```bash
+# List meeting attendees
+xbe view meeting-attendees list
+
+# Filter by meeting
+xbe view meeting-attendees list --meeting 123
+
+# Filter by user
+xbe view meeting-attendees list --user 456
+
+# Filter by location kind
+xbe view meeting-attendees list --location-kind on_site
+
+# Filter by presence requirement or present status
+xbe view meeting-attendees list --is-presence-required true
+xbe view meeting-attendees list --is-present false
+
+# Show a meeting attendee
+xbe view meeting-attendees show 789
+
+# Create a meeting attendee
+xbe do meeting-attendees create --meeting 123 --user 456 --location-kind on_site --is-present true
+
+# Update a meeting attendee
+xbe do meeting-attendees update 789 --location-kind remote --is-present false
+
+# Delete a meeting attendee
+xbe do meeting-attendees delete 789 --confirm
 ```
 
 ### Memberships
