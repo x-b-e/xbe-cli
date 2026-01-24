@@ -182,6 +182,8 @@ xbe
 │   │   ├── create           Create a project transport plan event
 │   │   ├── update           Update a project transport plan event
 │   │   └── delete           Delete a project transport plan event
+│   ├── project-transport-plan-stop-insertions Manage project transport plan stop insertions
+│   │   └── create           Create a project transport plan stop insertion
 │   ├── project-transport-plan-segment-drivers Manage project transport plan segment drivers
 │   │   ├── create           Create a project transport plan segment driver
 │   │   └── delete           Delete a project transport plan segment driver
@@ -351,6 +353,9 @@ xbe
 │   ├── project-transport-plan-events Browse project transport plan events
 │   │   ├── list            List project transport plan events
 │   │   └── show <id>       Show project transport plan event details
+│   ├── project-transport-plan-stop-insertions Browse project transport plan stop insertions
+│   │   ├── list            List project transport plan stop insertions
+│   │   └── show <id>       Show project transport plan stop insertion details
 │   ├── project-transport-plan-segment-drivers Browse project transport plan segment drivers
 │   │   ├── list            List project transport plan segment drivers
 │   │   └── show <id>       Show project transport plan segment driver details
