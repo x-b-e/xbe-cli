@@ -214,6 +214,8 @@ xbe
 │   │   └── create           Rate a tender
 │   ├── invoice-generations  Generate invoices
 │   │   └── create           Create an invoice generation
+│   ├── invoice-exports     Export invoices
+│   │   └── create           Export an invoice
 │   ├── broker-invoices     Manage broker invoices
 │   │   ├── create           Create a broker invoice
 │   │   ├── update           Update a broker invoice

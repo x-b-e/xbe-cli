@@ -93,6 +93,7 @@ var resourceCategories = map[string][]string{
 	"process-non-processed-time-card-time-changes":                 {CatProjects},
 	"tender-cancellations":                                         {CatProjects},
 	"tender-status-changes":                                        {CatProjects},
+	"invoice-exports":                                              {CatProjects},
 	"key-results":                                                  {CatProjects},
 	"key-result-status-changes":                                    {CatProjects},
 	"objectives":                                                   {CatProjects},
