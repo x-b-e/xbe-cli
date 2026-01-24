@@ -322,6 +322,10 @@ xbe
 │   ├── incident-tag-incidents  Manage incident tag incident links
 │   │   ├── create           Create an incident tag incident link
 │   │   └── delete           Delete an incident tag incident link
+│   ├── safety-incidents     Manage safety incidents
+│   │   ├── create           Create a safety incident
+│   │   ├── update           Update a safety incident
+│   │   └── delete           Delete a safety incident
 │   ├── incident-request-cancellations  Cancel incident requests
 │   │   └── create           Cancel an incident request
 │   ├── production-incident-detectors  Run production incident detection
@@ -383,6 +387,9 @@ xbe
 │   ├── incident-tag-incidents  Browse incident tag incident links
 │   │   ├── list            List incident tag incident links with filtering
 │   │   └── show <id>       Show incident tag incident details
+│   ├── safety-incidents     Browse safety incidents
+│   │   ├── list            List safety incidents with filtering
+│   │   └── show <id>       Show safety incident details
 │   ├── production-incident-detectors  Browse production incident detector runs
 │   │   ├── list            List detector runs
 │   │   └── show <id>       Show detector run details
@@ -792,6 +799,34 @@ xbe do incident-tag-incidents create --incident 123 --incident-tag 456
 
 # Delete a tag link
 xbe do incident-tag-incidents delete 789 --confirm
+```
+
+### Safety Incidents
+
+```bash
+# List safety incidents
+xbe view safety-incidents list --limit 10
+
+# Filter by status
+xbe view safety-incidents list --status open
+
+# Show safety incident details
+xbe view safety-incidents show 123
+
+# Create a safety incident
+xbe do safety-incidents create \
+  --subject-type brokers \
+  --subject-id 123 \
+  --start-at 2025-01-15T10:00:00Z \
+  --status open \
+  --kind near_miss \
+  --headline "Near miss at plant"
+
+# Update a safety incident
+xbe do safety-incidents update 123 --status closed --end-at 2025-01-15T12:00:00Z
+
+# Delete a safety incident
+xbe do safety-incidents delete 123 --confirm
 ```
 
 ### Production Incident Detectors
