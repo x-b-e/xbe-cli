@@ -343,6 +343,8 @@ xbe
 │   │   └── delete           Delete a broker commitment
 │   ├── broker-tender-cancelled-seller-notifications Manage broker tender cancelled seller notifications
 │   │   └── update           Update a broker tender cancelled seller notification
+│   ├── broker-tender-returned-buyer-notifications Manage broker tender returned buyer notifications
+│   │   └── update           Update a broker tender returned buyer notification
 │   ├── broker-tenders       Manage broker tenders
 │   │   ├── create           Create a broker tender
 │   │   ├── update           Update a broker tender
@@ -544,6 +546,9 @@ xbe
 │   ├── broker-tender-cancelled-seller-notifications Browse broker tender cancelled seller notifications
 │   │   ├── list            List broker tender cancelled seller notifications
 │   │   └── show <id>       Show broker tender cancelled seller notification details
+│   ├── broker-tender-returned-buyer-notifications Browse broker tender returned buyer notifications
+│   │   ├── list            List broker tender returned buyer notifications
+│   │   └── show <id>       Show broker tender returned buyer notification details
 │   ├── broker-tenders      Browse broker tenders
 │   │   ├── list            List broker tenders
 │   │   └── show <id>       Show broker tender details
@@ -884,6 +889,22 @@ xbe view broker-tender-cancelled-seller-notifications show 123
 
 # Mark as read
 xbe do broker-tender-cancelled-seller-notifications update 123 --read
+```
+
+### Broker Tender Returned Buyer Notifications
+
+```bash
+# List notifications
+xbe view broker-tender-returned-buyer-notifications list
+
+# Filter by read status
+xbe view broker-tender-returned-buyer-notifications list --read false
+
+# Show notification details
+xbe view broker-tender-returned-buyer-notifications show 123
+
+# Mark as read
+xbe do broker-tender-returned-buyer-notifications update 123 --read
 ```
 
 ### Tenders
