@@ -102,6 +102,10 @@ xbe
 │   │   ├── create           Create a project transport plan stop
 │   │   ├── update           Update a project transport plan stop
 │   │   └── delete           Delete a project transport plan stop
+│   ├── project-transport-plan-tractors Manage project transport plan tractors
+│   │   ├── create           Create a project transport plan tractor
+│   │   ├── update           Update a project transport plan tractor
+│   │   └── delete           Delete a project transport plan tractor
 │   ├── project-transport-plan-segment-tractors Manage project transport plan segment tractors
 │   │   ├── create           Create a project transport plan segment tractor
 │   │   └── delete           Delete a project transport plan segment tractor
@@ -311,6 +315,9 @@ xbe
 │   ├── project-transport-plan-stops Browse project transport plan stops
 │   │   ├── list            List project transport plan stops
 │   │   └── show <id>       Show project transport plan stop details
+│   ├── project-transport-plan-tractors Browse project transport plan tractors
+│   │   ├── list            List project transport plan tractors with filtering
+│   │   └── show <id>       Show project transport plan tractor details
 │   ├── project-transport-plan-segment-tractors Browse project transport plan segment tractors
 │   │   ├── list            List project transport plan segment tractors
 │   │   └── show <id>       Show project transport plan segment tractor details
