@@ -134,6 +134,7 @@ lineup-job-schedule-shift-trucker-assignment-recommendations
 lineup-scenario-lineups
 lineup-scenario-truckers
 login-code-redemptions
+marketing-metrics
 material-mix-designs
 material-sites
 material-suppliers

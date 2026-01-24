@@ -83,6 +83,8 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── marketing-metrics    Refresh marketing metrics
+│   │   └── create           Refresh marketing metrics
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -700,6 +702,9 @@ xbe
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
+│   ├── marketing-metrics   Browse marketing metrics
+│   │   ├── list            Fetch latest marketing metrics
+│   │   └── show            Show marketing metrics details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
@@ -797,6 +802,22 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Marketing Metrics
+
+```bash
+# Refresh the marketing metrics snapshot
+xbe do marketing-metrics create
+
+# View the latest snapshot in a table
+xbe view marketing-metrics list
+
+# View full metrics details
+xbe view marketing-metrics show
+
+# Get JSON output for scripting
+xbe view marketing-metrics show --json
 ```
 
 ### Incident Headline Suggestions
