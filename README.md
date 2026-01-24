@@ -150,6 +150,8 @@ xbe
 │   ├── job-production-plan-alarm-subscribers  Manage job production plan alarm subscribers
 │   │   ├── create           Create an alarm subscriber
 │   │   └── delete           Delete an alarm subscriber
+│   ├── broker-tender-offered-seller-notifications  Manage broker tender offered seller notifications
+│   │   └── update           Update a notification
 │   ├── broker-tender-offered-seller-notification-subscriptions  Manage broker tender offered seller notification subscriptions
 │   │   ├── create           Create a subscription
 │   │   ├── update           Update a subscription
@@ -604,6 +606,9 @@ xbe
 │   ├── job-production-plan-alarm-subscribers  Browse job production plan alarm subscribers
 │   │   ├── list            List alarm subscribers with filtering
 │   │   └── show <id>       Show alarm subscriber details
+│   ├── broker-tender-offered-seller-notifications  Browse broker tender offered seller notifications
+│   │   ├── list            List notifications with filtering
+│   │   └── show <id>       Show notification details
 │   ├── broker-tender-offered-seller-notification-subscriptions  Browse broker tender offered seller notification subscriptions
 │   │   ├── list            List subscriptions with filtering
 │   │   └── show <id>       Show subscription details

@@ -81,6 +81,7 @@ api-tokens
 broker-certification-types
 broker-equipment-classifications
 broker-settings
+broker-tender-offered-seller-notifications
 broker-tender-offered-seller-notification-subscriptions
 brokers
 business-units
@@ -736,7 +737,6 @@ answer-related-contents
 answers
 broker-tender-cancelled-seller-notifications
 broker-tender-offered-seller-notification-subscriptions
-broker-tender-offered-seller-notifications
 broker-tender-returned-buyer-notifications
 comment-reactions
 communications
