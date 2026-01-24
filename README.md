@@ -778,6 +778,37 @@ xbe do tender-job-schedule-shift-drivers update 789 --is-primary true
 xbe do tender-job-schedule-shift-drivers delete 789 --confirm
 ```
 
+### Tender Job Schedule Shifts
+
+Tender job schedule shifts represent tendered shifts tied to job schedule shifts.
+
+```bash
+# List shifts
+xbe view tender-job-schedule-shifts list
+
+# Filter by tender
+xbe view tender-job-schedule-shifts list --tender 123
+
+# Filter by driver
+xbe view tender-job-schedule-shifts list --seller-operations-contact 456
+
+# Show shift details
+xbe view tender-job-schedule-shifts show 789
+
+# Create a shift
+xbe do tender-job-schedule-shifts create \
+  --tender-type broker-tenders \
+  --tender-id 123 \
+  --job-schedule-shift 456 \
+  --material-transaction-status open
+
+# Update a shift
+xbe do tender-job-schedule-shifts update 789 --seller-operations-contact 456
+
+# Delete a shift
+xbe do tender-job-schedule-shifts delete 789 --confirm
+```
+
 ### Driver Movement Segments
 
 Driver movement segments represent contiguous moving or stationary intervals for a driver day.
