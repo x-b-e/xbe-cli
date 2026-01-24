@@ -150,6 +150,7 @@ project-phases
 project-phase-revenue-items
 project-resource-classifications
 project-revenue-classifications
+project-status-changes
 project-transport-event-types
 projects
 ptp-driver-summary

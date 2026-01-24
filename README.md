@@ -277,6 +277,9 @@ xbe
 │   ├── project-completions Browse project completions
 │   │   ├── list            List project completions
 │   │   └── show <id>       Show project completion details
+│   ├── project-status-changes Browse project status changes
+│   │   ├── list            List project status changes with filtering
+│   │   └── show <id>       Show project status change details
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
@@ -455,6 +458,22 @@ xbe do broker-commitments create --status active --broker 123 --trucker 456 --la
 
 # Show broker commitment details
 xbe view broker-commitments show 789
+```
+
+### Project Status Changes
+
+```bash
+# List project status changes
+xbe view project-status-changes list
+
+# Filter by project
+xbe view project-status-changes list --project 123
+
+# Filter by status
+xbe view project-status-changes list --status active
+
+# Show status change details
+xbe view project-status-changes show 456
 ```
 
 ### Users, Material Suppliers, Customers, Truckers
