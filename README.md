@@ -163,6 +163,9 @@ xbe
 │   │   ├── create           Create a project bid location material type
 │   │   ├── update           Update a project bid location material type
 │   │   └── delete           Delete a project bid location material type
+│   ├── project-customers   Manage project customers
+│   │   ├── create           Create a project customer
+│   │   └── delete           Delete a project customer
 │   ├── geofence-restrictions Manage geofence restrictions
 │   │   ├── create           Create a geofence restriction
 │   │   ├── update           Update a geofence restriction
@@ -305,6 +308,9 @@ xbe
 │   ├── project-bid-location-material-types Browse project bid location material types
 │   │   ├── list            List project bid location material types
 │   │   └── show <id>       Show project bid location material type details
+│   ├── project-customers   Browse project customers
+│   │   ├── list            List project customers
+│   │   └── show <id>       Show project customer details
 │   ├── job-production-plan-job-site-location-estimates Browse job site location estimates
 │   │   ├── list            List job site location estimates
 │   │   └── show <id>       Show job site location estimate details
