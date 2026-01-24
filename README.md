@@ -321,6 +321,8 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── places              Lookup place details
+│   │   └── show <place-id> Show place details
 │   ├── proffer-likes       Browse proffer likes
 │   │   ├── list            List proffer likes with filtering
 │   │   └── show <id>       Show proffer like details
@@ -647,6 +649,16 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Places
+
+```bash
+# Show a place by ID
+xbe view places show ChIJD7fiBh9u5kcRYJSMaMOCCwQ
+
+# Get JSON output
+xbe view places show ChIJD7fiBh9u5kcRYJSMaMOCCwQ --json
 ```
 
 ### Brokers

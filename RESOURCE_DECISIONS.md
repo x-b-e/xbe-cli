@@ -147,6 +147,7 @@ meetings
 memberships
 newsletters
 parking-sites
+places
 posts
 press-releases
 profit-improvement-categories
