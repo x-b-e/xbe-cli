@@ -95,6 +95,7 @@ craft-classes
 crafts
 culture-values
 custom-work-order-statuses
+customer-applications
 customer-commitments
 customer-settings
 customers

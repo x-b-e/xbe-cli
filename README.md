@@ -93,6 +93,10 @@ xbe
 │   │   ├── create           Create an inventory estimate
 │   │   ├── update           Update an inventory estimate
 │   │   └── delete           Delete an inventory estimate
+│   ├── customer-applications Manage customer applications
+│   │   ├── create           Create a customer application
+│   │   ├── update           Update a customer application
+│   │   └── delete           Delete a customer application
 │   ├── customer-commitments Manage customer commitments
 │   │   ├── create           Create a customer commitment
 │   │   ├── update           Update a customer commitment
@@ -292,6 +296,9 @@ xbe
 │   ├── inventory-estimates Browse inventory estimates
 │   │   ├── list            List inventory estimates with filtering
 │   │   └── show <id>       Show inventory estimate details
+│   ├── customer-applications Browse customer applications
+│   │   ├── list            List customer applications with filtering
+│   │   └── show <id>       Show customer application details
 │   ├── invoice-revisionizing-works Browse invoice revisionizing work
 │   │   ├── list            List invoice revisionizing work with filtering
 │   │   └── show <id>       Show invoice revisionizing work details
