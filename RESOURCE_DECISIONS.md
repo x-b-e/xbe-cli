@@ -149,6 +149,7 @@ parking-sites
 pave-frame-actual-hours
 posts
 prediction-subject-bids
+prediction-subject-gaps
 press-releases
 proffers
 profit-improvement-categories
@@ -638,7 +639,6 @@ platform-statuses
 prediction-agents
 prediction-knowledge-bases
 prediction-subject-gap-portions
-prediction-subject-gaps
 prediction-subject-memberships
 prediction-subject-recap-generations
 prediction-subject-recaps

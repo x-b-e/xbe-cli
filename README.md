@@ -157,6 +157,10 @@ xbe
 │   │   ├── create           Create a prediction subject bid
 │   │   ├── update           Update a prediction subject bid
 │   │   └── delete           Delete a prediction subject bid
+│   ├── prediction-subject-gaps Manage prediction subject gaps
+│   │   ├── create           Create a prediction subject gap
+│   │   ├── update           Update a prediction subject gap
+│   │   └── delete           Delete a prediction subject gap
 │   ├── project-transport-plan-planned-event-time-schedules Generate planned event time schedules
 │   │   └── create           Generate a planned event time schedule
 │   ├── project-transport-plan-segments Manage project transport plan segments
@@ -443,6 +447,9 @@ xbe
 │   ├── prediction-subject-bids Browse prediction subject bids
 │   │   ├── list            List prediction subject bids with filtering
 │   │   └── show <id>       Show prediction subject bid details
+│   ├── prediction-subject-gaps Browse prediction subject gaps
+│   │   ├── list            List prediction subject gaps with filtering
+│   │   └── show <id>       Show prediction subject gap details
 │   ├── project-transport-plan-planned-event-time-schedules Browse project transport plan planned event time schedules
 │   │   ├── list            List project transport plan planned event time schedules
 │   │   └── show <id>       Show project transport plan planned event time schedule details
@@ -1533,6 +1540,29 @@ xbe do prediction-subject-bids update <id> --amount 125000
 
 # Delete a bid (requires --confirm)
 xbe do prediction-subject-bids delete <id> --confirm
+```
+
+### Prediction Subject Gaps
+
+Prediction subject gaps capture differences between primary and secondary prediction amounts.
+
+```bash
+# Create a prediction subject gap
+xbe do prediction-subject-gaps create \
+  --prediction-subject 123 \
+  --gap-type actual_vs_consensus
+
+# List gaps filtered by prediction subject
+xbe view prediction-subject-gaps list --prediction-subject 123
+
+# Show gap details
+xbe view prediction-subject-gaps show <id>
+
+# Approve a gap
+xbe do prediction-subject-gaps update <id> --status approved
+
+# Delete a gap (requires --confirm)
+xbe do prediction-subject-gaps delete <id> --confirm
 ```
 
 ### Project Transport Plan Strategies
