@@ -112,6 +112,10 @@ xbe
 │   │   ├── create           Create a project phase revenue item actual
 │   │   ├── update           Update a project phase revenue item actual
 │   │   └── delete           Delete a project phase revenue item actual
+│   ├── project-revenue-item-price-estimates Manage project revenue item price estimates
+│   │   ├── create           Create a project revenue item price estimate
+│   │   ├── update           Update a project revenue item price estimate
+│   │   └── delete           Delete a project revenue item price estimate
 │   ├── job-production-plan-uncompletions Uncomplete job production plans
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
@@ -283,6 +287,9 @@ xbe
 │   ├── project-phase-revenue-item-actuals Browse project phase revenue item actuals
 │   │   ├── list            List project phase revenue item actuals with filtering
 │   │   └── show <id>       Show project phase revenue item actual details
+│   ├── project-revenue-item-price-estimates Browse project revenue item price estimates
+│   │   ├── list            List project revenue item price estimates with filtering
+│   │   └── show <id>       Show project revenue item price estimate details
 │   ├── time-card-pre-approvals Browse time card pre-approvals
 │   │   ├── list            List time card pre-approvals with filtering
 │   │   └── show <id>       Show time card pre-approval details
