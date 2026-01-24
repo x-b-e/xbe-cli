@@ -152,6 +152,7 @@ project-phases
 project-resource-classifications
 project-revenue-classifications
 project-transport-event-types
+project-transport-plan-event-location-predictions
 projects
 ptp-driver-summary
 ptp-event-summary

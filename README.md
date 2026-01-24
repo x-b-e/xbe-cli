@@ -109,6 +109,10 @@ xbe
 │   ├── project-transport-location-event-types Manage project transport location event types
 │   │   ├── create           Create a project transport location event type
 │   │   └── delete           Delete a project transport location event type
+│   ├── project-transport-plan-event-location-predictions Manage project transport plan event location predictions
+│   │   ├── create           Create a location prediction
+│   │   ├── update           Update a location prediction
+│   │   └── delete           Delete a location prediction
 │   ├── project-transport-plan-driver-assignment-recommendations Generate driver assignment recommendations
 │   │   └── create           Generate driver assignment recommendations
 │   ├── project-phase-cost-item-actuals Manage project phase cost item actuals
@@ -294,6 +298,9 @@ xbe
 │   ├── project-transport-location-event-types Browse project transport location event types
 │   │   ├── list            List project transport location event types with filtering
 │   │   └── show <id>       Show project transport location event type details
+│   ├── project-transport-plan-event-location-predictions Browse project transport plan event location predictions
+│   │   ├── list            List project transport plan event location predictions
+│   │   └── show <id>       Show project transport plan event location prediction details
 │   ├── project-transport-plan-driver-assignment-recommendations Browse project transport plan driver assignment recommendations
 │   │   ├── list            List project transport plan driver assignment recommendations
 │   │   └── show <id>       Show project transport plan driver assignment recommendation details
@@ -941,6 +948,34 @@ xbe view project-transport-plan-driver-assignment-recommendations list \
 
 # Show recommendation details
 xbe view project-transport-plan-driver-assignment-recommendations show <id>
+```
+
+### Project Transport Plan Event Location Predictions
+
+Project transport plan event location predictions rank candidate locations for a transport plan event.
+
+```bash
+# Create predictions for a project transport plan event
+xbe do project-transport-plan-event-location-predictions create \
+  --project-transport-plan-event 123 \
+  --transport-order 456
+
+# Create predictions with explicit context
+xbe do project-transport-plan-event-location-predictions create \
+  --transport-order 456 \
+  --project-transport-event-type-id-explicit 789 \
+  --event-position-explicit 1 \
+  --broker-id-explicit 321
+
+# List predictions filtered by event
+xbe view project-transport-plan-event-location-predictions list \
+  --project-transport-plan-event 123
+
+# Show prediction details
+xbe view project-transport-plan-event-location-predictions show <id>
+
+# Delete a prediction (requires --confirm)
+xbe do project-transport-plan-event-location-predictions delete <id> --confirm
 ```
 
 ### Shift Counters
