@@ -138,6 +138,10 @@ xbe
 │   │   ├── create           Create a key result
 │   │   ├── update           Update a key result
 │   │   └── delete           Delete a key result
+│   ├── objectives          Manage objectives
+│   │   ├── create           Create an objective
+│   │   ├── update           Update an objective
+│   │   └── delete           Delete an objective
 │   ├── job-production-plan-change-sets        Manage job production plan change sets
 │   │   ├── create           Create a change set
 │   │   ├── update           Update a change set
@@ -457,6 +461,9 @@ xbe
 │   ├── key-results         Browse key results
 │   │   ├── list            List key results with filtering
 │   │   └── show <id>       Show key result details
+│   ├── objectives          Browse objectives
+│   │   ├── list            List objectives with filtering
+│   │   └── show <id>       Show objective details
 │   ├── key-result-status-changes  Browse key result status changes
 │   │   ├── list            List key result status changes
 │   │   └── show <id>       Show key result status change details
