@@ -180,6 +180,9 @@ xbe
 │   │   ├── create           Create a broker invoice
 │   │   ├── update           Update a broker invoice
 │   │   └── delete           Delete a broker invoice
+│   ├── business-unit-equipments  Manage business unit equipment links
+│   │   ├── create           Create a business unit equipment link
+│   │   └── delete           Delete a business unit equipment link
 │   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules
 │   │   └── create           Request evaluation for equipment
 │   ├── lineup-job-schedule-shift-trucker-assignment-recommendations  Generate lineup trucker assignment recommendations
@@ -294,6 +297,9 @@ xbe
 │   ├── broker-equipment-classifications  Browse broker equipment classifications
 │   │   ├── list            List broker equipment classifications with filtering
 │   │   └── show <id>       Show broker equipment classification details
+│   ├── business-unit-equipments  Browse business unit equipment links
+│   │   ├── list            List business unit equipment links with filtering
+│   │   └── show <id>       Show business unit equipment details
 │   ├── broker-trucker-ratings  Browse broker trucker ratings
 │   │   ├── list            List broker trucker ratings with filtering
 │   │   └── show <id>       Show broker trucker rating details
