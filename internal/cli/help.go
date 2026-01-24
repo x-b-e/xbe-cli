@@ -49,8 +49,9 @@ var resourceCategories = map[string][]string{
 	"organization-invoices-batch-processes":         {CatOrganizations},
 	"organization-invoices-batch-pdf-files":         {CatOrganizations},
 	"organization-invoices-batch-status-changes":    {CatOrganizations},
-	"truckers": {CatOrganizations, CatFleet}, // appears in both
-	"users":    {CatOrganizations},
+	"trucker-invoice-payments":                      {CatOrganizations, CatFleet},
+	"truckers":                                      {CatOrganizations, CatFleet}, // appears in both
+	"users":                                         {CatOrganizations},
 
 	// Content & Publishing
 	"features":                {CatContent},

@@ -433,6 +433,9 @@ xbe
 │   │   └── show <id>       Show action item tracker details
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
+│   ├── trucker-invoice-payments Browse trucker invoice payments
+│   │   ├── list            List trucker invoice payments
+│   │   └── show <id>       Show trucker invoice payment details
 │   ├── driver-day-adjustment-plans Browse driver day adjustment plans
 │   │   ├── list            List driver day adjustment plans
 │   │   └── show <id>       Show driver day adjustment plan details
