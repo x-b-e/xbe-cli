@@ -341,6 +341,8 @@ xbe
 │   │   ├── create           Create a broker commitment
 │   │   ├── update           Update a broker commitment
 │   │   └── delete           Delete a broker commitment
+│   ├── broker-tender-cancelled-seller-notifications Manage broker tender cancelled seller notifications
+│   │   └── update           Update a broker tender cancelled seller notification
 │   ├── broker-tenders       Manage broker tenders
 │   │   ├── create           Create a broker tender
 │   │   ├── update           Update a broker tender
@@ -539,6 +541,9 @@ xbe
 │   ├── broker-commitments  Browse broker commitments
 │   │   ├── list            List broker commitments
 │   │   └── show <id>       Show broker commitment details
+│   ├── broker-tender-cancelled-seller-notifications Browse broker tender cancelled seller notifications
+│   │   ├── list            List broker tender cancelled seller notifications
+│   │   └── show <id>       Show broker tender cancelled seller notification details
 │   ├── broker-tenders      Browse broker tenders
 │   │   ├── list            List broker tenders
 │   │   └── show <id>       Show broker tender details
@@ -863,6 +868,22 @@ xbe do broker-tenders create --job 456 --broker 123 --trucker 789
 
 # Show broker tender details
 xbe view broker-tenders show 789
+```
+
+### Broker Tender Cancelled Seller Notifications
+
+```bash
+# List notifications
+xbe view broker-tender-cancelled-seller-notifications list
+
+# Filter by read status
+xbe view broker-tender-cancelled-seller-notifications list --read false
+
+# Show notification details
+xbe view broker-tender-cancelled-seller-notifications show 123
+
+# Mark as read
+xbe do broker-tender-cancelled-seller-notifications update 123 --read
 ```
 
 ### Tenders
