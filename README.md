@@ -183,6 +183,8 @@ xbe
 │   │   └── delete           Delete a time sheet
 │   ├── time-sheet-rejections Manage time sheet rejections
 │   │   └── create           Reject a time sheet
+│   ├── tender-acceptances   Accept tenders
+│   │   └── create           Accept a tender
 │   ├── time-sheet-line-item-equipment-requirements Manage time sheet line item equipment requirements
 │   │   ├── create           Create a time sheet line item equipment requirement
 │   │   ├── update           Update a time sheet line item equipment requirement
@@ -367,6 +369,9 @@ xbe
 │   ├── time-sheet-rejections Browse time sheet rejections
 │   │   ├── list            List time sheet rejections
 │   │   └── show <id>       Show time sheet rejection details
+│   ├── tender-acceptances  Browse tender acceptances
+│   │   ├── list            List tender acceptances
+│   │   └── show <id>       Show tender acceptance details
 │   ├── time-sheet-line-item-equipment-requirements Browse time sheet line item equipment requirements
 │   │   ├── list            List time sheet line item equipment requirements with filtering
 │   │   └── show <id>       Show time sheet line item equipment requirement details

@@ -176,6 +176,7 @@ shift-summary
 stakeholder-classifications
 tag-categories
 tags
+tender-acceptances
 time-sheet-line-item-classifications
 time-sheet-line-item-equipment-requirements
 tractor-credentials
