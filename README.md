@@ -301,6 +301,8 @@ xbe
 │   │   └── create           Batch an organization invoices batch invoice
 │   ├── organization-invoices-batch-invoice-failures Fail organization invoices batch invoices
 │   │   └── create           Fail an organization invoices batch invoice
+│   ├── organization-invoices-batch-processes Process organization invoices batches
+│   │   └── create           Process an organization invoices batch
 │   ├── organization-invoices-batch-pdf-files Download organization invoices batch PDF files
 │   │   └── download         Download an organization invoices batch PDF file
 │   └── open-door-issues     Manage open door issues
@@ -565,6 +567,9 @@ xbe
 │   ├── organization-invoices-batch-invoice-failures Browse organization invoices batch invoice failures
 │   │   ├── list            List organization invoices batch invoice failures
 │   │   └── show <id>       Show organization invoices batch invoice failure details
+│   ├── organization-invoices-batch-processes Browse organization invoices batch processes
+│   │   ├── list            List organization invoices batch processes
+│   │   └── show <id>       Show organization invoices batch process details
 │   ├── organization-invoices-batch-pdf-files Browse organization invoices batch PDF files
 │   │   ├── list            List organization invoices batch PDF files
 │   │   └── show <id>       Show organization invoices batch PDF file details
