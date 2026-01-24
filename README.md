@@ -320,6 +320,10 @@ xbe
 │   │   ├── create           Create a trucker application
 │   │   ├── update           Update a trucker application
 │   │   └── delete           Delete a trucker application
+│   ├── trucker-referral-codes  Manage trucker referral codes
+│   │   ├── create           Create a trucker referral code
+│   │   ├── update           Update a trucker referral code
+│   │   └── delete           Delete a trucker referral code
 │   ├── dispatch-user-matchers  Match dispatch users by phone number
 │   │   └── create           Match a dispatch user by phone number
 │   ├── login-code-redemptions  Redeem login codes for auth tokens
@@ -500,6 +504,9 @@ xbe
 │   ├── trucker-applications  Browse trucker applications
 │   │   ├── list            List trucker applications with filtering
 │   │   └── show <id>       Show trucker application details
+│   ├── trucker-referral-codes  Browse trucker referral codes
+│   │   ├── list            List trucker referral codes with filtering
+│   │   └── show <id>       Show trucker referral code details
 │   ├── customer-memberships  Browse customer memberships
 │   │   ├── list            List customer memberships with filtering
 │   │   └── show <id>       Show customer membership details
