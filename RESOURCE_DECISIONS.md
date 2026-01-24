@@ -153,6 +153,7 @@ project-revenue-classifications
 project-status-changes
 project-transport-event-types
 project-transport-plan-event-times
+project-transport-plan-segment-tractors
 projects
 ptp-driver-summary
 ptp-event-summary

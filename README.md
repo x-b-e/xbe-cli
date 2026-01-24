@@ -98,6 +98,9 @@ xbe
 │   │   ├── create           Create a project transport plan event time
 │   │   ├── update           Update a project transport plan event time
 │   │   └── delete           Delete a project transport plan event time
+│   ├── project-transport-plan-segment-tractors Manage project transport plan segment tractors
+│   │   ├── create           Create a project transport plan segment tractor
+│   │   └── delete           Delete a project transport plan segment tractor
 │   ├── project-margin-matrices Manage project margin matrices
 │   │   ├── create           Create a project margin matrix
 │   │   └── delete           Delete a project margin matrix
@@ -301,6 +304,9 @@ xbe
 │   ├── project-transport-plan-event-times Browse project transport plan event times
 │   │   ├── list            List project transport plan event times with filtering
 │   │   └── show <id>       Show project transport plan event time details
+│   ├── project-transport-plan-segment-tractors Browse project transport plan segment tractors
+│   │   ├── list            List project transport plan segment tractors
+│   │   └── show <id>       Show project transport plan segment tractor details
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
