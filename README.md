@@ -334,6 +334,8 @@ xbe
 │   │   ├── create           Create a user creator feed
 │   │   ├── update           Update a user creator feed
 │   │   └── delete           Delete a user creator feed
+│   ├── user-searches        Search for users by contact method
+│   │   └── create           Run a user search
 │   ├── incident-headline-suggestions  Manage incident headline suggestions
 │   │   ├── create           Create an incident headline suggestion
 │   │   └── delete           Delete an incident headline suggestion
@@ -462,6 +464,8 @@ xbe
 │   ├── user-creator-feeds   Browse user creator feeds
 │   │   ├── list            List user creator feeds with filtering
 │   │   └── show <id>       Show user creator feed details
+│   ├── user-searches        Browse user searches
+│   │   └── list            List user searches
 │   ├── api-tokens          Browse API tokens
 │   │   ├── list            List API tokens with filtering
 │   │   └── show <id>       Show API token details

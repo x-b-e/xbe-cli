@@ -40,6 +40,7 @@ var resourceCategories = map[string][]string{
 	"dispatch-user-matchers":               {CatOrganizations},
 	"login-code-redemptions":               {CatOrganizations},
 	"user-auth-token-resets":               {CatOrganizations},
+	"user-searches":                        {CatOrganizations},
 	"developers":                           {CatOrganizations},
 	"memberships":                          {CatOrganizations},
 	"organization-formatters":              {CatOrganizations},
