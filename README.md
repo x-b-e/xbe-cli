@@ -362,6 +362,9 @@ xbe
 │   ├── project-transport-plan-segment-trailers Browse project transport plan segment trailers
 │   │   ├── list            List project transport plan segment trailers
 │   │   └── show <id>       Show project transport plan segment trailer details
+│   ├── project-transport-plan-strategy-steps Browse project transport plan strategy steps
+│   │   ├── list            List project transport plan strategy steps
+│   │   └── show <id>       Show project transport plan strategy step details
 │   ├── project-transport-plan-event-location-prediction-autopsies Browse project transport plan event location prediction autopsies
 │   │   ├── list            List project transport plan event location prediction autopsies
 │   │   └── show <id>       Show project transport plan event location prediction autopsy details
