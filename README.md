@@ -238,6 +238,10 @@ xbe
 │   │   ├── create           Create a profit improvement
 │   │   ├── update           Update a profit improvement
 │   │   └── delete           Delete a profit improvement
+│   ├── broker-retainers  Manage broker retainers
+│   │   ├── create           Create a broker retainer
+│   │   ├── update           Update a broker retainer
+│   │   └── delete           Delete a broker retainer
 │   ├── retainer-deductions  Manage retainer deductions
 │   │   ├── create           Create a retainer deduction
 │   │   ├── update           Update a retainer deduction
@@ -409,6 +413,9 @@ xbe
 │   ├── profit-improvements  Browse profit improvements
 │   │   ├── list            List profit improvements with filtering
 │   │   └── show <id>       Show profit improvement details
+│   ├── broker-retainers     Browse broker retainers
+│   │   ├── list            List broker retainers with filtering
+│   │   └── show <id>       Show broker retainer details
 │   ├── retainer-deductions  Browse retainer deductions
 │   │   ├── list            List retainer deductions with filtering
 │   │   └── show <id>       Show retainer deduction details
