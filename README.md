@@ -311,6 +311,9 @@ xbe
 │   │   ├── create           Create a proffer
 │   │   ├── update           Update a proffer
 │   │   └── delete           Delete a proffer
+│   ├── public-praise-reactions Manage public praise reactions
+│   │   ├── create           Create a public praise reaction
+│   │   └── delete           Delete a public praise reaction
 │   ├── developer-trucker-certification-multipliers Manage developer trucker certification multipliers
 │   │   ├── create           Create a developer trucker certification multiplier
 │   │   ├── update           Update a developer trucker certification multiplier
@@ -583,6 +586,9 @@ xbe
 │   ├── press-releases      Browse press releases
 │   │   ├── list            List press releases
 │   │   └── show <id>       Show press release details
+│   ├── public-praise-reactions Browse public praise reactions
+│   │   ├── list            List public praise reactions
+│   │   └── show <id>       Show public praise reaction details
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
@@ -732,6 +738,19 @@ xbe view proffers show 123
 
 # Create a proffer
 xbe do proffers create --title "Add CSV export"
+```
+
+### Public Praise Reactions
+
+```bash
+# List reactions on public praises
+xbe view public-praise-reactions list
+
+# Create a reaction
+xbe do public-praise-reactions create --public-praise 123 --reaction-classification 45
+
+# Delete a reaction
+xbe do public-praise-reactions delete 987 --confirm
 ```
 
 ### Brokers
