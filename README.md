@@ -98,6 +98,10 @@ xbe
 │   │   ├── create           Create a project transport plan event time
 │   │   ├── update           Update a project transport plan event time
 │   │   └── delete           Delete a project transport plan event time
+│   ├── project-transport-plan-stops Manage project transport plan stops
+│   │   ├── create           Create a project transport plan stop
+│   │   ├── update           Update a project transport plan stop
+│   │   └── delete           Delete a project transport plan stop
 │   ├── project-transport-plan-segment-tractors Manage project transport plan segment tractors
 │   │   ├── create           Create a project transport plan segment tractor
 │   │   └── delete           Delete a project transport plan segment tractor
@@ -304,6 +308,9 @@ xbe
 │   ├── project-transport-plan-event-times Browse project transport plan event times
 │   │   ├── list            List project transport plan event times with filtering
 │   │   └── show <id>       Show project transport plan event time details
+│   ├── project-transport-plan-stops Browse project transport plan stops
+│   │   ├── list            List project transport plan stops
+│   │   └── show <id>       Show project transport plan stop details
 │   ├── project-transport-plan-segment-tractors Browse project transport plan segment tractors
 │   │   ├── list            List project transport plan segment tractors
 │   │   └── show <id>       Show project transport plan segment tractor details
