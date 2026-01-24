@@ -94,6 +94,10 @@ xbe
 │   │   └── create           Approve a job production plan
 │   ├── project-approvals    Approve projects
 │   │   └── create           Approve a project
+│   ├── project-bid-locations Manage project bid locations
+│   │   ├── create           Create a project bid location
+│   │   ├── update           Update a project bid location
+│   │   └── delete           Delete a project bid location
 │   ├── job-production-plan-uncompletions Uncomplete job production plans
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
@@ -251,6 +255,9 @@ xbe
 │   ├── project-approvals   Browse project approvals
 │   │   ├── list            List project approvals
 │   │   └── show <id>       Show project approval details
+│   ├── project-bid-locations Browse project bid locations
+│   │   ├── list            List project bid locations with filtering
+│   │   └── show <id>       Show project bid location details
 │   ├── time-card-pre-approvals Browse time card pre-approvals
 │   │   ├── list            List time card pre-approvals with filtering
 │   │   └── show <id>       Show time card pre-approval details
