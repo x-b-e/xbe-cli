@@ -147,6 +147,7 @@ project-cost-codes
 project-divisions
 project-offices
 project-phases
+project-phase-revenue-items
 project-resource-classifications
 project-revenue-classifications
 project-transport-event-types

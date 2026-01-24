@@ -93,6 +93,10 @@ xbe
 │   │   ├── create           Create a project phase cost item
 │   │   ├── update           Update a project phase cost item
 │   │   └── delete           Delete a project phase cost item
+│   ├── project-phase-revenue-items Manage project phase revenue items
+│   │   ├── create           Create a project phase revenue item
+│   │   ├── update           Update a project phase revenue item
+│   │   └── delete           Delete a project phase revenue item
 │   ├── project-phase-cost-item-price-estimates Manage project phase cost item price estimates
 │   │   ├── create           Create a project phase cost item price estimate
 │   │   ├── update           Update a project phase cost item price estimate
@@ -279,6 +283,9 @@ xbe
 │   ├── project-phase-cost-items Browse project phase cost items
 │   │   ├── list            List project phase cost items
 │   │   └── show <id>       Show project phase cost item details
+│   ├── project-phase-revenue-items Browse project phase revenue items
+│   │   ├── list            List project phase revenue items
+│   │   └── show <id>       Show project phase revenue item details
 │   ├── project-phase-cost-item-price-estimates Browse project phase cost item price estimates
 │   │   ├── list            List project phase cost item price estimates
 │   │   └── show <id>       Show project phase cost item price estimate details
