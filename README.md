@@ -460,6 +460,9 @@ xbe
 │   ├── key-result-status-changes  Browse key result status changes
 │   │   ├── list            List key result status changes
 │   │   └── show <id>       Show key result status change details
+│   ├── objective-changes  Browse objective changes
+│   │   ├── list            List objective changes
+│   │   └── show <id>       Show objective change details
 │   ├── tender-job-schedule-shift-cancellations  Browse tender job schedule shift cancellations
 │   │   ├── list            List tender job schedule shift cancellations
 │   │   └── show <id>       Show tender job schedule shift cancellation details
