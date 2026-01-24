@@ -97,6 +97,10 @@ xbe
 │   │   └── delete           Delete a material transaction diversion
 │   ├── material-transaction-shift-assignments  Manage material transaction shift assignments
 │   │   └── create           Create a material transaction shift assignment
+│   ├── raw-material-transaction-sales-customers  Manage raw material transaction sales customers
+│   │   ├── create           Create a raw material transaction sales customer
+│   │   ├── update           Update a raw material transaction sales customer
+│   │   └── delete           Delete a raw material transaction sales customer
 │   ├── transport-order-materials  Manage transport order materials
 │   │   ├── create           Create a transport order material
 │   │   ├── update           Update a transport order material
@@ -442,6 +446,9 @@ xbe
 │   ├── material-transaction-shift-assignments  Browse material transaction shift assignments
 │   │   ├── list            List material transaction shift assignments with filtering
 │   │   └── show <id>       Show assignment details
+│   ├── raw-material-transaction-sales-customers  Browse raw material transaction sales customers
+│   │   ├── list            List raw material transaction sales customers with filtering
+│   │   └── show <id>       Show raw material transaction sales customer details
 │   ├── transport-order-materials  Browse transport order materials
 │   │   ├── list            List transport order materials with filtering
 │   │   └── show <id>       Show transport order material details

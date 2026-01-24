@@ -174,6 +174,7 @@ public-praise-summary
 public-praises
 quality-control-classifications
 rates
+raw-material-transaction-sales-customers
 reaction-classifications
 release-notes
 retainer-periods
