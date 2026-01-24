@@ -310,6 +310,10 @@ xbe
 │   │   ├── create           Create an expected time of arrival
 │   │   ├── update           Update an expected time of arrival
 │   │   └── delete           Delete an expected time of arrival
+│   ├── lowest-losing-bid-prediction-subject-details  Manage lowest losing bid prediction subject details
+│   │   ├── create           Create a detail record
+│   │   ├── update           Update a detail record
+│   │   └── delete           Delete a detail record
 │   ├── developer-certified-weighers  Manage developer certified weighers
 │   │   ├── create           Create a developer certified weigher
 │   │   ├── update           Update a developer certified weigher
@@ -367,6 +371,9 @@ xbe
 │   ├── expected-time-of-arrivals  Browse expected time of arrival updates
 │   │   ├── list            List expected time of arrivals with filtering
 │   │   └── show <id>       Show expected time of arrival details
+│   ├── lowest-losing-bid-prediction-subject-details  Browse lowest losing bid prediction subject details
+│   │   ├── list            List details with filtering
+│   │   └── show <id>       Show detail record
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── api-tokens          Browse API tokens
@@ -1037,6 +1044,30 @@ xbe do expected-time-of-arrivals update 456 --unsure true --note "Awaiting confi
 
 # Delete an expected time of arrival (requires --confirm)
 xbe do expected-time-of-arrivals delete 456 --confirm
+```
+
+### Lowest Losing Bid Prediction Subject Details
+
+Lowest losing bid prediction subject details capture bid amounts and estimate data for prediction subjects.
+
+```bash
+# List details
+xbe view lowest-losing-bid-prediction-subject-details list
+
+# Filter by prediction subject
+xbe view lowest-losing-bid-prediction-subject-details list --prediction-subject 123
+
+# Show detail record
+xbe view lowest-losing-bid-prediction-subject-details show 456
+
+# Create a detail record
+xbe do lowest-losing-bid-prediction-subject-details create --prediction-subject 123 --bid-amount 120000 --walk-away-bid-amount 140000
+
+# Update a detail record
+xbe do lowest-losing-bid-prediction-subject-details update 456 --engineer-estimate-amount 130000
+
+# Delete a detail record (requires --confirm)
+xbe do lowest-losing-bid-prediction-subject-details delete 456 --confirm
 ```
 
 ### Equipment Location Events
