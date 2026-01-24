@@ -177,6 +177,7 @@ stakeholder-classifications
 tag-categories
 tags
 tender-acceptances
+tender-job-schedule-shift-time-card-reviews
 time-sheet-line-item-classifications
 time-sheet-line-item-equipment-requirements
 tractor-credentials
@@ -513,7 +514,6 @@ tender-acceptances
 tender-cancellations
 tender-job-schedule-shift-cancellations
 tender-job-schedule-shift-drivers
-tender-job-schedule-shift-time-card-reviews
 tender-job-schedule-shifts
 tender-job-schedule-shifts-material-transactions-checksums
 tender-offers

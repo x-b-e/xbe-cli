@@ -185,6 +185,9 @@ xbe
 │   │   └── create           Reject a time sheet
 │   ├── tender-acceptances   Accept tenders
 │   │   └── create           Accept a tender
+│   ├── tender-job-schedule-shift-time-card-reviews Manage tender job schedule shift time card reviews
+│   │   ├── create           Create a time card review
+│   │   └── delete           Delete a time card review
 │   ├── time-sheet-line-item-equipment-requirements Manage time sheet line item equipment requirements
 │   │   ├── create           Create a time sheet line item equipment requirement
 │   │   ├── update           Update a time sheet line item equipment requirement
@@ -372,6 +375,9 @@ xbe
 │   ├── tender-acceptances  Browse tender acceptances
 │   │   ├── list            List tender acceptances
 │   │   └── show <id>       Show tender acceptance details
+│   ├── tender-job-schedule-shift-time-card-reviews Browse tender job schedule shift time card reviews
+│   │   ├── list            List tender job schedule shift time card reviews
+│   │   └── show <id>       Show tender job schedule shift time card review details
 │   ├── time-sheet-line-item-equipment-requirements Browse time sheet line item equipment requirements
 │   │   ├── list            List time sheet line item equipment requirements with filtering
 │   │   └── show <id>       Show time sheet line item equipment requirement details
