@@ -118,6 +118,7 @@ file-attachments
 geofences
 glossary-terms
 hos-events
+incident-request-approvals
 incident-tags
 incidents
 inventory-estimates

@@ -213,6 +213,8 @@ xbe
 │   │   └── delete           Delete a time sheet
 │   ├── time-sheet-rejections Manage time sheet rejections
 │   │   └── create           Reject a time sheet
+│   ├── incident-request-approvals Approve incident requests
+│   │   └── create           Approve an incident request
 │   ├── tender-acceptances   Accept tenders
 │   │   └── create           Accept a tender
 │   ├── tender-offers        Offer tenders
@@ -428,6 +430,9 @@ xbe
 │   ├── time-sheet-rejections Browse time sheet rejections
 │   │   ├── list            List time sheet rejections
 │   │   └── show <id>       Show time sheet rejection details
+│   ├── incident-request-approvals Browse incident request approvals
+│   │   ├── list            List incident request approvals
+│   │   └── show <id>       Show incident request approval details
 │   ├── tender-acceptances  Browse tender acceptances
 │   │   ├── list            List tender acceptances
 │   │   └── show <id>       Show tender acceptance details
