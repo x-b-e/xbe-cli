@@ -75,6 +75,8 @@ xbe
 │   │   └── delete           Delete a base summary template
 │   ├── email-address-statuses Check email address status
 │   │   └── create           Check an email address
+│   ├── model-filter-infos   Fetch filter options for resources
+│   │   └── create           Fetch filter options for a resource
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -1538,6 +1540,21 @@ xbe do email-address-statuses create --email-address "user@example.com"
 
 # JSON output
 xbe do email-address-statuses create --email-address "user@example.com" --json
+```
+
+### Model Filter Infos
+
+Model filter infos return available option values for resource filters (create-only).
+
+```bash
+# Fetch filter options for projects
+xbe do model-filter-infos create --resource-type projects
+
+# Limit to selected filter keys
+xbe do model-filter-infos create --resource-type projects --filter-keys customer,project_manager
+
+# Scope options to a broker
+xbe do model-filter-infos create --resource-type projects --scope-filter broker=123
 ```
 
 ## Output Formats

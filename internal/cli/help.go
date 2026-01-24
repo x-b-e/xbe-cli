@@ -162,6 +162,7 @@ var resourceCategories = map[string][]string{
 	"email-address-statuses":        {CatReference},
 	"external-identification-types": {CatReference},
 	"languages":                     {CatReference},
+	"model-filter-infos":            {CatReference},
 	"service-types":                 {CatReference},
 	"tag-categories":                {CatReference},
 	"tags":                          {CatReference},
