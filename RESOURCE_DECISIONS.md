@@ -162,6 +162,7 @@ ptp-trailer-summary
 public-praise-summary
 public-praises
 quality-control-classifications
+rate-agreements-copiers
 rate-adjustments
 rates
 reaction-classifications

@@ -237,6 +237,8 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── rate-agreements-copiers Copy rate agreements from a template
+│   │   └── create           Copy a template rate agreement
 │   ├── work-order-service-codes Manage work order service codes
 │   │   ├── create           Create a work order service code
 │   │   ├── update           Update a work order service code
@@ -297,6 +299,9 @@ xbe
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
+│   ├── rate-agreements-copiers Browse rate agreements copiers
+│   │   ├── list            List rate agreements copiers
+│   │   └── show <id>       Show rate agreements copier details
 │   ├── tractor-odometer-readings Browse tractor odometer readings
 │   │   ├── list            List tractor odometer readings
 │   │   └── show <id>       Show tractor odometer reading details
@@ -880,6 +885,33 @@ xbe do rate-adjustments update 789 --adjustment-max 6.00
 
 # Delete a rate adjustment (requires --confirm)
 xbe do rate-adjustments delete 789 --confirm
+```
+
+### Rate Agreements Copiers
+
+Rate agreements copiers copy a template rate agreement to multiple customers or truckers.
+
+```bash
+# List rate agreements copiers
+xbe view rate-agreements-copiers list
+
+# Filter by broker or template
+xbe view rate-agreements-copiers list --broker 123
+xbe view rate-agreements-copiers list --rate-agreement-template 456
+
+# Show copier details
+xbe view rate-agreements-copiers show 789
+
+# Copy a template to customers
+xbe do rate-agreements-copiers create \
+  --rate-agreement-template 456 \
+  --target-customers 111,222 \
+  --note "Annual renewal"
+
+# Copy a template to truckers
+xbe do rate-agreements-copiers create \
+  --rate-agreement-template 456 \
+  --target-truckers 333,444
 ```
 
 ### Driver Assignment Rules
