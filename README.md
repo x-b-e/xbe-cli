@@ -330,9 +330,12 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
-│   └── organization-formatters  Manage organization formatters
-│       ├── create           Create an organization formatter
-│       └── update           Update an organization formatter
+│   ├── organization-formatters  Manage organization formatters
+│   │   ├── create           Create an organization formatter
+│   │   └── update           Update an organization formatter
+│   └── organization-invoices-batch-pdf-templates  Manage organization invoices batch PDF templates
+│       ├── create           Create an organization invoices batch PDF template
+│       └── update           Update an organization invoices batch PDF template
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -446,6 +449,9 @@ xbe
 │   ├── organization-invoices-batch-invoice-status-changes  Browse organization invoices batch invoice status changes
 │   │   ├── list            List organization invoices batch invoice status changes
 │   │   └── show <id>       Show organization invoices batch invoice status change details
+│   ├── organization-invoices-batch-pdf-templates  Browse organization invoices batch PDF templates
+│   │   ├── list            List organization invoices batch PDF templates
+│   │   └── show <id>       Show organization invoices batch PDF template details
 │   ├── job-production-plan-alarm-subscribers  Browse job production plan alarm subscribers
 │   │   ├── list            List alarm subscribers with filtering
 │   │   └── show <id>       Show alarm subscriber details
