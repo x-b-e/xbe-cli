@@ -217,6 +217,10 @@ xbe
 │   │   └── create           Approve an incident request
 │   ├── incident-request-rejections Reject incident requests
 │   │   └── create           Reject an incident request
+│   ├── incident-subscriptions Manage incident subscriptions
+│   │   ├── create           Create an incident subscription
+│   │   ├── update           Update an incident subscription
+│   │   └── delete           Delete an incident subscription
 │   ├── tender-acceptances   Accept tenders
 │   │   └── create           Accept a tender
 │   ├── tender-offers        Offer tenders
@@ -438,6 +442,9 @@ xbe
 │   ├── incident-request-rejections Browse incident request rejections
 │   │   ├── list            List incident request rejections
 │   │   └── show <id>       Show incident request rejection details
+│   ├── incident-subscriptions Browse incident subscriptions
+│   │   ├── list            List incident subscriptions with filtering
+│   │   └── show <id>       Show incident subscription details
 │   ├── tender-acceptances  Browse tender acceptances
 │   │   ├── list            List tender acceptances
 │   │   └── show <id>       Show tender acceptance details
