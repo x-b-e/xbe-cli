@@ -180,6 +180,7 @@ quality-control-classifications
 rates
 raw-material-transaction-sales-customers
 raw-records
+raw-transport-exports
 raw-transport-tractors
 reaction-classifications
 release-notes

@@ -113,6 +113,10 @@ xbe
 │   │   ├── create           Create a raw transport tractor
 │   │   ├── update           Update a raw transport tractor
 │   │   └── delete           Delete a raw transport tractor
+│   ├── raw-transport-exports  Manage raw transport exports
+│   │   ├── create           Create a raw transport export
+│   │   ├── update           Update a raw transport export
+│   │   └── delete           Delete a raw transport export
 │   ├── transport-order-materials  Manage transport order materials
 │   │   ├── create           Create a transport order material
 │   │   ├── update           Update a transport order material
@@ -526,6 +530,9 @@ xbe
 │   ├── raw-transport-tractors  Browse raw transport tractors
 │   │   ├── list            List raw transport tractors with filtering
 │   │   └── show <id>       Show raw transport tractor details
+│   ├── raw-transport-exports  Browse raw transport exports
+│   │   ├── list            List raw transport exports with filtering
+│   │   └── show <id>       Show raw transport export details
 │   ├── raw-records         Browse ingest raw records
 │   │   ├── list            List raw records with filtering
 │   │   └── show <id>       Show raw record details
