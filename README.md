@@ -92,6 +92,8 @@ xbe
 │   │   ├── create           Create a file import
 │   │   ├── update           Update a file import
 │   │   └── delete           Delete a file import
+│   ├── organization-invoices-batches Manage organization invoices batches
+│   │   └── create           Create an organization invoices batch
 │   ├── organization-invoices-batch-files Manage organization invoices batch files
 │   │   └── create           Create an organization invoices batch file
 │   ├── organization-invoices-batch-invoice-unbatchings Unbatch organization invoices batch invoices
@@ -345,6 +347,9 @@ xbe
 │   ├── file-imports        Browse file imports
 │   │   ├── list            List file imports with filtering
 │   │   └── show <id>       Show file import details
+│   ├── organization-invoices-batches Browse organization invoices batches
+│   │   ├── list            List organization invoices batches with filtering
+│   │   └── show <id>       Show organization invoices batch details
 │   ├── organization-invoices-batch-files Browse organization invoices batch files
 │   │   ├── list            List organization invoices batch files with filtering
 │   │   └── show <id>       Show organization invoices batch file details
