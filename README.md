@@ -89,6 +89,8 @@ xbe
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── material-transaction-rate-summaries  Generate material transaction rate summaries
+│   │   └── create           Create a material transaction rate summary
 │   ├── haskell-lemon-inbound-material-transaction-exports  Generate Haskell Lemon inbound material transaction exports
 │   │   └── create           Create an inbound material transaction export
 │   ├── material-transaction-acceptances  Manage material transaction acceptances
@@ -1076,6 +1078,24 @@ xbe do material-transaction-summary create \
 xbe do material-transaction-summary create \
   --filter broker=123 \
   --min-transactions 100
+```
+
+### Material Transaction Rate Summary
+
+```bash
+# Hourly rate summary for a material site
+xbe do material-transaction-rate-summaries create \
+  --material-site 123 \
+  --start-at 2025-01-01T00:00:00Z \
+  --end-at 2025-01-02T00:00:00Z
+
+# Filter by material type hierarchy and return sparse results
+xbe do material-transaction-rate-summaries create \
+  --material-site 123 \
+  --material-type-hierarchies "aggregate,asphalt" \
+  --start-at 2025-01-01T00:00:00Z \
+  --end-at 2025-01-02T00:00:00Z \
+  --sparse
 ```
 
 ### Memberships

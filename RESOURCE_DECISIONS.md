@@ -138,6 +138,7 @@ marketing-metrics
 material-mix-designs
 material-sites
 material-suppliers
+material-transaction-rate-summaries
 material-transaction-shift-assignments
 material-transaction-summary
 material-transactions
@@ -712,7 +713,6 @@ job-production-plan-material-transaction-summaries
 lehman-roberts-apex-viewpoint-ticket-exports
 marketing-metrics
 material-site-reading-summaries
-material-transaction-rate-summaries
 material-transactions-exports
 organization-invoices-batch-file-exports
 organization-project-actuals-exports
