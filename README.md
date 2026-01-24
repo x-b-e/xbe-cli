@@ -649,6 +649,9 @@ xbe
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
+│   ├── version-events      Browse version events
+│   │   ├── list            List version events with filtering
+│   │   └── show <id>       Show version event details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
