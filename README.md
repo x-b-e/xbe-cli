@@ -167,6 +167,10 @@ xbe
 │   │   ├── create           Create a project material type
 │   │   ├── update           Update a project material type
 │   │   └── delete           Delete a project material type
+│   ├── project-revenue-items Manage project revenue items
+│   │   ├── create           Create a project revenue item
+│   │   ├── update           Update a project revenue item
+│   │   └── delete           Delete a project revenue item
 │   ├── project-customers   Manage project customers
 │   │   ├── create           Create a project customer
 │   │   └── delete           Delete a project customer
@@ -321,6 +325,9 @@ xbe
 │   ├── project-material-types Browse project material types
 │   │   ├── list            List project material types
 │   │   └── show <id>       Show project material type details
+│   ├── project-revenue-items Browse project revenue items
+│   │   ├── list            List project revenue items
+│   │   └── show <id>       Show project revenue item details
 │   ├── project-customers   Browse project customers
 │   │   ├── list            List project customers
 │   │   └── show <id>       Show project customer details
