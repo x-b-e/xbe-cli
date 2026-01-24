@@ -191,6 +191,7 @@ stakeholder-classifications
 tag-categories
 tags
 tender-returns
+ticket-reports
 time-card-invoices
 time-sheet-line-items
 time-sheet-line-item-classifications

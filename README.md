@@ -100,6 +100,10 @@ xbe
 │   │   ├── create           Create a file import
 │   │   ├── update           Update a file import
 │   │   └── delete           Delete a file import
+│   ├── ticket-reports       Manage ticket reports
+│   │   ├── create           Create a ticket report
+│   │   ├── update           Update a ticket report
+│   │   └── delete           Delete a ticket report
 │   ├── organization-invoices-batches Manage organization invoices batches
 │   │   └── create           Create an organization invoices batch
 │   ├── organization-invoices-batch-files Manage organization invoices batch files
@@ -425,6 +429,9 @@ xbe
 │   ├── file-imports        Browse file imports
 │   │   ├── list            List file imports with filtering
 │   │   └── show <id>       Show file import details
+│   ├── ticket-reports      Browse ticket reports
+│   │   ├── list            List ticket reports with filtering
+│   │   └── show <id>       Show ticket report details
 │   ├── organization-invoices-batches Browse organization invoices batches
 │   │   ├── list            List organization invoices batches with filtering
 │   │   └── show <id>       Show organization invoices batch details
