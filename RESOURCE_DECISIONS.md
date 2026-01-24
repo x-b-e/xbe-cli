@@ -119,6 +119,7 @@ incident-participants
 incident-tags
 incidents
 invoice-addresses
+invoices
 job-production-plan-cancellation-reason-types
 job-production-plan-completions
 job-production-plan-job-site-changes

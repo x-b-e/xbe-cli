@@ -71,6 +71,7 @@ var resourceCategories = map[string][]string{
 	"job-production-plans":                               {CatProjects},
 	"job-sites":                                          {CatProjects},
 	"invoice-addresses":                                  {CatProjects},
+	"invoices":                                           {CatProjects},
 	"invoice-rejections":                                 {CatProjects},
 	"invoice-revisionables":                              {CatProjects},
 	"invoice-revisionizings":                             {CatProjects},

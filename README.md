@@ -448,6 +448,9 @@ xbe
 │   ├── job-schedule-shift-start-at-changes Browse job schedule shift start-at changes
 │   │   ├── list            List start-at changes
 │   │   └── show <id>       Show start-at change details
+│   ├── invoices            Browse invoices
+│   │   ├── list            List invoices with filtering
+│   │   └── show <id>       Show invoice details
 │   ├── time-card-invoices  Browse time card invoices
 │   │   ├── list            List time card invoices with filtering
 │   │   └── show <id>       Show time card invoice details
