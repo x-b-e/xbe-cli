@@ -97,6 +97,7 @@ customer-application-approvals
 customer-settings
 customer-tenders
 customers
+developer-memberships
 developer-reference-types
 developer-references
 developer-trucker-certification-classifications

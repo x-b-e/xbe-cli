@@ -209,6 +209,10 @@ xbe
 │   │   ├── create           Create a broker membership
 │   │   ├── update           Update a broker membership
 │   │   └── delete           Delete a broker membership
+│   ├── developer-memberships Manage developer memberships
+│   │   ├── create           Create a developer membership
+│   │   ├── update           Update a developer membership
+│   │   └── delete           Delete a developer membership
 │   ├── business-unit-memberships Manage business unit memberships
 │   │   ├── create           Create a business unit membership
 │   │   ├── update           Update a business unit membership
@@ -308,6 +312,9 @@ xbe
 │   ├── broker-memberships  Browse broker memberships
 │   │   ├── list            List broker memberships with filtering
 │   │   └── show <id>       Show broker membership details
+│   ├── developer-memberships Browse developer memberships
+│   │   ├── list            List developer memberships with filtering
+│   │   └── show <id>       Show developer membership details
 │   ├── business-unit-memberships Browse business unit memberships
 │   │   ├── list            List business unit memberships with filtering
 │   │   └── show <id>       Show business unit membership details
@@ -833,6 +840,27 @@ xbe do broker-memberships update 789 --title "Dispatcher" --is-rate-editor true
 
 # Delete a broker membership (requires --confirm)
 xbe do broker-memberships delete 789 --confirm
+```
+
+### Developer Memberships
+
+Developer memberships define the relationship between users and developer organizations.
+
+```bash
+# List developer memberships
+xbe view developer-memberships list --organization "Developer|123"
+
+# Show developer membership details
+xbe view developer-memberships show 456
+
+# Create a developer membership
+xbe do developer-memberships create --user 123 --developer 456 --kind manager
+
+# Update a developer membership
+xbe do developer-memberships update 789 --title "Project Manager" --can-see-rates-as-manager true
+
+# Delete a developer membership (requires --confirm)
+xbe do developer-memberships delete 789 --confirm
 ```
 
 ### Business Unit Memberships
