@@ -179,6 +179,7 @@ quality-control-classifications
 rates
 reaction-classifications
 release-notes
+resource-classification-project-cost-classifications
 service-types
 service-type-unit-of-measure-cohorts
 shift-feedback-reasons
@@ -664,7 +665,6 @@ raw-transport-orders
 raw-transport-projects
 raw-transport-tractors
 raw-transport-trailers
-resource-classification-project-cost-classifications
 rmt-adjustments
 root-causes
 safety-incidents

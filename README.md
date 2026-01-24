@@ -130,6 +130,9 @@ xbe
 │   │   ├── create           Create a project trailer classification
 │   │   ├── update           Update a project trailer classification
 │   │   └── delete           Delete a project trailer classification
+│   ├── resource-classification-project-cost-classifications Manage resource classification project cost classifications
+│   │   ├── create           Create a resource classification project cost classification
+│   │   └── delete           Delete a resource classification project cost classification
 │   ├── objective-stakeholder-classifications Manage objective stakeholder classifications
 │   │   ├── create           Create an objective stakeholder classification
 │   │   ├── update           Update an objective stakeholder classification
@@ -517,6 +520,9 @@ xbe
 │   ├── project-trailer-classifications Browse project trailer classifications
 │   │   ├── list            List project trailer classifications
 │   │   └── show <id>       Show project trailer classification details
+│   ├── resource-classification-project-cost-classifications Browse resource classification project cost classifications
+│   │   ├── list            List resource classification project cost classifications
+│   │   └── show <id>       Show resource classification project cost classification details
 │   ├── objective-stakeholder-classifications Browse objective stakeholder classifications
 │   │   ├── list            List objective stakeholder classifications
 │   │   └── show <id>       Show objective stakeholder classification details
