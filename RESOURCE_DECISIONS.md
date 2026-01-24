@@ -79,6 +79,7 @@ action-items
 action-item-tracker-update-requests
 api-tokens
 broker-certification-types
+broker-equipment-classifications
 broker-settings
 brokers
 business-units

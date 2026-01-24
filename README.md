@@ -248,6 +248,10 @@ xbe
 │   │   ├── create           Create a broker certification type
 │   │   ├── update           Update a broker certification type
 │   │   └── delete           Delete a broker certification type
+│   ├── broker-equipment-classifications  Manage broker equipment classifications
+│   │   ├── create           Create a broker equipment classification
+│   │   ├── update           Update a broker equipment classification
+│   │   └── delete           Delete a broker equipment classification
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -273,6 +277,9 @@ xbe
 │   ├── broker-certification-types  Browse broker certification types
 │   │   ├── list            List broker certification types with filtering
 │   │   └── show <id>       Show broker certification type details
+│   ├── broker-equipment-classifications  Browse broker equipment classifications
+│   │   ├── list            List broker equipment classifications with filtering
+│   │   └── show <id>       Show broker equipment classification details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── api-tokens          Browse API tokens
