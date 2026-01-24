@@ -75,6 +75,10 @@ xbe
 │   │   └── delete           Delete a change request
 │   ├── hos-days              Manage HOS days
 │   │   └── update            Update an HOS day
+│   ├── answer-related-contents  Manage answer related contents
+│   │   ├── create           Create an answer related content link
+│   │   ├── update           Update an answer related content link
+│   │   └── delete           Delete an answer related content link
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -446,6 +450,9 @@ xbe
 │   ├── hos-days             Browse HOS days
 │   │   ├── list            List HOS days with filtering
 │   │   └── show <id>       Show HOS day details
+│   ├── answer-related-contents  Browse answer related contents
+│   │   ├── list            List answer related contents with filtering
+│   │   └── show <id>       Show answer related content details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
