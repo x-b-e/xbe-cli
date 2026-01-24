@@ -97,6 +97,8 @@ xbe
 │   │   └── delete           Delete a material transaction diversion
 │   ├── material-transaction-shift-assignments  Manage material transaction shift assignments
 │   │   └── create           Create a material transaction shift assignment
+│   ├── rmt-adjustments      Adjust raw material transactions
+│   │   └── create           Create an RMT adjustment
 │   ├── raw-material-transaction-sales-customers  Manage raw material transaction sales customers
 │   │   ├── create           Create a raw material transaction sales customer
 │   │   ├── update           Update a raw material transaction sales customer
