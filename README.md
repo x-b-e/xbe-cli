@@ -208,6 +208,8 @@ xbe
 │   │   └── create           Approve a time card
 │   ├── time-card-rejections  Reject time cards
 │   │   └── create           Reject a time card
+│   ├── time-sheets-exports  Export time sheets
+│   │   └── create           Create a time sheets export
 │   ├── ticket-report-dispatches  Manage ticket report dispatches
 │   │   ├── create           Create a ticket report dispatch
 │   │   └── delete           Delete a ticket report dispatch
@@ -672,6 +674,9 @@ xbe
 │   ├── time-cards          Browse time cards
 │   │   ├── list            List time cards with filtering
 │   │   └── show <id>       Show time card details
+│   ├── time-sheets-exports  Browse time sheets exports
+│   │   ├── list            List time sheets exports with filtering
+│   │   └── show <id>       Show time sheets export details
 │   ├── ticket-report-dispatches  Browse ticket report dispatches
 │   │   ├── list            List ticket report dispatches with filtering
 │   │   └── show <id>       Show ticket report dispatch details
