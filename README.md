@@ -159,6 +159,10 @@ xbe
 │   │   ├── create           Create a job production plan location
 │   │   ├── update           Update a job production plan location
 │   │   └── delete           Delete a job production plan location
+│   ├── project-bid-location-material-types Manage project bid location material types
+│   │   ├── create           Create a project bid location material type
+│   │   ├── update           Update a project bid location material type
+│   │   └── delete           Delete a project bid location material type
 │   ├── geofence-restrictions Manage geofence restrictions
 │   │   ├── create           Create a geofence restriction
 │   │   ├── update           Update a geofence restriction
@@ -298,6 +302,9 @@ xbe
 │   ├── job-production-plan-locations Browse job production plan locations
 │   │   ├── list            List job production plan locations
 │   │   └── show <id>       Show job production plan location details
+│   ├── project-bid-location-material-types Browse project bid location material types
+│   │   ├── list            List project bid location material types
+│   │   └── show <id>       Show project bid location material type details
 │   ├── job-production-plan-job-site-location-estimates Browse job site location estimates
 │   │   ├── list            List job site location estimates
 │   │   └── show <id>       Show job site location estimate details
