@@ -297,6 +297,8 @@ xbe
 │   │   ├── create           Create an objective stakeholder classification quote
 │   │   ├── update           Update an objective stakeholder classification quote
 │   │   └── delete           Delete an objective stakeholder classification quote
+│   ├── organization-invoices-batch-invoice-batchings Batch organization invoices batch invoices
+│   │   └── create           Batch an organization invoices batch invoice
 │   └── open-door-issues     Manage open door issues
 │       ├── create           Create an open door issue
 │       ├── update           Update an open door issue
@@ -553,6 +555,9 @@ xbe
 │   ├── objective-stakeholder-classification-quotes Browse objective stakeholder classification quotes
 │   │   ├── list            List objective stakeholder classification quotes with filtering
 │   │   └── show <id>       Show objective stakeholder classification quote details
+│   ├── organization-invoices-batch-invoice-batchings Browse organization invoices batch invoice batchings
+│   │   ├── list            List organization invoices batch invoice batchings
+│   │   └── show <id>       Show organization invoices batch invoice batching details
 │   └── open-door-issues    Browse open door issues
 │       ├── list            List open door issues with filtering
 │       └── show <id>       Show open door issue details
