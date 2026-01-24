@@ -253,6 +253,10 @@ xbe
 │   │   ├── create           Create a business unit membership
 │   │   ├── update           Update a business unit membership
 │   │   └── delete           Delete a business unit membership
+│   ├── open-door-team-memberships Manage open door team memberships
+│   │   ├── create           Create an open door team membership
+│   │   ├── update           Update an open door team membership
+│   │   └── delete           Delete an open door team membership
 │   ├── broker-commitments   Manage broker commitments
 │   │   ├── create           Create a broker commitment
 │   │   ├── update           Update a broker commitment
@@ -373,6 +377,9 @@ xbe
 │   ├── business-unit-memberships Browse business unit memberships
 │   │   ├── list            List business unit memberships with filtering
 │   │   └── show <id>       Show business unit membership details
+│   ├── open-door-team-memberships Browse open door team memberships
+│   │   ├── list            List open door team memberships
+│   │   └── show <id>       Show open door team membership details
 │   ├── broker-commitments  Browse broker commitments
 │   │   ├── list            List broker commitments
 │   │   └── show <id>       Show broker commitment details
