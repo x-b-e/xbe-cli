@@ -253,6 +253,8 @@ xbe
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
+│   ├── haskell-lemon-outbound-material-transaction-exports Generate Haskell Lemon outbound material transaction exports
+│   │   └── create           Create an outbound material transaction export
 │   ├── material-transaction-cost-code-allocations Manage material transaction cost code allocations
 │   │   ├── create           Create a material transaction cost code allocation
 │   │   ├── update           Update a material transaction cost code allocation
@@ -435,6 +437,9 @@ xbe
 │   ├── material-transaction-preloads Browse material transaction preloads
 │   │   ├── list            List material transaction preloads
 │   │   └── show <id>       Show material transaction preload details
+│   ├── haskell-lemon-outbound-material-transaction-exports Browse Haskell Lemon outbound material transaction exports
+│   │   ├── list            List outbound material transaction exports
+│   │   └── show <id>       Show outbound material transaction export details
 │   ├── raw-material-transaction-import-results Browse raw material transaction import results
 │   │   ├── list            List raw material transaction import results
 │   │   └── show <id>       Show raw material transaction import result details
