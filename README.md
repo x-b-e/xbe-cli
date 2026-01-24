@@ -227,6 +227,10 @@ xbe
 │   │   ├── create           Create an incident unit of measure quantity
 │   │   ├── update           Update an incident unit of measure quantity
 │   │   └── delete           Delete an incident unit of measure quantity
+│   ├── liability-incidents  Manage liability incidents
+│   │   ├── create           Create a liability incident
+│   │   ├── update           Update a liability incident
+│   │   └── delete           Delete a liability incident
 │   ├── tender-acceptances   Accept tenders
 │   │   └── create           Accept a tender
 │   ├── tender-offers        Offer tenders
@@ -457,6 +461,9 @@ xbe
 │   ├── incident-unit-of-measure-quantities Browse incident unit of measure quantities
 │   │   ├── list            List incident unit of measure quantities
 │   │   └── show <id>       Show incident unit of measure quantity details
+│   ├── liability-incidents  Browse liability incidents
+│   │   ├── list            List liability incidents
+│   │   └── show <id>       Show liability incident details
 │   ├── tender-acceptances  Browse tender acceptances
 │   │   ├── list            List tender acceptances
 │   │   └── show <id>       Show tender acceptance details
