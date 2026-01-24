@@ -314,6 +314,10 @@ xbe
 │   │   ├── create           Create an expected time of arrival
 │   │   ├── update           Update an expected time of arrival
 │   │   └── delete           Delete an expected time of arrival
+│   ├── prediction-agents   Manage prediction agents
+│   │   ├── create           Create a prediction agent
+│   │   ├── update           Update a prediction agent
+│   │   └── delete           Delete a prediction agent
 │   ├── lowest-losing-bid-prediction-subject-details  Manage lowest losing bid prediction subject details
 │   │   ├── create           Create a detail record
 │   │   ├── update           Update a detail record
@@ -381,6 +385,9 @@ xbe
 │   ├── expected-time-of-arrivals  Browse expected time of arrival updates
 │   │   ├── list            List expected time of arrivals with filtering
 │   │   └── show <id>       Show expected time of arrival details
+│   ├── prediction-agents   Browse prediction agents
+│   │   ├── list            List prediction agents with filtering
+│   │   └── show <id>       Show prediction agent details
 │   ├── lowest-losing-bid-prediction-subject-details  Browse lowest losing bid prediction subject details
 │   │   ├── list            List details with filtering
 │   │   └── show <id>       Show detail record
@@ -1094,6 +1101,30 @@ xbe do expected-time-of-arrivals update 456 --unsure true --note "Awaiting confi
 
 # Delete an expected time of arrival (requires --confirm)
 xbe do expected-time-of-arrivals delete 456 --confirm
+```
+
+### Prediction Agents
+
+Prediction agents generate crowd forecast distributions for prediction subjects.
+
+```bash
+# List prediction agents
+xbe view prediction-agents list
+
+# Filter by prediction subject
+xbe view prediction-agents list --prediction-subject 123
+
+# Show prediction agent details
+xbe view prediction-agents show 456
+
+# Create a prediction agent
+xbe do prediction-agents create --prediction-subject 123
+
+# Update custom instructions
+xbe do prediction-agents update 456 --custom-instructions "Focus on recent performance"
+
+# Delete a prediction agent (requires --confirm)
+xbe do prediction-agents delete 456 --confirm
 ```
 
 ### Lowest Losing Bid Prediction Subject Details

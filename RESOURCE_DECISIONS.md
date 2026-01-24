@@ -144,6 +144,7 @@ memberships
 newsletters
 parking-sites
 posts
+prediction-agents
 press-releases
 profit-improvement-categories
 project-categories
