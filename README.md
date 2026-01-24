@@ -316,6 +316,10 @@ xbe
 │   ├── customer-truckers     Manage customer trucker links
 │   │   ├── create           Create a customer trucker link
 │   │   └── delete           Delete a customer trucker link
+│   ├── trucker-applications  Manage trucker applications
+│   │   ├── create           Create a trucker application
+│   │   ├── update           Update a trucker application
+│   │   └── delete           Delete a trucker application
 │   ├── dispatch-user-matchers  Match dispatch users by phone number
 │   │   └── create           Match a dispatch user by phone number
 │   ├── login-code-redemptions  Redeem login codes for auth tokens
@@ -493,6 +497,9 @@ xbe
 │   │   └── show <id>       Show commitment simulation period details
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
+│   ├── trucker-applications  Browse trucker applications
+│   │   ├── list            List trucker applications with filtering
+│   │   └── show <id>       Show trucker application details
 │   ├── customer-memberships  Browse customer memberships
 │   │   ├── list            List customer memberships with filtering
 │   │   └── show <id>       Show customer membership details
