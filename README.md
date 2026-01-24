@@ -101,6 +101,10 @@ xbe
 │   │   ├── create           Create a raw material transaction sales customer
 │   │   ├── update           Update a raw material transaction sales customer
 │   │   └── delete           Delete a raw material transaction sales customer
+│   ├── raw-transport-tractors  Manage raw transport tractors
+│   │   ├── create           Create a raw transport tractor
+│   │   ├── update           Update a raw transport tractor
+│   │   └── delete           Delete a raw transport tractor
 │   ├── transport-order-materials  Manage transport order materials
 │   │   ├── create           Create a transport order material
 │   │   ├── update           Update a transport order material
@@ -449,6 +453,9 @@ xbe
 │   ├── raw-material-transaction-sales-customers  Browse raw material transaction sales customers
 │   │   ├── list            List raw material transaction sales customers with filtering
 │   │   └── show <id>       Show raw material transaction sales customer details
+│   ├── raw-transport-tractors  Browse raw transport tractors
+│   │   ├── list            List raw transport tractors with filtering
+│   │   └── show <id>       Show raw transport tractor details
 │   ├── raw-records         Browse ingest raw records
 │   │   ├── list            List raw records with filtering
 │   │   └── show <id>       Show raw record details
