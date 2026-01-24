@@ -256,6 +256,9 @@ xbe
 │   ├── raw-transport-drivers Manage raw transport drivers
 │   │   ├── create           Create a raw transport driver
 │   │   └── delete           Delete a raw transport driver
+│   ├── raw-transport-trailers Manage raw transport trailers
+│   │   ├── create           Create a raw transport trailer
+│   │   └── delete           Delete a raw transport trailer
 │   ├── raw-transport-projects Manage raw transport projects
 │   │   ├── create           Create a raw transport project
 │   │   └── delete           Delete a raw transport project
@@ -412,6 +415,9 @@ xbe
 │   ├── raw-transport-drivers Browse raw transport drivers
 │   │   ├── list            List raw transport drivers
 │   │   └── show <id>       Show raw transport driver details
+│   ├── raw-transport-trailers Browse raw transport trailers
+│   │   ├── list            List raw transport trailers
+│   │   └── show <id>       Show raw transport trailer details
 │   ├── raw-transport-projects Browse raw transport projects
 │   │   ├── list            List raw transport projects
 │   │   └── show <id>       Show raw transport project details
