@@ -106,6 +106,8 @@ xbe
 │   │   └── create           Complete a job production plan
 │   ├── job-production-plan-unscrappages Unscrap job production plans
 │   │   └── create           Unscrap a job production plan
+│   ├── key-result-unscrappages Unscrap key results
+│   │   └── create           Unscrap a key result
 │   ├── project-abandonments Abandon projects
 │   │   └── create           Abandon a project
 │   ├── project-cancellations Cancel projects
