@@ -88,6 +88,8 @@ xbe
 │   │   └── create           Generate a signed URL for a file attachment
 │   ├── login-code-requests  Request login codes
 │   │   └── create           Request a login code
+│   ├── saml-code-redemptions Redeem SAML login codes
+│   │   └── create           Redeem a SAML login code
 │   ├── file-imports         Manage file imports
 │   │   ├── create           Create a file import
 │   │   ├── update           Update a file import
