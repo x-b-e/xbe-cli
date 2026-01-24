@@ -340,10 +340,13 @@ xbe
 │   │   └── create           Process an organization invoices batch
 │   ├── organization-invoices-batch-pdf-files Download organization invoices batch PDF files
 │   │   └── download         Download an organization invoices batch PDF file
-│   └── open-door-issues     Manage open door issues
-│       ├── create           Create an open door issue
-│       ├── update           Update an open door issue
-│       └── delete           Delete an open door issue
+│   ├── open-door-issues     Manage open door issues
+│   │   ├── create           Create an open door issue
+│   │   ├── update           Update an open door issue
+│   │   └── delete           Delete an open door issue
+│   └── taggings             Manage taggings
+│       ├── create           Create a tagging
+│       └── delete           Delete a tagging
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -644,9 +647,12 @@ xbe
 │   ├── organization-invoices-batch-pdf-files Browse organization invoices batch PDF files
 │   │   ├── list            List organization invoices batch PDF files
 │   │   └── show <id>       Show organization invoices batch PDF file details
-│   └── open-door-issues    Browse open door issues
-│       ├── list            List open door issues with filtering
-│       └── show <id>       Show open door issue details
+│   ├── open-door-issues    Browse open door issues
+│   │   ├── list            List open door issues with filtering
+│   │   └── show <id>       Show open door issue details
+│   └── taggings            Browse taggings
+│       ├── list            List taggings with filtering
+│       └── show <id>       Show tagging details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```

@@ -189,6 +189,7 @@ shift-feedbacks
 shift-summary
 stakeholder-classifications
 tag-categories
+taggings
 tags
 tender-acceptances
 tender-re-rates

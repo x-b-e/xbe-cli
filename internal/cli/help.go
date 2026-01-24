@@ -181,6 +181,7 @@ var resourceCategories = map[string][]string{
 	"search-catalog-entries":        {CatReference},
 	"service-types":                 {CatReference},
 	"tag-categories":                {CatReference},
+	"taggings":                      {CatReference},
 	"tags":                          {CatReference},
 	"unit-of-measures":              {CatReference},
 }
