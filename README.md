@@ -62,6 +62,10 @@ xbe
 │   │   ├── create           Create a bidder
 │   │   ├── update           Update a bidder
 │   │   └── delete           Delete a bidder
+│   ├── contractors         Manage contractors
+│   │   ├── create           Create a contractor
+│   │   ├── update           Update a contractor
+│   │   └── delete           Delete a contractor
 │   ├── application-settings Manage global application settings
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
@@ -263,6 +267,9 @@ xbe
 │   ├── bidders             Browse bidders
 │   │   ├── list            List bidders with filtering
 │   │   └── show <id>       Show bidder details
+│   ├── contractors         Browse contractors
+│   │   ├── list            List contractors with filtering
+│   │   └── show <id>       Show contractor details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
