@@ -156,6 +156,8 @@ xbe
 │   │   └── delete           Delete a job schedule shift
 │   ├── shift-time-card-requisitions  Manage shift time card requisitions
 │   │   └── create           Create a shift time card requisition
+│   ├── built-time-cards    Build time cards from shifts
+│   │   └── create           Build a time card from a shift
 │   ├── time-cards          Manage time cards
 │   │   ├── create           Create a time card
 │   │   ├── update           Update a time card
