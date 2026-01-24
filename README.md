@@ -399,6 +399,9 @@ xbe
 │   ├── prediction-subject-memberships  Browse prediction subject memberships
 │   │   ├── list            List prediction subject memberships with filtering
 │   │   └── show <id>       Show prediction subject membership details
+│   ├── prediction-subject-recaps  Browse prediction subject recaps
+│   │   ├── list            List prediction subject recaps with filtering
+│   │   └── show <id>       Show prediction subject recap details
 │   ├── prediction-subject-gap-portions  Browse prediction subject gap portions
 │   │   ├── list            List prediction subject gap portions with filtering
 │   │   └── show <id>       Show prediction subject gap portion details
@@ -1166,6 +1169,21 @@ xbe do prediction-subject-memberships update 789 --can-manage-memberships true
 
 # Delete a prediction subject membership (requires --confirm)
 xbe do prediction-subject-memberships delete 789 --confirm
+```
+
+### Prediction Subject Recaps
+
+Prediction subject recaps are markdown summaries generated for prediction subjects.
+
+```bash
+# List prediction subject recaps
+xbe view prediction-subject-recaps list
+
+# Filter by prediction subject
+xbe view prediction-subject-recaps list --prediction-subject 123
+
+# Show prediction subject recap details
+xbe view prediction-subject-recaps show 456
 ```
 
 ### Prediction Subject Gap Portions
