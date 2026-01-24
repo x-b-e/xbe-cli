@@ -201,6 +201,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── broker-memberships  Manage broker memberships
+│   │   ├── create           Create a broker membership
+│   │   ├── update           Update a broker membership
+│   │   └── delete           Delete a broker membership
 │   ├── broker-commitments   Manage broker commitments
 │   │   ├── create           Create a broker commitment
 │   │   ├── update           Update a broker commitment
@@ -282,6 +286,9 @@ xbe
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
+│   ├── broker-memberships  Browse broker memberships
+│   │   ├── list            List broker memberships with filtering
+│   │   └── show <id>       Show broker membership details
 │   ├── broker-commitments  Browse broker commitments
 │   │   ├── list            List broker commitments
 │   │   └── show <id>       Show broker commitment details
@@ -707,6 +714,30 @@ xbe do memberships update 789 \
 
 # Delete a membership (requires --confirm)
 xbe do memberships delete 789 --confirm
+```
+
+### Broker Memberships
+
+Broker memberships define the relationship between users and broker organizations.
+
+```bash
+# List broker memberships
+xbe view broker-memberships list --broker 123
+
+# Search broker memberships by user name
+xbe view broker-memberships list --q "Jane"
+
+# Show broker membership details
+xbe view broker-memberships show 456
+
+# Create a broker membership
+xbe do broker-memberships create --user 123 --broker 456 --kind manager
+
+# Update a broker membership
+xbe do broker-memberships update 789 --title "Dispatcher" --is-rate-editor true
+
+# Delete a broker membership (requires --confirm)
+xbe do broker-memberships delete 789 --confirm
 ```
 
 ### Crew Assignment Confirmations

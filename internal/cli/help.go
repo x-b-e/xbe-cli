@@ -33,6 +33,7 @@ const (
 var resourceCategories = map[string][]string{
 	// Organizations
 	"broker-commitments": {CatOrganizations},
+	"broker-memberships": {CatOrganizations},
 	"brokers":            {CatOrganizations},
 	"business-units":     {CatOrganizations},
 	"customers":          {CatOrganizations},
