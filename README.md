@@ -62,6 +62,10 @@ xbe
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
 │   │   └── delete           Delete an application setting
+│   ├── action-item-tracker-update-requests  Manage action item tracker update requests
+│   │   ├── create           Create an update request
+│   │   ├── update           Update an update request
+│   │   └── delete           Delete an update request
 │   ├── hos-days              Manage HOS days
 │   │   └── update            Update an HOS day
 │   ├── glossary-terms       Manage glossary terms
@@ -245,6 +249,9 @@ xbe
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
+│   ├── action-item-tracker-update-requests  Browse action item tracker update requests
+│   │   ├── list            List update requests with filtering
+│   │   └── show <id>       Show update request details
 │   ├── hos-days             Browse HOS days
 │   │   ├── list            List HOS days with filtering
 │   │   └── show <id>       Show HOS day details

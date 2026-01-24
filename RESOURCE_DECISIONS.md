@@ -76,6 +76,7 @@ When a CLI command does not match a server resource name, use these mappings.
 
 ```
 action-items
+action-item-tracker-update-requests
 broker-settings
 brokers
 business-units
@@ -523,7 +524,6 @@ tender-status-changes
 action-item-key-results
 action-item-line-items
 action-item-team-members
-action-item-tracker-update-requests
 action-item-trackers
 administrative-incidents
 ai-work-order-generations
