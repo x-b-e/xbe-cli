@@ -198,6 +198,10 @@ xbe
 │   │   ├── create           Create a project material type quality control requirement
 │   │   ├── update           Update a project material type quality control requirement
 │   │   └── delete           Delete a project material type quality control requirement
+│   ├── project-transport-locations  Manage project transport locations
+│   │   ├── create           Create a project transport location
+│   │   ├── update           Update a project transport location
+│   │   └── delete           Delete a project transport location
 │   ├── profit-improvements  Manage profit improvements
 │   │   ├── create           Create a profit improvement
 │   │   ├── update           Update a profit improvement
@@ -301,6 +305,9 @@ xbe
 │   ├── project-material-type-quality-control-requirements  Browse project material type quality control requirements
 │   │   ├── list            List project material type quality control requirements with filtering
 │   │   └── show <id>       Show project material type quality control requirement details
+│   ├── project-transport-locations  Browse project transport locations
+│   │   ├── list            List project transport locations with filtering
+│   │   └── show <id>       Show project transport location details
 │   ├── shift-time-card-requisitions  Browse shift time card requisitions
 │   │   ├── list            List shift time card requisitions with filtering
 │   │   └── show <id>       Show shift time card requisition details
