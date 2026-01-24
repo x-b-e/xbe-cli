@@ -279,6 +279,10 @@ xbe
 │   │   ├── create           Create a retainer payment
 │   │   ├── update           Update a retainer payment
 │   │   └── delete           Delete a retainer payment
+│   ├── mechanic-user-associations Manage mechanic user associations
+│   │   ├── create           Create a mechanic user association
+│   │   ├── update           Update a mechanic user association
+│   │   └── delete           Delete a mechanic user association
 │   ├── maintenance-requirement-parts Manage maintenance requirement parts
 │   │   ├── create           Create a maintenance requirement part
 │   │   ├── update           Update a maintenance requirement part
@@ -379,6 +383,9 @@ xbe
 │   ├── service-type-unit-of-measure-cohorts Browse service type unit of measure cohorts
 │   │   ├── list            List service type unit of measure cohorts
 │   │   └── show <id>       Show service type unit of measure cohort details
+│   ├── mechanic-user-associations Browse mechanic user associations
+│   │   ├── list            List mechanic user associations
+│   │   └── show <id>       Show mechanic user association details
 │   ├── maintenance-requirement-parts Browse maintenance requirement parts
 │   │   ├── list            List maintenance requirement parts
 │   │   └── show <id>       Show maintenance requirement part details
