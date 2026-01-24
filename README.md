@@ -456,6 +456,9 @@ xbe
 │   ├── broker-tenders      Browse broker tenders
 │   │   ├── list            List broker tenders
 │   │   └── show <id>       Show broker tender details
+│   ├── tenders             Browse tenders
+│   │   ├── list            List tenders
+│   │   └── show <id>       Show tender details
 │   ├── customer-tenders    Browse customer tenders
 │   │   ├── list            List customer tenders
 │   │   └── show <id>       Show customer tender details
@@ -765,6 +768,20 @@ xbe do broker-tenders create --job 456 --broker 123 --trucker 789
 
 # Show broker tender details
 xbe view broker-tenders show 789
+```
+
+### Tenders
+
+```bash
+# List tenders
+xbe view tenders list
+
+# Filter by buyer, job number, or status
+xbe view tenders list --buyer 123 --status editing
+xbe view tenders list --job-number "JOB-1001"
+
+# Show tender details
+xbe view tenders show 789
 ```
 
 ### Customer Tenders
