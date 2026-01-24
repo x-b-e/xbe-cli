@@ -209,6 +209,10 @@ xbe
 │   │   └── create           Mark an invoice as revisionable
 │   ├── invoice-revisionizings Revise invoices
 │   │   └── create           Revise an invoice
+│   ├── trucker-invoices    Manage trucker invoices
+│   │   ├── create           Create a trucker invoice
+│   │   ├── update           Update a trucker invoice
+│   │   └── delete           Delete a trucker invoice
 │   ├── time-card-time-changes Manage time card time changes
 │   │   ├── create           Create a time card time change
 │   │   ├── update           Update a time card time change
@@ -579,6 +583,9 @@ xbe
 │   ├── invoices            Browse invoices
 │   │   ├── list            List invoices with filtering
 │   │   └── show <id>       Show invoice details
+│   ├── trucker-invoices    Browse trucker invoices
+│   │   ├── list            List trucker invoices with filtering
+│   │   └── show <id>       Show trucker invoice details
 │   ├── time-card-invoices  Browse time card invoices
 │   │   ├── list            List time card invoices with filtering
 │   │   └── show <id>       Show time card invoice details

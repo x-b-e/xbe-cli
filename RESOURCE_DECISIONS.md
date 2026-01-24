@@ -206,6 +206,7 @@ transport-summary
 trips
 truck-scopes
 trucker-application-approvals
+trucker-invoices
 trucker-insurances
 truckers
 unit-of-measures
@@ -680,7 +681,6 @@ trading-partners
 trucker-applications
 trucker-brokerages
 trucker-invoice-payments
-trucker-invoices
 trucker-memberships
 trucker-referral-codes
 trucker-referrals
