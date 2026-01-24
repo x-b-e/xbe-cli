@@ -237,6 +237,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── retainers            Manage retainers
+│   │   ├── create           Create a retainer
+│   │   ├── update           Update a retainer
+│   │   └── delete           Delete a retainer
 │   ├── rate-agreements-copiers Copy rate agreements from a template
 │   │   └── create           Copy a template rate agreement
 │   ├── work-order-service-codes Manage work order service codes
@@ -299,6 +303,9 @@ xbe
 │   ├── resource-unavailabilities Browse resource unavailabilities
 │   │   ├── list            List resource unavailabilities
 │   │   └── show <id>       Show resource unavailability details
+│   ├── retainers           Browse retainers
+│   │   ├── list            List retainers
+│   │   └── show <id>       Show retainer details
 │   ├── rate-agreements-copiers Browse rate agreements copiers
 │   │   ├── list            List rate agreements copiers
 │   │   └── show <id>       Show rate agreements copier details

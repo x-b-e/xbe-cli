@@ -168,6 +168,7 @@ rates
 reaction-classifications
 release-notes
 resource-unavailabilities
+retainers
 service-types
 shift-feedback-reasons
 shift-feedbacks
@@ -505,7 +506,6 @@ retainer-earning-statuses
 retainer-payment-deductions
 retainer-payments
 retainer-periods
-retainers
 tender-acceptances
 tender-cancellations
 tender-job-schedule-shift-cancellations
