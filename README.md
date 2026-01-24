@@ -289,6 +289,10 @@ xbe
 │   │   └── delete           Delete a material transaction inspection
 │   ├── raw-material-transactions Manage raw material transactions
 │   │   └── update           Update a raw material transaction
+│   ├── raw-transport-orders Manage raw transport orders
+│   │   ├── create           Create a raw transport order
+│   │   ├── update           Update a raw transport order
+│   │   └── delete           Delete a raw transport order
 │   ├── material-type-unavailabilities Manage material type unavailabilities
 │   │   ├── create           Create a material type unavailability
 │   │   ├── update           Update a material type unavailability
@@ -382,6 +386,9 @@ xbe
 │   ├── raw-material-transactions Browse raw material transactions
 │   │   ├── list            List raw material transactions with filtering
 │   │   └── show <id>       Show raw material transaction details
+│   ├── raw-transport-orders Browse raw transport orders
+│   │   ├── list            List raw transport orders with filtering
+│   │   └── show <id>       Show raw transport order details
 │   ├── inventory-estimates Browse inventory estimates
 │   │   ├── list            List inventory estimates with filtering
 │   │   └── show <id>       Show inventory estimate details

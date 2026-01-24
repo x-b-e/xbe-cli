@@ -177,6 +177,7 @@ public-praise-summary
 public-praises
 quality-control-classifications
 rates
+raw-transport-orders
 reaction-classifications
 release-notes
 retainer-payment-deductions
@@ -657,7 +658,6 @@ raw-material-transaction-sales-customers
 raw-material-transactions
 raw-records
 raw-transport-drivers
-raw-transport-orders
 raw-transport-projects
 raw-transport-tractors
 raw-transport-trailers
