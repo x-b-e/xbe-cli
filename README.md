@@ -89,6 +89,10 @@ xbe
 │   ├── project-margin-matrices Manage project margin matrices
 │   │   ├── create           Create a project margin matrix
 │   │   └── delete           Delete a project margin matrix
+│   ├── project-phase-cost-item-price-estimates Manage project phase cost item price estimates
+│   │   ├── create           Create a project phase cost item price estimate
+│   │   ├── update           Update a project phase cost item price estimate
+│   │   └── delete           Delete a project phase cost item price estimate
 │   ├── job-production-plan-driver-movements Generate job production plan driver movements
 │   │   └── create           Generate driver movement details
 │   ├── job-production-plan-job-site-changes Update job production plan job sites
@@ -268,6 +272,9 @@ xbe
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
+│   ├── project-phase-cost-item-price-estimates Browse project phase cost item price estimates
+│   │   ├── list            List project phase cost item price estimates
+│   │   └── show <id>       Show project phase cost item price estimate details
 │   ├── job-schedule-shift-start-at-changes Browse job schedule shift start-at changes
 │   │   ├── list            List start-at changes
 │   │   └── show <id>       Show start-at change details
