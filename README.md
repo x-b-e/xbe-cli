@@ -288,6 +288,10 @@ xbe
 │   │   ├── create           Create a developer certified weigher
 │   │   ├── update           Update a developer certified weigher
 │   │   └── delete           Delete a developer certified weigher
+│   ├── developer-trucker-certifications  Manage developer trucker certifications
+│   │   ├── create           Create a developer trucker certification
+│   │   ├── update           Update a developer trucker certification
+│   │   └── delete           Delete a developer trucker certification
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -378,6 +382,9 @@ xbe
 │   ├── developer-certified-weighers  Browse developer certified weighers
 │   │   ├── list            List developer certified weighers with filtering
 │   │   └── show <id>       Show developer certified weigher details
+│   ├── developer-trucker-certifications  Browse developer trucker certifications
+│   │   ├── list            List developer trucker certifications with filtering
+│   │   └── show <id>       Show developer trucker certification details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details

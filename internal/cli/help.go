@@ -122,15 +122,16 @@ var resourceCategories = map[string][]string{
 	"material-types":                                  {CatMaterials},
 
 	// Certifications & Credentials
-	"broker-certification-types":   {CatCertifications},
-	"customer-certification-types": {CatCertifications},
-	"certification-requirements":   {CatCertifications},
-	"certification-types":          {CatCertifications},
-	"certifications":               {CatCertifications},
-	"developer-certified-weighers": {CatCertifications},
-	"tractor-credentials":          {CatCertifications},
-	"trailer-credentials":          {CatCertifications},
-	"user-credentials":             {CatCertifications},
+	"broker-certification-types":       {CatCertifications},
+	"customer-certification-types":     {CatCertifications},
+	"certification-requirements":       {CatCertifications},
+	"certification-types":              {CatCertifications},
+	"certifications":                   {CatCertifications},
+	"developer-certified-weighers":     {CatCertifications},
+	"developer-trucker-certifications": {CatCertifications},
+	"tractor-credentials":              {CatCertifications},
+	"trailer-credentials":              {CatCertifications},
+	"user-credentials":                 {CatCertifications},
 
 	// Classifications
 	"broker-equipment-classifications": {CatClassifications},
