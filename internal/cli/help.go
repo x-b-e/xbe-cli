@@ -119,6 +119,7 @@ var resourceCategories = map[string][]string{
 	"projects":                                                     {CatProjects},
 	"profit-improvements":                                          {CatProjects},
 	"broker-retainers":                                             {CatProjects},
+	"broker-tender-offered-seller-notification-subscriptions":      {CatProjects},
 	"tender-raters":                                                {CatProjects},
 	"retainer-deductions":                                          {CatProjects},
 	"retainer-periods":                                             {CatProjects},

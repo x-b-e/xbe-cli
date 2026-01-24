@@ -81,6 +81,7 @@ api-tokens
 broker-certification-types
 broker-equipment-classifications
 broker-settings
+broker-tender-offered-seller-notification-subscriptions
 brokers
 business-units
 certification-requirements
