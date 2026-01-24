@@ -249,6 +249,10 @@ xbe
 │   │   ├── create           Create a liability incident
 │   │   ├── update           Update a liability incident
 │   │   └── delete           Delete a liability incident
+│   ├── production-incidents Manage production incidents
+│   │   ├── create           Create a production incident
+│   │   ├── update           Update a production incident
+│   │   └── delete           Delete a production incident
 │   ├── tender-acceptances   Accept tenders
 │   │   └── create           Accept a tender
 │   ├── tender-offers        Offer tenders
@@ -511,6 +515,9 @@ xbe
 │   ├── liability-incidents  Browse liability incidents
 │   │   ├── list            List liability incidents
 │   │   └── show <id>       Show liability incident details
+│   ├── production-incidents Browse production incidents
+│   │   ├── list            List production incidents
+│   │   └── show <id>       Show production incident details
 │   ├── tender-acceptances  Browse tender acceptances
 │   │   ├── list            List tender acceptances
 │   │   └── show <id>       Show tender acceptance details
