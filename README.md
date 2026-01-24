@@ -215,6 +215,8 @@ xbe
 │   │   └── create           Reject a time sheet
 │   ├── incident-request-approvals Approve incident requests
 │   │   └── create           Approve an incident request
+│   ├── incident-request-rejections Reject incident requests
+│   │   └── create           Reject an incident request
 │   ├── tender-acceptances   Accept tenders
 │   │   └── create           Accept a tender
 │   ├── tender-offers        Offer tenders
@@ -433,6 +435,9 @@ xbe
 │   ├── incident-request-approvals Browse incident request approvals
 │   │   ├── list            List incident request approvals
 │   │   └── show <id>       Show incident request approval details
+│   ├── incident-request-rejections Browse incident request rejections
+│   │   ├── list            List incident request rejections
+│   │   └── show <id>       Show incident request rejection details
 │   ├── tender-acceptances  Browse tender acceptances
 │   │   ├── list            List tender acceptances
 │   │   └── show <id>       Show tender acceptance details

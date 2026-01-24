@@ -119,6 +119,7 @@ geofences
 glossary-terms
 hos-events
 incident-request-approvals
+incident-request-rejections
 incident-tags
 incidents
 inventory-estimates
