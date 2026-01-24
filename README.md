@@ -106,6 +106,9 @@ xbe
 │   │   ├── create           Create a project labor classification
 │   │   ├── update           Update a project labor classification
 │   │   └── delete           Delete a project labor classification
+│   ├── project-transport-location-event-types Manage project transport location event types
+│   │   ├── create           Create a project transport location event type
+│   │   └── delete           Delete a project transport location event type
 │   ├── project-phase-cost-item-actuals Manage project phase cost item actuals
 │   │   ├── create           Create a project phase cost item actual
 │   │   ├── update           Update a project phase cost item actual
@@ -286,6 +289,9 @@ xbe
 │   ├── project-labor-classifications Browse project labor classifications
 │   │   ├── list            List project labor classifications with filtering
 │   │   └── show <id>       Show project labor classification details
+│   ├── project-transport-location-event-types Browse project transport location event types
+│   │   ├── list            List project transport location event types with filtering
+│   │   └── show <id>       Show project transport location event type details
 │   ├── project-phase-cost-item-actuals Browse project phase cost item actuals
 │   │   ├── list            List project phase cost item actuals with filtering
 │   │   └── show <id>       Show project phase cost item actual details

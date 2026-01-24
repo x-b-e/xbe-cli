@@ -124,6 +124,7 @@ var resourceCategories = map[string][]string{
 	"project-resource-classifications":                {CatClassifications},
 	"project-revenue-classifications":                 {CatClassifications},
 	"project-transport-event-types":                   {CatClassifications},
+	"project-transport-location-event-types":          {CatClassifications},
 	"quality-control-classifications":                 {CatClassifications},
 	"reaction-classifications":                        {CatClassifications},
 	"shift-feedback-reasons":                          {CatClassifications},
