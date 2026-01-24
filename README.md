@@ -312,6 +312,8 @@ xbe
 │   │   └── delete           Delete an incident tag incident link
 │   ├── incident-request-cancellations  Cancel incident requests
 │   │   └── create           Cancel an incident request
+│   ├── production-incident-detectors  Run production incident detection
+│   │   └── create           Run production incident detection
 │   ├── expected-time-of-arrivals  Manage expected time of arrivals
 │   │   ├── create           Create an expected time of arrival
 │   │   ├── update           Update an expected time of arrival
@@ -366,6 +368,9 @@ xbe
 │   ├── incident-tag-incidents  Browse incident tag incident links
 │   │   ├── list            List incident tag incident links with filtering
 │   │   └── show <id>       Show incident tag incident details
+│   ├── production-incident-detectors  Browse production incident detector runs
+│   │   ├── list            List detector runs
+│   │   └── show <id>       Show detector run details
 │   ├── hos-days             Browse HOS days
 │   │   ├── list            List HOS days with filtering
 │   │   └── show <id>       Show HOS day details
@@ -741,6 +746,26 @@ xbe do incident-tag-incidents create --incident 123 --incident-tag 456
 
 # Delete a tag link
 xbe do incident-tag-incidents delete 789 --confirm
+```
+
+### Production Incident Detectors
+
+```bash
+# Run detection for a job production plan
+xbe do production-incident-detectors create --job-production-plan 123
+
+# Run with custom thresholds
+xbe do production-incident-detectors create \
+  --job-production-plan 123 \
+  --lookahead-offset 30 \
+  --minutes-threshold 45 \
+  --quantity-threshold 50
+
+# List detector runs
+xbe view production-incident-detectors list --limit 10
+
+# Show detector run details
+xbe view production-incident-detectors show 456
 ```
 
 ### Incident Request Cancellations
