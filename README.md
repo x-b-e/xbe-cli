@@ -165,10 +165,14 @@ xbe
 │   │   ├── create           Create a material supplier membership
 │   │   ├── update           Update a material supplier membership
 │   │   └── delete           Delete a material supplier membership
-│   └── memberships          Manage user-organization memberships
-│       ├── create           Create a membership
-│       ├── update           Update a membership
-│       └── delete           Delete a membership
+│   ├── memberships          Manage user-organization memberships
+│   │   ├── create           Create a membership
+│   │   ├── update           Update a membership
+│   │   └── delete           Delete a membership
+│   └── proffers             Manage proffers
+│       ├── create           Create a proffer
+│       ├── update           Update a proffer
+│       └── delete           Delete a proffer
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -179,6 +183,9 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── proffers            Browse and view proffers
+│   │   ├── list            List proffers with filtering
+│   │   └── show <id>       Show proffer details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
 │   ├── bidders             Browse bidders
@@ -396,6 +403,25 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Proffers
+
+```bash
+# List proffers
+xbe view proffers list
+
+# Filter by kind
+xbe view proffers list --kind hot_feed_post
+
+# Find similar proffers (uses embeddings)
+xbe view proffers list --similar-to-text "export to CSV"
+
+# View full proffer details
+xbe view proffers show 123
+
+# Create a proffer
+xbe do proffers create --title "Add CSV export"
 ```
 
 ### Brokers
