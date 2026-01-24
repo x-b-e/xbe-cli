@@ -170,6 +170,10 @@ xbe
 │   ├── project-customers   Manage project customers
 │   │   ├── create           Create a project customer
 │   │   └── delete           Delete a project customer
+│   ├── project-project-cost-classifications Manage project project cost classifications
+│   │   ├── create           Create a project project cost classification
+│   │   ├── update           Update a project project cost classification
+│   │   └── delete           Delete a project project cost classification
 │   ├── project-import-file-verifications Verify project import files
 │   │   └── create           Create a project import file verification
 │   ├── geofence-restrictions Manage geofence restrictions
@@ -320,6 +324,9 @@ xbe
 │   ├── project-customers   Browse project customers
 │   │   ├── list            List project customers
 │   │   └── show <id>       Show project customer details
+│   ├── project-project-cost-classifications Browse project project cost classifications
+│   │   ├── list            List project project cost classifications
+│   │   └── show <id>       Show project project cost classification details
 │   ├── project-import-file-verifications Browse project import file verifications
 │   │   └── list            List project import file verifications
 │   ├── job-production-plan-job-site-location-estimates Browse job site location estimates
