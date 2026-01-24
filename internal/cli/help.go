@@ -109,6 +109,7 @@ var resourceCategories = map[string][]string{
 
 	// Fleet & Transport
 	"device-location-events":                   {CatFleet},
+	"user-location-events":                     {CatFleet},
 	"driver-day-adjustment-plans":              {CatFleet},
 	"driver-day-shortfall-calculations":        {CatFleet},
 	"shift-counters":                           {CatFleet},

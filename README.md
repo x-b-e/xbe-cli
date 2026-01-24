@@ -95,6 +95,10 @@ xbe
 │   │   └── delete           Delete a pave frame actual hour
 │   ├── device-location-events Record device location events
 │   │   └── create           Create a device location event
+│   ├── user-location-events Manage user location events
+│   │   ├── create           Create a user location event
+│   │   ├── update           Update a user location event
+│   │   └── delete           Delete a user location event
 │   ├── driver-day-adjustment-plans Manage driver day adjustment plans
 │   │   ├── create           Create a driver day adjustment plan
 │   │   ├── update           Update a driver day adjustment plan
@@ -613,6 +617,9 @@ xbe
 │   ├── hos-events          Browse hours-of-service (HOS) events
 │   │   ├── list            List HOS events with filtering
 │   │   └── show <id>       Show HOS event details
+│   ├── user-location-events Browse user location events
+│   │   ├── list            List user location events with filtering
+│   │   └── show <id>       Show user location event details
 │   ├── transport-routes    Browse transport routes
 │   │   ├── list            List transport routes with filtering
 │   │   └── show <id>       Show transport route details
@@ -1865,6 +1872,35 @@ xbe do device-location-events create --device-identifier "ios:ABC123" \
 xbe do device-location-events create --device-identifier "ios:ABC123" \
   --payload '{"uuid":"evt-3","timestamp":"2025-01-01T00:10:00Z","activity":{"type":"still"},"coords":{"latitude":40.2,"longitude":-74.2}}' \
   --json
+```
+
+### User Location Events
+
+User location events capture user-reported latitude/longitude with a provenance (gps/map).
+
+```bash
+# List events
+xbe view user-location-events list
+
+# Filter by user and time
+xbe view user-location-events list --user 123 --event-at-min 2025-01-01T00:00:00Z
+
+# Show event details
+xbe view user-location-events show <id>
+
+# Create a user location event
+xbe do user-location-events create \
+  --user 123 \
+  --provenance gps \
+  --event-at 2025-01-01T12:00:00Z \
+  --event-latitude 40.7128 \
+  --event-longitude -74.0060
+
+# Update a user location event
+xbe do user-location-events update <id> --event-latitude 41.0 --event-longitude -87.0
+
+# Delete a user location event
+xbe do user-location-events delete <id> --confirm
 ```
 
 ### Root Causes
