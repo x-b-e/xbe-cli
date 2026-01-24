@@ -855,6 +855,33 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
+### Rate Adjustments
+
+Rate adjustments connect rates to cost indexes and define how pricing changes as index values move.
+
+```bash
+# List rate adjustments
+xbe view rate-adjustments list
+
+# Filter by rate or cost index
+xbe view rate-adjustments list --rate 123 --cost-index 456
+
+# Show rate adjustment details
+xbe view rate-adjustments show 789
+
+# Create a rate adjustment
+xbe do rate-adjustments create --rate 123 --cost-index 456 \
+  --zero-intercept-value 100 --zero-intercept-ratio 0.25 \
+  --adjustment-min 1.00 --adjustment-max 5.00 \
+  --prevent-rating-when-index-value-missing
+
+# Update a rate adjustment
+xbe do rate-adjustments update 789 --adjustment-max 6.00
+
+# Delete a rate adjustment (requires --confirm)
+xbe do rate-adjustments delete 789 --confirm
+```
+
 ### Driver Assignment Rules
 
 Driver assignment rules define constraints or guidance used when assigning drivers.

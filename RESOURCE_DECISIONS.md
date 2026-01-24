@@ -162,6 +162,7 @@ ptp-trailer-summary
 public-praise-summary
 public-praises
 quality-control-classifications
+rate-adjustments
 rates
 reaction-classifications
 release-notes
@@ -494,7 +495,6 @@ project-transport-plan-trailers
 project-transport-plans
 project-truckers
 project-unabandonments
-rate-adjustments
 rate-agreement-copier-works
 rate-agreement-copiers
 rate-agreements
