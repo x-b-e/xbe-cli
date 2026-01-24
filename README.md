@@ -321,6 +321,9 @@ xbe
 │   ├── tender-job-schedule-shift-cancellations  Browse tender job schedule shift cancellations
 │   │   ├── list            List tender job schedule shift cancellations
 │   │   └── show <id>       Show tender job schedule shift cancellation details
+│   ├── tender-status-changes  Browse tender status changes
+│   │   ├── list            List tender status changes
+│   │   └── show <id>       Show tender status change details
 │   ├── project-estimate-sets  Browse project estimate sets
 │   │   ├── list            List project estimate sets with filtering
 │   │   └── show <id>       Show project estimate set details
