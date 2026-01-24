@@ -92,6 +92,8 @@ xbe
 │   │   └── delete           Delete a customer commitment
 │   ├── job-production-plan-approvals Approve job production plans
 │   │   └── create           Approve a job production plan
+│   ├── project-approvals    Approve projects
+│   │   └── create           Approve a project
 │   ├── job-production-plan-uncompletions Uncomplete job production plans
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
@@ -246,6 +248,9 @@ xbe
 │   ├── job-production-plan-time-card-approvers Browse job production plan time card approvers
 │   │   ├── list            List job production plan time card approvers with filtering
 │   │   └── show <id>       Show job production plan time card approver details
+│   ├── project-approvals   Browse project approvals
+│   │   ├── list            List project approvals
+│   │   └── show <id>       Show project approval details
 │   ├── time-card-pre-approvals Browse time card pre-approvals
 │   │   ├── list            List time card pre-approvals with filtering
 │   │   └── show <id>       Show time card pre-approval details
