@@ -733,6 +733,33 @@ xbe do crew-assignment-confirmations create \
 xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
 ```
 
+### Project Transport Plan Driver Confirmations
+
+Project transport plan driver confirmations track when drivers confirm or reject assignments.
+
+```bash
+# List confirmations
+xbe view project-transport-plan-driver-confirmations list
+
+# Filter by status
+xbe view project-transport-plan-driver-confirmations list --status pending
+
+# Filter by project transport plan driver
+xbe view project-transport-plan-driver-confirmations list --project-transport-plan-driver 123
+
+# Show confirmation details
+xbe view project-transport-plan-driver-confirmations show 456
+
+# Update status
+xbe do project-transport-plan-driver-confirmations update 456 --status confirmed
+
+# Append a note
+xbe do project-transport-plan-driver-confirmations update 456 --note "Reviewed"
+
+# Update confirmation deadline
+xbe do project-transport-plan-driver-confirmations update 456 --confirm-at-max "2025-01-01T12:00:00Z"
+```
+
 ### Crew Rates
 
 Crew rates define pricing for labor/equipment by classification, resource, or craft class.
