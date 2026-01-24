@@ -259,6 +259,7 @@ Some resources may have dependencies preventing deletion. Check staging manually
 ### View-Only Resources (list only)
 - features
 - incident-tags
+- job-production-plan-inspectable-summaries
 - job-production-plans
 - languages
 - material-transactions

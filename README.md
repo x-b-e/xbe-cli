@@ -527,6 +527,9 @@ xbe
 │   │   └── show <id>       Show movement segment details
 │   ├── job-production-plan-job-site-changes Browse job production plan job site changes
 │   │   └── show <id>       Show job site change details
+│   ├── job-production-plan-inspectable-summaries Browse job production plan inspectable summaries
+│   │   ├── list            List inspectable summaries
+│   │   └── show <id>       Show inspectable summary details
 │   ├── job-production-plan-segments Browse job production plan segments
 │   │   ├── list            List job production plan segments
 │   │   └── show <id>       Show job production plan segment details
