@@ -415,6 +415,9 @@ xbe
 │   ├── project-status-changes Browse project status changes
 │   │   ├── list            List project status changes with filtering
 │   │   └── show <id>       Show project status change details
+│   ├── key-result-changes  Browse key result changes
+│   │   ├── list            List key result changes with filtering
+│   │   └── show <id>       Show key result change details
 │   ├── project-trailer-classifications Browse project trailer classifications
 │   │   ├── list            List project trailer classifications
 │   │   └── show <id>       Show project trailer classification details
@@ -697,6 +700,22 @@ xbe view project-status-changes list --status active
 
 # Show status change details
 xbe view project-status-changes show 456
+```
+
+### Key Result Changes
+
+```bash
+# List key result changes
+xbe view key-result-changes list
+
+# Filter by key result
+xbe view key-result-changes list --key-result 123
+
+# Filter by objective
+xbe view key-result-changes list --objective 456
+
+# Show key result change details
+xbe view key-result-changes show 789
 ```
 
 ### Users, Material Suppliers, Customers, Truckers
