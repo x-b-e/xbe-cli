@@ -162,6 +162,8 @@ xbe
 │   │   └── create           Create a shift time card requisition
 │   ├── built-time-cards    Build time cards from shifts
 │   │   └── create           Build a time card from a shift
+│   ├── down-minutes-estimates  Estimate down minutes for a shift
+│   │   └── create           Estimate down minutes for a shift
 │   ├── time-cards          Manage time cards
 │   │   ├── create           Create a time card
 │   │   ├── update           Update a time card
