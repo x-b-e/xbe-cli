@@ -79,6 +79,10 @@ xbe
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
 │   │   └── delete           Delete a glossary term
+│   ├── file-attachments     Manage file attachments
+│   │   ├── create           Create a file attachment
+│   │   ├── update           Update a file attachment
+│   │   └── delete           Delete a file attachment
 │   ├── platform-statuses    Manage platform status updates
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
@@ -269,6 +273,9 @@ xbe
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
+│   ├── file-attachments     Browse file attachments
+│   │   ├── list            List file attachments with filtering
+│   │   └── show <id>       Show file attachment details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details

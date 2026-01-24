@@ -114,6 +114,7 @@ equipment-rentals
 external-identification-types
 external-identifications
 features
+file-attachments
 geofences
 glossary-terms
 hos-events
@@ -581,7 +582,6 @@ efficiency-incidents
 email-address-statuses
 expected-time-of-arrivals
 file-attachment-signed-urls
-file-attachments
 file-imports
 incident-headline-suggestions
 incident-participants
