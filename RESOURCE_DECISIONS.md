@@ -212,6 +212,7 @@ truckers
 unit-of-measures
 user-credential-classifications
 user-credentials
+user-languages
 users
 work-orders
 ```

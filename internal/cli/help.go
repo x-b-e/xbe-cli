@@ -54,6 +54,7 @@ var resourceCategories = map[string][]string{
 	"trucker-invoice-payments":                      {CatOrganizations, CatFleet},
 	"truckers":                                      {CatOrganizations, CatFleet}, // appears in both
 	"users":                                         {CatOrganizations},
+	"user-languages":                                {CatOrganizations},
 
 	// Content & Publishing
 	"features":                {CatContent},

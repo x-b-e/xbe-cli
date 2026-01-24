@@ -316,6 +316,10 @@ xbe
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
+│   ├── user-languages       Manage user languages
+│   │   ├── create           Create a user language
+│   │   ├── update           Update a user language
+│   │   └── delete           Delete a user language
 │   ├── meeting-attendees    Manage meeting attendees
 │   │   ├── create           Create a meeting attendee
 │   │   ├── update           Update a meeting attendee
@@ -380,6 +384,9 @@ xbe
 │   │   └── show <id>       Show contractor details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
+│   ├── user-languages       Browse user language preferences
+│   │   ├── list            List user languages with filtering
+│   │   └── show <id>       Show user language details
 │   ├── user-creator-feed-creators Browse user creator feed creators
 │   │   ├── list            List user creator feed creators with filtering
 │   │   └── show <id>       Show user creator feed creator details
@@ -1221,6 +1228,36 @@ xbe do memberships update 789 \
 
 # Delete a membership (requires --confirm)
 xbe do memberships delete 789 --confirm
+```
+
+### User Languages
+
+User languages associate users with preferred languages and default settings.
+
+```bash
+# List user languages
+xbe view user-languages list
+
+# Filter by user
+xbe view user-languages list --user 123
+
+# Filter by language
+xbe view user-languages list --language 456
+
+# Filter by default status
+xbe view user-languages list --is-default true
+
+# Show a user language
+xbe view user-languages show 789
+
+# Create a user language
+xbe do user-languages create --user 123 --language 456 --is-default true
+
+# Update default status
+xbe do user-languages update 789 --is-default false
+
+# Delete a user language
+xbe do user-languages delete 789 --confirm
 ```
 
 ### Developer Trucker Certification Multipliers
