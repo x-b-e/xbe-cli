@@ -116,6 +116,8 @@ xbe
 │   ├── action-item-key-results Manage action item key result links
 │   │   ├── create           Create an action item key result link
 │   │   └── delete           Delete an action item key result link
+│   ├── key-result-scrappages Manage key result scrappages
+│   │   └── create           Create a key result scrappage
 │   ├── action-item-trackers Manage action item trackers
 │   │   ├── create           Create an action item tracker
 │   │   ├── update           Update an action item tracker
@@ -353,6 +355,9 @@ xbe
 │   ├── action-item-key-results Browse action item key result links
 │   │   ├── list            List action item key result links with filtering
 │   │   └── show <id>       Show action item key result details
+│   ├── key-result-scrappages Browse key result scrappages
+│   │   ├── list            List key result scrappages
+│   │   └── show <id>       Show key result scrappage details
 │   ├── action-item-trackers Browse action item trackers
 │   │   ├── list            List action item trackers
 │   │   └── show <id>       Show action item tracker details
