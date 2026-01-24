@@ -100,6 +100,10 @@ xbe
 │   │   └── delete           Delete a project bid location
 │   ├── project-estimate-file-imports Import project estimate files
 │   │   └── create           Import a project estimate file
+│   ├── project-labor-classifications Manage project labor classifications
+│   │   ├── create           Create a project labor classification
+│   │   ├── update           Update a project labor classification
+│   │   └── delete           Delete a project labor classification
 │   ├── job-production-plan-uncompletions Uncomplete job production plans
 │   │   └── create           Uncomplete a job production plan
 │   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
@@ -262,6 +266,9 @@ xbe
 │   │   └── show <id>       Show project bid location details
 │   ├── project-estimate-file-imports Browse project estimate file imports
 │   │   └── list            List project estimate file imports
+│   ├── project-labor-classifications Browse project labor classifications
+│   │   ├── list            List project labor classifications with filtering
+│   │   └── show <id>       Show project labor classification details
 │   ├── time-card-pre-approvals Browse time card pre-approvals
 │   │   ├── list            List time card pre-approvals with filtering
 │   │   └── show <id>       Show time card pre-approval details

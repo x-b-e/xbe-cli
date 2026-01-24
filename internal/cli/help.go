@@ -120,6 +120,7 @@ var resourceCategories = map[string][]string{
 	"labor-classifications":                           {CatClassifications},
 	"profit-improvement-categories":                   {CatClassifications},
 	"project-cost-classifications":                    {CatClassifications},
+	"project-labor-classifications":                   {CatClassifications},
 	"project-resource-classifications":                {CatClassifications},
 	"project-revenue-classifications":                 {CatClassifications},
 	"project-transport-event-types":                   {CatClassifications},
