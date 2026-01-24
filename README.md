@@ -199,6 +199,9 @@ xbe
 │   ├── ticket-report-dispatches  Manage ticket report dispatches
 │   │   ├── create           Create a ticket report dispatch
 │   │   └── delete           Delete a ticket report dispatch
+│   ├── ticket-report-imports  Manage ticket report imports
+│   │   ├── create           Create a ticket report import
+│   │   └── delete           Delete a ticket report import
 │   ├── process-non-processed-time-card-time-changes  Process non-processed time card time changes
 │   │   └── create           Process time card time changes
 │   ├── tender-cancellations  Cancel tenders
@@ -604,6 +607,9 @@ xbe
 │   ├── ticket-report-dispatches  Browse ticket report dispatches
 │   │   ├── list            List ticket report dispatches with filtering
 │   │   └── show <id>       Show ticket report dispatch details
+│   ├── ticket-report-imports  Browse ticket report imports
+│   │   ├── list            List ticket report imports with filtering
+│   │   └── show <id>       Show ticket report import details
 │   ├── invoice-generations Browse invoice generations
 │   │   ├── list            List invoice generations with filtering
 │   │   └── show <id>       Show invoice generation details
