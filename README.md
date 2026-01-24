@@ -78,6 +78,8 @@ xbe
 │   │   └── create           Complete a job production plan
 │   ├── job-production-plan-unscrappages Unscrap job production plans
 │   │   └── create           Unscrap a job production plan
+│   ├── project-abandonments Abandon projects
+│   │   └── create           Abandon a project
 │   ├── job-production-plan-driver-movements Generate job production plan driver movements
 │   │   └── create           Generate driver movement details
 │   ├── job-production-plan-job-site-changes Update job production plan job sites
@@ -245,6 +247,9 @@ xbe
 │   ├── job-production-plan-schedule-change-works Browse job production plan schedule change works
 │   │   ├── list            List schedule change works with filtering
 │   │   └── show <id>       Show schedule change work details
+│   ├── project-abandonments Browse project abandonments
+│   │   ├── list            List project abandonments
+│   │   └── show <id>       Show project abandonment details
 │   ├── job-schedule-shift-start-at-changes Browse job schedule shift start-at changes
 │   │   ├── list            List start-at changes
 │   │   └── show <id>       Show start-at change details

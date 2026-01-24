@@ -140,6 +140,7 @@ parking-sites
 posts
 press-releases
 profit-improvement-categories
+project-abandonments
 project-categories
 project-cost-classifications
 project-cost-codes
