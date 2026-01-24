@@ -289,6 +289,10 @@ xbe
 │   │   ├── create           Create a business unit membership
 │   │   ├── update           Update a business unit membership
 │   │   └── delete           Delete a business unit membership
+│   ├── trucker-brokerages   Manage trucker brokerages
+│   │   ├── create           Create a trucker brokerage
+│   │   ├── update           Update a trucker brokerage
+│   │   └── delete           Delete a trucker brokerage
 │   ├── open-door-team-memberships Manage open door team memberships
 │   │   ├── create           Create an open door team membership
 │   │   ├── update           Update an open door team membership
@@ -435,6 +439,9 @@ xbe
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
+│   ├── trucker-brokerages  Browse trucker brokerages
+│   │   ├── list            List trucker brokerages
+│   │   └── show <id>       Show trucker brokerage details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
