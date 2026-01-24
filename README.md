@@ -293,10 +293,14 @@ xbe
 │   │   ├── create           Create a developer trucker certification multiplier
 │   │   ├── update           Update a developer trucker certification multiplier
 │   │   └── delete           Delete a developer trucker certification multiplier
-│   └── objective-stakeholder-classification-quotes Manage objective stakeholder classification quotes
-│       ├── create           Create an objective stakeholder classification quote
-│       ├── update           Update an objective stakeholder classification quote
-│       └── delete           Delete an objective stakeholder classification quote
+│   ├── objective-stakeholder-classification-quotes Manage objective stakeholder classification quotes
+│   │   ├── create           Create an objective stakeholder classification quote
+│   │   ├── update           Update an objective stakeholder classification quote
+│   │   └── delete           Delete an objective stakeholder classification quote
+│   └── open-door-issues     Manage open door issues
+│       ├── create           Create an open door issue
+│       ├── update           Update an open door issue
+│       └── delete           Delete an open door issue
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -546,9 +550,12 @@ xbe
 │   ├── developer-trucker-certification-multipliers Browse developer trucker certification multipliers
 │   │   ├── list            List developer trucker certification multipliers with filtering
 │   │   └── show <id>       Show developer trucker certification multiplier details
-│   └── objective-stakeholder-classification-quotes Browse objective stakeholder classification quotes
-│       ├── list            List objective stakeholder classification quotes with filtering
-│       └── show <id>       Show objective stakeholder classification quote details
+│   ├── objective-stakeholder-classification-quotes Browse objective stakeholder classification quotes
+│   │   ├── list            List objective stakeholder classification quotes with filtering
+│   │   └── show <id>       Show objective stakeholder classification quote details
+│   └── open-door-issues    Browse open door issues
+│       ├── list            List open door issues with filtering
+│       └── show <id>       Show open door issue details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```
@@ -675,6 +682,26 @@ xbe view brokers list --company-name "Acme"
 
 # Get broker ID for use in newsletter filtering
 xbe view brokers list --company-name "Acme" --json | jq '.[0].id'
+```
+
+### Open Door Issues
+
+```bash
+# List open door issues
+xbe view open-door-issues list
+
+# Filter by organization
+xbe view open-door-issues list --organization "Broker|123"
+
+# Show open door issue details
+xbe view open-door-issues show 456
+
+# Create an open door issue
+xbe do open-door-issues create \
+  --description "Safety concern reported by driver" \
+  --status editing \
+  --organization "Broker|123" \
+  --reported-by 789
 ```
 
 ### Business Unit Customers
