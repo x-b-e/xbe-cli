@@ -297,6 +297,10 @@ xbe
 │   │   ├── create           Create a trucker brokerage
 │   │   ├── update           Update a trucker brokerage
 │   │   └── delete           Delete a trucker brokerage
+│   ├── trucker-referrals   Manage trucker referrals
+│   │   ├── create           Create a trucker referral
+│   │   ├── update           Update a trucker referral
+│   │   └── delete           Delete a trucker referral
 │   ├── open-door-team-memberships Manage open door team memberships
 │   │   ├── create           Create an open door team membership
 │   │   ├── update           Update an open door team membership
@@ -446,6 +450,9 @@ xbe
 │   ├── trucker-brokerages  Browse trucker brokerages
 │   │   ├── list            List trucker brokerages
 │   │   └── show <id>       Show trucker brokerage details
+│   ├── trucker-referrals   Browse trucker referrals
+│   │   ├── list            List trucker referrals
+│   │   └── show <id>       Show trucker referral details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
