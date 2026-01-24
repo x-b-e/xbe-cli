@@ -543,6 +543,19 @@ xbe do broker-commitments create --status active --broker 123 --trucker 456 --la
 xbe view broker-commitments show 789
 ```
 
+### Broker Retainer Payment Forecasts
+
+```bash
+# Forecast upcoming broker retainer payments starting today
+xbe do broker-retainer-payment-forecasts create --broker 123
+
+# Forecast starting on a specific date
+xbe do broker-retainer-payment-forecasts create --broker 123 --date 2025-02-01
+
+# Output as JSON
+xbe do broker-retainer-payment-forecasts create --broker 123 --json
+```
+
 ### Project Status Changes
 
 ```bash

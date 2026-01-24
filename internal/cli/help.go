@@ -32,15 +32,16 @@ const (
 // resourceCategories maps resource names to their categories
 var resourceCategories = map[string][]string{
 	// Organizations
-	"broker-commitments": {CatOrganizations},
-	"broker-memberships": {CatOrganizations},
-	"brokers":            {CatOrganizations},
-	"business-units":     {CatOrganizations},
-	"customers":          {CatOrganizations},
-	"developers":         {CatOrganizations},
-	"memberships":        {CatOrganizations},
-	"truckers":           {CatOrganizations, CatFleet}, // appears in both
-	"users":              {CatOrganizations},
+	"broker-commitments":                {CatOrganizations},
+	"broker-memberships":                {CatOrganizations},
+	"broker-retainer-payment-forecasts": {CatOrganizations},
+	"brokers":                           {CatOrganizations},
+	"business-units":                    {CatOrganizations},
+	"customers":                         {CatOrganizations},
+	"developers":                        {CatOrganizations},
+	"memberships":                       {CatOrganizations},
+	"truckers":                          {CatOrganizations, CatFleet}, // appears in both
+	"users":                             {CatOrganizations},
 
 	// Content & Publishing
 	"features":          {CatContent},
