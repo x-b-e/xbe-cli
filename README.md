@@ -78,6 +78,10 @@ xbe
 │   │   └── create           Create a device diagnostic
 │   ├── file-attachment-signed-urls Generate signed URLs for file attachments
 │   │   └── create           Generate a signed URL for a file attachment
+│   ├── file-imports         Manage file imports
+│   │   ├── create           Create a file import
+│   │   ├── update           Update a file import
+│   │   └── delete           Delete a file import
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -294,6 +298,9 @@ xbe
 │   ├── device-diagnostics  Browse device diagnostics
 │   │   ├── list            List device diagnostics
 │   │   └── show <id>       Show device diagnostic details
+│   ├── file-imports        Browse file imports
+│   │   ├── list            List file imports with filtering
+│   │   └── show <id>       Show file import details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
