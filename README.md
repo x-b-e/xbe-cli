@@ -159,6 +159,8 @@ xbe
 │   │   └── create           Approve a time card
 │   ├── time-card-rejections  Reject time cards
 │   │   └── create           Reject a time card
+│   ├── tender-cancellations  Cancel tenders
+│   │   └── create           Cancel a tender
 │   ├── invoice-generations  Generate invoices
 │   │   └── create           Create an invoice generation
 │   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules
