@@ -292,6 +292,10 @@ xbe
 │   ├── proffer-likes        Manage proffer likes
 │   │   ├── create           Create a proffer like
 │   │   └── delete           Delete a proffer like
+│   ├── public-praise-culture-values Manage public praise culture values
+│   │   ├── create           Create a public praise culture value
+│   │   ├── update           Update a public praise culture value
+│   │   └── delete           Delete a public praise culture value
 │   ├── work-order-assignments Manage work order assignments
 │   │   ├── create           Create a work order assignment
 │   │   ├── update           Update a work order assignment
@@ -338,6 +342,9 @@ xbe
 │   ├── proffer-likes       Browse proffer likes
 │   │   ├── list            List proffer likes with filtering
 │   │   └── show <id>       Show proffer like details
+│   ├── public-praise-culture-values Browse public praise culture values
+│   │   ├── list            List public praise culture values with filtering
+│   │   └── show <id>       Show public praise culture value details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
 │   ├── administrative-incidents Browse administrative incidents
