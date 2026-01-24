@@ -1021,6 +1021,26 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
+### Missing Rates
+
+Missing rates add customer and trucker pricing to a job for a service type unit of measure.
+
+```bash
+# List missing rates
+xbe view missing-rates list --limit 10
+
+# Show missing rate details
+xbe view missing-rates show 123
+
+# Create a missing rate
+xbe do missing-rates create \
+  --job 123 \
+  --service-type-unit-of-measure 456 \
+  --currency-code USD \
+  --customer-price-per-unit 100.00 \
+  --trucker-price-per-unit 85.00
+```
+
 ### Expected Time of Arrivals
 
 Expected time of arrivals track ETA updates for tender job schedule shifts.
