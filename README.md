@@ -119,6 +119,10 @@ xbe
 │   │   ├── create           Create a subscription
 │   │   ├── update           Update a subscription
 │   │   └── delete           Delete a subscription
+│   ├── project-subscriptions                  Manage project subscriptions
+│   │   ├── create           Create a subscription
+│   │   ├── update           Update a subscription
+│   │   └── delete           Delete a subscription
 │   ├── job-production-plan-change-sets        Manage job production plan change sets
 │   │   ├── create           Create a change set
 │   │   ├── update           Update a change set
@@ -262,6 +266,9 @@ xbe
 │   │   ├── list            List alarm subscribers with filtering
 │   │   └── show <id>       Show alarm subscriber details
 │   ├── job-production-plan-subscriptions      Browse job production plan subscriptions
+│   │   ├── list            List subscriptions with filtering
+│   │   └── show <id>       Show subscription details
+│   ├── project-subscriptions                  Browse project subscriptions
 │   │   ├── list            List subscriptions with filtering
 │   │   └── show <id>       Show subscription details
 │   ├── job-production-plan-change-sets        Browse job production plan change sets
