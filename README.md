@@ -309,6 +309,9 @@ xbe
 │   │   ├── create           Create a trucker membership
 │   │   ├── update           Update a trucker membership
 │   │   └── delete           Delete a trucker membership
+│   ├── trucker-settings     Manage trucker settings
+│   │   ├── create           Create trucker settings
+│   │   └── update           Update trucker settings
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -385,6 +388,9 @@ xbe
 │   ├── trucker-memberships Browse trucker memberships
 │   │   ├── list            List trucker memberships with filtering
 │   │   └── show <id>       Show trucker membership details
+│   ├── trucker-settings    Browse trucker settings
+│   │   ├── list            List trucker settings
+│   │   └── show <id>       Show trucker setting details
 │   ├── material-site-measures Browse material site measures
 │   │   ├── list            List material site measures with filtering
 │   │   └── show <id>       Show material site measure details
