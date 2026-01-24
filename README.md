@@ -66,6 +66,10 @@ xbe
 │   │   ├── create           Create an administrative incident
 │   │   ├── update           Update an administrative incident
 │   │   └── delete           Delete an administrative incident
+│   ├── customer-incident-default-assignees Manage customer incident default assignees
+│   │   ├── create           Create a customer incident default assignee
+│   │   ├── update           Update a customer incident default assignee
+│   │   └── delete           Delete a customer incident default assignee
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -265,6 +269,9 @@ xbe
 │   ├── administrative-incidents Browse administrative incidents
 │   │   ├── list            List administrative incidents with filtering
 │   │   └── show <id>       Show administrative incident details
+│   ├── customer-incident-default-assignees Browse customer incident default assignees
+│   │   ├── list            List customer incident default assignees
+│   │   └── show <id>       Show customer incident default assignee details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
@@ -595,6 +602,16 @@ xbe do customer-application-approvals create --customer-application 123 --credit
 
 # Output as JSON
 xbe do customer-application-approvals create --customer-application 123 --credit-limit 1000000 --json
+```
+
+### Customer Incident Default Assignees
+
+```bash
+# List default assignees for a customer
+xbe view customer-incident-default-assignees list --customer 123
+
+# Create a default assignee
+xbe do customer-incident-default-assignees create --customer 123 --default-assignee 456 --kind safety
 ```
 
 ### Project Status Changes
