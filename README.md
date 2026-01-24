@@ -247,6 +247,10 @@ xbe
 │   │   ├── create           Create an incident unit of measure quantity
 │   │   ├── update           Update an incident unit of measure quantity
 │   │   └── delete           Delete an incident unit of measure quantity
+│   ├── root-causes          Manage root causes
+│   │   ├── create           Create a root cause
+│   │   ├── update           Update a root cause
+│   │   └── delete           Delete a root cause
 │   ├── liability-incidents  Manage liability incidents
 │   │   ├── create           Create a liability incident
 │   │   ├── update           Update a liability incident
@@ -532,6 +536,9 @@ xbe
 │   ├── incident-unit-of-measure-quantities Browse incident unit of measure quantities
 │   │   ├── list            List incident unit of measure quantities
 │   │   └── show <id>       Show incident unit of measure quantity details
+│   ├── root-causes          Browse root causes
+│   │   ├── list            List root causes
+│   │   └── show <id>       Show root cause details
 │   ├── liability-incidents  Browse liability incidents
 │   │   ├── list            List liability incidents
 │   │   └── show <id>       Show liability incident details
@@ -1745,6 +1752,32 @@ xbe do device-location-events create --device-identifier "ios:ABC123" \
 xbe do device-location-events create --device-identifier "ios:ABC123" \
   --payload '{"uuid":"evt-3","timestamp":"2025-01-01T00:10:00Z","activity":{"type":"still"},"coords":{"latitude":40.2,"longitude":-74.2}}' \
   --json
+```
+
+### Root Causes
+
+Root causes capture underlying issues for incidents and can be linked to parent root causes.
+
+```bash
+# List root causes
+xbe view root-causes list
+
+# Filter by incident
+xbe view root-causes list --incident-type production-incidents --incident-id 123
+
+# Create a root cause
+xbe do root-causes create \
+  --incident-type production-incidents \
+  --incident-id 123 \
+  --title "Mechanical failure" \
+  --description "Hydraulic leak caused downtime" \
+  --is-triaged
+
+# Update a root cause
+xbe do root-causes update 456 --title "Updated root cause"
+
+# Delete a root cause
+xbe do root-causes delete 456 --confirm
 ```
 
 ### Shift Counters
