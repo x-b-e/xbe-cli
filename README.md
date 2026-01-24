@@ -94,6 +94,8 @@ xbe
 │   │   └── delete           Delete a file import
 │   ├── organization-invoices-batch-files Manage organization invoices batch files
 │   │   └── create           Create an organization invoices batch file
+│   ├── organization-invoices-batch-invoice-unbatchings Unbatch organization invoices batch invoices
+│   │   └── create           Unbatch an organization invoices batch invoice
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -344,6 +346,9 @@ xbe
 │   ├── organization-invoices-batch-files Browse organization invoices batch files
 │   │   ├── list            List organization invoices batch files with filtering
 │   │   └── show <id>       Show organization invoices batch file details
+│   ├── organization-invoices-batch-invoice-unbatchings Browse organization invoices batch invoice unbatchings
+│   │   ├── list            List organization invoices batch invoice unbatchings
+│   │   └── show <id>       Show organization invoices batch invoice unbatching details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
 │   ├── material-suppliers  Browse material suppliers
