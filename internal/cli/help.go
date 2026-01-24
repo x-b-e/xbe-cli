@@ -45,6 +45,7 @@ var resourceCategories = map[string][]string{
 	"memberships":             {CatOrganizations},
 	"open-door-issues":        {CatOrganizations},
 	"organization-invoices-batch-invoice-batchings": {CatOrganizations},
+	"organization-invoices-batch-invoice-failures":  {CatOrganizations},
 	"truckers": {CatOrganizations, CatFleet}, // appears in both
 	"users":    {CatOrganizations},
 
