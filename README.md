@@ -66,6 +66,9 @@ xbe
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
 │   │   └── delete           Delete an application setting
+│   ├── base-summary-templates Manage base summary templates
+│   │   ├── create           Create a base summary template
+│   │   └── delete           Delete a base summary template
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
@@ -449,6 +452,9 @@ xbe
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
+│   ├── base-summary-templates Browse base summary templates
+│   │   ├── list            List base summary templates with filtering
+│   │   └── show <id>       Show base summary template details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
@@ -624,6 +630,26 @@ xbe view press-releases show 789
 # List glossary terms
 xbe view glossary-terms list
 xbe view glossary-terms show 101
+```
+
+### Base Summary Templates
+
+```bash
+# List base summary templates
+xbe view base-summary-templates list
+
+# Show a base summary template
+xbe view base-summary-templates show 123
+
+# Create a base summary template
+xbe do base-summary-templates create \
+  --label "Weekly Summary" \
+  --broker 123 \
+  --group-bys broker \
+  --filter broker=123
+
+# Delete a base summary template
+xbe do base-summary-templates delete 123 --confirm
 ```
 
 ### Lane Summary (Cycle Summary)

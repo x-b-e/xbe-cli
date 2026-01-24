@@ -143,6 +143,7 @@ var resourceCategories = map[string][]string{
 
 	// Reference Data
 	"application-settings":          {CatReference},
+	"base-summary-templates":        {CatReference},
 	"culture-values":                {CatReference},
 	"external-identification-types": {CatReference},
 	"languages":                     {CatReference},
