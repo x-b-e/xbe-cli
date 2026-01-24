@@ -221,6 +221,8 @@ xbe
 │   │   ├── create           Create a profit improvement
 │   │   ├── update           Update a profit improvement
 │   │   └── delete           Delete a profit improvement
+│   ├── rate-agreement-copiers  Copy rate agreements to target organizations
+│   │   └── create           Copy a rate agreement to a target organization
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
