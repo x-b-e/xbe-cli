@@ -168,6 +168,10 @@ xbe
 │   │   ├── create           Create a lineup scenario trucker
 │   │   ├── update           Update a lineup scenario trucker
 │   │   └── delete           Delete a lineup scenario trucker
+│   ├── project-estimate-sets  Manage project estimate sets
+│   │   ├── create           Create a project estimate set
+│   │   ├── update           Update a project estimate set
+│   │   └── delete           Delete a project estimate set
 │   ├── profit-improvements  Manage profit improvements
 │   │   ├── create           Create a profit improvement
 │   │   ├── update           Update a profit improvement
@@ -250,6 +254,9 @@ xbe
 │   ├── job-schedule-shifts  Browse job schedule shifts
 │   │   ├── list            List job schedule shifts with filtering
 │   │   └── show <id>       Show job schedule shift details
+│   ├── project-estimate-sets  Browse project estimate sets
+│   │   ├── list            List project estimate sets with filtering
+│   │   └── show <id>       Show project estimate set details
 │   ├── shift-time-card-requisitions  Browse shift time card requisitions
 │   │   ├── list            List shift time card requisitions with filtering
 │   │   └── show <id>       Show shift time card requisition details
