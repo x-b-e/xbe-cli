@@ -134,6 +134,10 @@ xbe
 │   │   ├── create           Create a subscription
 │   │   ├── update           Update a subscription
 │   │   └── delete           Delete a subscription
+│   ├── key-results         Manage key results
+│   │   ├── create           Create a key result
+│   │   ├── update           Update a key result
+│   │   └── delete           Delete a key result
 │   ├── job-production-plan-change-sets        Manage job production plan change sets
 │   │   ├── create           Create a change set
 │   │   ├── update           Update a change set
@@ -441,6 +445,9 @@ xbe
 │   ├── job-schedule-shifts  Browse job schedule shifts
 │   │   ├── list            List job schedule shifts with filtering
 │   │   └── show <id>       Show job schedule shift details
+│   ├── key-results         Browse key results
+│   │   ├── list            List key results with filtering
+│   │   └── show <id>       Show key result details
 │   ├── key-result-status-changes  Browse key result status changes
 │   │   ├── list            List key result status changes
 │   │   └── show <id>       Show key result status change details
