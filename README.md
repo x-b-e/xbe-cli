@@ -256,6 +256,9 @@ xbe
 │   ├── raw-transport-drivers Manage raw transport drivers
 │   │   ├── create           Create a raw transport driver
 │   │   └── delete           Delete a raw transport driver
+│   ├── raw-transport-projects Manage raw transport projects
+│   │   ├── create           Create a raw transport project
+│   │   └── delete           Delete a raw transport project
 │   ├── material-type-conversions Manage material type conversions
 │   │   ├── create           Create a material type conversion
 │   │   ├── update           Update a material type conversion
@@ -409,6 +412,9 @@ xbe
 │   ├── raw-transport-drivers Browse raw transport drivers
 │   │   ├── list            List raw transport drivers
 │   │   └── show <id>       Show raw transport driver details
+│   ├── raw-transport-projects Browse raw transport projects
+│   │   ├── list            List raw transport projects
+│   │   └── show <id>       Show raw transport project details
 │   ├── material-type-conversions Browse material type conversions
 │   │   ├── list            List material type conversions
 │   │   └── show <id>       Show material type conversion details
