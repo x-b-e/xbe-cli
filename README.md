@@ -570,6 +570,9 @@ xbe
 │   ├── organization-invoices-batch-processes Browse organization invoices batch processes
 │   │   ├── list            List organization invoices batch processes
 │   │   └── show <id>       Show organization invoices batch process details
+│   ├── organization-invoices-batch-status-changes Browse organization invoices batch status changes
+│   │   ├── list            List organization invoices batch status changes
+│   │   └── show <id>       Show organization invoices batch status change details
 │   ├── organization-invoices-batch-pdf-files Browse organization invoices batch PDF files
 │   │   ├── list            List organization invoices batch PDF files
 │   │   └── show <id>       Show organization invoices batch PDF file details
