@@ -95,6 +95,7 @@ crafts
 culture-values
 custom-work-order-statuses
 customer-certification-types
+customer-memberships
 customer-settings
 customers
 developer-reference-types
@@ -554,7 +555,6 @@ customer-application-approvals
 customer-applications
 customer-certification-types
 customer-incident-default-assignees
-customer-memberships
 customer-retainers
 customer-tenders
 customer-truckers

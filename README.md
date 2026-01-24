@@ -277,6 +277,10 @@ xbe
 │   │   ├── create           Create a broker trucker rating
 │   │   ├── update           Update a broker trucker rating
 │   │   └── delete           Delete a broker trucker rating
+│   ├── customer-memberships  Manage customer memberships
+│   │   ├── create           Create a customer membership
+│   │   ├── update           Update a customer membership
+│   │   └── delete           Delete a customer membership
 │   └── memberships          Manage user-organization memberships
 │       ├── create           Create a membership
 │       ├── update           Update a membership
@@ -358,6 +362,9 @@ xbe
 │   │   └── show <id>       Show commitment simulation period details
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
+│   ├── customer-memberships  Browse customer memberships
+│   │   ├── list            List customer memberships with filtering
+│   │   └── show <id>       Show customer membership details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
@@ -756,6 +763,27 @@ xbe do memberships update 789 \
 
 # Delete a membership (requires --confirm)
 xbe do memberships delete 789 --confirm
+```
+
+### Customer Memberships
+
+Customer memberships focus on customer organizations only.
+
+```bash
+# List customer memberships for a customer
+xbe view customer-memberships list --customer 123
+
+# Show customer membership details
+xbe view customer-memberships show 456
+
+# Create a customer membership
+xbe do customer-memberships create --user 123 --customer 456 --kind manager
+
+# Update a customer membership
+xbe do customer-memberships update 789 --title "Dispatcher" --is-admin true
+
+# Delete a customer membership (requires --confirm)
+xbe do customer-memberships delete 789 --confirm
 ```
 
 ### Crew Assignment Confirmations
