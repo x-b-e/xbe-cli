@@ -161,6 +161,8 @@ xbe
 │   │   └── create           Reject a time card
 │   ├── tender-cancellations  Cancel tenders
 │   │   └── create           Cancel a tender
+│   ├── tender-job-schedule-shift-cancellations  Cancel tender job schedule shifts
+│   │   └── create           Cancel a tender job schedule shift
 │   ├── invoice-generations  Generate invoices
 │   │   └── create           Create an invoice generation
 │   ├── maintenance-requirement-rule-evaluation-clerks  Evaluate maintenance requirement rules
@@ -314,6 +316,9 @@ xbe
 │   ├── job-schedule-shifts  Browse job schedule shifts
 │   │   ├── list            List job schedule shifts with filtering
 │   │   └── show <id>       Show job schedule shift details
+│   ├── tender-job-schedule-shift-cancellations  Browse tender job schedule shift cancellations
+│   │   ├── list            List tender job schedule shift cancellations
+│   │   └── show <id>       Show tender job schedule shift cancellation details
 │   ├── project-estimate-sets  Browse project estimate sets
 │   │   ├── list            List project estimate sets with filtering
 │   │   └── show <id>       Show project estimate set details
