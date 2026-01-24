@@ -492,6 +492,9 @@ xbe
 │   ├── haskell-lemon-inbound-material-transaction-exports  Browse Haskell Lemon inbound material transaction exports
 │   │   ├── list            List Haskell Lemon inbound material transaction exports with filtering
 │   │   └── show <id>       Show Haskell Lemon inbound material transaction export details
+│   ├── integration-exports  Browse integration exports
+│   │   ├── list            List integration exports with filtering
+│   │   └── show <id>       Show integration export details
 │   ├── material-transaction-diversions  Browse material transaction diversions
 │   │   ├── list            List material transaction diversions with filtering
 │   │   └── show <id>       Show diversion details
