@@ -297,6 +297,9 @@ xbe
 │   ├── rate-agreement-copier-works Browse rate agreement copier works
 │   │   ├── list            List copier works with filtering and pagination
 │   │   └── show <id>       Show copier work details
+│   ├── retainer-earning-statuses Browse retainer earning statuses
+│   │   ├── list            List retainer earning statuses with filtering
+│   │   └── show <id>       Show retainer earning status details
 │   ├── project-abandonments Browse project abandonments
 │   │   ├── list            List project abandonments
 │   │   └── show <id>       Show project abandonment details
