@@ -421,6 +421,8 @@ xbe
 │   │   ├── create           Create a developer trucker certification
 │   │   ├── update           Update a developer trucker certification
 │   │   └── delete           Delete a developer trucker certification
+│   ├── deere-equipments     Manage Deere equipment
+│   │   └── update           Update a Deere equipment
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -598,6 +600,9 @@ xbe
 │   ├── developer-trucker-certifications  Browse developer trucker certifications
 │   │   ├── list            List developer trucker certifications with filtering
 │   │   └── show <id>       Show developer trucker certification details
+│   ├── deere-equipments     Browse Deere equipment
+│   │   ├── list            List Deere equipment with filtering
+│   │   └── show <id>       Show Deere equipment details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
