@@ -138,6 +138,8 @@ xbe
 │   │   └── update           Update geotab vehicle assignments
 │   ├── gps-insight-vehicles Manage GPS Insight vehicles
 │   │   └── update           Update GPS Insight vehicle assignments
+│   ├── keep-truckin-users  Manage KeepTruckin users
+│   │   └── update           Update a KeepTruckin user assignment
 │   ├── platform-statuses    Manage platform status updates
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
@@ -763,6 +765,9 @@ xbe
 │   ├── gps-insight-vehicles Browse GPS Insight vehicles
 │   │   ├── list            List GPS Insight vehicles with filtering
 │   │   └── show <id>       Show GPS Insight vehicle details
+│   ├── keep-truckin-users  Browse KeepTruckin users
+│   │   ├── list            List KeepTruckin users with filtering
+│   │   └── show <id>       Show KeepTruckin user details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
