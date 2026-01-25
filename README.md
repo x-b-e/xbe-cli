@@ -620,6 +620,9 @@ xbe
 │   ├── notification-subscriptions Browse notification subscriptions
 │   │   ├── list            List notification subscriptions
 │   │   └── show <id>       Show notification subscription details
+│   ├── site-wait-time-notification-triggers Browse site wait time notification triggers
+│   │   ├── list            List site wait time notification triggers with filtering
+│   │   └── show <id>       Show site wait time notification trigger details
 │   ├── open-ai-vector-stores Browse OpenAI vector stores
 │   │   ├── list            List OpenAI vector stores
 │   │   └── show <id>       Show OpenAI vector store details
@@ -1070,6 +1073,22 @@ xbe view notification-subscriptions list --user 123
 
 # Show notification subscription details
 xbe view notification-subscriptions show 456
+```
+
+### Site Wait Time Notification Triggers
+
+```bash
+# List site wait time notification triggers
+xbe view site-wait-time-notification-triggers list
+
+# Filter by job production plan
+xbe view site-wait-time-notification-triggers list --job-production-plan 123
+
+# Filter by site type
+xbe view site-wait-time-notification-triggers list --site-type job_site
+
+# Show trigger details
+xbe view site-wait-time-notification-triggers show 456
 ```
 
 ### OpenAI Vector Stores
