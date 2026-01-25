@@ -363,6 +363,10 @@ xbe
 │   │   ├── create           Create an open door team membership
 │   │   ├── update           Update an open door team membership
 │   │   └── delete           Delete an open door team membership
+│   ├── open-ai-vector-stores Manage OpenAI vector stores
+│   │   ├── create           Create an OpenAI vector store
+│   │   ├── update           Update an OpenAI vector store
+│   │   └── delete           Delete an OpenAI vector store
 │   ├── broker-commitments   Manage broker commitments
 │   │   ├── create           Create a broker commitment
 │   │   ├── update           Update a broker commitment
@@ -595,6 +599,9 @@ xbe
 │   ├── notification-subscriptions Browse notification subscriptions
 │   │   ├── list            List notification subscriptions
 │   │   └── show <id>       Show notification subscription details
+│   ├── open-ai-vector-stores Browse OpenAI vector stores
+│   │   ├── list            List OpenAI vector stores
+│   │   └── show <id>       Show OpenAI vector store details
 │   ├── communications      Browse communications
 │   │   ├── list            List communications
 │   │   └── show <id>       Show communication details
@@ -998,6 +1005,22 @@ xbe view notification-subscriptions list --user 123
 
 # Show notification subscription details
 xbe view notification-subscriptions show 456
+```
+
+### OpenAI Vector Stores
+
+```bash
+# List vector stores
+xbe view open-ai-vector-stores list
+
+# Filter by purpose
+xbe view open-ai-vector-stores list --purpose user_post_feed
+
+# Filter by scope
+xbe view open-ai-vector-stores list --scope "UserPostFeed|123"
+
+# Show vector store details
+xbe view open-ai-vector-stores show 789
 ```
 
 ### Communications

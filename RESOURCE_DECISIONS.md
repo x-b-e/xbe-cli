@@ -150,6 +150,7 @@ meetings
 memberships
 newsletters
 notification-subscriptions
+open-ai-vector-stores
 parking-sites
 places
 posts
