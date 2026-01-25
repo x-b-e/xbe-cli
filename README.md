@@ -393,6 +393,8 @@ xbe
 │   │   └── update           Update a broker tender returned buyer notification
 │   ├── customer-tender-offered-buyer-notifications Manage customer tender offered buyer notifications
 │   │   └── update           Update a customer tender offered buyer notification
+│   ├── tender-job-schedule-shift-cancelled-trucker-contact-notifications Manage tender job schedule shift cancelled trucker contact notifications
+│   │   └── update           Update a tender job schedule shift cancelled trucker contact notification
 │   ├── broker-tenders       Manage broker tenders
 │   │   ├── create           Create a broker tender
 │   │   ├── update           Update a broker tender
@@ -621,6 +623,9 @@ xbe
 │   ├── customer-tender-offered-buyer-notifications Browse customer tender offered buyer notifications
 │   │   ├── list            List customer tender offered buyer notifications
 │   │   └── show <id>       Show customer tender offered buyer notification details
+│   ├── tender-job-schedule-shift-cancelled-trucker-contact-notifications Browse tender job schedule shift cancelled trucker contact notifications
+│   │   ├── list            List tender job schedule shift cancelled trucker contact notifications
+│   │   └── show <id>       Show tender job schedule shift cancelled trucker contact notification details
 │   ├── notification-subscriptions Browse notification subscriptions
 │   │   ├── list            List notification subscriptions
 │   │   └── show <id>       Show notification subscription details
@@ -1070,6 +1075,22 @@ xbe view customer-tender-offered-buyer-notifications show 123
 
 # Mark as read
 xbe do customer-tender-offered-buyer-notifications update 123 --read
+```
+
+### Tender Job Schedule Shift Cancelled Trucker Contact Notifications
+
+```bash
+# List notifications
+xbe view tender-job-schedule-shift-cancelled-trucker-contact-notifications list
+
+# Filter by read status
+xbe view tender-job-schedule-shift-cancelled-trucker-contact-notifications list --read false
+
+# Show notification details
+xbe view tender-job-schedule-shift-cancelled-trucker-contact-notifications show 123
+
+# Mark as read
+xbe do tender-job-schedule-shift-cancelled-trucker-contact-notifications update 123 --read
 ```
 
 ### Notification Subscriptions
