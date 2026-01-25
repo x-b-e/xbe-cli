@@ -1596,6 +1596,22 @@ xbe do device-diagnostics create --device-identifier "ABC-123" \
   --changed-at 2025-01-01T12:00:00Z
 ```
 
+### Digital Fleet Ticket Events
+
+Digital fleet ticket events capture telematics ticket events ingested from Digital Fleet.
+
+```bash
+# List recent ticket events
+xbe view digital-fleet-ticket-events list --limit 10
+
+# Filter by broker or event time
+xbe view digital-fleet-ticket-events list --broker 123
+xbe view digital-fleet-ticket-events list --event-at-min 2025-01-01T00:00:00Z --event-at-max 2025-01-31T23:59:59Z
+
+# Show a specific ticket event
+xbe view digital-fleet-ticket-events show 456
+```
+
 ### User Location Estimates
 
 User location estimates compute the most recent known location for a user based on location events.
