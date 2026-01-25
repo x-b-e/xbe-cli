@@ -62,6 +62,7 @@ var resourceCategories = map[string][]string{
 	"follows":                 {CatContent},
 	"glossary-terms":          {CatContent},
 	"newsletters":             {CatContent},
+	"notifications":           {CatContent},
 	"platform-statuses":       {CatContent},
 	"posts":                   {CatContent},
 	"press-releases":          {CatContent},
