@@ -100,6 +100,7 @@ custom-work-order-statuses
 customer-certification-types
 customer-memberships
 customer-settings
+customer-tender-offered-buyer-notification-subscriptions
 customer-truckers
 customers
 developer-reference-types
