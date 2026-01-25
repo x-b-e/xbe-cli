@@ -95,40 +95,71 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
-│   ├── post-children        Manage post child links
-│   │   ├── create           Create a post child link
-│   │   └── delete           Delete a post child link
-│   ├── post-views           Record post views
-│   │   └── create           Record a post view
-│   ├── marketing-metrics    Refresh marketing metrics
-│   │   └── create           Refresh marketing metrics
+│   ├── equipment-suppliers  Manage equipment suppliers
+│   │   ├── create           Create an equipment supplier
+│   │   ├── update           Update an equipment supplier
+│   │   └── delete           Delete an equipment supplier
+│   ├── driver-day-adjustments Manage driver day adjustments
+│   │   ├── create           Create a driver day adjustment
+│   │   ├── update           Update a driver day adjustment
+│   │   └── delete           Delete a driver day adjustment
+│   ├── job-site-times        Manage job site times
+│   │   ├── create           Create a job site time
+│   │   ├── update           Update a job site time
+│   │   └── delete           Delete a job site time
+│   ├── time-card-approval-audits Manage time card approval audits
+│   │   ├── create           Create a time card approval audit
+│   │   ├── update           Update a time card approval audit
+│   │   └── delete           Delete a time card approval audit
+│   ├── time-card-payroll-certifications Manage time card payroll certifications
+│   │   ├── create           Create a time card payroll certification
+│   │   └── delete           Delete a time card payroll certification
+│   ├── time-card-unsubmissions Unsubmit time cards
+│   │   └── create           Unsubmit a time card
+│   ├── time-sheet-submissions Submit time sheets
+│   │   └── create           Submit a time sheet
+│   ├── time-sheet-unsubmissions Unsubmit time sheets
+│   │   └── create           Unsubmit a time sheet
+│   ├── time-sheet-cost-code-allocations Manage time sheet cost code allocations
+│   │   ├── create           Create a time sheet cost code allocation
+│   │   ├── update           Update a time sheet cost code allocation
+│   │   └── delete           Delete a time sheet cost code allocation
+│   ├── service-events        Manage service events
+│   │   ├── create           Create a service event
+│   │   ├── update           Update a service event
+│   │   └── delete           Delete a service event
+│   ├── hos-annotations      Manage HOS annotations
+│   │   └── delete           Delete a HOS annotation
+│   ├── driver-managers      Manage driver managers
+│   │   ├── create           Create a driver manager
+│   │   ├── update           Update a driver manager
+│   │   └── delete           Delete a driver manager
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
-│   ├── job-production-plan-broadcast-messages  Manage job production plan broadcast messages
-│   │   ├── create           Create a broadcast message
-│   │   └── update           Update a broadcast message
-│   ├── job-production-plan-safety-risk-communication-suggestions  Generate safety risk communication suggestions
-│   │   ├── create           Generate a safety risk communication suggestion
-│   │   └── delete           Delete a safety risk communication suggestion
-│   ├── job-production-plan-material-site-changes  Manage job production plan material site changes
-│   │   └── create           Create a material site change
-│   ├── job-production-plan-status-changes  Manage job production plan status changes
-│   │   └── update           Update a job production plan status change
-│   ├── job-production-plan-duplications  Duplicate job production plan templates
-│   │   └── create           Duplicate a job production plan template
-│   ├── memberships          Manage user-organization memberships
-│   │   ├── create           Create a membership
-│   │   ├── update           Update a membership
-│   │   └── delete           Delete a membership
-│   ├── equipment-movement-stop-requirements  Manage equipment movement stop requirements
-│   │   ├── create           Create a stop requirement
-│   │   └── delete           Delete a stop requirement
-│   └── equipment-movement-trip-dispatches  Manage equipment movement trip dispatches
-│       ├── create           Create a trip dispatch
-│       ├── update           Update a trip dispatch
-│       └── delete           Delete a trip dispatch
+│   ├── material-transaction-denials  Deny material transactions
+│   │   └── create           Deny a material transaction
+│   ├── material-transaction-inspection-rejections Manage material transaction inspection rejections
+│   │   ├── create           Create a material transaction inspection rejection
+│   │   ├── update           Update a material transaction inspection rejection
+│   │   └── delete           Delete a material transaction inspection rejection
+│   ├── material-unit-of-measure-quantities Manage material unit of measure quantities
+│   │   ├── create           Create a material unit of measure quantity
+│   │   ├── update           Update a material unit of measure quantity
+│   │   └── delete           Delete a material unit of measure quantity
+│   ├── material-purchase-orders Manage material purchase orders
+│   │   ├── create           Create a material purchase order
+│   │   ├── update           Update a material purchase order
+│   │   └── delete           Delete a material purchase order
+│   ├── material-site-unavailabilities Manage material site unavailabilities
+│   │   ├── create           Create a material site unavailability
+│   │   ├── update           Update a material site unavailability
+│   │   └── delete           Delete a material site unavailability
+│   └── memberships          Manage user-organization memberships
+│       ├── create           Create a membership
+│       ├── update           Update a membership
+│       └── delete           Delete a membership
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
@@ -240,51 +271,24 @@ xbe
 │   │   └── show <id>       Show API token details
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
-│   ├── material-site-reading-material-types  Browse material site reading material types
-│   │   ├── list            List material site reading material types with filtering
-│   │   └── show <id>       Show material site reading material type details
-│   ├── material-type-material-site-inventory-locations  Browse material type material site inventory locations
-│   │   ├── list            List material type material site inventory locations with filtering
-│   │   └── show <id>       Show material type material site inventory location details
-│   ├── material-purchase-order-release-redemptions  Browse material purchase order release redemptions
-│   │   ├── list            List release redemptions with filtering
-│   │   └── show <id>       Show release redemption details
-│   ├── haskell-lemon-inbound-material-transaction-exports  Browse Haskell Lemon inbound material transaction exports
-│   │   ├── list            List Haskell Lemon inbound material transaction exports with filtering
-│   │   └── show <id>       Show Haskell Lemon inbound material transaction export details
-│   ├── integration-configs  Browse integration configs
-│   │   ├── list            List integration configs with filtering
-│   │   └── show <id>       Show integration config details
-│   ├── integration-exports  Browse integration exports
-│   │   ├── list            List integration exports with filtering
-│   │   └── show <id>       Show integration export details
-│   ├── material-transaction-diversions  Browse material transaction diversions
-│   │   ├── list            List material transaction diversions with filtering
-│   │   └── show <id>       Show diversion details
-│   ├── material-transaction-shift-assignments  Browse material transaction shift assignments
-│   │   ├── list            List material transaction shift assignments with filtering
-│   │   └── show <id>       Show assignment details
-│   ├── raw-material-transaction-sales-customers  Browse raw material transaction sales customers
-│   │   ├── list            List raw material transaction sales customers with filtering
-│   │   └── show <id>       Show raw material transaction sales customer details
-│   ├── raw-transport-tractors  Browse raw transport tractors
-│   │   ├── list            List raw transport tractors with filtering
-│   │   └── show <id>       Show raw transport tractor details
-│   ├── raw-transport-exports  Browse raw transport exports
-│   │   ├── list            List raw transport exports with filtering
-│   │   └── show <id>       Show raw transport export details
-│   ├── raw-records         Browse ingest raw records
-│   │   ├── list            List raw records with filtering
-│   │   └── show <id>       Show raw record details
-│   ├── transport-order-materials  Browse transport order materials
-│   │   ├── list            List transport order materials with filtering
-│   │   └── show <id>       Show transport order material details
-│   ├── transport-references  Browse transport references
-│   │   ├── list            List transport references with filtering
-│   │   └── show <id>       Show transport reference details
-│   ├── service-type-unit-of-measure-quantities  Browse service type unit of measure quantities
-│   │   ├── list            List service type unit of measure quantities with filtering
-│   │   └── show <id>       Show service type unit of measure quantity details
+│   ├── material-purchase-orders Browse material purchase orders
+│   │   ├── list            List material purchase orders with filtering
+│   │   └── show <id>       Show material purchase order details
+│   ├── material-site-unavailabilities Browse material site unavailabilities
+│   │   ├── list            List material site unavailabilities with filtering
+│   │   └── show <id>       Show material site unavailability details
+│   ├── material-transaction-inspection-rejections Browse material transaction inspection rejections
+│   │   ├── list            List material transaction inspection rejections with filtering
+│   │   └── show <id>       Show material transaction inspection rejection details
+│   ├── material-unit-of-measure-quantities Browse material unit of measure quantities
+│   │   ├── list            List material unit of measure quantities with filtering
+│   │   └── show <id>       Show material unit of measure quantity details
+│   ├── material-transaction-status-changes Browse material transaction status changes
+│   │   ├── list            List material transaction status changes with filtering
+│   │   └── show <id>       Show material transaction status change details
+│   ├── equipment-suppliers Browse equipment suppliers
+│   │   ├── list            List equipment suppliers with filtering
+│   │   └── show <id>       Show equipment supplier details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
 │   ├── commitment-simulation-sets  Browse commitment simulation sets
@@ -354,15 +358,39 @@ xbe
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
-│   ├── glossary-terms      Browse glossary terms
-│   │   ├── list            List glossary terms with filtering
-│   │   └── show <id>       Show glossary term details
-│   ├── equipment-movement-stop-requirements  Browse equipment movement stop requirements
-│   │   ├── list            List stop requirements
-│   │   └── show <id>       Show stop requirement details
-│   └── equipment-movement-trip-dispatches  Browse equipment movement trip dispatches
-│       ├── list            List trip dispatches
-│       └── show <id>       Show trip dispatch details
+│   ├── driver-day-adjustments Browse driver day adjustments
+│   │   ├── list            List driver day adjustments with filtering
+│   │   └── show <id>       Show driver day adjustment details
+│   ├── job-site-times       Browse job site times
+│   │   ├── list            List job site times with filtering
+│   │   └── show <id>       Show job site time details
+│   ├── time-card-approval-audits Browse time card approval audits
+│   │   ├── list            List time card approval audits with filtering
+│   │   └── show <id>       Show time card approval audit details
+│   ├── time-card-status-changes Browse time card status changes
+│   │   ├── list            List time card status changes with filtering
+│   │   └── show <id>       Show time card status change details
+│   ├── time-card-payroll-certifications Browse time card payroll certifications
+│   │   ├── list            List time card payroll certifications with filtering
+│   │   └── show <id>       Show time card payroll certification details
+│   ├── time-sheet-cost-code-allocations Browse time sheet cost code allocations
+│   │   ├── list            List time sheet cost code allocations with filtering
+│   │   └── show <id>       Show time sheet cost code allocation details
+│   ├── time-sheet-unsubmissions Browse time sheet unsubmissions
+│   │   ├── list            List time sheet unsubmissions
+│   │   └── show <id>       Show time sheet unsubmission details
+│   ├── service-events       Browse service events
+│   │   ├── list            List service events with filtering
+│   │   └── show <id>       Show service event details
+│   ├── driver-managers     Browse driver managers
+│   │   ├── list            List driver managers with filtering
+│   │   └── show <id>       Show driver manager details
+│   ├── hos-annotations     Browse HOS annotations
+│   │   ├── list            List HOS annotations with filtering
+│   │   └── show <id>       Show HOS annotation details
+│   └── glossary-terms      Browse glossary terms
+│       ├── list            List glossary terms with filtering
+│       └── show <id>       Show glossary term details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```
@@ -672,21 +700,22 @@ xbe view posts list --creator "Customer|789"
 xbe view posts list --creator "Trucker|101"
 ```
 
-### Material Purchase Order Release Redemptions
+### Material Purchase Orders
 
 ```bash
-# List release redemptions
-xbe view material-purchase-order-release-redemptions list --limit 5
+# List purchase orders for a supplier
+xbe view material-purchase-orders list --material-supplier 123
 
-# Filter by release or ticket number
-xbe view material-purchase-order-release-redemptions list --release 123
-xbe view material-purchase-order-release-redemptions list --ticket-number T-100
+# View a purchase order
+xbe view material-purchase-orders show 456
 
-# Show a redemption
-xbe view material-purchase-order-release-redemptions show 456
-
-# Create a redemption
-xbe do material-purchase-order-release-redemptions create --release 123 --ticket-number T-100
+# Create a purchase order
+xbe do material-purchase-orders create \
+  --broker 123 \
+  --material-supplier 456 \
+  --material-type 789 \
+  --unit-of-measure 10 \
+  --quantity 500
 ```
 
 ### Features, Release Notes, Press Releases, Glossary Terms
@@ -778,22 +807,88 @@ xbe do material-transaction-summary create \
   --min-transactions 100
 ```
 
-### Material Transaction Rate Summary
+### Material Transaction Denials
+
+Material transaction denials set a transaction's status to denied. Comments are required
+for submitted or accepted transactions.
 
 ```bash
-# Hourly rate summary for a material site
-xbe do material-transaction-rate-summaries create \
-  --material-site 123 \
-  --start-at 2025-01-01T00:00:00Z \
-  --end-at 2025-01-02T00:00:00Z
+# Deny a material transaction
+xbe do material-transaction-denials create \
+  --material-transaction 123 \
+  --comment "Load contaminated"
+```
 
-# Filter by material type hierarchy and return sparse results
-xbe do material-transaction-rate-summaries create \
-  --material-site 123 \
-  --material-type-hierarchies "aggregate,asphalt" \
-  --start-at 2025-01-01T00:00:00Z \
-  --end-at 2025-01-02T00:00:00Z \
-  --sparse
+### Material Transaction Inspection Rejections
+
+Material transaction inspection rejections record rejected quantities and notes for inspections.
+
+```bash
+# List rejections for an inspection
+xbe view material-transaction-inspection-rejections list --material-transaction-inspection 123
+
+# Create a rejection
+xbe do material-transaction-inspection-rejections create \
+  --material-transaction-inspection 123 \
+  --unit-of-measure 45 \
+  --quantity 10 \
+  --note "Excess moisture"
+
+# Update a rejection note
+xbe do material-transaction-inspection-rejections update 456 --note "Updated note"
+```
+
+### Material Transaction Status Changes
+
+Material transaction status changes record status history for a transaction.
+
+```bash
+# List status changes for a material transaction
+xbe view material-transaction-status-changes list --material-transaction 123
+
+# Filter status changes by status
+xbe view material-transaction-status-changes list --status accepted
+
+# Show a specific status change
+xbe view material-transaction-status-changes show 456
+```
+
+### Material Mix Design Matches
+
+Material mix design matches find the best mix designs for a material type
+and optional material sites as of a timestamp.
+
+```bash
+# Match material mix designs for a material type
+xbe do material-mix-design-matches create --material-type 123 --as-of "2026-01-23T00:00:00Z"
+
+# Match with material sites
+xbe do material-mix-design-matches create \
+  --material-type 123 \
+  --as-of "2026-01-23T00:00:00Z" \
+  --material-sites 456,789
+
+# JSON output
+xbe do material-mix-design-matches create --material-type 123 --as-of "2026-01-23T00:00:00Z" --json
+```
+
+### Shift Scope Matches
+
+Shift scope matches evaluate whether a rate or shift set time card constraint
+matches a tender's shifts, returning a summary and match details.
+
+```bash
+# Match a tender against a rate
+xbe do shift-scope-matches create --tender 123 --rate 456
+
+# Match using a shift set time card constraint
+xbe do shift-scope-matches create --tender 123 --shift-set-time-card-constraint 789
+
+# Include match SQL when permitted
+xbe do shift-scope-matches create --tender 123 --rate 456 --show-matching-shift-sql
+
+# JSON output
+xbe do shift-scope-matches create --tender 123 --rate 456 --json
 ```
 
 ### Memberships
@@ -895,67 +990,79 @@ xbe do crew-assignment-confirmations create \
 xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
 ```
 
-### Crew Requirements
+### Driver Assignment Acknowledgements
 
-Crew requirements schedule labor or equipment needs on job production plans.
+Driver assignment acknowledgements record when a driver acknowledges a tender job schedule shift assignment.
 
 ```bash
-# List requirements
-xbe view crew-requirements list
+# List acknowledgements
+xbe view driver-assignment-acknowledgements list
 
-# Filter by job production plan
-xbe view crew-requirements list --job-production-plan 123
+# Filter by tender job schedule shift
+xbe view driver-assignment-acknowledgements list --tender-job-schedule-shift 123
 
-# Show requirement details
-xbe view crew-requirements show 456
+# Filter by driver
+xbe view driver-assignment-acknowledgements list --driver 456
 
-# Create an equipment requirement
-xbe do crew-requirements create \
-  --requirement-type equipment \
-  --job-production-plan 123 \
-  --resource-classification-type equipment-classifications \
-  --resource-classification-id 456 \
-  --resource-type equipment \
-  --resource-id 789 \
-  --start-at "2025-01-01T08:00:00Z" \
-  --end-at "2025-01-01T16:00:00Z"
+# Show acknowledgement details
+xbe view driver-assignment-acknowledgements show 789
 
-# Update a requirement
-xbe do crew-requirements update 456 --note "Updated note" --requires-inbound-movement true
-
-# Delete a requirement (requires --confirm)
-xbe do crew-requirements delete 456 --confirm
+# Create an acknowledgement
+xbe do driver-assignment-acknowledgements create --tender-job-schedule-shift 123 --driver 456
 ```
 
-### Equipment Requirements
+### Driver Managers
 
-Equipment requirements manage equipment-specific crew requirements.
+Driver managers link manager memberships to managed memberships within a trucker.
 
 ```bash
-# List equipment requirements
-xbe view equipment-requirements list
+# List driver managers
+xbe view driver-managers list
 
-# Filter by assignment candidate
-xbe view equipment-requirements list --is-assignment-candidate-for 123
+# Filter by trucker
+xbe view driver-managers list --trucker 123
 
-# Show equipment requirement details
-xbe view equipment-requirements show 456
+# Filter by manager membership
+xbe view driver-managers list --manager-membership 456
 
-# Create an equipment requirement
-xbe do equipment-requirements create \
-  --job-production-plan 123 \
-  --resource-classification-type equipment-classifications \
-  --resource-classification-id 456 \
-  --resource-type equipment \
-  --resource-id 789 \
-  --start-at "2025-01-01T08:00:00Z" \
-  --end-at "2025-01-01T16:00:00Z"
+# Filter by managed membership
+xbe view driver-managers list --managed-membership 789
 
-# Update an equipment requirement
-xbe do equipment-requirements update 456 --note "Updated note" --requires-inbound-movement true
+# Filter by manager user
+xbe view driver-managers list --manager-user 654
 
-# Delete an equipment requirement (requires --confirm)
-xbe do equipment-requirements delete 456 --confirm
+# Show driver manager details
+xbe view driver-managers show 321
+
+# Create a driver manager
+xbe do driver-managers create --trucker 123 --manager-membership 456 --managed-membership 789
+
+# Update a driver manager
+xbe do driver-managers update 321 --manager-membership 456
+
+# Delete a driver manager (requires --confirm)
+xbe do driver-managers delete 321 --confirm
+```
+
+### HOS Annotations
+
+HOS annotations capture comments and metadata for hours-of-service days and events.
+
+```bash
+# List HOS annotations
+xbe view hos-annotations list
+
+# Filter by HOS day
+xbe view hos-annotations list --hos-day 123
+
+# Filter by HOS event
+xbe view hos-annotations list --hos-event 456
+
+# Show annotation details
+xbe view hos-annotations show 789
+
+# Delete a HOS annotation (requires --confirm)
+xbe do hos-annotations delete 789 --confirm
 ```
 
 ### Crew Rates
@@ -980,260 +1087,587 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
-### Driver Day Trips Adjustments
+### Equipment Location Estimates
 
-Driver day trips adjustments track edits to a driver's trip sequence for a shift.
+Equipment location estimates return the most recent known location for equipment.
 
 ```bash
-# List adjustments
-xbe view driver-day-trips-adjustments list --status editing
+# Estimate location for a specific equipment ID
+xbe view equipment-location-estimates list --equipment 123
 
-# Create an adjustment
-xbe do driver-day-trips-adjustments create \
-  --tender-job-schedule-shift 123 \
-  --old-trips-attributes '[{"note":"Original trip"}]' \
-  --description "Adjust trip order" \
-  --status editing
+# Estimate location as of a specific time
+xbe view equipment-location-estimates list --equipment 123 --as-of 2026-01-23T12:00:00Z
 
-# Update an adjustment
-xbe do driver-day-trips-adjustments update 456 \
-  --new-trips-attributes '[{"note":"Updated trip"}]' \
-  --description "Updated adjustment"
+# Constrain the event window
+xbe view equipment-location-estimates list --equipment 123 \
+  --earliest-event-at 2026-01-22T00:00:00Z \
+  --latest-event-at 2026-01-23T00:00:00Z
 
-# Delete an adjustment
-xbe do driver-day-trips-adjustments delete 456 --confirm
+# Output as JSON
+xbe view equipment-location-estimates list --equipment 123 --json
 ```
 
-### Driver Movement Observations
+### Equipment Movement Stop Completions
 
-Driver movement observations summarize movement cycles for a job production plan.
-
-```bash
-# List observations
-xbe view driver-movement-observations list
-
-# Filter by job production plan
-xbe view driver-movement-observations list --plan 123
-
-# Only current observations
-xbe view driver-movement-observations list --is-current
-
-# Show observation details
-xbe view driver-movement-observations show 456
-```
-
-### Job Production Plan Broadcast Messages
-
-Broadcast messages notify participants on a job production plan.
+Equipment movement stop completions record when a movement stop was completed.
 
 ```bash
-# List messages for a job production plan
-xbe view job-production-plan-broadcast-messages list --job-production-plan 123
-
-# Include hidden messages
-xbe view job-production-plan-broadcast-messages list --job-production-plan 123 --is-hidden true
-
-# Show message details
-xbe view job-production-plan-broadcast-messages show 456
-
-# Create a broadcast message
-xbe do job-production-plan-broadcast-messages create \
-  --job-production-plan 123 \
-  --message "Crew arrival moved to 7:30 AM" \
-  --summary "Start time update"
-
-# Hide a broadcast message
-xbe do job-production-plan-broadcast-messages update 456 --is-hidden
-```
-
-### Job Production Plan Safety Risk Communication Suggestions
-
-Safety risk communication suggestions generate draft plans for communicating
-job safety risks and remediation strategies.
-
-```bash
-# List suggestions
-xbe view job-production-plan-safety-risk-communication-suggestions list
-
-# Filter by job production plan
-xbe view job-production-plan-safety-risk-communication-suggestions list --job-production-plan 123
-
-# Show suggestion details
-xbe view job-production-plan-safety-risk-communication-suggestions show 456
-
-# Create a suggestion (async by default)
-xbe do job-production-plan-safety-risk-communication-suggestions create \
-  --job-production-plan 123
-
-# Create synchronously with options
-xbe do job-production-plan-safety-risk-communication-suggestions create \
-  --job-production-plan 123 \
-  --is-async=false \
-  --options '{"temperature":0.2}'
-
-# Delete a suggestion
-xbe do job-production-plan-safety-risk-communication-suggestions delete 456 --confirm
-```
-
-### Job Production Plan Recaps
-
-Job production plan recaps provide generated markdown summaries for a plan.
-
-```bash
-# List recaps
-xbe view job-production-plan-recaps list
-
-# Filter by job production plan
-xbe view job-production-plan-recaps list --plan 123
-
-# Show recap details
-xbe view job-production-plan-recaps show 456
-```
-
-### Job Production Plan Material Site Changes
-
-Material site changes swap material sites (and optionally material types) on a job production plan.
-
-```bash
-# List material site changes
-xbe view job-production-plan-material-site-changes list
-
-# Show material site change details
-xbe view job-production-plan-material-site-changes show 123
-
-# Swap material sites
-xbe do job-production-plan-material-site-changes create \
-  --job-production-plan 123 \
-  --old-material-site 456 \
-  --new-material-site 789
-
-# Swap material site and material type
-xbe do job-production-plan-material-site-changes create \
-  --job-production-plan 123 \
-  --old-material-site 456 \
-  --new-material-site 789 \
-  --old-material-type 111 \
-  --new-material-type 222
-```
-
-### Job Production Plan Status Changes
-
-Status changes record lifecycle transitions for job production plans.
-
-```bash
-# List recent status changes
-xbe view job-production-plan-status-changes list
-
-# Show status change details
-xbe view job-production-plan-status-changes show 123
-
-# Set a cancellation reason type
-xbe do job-production-plan-status-changes update 123 \
-  --job-production-plan-cancellation-reason-type 456
-```
-
-### Job Production Plan Duplications
-
-Job production plan duplications copy a template into a new plan or template.
-
-```bash
-# Duplicate a template into a new plan
-xbe do job-production-plan-duplications create \
-  --job-production-plan-template 123 \
-  --start-on 2026-01-23
-
-# Duplicate into another customer and skip copying shifts
-xbe do job-production-plan-duplications create \
-  --job-production-plan-template 123 \
-  --start-on 2026-01-23 \
-  --new-customer 456 \
-  --skip-job-schedule-shifts
-```
-
-### Crew Requirement Credential Classifications
-
-Crew requirement credential classifications link crew requirements to the credential
-classifications they require.
-
-```bash
-# List crew requirement credential classifications
-xbe view crew-requirement-credential-classifications list
-
-# Filter by crew requirement
-xbe view crew-requirement-credential-classifications list --crew-requirement 123
-
-# Show link details
-xbe view crew-requirement-credential-classifications show 456
-
-# Create a link
-xbe do crew-requirement-credential-classifications create \
-  --crew-requirement-type labor-requirements \
-  --crew-requirement 123 \
-  --credential-classification-type user-credential-classifications \
-  --credential-classification 456
-
-# Delete a link (requires --confirm)
-xbe do crew-requirement-credential-classifications delete 456 --confirm
-```
-
-### Equipment Movement Stop Requirements
-
-Equipment movement stop requirements link equipment movement stops to movement requirements.
-
-```bash
-# List stop requirements
-xbe view equipment-movement-stop-requirements list
+# List stop completions
+xbe view equipment-movement-stop-completions list
 
 # Filter by stop
-xbe view equipment-movement-stop-requirements list --stop 123
+xbe view equipment-movement-stop-completions list --stop 123
 
-# Filter by requirement
-xbe view equipment-movement-stop-requirements list --requirement 456
+# Create a completion
+xbe do equipment-movement-stop-completions create \
+  --stop 123 \
+  --completed-at 2026-01-23T12:34:56Z
 
-# Filter by kind
-xbe view equipment-movement-stop-requirements list --kind origin
+# Update a completion
+xbe do equipment-movement-stop-completions update 456 \
+  --completed-at 2026-01-23T13:00:00Z \
+  --note "Gate locked"
 
-# Show stop requirement details
-xbe view equipment-movement-stop-requirements show 789
-
-# Create a stop requirement
-xbe do equipment-movement-stop-requirements create --stop 123 --requirement 456
-
-# Create with explicit kind
-xbe do equipment-movement-stop-requirements create --stop 123 --requirement 456 --kind destination
-
-# Delete a stop requirement (requires --confirm)
-xbe do equipment-movement-stop-requirements delete 789 --confirm
+# Delete a completion (requires --confirm)
+xbe do equipment-movement-stop-completions delete 456 --confirm
 ```
 
-### Equipment Movement Trip Dispatches
+### Maintenance Requirement Rule Maintenance Requirement Sets
 
-Equipment movement trip dispatches orchestrate creation and assignment of movement trips.
+Maintenance requirement rule maintenance requirement sets link maintenance requirement rules
+to template maintenance requirement sets.
 
 ```bash
-# List trip dispatches
-xbe view equipment-movement-trip-dispatches list
+# List maintenance requirement rule maintenance requirement sets
+xbe view maintenance-requirement-rule-maintenance-requirement-sets list
 
-# Filter by status
-xbe view equipment-movement-trip-dispatches list --status pending
+# Filter by maintenance requirement rule
+xbe view maintenance-requirement-rule-maintenance-requirement-sets list --maintenance-requirement-rule 123
 
-# Filter by trip
-xbe view equipment-movement-trip-dispatches list --equipment-movement-trip 123
+# Filter by maintenance requirement set
+xbe view maintenance-requirement-rule-maintenance-requirement-sets list --maintenance-requirement-set 456
 
-# Show trip dispatch details
-xbe view equipment-movement-trip-dispatches show 456
+# Show maintenance requirement rule maintenance requirement set details
+xbe view maintenance-requirement-rule-maintenance-requirement-sets show 789
 
-# Create from an existing trip
-xbe do equipment-movement-trip-dispatches create --equipment-movement-trip 123
+# Create a maintenance requirement rule maintenance requirement set
+xbe do maintenance-requirement-rule-maintenance-requirement-sets create \
+  --maintenance-requirement-rule 123 \
+  --maintenance-requirement-set 456
 
-# Create from a movement requirement
-xbe do equipment-movement-trip-dispatches create --equipment-movement-requirement 456
+# Delete a maintenance requirement rule maintenance requirement set (requires --confirm)
+xbe do maintenance-requirement-rule-maintenance-requirement-sets delete 789 --confirm
+```
 
-# Update assignments
-xbe do equipment-movement-trip-dispatches update 456 --driver 789 --trailer 321
+### Job Production Plan Submissions
 
-# Delete a trip dispatch (requires --confirm)
-xbe do equipment-movement-trip-dispatches delete 456 --confirm
+Job production plan submissions move plans from editing or rejected to submitted.
+
+```bash
+# Submit a job production plan
+xbe do job-production-plan-submissions create --job-production-plan 123
+
+# Submit with a comment
+xbe do job-production-plan-submissions create \
+  --job-production-plan 123 \
+  --comment "Ready for review"
+
+# Submit while suppressing notifications
+  xbe do job-production-plan-submissions create \
+    --job-production-plan 123 \
+    --suppress-status-change-notifications
+```
+
+### Job Production Plan Uncancellations
+
+Job production plan uncancellations restore cancelled plans to their previous status.
+
+```bash
+# Uncancel a job production plan
+xbe do job-production-plan-uncancellations create --job-production-plan 123
+
+# Uncancel with a comment
+xbe do job-production-plan-uncancellations create \
+  --job-production-plan 123 \
+  --comment "Reopen plan"
+
+# Uncancel while suppressing notifications
+xbe do job-production-plan-uncancellations create \
+  --job-production-plan 123 \
+  --suppress-status-change-notifications
+```
+
+### Lineup Job Production Plans
+
+Lineup job production plans connect lineups to job production plans.
+
+```bash
+# List lineup job production plans
+xbe view lineup-job-production-plans list
+
+# Filter by lineup
+xbe view lineup-job-production-plans list --lineup 123
+
+# Filter by job production plan
+xbe view lineup-job-production-plans list --job-production-plan 456
+
+# Show lineup job production plan details
+xbe view lineup-job-production-plans show 789
+
+# Create a lineup job production plan
+xbe do lineup-job-production-plans create --lineup 123 --job-production-plan 456
+
+# Delete a lineup job production plan (requires --confirm)
+xbe do lineup-job-production-plans delete 789 --confirm
+```
+
+### Lineup Scenario Lineup Job Schedule Shifts
+
+Lineup scenario lineup job schedule shifts connect lineup scenarios to lineup job schedule shifts.
+
+```bash
+# List lineup scenario lineup job schedule shifts
+xbe view lineup-scenario-lineup-job-schedule-shifts list
+
+# Filter by lineup scenario
+xbe view lineup-scenario-lineup-job-schedule-shifts list --lineup-scenario 123
+
+# Filter by lineup job schedule shift
+xbe view lineup-scenario-lineup-job-schedule-shifts list --lineup-job-schedule-shift 456
+
+# Show lineup scenario lineup job schedule shift details
+xbe view lineup-scenario-lineup-job-schedule-shifts show 789
+
+# Create a lineup scenario lineup job schedule shift
+xbe do lineup-scenario-lineup-job-schedule-shifts create --lineup-scenario 123 --lineup-job-schedule-shift 456
+
+# Delete a lineup scenario lineup job schedule shift (requires --confirm)
+xbe do lineup-scenario-lineup-job-schedule-shifts delete 789 --confirm
+```
+
+### Lineup Scenario Trailers
+
+Lineup scenario trailers attach trailers to lineup scenario truckers.
+
+```bash
+# List lineup scenario trailers
+xbe view lineup-scenario-trailers list
+
+# Filter by lineup scenario trucker
+xbe view lineup-scenario-trailers list --lineup-scenario-trucker 123
+
+# Filter by lineup scenario
+xbe view lineup-scenario-trailers list --lineup-scenario 456
+
+# Filter by trailer
+xbe view lineup-scenario-trailers list --trailer 789
+
+# Show lineup scenario trailer details
+xbe view lineup-scenario-trailers show 123
+
+# Create a lineup scenario trailer
+xbe do lineup-scenario-trailers create --lineup-scenario-trucker 123 --trailer 456
+
+# Update a lineup scenario trailer
+xbe do lineup-scenario-trailers update 123 --last-assigned-on 2024-01-01
+
+# Delete a lineup scenario trailer (requires --confirm)
+xbe do lineup-scenario-trailers delete 123 --confirm
+```
+
+### Job Schedule Shift Managed Toggles
+
+Job schedule shift managed toggles flip a shift between managed and unmanaged.
+Shifts must not be cancelled, tied to unmanaged tenders, or have time cards.
+
+```bash
+# Toggle managed status for a job schedule shift
+xbe do job-schedule-shift-is-managed-toggles create --job-schedule-shift 123
+```
+
+### Job Production Plan Alarms
+
+Job production plan alarms notify subscribers when production reaches
+specified tonnage thresholds or exceeds latency targets.
+
+```bash
+# List alarms
+xbe view job-production-plan-alarms list
+
+# Filter by job production plan
+xbe view job-production-plan-alarms list --job-production-plan 123
+
+# Show alarm details
+xbe view job-production-plan-alarms show 456
+
+# Create an alarm
+xbe do job-production-plan-alarms create \
+  --job-production-plan 123 \
+  --tons 150 \
+  --base-material-type-fully-qualified-name "Asphalt Mixture" \
+  --max-latency-minutes 45 \
+  --note "Alert at 150 tons"
+
+# Update an alarm
+xbe do job-production-plan-alarms update 456 --tons 200 --note "Updated trigger"
+
+# Delete an alarm (requires --confirm)
+xbe do job-production-plan-alarms delete 456 --confirm
+```
+
+### Job Production Plan Cost Codes
+
+Job production plan cost codes map cost codes to job production plans.
+
+```bash
+# List job production plan cost codes
+xbe view job-production-plan-cost-codes list
+
+# Filter by job production plan
+xbe view job-production-plan-cost-codes list --job-production-plan 123
+
+# Show job production plan cost code details
+xbe view job-production-plan-cost-codes show 456
+
+# Create a job production plan cost code
+xbe do job-production-plan-cost-codes create --job-production-plan 123 --cost-code 789
+
+# Update a job production plan cost code
+xbe do job-production-plan-cost-codes update 456 --project-resource-classification 321
+
+# Delete a job production plan cost code (requires --confirm)
+xbe do job-production-plan-cost-codes delete 456 --confirm
+```
+
+### Job Production Plan Segment Sets
+
+Job production plan segment sets group plan segments and define offsets.
+
+```bash
+# List job production plan segment sets
+xbe view job-production-plan-segment-sets list
+
+# Filter by job production plan
+xbe view job-production-plan-segment-sets list --job-production-plan 123
+
+# Show job production plan segment set details
+xbe view job-production-plan-segment-sets show 456
+
+# Create a job production plan segment set
+xbe do job-production-plan-segment-sets create --job-production-plan 123 --name "AM shift"
+
+# Update a job production plan segment set
+xbe do job-production-plan-segment-sets update 456 --start-offset-minutes 15 --is-default
+
+# Delete a job production plan segment set (requires --confirm)
+xbe do job-production-plan-segment-sets delete 456 --confirm
+```
+
+### Job Production Plan Inspectors
+
+Job production plan inspectors assign inspectors (users) to job production plans.
+
+```bash
+# List job production plan inspectors
+xbe view job-production-plan-inspectors list
+
+# Filter by job production plan
+xbe view job-production-plan-inspectors list --job-production-plan-id 123
+
+# Filter by user
+xbe view job-production-plan-inspectors list --user 456
+
+# Show job production plan inspector details
+xbe view job-production-plan-inspectors show 789
+
+# Create a job production plan inspector
+xbe do job-production-plan-inspectors create --job-production-plan-id 123 --user 456
+
+# Delete a job production plan inspector (requires --confirm)
+xbe do job-production-plan-inspectors delete 789 --confirm
+```
+
+### Job Production Plan Safety Risks Suggestions
+
+Job production plan safety risks suggestions generate AI safety risk lists for a
+job production plan.
+
+```bash
+# List safety risks suggestions
+xbe view job-production-plan-safety-risks-suggestions list
+
+# Filter by job production plan
+xbe view job-production-plan-safety-risks-suggestions list --job-production-plan 123
+
+# Show suggestion details
+xbe view job-production-plan-safety-risks-suggestions show 456
+
+# Generate safety risks suggestions
+xbe do job-production-plan-safety-risks-suggestions create --job-production-plan 123
+
+# Generate with options
+xbe do job-production-plan-safety-risks-suggestions create \
+  --job-production-plan 123 \
+  --options '{"include_other_incidents":true}'
+
+  # Generate synchronously (wait for risks)
+  xbe do job-production-plan-safety-risks-suggestions create \
+    --job-production-plan 123 \
+    --is-async=false
+```
+
+### Job Site Times
+
+Job site times track the time a user spent at a job site for a job production plan.
+
+```bash
+# List job site times
+xbe view job-site-times list
+
+# Filter by job production plan
+xbe view job-site-times list --job-production-plan 123
+
+# Filter by user
+xbe view job-site-times list --user 456
+
+# Show job site time details
+xbe view job-site-times show 789
+
+# Create a job site time
+xbe do job-site-times create \
+  --job-production-plan 123 \
+  --user 456 \
+  --start-at 2026-01-23T08:00:00Z \
+  --end-at 2026-01-23T10:00:00Z \
+  --description "On site"
+
+# Update a job site time
+xbe do job-site-times update 789 --description "Updated notes"
+
+# Delete a job site time (requires --confirm)
+xbe do job-site-times delete 789 --confirm
+```
+
+### Time Sheet Cost Code Allocations
+
+Time sheet cost code allocations split a time sheet's costs across cost codes.
+
+```bash
+# List time sheet cost code allocations
+xbe view time-sheet-cost-code-allocations list
+
+# Filter by time sheet
+xbe view time-sheet-cost-code-allocations list --time-sheet 123
+
+# Show allocation details
+xbe view time-sheet-cost-code-allocations show 456
+
+# Create a time sheet cost code allocation
+xbe do time-sheet-cost-code-allocations create \
+  --time-sheet 123 \
+  --details '[{"cost_code_id":"789","percentage":1}]'
+
+# Update allocation details
+xbe do time-sheet-cost-code-allocations update 456 \
+  --details '[{"cost_code_id":"789","percentage":1}]'
+
+# Delete a time sheet cost code allocation (requires --confirm)
+xbe do time-sheet-cost-code-allocations delete 456 --confirm
+```
+
+### Time Sheet Submissions
+
+Time sheet submissions move a time sheet into submitted status.
+
+```bash
+# Submit a time sheet
+xbe do time-sheet-submissions create --time-sheet 123
+
+# Submit with a comment
+xbe do time-sheet-submissions create --time-sheet 123 --comment "Ready for approval"
+```
+
+### Time Sheet Unsubmissions
+
+Time sheet unsubmissions move a time sheet back to editing status.
+
+```bash
+# List time sheet unsubmissions
+xbe view time-sheet-unsubmissions list
+
+# Show a time sheet unsubmission
+xbe view time-sheet-unsubmissions show 456
+
+# Unsubmit a time sheet
+xbe do time-sheet-unsubmissions create --time-sheet 123
+
+# Unsubmit with a comment
+xbe do time-sheet-unsubmissions create --time-sheet 123 --comment "Needs edits"
+```
+
+### Material Site Unavailabilities
+
+Material site unavailabilities track downtime windows for material sites.
+
+```bash
+# List material site unavailabilities
+xbe view material-site-unavailabilities list
+
+# Filter by material site
+xbe view material-site-unavailabilities list --material-site 123
+
+# Show material site unavailability details
+xbe view material-site-unavailabilities show 456
+
+# Create a material site unavailability
+xbe do material-site-unavailabilities create \
+  --material-site 123 \
+  --start-at 2026-01-24T08:00:00Z \
+  --end-at 2026-01-24T12:00:00Z \
+  --description "Planned maintenance"
+
+# Update a material site unavailability
+xbe do material-site-unavailabilities update 456 --description "Updated notes"
+
+# Delete a material site unavailability (requires --confirm)
+xbe do material-site-unavailabilities delete 456 --confirm
+```
+
+### Job Production Plan Trucking Incident Detectors
+
+Job production plan trucking incident detectors analyze material transactions
+and identify potential trucking incidents based on ordering inconsistencies.
+
+```bash
+# List trucking incident detectors
+xbe view job-production-plan-trucking-incident-detectors list
+
+# Filter by job production plan
+xbe view job-production-plan-trucking-incident-detectors list --job-production-plan 123
+
+# Filter by performed status
+xbe view job-production-plan-trucking-incident-detectors list --is-performed true
+
+# Show detector details
+xbe view job-production-plan-trucking-incident-detectors show 456
+
+# Run a detector
+xbe do job-production-plan-trucking-incident-detectors create --job-production-plan 123
+
+# Run as of a timestamp and persist incident changes
+xbe do job-production-plan-trucking-incident-detectors create \
+  --job-production-plan 123 \
+  --as-of "2026-01-23T00:00:00Z" \
+  --persist-changes
+```
+
+### Job Production Plan Material Type Quality Control Requirements
+
+Job production plan material type quality control requirements attach quality
+control classifications to job production plan material types.
+
+```bash
+# List requirements
+xbe view job-production-plan-material-type-quality-control-requirements list
+
+# Filter by job production plan material type
+xbe view job-production-plan-material-type-quality-control-requirements list --job-production-plan-material-type 123
+
+# Filter by quality control classification
+xbe view job-production-plan-material-type-quality-control-requirements list --quality-control-classification 456
+
+# Show requirement details
+xbe view job-production-plan-material-type-quality-control-requirements show 789
+
+# Create a requirement
+xbe do job-production-plan-material-type-quality-control-requirements create \
+  --job-production-plan-material-type 123 \
+  --quality-control-classification 456 \
+  --note "Temperature check"
+
+# Update a requirement
+xbe do job-production-plan-material-type-quality-control-requirements update 789 --note "Updated note"
+
+# Delete a requirement (requires --confirm)
+xbe do job-production-plan-material-type-quality-control-requirements delete 789 --confirm
+```
+
+### Inventory Capacities
+
+Inventory capacities define min/max storage levels and alert thresholds for a
+material site and material type.
+
+```bash
+# List inventory capacities
+xbe view inventory-capacities list
+
+# Filter by material site
+xbe view inventory-capacities list --material-site 123
+
+# Show capacity details
+xbe view inventory-capacities show 456
+
+# Create an inventory capacity
+xbe do inventory-capacities create --material-site 123 --material-type 789 \
+  --min-capacity-tons 50 --max-capacity-tons 500 --threshold-tons 75
+
+# Update capacity thresholds
+xbe do inventory-capacities update 456 --threshold-tons 120
+
+# Delete a capacity (requires --confirm)
+xbe do inventory-capacities delete 456 --confirm
+```
+
+### Transport Order Strategy Set Predictions
+
+Transport order strategy set predictions rank planning strategies for a transport
+order and return probability scores for each strategy set.
+
+```bash
+# List prediction records
+xbe view transport-order-project-transport-plan-strategy-set-predictions list
+
+# Filter by transport order
+xbe view transport-order-project-transport-plan-strategy-set-predictions list --transport-order 123
+
+# Show prediction details
+xbe view transport-order-project-transport-plan-strategy-set-predictions show 456
+
+# Generate predictions for a transport order
+xbe do transport-order-project-transport-plan-strategy-set-predictions create --transport-order 123
+
+# Delete a prediction record (requires --confirm)
+xbe do transport-order-project-transport-plan-strategy-set-predictions delete 456 --confirm
+```
+
+### Transport Order Stops
+
+Transport order stops define pickup and delivery locations, scheduling windows,
+and sequencing for a transport order.
+
+```bash
+# List transport order stops
+xbe view transport-order-stops list
+
+# Filter by transport order
+xbe view transport-order-stops list --transport-order 123
+
+# Show stop details
+xbe view transport-order-stops show 456
+
+# Create a pickup stop
+xbe do transport-order-stops create \
+  --transport-order 123 \
+  --location 789 \
+  --role pickup \
+  --at-min 2026-01-23T08:00:00Z \
+  --at-max 2026-01-23T10:00:00Z
+
+# Update a stop status
+xbe do transport-order-stops update 456 --status started
+
+# Delete a stop (requires --confirm)
+xbe do transport-order-stops delete 456 --confirm
 ```
 
 ## Output Formats
