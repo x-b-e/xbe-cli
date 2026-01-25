@@ -391,6 +391,10 @@ xbe
 │   ├── comment-reactions    Manage comment reactions
 │   │   ├── create           Create a comment reaction
 │   │   └── delete           Delete a comment reaction
+│   ├── questions            Manage questions
+│   │   ├── create           Create a question
+│   │   ├── update           Update a question
+│   │   └── delete           Delete a question
 │   ├── follows              Manage follows
 │   │   ├── create           Create a follow
 │   │   ├── update           Update a follow
@@ -511,6 +515,9 @@ xbe
 │   ├── comment-reactions   Browse comment reactions
 │   │   ├── list            List comment reactions with filtering
 │   │   └── show <id>       Show comment reaction details
+│   ├── questions           Browse questions
+│   │   ├── list            List questions with filtering
+│   │   └── show <id>       Show question details
 │   ├── follows             Browse follows
 │   │   ├── list            List follows with filtering
 │   │   └── show <id>       Show follow details
@@ -1542,6 +1549,33 @@ xbe do prediction-knowledge-base-questions update 456 --status resolved
 
 # Delete a knowledge base question (requires --confirm)
 xbe do prediction-knowledge-base-questions delete 456 --confirm
+```
+
+### Questions
+
+Questions capture user-submitted prompts that can be triaged and assigned.
+
+```bash
+# List questions
+xbe view questions list
+
+# Filter by assignee
+xbe view questions list --assigned-to 123
+
+# Filter by triage status
+xbe view questions list --is-triaged true
+
+# Show question details
+xbe view questions show 456
+
+# Create a question
+xbe do questions create --content "What are today's safety priorities?"
+
+# Update a question
+xbe do questions update 456 --is-triaged true
+
+# Delete a question (requires --confirm)
+xbe do questions delete 456 --confirm
 ```
 
 ### Prediction Subject Memberships

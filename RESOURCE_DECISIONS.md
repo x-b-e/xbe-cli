@@ -181,6 +181,7 @@ ptp-summary
 ptp-trailer-summary
 public-praise-summary
 public-praises
+questions
 quality-control-classifications
 rates
 raw-material-transaction-sales-customers
