@@ -49,9 +49,9 @@ Use this checklist for every resource. Treat it as the definition of “done.”
 ## Status Summary
 
 - Server resources (routes): 665
-- CLI command resources: 102
-- Server resources covered by commands: 102
-- Remaining (after skips + pending + not yet reviewed): 556
+- CLI command resources: 103
+- Server resources covered by commands: 103
+- Remaining (after skips + pending + not yet reviewed): 555
 
 ## CLI Alias Notes
 
@@ -76,7 +76,13 @@ When a CLI command does not match a server resource name, use these mappings.
 
 ```
 action-items
+action-item-tracker-update-requests
+api-tokens
+broker-certification-types
+broker-equipment-classifications
 broker-settings
+broker-tender-offered-seller-notifications
+broker-tender-offered-seller-notification-subscriptions
 brokers
 business-units
 certification-requirements
@@ -84,32 +90,43 @@ certification-types
 certifications
 comments
 cost-codes
+cost-code-trucking-cost-summaries
 cost-index-entries
 cost-indexes
 craft-classes
 crafts
 culture-values
 custom-work-order-statuses
+customer-certification-types
+customer-memberships
 customer-settings
+customer-tender-offered-buyer-notification-subscriptions
+customer-truckers
 customers
 developer-reference-types
 developer-references
 developer-trucker-certification-classifications
 developers
+dispatch-user-matchers
 device-location-event-summary
 devices
 driver-day-summary
 equipment
 equipment-classifications
+equipment-location-events
 equipment-rentals
 external-identification-types
 external-identifications
 features
+follows
 geofences
 glossary-terms
 incident-tags
+incident-tag-incidents
 incidents
+jobs
 job-production-plan-cancellation-reason-types
+job-production-plan-material-transaction-summaries
 job-production-plan-summary
 job-production-plans
 job-sites
@@ -117,27 +134,45 @@ labor-classifications
 laborers
 lane-summary
 languages
+lineup-job-schedule-shift-trucker-assignment-recommendations
+lineup-scenario-lineups
+lineup-scenario-truckers
+login-code-redemptions
+marketing-metrics
 material-mix-designs
 material-sites
 material-suppliers
+material-transaction-rate-summaries
+material-transaction-shift-assignments
 material-transaction-summary
 material-transactions
+material-type-material-site-inventory-locations
 material-types
 memberships
 newsletters
 parking-sites
 posts
+prediction-agents
+prediction-knowledge-base-questions
 press-releases
+prompt-prescriptions
+process-non-processed-time-card-time-changes
 profit-improvement-categories
 project-categories
 project-cost-classifications
 project-cost-codes
 project-divisions
+project-estimate-sets
 project-offices
 project-phases
+project-rejections
 project-resource-classifications
 project-revenue-classifications
 project-transport-event-types
+project-transport-locations
+project-transport-plans
+project-transport-plan-drivers
+project-transport-plan-strategy-sets
 projects
 ptp-driver-summary
 ptp-event-summary
@@ -146,14 +181,22 @@ ptp-summary
 ptp-trailer-summary
 public-praise-summary
 public-praises
+questions
 quality-control-classifications
 rates
+raw-material-transaction-sales-customers
+raw-records
+raw-transport-exports
+raw-transport-tractors
 reaction-classifications
 release-notes
+retainer-periods
 service-types
+shift-acknowledgement-reminder-notification-subscriptions
 shift-feedback-reasons
 shift-feedbacks
 shift-summary
+shift-time-card-requisitions
 stakeholder-classifications
 tag-categories
 tags
@@ -166,11 +209,13 @@ trailer-credentials
 trailers
 transport-order-efficiency-summary
 transport-orders
+transport-references
 transport-summary
 trips
 truck-scopes
 trucker-insurances
 truckers
+ui-tour-steps
 unit-of-measures
 user-credential-classifications
 user-credentials
@@ -294,7 +339,6 @@ lineup-dispatch-shifts
 lineup-dispatch-statuses
 lineup-dispatches
 lineup-job-production-plans
-lineup-job-schedule-shift-trucker-assignment-recommendations
 lineup-job-schedule-shifts
 lineup-scenario-generators
 lineup-scenario-lineup-job-schedule-shifts
@@ -335,12 +379,10 @@ material-transaction-inspections
 material-transaction-invalidations
 material-transaction-preloads
 material-transaction-rejections
-material-transaction-shift-assignments
 material-transaction-status-changes
 material-transaction-submissions
 material-transaction-ticket-generators
 material-type-conversions
-material-type-material-site-inventory-locations
 material-type-unavailabilities
 material-unit-of-measure-quantities
 resource-unavailabilities
@@ -353,7 +395,6 @@ shift-counters
 shift-scope-matches
 shift-scope-tenders
 shift-set-time-card-constraints
-shift-time-card-requisitions
 site-events
 time-card-approval-audits
 time-card-approvals
@@ -445,7 +486,6 @@ project-phase-revenue-item-actuals
 project-phase-revenue-item-quantity-estimates
 project-phase-revenue-items
 project-project-cost-classifications
-project-rejections
 project-revenue-item-price-estimates
 project-revenue-item-quantity-estimates
 project-revenue-items
@@ -491,7 +531,6 @@ retainer-deductions
 retainer-earning-statuses
 retainer-payment-deductions
 retainer-payments
-retainer-periods
 retainers
 tender-acceptances
 tender-cancellations
@@ -514,14 +553,11 @@ tender-status-changes
 action-item-key-results
 action-item-line-items
 action-item-team-members
-action-item-tracker-update-requests
 action-item-trackers
 administrative-incidents
 ai-work-order-generations
-api-tokens
 application-settings
 base-summary-templates
-broker-certification-types
 broker-customers
 broker-equipment-classifications
 broker-invoices
@@ -543,7 +579,6 @@ customer-application-approvals
 customer-applications
 customer-certification-types
 customer-incident-default-assignees
-customer-memberships
 customer-retainers
 customer-tenders
 customer-truckers
@@ -569,10 +604,8 @@ incident-request-cancellations
 incident-request-rejections
 incident-requests
 incident-subscriptions
-incident-tag-incidents
 incident-unit-of-measure-quantities
 invoices
-jobs
 key-result-changes
 key-result-scrappages
 key-result-status-changes
@@ -607,6 +640,7 @@ organization-invoices-batch-pdf-templates
 organization-invoices-batch-processes
 organization-invoices-batch-status-changes
 organization-invoices-batches
+organization-project-actuals-exports
 pave-frame-actual-hours
 place-predictions
 places
@@ -689,10 +723,8 @@ job-production-plan-material-transaction-summaries
 lehman-roberts-apex-viewpoint-ticket-exports
 marketing-metrics
 material-site-reading-summaries
-material-transaction-rate-summaries
 material-transactions-exports
 organization-invoices-batch-file-exports
-organization-project-actuals-exports
 ozinga-tk-batch-file-exports
 pave-frame-actual-statistics
 project-actuals-exports
@@ -711,7 +743,6 @@ answer-related-contents
 answers
 broker-tender-cancelled-seller-notifications
 broker-tender-offered-seller-notification-subscriptions
-broker-tender-offered-seller-notifications
 broker-tender-returned-buyer-notifications
 comment-reactions
 communications
@@ -744,7 +775,6 @@ post-router-jobs
 post-routers
 post-views
 prediction-knowledge-base-answers
-prediction-knowledge-base-questions
 prompters
 questions
 samsara-integrations
@@ -761,7 +791,6 @@ tender-job-schedule-shift-starting-seller-notifications
 tenna-vehicles
 text-messages
 textractions
-ui-tour-steps
 ui-tours
 user-post-feed-posts
 user-post-feeds

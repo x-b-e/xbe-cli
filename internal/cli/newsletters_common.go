@@ -24,6 +24,7 @@ type jsonAPIResource struct {
 	Type          string                         `json:"type"`
 	Attributes    map[string]any                 `json:"attributes"`
 	Relationships map[string]jsonAPIRelationship `json:"relationships"`
+	Meta          map[string]any                 `json:"meta"`
 }
 
 type jsonAPIRelationship struct {
