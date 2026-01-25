@@ -94,6 +94,10 @@ xbe
 │   │   ├── create           Create an exporter configuration
 │   │   ├── update           Update an exporter configuration
 │   │   └── delete           Delete an exporter configuration
+│   ├── importer-configurations Manage importer configurations
+│   │   ├── create           Create an importer configuration
+│   │   ├── update           Update an importer configuration
+│   │   └── delete           Delete an importer configuration
 │   ├── device-diagnostics  Manage device diagnostics
 │   │   └── create           Create a device diagnostic
 │   ├── file-attachment-signed-urls Generate signed URLs for file attachments
@@ -423,6 +427,9 @@ xbe
 │   ├── exporter-configurations Browse exporter configurations
 │   │   ├── list            List exporter configurations
 │   │   └── show <id>       Show exporter configuration details
+│   ├── importer-configurations Browse importer configurations
+│   │   ├── list            List importer configurations
+│   │   └── show <id>       Show importer configuration details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
