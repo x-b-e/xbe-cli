@@ -90,6 +90,10 @@ xbe
 │   │   ├── create           Create a Deere integration
 │   │   ├── update           Update a Deere integration
 │   │   └── delete           Delete a Deere integration
+│   ├── exporter-configurations Manage exporter configurations
+│   │   ├── create           Create an exporter configuration
+│   │   ├── update           Update an exporter configuration
+│   │   └── delete           Delete an exporter configuration
 │   ├── device-diagnostics  Manage device diagnostics
 │   │   └── create           Create a device diagnostic
 │   ├── file-attachment-signed-urls Generate signed URLs for file attachments
@@ -410,6 +414,9 @@ xbe
 │   ├── deere-integrations  Browse Deere integrations
 │   │   ├── list            List Deere integrations
 │   │   └── show <id>       Show Deere integration details
+│   ├── exporter-configurations Browse exporter configurations
+│   │   ├── list            List exporter configurations
+│   │   └── show <id>       Show exporter configuration details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
