@@ -58,10 +58,26 @@ xbe
 │   ├── whoami              Show the current authenticated user
 │   └── logout              Remove stored token
 ├── do                      Create, update, and delete XBE resources
+│   ├── application-settings Manage global application settings
+│   │   ├── create           Create an application setting
+│   │   ├── update           Update an application setting
+│   │   └── delete           Delete an application setting
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
 │   │   └── delete           Delete a glossary term
+│   ├── platform-statuses    Manage platform status updates
+│   │   ├── create           Create a platform status
+│   │   ├── update           Update a platform status
+│   │   └── delete           Delete a platform status
+│   ├── driver-day-adjustment-plans Manage driver day adjustment plans
+│   │   ├── create           Create a driver day adjustment plan
+│   │   ├── update           Update a driver day adjustment plan
+│   │   └── delete           Delete a driver day adjustment plan
+│   ├── project-material-types Manage project material types
+│   │   ├── create           Create a project material type
+│   │   ├── update           Update a project material type
+│   │   └── delete           Delete a project material type
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -71,6 +87,9 @@ xbe
 │       ├── update           Update a membership
 │       └── delete           Delete a membership
 ├── view                    Browse and view XBE content
+│   ├── application-settings Browse application settings
+│   │   ├── list            List application settings
+│   │   └── show <id>       Show application setting details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
@@ -87,6 +106,12 @@ xbe
 │   │   └── list            List customers with filtering
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
+│   ├── driver-day-adjustment-plans Browse driver day adjustment plans
+│   │   ├── list            List driver day adjustment plans
+│   │   └── show <id>       Show driver day adjustment plan details
+│   ├── project-material-types Browse project material types
+│   │   ├── list            List project material types with filtering
+│   │   └── show <id>       Show project material type details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
@@ -99,6 +124,9 @@ xbe
 │   ├── press-releases      Browse press releases
 │   │   ├── list            List press releases
 │   │   └── show <id>       Show press release details
+│   ├── platform-statuses   Browse platform status updates
+│   │   ├── list            List platform statuses
+│   │   └── show <id>       Show platform status details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
@@ -366,6 +394,179 @@ xbe do memberships update 789 \
 
 # Delete a membership (requires --confirm)
 xbe do memberships delete 789 --confirm
+```
+
+### Crew Assignment Confirmations
+
+Crew assignment confirmations record when a resource confirms a crew requirement assignment.
+
+```bash
+# List confirmations
+xbe view crew-assignment-confirmations list
+
+# Filter by crew requirement
+xbe view crew-assignment-confirmations list --crew-requirement 123
+
+# Filter by resource
+xbe view crew-assignment-confirmations list --resource-type laborers --resource-id 456
+
+# Show confirmation details
+xbe view crew-assignment-confirmations show 789
+
+# Confirm using assignment confirmation UUID
+xbe do crew-assignment-confirmations create \
+  --assignment-confirmation-uuid "uuid-here" \
+  --note "Confirmed" \
+  --is-explicit
+
+# Confirm using crew requirement + resource + start time
+xbe do crew-assignment-confirmations create \
+  --crew-requirement 123 \
+  --resource-type laborers \
+  --resource-id 456 \
+  --start-at "2025-01-01T08:00:00Z"
+
+# Update a confirmation
+xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
+```
+
+### Driver Assignment Acknowledgements
+
+Driver assignment acknowledgements record when a driver acknowledges a tender job schedule shift assignment.
+
+```bash
+# List acknowledgements
+xbe view driver-assignment-acknowledgements list
+
+# Filter by tender job schedule shift
+xbe view driver-assignment-acknowledgements list --tender-job-schedule-shift 123
+
+# Filter by driver
+xbe view driver-assignment-acknowledgements list --driver 456
+
+# Show acknowledgement details
+xbe view driver-assignment-acknowledgements show 789
+
+# Create an acknowledgement
+xbe do driver-assignment-acknowledgements create --tender-job-schedule-shift 123 --driver 456
+```
+
+### Driver Assignment Refusals
+
+Driver assignment refusals record when a driver declines a tender job schedule shift assignment.
+
+```bash
+# List refusals
+xbe view driver-assignment-refusals list
+
+# Filter by tender job schedule shift
+xbe view driver-assignment-refusals list --tender-job-schedule-shift 123
+
+# Filter by driver
+xbe view driver-assignment-refusals list --driver 456
+
+# Show refusal details
+xbe view driver-assignment-refusals show 789
+
+# Create a refusal
+xbe do driver-assignment-refusals create \
+  --tender-job-schedule-shift 123 \
+  --driver 456 \
+  --comment "Unable to cover the shift"
+```
+
+### Crew Rates
+
+Crew rates define pricing for labor/equipment by classification, resource, or craft class.
+
+```bash
+# List crew rates for a broker
+xbe view crew-rates list --broker 123 --is-active true
+
+# Filter by resource classification
+xbe view crew-rates list --resource-classification-type LaborClassification --resource-classification-id 456
+
+# Create a crew rate
+xbe do crew-rates create --price-per-unit 75.00 --start-on 2025-01-01 --is-active true \
+  --broker 123 --resource-classification-type LaborClassification --resource-classification-id 456
+
+# Update a crew rate
+xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
+
+# Delete a crew rate (requires --confirm)
+xbe do crew-rates delete 789 --confirm
+```
+
+### Driver Assignment Rules
+
+Driver assignment rules define constraints or guidance used when assigning drivers.
+
+```bash
+# List driver assignment rules
+xbe view driver-assignment-rules list
+
+# Filter by level
+xbe view driver-assignment-rules list --level-type Broker --level-id 123
+
+# Create a broker-level rule
+xbe do driver-assignment-rules create \
+  --rule "Drivers must be assigned by 6am" \
+  --level-type Broker \
+  --level-id 123 \
+  --is-active
+
+# Update a rule
+xbe do driver-assignment-rules update 789 --rule "Updated rule" --is-active=false
+
+# Delete a rule (requires --confirm)
+xbe do driver-assignment-rules delete 789 --confirm
+```
+
+### Driver Day Adjustment Plans
+
+Driver day adjustment plans define per-trucker adjustments applied to driver day recaps.
+
+```bash
+# List plans for a trucker
+xbe view driver-day-adjustment-plans list --trucker 123
+
+# Show a plan
+xbe view driver-day-adjustment-plans show 456
+
+# Create a plan
+xbe do driver-day-adjustment-plans create --trucker 123 --content "Adjusted start time" \
+  --start-at "2025-01-15T08:00:00Z"
+
+# Update a plan
+xbe do driver-day-adjustment-plans update 456 --content "Updated plan" \
+  --start-at "2025-01-16T06:00:00Z"
+
+# Delete a plan (requires --confirm)
+xbe do driver-day-adjustment-plans delete 456 --confirm
+### Crew Requirement Credential Classifications
+
+Crew requirement credential classifications link crew requirements to the credential
+classifications they require.
+
+```bash
+# List crew requirement credential classifications
+xbe view crew-requirement-credential-classifications list
+
+# Filter by crew requirement
+xbe view crew-requirement-credential-classifications list --crew-requirement 123
+
+# Show link details
+xbe view crew-requirement-credential-classifications show 456
+
+# Create a link
+xbe do crew-requirement-credential-classifications create \
+  --crew-requirement-type labor-requirements \
+  --crew-requirement 123 \
+  --credential-classification-type user-credential-classifications \
+  --credential-classification 456
+
+# Delete a link (requires --confirm)
+xbe do crew-requirement-credential-classifications delete 456 --confirm
 ```
 
 ## Output Formats

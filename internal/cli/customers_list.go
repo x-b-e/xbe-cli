@@ -15,19 +15,21 @@ import (
 )
 
 type customersListOptions struct {
-	BaseURL                    string
-	Token                      string
-	JSON                       bool
-	NoAuth                     bool
-	Limit                      int
-	Offset                     int
-	Name                       string
-	IsActive                   bool
-	Broker                     string
-	Favorite                   string
-	IsControlledByBroker       string
-	TrailerClassification      string
-	IsOnlyForEquipmentMovement string
+	BaseURL                     string
+	Token                       string
+	JSON                        bool
+	NoAuth                      bool
+	Limit                       int
+	Offset                      int
+	Name                        string
+	IsActive                    bool
+	Broker                      string
+	Favorite                    string
+	IsControlledByBroker        string
+	TrailerClassification       string
+	IsOnlyForEquipmentMovement  string
+	BrokerCustomerID            string
+	ExternalIdentificationValue string
 }
 
 func newCustomersListCmd() *cobra.Command {
@@ -83,6 +85,8 @@ func initCustomersListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("is-controlled-by-broker", "", "Filter by broker control status (true/false)")
 	cmd.Flags().String("trailer-classification", "", "Filter by trailer classification")
 	cmd.Flags().String("is-only-for-equipment-movement", "", "Filter by equipment movement only status (true/false)")
+	cmd.Flags().String("broker-customer-id", "", "Filter by broker-assigned customer ID")
+	cmd.Flags().String("external-identification-value", "", "Filter by external identification value")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -125,6 +129,8 @@ func runCustomersList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[is-controlled-by-broker]", opts.IsControlledByBroker)
 	setFilterIfPresent(query, "filter[trailer-classification]", opts.TrailerClassification)
 	setFilterIfPresent(query, "filter[is-only-for-equipment-movement]", opts.IsOnlyForEquipmentMovement)
+	setFilterIfPresent(query, "filter[broker-customer-id]", opts.BrokerCustomerID)
+	setFilterIfPresent(query, "filter[external-identification-value]", opts.ExternalIdentificationValue)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/customers", query)
 	if err != nil {
@@ -194,6 +200,14 @@ func parseCustomersListOptions(cmd *cobra.Command) (customersListOptions, error)
 	if err != nil {
 		return customersListOptions{}, err
 	}
+	brokerCustomerID, err := cmd.Flags().GetString("broker-customer-id")
+	if err != nil {
+		return customersListOptions{}, err
+	}
+	externalIdentificationValue, err := cmd.Flags().GetString("external-identification-value")
+	if err != nil {
+		return customersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return customersListOptions{}, err
@@ -204,19 +218,21 @@ func parseCustomersListOptions(cmd *cobra.Command) (customersListOptions, error)
 	}
 
 	return customersListOptions{
-		BaseURL:                    baseURL,
-		Token:                      token,
-		JSON:                       jsonOut,
-		NoAuth:                     noAuth,
-		Limit:                      limit,
-		Offset:                     offset,
-		Name:                       name,
-		IsActive:                   isActive,
-		Broker:                     broker,
-		Favorite:                   favorite,
-		IsControlledByBroker:       isControlledByBroker,
-		TrailerClassification:      trailerClassification,
-		IsOnlyForEquipmentMovement: isOnlyForEquipmentMovement,
+		BaseURL:                     baseURL,
+		Token:                       token,
+		JSON:                        jsonOut,
+		NoAuth:                      noAuth,
+		Limit:                       limit,
+		Offset:                      offset,
+		Name:                        name,
+		IsActive:                    isActive,
+		Broker:                      broker,
+		Favorite:                    favorite,
+		IsControlledByBroker:        isControlledByBroker,
+		TrailerClassification:       trailerClassification,
+		IsOnlyForEquipmentMovement:  isOnlyForEquipmentMovement,
+		BrokerCustomerID:            brokerCustomerID,
+		ExternalIdentificationValue: externalIdentificationValue,
 	}, nil
 }
 

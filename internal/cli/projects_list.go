@@ -15,32 +15,38 @@ import (
 )
 
 type projectsListOptions struct {
-	BaseURL        string
-	Token          string
-	JSON           bool
-	NoAuth         bool
-	Limit          int
-	Offset         int
-	Name           string
-	Status         string
-	CreatedAtMin   string
-	CreatedAtMax   string
-	Broker         string
-	Customer       string
-	ProjectManager string
-	Estimator      string
-	Developer      string
-	ProjectOffice  string
-	Q              string
-	Number         string
-	IsActive       string
-	IsManaged      string
-	JobStartOn     string
-	JobStartOnMin  string
-	JobStartOnMax  string
-	DueOn          string
-	DueOnMin       string
-	DueOnMax       string
+	BaseURL                      string
+	Token                        string
+	JSON                         bool
+	NoAuth                       bool
+	Limit                        int
+	Offset                       int
+	Name                         string
+	Status                       string
+	CreatedAtMin                 string
+	CreatedAtMax                 string
+	Broker                       string
+	Customer                     string
+	ProjectManager               string
+	Estimator                    string
+	Developer                    string
+	ProjectOffice                string
+	Q                            string
+	Number                       string
+	IsActive                     string
+	IsManaged                    string
+	JobStartOn                   string
+	JobStartOnMin                string
+	JobStartOnMax                string
+	DueOn                        string
+	DueOnMin                     string
+	DueOnMax                     string
+	NameLike                     string
+	HasMaterialTransactionOrders string
+	IsProjectManager             string
+	ProjectTransportPlan         string
+	IsTransportOnly              string
+	JobProductionPlanPlanner     string
 }
 
 func newProjectsListCmd() *cobra.Command {
@@ -111,6 +117,12 @@ func initProjectsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("due-on", "", "Filter by due date (YYYY-MM-DD)")
 	cmd.Flags().String("due-on-min", "", "Filter by minimum due date (YYYY-MM-DD)")
 	cmd.Flags().String("due-on-max", "", "Filter by maximum due date (YYYY-MM-DD)")
+	cmd.Flags().String("name-like", "", "Filter by name (partial match)")
+	cmd.Flags().String("has-material-transaction-orders", "", "Filter by having material transaction orders (true/false)")
+	cmd.Flags().String("is-project-manager", "", "Filter by having project manager (true/false)")
+	cmd.Flags().String("project-transport-plan", "", "Filter by project transport plan ID (comma-separated for multiple)")
+	cmd.Flags().String("is-transport-only", "", "Filter by transport only status (true/false)")
+	cmd.Flags().String("job-production-plan-planner", "", "Filter by job production plan planner ID (comma-separated for multiple)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -162,6 +174,12 @@ func runProjectsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[due-on]", opts.DueOn)
 	setFilterIfPresent(query, "filter[due-on-min]", opts.DueOnMin)
 	setFilterIfPresent(query, "filter[due-on-max]", opts.DueOnMax)
+	setFilterIfPresent(query, "filter[name-like]", opts.NameLike)
+	setFilterIfPresent(query, "filter[has-material-transaction-orders]", opts.HasMaterialTransactionOrders)
+	setFilterIfPresent(query, "filter[is-project-manager]", opts.IsProjectManager)
+	setFilterIfPresent(query, "filter[project-transport-plan]", opts.ProjectTransportPlan)
+	setFilterIfPresent(query, "filter[is-transport-only]", opts.IsTransportOnly)
+	setFilterIfPresent(query, "filter[job-production-plan-planner]", opts.JobProductionPlanPlanner)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/projects", query)
 	if err != nil {
@@ -283,6 +301,30 @@ func parseProjectsListOptions(cmd *cobra.Command) (projectsListOptions, error) {
 	if err != nil {
 		return projectsListOptions{}, err
 	}
+	nameLike, err := cmd.Flags().GetString("name-like")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	hasMaterialTransactionOrders, err := cmd.Flags().GetString("has-material-transaction-orders")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	isProjectManager, err := cmd.Flags().GetString("is-project-manager")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	projectTransportPlan, err := cmd.Flags().GetString("project-transport-plan")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	isTransportOnly, err := cmd.Flags().GetString("is-transport-only")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
+	jobProductionPlanPlanner, err := cmd.Flags().GetString("job-production-plan-planner")
+	if err != nil {
+		return projectsListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return projectsListOptions{}, err
@@ -293,32 +335,38 @@ func parseProjectsListOptions(cmd *cobra.Command) (projectsListOptions, error) {
 	}
 
 	return projectsListOptions{
-		BaseURL:        baseURL,
-		Token:          token,
-		JSON:           jsonOut,
-		NoAuth:         noAuth,
-		Limit:          limit,
-		Offset:         offset,
-		Name:           name,
-		Status:         status,
-		CreatedAtMin:   createdAtMin,
-		CreatedAtMax:   createdAtMax,
-		Broker:         broker,
-		Customer:       customer,
-		ProjectManager: projectManager,
-		Estimator:      estimator,
-		Developer:      developer,
-		ProjectOffice:  projectOffice,
-		Q:              q,
-		Number:         number,
-		IsActive:       isActive,
-		IsManaged:      isManaged,
-		JobStartOn:     jobStartOn,
-		JobStartOnMin:  jobStartOnMin,
-		JobStartOnMax:  jobStartOnMax,
-		DueOn:          dueOn,
-		DueOnMin:       dueOnMin,
-		DueOnMax:       dueOnMax,
+		BaseURL:                      baseURL,
+		Token:                        token,
+		JSON:                         jsonOut,
+		NoAuth:                       noAuth,
+		Limit:                        limit,
+		Offset:                       offset,
+		Name:                         name,
+		Status:                       status,
+		CreatedAtMin:                 createdAtMin,
+		CreatedAtMax:                 createdAtMax,
+		Broker:                       broker,
+		Customer:                     customer,
+		ProjectManager:               projectManager,
+		Estimator:                    estimator,
+		Developer:                    developer,
+		ProjectOffice:                projectOffice,
+		Q:                            q,
+		Number:                       number,
+		IsActive:                     isActive,
+		IsManaged:                    isManaged,
+		JobStartOn:                   jobStartOn,
+		JobStartOnMin:                jobStartOnMin,
+		JobStartOnMax:                jobStartOnMax,
+		DueOn:                        dueOn,
+		DueOnMin:                     dueOnMin,
+		DueOnMax:                     dueOnMax,
+		NameLike:                     nameLike,
+		HasMaterialTransactionOrders: hasMaterialTransactionOrders,
+		IsProjectManager:             isProjectManager,
+		ProjectTransportPlan:         projectTransportPlan,
+		IsTransportOnly:              isTransportOnly,
+		JobProductionPlanPlanner:     jobProductionPlanPlanner,
 	}, nil
 }
 

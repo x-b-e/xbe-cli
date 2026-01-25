@@ -15,38 +15,45 @@ import (
 )
 
 type actionItemsListOptions struct {
-	BaseURL                 string
-	Token                   string
-	JSON                    bool
-	NoAuth                  bool
-	Limit                   int
-	Offset                  int
-	Status                  string
-	Kind                    string
-	Project                 string
-	Tracker                 string
-	Broker                  string
-	Sort                    string
-	Q                       string
-	DueOn                   string
-	DueOnMin                string
-	DueOnMax                string
-	CompletedOn             string
-	CompletedOnMin          string
-	CompletedOnMax          string
-	IsCompleted             string
-	ResponsiblePerson       string
-	ResponsibleOrganization string
-	TeamMember              string
-	CreatedBy               string
-	Priority                string
-	IsDeleted               string
-	ParentActionItem        string
-	Incident                string
-	RootCause               string
-	Meeting                 string
-	IsUnplanned             string
-	RequiresXBEFeature      string
+	BaseURL                     string
+	Token                       string
+	JSON                        bool
+	NoAuth                      bool
+	Limit                       int
+	Offset                      int
+	Status                      string
+	Kind                        string
+	Project                     string
+	Tracker                     string
+	Broker                      string
+	Sort                        string
+	Q                           string
+	DueOn                       string
+	DueOnMin                    string
+	DueOnMax                    string
+	CompletedOn                 string
+	CompletedOnMin              string
+	CompletedOnMax              string
+	IsCompleted                 string
+	ResponsiblePerson           string
+	ResponsibleOrganization     string
+	TeamMember                  string
+	CreatedBy                   string
+	Priority                    string
+	IsDeleted                   string
+	ParentActionItem            string
+	Incident                    string
+	RootCause                   string
+	Meeting                     string
+	IsUnplanned                 string
+	RequiresXBEFeature          string
+	Source                      string
+	ExpectedCostAmountMin       string
+	ExpectedCostAmountMax       string
+	ExpectedBenefitAmountMin    string
+	ExpectedBenefitAmountMax    string
+	ExpectedNetBenefitAmountMin string
+	ExpectedNetBenefitAmountMax string
 }
 
 func newActionItemsListCmd() *cobra.Command {
@@ -179,6 +186,13 @@ func initActionItemsListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("meeting", "", "Filter by meeting ID (comma-separated for multiple)")
 	cmd.Flags().String("is-unplanned", "", "Filter by unplanned status (true/false)")
 	cmd.Flags().String("requires-xbe-feature", "", "Filter by XBE feature requirement (true/false)")
+	cmd.Flags().String("source", "", "Filter by source (Type|ID, comma-separated for multiple)")
+	cmd.Flags().String("expected-cost-amount-min", "", "Filter by minimum expected cost amount")
+	cmd.Flags().String("expected-cost-amount-max", "", "Filter by maximum expected cost amount")
+	cmd.Flags().String("expected-benefit-amount-min", "", "Filter by minimum expected benefit amount")
+	cmd.Flags().String("expected-benefit-amount-max", "", "Filter by maximum expected benefit amount")
+	cmd.Flags().String("expected-net-benefit-amount-min", "", "Filter by minimum expected net benefit amount")
+	cmd.Flags().String("expected-net-benefit-amount-max", "", "Filter by maximum expected net benefit amount")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -247,6 +261,13 @@ func runActionItemsList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[meeting]", opts.Meeting)
 	setFilterIfPresent(query, "filter[is-unplanned]", opts.IsUnplanned)
 	setFilterIfPresent(query, "filter[requires-xbe-feature]", opts.RequiresXBEFeature)
+	setFilterIfPresent(query, "filter[source]", opts.Source)
+	setFilterIfPresent(query, "filter[expected-cost-amount-min]", opts.ExpectedCostAmountMin)
+	setFilterIfPresent(query, "filter[expected-cost-amount-max]", opts.ExpectedCostAmountMax)
+	setFilterIfPresent(query, "filter[expected-benefit-amount-min]", opts.ExpectedBenefitAmountMin)
+	setFilterIfPresent(query, "filter[expected-benefit-amount-max]", opts.ExpectedBenefitAmountMax)
+	setFilterIfPresent(query, "filter[expected-net-benefit-amount-min]", opts.ExpectedNetBenefitAmountMin)
+	setFilterIfPresent(query, "filter[expected-net-benefit-amount-max]", opts.ExpectedNetBenefitAmountMax)
 
 	// Apply sort
 	if opts.Sort != "" {
@@ -309,42 +330,56 @@ func parseActionItemsListOptions(cmd *cobra.Command) (actionItemsListOptions, er
 	meeting, _ := cmd.Flags().GetString("meeting")
 	isUnplanned, _ := cmd.Flags().GetString("is-unplanned")
 	requiresXBEFeature, _ := cmd.Flags().GetString("requires-xbe-feature")
+	source, _ := cmd.Flags().GetString("source")
+	expectedCostAmountMin, _ := cmd.Flags().GetString("expected-cost-amount-min")
+	expectedCostAmountMax, _ := cmd.Flags().GetString("expected-cost-amount-max")
+	expectedBenefitAmountMin, _ := cmd.Flags().GetString("expected-benefit-amount-min")
+	expectedBenefitAmountMax, _ := cmd.Flags().GetString("expected-benefit-amount-max")
+	expectedNetBenefitAmountMin, _ := cmd.Flags().GetString("expected-net-benefit-amount-min")
+	expectedNetBenefitAmountMax, _ := cmd.Flags().GetString("expected-net-benefit-amount-max")
 	baseURL, _ := cmd.Flags().GetString("base-url")
 	token, _ := cmd.Flags().GetString("token")
 
 	return actionItemsListOptions{
-		BaseURL:                 baseURL,
-		Token:                   token,
-		JSON:                    jsonOut,
-		NoAuth:                  noAuth,
-		Limit:                   limit,
-		Offset:                  offset,
-		Status:                  status,
-		Kind:                    kind,
-		Project:                 project,
-		Tracker:                 tracker,
-		Broker:                  broker,
-		Sort:                    sort,
-		Q:                       q,
-		DueOn:                   dueOn,
-		DueOnMin:                dueOnMin,
-		DueOnMax:                dueOnMax,
-		CompletedOn:             completedOn,
-		CompletedOnMin:          completedOnMin,
-		CompletedOnMax:          completedOnMax,
-		IsCompleted:             isCompleted,
-		ResponsiblePerson:       responsiblePerson,
-		ResponsibleOrganization: responsibleOrganization,
-		TeamMember:              teamMember,
-		CreatedBy:               createdBy,
-		Priority:                priority,
-		IsDeleted:               isDeleted,
-		ParentActionItem:        parentActionItem,
-		Incident:                incident,
-		RootCause:               rootCause,
-		Meeting:                 meeting,
-		IsUnplanned:             isUnplanned,
-		RequiresXBEFeature:      requiresXBEFeature,
+		BaseURL:                     baseURL,
+		Token:                       token,
+		JSON:                        jsonOut,
+		NoAuth:                      noAuth,
+		Limit:                       limit,
+		Offset:                      offset,
+		Status:                      status,
+		Kind:                        kind,
+		Project:                     project,
+		Tracker:                     tracker,
+		Broker:                      broker,
+		Sort:                        sort,
+		Q:                           q,
+		DueOn:                       dueOn,
+		DueOnMin:                    dueOnMin,
+		DueOnMax:                    dueOnMax,
+		CompletedOn:                 completedOn,
+		CompletedOnMin:              completedOnMin,
+		CompletedOnMax:              completedOnMax,
+		IsCompleted:                 isCompleted,
+		ResponsiblePerson:           responsiblePerson,
+		ResponsibleOrganization:     responsibleOrganization,
+		TeamMember:                  teamMember,
+		CreatedBy:                   createdBy,
+		Priority:                    priority,
+		IsDeleted:                   isDeleted,
+		ParentActionItem:            parentActionItem,
+		Incident:                    incident,
+		RootCause:                   rootCause,
+		Meeting:                     meeting,
+		IsUnplanned:                 isUnplanned,
+		RequiresXBEFeature:          requiresXBEFeature,
+		Source:                      source,
+		ExpectedCostAmountMin:       expectedCostAmountMin,
+		ExpectedCostAmountMax:       expectedCostAmountMax,
+		ExpectedBenefitAmountMin:    expectedBenefitAmountMin,
+		ExpectedBenefitAmountMax:    expectedBenefitAmountMax,
+		ExpectedNetBenefitAmountMin: expectedNetBenefitAmountMin,
+		ExpectedNetBenefitAmountMax: expectedNetBenefitAmountMax,
 	}, nil
 }
 

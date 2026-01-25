@@ -15,18 +15,19 @@ import (
 )
 
 type releaseNotesListOptions struct {
-	BaseURL       string
-	Token         string
-	JSON          bool
-	NoAuth        bool
-	Limit         int
-	Offset        int
-	IsPublished   string
-	IsArchived    string
-	Q             string
-	ReleasedOnMin string
-	ReleasedOnMax string
-	CreatedBy     string
+	BaseURL                        string
+	Token                          string
+	JSON                           bool
+	NoAuth                         bool
+	Limit                          int
+	Offset                         int
+	IsPublished                    string
+	IsArchived                     string
+	Q                              string
+	ReleasedOnMin                  string
+	ReleasedOnMax                  string
+	CreatedBy                      string
+	HasNavigationInstructionsGuess string
 }
 
 func newReleaseNotesListCmd() *cobra.Command {
@@ -89,6 +90,7 @@ func initReleaseNotesListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("released-on-min", "", "Filter to release notes released on or after this date (YYYY-MM-DD)")
 	cmd.Flags().String("released-on-max", "", "Filter to release notes released on or before this date (YYYY-MM-DD)")
 	cmd.Flags().String("created-by", "", "Filter by creator user ID (comma-separated for multiple)")
+	cmd.Flags().String("has-navigation-instructions-guess", "", "Filter by having navigation instructions guess (true/false)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -127,6 +129,7 @@ func runReleaseNotesList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[released-on-min]", opts.ReleasedOnMin)
 	setFilterIfPresent(query, "filter[released-on-max]", opts.ReleasedOnMax)
 	setFilterIfPresent(query, "filter[created-by]", opts.CreatedBy)
+	setFilterIfPresent(query, "filter[has-navigation-instructions-guess]", opts.HasNavigationInstructionsGuess)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/release-notes", query)
 	if err != nil {
@@ -192,6 +195,10 @@ func parseReleaseNotesListOptions(cmd *cobra.Command) (releaseNotesListOptions, 
 	if err != nil {
 		return releaseNotesListOptions{}, err
 	}
+	hasNavigationInstructionsGuess, err := cmd.Flags().GetString("has-navigation-instructions-guess")
+	if err != nil {
+		return releaseNotesListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return releaseNotesListOptions{}, err
@@ -202,18 +209,19 @@ func parseReleaseNotesListOptions(cmd *cobra.Command) (releaseNotesListOptions, 
 	}
 
 	return releaseNotesListOptions{
-		BaseURL:       baseURL,
-		Token:         token,
-		JSON:          jsonOut,
-		NoAuth:        noAuth,
-		Limit:         limit,
-		Offset:        offset,
-		IsPublished:   isPublished,
-		IsArchived:    isArchived,
-		Q:             q,
-		ReleasedOnMin: releasedOnMin,
-		ReleasedOnMax: releasedOnMax,
-		CreatedBy:     createdBy,
+		BaseURL:                        baseURL,
+		Token:                          token,
+		JSON:                           jsonOut,
+		NoAuth:                         noAuth,
+		Limit:                          limit,
+		Offset:                         offset,
+		IsPublished:                    isPublished,
+		IsArchived:                     isArchived,
+		Q:                              q,
+		ReleasedOnMin:                  releasedOnMin,
+		ReleasedOnMax:                  releasedOnMax,
+		CreatedBy:                      createdBy,
+		HasNavigationInstructionsGuess: hasNavigationInstructionsGuess,
 	}, nil
 }
 

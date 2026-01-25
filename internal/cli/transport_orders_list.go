@@ -28,41 +28,46 @@ var transportOrderIncludes = []string{
 }
 
 type transportOrdersListOptions struct {
-	BaseURL              string
-	Token                string
-	JSON                 bool
-	NoAuth               bool
-	Limit                int
-	Offset               int
-	Broker               string
-	StartOn              string
-	EndOn                string
-	OrderNumber          string
-	ProjectOffice        string
-	ProjectCategory      string
-	Customer             string
-	MaterialType         string
-	IsManaged            string
-	PickupAddressState   string
-	DeliveryAddressState string
-	Q                    string
-	Status               string
-	DisableDateDefaults  bool
-	Project              string
-	Active               string
-	Unplanned            string
-	PickupAtMin          string
-	PickupAtMax          string
-	DeliveryAtMin        string
-	DeliveryAtMax        string
-	PickupLocation       string
-	DeliveryLocation     string
-	BillableMiles        string
-	BillableMilesMin     string
-	BillableMilesMax     string
-	OrderedAt            string
-	OrderedAtMin         string
-	OrderedAtMax         string
+	BaseURL                      string
+	Token                        string
+	JSON                         bool
+	NoAuth                       bool
+	Limit                        int
+	Offset                       int
+	Broker                       string
+	StartOn                      string
+	EndOn                        string
+	OrderNumber                  string
+	ProjectOffice                string
+	ProjectCategory              string
+	Customer                     string
+	MaterialType                 string
+	IsManaged                    string
+	PickupAddressState           string
+	DeliveryAddressState         string
+	Q                            string
+	Status                       string
+	DisableDateDefaults          bool
+	Project                      string
+	Active                       string
+	Unplanned                    string
+	PickupAtMin                  string
+	PickupAtMax                  string
+	DeliveryAtMin                string
+	DeliveryAtMax                string
+	PickupLocation               string
+	DeliveryLocation             string
+	BillableMiles                string
+	BillableMilesMin             string
+	BillableMilesMax             string
+	OrderedAt                    string
+	OrderedAtMin                 string
+	OrderedAtMax                 string
+	ProjectDivision              string
+	ProjectTransportOrganization string
+	MaybeActive                  string
+	NearPickupLocation           string
+	NearDeliveryLocation         string
 }
 
 type transportOrderRow struct {
@@ -144,6 +149,11 @@ func initTransportOrdersListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("ordered-at", "", "Filter by ordered at time (RFC3339)")
 	cmd.Flags().String("ordered-at-min", "", "Filter by minimum ordered at time (RFC3339)")
 	cmd.Flags().String("ordered-at-max", "", "Filter by maximum ordered at time (RFC3339)")
+	cmd.Flags().String("project-division", "", "Filter by project division ID (comma-separated for multiple)")
+	cmd.Flags().String("project-transport-organization", "", "Filter by project transport organization ID (comma-separated for multiple)")
+	cmd.Flags().String("maybe-active", "", "Filter by maybe active status (true/false)")
+	cmd.Flags().String("near-pickup-location", "", "Filter by pickup location proximity (lat|lng|miles, e.g. 40.7128|-74.0060|10)")
+	cmd.Flags().String("near-delivery-location", "", "Filter by delivery location proximity (lat|lng|miles, e.g. 40.7128|-74.0060|25)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -335,6 +345,26 @@ func parseTransportOrdersListOptions(cmd *cobra.Command) (transportOrdersListOpt
 	if err != nil {
 		return transportOrdersListOptions{}, err
 	}
+	projectDivision, err := cmd.Flags().GetString("project-division")
+	if err != nil {
+		return transportOrdersListOptions{}, err
+	}
+	projectTransportOrganization, err := cmd.Flags().GetString("project-transport-organization")
+	if err != nil {
+		return transportOrdersListOptions{}, err
+	}
+	maybeActive, err := cmd.Flags().GetString("maybe-active")
+	if err != nil {
+		return transportOrdersListOptions{}, err
+	}
+	nearPickupLocation, err := cmd.Flags().GetString("near-pickup-location")
+	if err != nil {
+		return transportOrdersListOptions{}, err
+	}
+	nearDeliveryLocation, err := cmd.Flags().GetString("near-delivery-location")
+	if err != nil {
+		return transportOrdersListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return transportOrdersListOptions{}, err
@@ -345,41 +375,46 @@ func parseTransportOrdersListOptions(cmd *cobra.Command) (transportOrdersListOpt
 	}
 
 	return transportOrdersListOptions{
-		BaseURL:              baseURL,
-		Token:                token,
-		JSON:                 jsonOut,
-		NoAuth:               noAuth,
-		Limit:                limit,
-		Offset:               offset,
-		Broker:               broker,
-		StartOn:              startOn,
-		EndOn:                endOn,
-		OrderNumber:          orderNumber,
-		ProjectOffice:        projectOffice,
-		ProjectCategory:      projectCategory,
-		Customer:             customer,
-		MaterialType:         materialType,
-		IsManaged:            isManaged,
-		PickupAddressState:   pickupState,
-		DeliveryAddressState: deliveryState,
-		Q:                    q,
-		Status:               status,
-		DisableDateDefaults:  noDateDefaults,
-		Project:              project,
-		Active:               active,
-		Unplanned:            unplanned,
-		PickupAtMin:          pickupAtMin,
-		PickupAtMax:          pickupAtMax,
-		DeliveryAtMin:        deliveryAtMin,
-		DeliveryAtMax:        deliveryAtMax,
-		PickupLocation:       pickupLocation,
-		DeliveryLocation:     deliveryLocation,
-		BillableMiles:        billableMiles,
-		BillableMilesMin:     billableMilesMin,
-		BillableMilesMax:     billableMilesMax,
-		OrderedAt:            orderedAt,
-		OrderedAtMin:         orderedAtMin,
-		OrderedAtMax:         orderedAtMax,
+		BaseURL:                      baseURL,
+		Token:                        token,
+		JSON:                         jsonOut,
+		NoAuth:                       noAuth,
+		Limit:                        limit,
+		Offset:                       offset,
+		Broker:                       broker,
+		StartOn:                      startOn,
+		EndOn:                        endOn,
+		OrderNumber:                  orderNumber,
+		ProjectOffice:                projectOffice,
+		ProjectCategory:              projectCategory,
+		Customer:                     customer,
+		MaterialType:                 materialType,
+		IsManaged:                    isManaged,
+		PickupAddressState:           pickupState,
+		DeliveryAddressState:         deliveryState,
+		Q:                            q,
+		Status:                       status,
+		DisableDateDefaults:          noDateDefaults,
+		Project:                      project,
+		Active:                       active,
+		Unplanned:                    unplanned,
+		PickupAtMin:                  pickupAtMin,
+		PickupAtMax:                  pickupAtMax,
+		DeliveryAtMin:                deliveryAtMin,
+		DeliveryAtMax:                deliveryAtMax,
+		PickupLocation:               pickupLocation,
+		DeliveryLocation:             deliveryLocation,
+		BillableMiles:                billableMiles,
+		BillableMilesMin:             billableMilesMin,
+		BillableMilesMax:             billableMilesMax,
+		OrderedAt:                    orderedAt,
+		OrderedAtMin:                 orderedAtMin,
+		OrderedAtMax:                 orderedAtMax,
+		ProjectDivision:              projectDivision,
+		ProjectTransportOrganization: projectTransportOrganization,
+		MaybeActive:                  maybeActive,
+		NearPickupLocation:           nearPickupLocation,
+		NearDeliveryLocation:         nearDeliveryLocation,
 	}, nil
 }
 
@@ -436,6 +471,11 @@ func applyTransportOrderFilters(query url.Values, opts transportOrdersListOption
 	setFilterIfPresent(query, "filter[ordered-at]", opts.OrderedAt)
 	setFilterIfPresent(query, "filter[ordered-at-min]", opts.OrderedAtMin)
 	setFilterIfPresent(query, "filter[ordered-at-max]", opts.OrderedAtMax)
+	setFilterIfPresent(query, "filter[project-division]", opts.ProjectDivision)
+	setFilterIfPresent(query, "filter[project-transport-organization]", opts.ProjectTransportOrganization)
+	setFilterIfPresent(query, "filter[maybe-active]", opts.MaybeActive)
+	setFilterIfPresent(query, "filter[near-pickup-location]", opts.NearPickupLocation)
+	setFilterIfPresent(query, "filter[near-delivery-location]", opts.NearDeliveryLocation)
 }
 
 func applyStopsDateFilters(query url.Values, opts transportOrdersListOptions) {

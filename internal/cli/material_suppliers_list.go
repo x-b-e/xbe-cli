@@ -40,6 +40,10 @@ Pagination:
 
 Filtering:
   Multiple filters can be combined. All filters use AND logic.
+  --name              Filter by name (partial match)
+  --active            Filter to only active suppliers
+  --broker            Filter by broker ID
+  --is-broker-active  Filter by broker active status (true/false)
 
 Use Case:
   Find supplier IDs for filtering posts by creator:

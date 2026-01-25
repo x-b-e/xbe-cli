@@ -30,14 +30,9 @@ func newDoCostIndexEntriesCreateCmd() *cobra.Command {
 Required flags:
   --cost-index  The parent cost index ID (required)
   --start-on    Entry start date (required, format: YYYY-MM-DD)
-  --value       Entry value (required)
-
-Optional flags:
-  --end-on  Entry end date (format: YYYY-MM-DD)`,
+  --end-on      Entry end date (required, format: YYYY-MM-DD)
+  --value       Entry value (required)`,
 		Example: `  # Create a cost index entry
-  xbe do cost-index-entries create --cost-index 123 --start-on "2024-01-01" --value 1.05
-
-  # Create with end date
   xbe do cost-index-entries create --cost-index 123 --start-on "2024-01-01" --end-on "2024-03-31" --value 1.05`,
 		Args: cobra.NoArgs,
 		RunE: runDoCostIndexEntriesCreate,
@@ -54,7 +49,7 @@ func initDoCostIndexEntriesCreateFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
 	cmd.Flags().String("cost-index", "", "Parent cost index ID (required)")
 	cmd.Flags().String("start-on", "", "Entry start date (required)")
-	cmd.Flags().String("end-on", "", "Entry end date")
+	cmd.Flags().String("end-on", "", "Entry end date (required)")
 	cmd.Flags().String("value", "", "Entry value (required)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
@@ -91,6 +86,12 @@ func runDoCostIndexEntriesCreate(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
+	if opts.EndOn == "" {
+		err := fmt.Errorf("--end-on is required")
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
+
 	if opts.Value == "" {
 		err := fmt.Errorf("--value is required")
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
@@ -99,11 +100,8 @@ func runDoCostIndexEntriesCreate(cmd *cobra.Command, args []string) error {
 
 	attributes := map[string]any{
 		"start-on": opts.StartOn,
+		"end-on":   opts.EndOn,
 		"value":    opts.Value,
-	}
-
-	if opts.EndOn != "" {
-		attributes["end-on"] = opts.EndOn
 	}
 
 	relationships := map[string]any{

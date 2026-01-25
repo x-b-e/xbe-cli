@@ -1,0 +1,16 @@
+project_root: "./cartographer_out"
+cli_bin: "./xbe" # Path to the executable
+
+# The "Source of Truth" repositories
+repos:
+  - name: "cli"
+    path: "."  # This repository
+    description: "The CLI implementation and command wiring."
+
+  - name: "server"
+    path: "../server"  # Sibling directory
+    description: "The backend API logic."
+
+  - name: "client"
+    path: "../client"  # Sibling directory
+    description: "The web frontend and UI forms."

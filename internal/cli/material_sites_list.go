@@ -32,6 +32,12 @@ type materialSitesListOptions struct {
 	IsTicketMaker              string
 	IsBrokerActive             string
 	IsOnlyForEquipmentMovement string
+	// NOTE: active-child filter removed due to server-side 500 error (column doesn't exist)
+	AddressNear                    string
+	ActiveAround                   string
+	HasActivityAsOf                string
+	MaterialTransactionIntegration string
+	IsAvailableAt                  string
 }
 
 type materialSiteRow struct {
@@ -96,6 +102,11 @@ func initMaterialSitesListFlags(cmd *cobra.Command) {
 	cmd.Flags().String("is-ticket-maker", "", "Filter by ticket maker status (true/false)")
 	cmd.Flags().String("is-broker-active", "", "Filter by broker active status (true/false)")
 	cmd.Flags().String("is-only-for-equipment-movement", "", "Filter by equipment movement only status (true/false)")
+	cmd.Flags().String("address-near", "", "Filter by proximity to address (lat,lng,radius_miles)")
+	cmd.Flags().String("active-around", "", "Filter by active around datetime (ISO 8601)")
+	cmd.Flags().String("has-activity-as-of", "", "Filter by activity as of datetime (ISO 8601)")
+	cmd.Flags().String("material-transaction-integration", "", "Filter by material transaction integration (true/false)")
+	cmd.Flags().String("is-available-at", "", "Filter by availability at datetime (ISO 8601)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -150,6 +161,11 @@ func runMaterialSitesList(cmd *cobra.Command, _ []string) error {
 	setFilterIfPresent(query, "filter[is-ticket-maker]", opts.IsTicketMaker)
 	setFilterIfPresent(query, "filter[is-broker-active]", opts.IsBrokerActive)
 	setFilterIfPresent(query, "filter[is-only-for-equipment-movement]", opts.IsOnlyForEquipmentMovement)
+	setFilterIfPresent(query, "filter[address-near]", opts.AddressNear)
+	setFilterIfPresent(query, "filter[active-around]", opts.ActiveAround)
+	setFilterIfPresent(query, "filter[has-activity-as-of]", opts.HasActivityAsOf)
+	setFilterIfPresent(query, "filter[material-transaction-integration]", opts.MaterialTransactionIntegration)
+	setFilterIfPresent(query, "filter[is-available-at]", opts.IsAvailableAt)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/material-sites", query)
 	if err != nil {
@@ -235,6 +251,26 @@ func parseMaterialSitesListOptions(cmd *cobra.Command) (materialSitesListOptions
 	if err != nil {
 		return materialSitesListOptions{}, err
 	}
+	addressNear, err := cmd.Flags().GetString("address-near")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	activeAround, err := cmd.Flags().GetString("active-around")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	hasActivityAsOf, err := cmd.Flags().GetString("has-activity-as-of")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	materialTransactionIntegration, err := cmd.Flags().GetString("material-transaction-integration")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
+	isAvailableAt, err := cmd.Flags().GetString("is-available-at")
+	if err != nil {
+		return materialSitesListOptions{}, err
+	}
 	baseURL, err := cmd.Flags().GetString("base-url")
 	if err != nil {
 		return materialSitesListOptions{}, err
@@ -245,23 +281,28 @@ func parseMaterialSitesListOptions(cmd *cobra.Command) (materialSitesListOptions
 	}
 
 	return materialSitesListOptions{
-		BaseURL:                    baseURL,
-		Token:                      token,
-		JSON:                       jsonOut,
-		NoAuth:                     noAuth,
-		Active:                     active,
-		Limit:                      limit,
-		Offset:                     offset,
-		Name:                       name,
-		Broker:                     broker,
-		Q:                          q,
-		MaterialSupplier:           materialSupplier,
-		OperatingStatus:            operatingStatus,
-		Parent:                     parent,
-		MaterialTypes:              materialTypes,
-		IsTicketMaker:              isTicketMaker,
-		IsBrokerActive:             isBrokerActive,
-		IsOnlyForEquipmentMovement: isOnlyForEquipmentMovement,
+		BaseURL:                        baseURL,
+		Token:                          token,
+		JSON:                           jsonOut,
+		NoAuth:                         noAuth,
+		Active:                         active,
+		Limit:                          limit,
+		Offset:                         offset,
+		Name:                           name,
+		Broker:                         broker,
+		Q:                              q,
+		MaterialSupplier:               materialSupplier,
+		OperatingStatus:                operatingStatus,
+		Parent:                         parent,
+		MaterialTypes:                  materialTypes,
+		IsTicketMaker:                  isTicketMaker,
+		IsBrokerActive:                 isBrokerActive,
+		IsOnlyForEquipmentMovement:     isOnlyForEquipmentMovement,
+		AddressNear:                    addressNear,
+		ActiveAround:                   activeAround,
+		HasActivityAsOf:                hasActivityAsOf,
+		MaterialTransactionIntegration: materialTransactionIntegration,
+		IsAvailableAt:                  isAvailableAt,
 	}, nil
 }
 
