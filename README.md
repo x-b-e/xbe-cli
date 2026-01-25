@@ -90,6 +90,8 @@ xbe
 │   ├── post-children        Manage post child links
 │   │   ├── create           Create a post child link
 │   │   └── delete           Delete a post child link
+│   ├── post-views           Record post views
+│   │   └── create           Record a post view
 │   ├── marketing-metrics    Refresh marketing metrics
 │   │   └── create           Refresh marketing metrics
 │   ├── lane-summary         Generate lane (cycle) summaries
@@ -499,6 +501,9 @@ xbe
 │   ├── post-actions        Browse post actions
 │   │   ├── list            List post actions with filtering
 │   │   └── show <id>       Show post action details
+│   ├── post-views          Browse post views
+│   │   ├── list            List post views with filtering
+│   │   └── show <id>       Show post view details
 │   ├── comment-reactions   Browse comment reactions
 │   │   ├── list            List comment reactions with filtering
 │   │   └── show <id>       Show comment reaction details
@@ -929,6 +934,22 @@ xbe view post-children show 789
 
 # Delete a post child link
 xbe do post-children delete 789 --confirm
+```
+
+### Post Views
+
+```bash
+# List post views
+xbe view post-views list
+
+# Filter by post and viewer
+xbe view post-views list --post 123 --viewer 456
+
+# Show post view details
+xbe view post-views show 789
+
+# Record a post view
+xbe do post-views create --post 123 --viewer 456 --viewed-at 2025-01-01T12:00:00Z
 ```
 
 ### Follows
