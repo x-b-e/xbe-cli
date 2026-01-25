@@ -86,6 +86,10 @@ xbe
 │   │   ├── create           Create a customer incident default assignee
 │   │   ├── update           Update a customer incident default assignee
 │   │   └── delete           Delete a customer incident default assignee
+│   ├── deere-integrations  Manage Deere integrations
+│   │   ├── create           Create a Deere integration
+│   │   ├── update           Update a Deere integration
+│   │   └── delete           Delete a Deere integration
 │   ├── device-diagnostics  Manage device diagnostics
 │   │   └── create           Create a device diagnostic
 │   ├── file-attachment-signed-urls Generate signed URLs for file attachments
@@ -403,6 +407,9 @@ xbe
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
+│   ├── deere-integrations  Browse Deere integrations
+│   │   ├── list            List Deere integrations
+│   │   └── show <id>       Show Deere integration details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details

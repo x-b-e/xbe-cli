@@ -111,6 +111,7 @@ var resourceCategories = map[string][]string{
 	"time-sheet-line-items":                              {CatProjects},
 
 	// Fleet & Transport
+	"deere-integrations":                                  {CatFleet},
 	"driver-movement-segments":                            {CatFleet},
 	"equipment-movement-trips":                            {CatFleet},
 	"equipment-movement-trip-dispatch-fulfillment-clerks": {CatFleet},
