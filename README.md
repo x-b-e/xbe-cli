@@ -423,6 +423,8 @@ xbe
 │   │   └── delete           Delete a developer trucker certification
 │   ├── deere-equipments     Manage Deere equipment
 │   │   └── update           Update a Deere equipment
+│   ├── digital-fleet-trucks  Manage digital fleet trucks
+│   │   └── update           Update a digital fleet truck
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -603,6 +605,9 @@ xbe
 │   ├── deere-equipments     Browse Deere equipment
 │   │   ├── list            List Deere equipment with filtering
 │   │   └── show <id>       Show Deere equipment details
+│   ├── digital-fleet-trucks  Browse digital fleet trucks
+│   │   ├── list            List digital fleet trucks with filtering
+│   │   └── show <id>       Show digital fleet truck details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
