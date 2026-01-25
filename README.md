@@ -167,6 +167,10 @@ xbe
 │   │   ├── create           Create a subscription
 │   │   ├── update           Update a subscription
 │   │   └── delete           Delete a subscription
+│   ├── shift-acknowledgement-reminder-notification-subscriptions  Manage shift acknowledgement reminder notification subscriptions
+│   │   ├── create           Create a subscription
+│   │   ├── update           Update a subscription
+│   │   └── delete           Delete a subscription
 │   ├── job-production-plan-subscriptions      Manage job production plan subscriptions
 │   │   ├── create           Create a subscription
 │   │   ├── update           Update a subscription
@@ -693,6 +697,9 @@ xbe
 │   │   ├── list            List subscriptions with filtering
 │   │   └── show <id>       Show subscription details
 │   ├── customer-tender-offered-buyer-notification-subscriptions  Browse customer tender offered buyer notification subscriptions
+│   │   ├── list            List subscriptions with filtering
+│   │   └── show <id>       Show subscription details
+│   ├── shift-acknowledgement-reminder-notification-subscriptions  Browse shift acknowledgement reminder notification subscriptions
 │   │   ├── list            List subscriptions with filtering
 │   │   └── show <id>       Show subscription details
 │   ├── job-production-plan-subscriptions      Browse job production plan subscriptions

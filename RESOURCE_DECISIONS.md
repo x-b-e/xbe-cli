@@ -192,6 +192,7 @@ reaction-classifications
 release-notes
 retainer-periods
 service-types
+shift-acknowledgement-reminder-notification-subscriptions
 shift-feedback-reasons
 shift-feedbacks
 shift-summary
