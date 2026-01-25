@@ -51,13 +51,14 @@ var resourceCategories = map[string][]string{
 	"users":                             {CatOrganizations},
 
 	// Content & Publishing
-	"features":          {CatContent},
-	"glossary-terms":    {CatContent},
-	"newsletters":       {CatContent},
-	"platform-statuses": {CatContent},
-	"posts":             {CatContent},
-	"press-releases":    {CatContent},
-	"release-notes":     {CatContent},
+	"features":            {CatContent},
+	"glossary-terms":      {CatContent},
+	"native-app-releases": {CatContent},
+	"newsletters":         {CatContent},
+	"platform-statuses":   {CatContent},
+	"posts":               {CatContent},
+	"press-releases":      {CatContent},
+	"release-notes":       {CatContent},
 
 	// Projects & Jobs
 	"action-items":                                       {CatProjects},

@@ -132,6 +132,10 @@ xbe
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
 │   │   └── delete           Delete a glossary term
+│   ├── native-app-releases  Manage native app releases
+│   │   ├── create           Create a native app release
+│   │   ├── update           Update a native app release
+│   │   └── delete           Delete a native app release
 │   ├── gauge-vehicles       Manage gauge vehicles
 │   │   └── update           Update gauge vehicle assignments
 │   ├── geotab-vehicles      Manage geotab vehicles
@@ -432,6 +436,9 @@ xbe
 │   ├── importer-configurations Browse importer configurations
 │   │   ├── list            List importer configurations
 │   │   └── show <id>       Show importer configuration details
+│   ├── native-app-releases Browse native app releases
+│   │   ├── list            List native app releases
+│   │   └── show <id>       Show native app release details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
@@ -1146,13 +1153,18 @@ xbe view posts list --creator "Customer|789"
 xbe view posts list --creator "Trucker|101"
 ```
 
-### Features, Release Notes, Press Releases, Glossary Terms
+### Features, Native App Releases, Release Notes, Press Releases, Glossary Terms
 
 ```bash
 # List product features
 xbe view features list
 xbe view features list --pdca-stage plan
 xbe view features show 123
+
+# List native app releases
+xbe view native-app-releases list
+xbe view native-app-releases list --release-channel apple-app-store
+xbe view native-app-releases show 321
 
 # List release notes
 xbe view release-notes list
