@@ -118,6 +118,7 @@ equipment-rentals
 external-identification-types
 external-identifications
 features
+follows
 geofences
 glossary-terms
 incident-tags

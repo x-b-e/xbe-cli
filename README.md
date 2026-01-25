@@ -382,6 +382,10 @@ xbe
 │   ├── comment-reactions    Manage comment reactions
 │   │   ├── create           Create a comment reaction
 │   │   └── delete           Delete a comment reaction
+│   ├── follows              Manage follows
+│   │   ├── create           Create a follow
+│   │   ├── update           Update a follow
+│   │   └── delete           Delete a follow
 │   ├── incident-tag-incidents  Manage incident tag incident links
 │   │   ├── create           Create an incident tag incident link
 │   │   └── delete           Delete an incident tag incident link
@@ -479,6 +483,9 @@ xbe
 │   ├── comment-reactions   Browse comment reactions
 │   │   ├── list            List comment reactions with filtering
 │   │   └── show <id>       Show comment reaction details
+│   ├── follows             Browse follows
+│   │   ├── list            List follows with filtering
+│   │   └── show <id>       Show follow details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
 │   ├── broker-certification-types  Browse broker certification types
@@ -869,6 +876,19 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Follows
+
+```bash
+# List follows
+xbe view follows list
+
+# Filter by follower
+xbe view follows list --follower 123
+
+# Follow a creator
+xbe do follows create --follower 123 --creator-type projects --creator-id 456
 ```
 
 ### Marketing Metrics
