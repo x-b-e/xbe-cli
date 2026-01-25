@@ -87,6 +87,9 @@ xbe
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
+│   ├── post-children        Manage post child links
+│   │   ├── create           Create a post child link
+│   │   └── delete           Delete a post child link
 │   ├── marketing-metrics    Refresh marketing metrics
 │   │   └── create           Refresh marketing metrics
 │   ├── lane-summary         Generate lane (cycle) summaries
@@ -490,6 +493,9 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── post-children       Browse post child links
+│   │   ├── list            List post child links with filtering
+│   │   └── show <id>       Show post child link details
 │   ├── post-actions        Browse post actions
 │   │   ├── list            List post actions with filtering
 │   │   └── show <id>       Show post action details
@@ -907,6 +913,22 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Post Children
+
+```bash
+# Link a child post to a parent post
+xbe do post-children create --parent-post 123 --child-post 456
+
+# List post child links for a parent post
+xbe view post-children list --parent-post 123
+
+# Show post child link details
+xbe view post-children show 789
+
+# Delete a post child link
+xbe do post-children delete 789 --confirm
 ```
 
 ### Follows
