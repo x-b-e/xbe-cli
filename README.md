@@ -369,6 +369,10 @@ xbe
 │   │   ├── create           Create an OpenAI vector store
 │   │   ├── update           Update an OpenAI vector store
 │   │   └── delete           Delete an OpenAI vector store
+│   ├── prompters            Manage prompters
+│   │   ├── create           Create a prompter
+│   │   ├── update           Update a prompter
+│   │   └── delete           Delete a prompter
 │   ├── broker-commitments   Manage broker commitments
 │   │   ├── create           Create a broker commitment
 │   │   ├── update           Update a broker commitment
@@ -610,6 +614,9 @@ xbe
 │   ├── open-ai-vector-stores Browse OpenAI vector stores
 │   │   ├── list            List OpenAI vector stores
 │   │   └── show <id>       Show OpenAI vector store details
+│   ├── prompters           Browse prompters
+│   │   ├── list            List prompters
+│   │   └── show <id>       Show prompter details
 │   ├── communications      Browse communications
 │   │   ├── list            List communications
 │   │   └── show <id>       Show communication details
@@ -1067,6 +1074,28 @@ xbe view open-ai-vector-stores list --scope "UserPostFeed|123"
 
 # Show vector store details
 xbe view open-ai-vector-stores show 789
+```
+
+### Prompters
+
+```bash
+# List prompters
+xbe view prompters list
+
+# Filter by active status
+xbe view prompters list --is-active true
+
+# Show prompter details
+xbe view prompters show 123
+
+# Create a prompter
+xbe do prompters create --name "Release Notes" --is-active=false
+
+# Update a prompt template
+xbe do prompters update 123 --release-note-headline-suggestions-prompt-template "New template"
+
+# Delete a prompter
+xbe do prompters delete 123 --confirm
 ```
 
 ### Communications

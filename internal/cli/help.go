@@ -60,6 +60,7 @@ var resourceCategories = map[string][]string{
 	"platform-statuses":     {CatContent},
 	"posts":                 {CatContent},
 	"press-releases":        {CatContent},
+	"prompters":             {CatContent},
 	"release-notes":         {CatContent},
 
 	// Projects & Jobs
