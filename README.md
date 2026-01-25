@@ -468,8 +468,10 @@ xbe
 │   ├── organization-invoices-batch-pdf-templates  Manage organization invoices batch PDF templates
 │   │   ├── create           Create an organization invoices batch PDF template
 │   │   └── update           Update an organization invoices batch PDF template
-│   └── organization-project-actuals-exports  Export organization project actuals
-│       └── create           Export organization project actuals
+│   ├── organization-project-actuals-exports  Export organization project actuals
+│   │   └── create           Export organization project actuals
+│   └── superior-bowen-crew-ledgers  Create Superior Bowen crew ledgers
+│       └── create           Create a Superior Bowen crew ledger
 ├── view                    Browse and view XBE content
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
