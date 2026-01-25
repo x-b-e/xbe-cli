@@ -215,6 +215,7 @@ trips
 truck-scopes
 trucker-insurances
 truckers
+ui-tour-steps
 unit-of-measures
 user-credential-classifications
 user-credentials
@@ -790,7 +791,6 @@ tender-job-schedule-shift-starting-seller-notifications
 tenna-vehicles
 text-messages
 textractions
-ui-tour-steps
 ui-tours
 user-post-feed-posts
 user-post-feeds

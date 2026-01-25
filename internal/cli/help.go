@@ -72,6 +72,7 @@ var resourceCategories = map[string][]string{
 	"marketing-metrics":       {CatContent},
 	"release-notes":           {CatContent},
 	"questions":               {CatContent},
+	"ui-tour-steps":           {CatContent},
 
 	// Projects & Jobs
 	"action-items":                                                 {CatProjects},

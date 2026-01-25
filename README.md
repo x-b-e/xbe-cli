@@ -83,6 +83,10 @@ xbe
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
 │   │   └── delete           Delete a glossary term
+│   ├── ui-tour-steps        Manage UI tour steps
+│   │   ├── create           Create a UI tour step
+│   │   ├── update           Update a UI tour step
+│   │   └── delete           Delete a UI tour step
 │   ├── platform-statuses    Manage platform status updates
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
@@ -524,6 +528,9 @@ xbe
 │   ├── post-views          Browse post views
 │   │   ├── list            List post views with filtering
 │   │   └── show <id>       Show post view details
+│   ├── ui-tour-steps       Browse UI tour steps
+│   │   ├── list            List UI tour steps with filtering
+│   │   └── show <id>       Show UI tour step details
 │   ├── comment-reactions   Browse comment reactions
 │   │   ├── list            List comment reactions with filtering
 │   │   └── show <id>       Show comment reaction details
