@@ -1,0 +1,78 @@
+{
+  "id": "a3cca527078dd054281bc64be66839d069735b6923fae4d082a6f3037940c09e",
+  "full_path": "view cost-indexes list",
+  "description": "List cost indexes.",
+  "permissions": "Authenticated users can list cost indexes; admins can view all, while non-admins are limited to cost indexes for brokers they belong to or global (broker_id nil).",
+  "side_effects": null,
+  "validation_notes": "Filters is-broker and is-expired require strict boolean values (true/false). expired-at-min and expired-at-max expect dates in YYYY-MM-DD format. is-valid-for-broker filters to indexes that are global or match the provided broker IDs.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expired-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum expiration date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD"
+    },
+    {
+      "name": "--expired-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum expiration date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD"
+    },
+    {
+      "name": "--is-broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker presence (true/false)",
+      "default": null,
+      "validation": "Strict boolean (true/false)."
+    },
+    {
+      "name": "--is-expired",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by expiration status (true/false)",
+      "default": null,
+      "validation": "Strict boolean (true/false)."
+    },
+    {
+      "name": "--is-valid-for-broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by validity for broker (true/false)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/cost_indexes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_index_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_policy.rb"
+    }
+  ]
+}

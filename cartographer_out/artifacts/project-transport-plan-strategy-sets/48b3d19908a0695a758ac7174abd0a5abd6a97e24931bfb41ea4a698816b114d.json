@@ -1,0 +1,33 @@
+{
+  "id": "48b3d19908a0695a758ac7174abd0a5abd6a97e24931bfb41ea4a698816b114d",
+  "full_path": "view project-transport-plan-strategy-sets list",
+  "description": "List project transport plan strategy sets",
+  "permissions": "Accessible to all users, including anonymous and non-admin users; policy scope resolves all project transport plan strategy sets.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--strategy-pattern",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by strategy pattern (example: [pick]-[drop]).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_strategy_sets_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_strategy_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_strategy_set_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "description": "Create a project margin matrix",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project ID (required)",
+      "name": "--project",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    }
+  ],
+  "full_path": "do project-margin-matrices create",
+  "id": "0825ed1e3c370869bb4ccc25d6e970630faf38aa8c58fbc599fe954a6e590634",
+  "permissions": "Authorized via ProjectMarginMatrixPolicy delegated to the related project; users must be allowed to create/update the associated project per ProjectPolicy (e.g., admins or practically managers of the project developer organization).",
+  "side_effects": "Creates a project margin matrix and schedules an async scenario build job after commit; scenarios are populated/updated later.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_margin_matrices_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_margin_matrix_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_margin_matrix.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_margin_matrix_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Required: --project. Only one project margin matrix per project (project_id must be unique)."
+}

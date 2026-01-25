@@ -1,0 +1,29 @@
+{
+  "description": "Delete a resource unavailability.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to proceed with deletion."
+    }
+  ],
+  "full_path": "do resource-unavailabilities delete",
+  "id": "e3c29ad63e9de4b8dfeeda85def728f1cc55d2df3edc94b7518d31b44257d8d1",
+  "permissions": null,
+  "side_effects": "Deletes a resource unavailability.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_resource_unavailabilities_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/resource_unavailability_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. --confirm is required."
+}

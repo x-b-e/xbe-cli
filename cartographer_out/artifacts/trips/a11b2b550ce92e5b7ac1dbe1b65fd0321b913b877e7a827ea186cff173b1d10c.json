@@ -1,0 +1,34 @@
+{
+  "id": "a11b2b550ce92e5b7ac1dbe1b65fd0321b913b877e7a827ea186cff173b1d10c",
+  "full_path": "do trips delete",
+  "description": "Delete a trip.",
+  "permissions": "User must be authorized to destroy the trip per TripPolicy (same checks as create) and the trip must be deletable (can_delete true).",
+  "side_effects": "Deletes the trip if permitted and deletable.",
+  "validation_notes": "CLI requires the <id> positional argument and --confirm. Deletion is blocked when the trip has user-sourced material transactions (cannot_delete reasons).",
+  "flags": [
+    {
+      "name": "confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trips_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trip_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trip_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trip.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "c8e1bce9d05ab51cff77a75a1a8e5e80ef796d7fdf407676a0cf0ee8bcb24406",
+  "full_path": "do ui-tours delete",
+  "description": "Delete a UI tour.",
+  "permissions": "Requires an admin user (policy destroy? checks is_user_admin?).",
+  "side_effects": "Permanently deletes the UI tour and its associated UI tour steps and user UI tours.",
+  "validation_notes": "Requires <id> argument (UI tour ID). The --confirm flag is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ui_tours_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/ui_tour.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ui_tour_policy.rb"
+    }
+  ]
+}

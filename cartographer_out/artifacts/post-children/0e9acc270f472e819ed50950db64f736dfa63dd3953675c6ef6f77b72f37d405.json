@@ -1,0 +1,33 @@
+{
+  "id": "0e9acc270f472e819ed50950db64f736dfa63dd3953675c6ef6f77b72f37d405",
+  "full_path": "do post-children delete",
+  "description": "Delete a post child link.",
+  "permissions": "User must be authorized to update the parent post to delete a post child link.",
+  "side_effects": "Deletes a post child link.",
+  "validation_notes": "The <id> argument is required and --confirm must be set to delete a post child link.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": "Must be set to proceed with deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_post_children_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_child_resource.rb"
+    }
+  ]
+}

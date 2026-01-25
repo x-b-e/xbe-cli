@@ -1,0 +1,103 @@
+{
+  "id": "4267fedc21f381fe17c4cdd91fd648ccd20e906722ebd255a476b9753d61c326",
+  "full_path": "view prompt-prescriptions list",
+  "description": "List prompt prescriptions with filtering and pagination.",
+  "permissions": "Requires an authenticated user; policy scope includes all prompt prescriptions.",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max/updated-at-min/updated-at-max must be valid ISO 8601 date-times and cannot be blank. is-created-at and is-updated-at must be true or false.",
+  "flags": [
+    {
+      "name": "--email-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by email address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Valid ISO 8601 date-time."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Valid ISO 8601 date-time."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Valid ISO 8601 date-time."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Valid ISO 8601 date-time."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prompt_prescriptions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/prompt_prescriptions_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/concerns/secure_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prompt_prescription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prompt_prescription_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "713ff54138ee2af56497a90fec82de324eca4fd043776e86f9f94e8e06935a8c",
+  "full_path": "do change-requests delete",
+  "description": "Delete a change request",
+  "permissions": "Admin users can delete change requests; non-admin users can delete change requests for organizations whose broker is in their membership scope (or when the organization has no broker).",
+  "side_effects": "Deletes the change request record.",
+  "validation_notes": "Argument <id> is required. --confirm must be set to true to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be provided and true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_change_requests_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/change_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/change_request_policy_spec.rb"
+    }
+  ]
+}

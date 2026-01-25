@@ -1,0 +1,29 @@
+{
+  "id": "ca3eff36cdacae89c502c4a6932363037c05c974009ed945a1bc63cc54976f4e",
+  "full_path": "do native-app-releases delete",
+  "description": "Delete a native app release.",
+  "permissions": "Only admin users can delete native app releases (policy requires is_admin?).",
+  "side_effects": "Deletes a native app release record.",
+  "validation_notes": "Requires a native app release <id> argument and the --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_native_app_releases_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/native_app_release_policy.rb"
+    }
+  ]
+}

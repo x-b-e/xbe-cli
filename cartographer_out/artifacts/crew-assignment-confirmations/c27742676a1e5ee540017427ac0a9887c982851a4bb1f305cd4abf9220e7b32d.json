@@ -1,0 +1,19 @@
+{
+  "id": "c27742676a1e5ee540017427ac0a9887c982851a4bb1f305cd4abf9220e7b32d",
+  "full_path": "view crew-assignment-confirmations show",
+  "description": "Show the full details of a crew assignment confirmation.",
+  "permissions": "User can view confirmations for crew requirements within their CrewRequirement policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/crew_assignment_confirmations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_assignment_confirmation_policy.rb"
+    }
+  ]
+}

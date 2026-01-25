@@ -1,0 +1,42 @@
+{
+  "id": "40f61b6bf6ee2a1fbe44154030b90c57fd3a06184aa5cf0b117df64f55194dd9",
+  "full_path": "do maintenance-requirement-set-maintenance-requirements create",
+  "description": "Create a maintenance requirement set maintenance requirement.",
+  "permissions": "Access is delegated to the related maintenance requirement set; the user must be authorized to create or manage that set per MaintenanceRequirementSet policy.",
+  "side_effects": null,
+  "validation_notes": "--maintenance-requirement-set and --maintenance-requirement are required; the pair of maintenance_requirement_set_id and maintenance_requirement_id must be unique.",
+  "flags": [
+    {
+      "name": "--maintenance-requirement-set",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Maintenance requirement set ID (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--maintenance-requirement",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Maintenance requirement ID (required)",
+      "default": null,
+      "validation": "required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_set_maintenance_requirements_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_set_maintenance_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_set_maintenance_requirement_policy.rb"
+    }
+  ]
+}

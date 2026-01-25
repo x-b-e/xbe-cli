@@ -1,0 +1,23 @@
+{
+  "id": "2d1d959d8ca249206c0c4baa43542f8e82ce38d7368788c247228ee0eac749c3",
+  "full_path": "view job-schedule-shifts show",
+  "description": "Show job schedule shift details.",
+  "permissions": "Authenticated users can view job schedule shifts in policy scope. Non-admins are scoped to shifts for customers they manage or broker, and to shifts linked to truckers in their tendered shifts; admins have full access.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_schedule_shifts_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_policy.rb"
+    }
+  ]
+}

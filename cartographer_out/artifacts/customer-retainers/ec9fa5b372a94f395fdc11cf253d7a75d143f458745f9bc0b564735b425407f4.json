@@ -1,0 +1,27 @@
+{
+  "id": "ec9fa5b372a94f395fdc11cf253d7a75d143f458745f9bc0b564735b425407f4",
+  "full_path": "view customer-retainers show",
+  "description": "Show customer retainer details",
+  "permissions": "Admin users can view all customer retainers. Non-admin users can view retainers where they have customer membership matching buyer_id or broker membership matching seller_id (policy scope also allows broker buyers and trucker-manager sellers in general retainer scope).",
+  "side_effects": null,
+  "validation_notes": "id argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_retainers_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_retainers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/retainer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    }
+  ]
+}

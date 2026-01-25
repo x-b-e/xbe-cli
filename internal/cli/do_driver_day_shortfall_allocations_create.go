@@ -314,17 +314,6 @@ func deriveTimeCardIDs(allocationQuantities []map[string]any) ([]string, error) 
 	return ids, nil
 }
 
-func buildRelationshipData(resourceType string, ids []string) []map[string]any {
-	data := make([]map[string]any, 0, len(ids))
-	for _, id := range ids {
-		data = append(data, map[string]any{
-			"type": resourceType,
-			"id":   id,
-		})
-	}
-	return data
-}
-
 func relationshipIDFromMap(relationships map[string]jsonAPIRelationship, key string) string {
 	if relationships == nil {
 		return ""

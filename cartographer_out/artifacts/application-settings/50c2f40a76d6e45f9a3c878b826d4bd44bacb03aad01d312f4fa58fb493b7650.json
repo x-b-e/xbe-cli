@@ -1,0 +1,42 @@
+{
+  "description": "Update an existing application setting.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New setting value.",
+      "name": "--value",
+      "required": false,
+      "type": "string",
+      "validation": "At least one of --value or --description is required. Example: false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New setting description.",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": "At least one of --value or --description is required. Example: Updated description."
+    }
+  ],
+  "full_path": "do application-settings update",
+  "id": "50c2f40a76d6e45f9a3c878b826d4bd44bacb03aad01d312f4fa58fb493b7650",
+  "permissions": "User must be admin to update application settings.",
+  "side_effects": "Updates the specified application setting fields.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_application_settings_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/application_setting_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_setting_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires application setting ID argument. At least one of --value or --description is required. Key cannot be updated."
+}

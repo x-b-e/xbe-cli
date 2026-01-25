@@ -1,0 +1,78 @@
+{
+  "description": "List tender job schedule shift cancelled trucker contact notifications",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID",
+      "name": "user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by read status (true/false)",
+      "name": "read",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by delivery decision approach (static/dynamic)",
+      "name": "delivery-decision-approach",
+      "required": false,
+      "type": "enum",
+      "validation": "static|dynamic"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by ready for delivery (true/false)",
+      "name": "is-ready-for-delivery",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by deliver-at timestamp (ISO8601)",
+      "name": "deliver-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by notification type",
+      "name": "notification-type",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid notification class"
+    }
+  ],
+  "full_path": "view tender-job-schedule-shift-cancelled-trucker-contact-notifications list",
+  "id": "2a66a7e5bb98d43b2e73a5aec4072cf9eaaa1627a8406e848c75203419f10c5e",
+  "permissions": "Accessible to authenticated users; non-admin results are limited to notifications where user_id matches the current user.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/tender_job_schedule_shift_cancelled_trucker_contact_notifications_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/notification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/notification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "read and is-ready-for-delivery filters expect true/false values. delivery-decision-approach expects static or dynamic. deliver-at expects an ISO8601 timestamp. notification-type must be a valid notification class; invalid values are rejected with a bad request."
+}

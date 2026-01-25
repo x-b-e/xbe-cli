@@ -1,0 +1,33 @@
+{
+  "id": "6cb9e84924a74efb4e8007389bb70cc1c35b0bb4e4564ddd5007995b7dc656a2",
+  "full_path": "view profit-improvement-categories list",
+  "description": "List profit improvement categories with filtering and pagination.",
+  "permissions": "Any authenticated user can list profit improvement categories; categories are read-only and cannot be created, updated, or deleted via the API.",
+  "side_effects": null,
+  "validation_notes": "Name filter performs a partial, case-insensitive match.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": "Case-insensitive partial match."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/profit_improvement_categories_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/profit_improvement_category_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_category_policy.rb"
+    }
+  ]
+}

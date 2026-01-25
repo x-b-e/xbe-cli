@@ -1,0 +1,33 @@
+{
+  "description": "Delete a job production plan change set.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required).",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do job-production-plan-change-sets delete",
+  "id": "4bc791709cf3cd135fa00025806ac984f6eaba5080eb83ab7832f5296e1bcd57",
+  "permissions": "Admin users can request deletion. Non-admins can request deletion for customers they manage or brokers they manage (broker members with manager role).",
+  "side_effects": "None. The API rejects deletion because change sets cannot be deleted after creation.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_change_sets_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/job_production_plan_change_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_change_set_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The change set ID argument is required. The --confirm flag is required. API rejects deletion because change sets are immutable."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "e576d5342dce31fb3f254d11e463afedc1074ce25e8fb5386d3bed4944210e5b",
+  "full_path": "view prompters list",
+  "description": "List prompters with filtering and pagination.",
+  "permissions": "User must be an admin to access prompters; non-admin scope resolves to no records.",
+  "side_effects": null,
+  "validation_notes": "--is-active expects true/false when provided.",
+  "flags": [
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prompters_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prompter_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prompter_resource.rb"
+    }
+  ]
+}

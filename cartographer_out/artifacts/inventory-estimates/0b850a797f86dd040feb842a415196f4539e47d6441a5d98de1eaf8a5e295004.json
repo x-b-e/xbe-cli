@@ -1,0 +1,105 @@
+{
+  "id": "0b850a797f86dd040feb842a415196f4539e47d6441a5d98de1eaf8a5e295004",
+  "full_path": "view inventory-estimates list",
+  "description": "List inventory estimates with filtering",
+  "permissions": "Admins can list inventory estimates. Non-admins can list inventory estimates for material sites whose material supplier broker is in their visible member brokers or whose material supplier is in their visible material suppliers.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--estimated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by estimated-at timestamp (ISO 8601). Example: 2025-01-05T08:00:00Z.",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--amount-tons",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by amount in tons.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID. Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID. Example: 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-supplier-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (join).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (join).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/inventory_estimates_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/inventory_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/inventory_estimate_policy.rb"
+    }
+  ]
+}

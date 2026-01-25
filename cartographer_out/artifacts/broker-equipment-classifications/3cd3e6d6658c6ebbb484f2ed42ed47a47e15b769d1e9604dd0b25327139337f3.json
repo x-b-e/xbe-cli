@@ -1,0 +1,42 @@
+{
+  "id": "3cd3e6d6658c6ebbb484f2ed42ed47a47e15b769d1e9604dd0b25327139337f3",
+  "full_path": "do broker-equipment-classifications create",
+  "description": "Create a broker equipment classification",
+  "permissions": "User must be an admin or an admin member of the broker organization to create a broker equipment classification.",
+  "side_effects": "Creates a broker equipment classification linking a broker to an equipment classification.",
+  "validation_notes": "--broker and --equipment-classification are required and cannot be empty. Equipment classification must not be a root classification (must have a parent). Each broker can only have one entry for a given equipment classification.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "non-empty"
+    },
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment classification ID (required)",
+      "default": null,
+      "validation": "non-empty; must not be a root classification"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_equipment_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/broker_equipment_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_equipment_classification_policy.rb"
+    }
+  ]
+}

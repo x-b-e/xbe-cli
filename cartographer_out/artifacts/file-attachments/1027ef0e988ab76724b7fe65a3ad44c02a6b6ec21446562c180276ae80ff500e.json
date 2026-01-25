@@ -1,0 +1,33 @@
+{
+  "id": "1027ef0e988ab76724b7fe65a3ad44c02a6b6ec21446562c180276ae80ff500e",
+  "full_path": "do file-attachments delete",
+  "description": "Delete a file attachment.",
+  "permissions": "Users can delete file attachments they created; if the attachment is linked, they must be allowed to update the attached resource.",
+  "side_effects": "Schedules the underlying file for deletion from S3 when no other attachments reference the same object key.",
+  "validation_notes": "The id argument is required. --confirm is required. Deletion is blocked if the file attachment is associated with file imports or image attribute extractions.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_file_attachments_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/file_attachment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/file_attachment.rb"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "Show job production plan subscription details",
+  "flags": [],
+  "full_path": "view job-production-plan-subscriptions show",
+  "id": "5b891a84fe88c972996fa18f219a656f7f5037fd42e2591fb9f5102250db4f54",
+  "permissions": "Available to users visible in policy scope: admins; customer members (or broker members for the customer) see subscriptions for their customer job production plans; material supplier members see only their own subscriptions tied to job production plans that use their material sites.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_subscriptions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_subscription_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "<id> argument is required and must be a job production plan subscription ID."
+}

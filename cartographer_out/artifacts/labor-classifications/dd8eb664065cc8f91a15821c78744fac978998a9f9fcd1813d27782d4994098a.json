@@ -1,0 +1,33 @@
+{
+  "id": "dd8eb664065cc8f91a15821c78744fac978998a9f9fcd1813d27782d4994098a",
+  "full_path": "do labor-classifications delete",
+  "description": "Delete a labor classification.",
+  "permissions": "Requires an admin user (policy requires user.is_admin? for destroy).",
+  "side_effects": "Deletes a labor classification record; deletion can be blocked when dependent records exist.",
+  "validation_notes": "The <id> argument is required. --confirm is required. Deletion is restricted when dependent project_labor_classifications, resource_classification_project_cost_classifications, or crew_rates exist.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Required to proceed with deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_labor_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/labor_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/labor_classification.rb"
+    }
+  ]
+}

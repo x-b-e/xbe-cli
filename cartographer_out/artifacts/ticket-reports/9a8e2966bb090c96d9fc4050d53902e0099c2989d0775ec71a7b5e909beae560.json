@@ -1,0 +1,42 @@
+{
+  "id": "9a8e2966bb090c96d9fc4050d53902e0099c2989d0775ec71a7b5e909beae560",
+  "full_path": "view ticket-reports list",
+  "description": "List ticket reports with filtering.",
+  "permissions": "Admins can list all ticket reports. Non-admin users can list ticket reports for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "Filters support broker IDs and ticket report type IDs.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ticket-report-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ticket report type ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/ticket_reports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ticket_report_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ticket_report_policy.rb"
+    }
+  ]
+}

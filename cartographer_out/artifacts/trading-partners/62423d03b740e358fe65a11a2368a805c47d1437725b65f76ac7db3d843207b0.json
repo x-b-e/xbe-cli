@@ -1,0 +1,33 @@
+{
+  "id": "62423d03b740e358fe65a11a2368a805c47d1437725b65f76ac7db3d843207b0",
+  "full_path": "do trading-partners delete",
+  "description": "Delete a trading partner link.",
+  "permissions": "User must be able to see both the organization and partner via their respective policies; deletion is permitted for admins, organization broker branch members, or organization managers.",
+  "side_effects": "Deletes a trading partner link record.",
+  "validation_notes": "<id> argument is required. --confirm must be true.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be true to proceed with deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trading_partners_delete.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trading_partners.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    }
+  ]
+}

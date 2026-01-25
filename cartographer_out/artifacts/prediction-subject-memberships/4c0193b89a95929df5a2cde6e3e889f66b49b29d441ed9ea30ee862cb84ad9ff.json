@@ -1,0 +1,73 @@
+{
+  "id": "4c0193b89a95929df5a2cde6e3e889f66b49b29d441ed9ea30ee862cb84ad9ff",
+  "full_path": "do prediction-subject-memberships update",
+  "description": "Update a prediction subject membership",
+  "permissions": "Allowed for admins, users who can manage memberships on the prediction subject, or broker admins for the prediction subject broker.",
+  "side_effects": "Updates a prediction subject membership.",
+  "validation_notes": "<id> argument is required. At least one permission flag is required. Permission flags expect true/false when provided. User and prediction-subject relationships are create-only and cannot be changed. Update is rejected if it would remove the only full-access member on the prediction subject.",
+  "flags": [
+    {
+      "name": "--can-manage-memberships",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can manage memberships (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-see-predictions-without-creating-prediction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can see predictions without creating one (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-update-prediction-consensus",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can update prediction consensus (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-update-or-destroy-others-predictions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can update or destroy others predictions (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-manage-gaps",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can manage gaps (true/false)",
+      "default": null,
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_subject_memberships_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_subject_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_subject_membership.rb"
+    }
+  ]
+}

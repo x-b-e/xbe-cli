@@ -1,0 +1,19 @@
+{
+  "id": "698aabd5c857e5d2958782561ca24f545fb1be471045d1b4866fa0a302da5e83",
+  "full_path": "view job-production-plan-material-site-changes show",
+  "description": "Show the full details of a job production plan material site change.",
+  "permissions": "User must have access to the related job production plan in policy scope; records are limited to job production plans visible to the user.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and must be non-empty (e.g., 123).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_material_site_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_site_change_policy.rb"
+    }
+  ]
+}

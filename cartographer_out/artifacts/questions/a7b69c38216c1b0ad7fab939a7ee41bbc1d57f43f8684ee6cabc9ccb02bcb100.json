@@ -1,0 +1,149 @@
+{
+  "description": "Update a question.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Question content",
+      "name": "--content",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Source (app/link)",
+      "name": "--source",
+      "required": false,
+      "type": "enum",
+      "validation": "app|link"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Ignore org-scoped newsletters (true/false)",
+      "name": "--ignore-organization-scoped-newsletters",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Make question public (true/false)",
+      "name": "--is-public",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Share with org children (true/false)",
+      "name": "--is-public-to-organization-children",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Motivation (serious/silly, admin only)",
+      "name": "--motivation",
+      "required": false,
+      "type": "enum",
+      "validation": "serious|silly"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Triaged status (true/false, admin only)",
+      "name": "--is-triaged",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Recreate answer (true/false)",
+      "name": "--recreate-answer",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Asking user ID (admin only)",
+      "name": "--asked-by",
+      "required": false,
+      "type": "string",
+      "validation": "non-empty when provided"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Assigned user ID (empty to clear, admin only)",
+      "name": "--assigned-to",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Public scope (type|id, empty to clear)",
+      "name": "--public-organization-scope",
+      "required": false,
+      "type": "string",
+      "validation": "type|id"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Public scope type (e.g., brokers)",
+      "name": "--public-organization-scope-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Public scope ID",
+      "name": "--public-organization-scope-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do questions update",
+  "id": "a7b69c38216c1b0ad7fab939a7ee41bbc1d57f43f8684ee6cabc9ccb02bcb100",
+  "permissions": "Requires authentication. Admins can update any question. Non-admins can update questions they asked, but cannot change asked_by; changing public organization scope requires membership in both the previous and new scope; toggling is_public or is_public_to_organization_children is only allowed for the asking user. Non-admins cannot update motivation, is_triaged, or assigned_to.",
+  "side_effects": "Setting is_triaged to true sets triaged_at. Changing assigned_to sends a Slack assignment notification. When is_public is false, public_organization_scope is cleared and is_public_to_organization_children is forced to false.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_questions_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/questions_helpers.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/question_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/question.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Boolean flags require true/false values (ignore_organization_scoped_newsletters, is_public, is_public_to_organization_children, is_triaged, recreate_answer). At least one attribute or relationship must be changed; otherwise the request is rejected. --asked-by cannot be empty when provided. --public-organization-scope cannot be combined with --public-organization-scope-type or --public-organization-scope-id. --public-organization-scope must be formatted as type|id; --public-organization-scope-type and --public-organization-scope-id must be provided together. public_organization_scope must be a valid organization type (Broker, Customer, Trucker, MaterialSupplier, or Developer). assigned_to must be an admin user."
+}

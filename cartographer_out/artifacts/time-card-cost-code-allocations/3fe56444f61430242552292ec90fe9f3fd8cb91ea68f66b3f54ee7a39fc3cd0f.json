@@ -1,0 +1,33 @@
+{
+  "id": "3fe56444f61430242552292ec90fe9f3fd8cb91ea68f66b3f54ee7a39fc3cd0f",
+  "full_path": "do time-card-cost-code-allocations delete",
+  "description": "Delete a time card cost code allocation.",
+  "permissions": "Admin users; otherwise users who are practical members of the allocation customer (policy destroy).",
+  "side_effects": "Deletes the allocation if permitted; touches related time_card and job_production_plan; deletion can be blocked if linked project phase cost item actuals exist.",
+  "validation_notes": "Allocation ID argument is required. --confirm is required. Allocations linked to actuals may not be deletable.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_cost_code_allocations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/cost_code_allocation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/cost_code_allocation_policy.rb"
+    }
+  ]
+}

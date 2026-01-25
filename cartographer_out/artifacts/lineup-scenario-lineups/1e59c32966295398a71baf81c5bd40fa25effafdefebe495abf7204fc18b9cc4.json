@@ -1,0 +1,50 @@
+{
+  "id": "1e59c32966295398a71baf81c5bd40fa25effafdefebe495abf7204fc18b9cc4",
+  "full_path": "do lineup-scenario-lineups create",
+  "description": "Create a lineup scenario lineup.",
+  "permissions": "User must be an admin or a broker manager for the lineup scenario broker; authorization is delegated to the lineup scenario.",
+  "side_effects": "Creates a lineup scenario lineup linking a lineup to a lineup scenario.",
+  "validation_notes": "--lineup-scenario and --lineup are required. Lineup must match the lineup scenario broker and date window.",
+  "flags": [
+    {
+      "name": "--lineup-scenario",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup scenario ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lineup",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenario_lineups_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_lineup_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_scenario_lineup.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_lineup_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

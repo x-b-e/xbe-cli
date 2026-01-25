@@ -1,0 +1,33 @@
+{
+  "id": "983a63ca3c243c03628bc241a51a4542d97c9efc2b979ad3ca91fd2ab5647ed8",
+  "full_path": "do developers delete",
+  "description": "Delete a developer from the XBE platform.",
+  "permissions": "Allowed for admins, broker members for the developer's broker, customer managers whose broker matches, or manager members of the developer.",
+  "side_effects": "Deletes the developer; dependent incidents and developer memberships are removed.",
+  "validation_notes": "--confirm is required. Deletion is blocked if the developer is associated with job production plans or projects.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer.rb"
+    }
+  ]
+}

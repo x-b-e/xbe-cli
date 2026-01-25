@@ -1,0 +1,37 @@
+{
+  "id": "60208fc9218e2228b0b14198db01e3f6e4b0a9ea2d274cc34113f5dc805170dd",
+  "full_path": "do project-transport-plan-segments delete",
+  "description": "Delete a project transport plan segment",
+  "permissions": "Requires access to the related project transport plan via ProjectTransportPlanSegmentPolicy (delegated to ProjectTransportPlanPolicy).",
+  "side_effects": "Deletes the project transport plan segment and dependent segment drivers, trailers, and tractors. Deletion can be blocked by model-level safeguards.",
+  "validation_notes": "Segment ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_segments_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_segment.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "17caec0fba0c782969446b94c435eaa3f1a071c559675ce873a472c409e099ab",
+  "full_path": "view developer-trucker-certification-classifications list",
+  "description": "List developer trucker certification classifications",
+  "permissions": "User must be authorized to view developer trucker certification classifications; access is delegated through the related developer.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/developer_trucker_certification_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_trucker_certification_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_trucker_certification_classification_policy.rb"
+    }
+  ]
+}

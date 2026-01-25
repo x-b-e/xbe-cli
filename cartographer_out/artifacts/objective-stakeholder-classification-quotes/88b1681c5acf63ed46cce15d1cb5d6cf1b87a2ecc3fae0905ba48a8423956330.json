@@ -1,0 +1,51 @@
+{
+  "id": "88b1681c5acf63ed46cce15d1cb5d6cf1b87a2ecc3fae0905ba48a8423956330",
+  "full_path": "view objective-stakeholder-classification-quotes list",
+  "description": "List objective stakeholder classification quotes",
+  "permissions": "No authentication required; policy scope allows anonymous and non-admin access.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--objective-stakeholder-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by objective stakeholder classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--interest-degree-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum interest degree",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--interest-degree-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum interest degree",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/objective_stakeholder_classification_quotes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/objective_stakeholder_classification_quote_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_stakeholder_classification_quote_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "5419ae140149a00e9c974d64626af870d2fa3559e441228643d0e4cb3ce7857f",
+  "full_path": "do project-transport-organizations delete",
+  "description": "Delete a project transport organization.",
+  "permissions": "Admin users can delete. Non-admin users must be manager members of the broker associated with the organization.",
+  "side_effects": "Deletes the project transport organization; associated project transport locations are nullified.",
+  "validation_notes": "Requires a project transport organization ID argument. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required). Example: --confirm.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_organizations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_organization_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_organization.rb"
+    }
+  ]
+}

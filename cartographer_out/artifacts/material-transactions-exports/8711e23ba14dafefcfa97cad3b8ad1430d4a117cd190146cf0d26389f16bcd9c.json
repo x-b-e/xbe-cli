@@ -1,0 +1,23 @@
+{
+  "id": "8711e23ba14dafefcfa97cad3b8ad1430d4a117cd190146cf0d26389f16bcd9c",
+  "full_path": "view material-transactions-exports show",
+  "description": "Show material transaction export details.",
+  "permissions": "Admin users can view all material transaction exports. Non-admin users can view exports only if they are in the policy scope (broker memberships of any kind, or manager memberships for non-broker organizations), since show authorization is derived from the scoped index.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument; export id must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transactions_exports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transactions_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transactions_export_resource.rb"
+    }
+  ]
+}

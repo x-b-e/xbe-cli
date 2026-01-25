@@ -1,0 +1,82 @@
+{
+  "id": "67be951669b4afd3f903b72e9adbb3aa2611332dd4ae861e2196338d4886f8ab",
+  "full_path": "view material-unit-of-measure-quantities list",
+  "description": "List material unit of measure quantities.",
+  "permissions": "Admin users can list. Non-admin users can list only quantities whose material_transaction is within the MaterialTransactionPolicy scope for the user (material supplier, trip/sales customer, or other permitted transaction scope).",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max and updated-at-min/updated-at-max must be ISO 8601 timestamps; is-created-at and is-updated-at must be true/false when provided.",
+  "flags": [
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_unit_of_measure_quantities_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/material_unit_of_measure_quantities_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_unit_of_measure_quantity_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    }
+  ]
+}

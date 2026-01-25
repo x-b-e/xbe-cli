@@ -1,0 +1,116 @@
+{
+  "id": "fdb2378594b12f88909d743229fc7c42d207d84eb59bd70c61943a34ccfe7999",
+  "full_path": "view developer-memberships list",
+  "description": "List developer memberships.",
+  "permissions": "Admins can list all developer memberships. Non-admins are limited to memberships where the developer's broker is in the user's broker memberships or the developer is in the user's developer memberships.",
+  "side_effects": null,
+  "validation_notes": "kind must be one of operations or manager; drives-shift-type must be one of any, day, or night; boolean filters accept true/false; organization filter expects the form Developer|ID.",
+  "flags": [
+    {
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (e.g., 123)."
+    },
+    {
+      "name": "--organization",
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Developer|ID) (e.g., Developer|123)."
+    },
+    {
+      "name": "--project-office",
+      "required": false,
+      "type": "string",
+      "description": "Filter by project office ID (e.g., 789)."
+    },
+    {
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID (e.g., 456)."
+    },
+    {
+      "name": "--kind",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by kind (operations/manager).",
+      "validation": "operations|manager"
+    },
+    {
+      "name": "--q",
+      "required": false,
+      "type": "string",
+      "description": "Search by user name (e.g., Jane)."
+    },
+    {
+      "name": "--drives-shift-type",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by drives shift type (any/day/night).",
+      "validation": "any|day|night"
+    },
+    {
+      "name": "--external-employee-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by external employee ID."
+    },
+    {
+      "name": "--is-rate-editor",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by rate editor status (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-time-card-auditor",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by time card auditor status (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-equipment-rental-team-member",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by equipment rental team member (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by geofence violation team member (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by unapproved time card subscriber (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by default job production plan subscriber (true/false).",
+      "validation": "true|false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/developer_memberships_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_membership_policy.rb"
+    }
+  ]
+}

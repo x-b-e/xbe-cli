@@ -1,0 +1,45 @@
+{
+  "id": "a1acdc4998588b66a0f3175d967f015ebe5285c202f8bec520aa3db4ba226a49",
+  "full_path": "do lineup-dispatches delete",
+  "description": "Delete a lineup dispatch.",
+  "permissions": "Allowed when the user is authorized for the related lineup via LineupDispatchPolicy, which delegates to LineupPolicy. LineupPolicy allows admins, customer managers or broker members for the lineup customer, and manager laborers on job production plans tied to the lineup; scope limits listing/showing to lineups visible under that policy.",
+  "side_effects": "Deletes the lineup dispatch and dependent lineup dispatch shifts.",
+  "validation_notes": "The lineup dispatch ID argument is required. --confirm is required to perform deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_dispatches_delete.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_dispatches.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_dispatch.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "description": "Update a project phase.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Phase name.",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Phase description.",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Position in sequence.",
+      "name": "--sequence-position",
+      "required": false,
+      "type": "integer",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-phases update",
+  "id": "9747806fac2c2dc46aba8d63ff37f645c4c23754cc881c412cd6e1d11935394f",
+  "permissions": "Allowed for users authorized on the related project via ProjectPhasePolicy (delegated to project).",
+  "side_effects": "Updates project phase attributes.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phases_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/project_phase.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one of --name, --description, or --sequence-position must be provided. Name is required on the record and must be unique within the same project."
+}

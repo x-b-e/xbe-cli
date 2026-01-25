@@ -1,0 +1,29 @@
+{
+  "id": "fb6c45dce405aebddb94636e0ff72dfe1194ee4087f4ffc90a15b3aa5dd474e3",
+  "full_path": "do raw-material-transaction-sales-customers delete",
+  "description": "Delete a raw material transaction sales customer",
+  "permissions": "Admins can delete raw material transaction sales customers. Non-admin users can delete when they are a member of the related broker; the policy also allows deletion when customer or broker is missing, but validations may reject it.",
+  "side_effects": "Deletes a raw material transaction sales customer record.",
+  "validation_notes": "The raw material transaction sales customer ID argument is required. --confirm is required to delete a raw material transaction sales customer.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_material_transaction_sales_customers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_material_transaction_sales_customer_policy.rb"
+    }
+  ]
+}

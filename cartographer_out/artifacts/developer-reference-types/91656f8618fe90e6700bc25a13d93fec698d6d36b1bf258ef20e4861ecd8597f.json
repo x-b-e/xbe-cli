@@ -1,0 +1,51 @@
+{
+  "id": "91656f8618fe90e6700bc25a13d93fec698d6d36b1bf258ef20e4861ecd8597f",
+  "full_path": "do developer-reference-types create",
+  "description": "Create a new developer reference type",
+  "permissions": "Allowed for admin users or users who are manager members of the broker associated with the developer.",
+  "side_effects": "Creates a developer reference type.",
+  "validation_notes": "--name is required; --developer is required; subject types must include at least one value and each value must be one of: JobProductionPlan, MaterialType, Project; name must be unique per developer.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reference type name (required)",
+      "default": null,
+      "validation": "Must be unique per developer."
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Developer ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--subject-types",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Subject types (comma-separated or repeated)",
+      "default": null,
+      "validation": "Must include at least one value and each value must be one of: JobProductionPlan, MaterialType, Project."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_reference_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_reference_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_reference_type_policy.rb"
+    }
+  ]
+}

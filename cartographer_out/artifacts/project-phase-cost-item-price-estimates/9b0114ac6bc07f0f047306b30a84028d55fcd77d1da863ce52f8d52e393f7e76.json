@@ -1,0 +1,23 @@
+{
+  "id": "9b0114ac6bc07f0f047306b30a84028d55fcd77d1da863ce52f8d52e393f7e76",
+  "full_path": "view project-phase-cost-item-price-estimates show",
+  "description": "Show project phase cost item price estimate details",
+  "permissions": "User must be authorized to access the related project phase cost item (delegated via ProjectPhaseCostItemPolicy).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument; empty or whitespace-only IDs are rejected.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_phase_cost_item_price_estimates_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_cost_item_price_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_cost_item_price_estimate_policy.rb"
+    }
+  ]
+}

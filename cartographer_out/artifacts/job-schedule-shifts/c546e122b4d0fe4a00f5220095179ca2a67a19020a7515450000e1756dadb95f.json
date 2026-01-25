@@ -1,0 +1,30 @@
+{
+  "id": "c546e122b4d0fe4a00f5220095179ca2a67a19020a7515450000e1756dadb95f",
+  "full_path": "do job-schedule-shifts delete",
+  "description": "Delete a job schedule shift.",
+  "permissions": "Requires authentication and permission to update the associated job; job schedule shift create/update/delete are allowed only if the user can update the job linked to the shift.",
+  "side_effects": "Deletes a job schedule shift. Deletion attempts to delete related tender job schedule shifts and will fail if related shifts cannot be deleted; it may also update job production plan records and schedule trucker shift summary post updates.",
+  "validation_notes": "The <id> argument is required. --confirm is required. Deletion is blocked when the shift has cannot-delete reasons (material purchase order releases, trips, equipment-movement-only job production plan, job schedule shift splits, or schedule change notifications) or when related tender job schedule shifts cannot be deleted.",
+  "flags": [
+    {
+      "name": "confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_schedule_shifts_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_schedule_shift.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_policy.rb"
+    }
+  ]
+}

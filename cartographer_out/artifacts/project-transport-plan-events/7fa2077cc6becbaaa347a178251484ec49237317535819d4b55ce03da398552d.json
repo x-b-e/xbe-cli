@@ -1,0 +1,27 @@
+{
+  "id": "7fa2077cc6becbaaa347a178251484ec49237317535819d4b55ce03da398552d",
+  "full_path": "view project-transport-plan-events show",
+  "description": "Show project transport plan event details",
+  "permissions": "User must be authorized for the related project transport plan (delegated via the project transport plan; access is based on project access or being an active driver on the plan).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (project transport plan event ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_events_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

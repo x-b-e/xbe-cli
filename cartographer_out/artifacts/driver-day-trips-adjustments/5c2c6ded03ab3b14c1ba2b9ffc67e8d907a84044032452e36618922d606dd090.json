@@ -1,0 +1,23 @@
+{
+  "id": "5c2c6ded03ab3b14c1ba2b9ffc67e8d907a84044032452e36618922d606dd090",
+  "full_path": "view driver-day-trips-adjustments show",
+  "description": "Show driver day trips adjustment details",
+  "permissions": "Requires authorization on the related tender job schedule shift; access is delegated via DriverDayTripsAdjustmentPolicy.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_day_trips_adjustments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_day_trips_adjustment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_day_trips_adjustment_resource.rb"
+    }
+  ]
+}

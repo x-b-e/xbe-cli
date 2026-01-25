@@ -1,0 +1,69 @@
+{
+  "id": "44054e5a7fbaba80fea03c9435fc6c13a2a653e1ee8c20bfb7ea78a131af18fb",
+  "full_path": "view lineup-job-schedule-shift-trucker-assignment-recommendations list",
+  "description": "List recommendations with filtering and pagination",
+  "permissions": "Visible to users within the LineupJobScheduleShift policy scope (admins can view all).",
+  "side_effects": null,
+  "validation_notes": "created-at-min, created-at-max, updated-at-min, and updated-at-max must be ISO 8601 timestamps. This command does not accept positional arguments.",
+  "flags": [
+    {
+      "name": "--lineup-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_job_schedule_shift_trucker_assignment_recommendations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_job_schedule_shift_trucker_assignment_recommendation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_job_schedule_shift_trucker_assignment_recommendation_policy.rb"
+    }
+  ]
+}

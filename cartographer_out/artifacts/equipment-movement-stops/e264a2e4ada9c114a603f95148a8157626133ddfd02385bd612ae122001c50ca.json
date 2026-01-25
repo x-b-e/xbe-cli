@@ -1,0 +1,33 @@
+{
+  "id": "e264a2e4ada9c114a603f95148a8157626133ddfd02385bd612ae122001c50ca",
+  "full_path": "do equipment-movement-stops delete",
+  "description": "Delete an equipment movement stop.",
+  "permissions": "Allowed for users authorized to manage the related equipment movement trip; access is delegated to the trip relationship.",
+  "side_effects": "May schedule equipment movement stop change notifications for the related trip after commit when the trip has a confirmed job production plan and the stop has notifiable changes.",
+  "validation_notes": "The <id> argument is required; --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "must be set to confirm deletion"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_stops_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_stop.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_policy.rb"
+    }
+  ]
+}

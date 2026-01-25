@@ -1,0 +1,37 @@
+{
+  "id": "45115156c31ae92ba8dc63259543585adac5f5f72580b5b4b7ebf2502ee2f940",
+  "full_path": "do deere-integrations delete",
+  "description": "Delete a Deere integration.",
+  "permissions": "Only admin users can delete Deere integrations.",
+  "side_effects": "Deletes a Deere integration.",
+  "validation_notes": "The <id> argument is required. The --confirm flag is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_deere_integrations_delete.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_deere_integrations.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/deere_integration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/deere_integrations_spec.rb"
+    }
+  ]
+}

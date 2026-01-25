@@ -1,0 +1,59 @@
+{
+  "id": "fd31a2632d1d69e8b657f30b329f7454d48715a938cffc1812b17b547e70303b",
+  "full_path": "do material-mix-design-matches create",
+  "description": "Match material mix designs",
+  "permissions": "User must be authorized to show the referenced material type (permission is delegated from the match to its material type).",
+  "side_effects": null,
+  "validation_notes": "--material-type and --as-of are required. --as-of must be an RFC3339 timestamp. The referenced material type must have a supplier and cannot be soft deleted.",
+  "flags": [
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--as-of",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Match as of timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "name": "--material-sites",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material site IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated IDs."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_mix_design_matches.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_mix_design_matches_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_mix_design_match_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_mix_design_match_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_mix_design_match.rb"
+    }
+  ]
+}

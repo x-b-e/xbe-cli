@@ -1,0 +1,64 @@
+{
+  "id": "59c88d07d17f17bfc0db9c73b1cc172edd265b6e16744ccb8e228344aeaae1b8",
+  "full_path": "do resource-classification-project-cost-classifications create",
+  "description": "Create a resource classification project cost classification.",
+  "permissions": "Admins can create; non-admins must be members of the broker associated with the resource classification project cost classification.",
+  "side_effects": "Creates a resource classification project cost classification and updates matching crew requirements cache (sets resource_classification_project_cost_classification_id_cached).",
+  "validation_notes": "Resource classification type must be LaborClassification or EquipmentClassification. Project cost classification must belong to the same broker. Combination of resource classification, project cost classification, and broker must be unique.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-cost-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project cost classification ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-classification-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Resource classification ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-classification-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Resource classification type (LaborClassification, EquipmentClassification) (required)",
+      "default": null,
+      "validation": "LaborClassification or EquipmentClassification"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_resource_classification_project_cost_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/resource_classification_project_cost_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/resource_classification_project_cost_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/resource_classification_project_cost_classification_resource.rb"
+    }
+  ]
+}

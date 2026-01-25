@@ -1,0 +1,33 @@
+{
+  "id": "f0252971f781e9a470bd5d4572e8fd2ad5cb90d550d63c2ff9b0a94f22e34c29",
+  "full_path": "do service-type-unit-of-measure-cohorts delete",
+  "description": "Delete a service type unit of measure cohort.",
+  "permissions": "User must be authorized to update the associated customer (per the service type unit of measure cohort policy).",
+  "side_effects": "Deletes a service type unit of measure cohort.",
+  "validation_notes": "The cohort ID argument is required. --confirm is required. Deletion is blocked when the cohort is associated with job production plans.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_service_type_unit_of_measure_cohorts_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_type_unit_of_measure_cohort_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/service_type_unit_of_measure_cohort.rb"
+    }
+  ]
+}

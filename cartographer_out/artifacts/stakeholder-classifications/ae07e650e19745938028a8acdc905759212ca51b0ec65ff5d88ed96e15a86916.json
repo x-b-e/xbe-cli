@@ -1,0 +1,55 @@
+{
+  "id": "ae07e650e19745938028a8acdc905759212ca51b0ec65ff5d88ed96e15a86916",
+  "full_path": "do stakeholder-classifications create",
+  "description": "Create a new stakeholder classification.",
+  "permissions": "User must be an admin to create stakeholder classifications (StakeholderClassificationPolicy#create?).",
+  "side_effects": "Creates a stakeholder classification record; when the title is set or changes, background jobs generate objective stakeholder classifications and update objective OpenAI files.",
+  "validation_notes": "Title is required and must be unique (case-insensitive). Slug is generated from the title on create and must be unique; it is read-only via the API. Leverage factor must be greater than 0 when provided.",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Classification title (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--leverage-factor",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Leverage factor (influence level)",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--objectives-narrative-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit objectives narrative",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_stakeholder_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/stakeholder_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/stakeholder_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/stakeholder_classification_resource.rb"
+    }
+  ]
+}

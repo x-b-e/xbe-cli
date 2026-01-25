@@ -1,0 +1,23 @@
+{
+  "id": "440d2cdc8c09eab38e0e9cd230e178b5dad5c4d7ee26f383b2e244964e62dafe",
+  "full_path": "view retainer-periods show",
+  "description": "Show the full details of a retainer period.",
+  "permissions": "Visible for users who can view the parent retainer; scope is limited to retainer periods whose retainer is in the Retainer policy scope (customer/broker membership for buyer/seller organizations, or trucker manager membership for seller trucker organizations).",
+  "side_effects": null,
+  "validation_notes": "The retainer period ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/retainer_periods_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    }
+  ]
+}

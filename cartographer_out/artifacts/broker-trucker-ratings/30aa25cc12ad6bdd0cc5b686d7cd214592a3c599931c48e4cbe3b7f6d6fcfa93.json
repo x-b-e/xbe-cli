@@ -1,0 +1,23 @@
+{
+  "id": "30aa25cc12ad6bdd0cc5b686d7cd214592a3c599931c48e4cbe3b7f6d6fcfa93",
+  "full_path": "view broker-trucker-ratings show",
+  "description": "Show the full details of a broker trucker rating.",
+  "permissions": "Admins can view all broker trucker ratings. Non-admin users can view ratings only for brokers tied to their broker memberships.",
+  "side_effects": null,
+  "validation_notes": "The broker trucker rating ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_trucker_ratings_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_trucker_rating_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_trucker_rating_policy.rb"
+    }
+  ]
+}

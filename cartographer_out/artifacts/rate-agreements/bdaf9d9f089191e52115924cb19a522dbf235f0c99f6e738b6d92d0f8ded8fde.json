@@ -1,0 +1,27 @@
+{
+  "description": "Show rate agreement details",
+  "flags": [],
+  "full_path": "view rate-agreements show",
+  "id": "bdaf9d9f089191e52115924cb19a522dbf235f0c99f6e738b6d92d0f8ded8fde",
+  "permissions": "Authentication required unless --no-auth is used (global flag).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/rate_agreements_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/rate_agreements_controller.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/rate_agreement_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreement_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Argument <id> is required and must be a non-empty rate agreement ID."
+}

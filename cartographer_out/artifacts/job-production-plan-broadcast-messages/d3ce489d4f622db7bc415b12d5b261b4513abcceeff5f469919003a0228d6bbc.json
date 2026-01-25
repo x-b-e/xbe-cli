@@ -1,0 +1,64 @@
+{
+  "id": "d3ce489d4f622db7bc415b12d5b261b4513abcceeff5f469919003a0228d6bbc",
+  "full_path": "do job-production-plan-broadcast-messages create",
+  "description": "Create a job production plan broadcast message.",
+  "permissions": "User must provide a job production plan and be authorized to view that job production plan (Pundit job production plan show policy).",
+  "side_effects": "Creates a broadcast message and sends notifications (email/text) to eligible recipients.",
+  "validation_notes": "--job-production-plan and --message are required. Summary must be 100 characters or fewer. If --user-ids is provided, each ID must be included in the default recipients for the job production plan.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required). Example: 123",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--message",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Message body (required). Example: Crew arrival moved to 7:30 AM",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--summary",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Short summary (max 100 characters). Example: Start time update",
+      "default": null,
+      "validation": "Max 100 characters"
+    },
+    {
+      "name": "--user-ids",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Recipient user IDs (comma-separated or repeated). Example: 12,34",
+      "default": null,
+      "validation": "Each ID must be included in the default recipients for the job production plan"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_broadcast_messages_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_broadcast_message_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_broadcast_message.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_broadcast_message_resource.rb"
+    }
+  ]
+}

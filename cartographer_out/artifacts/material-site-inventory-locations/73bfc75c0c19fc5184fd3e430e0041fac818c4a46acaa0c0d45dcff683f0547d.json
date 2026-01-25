@@ -1,0 +1,82 @@
+{
+  "id": "73bfc75c0c19fc5184fd3e430e0041fac818c4a46acaa0c0d45dcff683f0547d",
+  "full_path": "do material-site-inventory-locations create",
+  "description": "Create a new material site inventory location.",
+  "permissions": "Allowed for admins, broker members of the material site's broker, or manager members of the material site's material supplier.",
+  "side_effects": "Creates a material site inventory location record.",
+  "validation_notes": "The --material-site flag is required. qualified-name must be unique within a material site and is create-only. material-site is create-only. Latitude and longitude must be provided together and are validated as coordinates.",
+  "flags": [
+    {
+      "name": "material-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material site ID",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "qualified-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Qualified name (unique within the material site)",
+      "default": null,
+      "validation": "Must be unique within the material site."
+    },
+    {
+      "name": "display-name-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Display name override",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latitude coordinate",
+      "default": null,
+      "validation": "Must be provided with --longitude."
+    },
+    {
+      "name": "longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Longitude coordinate",
+      "default": null,
+      "validation": "Must be provided with --latitude."
+    },
+    {
+      "name": "unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_inventory_locations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_inventory_location_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_inventory_location_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_inventory_location.rb"
+    }
+  ]
+}

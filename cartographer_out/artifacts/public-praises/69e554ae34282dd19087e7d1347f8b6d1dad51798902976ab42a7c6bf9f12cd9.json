@@ -1,0 +1,33 @@
+{
+  "id": "69e554ae34282dd19087e7d1347f8b6d1dad51798902976ab42a7c6bf9f12cd9",
+  "full_path": "do public-praises delete",
+  "description": "Delete a public praise.",
+  "permissions": "User can delete if they are a manager/admin of the organization or they are the given-by user.",
+  "side_effects": "Deletes the public praise and its dependent culture values, recipients, and reactions.",
+  "validation_notes": "--confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_public_praises_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/public_praise.rb"
+    }
+  ]
+}

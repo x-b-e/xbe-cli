@@ -1,0 +1,87 @@
+{
+  "id": "4b9a2695a7b9fb00eba9d9360e1457c359ab065c3ec7a0c679919b865187b9a2",
+  "full_path": "view maintenance-requirement-parts list",
+  "description": "List maintenance requirement parts",
+  "permissions": "Admins can list all maintenance requirement parts. Non-admin visibility follows MaintenanceRequirementPartPolicy::Scope: broker managers and technicians can see all parts for their broker; general business unit members can see template parts for their broker and non-template parts on assigned maintenance requirements; operations members can see template parts for their broker (except operations users with manager business unit membership) and non-template parts only when requirement equipment is in their accessible business units; operations users with manager business unit membership can see non-template parts with equipment in their accessible business units but cannot see template parts.",
+  "side_effects": null,
+  "validation_notes": "--is-template must be true or false when provided.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by template flag (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--maintenance-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maintenance requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--make",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by make",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--model",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by model",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--year",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by year",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/maintenance_requirement_parts_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_part_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/maintenance_requirement_part_resource.rb"
+    }
+  ]
+}

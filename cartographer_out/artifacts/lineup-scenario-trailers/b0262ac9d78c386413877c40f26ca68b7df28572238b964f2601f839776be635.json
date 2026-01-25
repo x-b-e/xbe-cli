@@ -1,0 +1,63 @@
+{
+  "id": "b0262ac9d78c386413877c40f26ca68b7df28572238b964f2601f839776be635",
+  "full_path": "do lineup-scenario-trailers create",
+  "description": "Create a lineup scenario trailer.",
+  "permissions": "Create access is delegated via the lineup scenario trucker to the associated lineup scenario. Users must be allowed by the lineup scenario policy (admin or broker manager for the scenario's broker organization) to create records.",
+  "side_effects": "Creates a lineup scenario trailer record.",
+  "validation_notes": "Requires lineup-scenario-trucker and trailer. last-assigned-on must be a valid date. Trailer must belong to the same trucker as the lineup scenario trucker. lineup-scenario-trucker and trailer relationships are create-only and cannot be changed later.",
+  "flags": [
+    {
+      "name": "--lineup-scenario-trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup scenario trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--last-assigned-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Last assigned date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenario_trailers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_trailer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_scenario_trailer.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_trailer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

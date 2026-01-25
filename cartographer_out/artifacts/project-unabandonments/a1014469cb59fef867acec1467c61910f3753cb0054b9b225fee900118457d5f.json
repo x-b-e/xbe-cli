@@ -1,0 +1,19 @@
+{
+  "id": "a1014469cb59fef867acec1467c61910f3753cb0054b9b225fee900118457d5f",
+  "full_path": "view project-unabandonments list",
+  "description": "List project unabandonments.",
+  "permissions": "Not available; the API exposes only create for project-unabandonments.",
+  "side_effects": null,
+  "validation_notes": "API only exposes create for project-unabandonments; list is not available.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_unabandonments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "config/routes.rb"
+    }
+  ]
+}

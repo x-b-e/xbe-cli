@@ -1,0 +1,27 @@
+{
+  "id": "5e7b09818261b19f1306f1ff3e73e1c229989a4c3625c2df8cd27051e0936d68",
+  "full_path": "view project-abandonments list",
+  "description": "List project abandonments.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_abandonments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_abandonment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

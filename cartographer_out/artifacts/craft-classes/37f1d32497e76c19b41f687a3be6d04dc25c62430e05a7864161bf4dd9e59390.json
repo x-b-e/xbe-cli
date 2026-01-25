@@ -1,0 +1,33 @@
+{
+  "id": "37f1d32497e76c19b41f687a3be6d04dc25c62430e05a7864161bf4dd9e59390",
+  "full_path": "do craft-classes delete",
+  "description": "Delete a craft class.",
+  "permissions": "Requires permission to delete the craft class via its parent craft; authorization is delegated to the related craft (CraftPolicy).",
+  "side_effects": "Deletes the specified craft class record.",
+  "validation_notes": "Provide the craft class ID as an argument. --confirm is required. Deletion is restricted if the craft class has related time sheet line items.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_craft_classes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/craft_class.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/craft_class_policy.rb"
+    }
+  ]
+}

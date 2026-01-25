@@ -1,0 +1,86 @@
+{
+  "id": "b4c69cdd3916eed0314dfac1ebe4ed766cb806af128724edbfff0330410c9b4b",
+  "full_path": "do service-sites create",
+  "description": "Create a new service site.",
+  "permissions": "Admins can create service sites. Non-admin users must be manager members of the specified broker.",
+  "side_effects": "Creates a service site and may geocode the address unless --skip-geocoding is set.",
+  "validation_notes": "Required flags: --name, --broker, --address.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Service site name (required). Example: \"North Yard\".",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required). Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Full address (required). Example: \"100 Main St, Chicago, IL\".",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address latitude. Example: \"41.8781\".",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address longitude. Example: \"-87.6298\".",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip geocoding the address.",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_service_sites_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_site_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_site_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/service_site.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/geocoded_attributes.rb"
+    }
+  ]
+}

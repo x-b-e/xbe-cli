@@ -1,0 +1,74 @@
+{
+  "description": "List pave frame actual statistics",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has created-at (true/false)",
+      "name": "--is-created-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has updated-at (true/false)",
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "view pave-frame-actual-statistics list",
+  "id": "264f0e925ef9fdb7659f7496b96f53bd64280372348c31006ce23af961f53361",
+  "permissions": "User must be an admin or a broker membership manager; non-managers cannot access this resource.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/pave_frame_actual_statistics_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/pave_frame_actual_statistic_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters: created-at-min/max and updated-at-min/max expect ISO 8601 timestamps; is-created-at and is-updated-at expect true/false."
+}

@@ -1,0 +1,59 @@
+{
+  "id": "b263734ebb56d80e02b97b706c4137ed1613391ece9614f4de2146a86eab6f37",
+  "full_path": "view project-revenue-item-quantity-estimates list",
+  "description": "List quantity estimates for project revenue items.",
+  "permissions": "Authorized via ProjectRevenueItemQuantityEstimatePolicy delegating to ProjectRevenueItemPolicy on the related project revenue item; list scope is limited to project revenue items whose project is in the user's Project policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-estimate-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project estimate set ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-revenue-item",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project revenue item ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_revenue_item_quantity_estimates_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_revenue_item_quantity_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_quantity_estimate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

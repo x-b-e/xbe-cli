@@ -1,0 +1,33 @@
+{
+  "id": "f5cc671b429f783c6bced62f2bc3c6500659eef23467dba0c0cf1309144b20de",
+  "full_path": "view action-items show",
+  "description": "Show the full details of a specific action item.",
+  "permissions": "Admins can view any action item. Non-admins can view action items only when their memberships and team membership satisfy the ActionItemPolicy scope (membership in or above the responsible organization, including broker/manager membership for customers, or being on the action item team).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required. --show-all-comments is a boolean flag; when omitted, only the 3 most recent comments are shown.",
+  "flags": [
+    {
+      "name": "--show-all-comments",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Show all comments (default shows 3 most recent)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/action_items_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_policy.rb"
+    }
+  ]
+}

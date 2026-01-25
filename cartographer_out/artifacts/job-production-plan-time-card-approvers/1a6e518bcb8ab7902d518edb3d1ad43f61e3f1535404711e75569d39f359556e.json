@@ -1,0 +1,46 @@
+{
+  "id": "1a6e518bcb8ab7902d518edb3d1ad43f61e3f1535404711e75569d39f359556e",
+  "full_path": "do job-production-plan-time-card-approvers create",
+  "description": "Create a job production plan time card approver",
+  "permissions": "Allowed only if the user can update the associated job production plan (per JobProductionPlan policy).",
+  "side_effects": "Creates a job production plan time card approver record. On create, the server attempts to create a job production plan subscription for the user when contactable, and may enqueue a notification when the feature flag for time card approver notifications is enabled.",
+  "validation_notes": "--job-production-plan and --user are required. The user must be related to the job production plan (admin or member of the plan's customer or broker) or the server rejects the request.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_time_card_approvers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_time_card_approver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_time_card_approver.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_time_card_approver_resource.rb"
+    }
+  ]
+}

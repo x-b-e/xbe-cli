@@ -1,0 +1,77 @@
+{
+  "id": "1195b977f22cd9c21cc126cf37e59c7a2b9e648586893c1a09fb4ca5b98ecb6f",
+  "full_path": "do time-sheets update",
+  "description": "Update a time sheet.",
+  "permissions": "Admins can update time sheets. Non-admin users can update time sheets under the same subject-based rules as creation in TimeSheetPolicy.",
+  "side_effects": "Updates a time sheet record.",
+  "validation_notes": "Time sheet ID argument is required. At least one writable field must be provided. --start-at and --end-at expect ISO 8601 timestamps when provided. --break-minutes must be an integer. --skip-validate-overlap is a boolean.",
+  "flags": [
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "default": "",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "default": "",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--break-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Break minutes",
+      "default": "0",
+      "validation": null
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--skip-validate-overlap",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip overlap validation",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheets_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheets.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

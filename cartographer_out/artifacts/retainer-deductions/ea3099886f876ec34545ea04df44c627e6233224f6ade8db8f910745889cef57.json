@@ -1,0 +1,59 @@
+{
+  "id": "ea3099886f876ec34545ea04df44c627e6233224f6ade8db8f910745889cef57",
+  "full_path": "do retainer-deductions update",
+  "description": "Update a retainer deduction.",
+  "permissions": "Update permission is delegated to the associated retainer RetainerPolicy (via RetainerChildPolicy); users must be authorized to update on that retainer.",
+  "side_effects": "Updates a retainer deduction record.",
+  "validation_notes": "Requires <id> argument. Must provide at least one of --amount, --note, or --retainer. Amount must be a number greater than 0 and must be greater than or equal to the applied amount.",
+  "flags": [
+    {
+      "name": "--amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Deduction amount. Example: 125.75.",
+      "default": null,
+      "validation": "Must be a number greater than 0 and greater than or equal to the applied amount."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note for the deduction. Example: Updated note.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--retainer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Retainer ID. Example: 456.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_retainer_deductions_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/retainer_deduction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer_deduction.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_deduction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    }
+  ]
+}

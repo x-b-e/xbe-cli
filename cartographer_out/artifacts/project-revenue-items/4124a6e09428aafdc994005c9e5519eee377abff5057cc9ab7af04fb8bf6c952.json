@@ -1,0 +1,82 @@
+{
+  "description": "Create a project revenue item.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project ID (required)",
+      "name": "--project",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Revenue classification ID (required)",
+      "name": "--revenue-classification",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Unit of measure ID (required)",
+      "name": "--unit-of-measure",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Revenue item description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "External developer revenue item ID",
+      "name": "--external-developer-revenue-item-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Developer quantity estimate",
+      "name": "--developer-quantity-estimate",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    }
+  ],
+  "full_path": "do project-revenue-items create",
+  "id": "4124a6e09428aafdc994005c9e5519eee377abff5057cc9ab7af04fb8bf6c952",
+  "permissions": "Create is allowed for admins or users who are manager members of the project's broker.",
+  "side_effects": "Creates a project revenue item.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_revenue_items_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/project_revenue_item_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_revenue_item_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/models/project_revenue_item.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--project, --revenue-classification, and --unit-of-measure are required. Developer quantity estimate must be a number greater than or equal to 0 when provided."
+}

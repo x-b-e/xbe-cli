@@ -1,0 +1,167 @@
+{
+  "id": "5a3947cf1fb4f6d678c638d7caf7d2bbbed9f3cf1d4360aac22dd70e4b9a2f8b",
+  "full_path": "do equipment-rentals create",
+  "description": "Create an equipment rental.",
+  "permissions": "Allowed for admins or users who are manager members of the broker associated with the equipment rental.",
+  "side_effects": "Creates an equipment rental, touches the related equipment record after commit, and sends equipment rental status change notifications to broker equipment rental team members except the current user when the status is set or changed.",
+  "validation_notes": "--broker is required. equipment-classification is required. status must be one of: requested, rented, returned. If end-on is provided, start-on is required and end-on must be on or after start-on. If status is rented, start-on is required. If status is returned, start-on and end-on are required. approximate-cost-per-day must be greater than 0 when provided. cost-per-hour must be greater than or equal to 0 when provided. target-utilization-hours must be greater than or equal to 0 when provided. If equipment is provided, it must have the same broker and equipment classification as the rental. If equipment-supplier is provided, it must have the same broker as the rental.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment supplier ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Actual start date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on-planned",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned start date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Actual end date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--end-on-planned",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned end date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--approximate-cost-per-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Approximate cost per day",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--cost-per-hour",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cost per hour",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--target-utilization-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Target utilization hours",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--actual-rental-usage-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Actual rental usage hours",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-weekend",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip weekends in calculations",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_rentals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_rental_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_rental_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_rental.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.equipment_rentals.sql"
+    }
+  ]
+}

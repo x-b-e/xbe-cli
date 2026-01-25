@@ -1,0 +1,23 @@
+{
+  "id": "46ccc452ffa8f17a9226159ebc9a468fdd6e0507e389457e2e4546a53854217c",
+  "full_path": "view material-supplier-memberships show",
+  "description": "Show material supplier membership details.",
+  "permissions": "Admins can view any material supplier membership. Non-admin users can view memberships where the material supplier broker is in their broker memberships or where the material supplier is in their own material supplier memberships.",
+  "side_effects": null,
+  "validation_notes": "The material supplier membership ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_supplier_memberships_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_supplier_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

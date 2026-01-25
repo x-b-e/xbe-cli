@@ -1,0 +1,29 @@
+{
+  "description": "Delete a rate.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Required to avoid accidental deletion."
+    }
+  ],
+  "full_path": "do rates delete",
+  "id": "7da4a5b4d6715713feadda0c0fe1d1752545b6fb805e5a03aebfa3a158305927",
+  "permissions": "Allowed if the user is permitted to create on the rated resource (same policy as create/update/destroy); if the broker requires explicit rate editing permission, user must be a rate editor member of the broker.",
+  "side_effects": "Deletes the rate record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_rates_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/rate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires a rate ID argument and --confirm to proceed."
+}

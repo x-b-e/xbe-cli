@@ -1,0 +1,105 @@
+{
+  "id": "f39888dbe2ab0b8df269ac8d1e7327ee67fbfbf88a81cc834656c7984ca96593",
+  "full_path": "view material-transactions-exports list",
+  "description": "List material transaction exports.",
+  "permissions": "Admin users can view all material transaction exports. Non-admin users can view exports scoped to their broker memberships or organization memberships (broker memberships of any kind, or manager memberships for non-broker organizations), as defined by the policy scope.",
+  "side_effects": null,
+  "validation_notes": "status must be one of processing, processed, or failed. organization must be in Type|ID format (e.g., Broker|123). organization-id requires organization-type unless organization-id already includes a Type|ID value. material-transactions expects a comma-separated list of IDs.",
+  "flags": [
+    {
+      "name": "organization-formatter",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization formatter ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (processing, processed, failed)",
+      "default": null,
+      "validation": "Valid values: processing, processed, failed"
+    },
+    {
+      "name": "broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g. Broker|123)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Broker|123)"
+    },
+    {
+      "name": "organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type)",
+      "default": null,
+      "validation": "Requires organization-type unless value already includes Type|ID"
+    },
+    {
+      "name": "organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g. Broker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude organization type (e.g. Broker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "material-transactions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list of IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transactions_exports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transactions_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transactions_export_resource.rb"
+    }
+  ]
+}

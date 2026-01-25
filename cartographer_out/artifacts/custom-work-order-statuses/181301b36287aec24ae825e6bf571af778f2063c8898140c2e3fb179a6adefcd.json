@@ -1,0 +1,33 @@
+{
+  "id": "181301b36287aec24ae825e6bf571af778f2063c8898140c2e3fb179a6adefcd",
+  "full_path": "do custom-work-order-statuses delete",
+  "description": "Delete a custom work order status",
+  "permissions": "User must be an admin or a manager member of the broker organization for the status.",
+  "side_effects": "Deletes a custom work order status record.",
+  "validation_notes": "Requires a status ID argument. --confirm is required to proceed. Deletion is restricted if the status has associated work orders.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_custom_work_order_statuses_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/custom_work_order_status_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/custom_work_order_status.rb"
+    }
+  ]
+}

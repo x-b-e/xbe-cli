@@ -1,0 +1,330 @@
+{
+  "id": "7ef9a23ae63eafba0d24f372e1e316e73b1bb0253a38a68f444c77cc72e47440",
+  "full_path": "view trucker-shift-sets list",
+  "description": "List trucker shift sets (driver days) with filtering and pagination.",
+  "permissions": "Admins can view all trucker shift sets. Non-admins can view shift sets that are in their TruckerShiftSetPolicy scope, which is limited to shift sets with tender job schedule shifts visible through the TenderJobScheduleShift policy scope.",
+  "side_effects": null,
+  "validation_notes": "Boolean filters require true/false values: has-driver, is-expecting-time-sheet, without-time-card, without-approved-time-card, with-missing-time-card-approvals, without-approved-time-sheet, without-submitted-time-sheet, has-start-on, has-constraint. start-at expects an ISO 8601 timestamp. start-on, start-on-min, start-on-max, and driver-day-on expect YYYY-MM-DD dates.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer classification ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of a driver (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shifts",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift IDs (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--number-of-shifts-eq",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by exact number of shifts",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--number-of-shifts-gte",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum number of shifts",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-expecting-time-sheet",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time sheet expectation (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--without-time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by absence of time cards (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--without-approved-time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by missing approved time cards (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--with-missing-time-card-approvals",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by missing time card approvals (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--without-approved-time-sheet",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by missing approved time sheets (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--without-submitted-time-sheet",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by missing submitted time sheets (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by shift set start-at timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by shift set date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "--start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum shift set date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "--start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum shift set date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "--has-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of shift set date (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--driver-day-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "--has-constraint",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of constraints (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--odometer-start-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by odometer start value (exact)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--odometer-start-value-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum odometer start value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--odometer-start-value-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum odometer start value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--odometer-end-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by odometer end value (exact)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--odometer-end-value-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum odometer end value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--odometer-end-value-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum odometer end value",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_shift_sets_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_shift_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_shift_set_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "0e4ec47d507ac40847b616335b862874382a5a9b932b187847e7fc22a4c6c981",
+  "full_path": "do time-card-approvals create",
+  "description": "Approve a time card.",
+  "permissions": "User can create a time card approval when a time card is present and either: (1) the user is allowed to create or approve time cards via TimeCardPolicy, (2) the user is a manager member of the customer and the customer is the time card\u2019s trucker, or (3) the time card approval process is \"field\" and the job production plan recognizes the user as a time card approver.",
+  "side_effects": "Creates a time card approval that moves the time card to approved status and triggers follow-on actions such as tender shortfall quantity creation, shift feedback creation, job production plan caching/recap work, exporting tickets, creating time card reviews, driver day adjustments, and unloaded trip maintenance.",
+  "validation_notes": "Time card is required and must be present. Time card status must be submitted (valid_old_statuses :submitted). Status cannot change if the time card is already associated with an invoice. Approval validates quantities and related data including: at least one service type unit of measure quantity, quantities matching the job, likely quantity checks (skipped when skip-quantity-validation is true or the time card has a pre-approval), hours, material transaction tons/loads, no unaccepted material transactions, material types in scope, quantities have rates (may create zero PPU missing rates when create-zero-ppu-missing-rates is true), quantities have valid service items, cost code allocation when required, material transactions are quantifiable and accepted, positive quantities unless skip_positive_quantity_validation is set, trailer required when time card requires it, and accepted material transactions must have cost code allocation when required.",
+  "flags": [
+    {
+      "name": "time-card",
+      "required": true,
+      "type": "string",
+      "description": "Time card ID (required)",
+      "validation": "Required; must be non-empty. Example: 123."
+    },
+    {
+      "name": "comment",
+      "required": false,
+      "type": "string",
+      "description": "Approval comment",
+      "default": ""
+    },
+    {
+      "name": "skip-quantity-validation",
+      "required": false,
+      "type": "boolean",
+      "description": "Skip quantity validation checks",
+      "default": "false"
+    },
+    {
+      "name": "create-zero-ppu-missing-rates",
+      "required": false,
+      "type": "boolean",
+      "description": "Create zero PPU missing rates",
+      "default": "false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_approvals.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_approvals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_card_approvals_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_approval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_approval.rb"
+    }
+  ]
+}

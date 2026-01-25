@@ -1,0 +1,118 @@
+{
+  "id": "20a9cc0989f0dd11299e13a64938e265ec314c6aec4aa53322f9a89fe6c223cf",
+  "full_path": "do site-events create",
+  "description": "Create a site event.",
+  "permissions": "User can create site events if SiteEventPolicy allows: admin, manager member of the developer on the job production plan, job production plan inspector, or user with update permission on the related tender job schedule shift.",
+  "side_effects": "Creates a site event and sets the event source to the current user; after commit, the server enqueues asynchronous assignment of shift and site.",
+  "validation_notes": "Required flags: --event-type, --event-at (ISO 8601), --event-latitude, --event-longitude, --event-site-type, --event-site-id, and one of --tender-job-schedule-shift or --material-transaction. --event-kind is required for event types start_work and stop_work and must be blank for arrive_site and depart_site. Server validates event_site_type is one of JobSite, MaterialSite, ParkingSite; event_type must be a valid enum; event_kind must match the event_type requirements; tender_job_schedule_shift must be an accepted broker shift and match the material transaction when both are present.",
+  "flags": [
+    {
+      "name": "--event-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Event type (arrive_site,start_work,stop_work,depart_site,at_site)",
+      "default": "",
+      "validation": "One of: arrive_site, start_work, stop_work, depart_site, at_site."
+    },
+    {
+      "name": "--event-kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Event kind (load,unload,pour)",
+      "default": "",
+      "validation": "Required for event types start_work and stop_work; must be blank for arrive_site and depart_site; allowed values: load, unload, pour."
+    },
+    {
+      "name": "--event-details",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event details",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--event-at",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Event timestamp (ISO 8601)",
+      "default": "",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--event-latitude",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Event latitude",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--event-longitude",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Event longitude",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--event-site-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Event site type (job-sites, material-sites, parking-sites)",
+      "default": "",
+      "validation": "One of: job-sites, material-sites, parking-sites."
+    },
+    {
+      "name": "--event-site-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Event site ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID",
+      "default": "",
+      "validation": "Required unless --material-transaction is provided."
+    },
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material transaction ID",
+      "default": "",
+      "validation": "Required unless --tender-job-schedule-shift is provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_site_events_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/site_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/site_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/site_event.rb"
+    }
+  ]
+}

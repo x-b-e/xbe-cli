@@ -1,0 +1,29 @@
+{
+  "description": "Delete a raw transport trailer.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "must be true"
+    }
+  ],
+  "full_path": "do raw-transport-trailers delete",
+  "id": "9083d723b845cedf3b0761f8608e64f415b66da01a0c90aa9973fc30743aa051",
+  "permissions": "Admin users or broker members with admin access to the broker can delete raw transport trailers for that broker.",
+  "side_effects": "Deletes the raw transport trailer record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_raw_transport_trailers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/raw_transport_trailer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "<id> argument is required. --confirm is required to delete."
+}

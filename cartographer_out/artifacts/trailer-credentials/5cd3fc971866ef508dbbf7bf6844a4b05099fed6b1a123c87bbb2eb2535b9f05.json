@@ -1,0 +1,87 @@
+{
+  "id": "5cd3fc971866ef508dbbf7bf6844a4b05099fed6b1a123c87bbb2eb2535b9f05",
+  "full_path": "view trailer-credentials list",
+  "description": "List trailer credentials",
+  "permissions": "Admin users can list all trailer credentials. Non-admin users are limited to trailer credentials whose trailers are in their Trailer policy scope (via TrailerCredentialPolicy scope).",
+  "side_effects": null,
+  "validation_notes": "Date filters (issued-on-min, issued-on-max, expires-on-min, expires-on-max, active-on) must be in YYYY-MM-DD format.",
+  "flags": [
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor-trailer-credential-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--issued-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum issue date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--issued-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum issue date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--expires-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum expiration date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--expires-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum expiration date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--active-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active on date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trailer_credentials_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trailer_credential_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trailer_credential_resource.rb"
+    }
+  ]
+}

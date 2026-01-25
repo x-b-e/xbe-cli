@@ -1,0 +1,33 @@
+{
+  "description": "Delete an application setting.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required).",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Required; must be true to proceed."
+    }
+  ],
+  "full_path": "do application-settings delete",
+  "id": "186fac2701a884f0f82c0f7c6bdbcbeb76ff969a0e6d8be9f990289479fb718a",
+  "permissions": "User must be admin to delete application settings.",
+  "side_effects": "Attempts to delete an application setting; server blocks deletion by default.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_application_settings_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/application_setting.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_setting_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires application setting ID argument. Requires --confirm flag. Server prevents deletion unless bypassed (skip_cannot_delete)."
+}

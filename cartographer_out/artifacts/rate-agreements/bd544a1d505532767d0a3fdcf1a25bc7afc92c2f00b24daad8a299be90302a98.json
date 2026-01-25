@@ -1,0 +1,37 @@
+{
+  "description": "Delete a rate agreement",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do rate-agreements delete",
+  "id": "bd544a1d505532767d0a3fdcf1a25bc7afc92c2f00b24daad8a299be90302a98",
+  "permissions": "Authentication required (API token) and authorization per rate agreement policy.",
+  "side_effects": "Deletes a rate agreement record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_rate_agreements_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/rate_agreements_controller.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/rate_agreement_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreement_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Argument <id> is required. --confirm is required to delete a rate agreement."
+}

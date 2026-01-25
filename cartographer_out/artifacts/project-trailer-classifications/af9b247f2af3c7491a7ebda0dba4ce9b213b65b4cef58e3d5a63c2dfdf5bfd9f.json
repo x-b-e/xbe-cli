@@ -1,0 +1,29 @@
+{
+  "description": "Update a project trailer classification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project labor classification ID (use empty string to clear).",
+      "name": "--project-labor-classification",
+      "required": false,
+      "type": "string",
+      "validation": "Use an empty string to clear the relationship. Example: --project-labor-classification 789."
+    }
+  ],
+  "full_path": "do project-trailer-classifications update",
+  "id": "af9b247f2af3c7491a7ebda0dba4ce9b213b65b4cef58e3d5a63c2dfdf5bfd9f",
+  "permissions": null,
+  "side_effects": "Updates a project trailer classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_trailer_classifications_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/project_trailer_classifications_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The project trailer classification ID argument is required. Only project labor classification can be updated, and at least one update field is required. Use an empty string to clear the project labor classification."
+}

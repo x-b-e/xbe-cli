@@ -1,0 +1,23 @@
+{
+  "id": "70d4ebfebd2209c8077e6c1d53103c86f2d72f242b48b8ce57cdcf37c6799bf2",
+  "full_path": "view trucker-referral-codes show",
+  "description": "Show trucker referral code details.",
+  "permissions": "Requires authentication. Admins can view any trucker referral codes; non-admins are limited to brokers they belong to.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_referral_codes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_referral_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_referral_code_policy.rb"
+    }
+  ]
+}

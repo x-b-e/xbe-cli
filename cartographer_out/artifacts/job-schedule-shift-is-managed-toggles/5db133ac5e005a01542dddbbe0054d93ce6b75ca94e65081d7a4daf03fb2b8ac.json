@@ -1,0 +1,41 @@
+{
+  "id": "5db133ac5e005a01542dddbbe0054d93ce6b75ca94e65081d7a4daf03fb2b8ac",
+  "full_path": "do job-schedule-shift-is-managed-toggles create",
+  "description": "Toggle a job schedule shift managed status.",
+  "permissions": "Allowed for users who can update the job associated with the job schedule shift (the policy delegates create permission to JobScheduleShiftPolicy, which requires the related job to exist and the user to have update permission on that job).",
+  "side_effects": "Toggles the job schedule shift's is_managed flag and propagates the same toggle to related tender job schedule shifts; may update or create driver days when propagating the change.",
+  "validation_notes": "The job schedule shift relationship is required. The shift cannot be cancelled, cannot be related to an unmanaged tender, and cannot be related to a time card.",
+  "flags": [
+    {
+      "name": "--job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job schedule shift ID (required). Example: 123.",
+      "default": null,
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_schedule_shift_is_managed_toggles_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_schedule_shift_is_managed_toggle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_schedule_shift_actions/job_schedule_shift_is_managed_toggle.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_is_managed_toggle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_policy.rb"
+    }
+  ]
+}

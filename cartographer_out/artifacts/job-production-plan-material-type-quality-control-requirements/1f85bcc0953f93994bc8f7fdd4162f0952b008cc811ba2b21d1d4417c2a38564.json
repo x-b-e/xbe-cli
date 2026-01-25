@@ -1,0 +1,42 @@
+{
+  "id": "1f85bcc0953f93994bc8f7fdd4162f0952b008cc811ba2b21d1d4417c2a38564",
+  "full_path": "view job-production-plan-material-type-quality-control-requirements list",
+  "description": "List job production plan material type quality control requirements.",
+  "permissions": "User must be authorized for the related job production plan material type; policy scope is delegated via the job production plan material type relationship.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--job-production-plan-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quality-control-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by quality control classification ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_material_type_quality_control_requirements_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_type_quality_control_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_type_quality_control_requirement_policy.rb"
+    }
+  ]
+}

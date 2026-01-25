@@ -1,0 +1,114 @@
+{
+  "id": "96a06a4705e2e6655282261d4c9a83bb4945fd0a4e34c25890389a874cc577db",
+  "full_path": "do maintenance-requirement-parts update",
+  "description": "Update a maintenance requirement part",
+  "permissions": "Admins can update maintenance requirement parts. For template parts, the user must be a manager member of the broker; operations users with manager business unit membership cannot update template parts. For non-template parts, update requires associated maintenance requirements; broker managers can update, technicians can update only for assigned requirements, operations members can update only when the requirement equipment is in their accessible business units, and general business unit members cannot update.",
+  "side_effects": "Updates the maintenance requirement part.",
+  "validation_notes": "At least one field or relationship must be provided. --is-template must be true or false when provided. If a part is set to template, broker must be present.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Part name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--part-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Part number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Part description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Additional notes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Whether the part is a template (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--make",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Part make",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--model",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Part model",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--year",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Part year",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment classification ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_parts_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_part.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_part_policy.rb"
+    }
+  ]
+}

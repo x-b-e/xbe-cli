@@ -1,0 +1,114 @@
+{
+  "id": "2052e5648dc4c4bc82fee22c44c4aa0f87ef758c08c13886621ddac24034c040",
+  "full_path": "view brokers list",
+  "description": "List brokers with filtering and pagination.",
+  "permissions": "Anonymous users can list only the default broker; authenticated non-admin users can list brokers where they have membership; admins can list all brokers.",
+  "side_effects": null,
+  "validation_notes": "Filters that expect booleans require true/false values; --has-help-text requires a strict boolean value",
+  "flags": [
+    {
+      "name": "--can-customer-operations-see-driver-contact-information",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ops driver contact visibility (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--can-customers-see-driver-contact-information",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer driver contact visibility (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--company-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by company name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-help-text",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by help text presence (true/false)",
+      "default": null,
+      "validation": "strict boolean: true or false"
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active status (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-default",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by default status (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--quickbooks-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by QuickBooks enabled status (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--skip-tender-job-schedule-shift-starting-seller-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by skip tender notifications (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--sub-domain",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by subdomain",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer classification",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/brokers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_policy.rb"
+    }
+  ]
+}

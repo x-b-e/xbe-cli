@@ -1,0 +1,50 @@
+{
+  "id": "18923bd4ec5c74781cc2601d74503a57f06177ebab8f13a9b043002c336e55dd",
+  "full_path": "do project-actuals-exports create",
+  "description": "Create a project actuals export.",
+  "permissions": "Admins can create project actuals exports. Non-admins can create exports only if they have create permission on every referenced job production plan (delegated to JobProductionPlanPolicy).",
+  "side_effects": "Creates a project actuals export and triggers async formatting after commit.",
+  "validation_notes": "--organization-formatter and --job-production-plan-ids are required. Organization formatter must be active and of formatter type ProjectActualsExportFormatter. Job production plans must all belong to the same project, be exportable, and be in scope with the exporting organization (broker/branch or customer).",
+  "flags": [
+    {
+      "name": "--organization-formatter",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization formatter ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan-ids",
+      "aliases": null,
+      "required": true,
+      "type": "array",
+      "description": "Job production plan IDs (comma-separated or repeated) (required)",
+      "default": null,
+      "validation": "Comma-separated or repeated"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_actuals_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_actuals_export.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_organization_formatter_is_active.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_actuals_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_actuals_export_resource.rb"
+    }
+  ]
+}

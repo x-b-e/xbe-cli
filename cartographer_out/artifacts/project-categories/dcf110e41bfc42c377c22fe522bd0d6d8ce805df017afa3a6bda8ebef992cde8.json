@@ -1,0 +1,51 @@
+{
+  "id": "dcf110e41bfc42c377c22fe522bd0d6d8ce805df017afa3a6bda8ebef992cde8",
+  "full_path": "do project-categories create",
+  "description": "Create a new project category",
+  "permissions": "Allowed for admins and for users who are admins of the broker organization associated with the category.",
+  "side_effects": "Creates a project category and associates it with the specified broker.",
+  "validation_notes": "Required: name and broker. Broker relationship is create-only. Abbreviation is optional.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Category name (e.g., \"Commercial\").",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (e.g., 123).",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Category abbreviation (e.g., \"RES\").",
+      "default": null,
+      "validation": "Optional."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_categories_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_category_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_category_policy.rb"
+    }
+  ]
+}

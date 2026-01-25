@@ -1,0 +1,23 @@
+{
+  "id": "e825838177b137f2b7848664a0519a3847cfc43ebd37be18dace003010740b2f",
+  "full_path": "view job-production-plan-cost-codes show",
+  "description": "Show job production plan cost code details",
+  "permissions": "User must be authorized to view the associated job production plan (delegated policy via job production plan).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument for the job production plan cost code.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_cost_codes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_cost_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_cost_code_policy.rb"
+    }
+  ]
+}

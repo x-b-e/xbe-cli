@@ -1,0 +1,190 @@
+{
+  "id": "0616716cdb81c189ccece1f13d43d07b1ca7d14c070cdee566d91347878f2589",
+  "full_path": "do jobs create",
+  "description": "Create a new job.",
+  "permissions": "Admins can create jobs. Non-admins can create jobs when they are members of the job customer or the job customer broker.",
+  "side_effects": null,
+  "validation_notes": "--customer, --job-site, --material-types, and --trailer-classifications are required. --start-site and --start-site-type must be set together. Material types and trailer classifications cannot be empty. Job site must belong to the customer. Start site must be a job site or material site, and must be compatible with material types unless skip-material-type-start-site-type-validation is set. loaded-miles must be greater than 0 when provided. If is-prevailing-wage is false, requires-certified-payroll must be false and prevailing-wage-hourly-rate must be absent. If is-prevailing-wage is true, prevailing-wage-hourly-rate must be greater than 0. Foreman must have membership with the customer when provided.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--dispatch-instructions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Dispatch instructions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--foreman",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Foreman user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-prevailing-wage",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Prevailing wage job",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job site ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--loaded-miles",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Loaded miles",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-sites",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material site IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated IDs."
+    },
+    {
+      "name": "--material-types",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material type IDs (comma-separated, required)",
+      "default": null,
+      "validation": "Comma-separated IDs."
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--prevailing-wage-hourly-rate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Prevailing wage hourly rate",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-certified-payroll",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires certified payroll",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-type-unit-of-measures",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Service type unit of measure IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated IDs."
+    },
+    {
+      "name": "--skip-material-type-start-site-type-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip start site type validation",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start site ID (requires --start-site-type)",
+      "default": null,
+      "validation": "Requires --start-site-type."
+    },
+    {
+      "name": "--start-site-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start site type (job-sites or material-sites)",
+      "default": null,
+      "validation": "Allowed values: job-sites or material-sites."
+    },
+    {
+      "name": "--trailer-classifications",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trailer classification IDs (comma-separated, required)",
+      "default": null,
+      "validation": "Comma-separated IDs."
+    },
+    {
+      "name": "--validate-job-schedule-shifts",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate job schedule shifts",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_jobs_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job.rb"
+    }
+  ]
+}

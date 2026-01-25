@@ -1,0 +1,23 @@
+{
+  "id": "96a9abb99497475635b5af2887203c2d41369819adefc73553646c722505567f",
+  "full_path": "view project-transport-plan-segment-sets show",
+  "description": "Show project transport plan segment set details",
+  "permissions": "Authorized via ProjectTransportPlanSegmentSetPolicy, delegated to the related project transport plan; user must have access to that project transport plan.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (project transport plan segment set ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_segment_sets_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_segment_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_set_policy.rb"
+    }
+  ]
+}

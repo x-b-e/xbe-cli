@@ -1,0 +1,87 @@
+{
+  "id": "ef796c965501f21f7af1fe3df9208f1122c92fef19bf4ced1ca641bb5782b148",
+  "full_path": "view tractor-odometer-readings list",
+  "description": "List tractor odometer readings.",
+  "permissions": "Admins can list. Non-admins can list readings visible through policy scope: member brokers (readings for their brokers), member truckers (readings for their truckers), and customer trucker managers via the trucker policy scope.",
+  "side_effects": null,
+  "validation_notes": "reading-on-min and reading-on-max must be dates in YYYY-MM-DD format when provided.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID. Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID. Example: 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by unit of measure ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reading-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum reading date. Example: 2025-01-01.",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--reading-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum reading date. Example: 2025-01-31.",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tractor_odometer_readings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tractor_odometer_reading_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_odometer_reading_policy.rb"
+    }
+  ]
+}

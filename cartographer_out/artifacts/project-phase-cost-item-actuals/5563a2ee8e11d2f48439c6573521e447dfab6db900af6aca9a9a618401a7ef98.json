@@ -1,0 +1,117 @@
+{
+  "description": "List project phase cost item actuals.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project phase cost item ID. Example: --project-phase-cost-item 123.",
+      "name": "--project-phase-cost-item",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project phase revenue item actual ID.",
+      "name": "--project-phase-revenue-item-actual",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan project phase revenue item ID.",
+      "name": "--job-production-plan-project-phase-revenue-item",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan project phase revenue item ID (direct).",
+      "name": "--job-production-plan-project-phase-revenue-item-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan ID. Example: --job-production-plan 456.",
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan ID (direct).",
+      "name": "--job-production-plan-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-by user ID.",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project ID.",
+      "name": "--project",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by quantity.",
+      "name": "--quantity",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-phase-cost-item-actuals list",
+  "id": "5563a2ee8e11d2f48439c6573521e447dfab6db900af6aca9a9a618401a7ef98",
+  "permissions": "Access is limited to records within the ProjectPhaseCostItem policy scope (delegated by ProjectPhaseCostItemActualPolicy).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_phase_cost_item_actuals_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/project_phase_cost_item_actuals.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_cost_item_actual_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_cost_item_actual_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_phase_cost_item_actual.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/validate_created_by_permitted_to_update.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

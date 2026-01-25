@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a specific equipment supplier.",
+  "flags": [],
+  "full_path": "view equipment-suppliers show",
+  "id": "c751b6725d3d43cda604cddf650710817323065c2b1c6b62c7e293b6b06bc3a2",
+  "permissions": "Admin users can view any equipment supplier. Non-admin users can view equipment suppliers only if their broker is within the visible member broker IDs or brokers controlled by visible member customers, truckers, or material suppliers.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/equipment_suppliers_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/equipment_supplier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_supplier_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The equipment supplier ID argument is required."
+}

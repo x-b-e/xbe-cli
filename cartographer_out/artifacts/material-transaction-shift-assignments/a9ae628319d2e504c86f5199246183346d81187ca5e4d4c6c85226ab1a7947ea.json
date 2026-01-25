@@ -1,0 +1,73 @@
+{
+  "id": "a9ae628319d2e504c86f5199246183346d81187ca5e4d4c6c85226ab1a7947ea",
+  "full_path": "do material-transaction-shift-assignments create",
+  "description": "Create a material transaction shift assignment.",
+  "permissions": "Allowed for admins, or users with update permission on the job production plan for the target tender job schedule shift.",
+  "side_effects": "Creates a shift assignment, sets processed_at, updates material transaction trips, and may submit/accept/reject material transactions while linking/unlinking shifts.",
+  "validation_notes": "Required: tender-job-schedule-shift and material-transaction-ids. Material transaction IDs must be integers and refer to existing material transactions. The target shift must be a trucker shift and must have a job production plan, trucker, and broker. Material transactions must match the target shift broker and be within a reasonable time range unless skip-material-transaction-shift-skew-validation is set. Assignments must be able to build a valid trip for each material transaction. Assignments that affect invoices are rejected unless enable-link-invoiced is allowed; when the feature flag mtxn_shift_assignment_can_link_invoiced is enabled, linking invoiced transactions requires an admin user.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID (required)",
+      "default": null,
+      "validation": "Example: --tender-job-schedule-shift 123"
+    },
+    {
+      "name": "--material-transaction-ids",
+      "aliases": null,
+      "required": true,
+      "type": "array",
+      "description": "Material transaction IDs (required, comma-separated or repeated)",
+      "default": null,
+      "validation": "Comma-separated or repeated IDs. Example: --material-transaction-ids 456,789"
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Assignment comment",
+      "default": null,
+      "validation": "Example: --comment \"Reassign for shift\""
+    },
+    {
+      "name": "--skip-material-transaction-shift-skew-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip shift skew validation",
+      "default": null,
+      "validation": "Skips time-range validation between material transactions and the target shift."
+    },
+    {
+      "name": "--enable-link-invoiced",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable linking invoiced material transactions",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_shift_assignments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_shift_assignment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_shift_assignment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_shift_assignment.rb"
+    }
+  ]
+}

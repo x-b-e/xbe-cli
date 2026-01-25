@@ -1,0 +1,42 @@
+{
+  "id": "5dad23df6456ff58c0e51863a43cdf2e768d30276250ac7f4901e7f9296563a0",
+  "full_path": "view service-sites list",
+  "description": "List service sites with filtering and pagination.",
+  "permissions": "Admins can list all service sites. Non-admin users can list service sites for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "Filter constraints: --name is an exact match; --broker accepts a comma-separated list of broker IDs.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple). Example: 123 or 123,456.",
+      "default": null,
+      "validation": "Comma-separated broker IDs."
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (exact match). Example: \"North Yard\".",
+      "default": null,
+      "validation": "Exact match."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_sites_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_site_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_site_policy.rb"
+    }
+  ]
+}

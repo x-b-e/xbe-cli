@@ -1,0 +1,78 @@
+{
+  "description": "List customer tender offered buyer notifications",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by read status (true/false)",
+      "name": "--read",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by delivery decision approach (static/dynamic)",
+      "name": "--delivery-decision-approach",
+      "required": false,
+      "type": "string",
+      "validation": "static/dynamic"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by ready for delivery (true/false)",
+      "name": "--is-ready-for-delivery",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by deliver-at timestamp (ISO8601)",
+      "name": "--deliver-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by notification type",
+      "name": "--notification-type",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid notification class name on the server"
+    }
+  ],
+  "full_path": "view customer-tender-offered-buyer-notifications list",
+  "id": "10aa4d3bbf1ebed9f983eabe8243bbecf3b52d065a16d64623d39171ef82dcf3",
+  "permissions": "Authentication required. Admins can list all notifications; non-admins are limited to notifications where user_id matches the current user.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/customer_tender_offered_buyer_notifications_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/notification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/notification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters: read and is-ready-for-delivery accept true/false strings; delivery-decision-approach accepts static or dynamic; deliver-at must be an ISO8601 timestamp; notification-type must be a valid notification class name on the server."
+}

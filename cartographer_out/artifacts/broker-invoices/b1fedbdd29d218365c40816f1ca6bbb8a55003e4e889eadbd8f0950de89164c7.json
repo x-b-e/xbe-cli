@@ -1,0 +1,29 @@
+{
+  "id": "b1fedbdd29d218365c40816f1ca6bbb8a55003e4e889eadbd8f0950de89164c7",
+  "full_path": "do broker-invoices delete",
+  "description": "Delete a broker invoice.",
+  "permissions": "Allowed for admins or users who are members of the seller broker.",
+  "side_effects": "Deletes a broker invoice.",
+  "validation_notes": "Requires <id> argument and --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true to proceed"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_invoices_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_invoice_policy.rb"
+    }
+  ]
+}

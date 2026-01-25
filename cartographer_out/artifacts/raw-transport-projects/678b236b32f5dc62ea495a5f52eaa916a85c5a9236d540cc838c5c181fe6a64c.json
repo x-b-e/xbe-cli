@@ -1,0 +1,51 @@
+{
+  "id": "678b236b32f5dc62ea495a5f52eaa916a85c5a9236d540cc838c5c181fe6a64c",
+  "full_path": "view raw-transport-projects list",
+  "description": "List raw transport projects",
+  "permissions": "Admin users can list all raw transport projects. Non-admin users can list only projects for brokers where they have an admin broker membership.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tables-rowversion-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tables rowversion minimum",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tables-rowversion-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tables rowversion maximum",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/raw_transport_projects_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_project_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_project_policy.rb"
+    }
+  ]
+}

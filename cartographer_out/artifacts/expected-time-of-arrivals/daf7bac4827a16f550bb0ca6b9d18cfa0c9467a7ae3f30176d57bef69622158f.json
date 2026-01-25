@@ -1,0 +1,19 @@
+{
+  "description": "Show expected time of arrival details",
+  "flags": [],
+  "full_path": "view expected-time-of-arrivals show",
+  "id": "daf7bac4827a16f550bb0ca6b9d18cfa0c9467a7ae3f30176d57bef69622158f",
+  "permissions": null,
+  "side_effects": "Reads an expected time of arrival update.",
+  "sources": [
+    {
+      "file_path": "internal/cli/expected_time_of_arrivals_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/expected_time_of_arrivals_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires expected time of arrival ID argument."
+}

@@ -1,0 +1,27 @@
+{
+  "id": "f527a726ac810132eefda1591de29ae974d19dbbe4e84d93cc54a3e96fb9e799",
+  "full_path": "view digital-fleet-trucks show",
+  "description": "Show the full details of a digital fleet truck.",
+  "permissions": "Allowed for admins; otherwise limited to digital fleet trucks whose broker the user is a member of (show access is broker-scoped).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/digital_fleet_trucks_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/digital_fleet_truck_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    }
+  ]
+}

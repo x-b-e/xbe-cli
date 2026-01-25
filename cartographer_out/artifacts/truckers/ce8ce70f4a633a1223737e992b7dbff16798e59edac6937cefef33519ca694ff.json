@@ -1,0 +1,379 @@
+{
+  "id": "ce8ce70f4a633a1223737e992b7dbff16798e59edac6937cefef33519ca694ff",
+  "full_path": "do truckers create",
+  "description": "Create a new trucker",
+  "permissions": "User must be an admin or a member of the broker specified by --broker.",
+  "side_effects": "Creates a trucker record; company address may be geocoded unless --skip-company-address-geocoding is true.",
+  "validation_notes": "--name, --broker, and --company-address are required. Flags marked (true/false) expect literal true or false. default_payment_terms must be an integer >= 0. tax_identifier must be at most 20 characters. color_hex must be a valid hex color. phone_number and fax_number must be valid phone numbers. default_pre_trip_minutes and default_post_trip_minutes cannot be negative. expecting_trucker_shift_set_time_sheets_on is required when is_expecting_trucker_shift_set_time_sheets is true, and must be absent otherwise. billing_requirement can only be set by admins or broker members. Default operations contact and default trailer validations can be skipped with the corresponding skip flags.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Company name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Company address (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-place-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Google Place ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-plus-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Plus code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-company-address-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip geocoding (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Phone number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--fax-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Fax number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-union-drivers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Has union drivers (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--estimated-trailer-capacity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated trailer capacity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--referral-source",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Referral source",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--color-hex",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Color hex code",
+      "default": null,
+      "validation": "hex color"
+    },
+    {
+      "name": "--tax-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tax identifier (EIN/SSN)",
+      "default": null,
+      "validation": "max length 20"
+    },
+    {
+      "name": "--default-payment-terms",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Default payment terms",
+      "default": null,
+      "validation": ">= 0"
+    },
+    {
+      "name": "--billing-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billing requirement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--generate-daily-invoice",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Generate daily invoice (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--payment-address-line-one",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Payment address line 1",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--payment-address-line-two",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Payment address line 2",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--payment-address-city",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Payment address city",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--payment-address-state-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Payment address state code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--payment-address-postal-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Payment address postal code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--payment-address-country-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Payment address country code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notify-default-financial-contact-of-time-card-pre-approvals",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notify of pre-approvals (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--notify-default-financial-contact-of-time-card-rejections",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notify of rejections (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-expecting-trucker-shift-set-time-sheets",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expecting time sheets (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--expecting-trucker-shift-set-time-sheets-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Date expecting time sheets",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--time-sheet-submission-terms",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Time sheet submission terms",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-time-card-creating-time-sheet-line-item-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Create line items (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--manage-driver-assignment-acknowledgement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Manage driver acknowledgement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-pre-trip-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Default pre-trip minutes",
+      "default": null,
+      "validation": ">= 0"
+    },
+    {
+      "name": "--default-post-trip-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Default post-trip minutes",
+      "default": null,
+      "validation": ">= 0"
+    },
+    {
+      "name": "--are-shifts-expecting-time-cards",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expecting time cards (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Active status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-controlled-by-broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Controlled by broker (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--favorite",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Favorite (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-accepting-open-door-issues",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Accepting open door issues (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--skip-reasonable-default-operations-contact-validation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip validation (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--skip-reasonable-default-trailer-validation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip validation (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_truckers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker.rb"
+    }
+  ]
+}

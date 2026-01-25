@@ -1,0 +1,60 @@
+{
+  "id": "f3d3f52ca969a789eddb26b6a17abc0ba1c7cedbcc621dbe6fa1d5d7158247fd",
+  "full_path": "view project-resource-classifications list",
+  "description": "List project resource classifications",
+  "permissions": "Any authenticated user can list; non-admins are scoped to classifications with no broker or broker IDs they are a member of.",
+  "side_effects": null,
+  "validation_notes": "--has-broker must be a boolean string (true/false).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker presence (true/false)",
+      "default": null,
+      "validation": "Expected values: true or false."
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by parent classification ID",
+      "default": null,
+      "validation": "Use 'null' to show only root classifications."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_resource_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_resource_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/project_money_classification_policy.rb"
+    }
+  ]
+}

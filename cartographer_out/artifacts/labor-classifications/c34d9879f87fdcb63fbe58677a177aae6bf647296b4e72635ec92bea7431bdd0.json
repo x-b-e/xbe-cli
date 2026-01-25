@@ -1,0 +1,95 @@
+{
+  "id": "c34d9879f87fdcb63fbe58677a177aae6bf647296b4e72635ec92bea7431bdd0",
+  "full_path": "do labor-classifications update",
+  "description": "Update an existing labor classification.",
+  "permissions": "Requires an admin user (policy requires user.is_admin? for update).",
+  "side_effects": "Updates the specified labor classification fields.",
+  "validation_notes": "The <id> argument is required. At least one field must be provided. name must be unique when provided. abbreviation must be unique when provided. mobilization-method must be one of: crew, heavy_equipment_transport, lowboy, itself, trailer.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New name",
+      "default": null,
+      "validation": "Must be unique when provided."
+    },
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New abbreviation",
+      "default": null,
+      "validation": "Must be unique when provided."
+    },
+    {
+      "name": "--mobilization-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New mobilization method",
+      "default": null,
+      "validation": "Allowed values: crew, heavy_equipment_transport, lowboy, itself, trailer."
+    },
+    {
+      "name": "--is-time-card-approver",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can approve time cards",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--allow-colors",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Allow color assignments",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-manager",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is a manager role",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--can-manage-projects",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can manage projects",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_labor_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/labor_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/labor_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/mobilizable.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/labor_classification_resource.rb"
+    }
+  ]
+}

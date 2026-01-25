@@ -1,0 +1,19 @@
+{
+  "id": "3f529445c00b0d718ee82199a43eba9ec338ed56fde187355bb7d9187ad58afe",
+  "full_path": "view site-events show",
+  "description": "Show site event details.",
+  "permissions": "User can view a site event if it is included in the SiteEventPolicy scope (admins, developer members on the job production plan, job production plan inspectors, or users authorized via the related tender job schedule shift policy).",
+  "side_effects": null,
+  "validation_notes": "Argument <id> is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/site_events_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/site_event_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "d92e4c51fe580bd0800eb48544bcf4adcc24f4a2f18e05346e24adadd4865ded",
+  "full_path": "view haskell-lemon-outbound-material-transaction-exports show",
+  "description": "Show the full details of a Haskell Lemon outbound material transaction export.",
+  "permissions": "User must be an admin or a member of the export broker organization; scope limits results to broker memberships.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/haskell_lemon_outbound_material_transaction_exports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/haskell_lemon_material_transaction_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/haskell_lemon_material_transaction_export_resource.rb"
+    }
+  ]
+}

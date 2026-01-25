@@ -1,0 +1,37 @@
+{
+  "id": "37c226644751326545e14d124747cebbccffb170c2375b4b1a504b6733d94528",
+  "full_path": "do notifications update",
+  "description": "Update a notification",
+  "permissions": "Authenticated user can update only notifications where the notification user matches the current user.",
+  "side_effects": "Updates the notification read status; if the notification is ready for delivery, saving may enqueue NotificationPostWorker.",
+  "validation_notes": "Only the read attribute is updatable. At least one field flag must be provided or the CLI returns an error. The <id> argument is required.",
+  "flags": [
+    {
+      "name": "--read",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark the notification as read (true/false)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_notifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/notification.rb"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "4928284e22f1d362a30f251dd795f5cff9167ca7b22e4501598a8e39bd52f086",
+  "full_path": "view time-card-unapprovals show",
+  "description": "Show the full details of a time card unapproval.",
+  "permissions": "Show is allowed when the time card unapproval record is in the TimeCardUnapprovalPolicy scope (ApplicationPolicy#show?).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument (unapproval ID) is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_unapprovals_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_unapprovals.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_card_unapprovals_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_unapproval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_unapproval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

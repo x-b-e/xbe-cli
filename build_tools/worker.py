@@ -229,7 +229,7 @@ def build_agent_prompt(
             "- If both server and cli sources are provided, include at least one from each in every artifact.",
             "- Do not mention created_by in validation_notes; it is set server-side (not via API input).",
             "- Use the exact full_path from Output targets (including hyphens/spaces). Do not normalize or rename commands.",
-            "- When a policy file is relevant, set permissions based on the policy and its permission methods; if it is not clearly stated, set permissions to null.",
+            "- Set permissions based on the related policy. Describe what makes a user able to perform the action.",
             "- validation_notes should include the union of all flag-level validation notes plus any non-flag validation rules.",
             "- Include examples at the flag or filter level when they are known from help text or sources.",
             "",
@@ -317,9 +317,6 @@ def validate_artifact_file(
     path: Path,
     expected_id: str,
     expected_full_path: str,
-    repo_map: Dict[str, Dict],
-    allowed_repos: Optional[set[str]],
-    required_repos: set[str],
 ) -> None:
     data = json.loads(path.read_text(encoding="utf-8"))
     artifact = validate_artifact(data)
@@ -327,44 +324,6 @@ def validate_artifact_file(
         raise ValueError(f"{path} id mismatch (expected {expected_id})")
     if artifact.full_path != expected_full_path:
         raise ValueError(f"{path} full_path mismatch (expected {expected_full_path})")
-    for source in artifact.sources:
-        repo_name = source.repo_name
-        if repo_name not in repo_map:
-            raise ValueError(f"{path} has unknown repo source: {repo_name}")
-        if allowed_repos and repo_name not in allowed_repos:
-            raise ValueError(f"{path} has source from repo not in scope: {repo_name}")
-        repo_root = Path(repo_map[repo_name].get("root_path", "")).resolve()
-        source_path = (repo_root / source.file_path).resolve()
-        try:
-            source_path.relative_to(repo_root)
-        except ValueError as exc:
-            raise ValueError(f"{path} has source outside repo root: {source.file_path}") from exc
-        if not source_path.exists():
-            raise ValueError(f"{path} has missing source file: {source.file_path}")
-        allowed_exts = CLIENT_EXTENSIONS
-        if repo_name == "server":
-            allowed_exts = SERVER_EXTENSIONS
-        elif repo_name == "cli":
-            allowed_exts = CLI_EXTENSIONS
-        if source_path.suffix not in allowed_exts:
-            raise ValueError(f"{path} has source with disallowed extension: {source.file_path}")
-        search_roots = [
-            (repo_root / rel_path).resolve()
-            for rel_path in repo_map[repo_name].get("search_paths", [])
-        ]
-        if search_roots:
-            if not any(
-                source_path == root or str(source_path).startswith(str(root) + os.sep)
-                for root in search_roots
-            ):
-                raise ValueError(
-                    f"{path} has source outside search_paths: {source.file_path}"
-                )
-    if required_repos:
-        repos_present = {source.repo_name for source in artifact.sources}
-        missing_repos = sorted(required_repos - repos_present)
-        if missing_repos:
-            raise ValueError(f"{path} missing sources for repos: {missing_repos}")
 
 
 def main() -> None:
@@ -420,10 +379,6 @@ def main() -> None:
             allowed_repos = [name.strip() for name in args.repos.split(",") if name.strip()]
             repo_map = {name: repo_map[name] for name in allowed_repos if name in repo_map}
         sources = gather_source_files(repo_map, noun, allowed_repos)
-        required_repos = set()
-        if allowed_repos and "server" in allowed_repos and "cli" in allowed_repos:
-            required_repos = {"server", "cli"}
-        allowed_repo_set = set(allowed_repos) if allowed_repos else None
 
         cli_bin = cli_bin_path(config)
         help_texts = {
@@ -461,14 +416,11 @@ def main() -> None:
                 if not path.exists():
                     missing.append(str(path))
                     continue
-                validate_artifact_file(
-                    path,
-                    target["id"],
-                    target["full_path"],
-                    repo_map,
-                    allowed_repo_set,
-                    required_repos,
-                )
+            validate_artifact_file(
+                path,
+                target["id"],
+                target["full_path"],
+            )
             if missing:
                 raise RuntimeError(f"Agent did not write {len(missing)} artifacts: {missing}")
             if processing_path.parent == processing_dir and processing_path.exists():

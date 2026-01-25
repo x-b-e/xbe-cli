@@ -1,0 +1,121 @@
+{
+  "id": "05fb55f70a848b47dc9a8a35ec82e83ff58932ed2a2273479464cc221b00eb2c",
+  "full_path": "do time-sheet-line-items create",
+  "description": "Create a time sheet line item.",
+  "permissions": "Delegated to the related time sheet. Allowed if the user is an admin or passes TimeSheetPolicy create?/update?/destroy? for the associated time sheet (e.g., driver/shift driver, trucker manager, broker member, customer manager, time-card approver, laborer on a crew requirement, or work-order roles such as manager/operations/technician assigned).",
+  "side_effects": "Creates a time sheet line item; updates time sheet time columns; may sync equipment requirement associations.",
+  "validation_notes": "--time-sheet is required. start-at/end-at must be ISO 8601 timestamps (e.g., 2025-01-01T08:00:00Z). break-minutes must be an integer >= 0. skip-validate-overlap and is-non-job-line-item accept true/false. Start/end times cannot overlap other time sheet line items unless skip-validate-overlap is true. If both start-at and end-at are set, end-at must be later than start-at. Cost code must relate to the driver day's trucker or the crew requirement's job production plan. Craft class can only be set for driver day time sheets, must match the driver day's broker, and must be valid for drivers. Time sheet line item classification must allow the time sheet's subject type. Project cost classification must be global or match the time sheet broker. Equipment requirement can only be set on labor requirement time sheets and must be on the same job. Maintenance requirement can only be set on work order time sheets and must belong to one of the work order's maintenance requirement sets. Job production plan IDs (implicit/explicit) can only be set on driver day time sheets and must relate to the driver day. Time card can only be set on driver day time sheets and must relate to the same driver day.",
+  "flags": [
+    {
+      "name": "--time-sheet",
+      "required": true,
+      "type": "string",
+      "description": "Time sheet ID."
+    },
+    {
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp.",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T08:00:00Z)."
+    },
+    {
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "description": "End timestamp.",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T12:00:00Z)."
+    },
+    {
+      "name": "--break-minutes",
+      "required": false,
+      "type": "integer",
+      "description": "Break minutes.",
+      "validation": "Integer >= 0."
+    },
+    {
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "description": "Description."
+    },
+    {
+      "name": "--skip-validate-overlap",
+      "required": false,
+      "type": "boolean",
+      "description": "Skip overlap validation.",
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-non-job-line-item",
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as non-job line item.",
+      "validation": "true/false."
+    },
+    {
+      "name": "--cost-code",
+      "required": false,
+      "type": "string",
+      "description": "Cost code ID."
+    },
+    {
+      "name": "--craft-class",
+      "required": false,
+      "type": "string",
+      "description": "Craft class ID."
+    },
+    {
+      "name": "--equipment-requirement",
+      "required": false,
+      "type": "string",
+      "description": "Equipment requirement ID."
+    },
+    {
+      "name": "--maintenance-requirement",
+      "required": false,
+      "type": "string",
+      "description": "Maintenance requirement ID."
+    },
+    {
+      "name": "--time-sheet-line-item-classification",
+      "required": false,
+      "type": "string",
+      "description": "Time sheet line item classification ID."
+    },
+    {
+      "name": "--project-cost-classification",
+      "required": false,
+      "type": "string",
+      "description": "Project cost classification ID."
+    },
+    {
+      "name": "--explicit-job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Explicit job production plan ID."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_line_items_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_line_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_line_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_line_item.rb"
+    }
+  ]
+}

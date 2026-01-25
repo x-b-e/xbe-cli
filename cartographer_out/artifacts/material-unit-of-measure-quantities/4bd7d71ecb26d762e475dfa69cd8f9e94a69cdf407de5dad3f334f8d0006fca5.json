@@ -1,0 +1,37 @@
+{
+  "id": "4bd7d71ecb26d762e475dfa69cd8f9e94a69cdf407de5dad3f334f8d0006fca5",
+  "full_path": "do material-unit-of-measure-quantities delete",
+  "description": "Delete a material unit of measure quantity.",
+  "permissions": "Allowed when MaterialTransactionPolicy.update? passes for the referenced material transaction: admin users; members of the material transaction broker; members of the material supplier; or users who can update the related trip.",
+  "side_effects": "Destroys associated material transaction inspections on delete and touches the related tender_job_schedule_shift after commit.",
+  "validation_notes": "The <id> argument is required; --confirm must be true to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_unit_of_measure_quantities_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_unit_of_measure_quantity_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_unit_of_measure_quantity.rb"
+    }
+  ]
+}

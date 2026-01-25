@@ -1,0 +1,168 @@
+{
+  "id": "51229ce35a0d6fd19d7a932367bb1c53abac1895d67dce829800c830c30b0d17",
+  "full_path": "view truckers list",
+  "description": "List truckers with filtering and pagination",
+  "permissions": "Admins can list all truckers. Non-admin users are limited to truckers tied to their memberships, including truckers where they have trucker memberships, broker memberships, truckers accepting tenders on their customers\u2019 jobs, trucker referrals, customer-managed truckers, or broker-controlled customers.",
+  "side_effects": null,
+  "validation_notes": "--broker, --managing-customer, --trailer-classifications, and --within-customer-truckers-of accept comma-separated IDs. --broker-rating uses broker_id;rating1|rating2 format (e.g., 123;1|2|3). --company-address-within expects lat,lng:miles with miles as an integer. --favorite and --with-uninvoiced-approved-time-card expect literal true or false. --last-shift-start-at-min and --last-shift-start-at-max expect ISO 8601 datetimes. Filtering by --broker-vendor-id is rejected for non-admins without broker memberships.",
+  "flags": [
+    {
+      "name": "--active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter to only active truckers",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated broker IDs"
+    },
+    {
+      "name": "--broker-rating",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker rating (format: broker_id;rating1|rating2, e.g., 123;1|2|3)",
+      "default": null,
+      "validation": "broker_id;rating1|rating2 format"
+    },
+    {
+      "name": "--broker-vendor-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker vendor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-within",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by company address proximity (lat,lng:miles)",
+      "default": null,
+      "validation": "lat,lng:miles (miles integer)"
+    },
+    {
+      "name": "--favorite",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by favorite status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--last-shift-start-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum last shift start datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--last-shift-start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum last shift start datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--managing-customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by managing customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated customer IDs"
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by company name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by phone number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full-text search",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tax-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tax identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer classifications (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated trailer classification IDs"
+    },
+    {
+      "name": "--with-uninvoiced-approved-time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by having uninvoiced approved time card (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--within-customer-truckers-of",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer truckers (customer ID, comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated customer IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/truckers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_policy.rb"
+    }
+  ]
+}

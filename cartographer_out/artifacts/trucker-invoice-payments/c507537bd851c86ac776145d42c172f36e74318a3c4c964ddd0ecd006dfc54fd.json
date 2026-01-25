@@ -1,0 +1,50 @@
+{
+  "id": "c507537bd851c86ac776145d42c172f36e74318a3c4c964ddd0ecd006dfc54fd",
+  "full_path": "view trucker-invoice-payments show",
+  "description": "Show the full details of a trucker invoice payment.",
+  "permissions": "Requires an authenticated user with visibility to the requested trucker payments; access is scoped to truckers visible to the user and brokers with QuickBooks enabled, and only one QuickBooks realm can be queried per request.",
+  "side_effects": null,
+  "validation_notes": "Payment ID argument is required. Either --trucker-id or --trucker is required to scope QuickBooks payments. When filtering by trucker_id, the truckers must belong to a single QuickBooks integration (otherwise the request is rejected).",
+  "flags": [
+    {
+      "name": "--trucker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker ID (required; scopes QuickBooks company)",
+      "default": null,
+      "validation": "Required unless --trucker is provided; at least one of --trucker-id or --trucker must be set. Example: --trucker-id 456."
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker relationship ID",
+      "default": null,
+      "validation": "Required unless --trucker-id is provided; at least one of --trucker-id or --trucker must be set. Example: --trucker 123."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_invoice_payments_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_invoice_payments.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/trucker_invoice_payments_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_invoice_payment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_invoice_payment.rb"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "2fb4235969509ce0f1aadefbbfa2144266988a00da6205bba61cb5e61d9d8b48",
+  "full_path": "view broker-trucker-ratings list",
+  "description": "List broker trucker ratings with filtering and pagination.",
+  "permissions": "Admins can list all broker trucker ratings. Non-admin users can list ratings only for brokers tied to their broker memberships.",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max and updated-at-min/updated-at-max must be ISO 8601 timestamps when provided. is-created-at and is-updated-at expect true/false values.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--rating",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by rating",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_trucker_ratings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_trucker_rating_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_trucker_rating_policy.rb"
+    }
+  ]
+}

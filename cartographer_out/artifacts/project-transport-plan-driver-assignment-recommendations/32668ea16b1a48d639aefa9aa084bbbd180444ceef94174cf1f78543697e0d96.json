@@ -1,0 +1,41 @@
+{
+  "description": "Generate driver assignment recommendations for a project transport plan driver.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport plan driver ID",
+      "name": "--project-transport-plan-driver",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-driver-assignment-recommendations create",
+  "id": "32668ea16b1a48d639aefa9aa084bbbd180444ceef94174cf1f78543697e0d96",
+  "permissions": "User must be authorized to update the related project transport plan driver (via ProjectTransportPlanDriverPolicy, delegated to the related project transport plan). The recommendation must reference a project transport plan driver.",
+  "side_effects": "Creates a project transport plan driver assignment recommendation and computes candidate drivers using the scoring service/model, persisting the generated candidates.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_driver_assignment_recommendations_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_driver_assignment_recommendation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_driver_assignment_recommendation.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/services/project_transport_plan_driver_assignment_recommendation_scoring_service.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_driver_assignment_recommendation_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--project-transport-plan-driver is required. The recommendation requires a project_transport_plan_driver relationship. Candidates must be present; scoring can fail if there is no project transport plan driver, no candidate drivers, no feature rows for candidates, no scores returned, score count mismatches candidates, or the model file is missing or fails to load/predict."
+}

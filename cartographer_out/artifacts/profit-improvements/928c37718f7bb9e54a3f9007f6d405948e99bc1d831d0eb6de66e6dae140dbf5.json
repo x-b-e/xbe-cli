@@ -1,0 +1,33 @@
+{
+  "id": "928c37718f7bb9e54a3f9007f6d405948e99bc1d831d0eb6de66e6dae140dbf5",
+  "full_path": "do profit-improvements delete",
+  "description": "Delete an existing profit improvement.",
+  "permissions": "Allowed for admins, the profit improvement creator, or organization admins.",
+  "side_effects": "Deletes the profit improvement and destroys associated profit improvement subscriptions.",
+  "validation_notes": "The profit improvement ID argument is required. Deletion requires --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_profit_improvements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement.rb"
+    }
+  ]
+}

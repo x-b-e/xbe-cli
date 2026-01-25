@@ -1,0 +1,33 @@
+{
+  "id": "6a286330f1ff2e470faf29d342cf1741eafc36084824a50d2538ab940f9948d9",
+  "full_path": "do maintenance-requirement-rule-maintenance-requirement-sets delete",
+  "description": "Delete a maintenance requirement rule maintenance requirement set",
+  "permissions": "User must be authorized to destroy the related maintenance requirement rule. Access follows MaintenanceRequirementRulePolicy#destroy?: admins; broker managers; operations users with appropriate business unit membership.",
+  "side_effects": "Deletes the maintenance requirement rule maintenance requirement set association.",
+  "validation_notes": "Requires <id> argument and --confirm flag to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be provided; deletion requires --confirm."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_rule_maintenance_requirement_sets_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_maintenance_requirement_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "1e2f027818590dd302a10dd8c5a95fe50eb954924312a1e028c6ba28053205e2",
+  "full_path": "do incident-headline-suggestions create",
+  "description": "Create an incident headline suggestion",
+  "permissions": "Access is delegated to the related incident; the user must be authorized to create for the incident per IncidentHeadlineSuggestionPolicy.",
+  "side_effects": "Creates an incident headline suggestion. If is_async is true, enqueues background generation; if false, generation runs during the request and makes an AI completion call.",
+  "validation_notes": "--incident is required. --options must be valid JSON object if provided. Incident relationship is required.",
+  "flags": [
+    {
+      "name": "--incident",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Incident ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--options",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "JSON options for suggestion generation",
+      "default": null,
+      "validation": "Must be a valid JSON object."
+    },
+    {
+      "name": "--is-async",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Generate suggestion asynchronously",
+      "default": "true",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_headline_suggestions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_headline_suggestion_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_headline_suggestion.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_headline_suggestion_policy.rb"
+    }
+  ]
+}

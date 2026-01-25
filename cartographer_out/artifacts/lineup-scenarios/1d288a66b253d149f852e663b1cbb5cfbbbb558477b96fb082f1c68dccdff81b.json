@@ -1,0 +1,78 @@
+{
+  "id": "1d288a66b253d149f852e663b1cbb5cfbbbb558477b96fb082f1c68dccdff81b",
+  "full_path": "view lineup-scenarios list",
+  "description": "List lineup scenarios",
+  "permissions": "Admins can list all lineup scenarios; non-admins can list scenarios whose broker is in their broker memberships.",
+  "side_effects": null,
+  "validation_notes": "date, date-min, and date-max filters must be in YYYY-MM-DD format; window filter accepts day or night.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by date on/after (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by date on/before (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--window",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by window (day or night)",
+      "default": null,
+      "validation": "allowed values: day, night"
+    },
+    {
+      "name": "--generator",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by generator ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_scenarios_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

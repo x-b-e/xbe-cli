@@ -1,0 +1,46 @@
+{
+  "description": "List job production plan supply/demand balances",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan ID",
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by observed supply parameters (true/false)",
+      "name": "--use-observed-supply-parameters",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "view job-production-plan-supply-demand-balances list",
+  "id": "f739907081eeaa6eb2258cbe5b20137ddbdd64c36a0f410003f0a36b571a6e8b",
+  "permissions": "Allowed for users authorized by JobProductionPlanSupplyDemandBalancePolicy scope; access is limited to balances whose job_production_plan_id is within the users JobProductionPlan policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_supply_demand_balances_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/job_production_plan_supply_demand_balances.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_supply_demand_balance_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_supply_demand_balance_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter use-observed-supply-parameters expects true/false."
+}

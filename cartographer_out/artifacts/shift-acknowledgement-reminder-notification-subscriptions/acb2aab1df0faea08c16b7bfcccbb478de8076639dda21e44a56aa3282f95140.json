@@ -1,0 +1,33 @@
+{
+  "description": "Delete a shift acknowledgement reminder notification subscription.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion.",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do shift-acknowledgement-reminder-notification-subscriptions delete",
+  "id": "acb2aab1df0faea08c16b7bfcccbb478de8076639dda21e44a56aa3282f95140",
+  "permissions": "Allowed for admins, broker members of the trucker's broker, or trucker managers for the trucker.",
+  "side_effects": "Deletes a shift acknowledgement reminder notification subscription record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_shift_acknowledgement_reminder_notification_subscriptions_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/shift_acknowledgement_reminder_notification_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/notification_subscriptions/shift_acknowledgement_reminder_notification_subscription.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. --confirm is required."
+}

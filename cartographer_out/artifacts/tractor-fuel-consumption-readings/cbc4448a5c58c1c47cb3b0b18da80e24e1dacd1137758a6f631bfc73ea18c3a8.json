@@ -1,0 +1,96 @@
+{
+  "id": "cbc4448a5c58c1c47cb3b0b18da80e24e1dacd1137758a6f631bfc73ea18c3a8",
+  "full_path": "view tractor-fuel-consumption-readings list",
+  "description": "List tractor fuel consumption readings with filtering and pagination.",
+  "permissions": "Admins can list all tractor fuel consumption readings. Non-admins can list readings only within their policy scope: readings associated with brokers or truckers they can see (member broker, member trucker, or customer members with trucker visibility).",
+  "side_effects": null,
+  "validation_notes": "Filter dates must use YYYY-MM-DD (reading-on, reading-on-min, reading-on-max). has-reading-on expects true/false.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by unit of measure ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reading-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by reading date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--reading-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum reading date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--reading-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum reading date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-reading-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of reading date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tractor_fuel_consumption_readings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tractor_fuel_consumption_reading_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_fuel_consumption_reading_policy.rb"
+    }
+  ]
+}

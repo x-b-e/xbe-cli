@@ -1,0 +1,33 @@
+{
+  "id": "6782bfc52e48601e6beefab3838bd5436966de32a6c2b3db2c25c4b8cb9f46fc",
+  "full_path": "do broker-certification-types delete",
+  "description": "Delete a broker certification type",
+  "permissions": "Admins can delete broker certification types. Non-admins can delete broker certification types when they have update permission on the broker.",
+  "side_effects": "Deletes a broker certification type record.",
+  "validation_notes": "The <id> argument is required. --confirm is required and must be true.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Required; must be true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_certification_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_certification_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/broker_certification_type.rb"
+    }
+  ]
+}

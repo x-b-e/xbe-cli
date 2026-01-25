@@ -1,0 +1,29 @@
+{
+  "id": "f2ecee84dce7bfc45aff36bd4f757ff561df0023b75aaeb55f788ba2475fb124",
+  "full_path": "do material-type-conversions delete",
+  "description": "Delete a material type conversion.",
+  "permissions": "Admins can delete material type conversions. Non-admin users can delete conversions if they are manager members of the conversion's broker or manager members of the conversion's material supplier.",
+  "side_effects": "Deletes a material type conversion.",
+  "validation_notes": "The <id> argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_type_conversions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_conversion_policy.rb"
+    }
+  ]
+}

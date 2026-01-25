@@ -1,0 +1,81 @@
+{
+  "description": "Create a project phase revenue item quantity estimate.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project phase revenue item ID",
+      "name": "--project-phase-revenue-item",
+      "required": true,
+      "type": "string",
+      "validation": "Required; must be non-empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project estimate set ID",
+      "name": "--project-estimate-set",
+      "required": true,
+      "type": "string",
+      "validation": "Required; must be non-empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimate JSON payload",
+      "name": "--estimate",
+      "required": false,
+      "type": "string",
+      "validation": "When provided, must be valid JSON for an object; should include class_name and distribution parameters."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimate description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-phase-revenue-item-quantity-estimates create",
+  "id": "d139890b5c72247db1a7399c3149089566330d3af11f2db5ea35169f7719daa7",
+  "permissions": "Create is delegated to the related project. Allowed for admins or users who are practically managers of the project developer; policy also allows create when the project developer is nil (validation may still apply).",
+  "side_effects": "Creates a new project phase revenue item quantity estimate.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phase_revenue_item_quantity_estimates_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_project_phase_cost_item_quantity_estimates_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/project_phase_revenue_item_quantity_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_phase_revenue_item_quantity_estimate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/models/project_phase_revenue_item_quantity_estimate.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--project-phase-revenue-item and --project-estimate-set are required. If --estimate is provided, it must be valid JSON representing an object and should include class_name plus distribution parameters."
+}

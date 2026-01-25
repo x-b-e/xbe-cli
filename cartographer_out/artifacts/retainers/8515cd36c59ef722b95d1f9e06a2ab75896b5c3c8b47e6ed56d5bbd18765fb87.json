@@ -1,0 +1,23 @@
+{
+  "id": "8515cd36c59ef722b95d1f9e06a2ab75896b5c3c8b47e6ed56d5bbd18765fb87",
+  "full_path": "view retainers show",
+  "description": "Show the full details of a retainer.",
+  "permissions": "Admin users can view all retainers. Non-admin users can view retainers where they are a member of the buyer or seller organization: customer buyer memberships, broker buyer memberships, broker seller memberships, or trucker manager memberships for the seller.",
+  "side_effects": null,
+  "validation_notes": "The retainer ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/retainers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/retainer_resource.rb"
+    }
+  ]
+}

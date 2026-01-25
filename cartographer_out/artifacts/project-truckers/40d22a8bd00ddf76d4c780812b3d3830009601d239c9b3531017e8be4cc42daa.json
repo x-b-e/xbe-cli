@@ -1,0 +1,27 @@
+{
+  "id": "40d22a8bd00ddf76d4c780812b3d3830009601d239c9b3531017e8be4cc42daa",
+  "full_path": "view project-truckers show",
+  "description": "Show project trucker details",
+  "permissions": "Read access is allowed, but the record must be within the Project policy scope for the user; admins are not restricted by this scope.",
+  "side_effects": null,
+  "validation_notes": "The project trucker ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_truckers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_trucker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

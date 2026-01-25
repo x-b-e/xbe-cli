@@ -1,0 +1,33 @@
+{
+  "id": "cd6f56aabaf01272fb220bda13df6a9f19846d4307ffd337fbc5b855b33ccb7a",
+  "full_path": "do transport-orders delete",
+  "description": "Delete a transport order.",
+  "permissions": "Allowed for admins, broker members for the transport order customer broker, or members of the customer.",
+  "side_effects": "Deletes a transport order.",
+  "validation_notes": "--confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_orders_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_order_resource.rb"
+    }
+  ]
+}

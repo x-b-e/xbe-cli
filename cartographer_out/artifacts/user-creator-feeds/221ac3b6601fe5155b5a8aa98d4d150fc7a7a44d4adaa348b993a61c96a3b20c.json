@@ -1,0 +1,33 @@
+{
+  "description": "Delete a user creator feed.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion.",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "must be true"
+    }
+  ],
+  "full_path": "do user-creator-feeds delete",
+  "id": "221ac3b6601fe5155b5a8aa98d4d150fc7a7a44d4adaa348b993a61c96a3b20c",
+  "permissions": "UserCreatorFeedPolicy allows delete only when record.user equals the current user.",
+  "side_effects": "Deletes the user creator feed and its dependent user_creator_feed_creators.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_user_creator_feeds_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/user_creator_feed_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/user_creator_feed.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (user creator feed ID). --confirm must be provided to delete."
+}

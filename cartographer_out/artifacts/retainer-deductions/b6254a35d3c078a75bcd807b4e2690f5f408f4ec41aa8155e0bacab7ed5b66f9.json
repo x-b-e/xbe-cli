@@ -1,0 +1,37 @@
+{
+  "id": "b6254a35d3c078a75bcd807b4e2690f5f408f4ec41aa8155e0bacab7ed5b66f9",
+  "full_path": "do retainer-deductions delete",
+  "description": "Delete a retainer deduction.",
+  "permissions": "Delete permission is delegated to the associated retainer RetainerPolicy (via RetainerChildPolicy); users must be authorized to delete on that retainer.",
+  "side_effects": "Deletes a retainer deduction record.",
+  "validation_notes": "Requires <id> argument and --confirm. Deletion is blocked when retainer payment deductions exist for the retainer deduction.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_retainer_deductions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer_deduction.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_deduction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    }
+  ]
+}

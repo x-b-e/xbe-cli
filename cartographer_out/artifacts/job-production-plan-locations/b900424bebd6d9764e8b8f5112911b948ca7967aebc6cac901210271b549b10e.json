@@ -1,0 +1,37 @@
+{
+  "id": "b900424bebd6d9764e8b8f5112911b948ca7967aebc6cac901210271b549b10e",
+  "full_path": "do job-production-plan-locations delete",
+  "description": "Delete a job production plan location",
+  "permissions": "User must be authorized to update the related job production plan (JobProductionPlanPolicy destroy? delegated via JobProductionPlanLocationPolicy), including admins, customer managers, broker members, assigned planner/project manager, or time card approvers.",
+  "side_effects": "Deletes a job production plan location.",
+  "validation_notes": "--confirm is required. Deletion is blocked when the job production plan location has dependent job schedule shifts.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_locations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_location.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_location_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

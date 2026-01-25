@@ -1,0 +1,64 @@
+{
+  "id": "0a725688c9ccfa7456f9ef3caa842b6a950e08f6675316f410609dd984da7781",
+  "full_path": "view hos-events list",
+  "description": "List HOS events",
+  "permissions": "Admin users can view all HOS events; non-admin users can only view events for brokers in their broker memberships.",
+  "side_effects": null,
+  "validation_notes": "If both --driver and --user are set, their values must match.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--hos-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by HOS day ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": "If --driver is also set, values must match."
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver (alias for user) ID",
+      "default": null,
+      "validation": "If --user is also set, values must match."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_events_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

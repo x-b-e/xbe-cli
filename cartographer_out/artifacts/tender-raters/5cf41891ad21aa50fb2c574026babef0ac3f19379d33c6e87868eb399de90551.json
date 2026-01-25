@@ -1,0 +1,102 @@
+{
+  "id": "5cf41891ad21aa50fb2c574026babef0ac3f19379d33c6e87868eb399de90551",
+  "full_path": "do tender-raters create",
+  "description": "Rate a tender against applicable rate agreements.",
+  "permissions": "Allowed for users who can create a tender offer for the tender. This delegates to the tender create policy: broker tenders require admin or broker membership on the buyer; customer tenders require admin, buyer customer membership, or seller broker membership.",
+  "side_effects": "Computes rate agreement rates and shift set time card constraints for the tender; if --persist-changes true, writes updates back to the tender (rates/constraints).",
+  "validation_notes": "--tender is required and must be non-empty. Boolean flags must be set to true or false. The tender must be present. Adjustment cost index value presence is validated unless --skip-adjustment-cost-index-value-presence-validation true; validation errors occur when a rate adjustment requires a cost index value missing for the adjustment date. If --persist-changes true, validation fails when the tender has invoices that prevent changes. Defaults: replace_rates=true, replace_shift_set_time_card_constraints=true, persist_changes=false when not provided.",
+  "flags": [
+    {
+      "name": "tender",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender ID. Example: --tender 123.",
+      "default": null,
+      "validation": "Required; must be a non-empty string."
+    },
+    {
+      "name": "replace-rates",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Replace existing rates (true/false).",
+      "default": "true",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "replace-shift-set-time-card-constraints",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Replace existing shift set time card constraints (true/false).",
+      "default": "true",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "persist-changes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Persist generated rates/constraints (true/false). Example: --persist-changes true.",
+      "default": "false",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "skip-adjustment-cost-index-value-presence-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip adjustment cost index validation (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "skip-validate-customer-tender-hourly-rates",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip customer tender hourly rate validation (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_raters_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_raters.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "config/routes.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_rater_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_rater_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_offer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_rater.rb"
+    }
+  ]
+}

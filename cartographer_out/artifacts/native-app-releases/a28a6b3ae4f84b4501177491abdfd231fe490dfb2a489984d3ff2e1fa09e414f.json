@@ -1,0 +1,73 @@
+{
+  "id": "a28a6b3ae4f84b4501177491abdfd231fe490dfb2a489984d3ff2e1fa09e414f",
+  "full_path": "view native-app-releases list",
+  "description": "List native app releases with filtering and pagination.",
+  "permissions": "Any authenticated user can list native app releases; policy scope for non-admin users resolves to all records.",
+  "side_effects": null,
+  "validation_notes": "Filters release-status and release-channel accept values defined by the server enum sets (release statuses and channels).",
+  "flags": [
+    {
+      "name": "--build-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by build number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--git-sha",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by git SHA",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--git-tag",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by git tag",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--release-channel",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by release channel",
+      "default": null,
+      "validation": "Allowed values are the server defined release channel enums (e.g., apple-app-store, google-play-store)."
+    },
+    {
+      "name": "--release-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by release status",
+      "default": null,
+      "validation": "Allowed values are the server defined release status enums (e.g., uploaded, released)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/native_app_releases_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/native_app_release_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/native_app_release.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/native_app_release_policy.rb"
+    }
+  ]
+}

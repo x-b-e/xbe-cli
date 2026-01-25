@@ -1,0 +1,82 @@
+{
+  "id": "b701fb9e070801db2bab136dd09c6f68468c2d6efc9e6fa786ebf6412332a076",
+  "full_path": "do project-phase-cost-items create",
+  "description": "Create a project phase cost item",
+  "permissions": "Allowed for admins, or for users who can update the related project phase revenue item, or who are a manager on the related job production plan's customer, a manager laborer, a laborer who can manage projects, or the job production plan planner/project manager.",
+  "side_effects": "Creates a project phase cost item and related relationships.",
+  "validation_notes": "--project-phase-revenue-item and --project-cost-classification are required. is-revenue-quantity-driver accepts true or false. project-cost-classification is unique per project-phase-revenue-item. project-resource-classification must share the same broker as the project. cost-code must belong to the project cost codes or be related to a project customer.",
+  "flags": [
+    {
+      "name": "--project-phase-revenue-item",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project phase revenue item ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-cost-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project cost classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-resource-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project resource classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--cost-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cost code ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-revenue-quantity-driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Whether this item drives revenue quantity (true/false)",
+      "default": null,
+      "validation": "true or false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_cost_items_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_cost_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_phase_cost_item.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_cost_item_resource.rb"
+    }
+  ]
+}

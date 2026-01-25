@@ -1,0 +1,23 @@
+{
+  "id": "c5e956dda1463db6728f736b2b729f669d682ab0e71af6e4da37631c574d879b",
+  "full_path": "view broker-project-transport-event-types show",
+  "description": "Show broker project transport event type details",
+  "permissions": "Visible to admins; non-admins can only access records whose broker is within their broker policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires broker project transport event type ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_project_transport_event_types_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_project_transport_event_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_project_transport_event_type_resource.rb"
+    }
+  ]
+}

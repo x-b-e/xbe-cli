@@ -1,0 +1,42 @@
+{
+  "id": "f95cd637cd37332f5d0b1e28b1ff780a6d920fd34a79e7d52c9c8a5170f9e688",
+  "full_path": "do mechanic-user-associations create",
+  "description": "Create a mechanic user association.",
+  "permissions": "Admin users can create mechanic user associations. Broker managers can create associations for their broker. Business unit managers can create associations for maintenance requirements whose equipment is in their business units (including descendants). Technicians can self-assign to maintenance requirements on work orders when the responsible party is their exact business unit.",
+  "side_effects": "Creates a mechanic user association record.",
+  "validation_notes": "Requires --user and --maintenance-requirement. User must be unique per maintenance requirement.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maintenance-requirement",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Maintenance requirement ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_mechanic_user_associations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/mechanic_user_association_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/mechanic_user_association.rb"
+    }
+  ]
+}

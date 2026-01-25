@@ -1,0 +1,33 @@
+{
+  "id": "0cf2d797c9fe0b3a8b00b619d3ccfd0acee44be72c0123e17265865d07a0fcad",
+  "full_path": "do maintenance-requirement-set-maintenance-requirements delete",
+  "description": "Delete a maintenance requirement set maintenance requirement.",
+  "permissions": "Access is delegated to the related maintenance requirement set; the user must be authorized to delete or manage that set per MaintenanceRequirementSet policy.",
+  "side_effects": "Deleting the link may delete the associated maintenance requirement when it is non-template, has no remaining set links, and has no mechanic user associations.",
+  "validation_notes": "The record ID argument is required; --confirm must be provided to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_set_maintenance_requirements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_set_maintenance_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_set_maintenance_requirement_policy.rb"
+    }
+  ]
+}

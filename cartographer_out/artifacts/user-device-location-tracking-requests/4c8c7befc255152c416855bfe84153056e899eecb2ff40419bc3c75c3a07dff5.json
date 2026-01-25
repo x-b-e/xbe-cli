@@ -1,0 +1,63 @@
+{
+  "id": "4c8c7befc255152c416855bfe84153056e899eecb2ff40419bc3c75c3a07dff5",
+  "full_path": "do user-device-location-tracking-requests create",
+  "description": "Send a location tracking request to a user's devices.",
+  "permissions": "Allowed for admins. Otherwise allowed when the requester shares broker, customer, trucker, or material supplier relationships with the requested user per UserLocationRequestPolicy; denied if none apply.",
+  "side_effects": "Sends a push notification to the user's devices to start or stop location tracking.",
+  "validation_notes": "--user is required. location_tracking_kind must be one of normal or continuous (defaults to normal when omitted). location_tracking_action must be one of start or stop (defaults to start when omitted). The requested user must have devices configured for push notifications and those devices must have push tokens.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID to notify. Example: 123.",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--location-tracking-kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Tracking kind (normal or continuous). Example: continuous.",
+      "default": "normal",
+      "validation": "must be one of normal, continuous"
+    },
+    {
+      "name": "--location-tracking-action",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Tracking action (start or stop). Example: stop.",
+      "default": "start",
+      "validation": "must be one of start, stop"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_device_location_tracking_requests_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_device_location_tracking_requests.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_device_location_tracking_request.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_device_location_tracking_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_location_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_device_location_tracking_request_resource.rb"
+    }
+  ]
+}

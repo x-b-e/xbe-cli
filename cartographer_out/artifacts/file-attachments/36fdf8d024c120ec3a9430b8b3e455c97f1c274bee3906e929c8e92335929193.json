@@ -1,0 +1,23 @@
+{
+  "id": "36fdf8d024c120ec3a9430b8b3e455c97f1c274bee3906e929c8e92335929193",
+  "full_path": "view file-attachments show",
+  "description": "Show the full details of a file attachment.",
+  "permissions": "Authenticated users can show a file attachment if they created it or if it is attached to a resource they are allowed to view; access is scoped by the attached resource policy.",
+  "side_effects": null,
+  "validation_notes": "The id argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/file_attachments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/file_attachment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/file_attachment_resource.rb"
+    }
+  ]
+}

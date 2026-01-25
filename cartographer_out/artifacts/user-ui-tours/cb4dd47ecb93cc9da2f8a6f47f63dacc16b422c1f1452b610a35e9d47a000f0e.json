@@ -1,0 +1,46 @@
+{
+  "id": "cb4dd47ecb93cc9da2f8a6f47f63dacc16b422c1f1452b610a35e9d47a000f0e",
+  "full_path": "do user-ui-tours update",
+  "description": "Update a user UI tour",
+  "permissions": "Admins can update any user UI tour; non-admin users can update user UI tours belonging to themselves.",
+  "side_effects": "Updates a user UI tour completion or skip record.",
+  "validation_notes": "At least one of --completed-at or --skipped-at must be provided. After the update exactly one of the two fields must be set; clearing one requires setting the other. The server rejects records that are both completed and skipped or neither.",
+  "flags": [
+    {
+      "name": "--completed-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Completion timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; empty string clears."
+    },
+    {
+      "name": "--skipped-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skipped timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; empty string clears."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_ui_tours_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/user_ui_tour_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/policies/user_ui_tour_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/models/user_ui_tour.rb"
+    }
+  ]
+}

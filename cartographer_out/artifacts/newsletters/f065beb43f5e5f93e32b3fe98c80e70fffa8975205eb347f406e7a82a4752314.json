@@ -1,0 +1,27 @@
+{
+  "id": "f065beb43f5e5f93e32b3fe98c80e70fffa8975205eb347f406e7a82a4752314",
+  "full_path": "view newsletters show",
+  "description": "Show the full details of a specific newsletter.",
+  "permissions": "Admins can view any newsletter. Authenticated non-admins can view public, published newsletters with published_on on/before today, plus newsletters scoped to their organization manager/broker memberships or user_scopes (still requiring is_published true and published_on on/before today). Anonymous users can only view public, published newsletters with published_on on/before today.",
+  "side_effects": null,
+  "validation_notes": "Requires a newsletter ID argument; it must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/newsletters_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/newsletter_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/newsletter_resource.rb"
+    }
+  ]
+}

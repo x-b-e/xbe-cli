@@ -1,0 +1,37 @@
+{
+  "id": "f3ebf17c5a53dbf79c05c36b0aa35813c72b30661e20d49b8809f0e647879b4e",
+  "full_path": "do deere-equipments update",
+  "description": "Update Deere equipment metadata or assignment.",
+  "permissions": "Admins can update any Deere equipment. Non-admin users can update Deere equipment only when they are members of the record's broker organization.",
+  "side_effects": "Updates the Deere equipment record; when --equipment is provided as an empty string, the equipment relationship is cleared.",
+  "validation_notes": "The <id> argument is required. At least one field must be provided to update; if no updatable flags are set, the command errors and instructs to specify --equipment. Use an empty string for --equipment to clear the equipment assignment.",
+  "flags": [
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Assigned equipment ID",
+      "default": null,
+      "validation": "Use an empty string to clear the equipment assignment."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_deere_equipments_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/deere_equipment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

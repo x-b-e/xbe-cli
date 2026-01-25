@@ -1,0 +1,60 @@
+{
+  "id": "5cb96a800bc9965b4155ce92ab9d48b5b6acafd5efdb14d8ec44e2eacc6fbcb9",
+  "full_path": "do site-events update",
+  "description": "Update a site event.",
+  "permissions": "User can update site events if SiteEventPolicy allows: admin, manager member of the developer on the job production plan, job production plan inspector, or user with update permission on the related tender job schedule shift.",
+  "side_effects": "Updates the site event attributes provided.",
+  "validation_notes": "Argument <id> is required. At least one attribute flag must be set. `event-at` expects ISO 8601 timestamp. Server blocks changes to integration-sourced fields (event_at, event_latitude, event_longitude) when the site event is integration sourced.",
+  "flags": [
+    {
+      "name": "--event-details",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event details",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event timestamp (ISO 8601)",
+      "default": "",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--event-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event latitude",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--event-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event longitude",
+      "default": "",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_site_events_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/site_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/site_event.rb"
+    }
+  ]
+}

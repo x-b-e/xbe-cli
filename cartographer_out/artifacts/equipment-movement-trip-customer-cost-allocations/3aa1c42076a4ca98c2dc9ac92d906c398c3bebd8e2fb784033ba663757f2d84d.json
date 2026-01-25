@@ -1,0 +1,26 @@
+{
+  "id": "3aa1c42076a4ca98c2dc9ac92d906c398c3bebd8e2fb784033ba663757f2d84d",
+  "full_path": "view equipment-movement-trip-customer-cost-allocations list",
+  "description": "List customer cost allocations for equipment movement trips.",
+  "permissions": "Access is delegated to the related equipment movement trip via EquipmentMovementTripCustomerCostAllocationPolicy; the user must be authorized on the trip to list its cost allocations.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--trip",
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment movement trip ID (e.g., 123)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_trip_customer_cost_allocations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_customer_cost_allocation_policy.rb"
+    }
+  ]
+}

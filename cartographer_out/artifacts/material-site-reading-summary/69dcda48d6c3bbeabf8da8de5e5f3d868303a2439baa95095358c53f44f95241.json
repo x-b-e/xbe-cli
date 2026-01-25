@@ -1,0 +1,86 @@
+{
+  "id": "69dcda48d6c3bbeabf8da8de5e5f3d868303a2439baa95095358c53f44f95241",
+  "full_path": "summarize material-site-reading-summary create",
+  "description": "Create a material site reading summary.",
+  "permissions": "User must be authenticated (persisted) to create material site reading summaries.",
+  "side_effects": null,
+  "validation_notes": "Required filters: material_site, material_site_measure, reading_at_min, reading_at_max. reading_at_min and reading_at_max must parse as times. Window (reading_at_max - reading_at_min) must be positive and <= 1 day (86400 seconds). Filters cannot have blank values. group-by entries must be valid summary attributes; invalid values raise an invalid field error. filters keys must be valid summary attribute filters; invalid keys raise an invalid field error. included-metrics must be valid metric names; invalid values raise an invalid field error. sort fields must reference valid summary columns.",
+  "flags": [
+    {
+      "name": "--all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all available metrics",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable)",
+      "default": null,
+      "validation": "Each entry must be key=value; key cannot be blank."
+    },
+    {
+      "name": "--filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. '{\"material_site\":\"123\"}')",
+      "default": null,
+      "validation": "Must be valid JSON object."
+    },
+    {
+      "name": "--group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to minute unless set.",
+      "default": "minute",
+      "validation": "Allowed values: minute, five_minute, ten_minute, quarter_hour, half_hour, hour, material_site, material_site_measure, material_site_reading_material_type, material_site_reading_material_type_presence."
+    },
+    {
+      "name": "--metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable)",
+      "default": null,
+      "validation": "Allowed value: value_avg."
+    },
+    {
+      "name": "--metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated)",
+      "default": null,
+      "validation": "Allowed value: value_avg."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_reading_summary_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_reading_summary.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/abstract_summary_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/abstract_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_reading_summary_policy.rb"
+    }
+  ]
+}

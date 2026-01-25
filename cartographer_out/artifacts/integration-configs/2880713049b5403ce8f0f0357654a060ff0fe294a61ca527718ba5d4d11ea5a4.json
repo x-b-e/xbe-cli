@@ -1,0 +1,23 @@
+{
+  "id": "2880713049b5403ce8f0f0357654a060ff0fe294a61ca527718ba5d4d11ea5a4",
+  "full_path": "view integration-configs show",
+  "description": "Show integration config details.",
+  "permissions": "Admin users can view integration config details; non-admin users have no visibility.",
+  "side_effects": null,
+  "validation_notes": "Requires a non-empty integration config ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/integration_configs_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/integration_config_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/integration_config_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "description": "List OpenAI vector stores with filtering and pagination.",
+  "flags": [
+    {
+      "description": "Filter by purpose (platform_content, user_post_feed, prediction_subject_lowest_losing_bid_recap).",
+      "name": "--purpose",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: platform_content, user_post_feed, prediction_subject_lowest_losing_bid_recap."
+    },
+    {
+      "description": "Filter by scope (Type|ID). Example: UserPostFeed|123.",
+      "name": "--scope",
+      "required": false,
+      "type": "string",
+      "validation": "Must be in Type|ID format."
+    },
+    {
+      "description": "Filter by scope type (e.g., Broker, UserPostFeed).",
+      "name": "--scope-type",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by scope ID (use with --scope-type).",
+      "name": "--scope-id",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --scope-type or --scope."
+    },
+    {
+      "description": "Exclude scope types.",
+      "name": "--not-scope-type",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "full_path": "view open-ai-vector-stores list",
+  "id": "6c1a15281eb82979f184d92cb20206b7b94869b2f93977e62062112cc058ac9f",
+  "permissions": "Admins can list all vector stores. Non-admins can list vector stores scoped to UserPostFeeds they can access or Brokers they are members of.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/open_ai_vector_stores_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/open_ai_vector_store_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/open_ai_vector_store_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--scope must be in Type|ID format when provided. --scope-id requires --scope-type or --scope."
+}

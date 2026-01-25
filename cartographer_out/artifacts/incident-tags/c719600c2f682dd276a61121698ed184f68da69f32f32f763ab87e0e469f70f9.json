@@ -1,0 +1,64 @@
+{
+  "id": "c719600c2f682dd276a61121698ed184f68da69f32f32f763ab87e0e469f70f9",
+  "full_path": "do incident-tags create",
+  "description": "Create a new incident tag",
+  "permissions": "User must be an admin to create incident tags.",
+  "side_effects": "Creates a new incident tag record.",
+  "validation_notes": "Requires slug and name. Slug must be unique (case-insensitive) and contain no whitespace; name must be unique (case-insensitive). If kinds are provided, each value must be a valid Incident kind and kinds must be unique.",
+  "flags": [
+    {
+      "name": "--slug",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Unique slug identifier",
+      "default": null,
+      "validation": "Required; example: --slug \"safety-violation\""
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tag name",
+      "default": null,
+      "validation": "Required; example: --name \"Safety Violation\""
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tag description",
+      "default": null,
+      "validation": "Example: --description \"Production delay incident\""
+    },
+    {
+      "name": "--kinds",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Kinds (comma-separated)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_tags_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_tag_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_tag.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.incident_tags.sql"
+    }
+  ]
+}

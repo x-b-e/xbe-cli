@@ -1,0 +1,51 @@
+{
+  "id": "b0262e2d4b641928cd1fbd1a46709a3bfdec0da04b08238326db0187b6ecae83",
+  "full_path": "view file-imports list",
+  "description": "List file imports with filtering",
+  "permissions": "Admins can list all file imports. Non-admins can list file imports they created or file imports tied to brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--file-attachment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by file attachment ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/file_imports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/file_import_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/file_import_policy.rb"
+    }
+  ]
+}

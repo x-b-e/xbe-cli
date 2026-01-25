@@ -1,0 +1,127 @@
+{
+  "description": "List maintenance requirement sets",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by completion on/before (ISO 8601)",
+      "name": "--completed-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by completion on/after (ISO 8601)",
+      "name": "--completed-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by equipment ID",
+      "name": "--equipment",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by equipment business unit ID",
+      "name": "--equipment-business-unit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by equipment classification ID",
+      "name": "--equipment-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by archived status (true/false)",
+      "name": "--is-archived",
+      "required": false,
+      "type": "string",
+      "validation": "Boolean string (true/false)"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by template status (true/false)",
+      "name": "--is-template",
+      "required": false,
+      "type": "string",
+      "validation": "Boolean string (true/false)"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maintenance type",
+      "name": "--maintenance-type",
+      "required": false,
+      "type": "enum",
+      "validation": "inspection or maintenance"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Search by template name",
+      "name": "--q",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing, ready_for_work, on_hold, in_progress, completed"
+    }
+  ],
+  "full_path": "view maintenance-requirement-sets list",
+  "id": "357e977fb84bc99b360fe208a2d42916f20287258745c570ab58c054c55b9002",
+  "permissions": "Admin users can list all sets. Managers can list all sets for their brokers. Operations users with manager business unit membership and at least one business unit can list template sets, non-template empty sets, and non-template sets with equipment in their business units. Operations users without manager business unit membership can list non-template sets that have equipment in their business units. General or technician business unit members can list sets only when they have at least one assigned maintenance requirement.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/maintenance_requirement_sets_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/maintenance_requirement_set_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/maintenance_requirement_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/maintenance_requirement_set_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "maintenance-type filter accepts only inspection or maintenance. status filter accepts only editing, ready_for_work, on_hold, in_progress, completed. is-template and is-archived filters expect boolean values (true/false). completed-at-min and completed-at-max must be ISO 8601 timestamps."
+}

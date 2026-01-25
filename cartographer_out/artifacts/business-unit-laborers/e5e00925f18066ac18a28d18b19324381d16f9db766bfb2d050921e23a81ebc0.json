@@ -1,0 +1,46 @@
+{
+  "id": "e5e00925f18066ac18a28d18b19324381d16f9db766bfb2d050921e23a81ebc0",
+  "full_path": "view business-unit-laborers list",
+  "description": "List business unit laborers with filtering and pagination.",
+  "permissions": "User must be authorized to access the linked business unit; scope is delegated to the related business unit policy, which limits visibility to business units in the user's broker scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--laborer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by laborer ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/business_unit_laborers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/business_unit_laborer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_laborer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    }
+  ]
+}

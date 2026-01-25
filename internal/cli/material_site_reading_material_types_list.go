@@ -250,11 +250,3 @@ func renderMaterialSiteReadingMaterialTypesTable(cmd *cobra.Command, rows []mate
 	}
 	return writer.Flush()
 }
-
-func materialTypeLabel(attrs map[string]any) string {
-	displayName := strings.TrimSpace(stringAttr(attrs, "display-name"))
-	if displayName != "" {
-		return displayName
-	}
-	return strings.TrimSpace(stringAttr(attrs, "name"))
-}

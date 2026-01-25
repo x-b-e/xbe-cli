@@ -1,0 +1,91 @@
+{
+  "id": "b2ab77e409acb4721db2bd74216aa3668e2fef2478de60490a296a3f52398c59",
+  "full_path": "view search-catalog-entries list",
+  "description": "List search catalog entries with filtering and pagination.",
+  "permissions": "Admins can view all search catalog entries. Non-admins can view entries only for brokers tied to their memberships (broker membership or membership in a customer/trucker under the broker).",
+  "side_effects": null,
+  "validation_notes": "search ignores blank values and performs full-text search on complete words; example: \"john smith\". fuzzy-search ignores blank values and performs fuzzy matching for partial words or typos; example: \"joh\".",
+  "flags": [
+    {
+      "name": "--entity-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by entity type (e.g., Customer, Trucker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--entity-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by entity ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--search",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full-text search (complete words)",
+      "default": null,
+      "validation": "Ignored when blank. Full-text search for complete words. Example: \"john smith\"."
+    },
+    {
+      "name": "--fuzzy-search",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Fuzzy search (partial words, typos)",
+      "default": null,
+      "validation": "Ignored when blank. Fuzzy search for partial words and typos. Example: \"joh\"."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/search_catalog_entries_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/search_catalog_entry_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/search_catalog_entry_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/search_catalog_entry_policy_spec.rb"
+    }
+  ]
+}

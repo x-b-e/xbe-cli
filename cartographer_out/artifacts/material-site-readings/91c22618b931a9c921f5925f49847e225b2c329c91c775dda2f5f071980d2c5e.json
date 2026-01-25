@@ -1,0 +1,42 @@
+{
+  "description": "Update a material site reading",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site reading material type ID",
+      "name": "--material-site-reading-material-type",
+      "required": false,
+      "type": "string",
+      "validation": "Cannot be empty when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site reading raw material type ID",
+      "name": "--material-site-reading-raw-material-type",
+      "required": false,
+      "type": "string",
+      "validation": "Cannot be empty when provided."
+    }
+  ],
+  "full_path": "do material-site-readings update",
+  "id": "91c22618b931a9c921f5925f49847e225b2c329c91c775dda2f5f071980d2c5e",
+  "permissions": "Admin users only.",
+  "side_effects": "Updates material site reading relationships.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_site_readings_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_site_reading_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_site_reading_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. At least one of --material-site-reading-material-type or --material-site-reading-raw-material-type must be provided. If provided, either flag cannot be empty."
+}

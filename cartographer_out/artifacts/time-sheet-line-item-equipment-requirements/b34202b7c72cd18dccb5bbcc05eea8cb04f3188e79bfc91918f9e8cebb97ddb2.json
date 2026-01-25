@@ -1,0 +1,41 @@
+{
+  "id": "b34202b7c72cd18dccb5bbcc05eea8cb04f3188e79bfc91918f9e8cebb97ddb2",
+  "full_path": "do time-sheet-line-item-equipment-requirements update",
+  "description": "Update a time sheet line item equipment requirement.",
+  "permissions": "Allowed if the user is authorized for the related time sheet line item via delegated policy to the time sheet. Admins are allowed. Non-admin access follows TimeSheetPolicy based on the time sheet subject (e.g., broker members, customer managers, trucker/driver roles, laborer users on labor requirements, or authorized work order roles/assignments).",
+  "side_effects": "Updating is_primary can synchronize the linked time sheet line item equipment_requirement_id.",
+  "validation_notes": "Requires <id> argument. At least one field is required to update. --is-primary must be \"true\" or \"false\" when provided. equipment_requirement_id must be unique per time_sheet_line_item_id. Time sheet line item must belong to a time sheet with a LaborRequirement subject. equipment_requirement must be on the same job_production_plan as the labor requirement.",
+  "flags": [
+    {
+      "name": "--is-primary",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Mark as primary (true/false)",
+      "default": null,
+      "validation": "Must be \"true\" or \"false\"."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_line_item_equipment_requirements_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_line_item_equipment_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_line_item_equipment_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    }
+  ]
+}

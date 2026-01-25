@@ -1,0 +1,19 @@
+{
+  "id": "bbe0c3010aa550da925a12296d86aa290e825d1af95daf9f27edfb3cc251e171",
+  "full_path": "view public-praise-reactions show",
+  "description": "Show full details of a public praise reaction.",
+  "permissions": "User must be authorized to view the related public praise record (via PublicPraise policy scope).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/public_praise_reactions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_reaction_policy.rb"
+    }
+  ]
+}

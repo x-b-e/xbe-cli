@@ -1,0 +1,217 @@
+{
+  "id": "9a1e43b92037271b76266343339b8ccb458593c68d734f4449ae1df7c04bb644",
+  "full_path": "do equipment-requirements create",
+  "description": "Create an equipment requirement",
+  "permissions": "User must be authorized to update the associated job production plan.",
+  "side_effects": null,
+  "validation_notes": "job-production-plan, resource-classification-type, and resource-classification-id are required. resource-type and resource-id must be provided together. start-at and end-at must be provided together. labor-requirement must belong to the same job production plan. craft-class must be absent.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-classification-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Resource classification type (JSON:API type, e.g., equipment-classifications) (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-classification-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Resource classification ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Resource type (JSON:API type, e.g., equipment)",
+      "default": null,
+      "validation": "requires --resource-id when set"
+    },
+    {
+      "name": "--resource-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Resource ID (requires --resource-type)",
+      "default": null,
+      "validation": "requires --resource-type when set"
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start time (ISO 8601; requires --end-at)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; requires --end-at"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End time (ISO 8601; requires --start-at)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; requires --start-at"
+    },
+    {
+      "name": "--mobilization-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Mobilization method (crew, heavy_equipment_transport, lowboy, itself, trailer)",
+      "default": null,
+      "validation": "crew|heavy_equipment_transport|lowboy|itself|trailer"
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requirement note",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-inbound-movement",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires inbound movement (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--requires-outbound-movement",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires outbound movement (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-validating-overlapping",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate overlapping assignments (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--origin-material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Origin material site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--labor-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Labor requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--craft-class",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Craft class ID",
+      "default": null,
+      "validation": "must be absent for equipment requirements"
+    },
+    {
+      "name": "--project-cost-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project cost classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--crew-requirement-credential-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Comma-separated credential classification link IDs",
+      "default": null,
+      "validation": "comma-separated list"
+    },
+    {
+      "name": "--explicit-inbound-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit inbound latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-inbound-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit inbound longitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-outbound-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit outbound latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-outbound-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit outbound longitude",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_requirements_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_requirements/equipment_requirement.rb"
+    }
+  ]
+}

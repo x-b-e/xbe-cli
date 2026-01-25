@@ -1,0 +1,29 @@
+{
+  "id": "e4f0d25a22c7c73c94f98deb2fd63bd5722bebf8baf6d93b7374dfc7cafb0050",
+  "full_path": "do inventory-changes delete",
+  "description": "Delete an inventory change.",
+  "permissions": "Admins can delete inventory changes. Non-admins can delete inventory changes when they are manager members of the material supplier or broker associated with the material site.",
+  "side_effects": "Deletes the inventory change record.",
+  "validation_notes": "Requires an inventory change ID argument. --confirm is required and must be true.",
+  "flags": [
+    {
+      "name": "confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_inventory_changes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/inventory_change_policy.rb"
+    }
+  ]
+}

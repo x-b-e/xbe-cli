@@ -1,0 +1,19 @@
+{
+  "id": "458a6fa868a97da3de5c697624d01aebc96f16cf458a7de7c4543ae8f92a286d",
+  "full_path": "auth status",
+  "description": "Show authentication status",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/auth.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/concerns/abstract_oauth2_authorizations_controller.rb"
+    }
+  ]
+}

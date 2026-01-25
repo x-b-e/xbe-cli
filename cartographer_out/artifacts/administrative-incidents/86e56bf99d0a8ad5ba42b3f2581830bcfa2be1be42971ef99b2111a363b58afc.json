@@ -1,0 +1,38 @@
+{
+  "id": "86e56bf99d0a8ad5ba42b3f2581830bcfa2be1be42971ef99b2111a363b58afc",
+  "full_path": "do administrative-incidents delete",
+  "description": "Delete an administrative incident",
+  "permissions": "Admins can delete administrative incidents. Non-admins can delete only when authorized for the incident subject (same as create permission).",
+  "side_effects": "Deletes the administrative incident; destroys dependent records (incident headline suggestions, incident unit-of-measure quantities, root causes, action items, incident participants, incident tag incidents) and removes related notifications; child incidents are retained with parent cleared.",
+  "validation_notes": "An administrative incident ID argument is required. --confirm is required to delete an administrative incident.",
+  "flags": [
+    {
+      "name": "confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_administrative_incidents_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/administrative_incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/administrative_incident_policy.rb"
+    }
+  ]
+}

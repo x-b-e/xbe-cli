@@ -1,0 +1,96 @@
+{
+  "id": "8818647abf80f335458f98ce2725d86b87bd127b04d93aa17deac0ec288c511a",
+  "full_path": "do incident-subscriptions create",
+  "description": "Create a new incident subscription.",
+  "permissions": "Admin users can create any incident subscription. Non-admin users can create subscriptions for themselves or when they are a practical member of the scoped organization; if an incident is scoped, membership in the incident organizations also permits creation.",
+  "side_effects": "Creates an incident subscription; if scoped to an incident, a status change notification is created for that incident.",
+  "validation_notes": "--user is required. --incident-type and --incident-id must be provided together. Only one of --broker, --customer, or --material-supplier may be specified. If an incident scope is provided, organization scope and kind must be omitted. Non-admin users must scope subscriptions to an organization or an incident. User must be contactable when incident-scoped, must have the incident in scope, and cannot create duplicate scopes. Organization type must be Broker, Customer, or MaterialSupplier when organization is set.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": "Only one of --broker, --customer, or --material-supplier may be specified."
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": "Only one of --broker, --customer, or --material-supplier may be specified."
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material supplier ID",
+      "default": null,
+      "validation": "Only one of --broker, --customer, or --material-supplier may be specified."
+    },
+    {
+      "name": "--incident-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Incident type (e.g., safety-incidents)",
+      "default": null,
+      "validation": "Must be provided together with --incident-id."
+    },
+    {
+      "name": "--incident-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Incident ID",
+      "default": null,
+      "validation": "Must be provided together with --incident-type."
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Incident kind filter",
+      "default": null,
+      "validation": "Must be omitted when incident scope is provided."
+    },
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Contact method (email_address, mobile_number)",
+      "default": null,
+      "validation": "Allowed values: email_address, mobile_number."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_subscriptions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_subscription.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_subscription_policy.rb"
+    }
+  ]
+}

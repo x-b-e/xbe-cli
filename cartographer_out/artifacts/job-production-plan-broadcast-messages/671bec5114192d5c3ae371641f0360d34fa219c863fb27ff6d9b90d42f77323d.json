@@ -1,0 +1,42 @@
+{
+  "id": "671bec5114192d5c3ae371641f0360d34fa219c863fb27ff6d9b90d42f77323d",
+  "full_path": "do job-production-plan-broadcast-messages update",
+  "description": "Update a job production plan broadcast message.",
+  "permissions": "User must be authorized to view the related job production plan (same permission as create/update policy).",
+  "side_effects": "Updates the broadcast message hidden status.",
+  "validation_notes": "Argument <id> is required. At least one of --is-hidden or --no-is-hidden is required.",
+  "flags": [
+    {
+      "name": "--is-hidden",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Hide the message",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--no-is-hidden",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Unhide the message",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_broadcast_messages_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_broadcast_message_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_broadcast_message_resource.rb"
+    }
+  ]
+}

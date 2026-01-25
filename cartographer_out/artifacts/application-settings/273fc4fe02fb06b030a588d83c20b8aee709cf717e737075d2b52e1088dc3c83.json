@@ -1,0 +1,55 @@
+{
+  "description": "Create a new application setting.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Setting key (required).",
+      "name": "--key",
+      "required": true,
+      "type": "string",
+      "validation": "Required; must be non-empty. Example: FEATURE_FLAG."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Setting value (required).",
+      "name": "--value",
+      "required": true,
+      "type": "string",
+      "validation": "Required; must be non-empty. Example: true."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Setting description.",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": "Example: Timeout in seconds."
+    }
+  ],
+  "full_path": "do application-settings create",
+  "id": "273fc4fe02fb06b030a588d83c20b8aee709cf717e737075d2b52e1088dc3c83",
+  "permissions": "User must be admin to create application settings.",
+  "side_effects": "Creates an application setting.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_application_settings_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/application_setting.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/application_setting_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_setting_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --key and --value flags; both must be non-empty. Key must be unique. Key cannot be changed after creation."
+}

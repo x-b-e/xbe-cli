@@ -1,0 +1,68 @@
+{
+  "description": "Create a shift acknowledgement reminder notification subscription.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trucker ID (example: 123).",
+      "name": "--trucker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID (example: 456).",
+      "name": "--user",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Notify by text (true/false). Example: --notify-by-txt.",
+      "name": "--notify-by-txt",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Notify by email (true/false).",
+      "name": "--notify-by-email",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do shift-acknowledgement-reminder-notification-subscriptions create",
+  "id": "d787a8493215b7fe554543a51b0103617356a313649003293c7c9aed95ec1016",
+  "permissions": "Allowed for admins, broker members of the trucker's broker, or trucker managers for the trucker.",
+  "side_effects": "Creates a shift acknowledgement reminder notification subscription record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_shift_acknowledgement_reminder_notification_subscriptions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/shift_acknowledgement_reminder_notification_subscription_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/shift_acknowledgement_reminder_notification_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/notification_subscriptions/shift_acknowledgement_reminder_notification_subscription.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/notification_subscriptions/details/shift_acknowledgement_reminder_notification_subscription_detail.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--trucker and --user are required. Trucker must be present. If not admin, the user must be a trucker manager, a broker member, or the broker's default dispatch contact for the trucker."
+}

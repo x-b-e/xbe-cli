@@ -1,0 +1,64 @@
+{
+  "id": "e6e142ff90923cb2d1d58efab1579d6a9ac0b3369fec80c5028fabc8a9dd2ef6",
+  "full_path": "do broker-tender-offered-seller-notification-subscriptions create",
+  "description": "Create a broker tender offered seller notification subscription.",
+  "permissions": "User can create a subscription if they are a member of the trucker or a member of the trucker's broker.",
+  "side_effects": "Creates a broker tender offered seller notification subscription.",
+  "validation_notes": "--trucker is required. --user is required. User must have a membership with the trucker.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notify-by-txt",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Notify by text (true/false).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notify-by-email",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Notify by email (true/false).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_tender_offered_seller_notification_subscriptions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_tender_offered_seller_notification_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/notification_subscriptions/broker_tender_offered_seller_notification_subscription.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_tender_offered_seller_notification_subscription_resource.rb"
+    }
+  ]
+}

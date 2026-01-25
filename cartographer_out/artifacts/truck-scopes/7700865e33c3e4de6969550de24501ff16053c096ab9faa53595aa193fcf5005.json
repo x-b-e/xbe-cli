@@ -1,0 +1,131 @@
+{
+  "id": "7700865e33c3e4de6969550de24501ff16053c096ab9faa53595aa193fcf5005",
+  "full_path": "do truck-scopes create",
+  "description": "Create a new truck scope.",
+  "permissions": "Allowed for admin users or users who can manage the target organization (broker/customer/trucker) per OrganizationOwnedPolicy.",
+  "side_effects": "Creates a truck scope record.",
+  "validation_notes": "Required flags: --organization-type, --organization-id. organization must be a Broker, Customer, or Trucker. trailer_classification_ids must reference existing trailer classifications. If any of address-latitude, address-longitude, or address-proximity-meters are set, all three must be provided.",
+  "flags": [
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization type (required)",
+      "default": null,
+      "validation": "e.g., brokers, truckers"
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-classification-ids",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Trailer classification IDs (comma-separated or repeated)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--authorized-state-codes",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Authorized state codes (comma-separated or repeated)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Street address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address longitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-place-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Google Place ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-plus-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Plus code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-proximity-meters",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Address proximity in meters",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip geocoding the address",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_truck_scopes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/truck_scope.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/three_musketeers_validation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/truck_scope_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/organization_owned_policy.rb"
+    }
+  ]
+}

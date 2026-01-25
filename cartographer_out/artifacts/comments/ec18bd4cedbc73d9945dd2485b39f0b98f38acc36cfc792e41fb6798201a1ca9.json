@@ -1,0 +1,73 @@
+{
+  "id": "ec18bd4cedbc73d9945dd2485b39f0b98f38acc36cfc792e41fb6798201a1ca9",
+  "full_path": "view comments list",
+  "description": "List comments on various resources.",
+  "permissions": "Admins can list all comments. Non-admins can list only non-admin-only comments that are on commentable resources they can view or that they created.",
+  "side_effects": null,
+  "validation_notes": "If both --commentable-type and --commentable-id are provided, the API applies a polymorphic commentable filter. Filters are optional.",
+  "flags": [
+    {
+      "name": "--commentable-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by commentable type (e.g., projects, truckers)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--commentable-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by commentable ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-day-driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day driver ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan-project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan project ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/comments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/comments_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/comment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/comment_policy.rb"
+    }
+  ]
+}

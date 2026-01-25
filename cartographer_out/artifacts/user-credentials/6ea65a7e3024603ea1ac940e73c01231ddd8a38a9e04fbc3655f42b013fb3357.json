@@ -1,0 +1,91 @@
+{
+  "description": "List user credentials",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by classification ID",
+      "name": "--user-credential-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum issue date",
+      "name": "--issued-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum issue date",
+      "name": "--issued-on-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum expiration date",
+      "name": "--expires-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum expiration date",
+      "name": "--expires-on-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by active on date",
+      "name": "--active-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "full_path": "view user-credentials list",
+  "id": "6ea65a7e3024603ea1ac940e73c01231ddd8a38a9e04fbc3655f42b013fb3357",
+  "permissions": "Access is controlled by UserCredentialPolicy scope. Admin users can view all user credentials; non-admins are limited to credentials for their own user ID or users in organizations they manage (including broker relationships) via memberships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/user_credentials_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/user_credential_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_credential_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/user_credential.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Date filters (issued-on-min/max, expires-on-min/max, active-on) must use YYYY-MM-DD format when provided. The active-on filter returns credentials where issued_on is nil or <= the date and expires_on is nil or >= the date, applied per provided date."
+}

@@ -1,0 +1,134 @@
+{
+  "id": "0e641318b9c222e9883a374f9f93296694bbc5a93764f4d1f0eb63c6d9cad7ce",
+  "full_path": "do time-cards update",
+  "description": "Update an existing time card.",
+  "permissions": "Allowed under create permissions; additionally customer managers may update only reset_submit_at. Changing explicit_enforce_ticket_number_uniqueness requires admin or broker manager.",
+  "side_effects": "Updates fields on a time card record.",
+  "validation_notes": "At least one flag must be provided; otherwise the update is rejected; --start-at and --end-at expect ISO 8601; Boolean flags require true/false where specified; approval-process is only applied if the user is a broker member or admin; generate-broker-invoice, generate-trucker-invoice, and submitted-customer-travel-minutes are only updatable by admins or users with a managed broker; customer managers may update only reset_submit_at.",
+  "flags": [
+    {
+      "name": "--ticket-number",
+      "required": false,
+      "type": "string",
+      "description": "Ticket number"
+    },
+    {
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "description": "Start time (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "description": "End time (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--down-minutes",
+      "required": false,
+      "type": "string",
+      "description": "Down minutes"
+    },
+    {
+      "name": "--submitted-travel-minutes",
+      "required": false,
+      "type": "string",
+      "description": "Submitted travel minutes"
+    },
+    {
+      "name": "--submitted-customer-travel-minutes",
+      "required": false,
+      "type": "string",
+      "description": "Submitted customer travel minutes"
+    },
+    {
+      "name": "--skip-auto-submission-upon-material-transaction-acceptance",
+      "required": false,
+      "type": "string",
+      "description": "Skip auto submission upon material transaction acceptance (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--explicit-is-trailer-required-for-approval",
+      "required": false,
+      "type": "string",
+      "description": "Explicit trailer required (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--explicit-enforce-ticket-number-uniqueness",
+      "required": false,
+      "type": "string",
+      "description": "Explicit ticket number uniqueness (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--enforce-ticket-number-uniqueness",
+      "required": false,
+      "type": "string",
+      "description": "Enforce ticket number uniqueness (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-time-card-creating-time-sheet-line-item-explicit",
+      "required": false,
+      "type": "string",
+      "description": "Create time sheet line item (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--explicit-is-invoiceable-when-approved",
+      "required": false,
+      "type": "string",
+      "description": "Explicit invoiceable when approved (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--approval-process",
+      "required": false,
+      "type": "string",
+      "description": "Approval process"
+    },
+    {
+      "name": "--generate-broker-invoice",
+      "required": false,
+      "type": "string",
+      "description": "Generate broker invoice (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--generate-trucker-invoice",
+      "required": false,
+      "type": "string",
+      "description": "Generate trucker invoice (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--reset-submit-at",
+      "required": false,
+      "type": "boolean",
+      "description": "Reset submit timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_cards_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_cards_controller.rb"
+    }
+  ]
+}

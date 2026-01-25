@@ -1,0 +1,149 @@
+{
+  "id": "077177dde0c0cbf992cce58bf9b64421042f2223ec5ee0e35fb89d24c2586847",
+  "full_path": "do trucker-applications update",
+  "description": "Update a trucker application.",
+  "permissions": "Allowed for admins. Non-admins are allowed only if they are broker members for the application broker (cannot change status to approved) or if they are the application user (cannot change status or via_dumptruckloadsdotcom).",
+  "side_effects": "Updates the trucker application record.",
+  "validation_notes": "The trucker application ID argument is required. status must be one of pending, reviewing, denied, approved. --skip-company-address-geocoding, --has-union-drivers, and --via-dumptruckloadsdotcom accept true/false.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Company name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Company address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "User ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-place-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Google Place ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-plus-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Plus code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-company-address-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip geocoding (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--has-union-drivers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Has union drivers (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--estimated-trailer-capacity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated trailer capacity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--referral-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Referral code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Status: pending, reviewing, denied, approved",
+      "default": null,
+      "validation": "pending, reviewing, denied, approved"
+    },
+    {
+      "name": "--via-dumptruckloadsdotcom",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Via dumptruckloadsdotcom (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_applications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_application_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/trucker_like_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_application.rb"
+    }
+  ]
+}

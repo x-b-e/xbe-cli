@@ -1,0 +1,49 @@
+{
+  "id": "5c63d1895ee96d807c32c923c32343a414c680fe733adec04e3580d49eeae57e",
+  "full_path": "do importer-configurations delete",
+  "description": "Delete an importer configuration.",
+  "permissions": "Admin users only.",
+  "side_effects": "Deletes an importer configuration.",
+  "validation_notes": "Requires importer configuration ID argument and --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": "Must be set to delete the importer configuration."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_importer_configurations_delete.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_importer_configurations.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/free_ticketing/importer_configuration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/free_ticketing/importer_configuration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/free_ticketing/importer_configuration.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/free_ticketing/importer_configurations_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/free_ticketing/importer_configuration_policy_spec.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "f1061d2fca5c5b28dbfbc42766a1162138b1531a6372a354fe130f619d4cda80",
+  "full_path": "view hos-events show",
+  "description": "Show HOS event details",
+  "permissions": "Admin users can view all HOS events; non-admin users can only view events for brokers in their broker memberships.",
+  "side_effects": null,
+  "validation_notes": "The HOS event ID argument is required and cannot be empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_events_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

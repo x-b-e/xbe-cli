@@ -1,0 +1,78 @@
+{
+  "id": "8a4c7d0a6f5ffa1dc82701b5f27378b65ac190016baff962c7c17dfe83426c1c",
+  "full_path": "view proffer-likes list",
+  "description": "List proffer likes.",
+  "permissions": "Any authenticated user can list proffer likes; policy scope resolves all proffer likes.",
+  "side_effects": null,
+  "validation_notes": "Filter timestamps must be ISO 8601 when provided.",
+  "flags": [
+    {
+      "name": "--proffer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by proffer ID",
+      "default": null,
+      "validation": "Example: --proffer 123"
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": "Example: --user 456"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2024-01-01T00:00:00Z)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/proffer_likes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/proffer_like_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

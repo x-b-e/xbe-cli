@@ -1,0 +1,59 @@
+{
+  "description": "Update a project phase dates estimate.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimated start date",
+      "name": "--start-date",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimated end date",
+      "name": "--end-date",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-phase-dates-estimates update",
+  "id": "9d884d58f769a9824cca1f32b18f33c98f3df54481994dd47dd8a6cbf889010c",
+  "permissions": "Authorized via ProjectPhaseDatesEstimatePolicy; access is delegated to the related project phase (same permissions as project phase).",
+  "side_effects": "Updates attributes or relationships on a project phase dates estimate record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phase_dates_estimates_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/project_phase_dates_estimate.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/validate_created_by_permitted_to_update.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_dates_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_dates_estimate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Project phase dates estimate id argument is required. At least one field must be specified for update. If provided, start-date, end-date, and created-by cannot be empty. Start date and end date must be in YYYY-MM-DD format. End date must be on or after start date. If created-by is provided, the referenced user must be permitted to update the record."
+}

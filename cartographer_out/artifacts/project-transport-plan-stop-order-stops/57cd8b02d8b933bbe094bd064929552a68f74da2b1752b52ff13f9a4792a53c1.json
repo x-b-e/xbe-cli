@@ -1,0 +1,44 @@
+{
+  "id": "57cd8b02d8b933bbe094bd064929552a68f74da2b1752b52ff13f9a4792a53c1",
+  "full_path": "do project-transport-plan-stop-order-stops create",
+  "description": "Create a project transport plan stop order stop.",
+  "permissions": "User must be authorized to create a project transport plan stop order stop via the related project transport plan stop; authorization is delegated through the project transport plan stop to the project transport plan.",
+  "side_effects": "Creates a link between a project transport plan stop and a transport order stop. When both external TMS stop numbers exist and differ, the project transport plan stop may be updated to match the transport order stop. If created by a user, the related transport order may be marked as managed. Creation enqueues location prediction autopsy jobs for certain events and may trigger managed-order warning notifications.",
+  "validation_notes": "--project-transport-plan-stop and --transport-order-stop are required. transport_order_stop_id must be unique. The project transport plan stop location must match the transport order stop location unless both external TMS stop numbers are present and equal. The transport order cannot be cancelled. The project transport plan stop must have events and their transport-order-stop roles must match the transport order stop role.",
+  "flags": [
+    {
+      "name": "--project-transport-plan-stop",
+      "required": true,
+      "type": "string",
+      "description": "Project transport plan stop ID. Example: --project-transport-plan-stop 123"
+    },
+    {
+      "name": "--transport-order-stop",
+      "required": true,
+      "type": "string",
+      "description": "Transport order stop ID. Example: --transport-order-stop 456"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_stop_order_stops_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_stop_order_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_stop_order_stop.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_order_stop_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_policy.rb"
+    }
+  ]
+}

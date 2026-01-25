@@ -1,0 +1,136 @@
+{
+  "id": "959d120f3a3d949aa1dd50b9219e6955dc5ab65f8d2d487b2a5ad5acbf0f9929",
+  "full_path": "do prompters create",
+  "description": "Create a new prompter.",
+  "permissions": "User must be an admin to create prompters.",
+  "side_effects": "Creates a prompter record.",
+  "validation_notes": "At least one field must be provided. Only one prompter may be active at a time (is_active true is unique). Name must be unique when present (case-insensitive).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Prompter name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Set as active",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--release-note-guess-has-navigation-instructions-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for release note navigation instructions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--release-note-headline-suggestions-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for release note headline suggestions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--release-note-glossary-term-suggestions-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for release note glossary term suggestions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--jpp-safety-risks-suggestion-suggestion-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for JPP safety risks suggestions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--jpp-safety-risk-comm-suggestion-suggestion-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for JPP safety risk communication suggestions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--incident-headline-suggestion-suggestion-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for incident headline suggestions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--glossary-term-definition-suggestions-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for glossary term definition suggestions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--condensable-condense-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for content condensation",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--answer-answer-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for answer generation",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--action-item-summary-prompt-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template for action item summaries",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prompters_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prompter_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prompter.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.prompters.sql"
+    }
+  ]
+}

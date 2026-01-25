@@ -1,0 +1,159 @@
+{
+  "description": "List raw material transactions with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by transaction date (YYYY-MM-DD)",
+      "name": "date",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum transaction date (YYYY-MM-DD)",
+      "name": "date-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum transaction date (YYYY-MM-DD)",
+      "name": "date-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "name": "material-site",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "name": "material-site-id",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "name": "broker",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "name": "broker-id",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material supplier name (starts with)",
+      "name": "material-supplier-name",
+      "required": false,
+      "type": "string",
+      "validation": "Prefix match"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by ticket number",
+      "name": "ticket-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by ticket job number",
+      "name": "job-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by hauler type",
+      "name": "hauler-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by sales customer ID (comma-separated for multiple)",
+      "name": "sales-customer-id",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by truck name",
+      "name": "truck-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by raw site ID",
+      "name": "site-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material ID/name from raw ticket",
+      "name": "material-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view raw-material-transactions list",
+  "id": "3adfbaaad23e31d3b35aad0bec721cbbe6421fb0e7c2a8f0654d13d565d4327c",
+  "permissions": "Users can list raw material transactions for material sites they are authorized to access; non-admin scope is limited to material sites available via the MaterialSitePolicy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/raw_material_transactions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/raw_material_transaction_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_material_transaction_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Date filters must be in YYYY-MM-DD format. Filter values marked as comma-separated accept multiple IDs in a comma-delimited string. If --date is provided, it is used instead of --date-min/--date-max."
+}

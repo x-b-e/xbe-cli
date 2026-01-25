@@ -1,0 +1,73 @@
+{
+  "description": "List project estimate sets",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project ID",
+      "name": "--project",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by bid flag (true/false)",
+      "name": "--is-bid",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a strict boolean (true/false)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by actual flag (true/false)",
+      "name": "--is-actual",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a strict boolean (true/false)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by possible flag (true/false)",
+      "name": "--is-possible",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a strict boolean (true/false)."
+    }
+  ],
+  "full_path": "view project-estimate-sets list",
+  "id": "acdb1bda4dfd00d7393f8283be72a0221bff055894d60e352f81d4c38260e0ad",
+  "permissions": "Allowed for users who can access the related project via ProjectPolicy scope (delegated policy through project relationship).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_estimate_sets_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_estimate_set_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_estimate_set_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters --is-bid, --is-actual, and --is-possible require strict boolean values (true/false)."
+}

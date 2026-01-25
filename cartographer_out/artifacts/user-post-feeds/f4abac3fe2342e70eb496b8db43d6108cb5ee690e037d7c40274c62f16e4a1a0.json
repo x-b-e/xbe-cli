@@ -1,0 +1,42 @@
+{
+  "id": "f4abac3fe2342e70eb496b8db43d6108cb5ee690e037d7c40274c62f16e4a1a0",
+  "full_path": "do user-post-feeds create",
+  "description": "Create a user post feed",
+  "permissions": "Allowed for admins or for the user who will own the feed.",
+  "side_effects": "Creates a user post feed. If enable-vector-indexing is set, background work may create or remove an OpenAI vector store and process feed posts for vector indexing.",
+  "validation_notes": "enable-vector-indexing expects true/false. A user can only have one user post feed (user must be unique).",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "User ID (optional)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--enable-vector-indexing",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Enable vector indexing (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_post_feeds_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_post_feed_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_post_feed.rb"
+    }
+  ]
+}

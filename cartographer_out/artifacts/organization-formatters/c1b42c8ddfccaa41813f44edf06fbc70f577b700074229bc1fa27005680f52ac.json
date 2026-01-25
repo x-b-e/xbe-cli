@@ -1,0 +1,95 @@
+{
+  "description": "Create a new organization formatter.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Formatter description.",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Formatter function source (JavaScript).",
+      "name": "--formatter-function",
+      "required": true,
+      "type": "string",
+      "validation": "Required; validated by executing the JavaScript format() when has_format_function is true."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Formatter type (STI class name).",
+      "name": "--formatter-type",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Mark formatter as a shared library.",
+      "name": "--is-library",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Supported MIME types (comma-separated).",
+      "name": "--mime-types",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated list (e.g., text/csv,application/json)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization in Type|ID format.",
+      "name": "--organization",
+      "required": true,
+      "type": "string",
+      "validation": "Type|ID format (e.g., Broker|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Formatter status (active/inactive).",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "active|inactive"
+    }
+  ],
+  "full_path": "do organization-formatters create",
+  "id": "c1b42c8ddfccaa41813f44edf06fbc70f577b700074229bc1fa27005680f52ac",
+  "permissions": "Admins can create organization formatters. Non-admin users can create for an organization if they are a manager member of that organization or a member of its broker organization.",
+  "side_effects": "Creates a new organization formatter record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_organization_formatters_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_memberships_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/organization_formatter_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/organization_formatter.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_formatter_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --formatter-type, --organization, and --formatter-function. Organization must be Type|ID (e.g., Broker|123). formatter-type is create-only. organization relationship is create-only. status accepts active or inactive. formatter-function is validated by executing the JavaScript; errors are surfaced. formatter-function is required when an organization is present."
+}

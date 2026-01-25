@@ -1,0 +1,85 @@
+{
+  "id": "4fa101c52dd7a420d8e796559becf2b7dfa6a598351d82e4453d1904c36d82b6",
+  "full_path": "do tender-acceptances create",
+  "description": "Accept a tender",
+  "permissions": "Allowed for admins. For broker-sold tenders, user must have a broker membership for the seller organization. For trucker-sold tenders, user must have a broker membership for the buyer organization or a trucker membership for the seller organization.",
+  "side_effects": "Marks the tender as accepted, cancels rejected tender job schedule shifts, and for broker tenders may cancel competing broker tenders, source related customer tenders, schedule shift-assignment reminders, shift-starting notifications, check-in requests, and update related shift data.",
+  "validation_notes": "Tender must be in offered status. Tender ID is parsed as an integer. Buyer/seller compliance validations run unless skip_certification_validation is set. rejected_tender_job_schedule_shift_ids must be integers, belong to the tender, be alive, and cannot reject all shifts. Shift rejection must be permitted by the tender. Cannot accept if competing tenders have already been accepted.",
+  "flags": [
+    {
+      "name": "--tender-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Tender type (customer-tenders, broker-tenders)",
+      "default": null,
+      "validation": "Allowed values: customer-tenders, broker-tenders."
+    },
+    {
+      "name": "--tender",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender ID",
+      "default": null,
+      "validation": "Must be an integer ID."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Acceptance comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-certification-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip certification requirement validation",
+      "default": null,
+      "validation": "When set, buyer/seller compliance validations are skipped."
+    },
+    {
+      "name": "--rejected-tender-job-schedule-shift-ids",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Tender job schedule shift IDs to reject (comma-separated or repeated)",
+      "default": null,
+      "validation": "IDs must be integers, belong to the tender, and be alive; cannot reject all shifts; shift rejection must be permitted by the tender."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_acceptances_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_acceptance_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_acceptance_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_with_certification_confirmation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_actions/tender_acceptance.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_actions/tender_action.rb"
+    }
+  ]
+}

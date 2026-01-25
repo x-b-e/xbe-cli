@@ -1,0 +1,76 @@
+{
+  "id": "66c5664a5cf4916b415351a12c77ad9e2e36de683b740adc2b5a69630a752fa7",
+  "full_path": "do change-requests create",
+  "description": "Create a change request",
+  "permissions": "Admin users can create change requests; non-admin users can create change requests for organizations whose broker is in their membership scope (or when the organization has no broker).",
+  "side_effects": "Creates a new change request record; server derives broker from organization when provided.",
+  "validation_notes": "If --organization is provided, it must be Type|ID format (e.g., Broker|123). If using --organization-type or --organization-id, both must be provided together. When --requests is provided, it must be a JSON array of objects; use [] for empty. Server validates requests is an array of hashes and enforces that organization and broker match.",
+  "flags": [
+    {
+      "name": "--requests",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Request items as JSON array (use [] for empty)",
+      "default": null,
+      "validation": "Must be a JSON array of objects; empty string is invalid (use [])."
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Organization in Type|ID format (e.g., Broker|123)",
+      "default": null,
+      "validation": "Must be in Type|ID format (e.g., Broker|123)."
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Organization type (optional if --organization is set)",
+      "default": null,
+      "validation": "Must be provided with --organization-id when used."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Organization ID (optional if --organization is set)",
+      "default": null,
+      "validation": "Must be provided with --organization-type when used."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_change_requests_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_memberships_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/change_request_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/resources/v1/change_request_resource_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/change_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/change_request_policy_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/change_request.rb"
+    }
+  ]
+}

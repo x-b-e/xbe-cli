@@ -1,0 +1,100 @@
+{
+  "id": "fdfa90a366b49ecb047bf9fad56e5d1bb7164678794c87eff233e0c7deab8cf6",
+  "full_path": "do transport-orders update",
+  "description": "Update a transport order.",
+  "permissions": "Allowed for admins, broker members for the transport order customer broker, or members of the customer.",
+  "side_effects": "Updates a transport order.",
+  "validation_notes": "At least one field or relationship must be provided for update. Status must be one of: editing, submitted, approved, cancelled, complete, scrapped. Project division, project office, and project category must belong to the same broker as the transport order.",
+  "flags": [
+    {
+      "name": "--billable-miles",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billable miles",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-managed",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Mark as managed (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--ordered-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Order datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-category",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project category ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-division",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project division ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project office ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status",
+      "default": null,
+      "validation": "editing|submitted|approved|cancelled|complete|scrapped"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_orders_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_order_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/transport_order.rb"
+    }
+  ]
+}

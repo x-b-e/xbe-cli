@@ -1,0 +1,29 @@
+{
+  "id": "8f553709c92199cef36cd22a742c3f05961c49705e5c1e1cc38da1e0827fa4af",
+  "full_path": "do work-order-service-codes delete",
+  "description": "Delete a work order service code",
+  "permissions": "Admins or broker manager members can delete work order service codes for their broker.",
+  "side_effects": "Deletes a work order service code.",
+  "validation_notes": "The work order service code ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_work_order_service_codes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/work_order_service_code_policy.rb"
+    }
+  ]
+}

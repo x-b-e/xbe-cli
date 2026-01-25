@@ -1,0 +1,82 @@
+{
+  "id": "e5a30975d08afc6d6e6b6352254a3c72c609f1aa66eb062ff76dbc998e662e2c",
+  "full_path": "do project-transport-plan-event-location-predictions update",
+  "description": "Update a project transport plan event location prediction.",
+  "permissions": "Admin users can update predictions. Non-admin users must be members of the effective broker (broker on the project transport plan event, or explicit broker context when no event is provided).",
+  "side_effects": "Updates stored attributes and/or relationships for the prediction record.",
+  "validation_notes": "Requires prediction ID argument. At least one attribute or relationship flag is required. Server marks explicit context attributes and relationships as create-only; updates to these fields may be rejected. If explicit values are provided alongside a project transport plan event, they must match the associated event/plan.",
+  "flags": [
+    {
+      "name": "--project-transport-plan-event",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport plan event ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--transport-order",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Transport order ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-transport-event-type-id-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport event type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-position-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Event position (integer)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker-id-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--strategy-set-id-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Strategy set ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_event_location_predictions_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_location_prediction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_event_location_prediction.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_location_prediction_policy.rb"
+    }
+  ]
+}

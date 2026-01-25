@@ -1,0 +1,35 @@
+{
+  "id": "e9d1f785882d8bff9b356a0555da8a0af3b2acdbd1253dfbb23eaf822d504346",
+  "full_path": "view answer-feedbacks show",
+  "description": "Show the full details of an answer feedback record.",
+  "permissions": "Allowed for users who can access the related answer via AnswerPolicy scope; AnswerFeedbackPolicy delegates read scope to the answer relationship.",
+  "side_effects": null,
+  "validation_notes": "Requires the answer feedback id argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/answer_feedbacks_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/answer_feedback_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/answer_feedback_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/answer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "53d4faea121526b4ca96b78825c93051bc594b5f40aef01dbe57023055bc785c",
+  "full_path": "view tender-status-changes show",
+  "description": "Show tender status change details.",
+  "permissions": "User can view tender status changes for tenders they are authorized to view (non-admin scope limited to tenders in the Tender policy scope).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (status change ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_status_changes_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_status_changes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_status_change_policy.rb"
+    }
+  ]
+}

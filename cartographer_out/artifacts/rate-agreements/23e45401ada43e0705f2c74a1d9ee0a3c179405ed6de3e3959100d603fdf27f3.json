@@ -1,0 +1,72 @@
+{
+  "description": "Update an existing rate agreement",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Rate agreement name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Status (active/inactive)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: active, inactive."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Seller in Type|ID format (Broker or Trucker)",
+      "name": "--seller",
+      "required": false,
+      "type": "string",
+      "validation": "Format: Type|ID; allowed types: Broker or Trucker (e.g., Broker|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Buyer in Type|ID format (Customer or Broker)",
+      "name": "--buyer",
+      "required": false,
+      "type": "string",
+      "validation": "Format: Type|ID; allowed types: Customer or Broker (e.g., Customer|456)."
+    }
+  ],
+  "full_path": "do rate-agreements update",
+  "id": "23e45401ada43e0705f2c74a1d9ee0a3c179405ed6de3e3959100d603fdf27f3",
+  "permissions": "Authentication required (API token) and authorization per rate agreement policy.",
+  "side_effects": "Updates a rate agreement record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_rate_agreements_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/rate_agreements_helpers.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_memberships_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/rate_agreements_controller.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/rate_agreement_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreement_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Argument <id> is required. At least one of --name, --status, --seller, or --buyer must be provided. --status must be active or inactive when provided. --seller must be Type|ID with Broker or Trucker. --buyer must be Type|ID with Customer or Broker."
+}

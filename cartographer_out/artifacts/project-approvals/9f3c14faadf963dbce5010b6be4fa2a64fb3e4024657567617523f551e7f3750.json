@@ -1,0 +1,19 @@
+{
+  "description": "Show full details of a project approval.",
+  "flags": [],
+  "full_path": "view project-approvals show",
+  "id": "9f3c14faadf963dbce5010b6be4fa2a64fb3e4024657567617523f551e7f3750",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_approvals_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_approval_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires a project approval ID argument."
+}

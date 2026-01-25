@@ -1,0 +1,225 @@
+{
+  "id": "bb019eeb6d3ad3a0d11fef1e1498b21f980e71d645926bd0d22fdbb634cfd4bf",
+  "full_path": "view digital-fleet-trucks list",
+  "description": "List digital fleet trucks with filtering and pagination.",
+  "permissions": "Allowed for admins; otherwise limited to digital fleet trucks whose broker the user is a member of (list scope and show access are broker-scoped).",
+  "side_effects": null,
+  "validation_notes": "Boolean filters require strict true/false values. Date-time filters must be valid ISO 8601 date-time strings and cannot be empty.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor assignment (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--has-trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer assignment (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--assigned-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by assigned-at timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--integration-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--trailer-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum trailer set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--trailer-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum trailer set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-trailer-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has trailer set timestamp (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--tractor-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum tractor set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--tractor-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum tractor set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-tractor-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has tractor set timestamp (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/digital_fleet_trucks_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/digital_fleet_truck_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    }
+  ]
+}

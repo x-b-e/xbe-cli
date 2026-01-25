@@ -1,0 +1,78 @@
+{
+  "id": "61f743b5d720ce4d152e00b36176f4d4902f0e97692ced65015c0927b94e4291",
+  "full_path": "view project-project-cost-classifications list",
+  "description": "List project project cost classifications with filtering and pagination.",
+  "permissions": "Access is delegated to the related project; the user must be authorized for the project via Project policy.",
+  "side_effects": null,
+  "validation_notes": "created-at-min, created-at-max, updated-at-min, and updated-at-max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-cost-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project cost classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_project_cost_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_project_cost_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_project_cost_classification_policy.rb"
+    }
+  ]
+}

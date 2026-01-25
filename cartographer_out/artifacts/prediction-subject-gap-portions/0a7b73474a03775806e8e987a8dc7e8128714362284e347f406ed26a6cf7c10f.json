@@ -1,0 +1,41 @@
+{
+  "description": "Delete a prediction subject gap portion.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do prediction-subject-gap-portions delete",
+  "id": "0a7b73474a03775806e8e987a8dc7e8128714362284e347f406ed26a6cf7c10f",
+  "permissions": "Allowed for admins, creators, and prediction subject members with can_manage_gaps.",
+  "side_effects": "Deletes a prediction subject gap portion, triggers prediction subject recap generation, and updates the prediction subject gap explained amount cache.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_subject_gap_portions_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_gap_portion_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/policies/prediction_subject_gap_portion_policy_spec.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject_gap_portion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "db/structure_split/tables/public.prediction_subject_gap_portions.sql",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm must be set to delete."
+}

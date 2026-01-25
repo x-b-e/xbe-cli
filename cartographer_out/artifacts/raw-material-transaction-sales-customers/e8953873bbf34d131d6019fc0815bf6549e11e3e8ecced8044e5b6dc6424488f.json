@@ -1,0 +1,42 @@
+{
+  "id": "e8953873bbf34d131d6019fc0815bf6549e11e3e8ecced8044e5b6dc6424488f",
+  "full_path": "do raw-material-transaction-sales-customers update",
+  "description": "Update a raw material transaction sales customer",
+  "permissions": "Admins can update raw material transaction sales customers. Non-admin users can update when they are a member of the related broker; the policy also allows updates when customer or broker is missing, but validations may reject it.",
+  "side_effects": "Updates a raw material transaction sales customer record.",
+  "validation_notes": "The raw material transaction sales customer ID argument is required. At least one of --raw-sales-customer-id or --customer must be provided. If provided, --raw-sales-customer-id and --customer cannot be empty. The broker is derived from the customer and must match broker rules. raw_sales_customer_id is unique per broker.",
+  "flags": [
+    {
+      "name": "--raw-sales-customer-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Raw sales customer identifier",
+      "default": null,
+      "validation": "Cannot be empty when provided."
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": "Cannot be empty when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_material_transaction_sales_customers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/raw_material_transaction_sales_customer.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_material_transaction_sales_customer_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "5a7e60f118a83a83fdc1c058cef840dadae283293454e6cc328ae1d511f48e65",
+  "full_path": "do user-credential-classifications create",
+  "description": "Create a new user credential classification",
+  "permissions": "Admins can create user credential classifications; non-admins can create them for organizations they are members of.",
+  "side_effects": "Creates a user credential classification.",
+  "validation_notes": "--name, --organization-type, and --organization-id are required. Name must be unique within the organization. External ID, if provided, must be unique within the organization. Organization type must be one of Broker, Customer, Trucker, MaterialSupplier, Developer.",
+  "flags": [
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Classification description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External identifier",
+      "default": null,
+      "validation": "If provided, must be unique within the organization."
+    },
+    {
+      "name": "--issuer-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Issuing authority name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Classification name (required)",
+      "default": null,
+      "validation": "Must be unique within the organization."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization type (required)",
+      "default": null,
+      "validation": "Must be one of Broker, Customer, Trucker, MaterialSupplier, Developer."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_credential_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_credential_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_credential_classification.rb"
+    }
+  ]
+}

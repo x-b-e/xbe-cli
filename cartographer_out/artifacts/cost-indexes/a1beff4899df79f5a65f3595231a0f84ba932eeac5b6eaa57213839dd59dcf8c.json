@@ -1,0 +1,60 @@
+{
+  "id": "a1beff4899df79f5a65f3595231a0f84ba932eeac5b6eaa57213839dd59dcf8c",
+  "full_path": "do cost-indexes update",
+  "description": "Update an existing cost index.",
+  "permissions": "Admins or users who manage the broker associated with the cost index can update it.",
+  "side_effects": "Updates the specified fields on the cost index.",
+  "validation_notes": "You must provide at least one of --name, --description, --url, or --expired-at. Name must be unique. url must be a valid URL if provided. expired-at cannot be set if there are cost index entries active after that date.",
+  "flags": [
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Index description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expired-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expiration date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time string."
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Index name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--url",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference URL",
+      "default": null,
+      "validation": "Must be a valid URL if provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_indexes_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_index.rb"
+    }
+  ]
+}

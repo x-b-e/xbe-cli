@@ -1,0 +1,19 @@
+{
+  "id": "27f0e1a38256c84756d7685c232ff740d206c90f053ae22fb4280287f0445e48",
+  "full_path": "view resource-classification-project-cost-classifications show",
+  "description": "Show resource classification project cost classification details.",
+  "permissions": "Admins can view any resource classification project cost classifications; non-admins can only view records for brokers they are members of (policy scope).",
+  "side_effects": null,
+  "validation_notes": "<id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/resource_classification_project_cost_classifications_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/resource_classification_project_cost_classification_policy.rb"
+    }
+  ]
+}

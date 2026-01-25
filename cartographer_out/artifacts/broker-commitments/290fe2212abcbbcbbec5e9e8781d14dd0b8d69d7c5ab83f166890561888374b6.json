@@ -1,0 +1,105 @@
+{
+  "id": "290fe2212abcbbcbbec5e9e8781d14dd0b8d69d7c5ab83f166890561888374b6",
+  "full_path": "view broker-commitments list",
+  "description": "List broker commitments with filtering and pagination.",
+  "permissions": "Admin users can view all broker commitments. Non-admin users can view commitments within policy scope where they have customer, broker, or trucker memberships matching the buyer or seller organization.",
+  "side_effects": "None.",
+  "validation_notes": "Status filter accepts: editing, active, inactive. created-at-min/max and updated-at-min/max must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status. Example: --status active.",
+      "default": null,
+      "validation": "editing | active | inactive"
+    },
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (uses broker_id filter).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID. Example: --broker 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (uses trucker_id filter).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID. Example: --trucker 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_commitments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_commitment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_policy.rb"
+    }
+  ]
+}

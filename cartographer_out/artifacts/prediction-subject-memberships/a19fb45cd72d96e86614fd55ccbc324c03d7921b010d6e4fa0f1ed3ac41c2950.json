@@ -1,0 +1,27 @@
+{
+  "id": "a19fb45cd72d96e86614fd55ccbc324c03d7921b010d6e4fa0f1ed3ac41c2950",
+  "full_path": "view prediction-subject-memberships show",
+  "description": "Show prediction subject membership details",
+  "permissions": "Admins can view prediction subject memberships. Non-admins can view memberships for prediction subjects they can access (members of the prediction subject or broker admins for the prediction subject broker).",
+  "side_effects": null,
+  "validation_notes": "<id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prediction_subject_memberships_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_subject_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_policy.rb"
+    }
+  ]
+}

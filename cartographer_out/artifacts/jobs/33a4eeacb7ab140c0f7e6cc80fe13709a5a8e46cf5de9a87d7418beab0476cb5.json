@@ -1,0 +1,23 @@
+{
+  "id": "33a4eeacb7ab140c0f7e6cc80fe13709a5a8e46cf5de9a87d7418beab0476cb5",
+  "full_path": "view jobs show",
+  "description": "Show job details.",
+  "permissions": "Admins can view all jobs. Non-admins can view jobs when they are members of the job customer or the job customer broker, or when the job is linked to broker tenders or job production plans visible to the user (policy scope).",
+  "side_effects": null,
+  "validation_notes": "The job ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/jobs_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_policy.rb"
+    }
+  ]
+}

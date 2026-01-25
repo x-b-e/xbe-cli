@@ -1,0 +1,42 @@
+{
+  "id": "536778498ccd85445b624180eb76f24f3487d969960cd9fcbc37f27d49ed05e9",
+  "full_path": "do file-attachments update",
+  "description": "Update a file attachment.",
+  "permissions": "Users can update file attachments they created; if the attachment is linked, they must be allowed to update the attached resource.",
+  "side_effects": null,
+  "validation_notes": "The id argument is required. At least one of --file-name or --object-key must be provided. file_name must be present when provided.",
+  "flags": [
+    {
+      "name": "--file-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "File name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--object-key",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "S3 object key",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_file_attachments_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/file_attachment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/file_attachment.rb"
+    }
+  ]
+}

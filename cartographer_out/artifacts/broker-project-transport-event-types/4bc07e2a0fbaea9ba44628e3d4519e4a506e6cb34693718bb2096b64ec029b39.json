@@ -1,0 +1,42 @@
+{
+  "id": "4bc07e2a0fbaea9ba44628e3d4519e4a506e6cb34693718bb2096b64ec029b39",
+  "full_path": "view broker-project-transport-event-types list",
+  "description": "List broker project transport event types",
+  "permissions": "Visible to admins; non-admins can only see records whose broker is within their broker policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": "Example: --broker 123"
+    },
+    {
+      "name": "--project-transport-event-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport event type ID",
+      "default": null,
+      "validation": "Example: --project-transport-event-type 456"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_project_transport_event_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_project_transport_event_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_project_transport_event_type_policy.rb"
+    }
+  ]
+}

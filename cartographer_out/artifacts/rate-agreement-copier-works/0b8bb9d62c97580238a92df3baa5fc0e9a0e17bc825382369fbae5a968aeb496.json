@@ -1,0 +1,76 @@
+{
+  "id": "0b8bb9d62c97580238a92df3baa5fc0e9a0e17bc825382369fbae5a968aeb496",
+  "full_path": "do rate-agreement-copier-works create",
+  "description": "Create a rate agreement copier work to copy a rate agreement to a target organization.",
+  "permissions": "Allowed when RateAgreementCopierWorkPolicy#create? passes; it delegates to RateAgreementCopierPolicy, which requires update permission on the template rate agreement.",
+  "side_effects": "Creates a copier work and schedules the rate agreement copy job (async by default; may run synchronously based on feature flag).",
+  "validation_notes": "--rate-agreement-template, --target-organization-type, and --target-organization-id are required. target-organization-type must be Customer or Trucker (case-insensitive). Server validates the template and target organization are present, validates target organization type, and rejects overlapping copier tasks for the same target organization and template within the overlap window unless disabled by feature flag.",
+  "flags": [
+    {
+      "name": "--rate-agreement-template",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Rate agreement template ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--target-organization-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Target organization type (Customer, Trucker) (required)",
+      "default": null,
+      "validation": "Customer or Trucker (case-insensitive; plural forms accepted)."
+    },
+    {
+      "name": "--target-organization-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Target organization ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Optional note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_rate_agreement_copier_works_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/rate_agreement_copier_works_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/rate_agreement_copier_work_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/rate_agreement_copier_work.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/rate_agreement_copier.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/rate_agreement_copier_work_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/rate_agreement_copier_policy.rb"
+    }
+  ]
+}

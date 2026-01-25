@@ -1,0 +1,29 @@
+{
+  "id": "ea1bc705236405de4a93cdb874ee3eaf36e3606b02e36e5c613ad176eb3eb648",
+  "full_path": "do material-type-material-site-inventory-locations delete",
+  "description": "Delete a material type material site inventory location.",
+  "permissions": null,
+  "side_effects": "Deletes a material type material site inventory location mapping.",
+  "validation_notes": "--confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_type_material_site_inventory_locations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_material_site_inventory_location_policy.rb"
+    }
+  ]
+}

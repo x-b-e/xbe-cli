@@ -1,0 +1,42 @@
+{
+  "id": "e2255ff44d9cfef81ffdb7b1c7c763a39ab244f7cd8d822453eb36b3cb3dbde2",
+  "full_path": "view project-transport-plan-event-location-predictions list",
+  "description": "List project transport plan event location predictions.",
+  "permissions": "Admin users can list all predictions. Non-admin users can list predictions tied to project transport plan events for brokers they belong to, or predictions with an explicit broker context matching their member broker IDs.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--project-transport-plan-event",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan event ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--transport-order",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by transport order ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_event_location_predictions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_location_prediction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_location_prediction_policy.rb"
+    }
+  ]
+}

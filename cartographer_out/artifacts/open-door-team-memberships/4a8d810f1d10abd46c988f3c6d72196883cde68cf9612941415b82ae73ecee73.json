@@ -1,0 +1,51 @@
+{
+  "description": "Create an open door team membership.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Membership ID (required)",
+      "name": "--membership",
+      "required": true,
+      "type": "string",
+      "validation": "Cannot be empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization type (brokers|truckers|customers) (required)",
+      "name": "--organization-type",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: brokers, truckers, customers. Server validates organization_type as Broker, Trucker, or Customer."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization ID (required)",
+      "name": "--organization-id",
+      "required": true,
+      "type": "string",
+      "validation": "Cannot be empty."
+    }
+  ],
+  "full_path": "do open-door-team-memberships create",
+  "id": "4a8d810f1d10abd46c988f3c6d72196883cde68cf9612941415b82ae73ecee73",
+  "permissions": "Admins can create open door team memberships. Non-admins can create only if they are an admin membership of the organization or its broker.",
+  "side_effects": "Creates an open door team membership.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_open_door_team_memberships_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/open_door_team_membership_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/open_door_team_membership.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--membership, --organization-type, and --organization-id are required. organization_type must be Broker, Trucker, or Customer. Membership must be related to the organization or its broker."
+}

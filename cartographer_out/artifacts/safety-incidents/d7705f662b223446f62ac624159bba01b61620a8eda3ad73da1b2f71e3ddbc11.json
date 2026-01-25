@@ -1,0 +1,42 @@
+{
+  "id": "d7705f662b223446f62ac624159bba01b61620a8eda3ad73da1b2f71e3ddbc11",
+  "full_path": "do safety-incidents delete",
+  "description": "Delete a safety incident",
+  "permissions": "Admins can delete. Non-admins can delete only if authorized for the subject: JobProductionPlan (create?), TenderJobScheduleShift (create? on its job production plan), Customer/Trucker/Developer/Contractor/MaterialSupplier/MaterialSite (update?), Broker (practically a member), ProjectTransportPlan (update?).",
+  "side_effects": "Deletes the safety incident; dependent data such as incident unit-of-measure quantities, root causes, action items, incident participants, incident headline suggestions, and incident tag incidents are destroyed; child incidents have parent_id nulled; related notifications are removed.",
+  "validation_notes": "Requires <id> argument and --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_safety_incidents_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/safety_incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/safety_incident.rb"
+    }
+  ]
+}

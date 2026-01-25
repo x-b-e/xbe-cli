@@ -1,0 +1,38 @@
+{
+  "id": "1ae7181eef096a254003bac44e17be1c0464a314afd7ede8769d40be92fd20dc",
+  "full_path": "do job-production-plan-material-types delete",
+  "description": "Delete a job production plan material type.",
+  "permissions": "Allowed when the user can update the associated job production plan per JobProductionPlanPolicy (delegated by JobProductionPlanMaterialTypePolicy) and the material type can_delete is true.",
+  "side_effects": "Deletes the job production plan material type when allowed.",
+  "validation_notes": "--confirm is required. Deletion is blocked when the material type is associated with material transactions or segments, or when removing it would make a required-materials plan invalid.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_material_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_material_type.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "91e9ca238b751df600746d8303eeae66512660b8376541fb2c9564b36cbf14b0",
+  "full_path": "do liability-incidents delete",
+  "description": "Delete a liability incident.",
+  "permissions": "Admins can delete liability incidents. Non-admins can delete only when authorized for the subject under the incident policy (same authorization as create).",
+  "side_effects": "Deletes the liability incident and removes related notification records.",
+  "validation_notes": "<id> argument is required. --confirm must be set to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_liability_incidents_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    }
+  ]
+}

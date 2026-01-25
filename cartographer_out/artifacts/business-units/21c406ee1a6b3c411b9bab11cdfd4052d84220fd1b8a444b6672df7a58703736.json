@@ -1,0 +1,60 @@
+{
+  "id": "21c406ee1a6b3c411b9bab11cdfd4052d84220fd1b8a444b6672df7a58703736",
+  "full_path": "do business-units create",
+  "description": "Create a new business unit.",
+  "permissions": "User must be practically admin of the broker organization for the specified broker.",
+  "side_effects": "Creates a business unit and associates it to the broker and optional parent.",
+  "validation_notes": "--name and --broker are required. company_name must be present and unique per broker. parent cannot reference itself or create a circular reference.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Business unit name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent business unit ID",
+      "default": null,
+      "validation": "Parent cannot be itself or create a circular reference."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_units_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/business_unit.rb"
+    }
+  ]
+}

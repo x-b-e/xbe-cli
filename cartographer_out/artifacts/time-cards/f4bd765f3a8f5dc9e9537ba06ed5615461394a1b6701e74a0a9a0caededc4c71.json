@@ -1,0 +1,34 @@
+{
+  "id": "f4bd765f3a8f5dc9e9537ba06ed5615461394a1b6701e74a0a9a0caededc4c71",
+  "full_path": "do time-cards delete",
+  "description": "Delete a time card.",
+  "permissions": "Allowed if user is admin; or a broker member; or a customer manager on a cost-plus customer; or a trucker manager; or a trucker member who is the tender job schedule shift driver or shift driver. Changing explicit_enforce_ticket_number_uniqueness also requires admin or broker manager.",
+  "side_effects": "Deletes a time card record.",
+  "validation_notes": "The <id> argument is required; --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_cards_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_cards_controller.rb"
+    }
+  ]
+}

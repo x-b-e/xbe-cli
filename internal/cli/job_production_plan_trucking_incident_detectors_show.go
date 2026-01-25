@@ -177,32 +177,3 @@ func renderJobProductionPlanTruckingIncidentDetectorDetails(cmd *cobra.Command, 
 
 	return nil
 }
-
-func mapSliceAttr(attrs map[string]any, key string) []map[string]any {
-	if attrs == nil {
-		return nil
-	}
-	value, ok := attrs[key]
-	if !ok || value == nil {
-		return nil
-	}
-	switch typed := value.(type) {
-	case []map[string]any:
-		return typed
-	case []any:
-		items := make([]map[string]any, 0, len(typed))
-		for _, item := range typed {
-			if item == nil {
-				continue
-			}
-			if mapped, ok := item.(map[string]any); ok {
-				items = append(items, mapped)
-				continue
-			}
-			items = append(items, map[string]any{"value": item})
-		}
-		return items
-	default:
-		return []map[string]any{{"value": typed}}
-	}
-}

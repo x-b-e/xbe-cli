@@ -1,0 +1,64 @@
+{
+  "id": "26b2a3cc288d99f920df1fae3ae888613408a63fb130f39c1f14df405d4ac100",
+  "full_path": "do posts update",
+  "description": "Update an existing post.",
+  "permissions": "User must be authenticated and must be the creator of the post to update it.",
+  "side_effects": "Updates the post. May enqueue background work to generate short_text_content, generate embeddings, create user_post_feed_posts, and create a post router when relevant fields change.",
+  "validation_notes": "post-type, creator, and subject-post cannot be changed after creation. At least one updatable flag must be provided; otherwise the CLI returns an error. status must be one of: draft, published. published-at must be ISO 8601 datetime. Server requires at least one content field (text, image, video, audio, or action_content) and enforces text_content length max of 4000 characters by default (can vary by post type) and short_text_content length max of 280 characters by default (can vary by post type). If status is set to published and published-at is blank, the server sets published_at to the current time. For action post_type, action_content must be non-empty and match a valid action schema.",
+  "flags": [
+    {
+      "name": "--text-content",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Post content text",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Post status (draft/published)",
+      "default": null,
+      "validation": "One of: draft, published."
+    },
+    {
+      "name": "--published-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Publication date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime."
+    },
+    {
+      "name": "--private",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark post as private",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_posts_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/post.rb"
+    }
+  ]
+}

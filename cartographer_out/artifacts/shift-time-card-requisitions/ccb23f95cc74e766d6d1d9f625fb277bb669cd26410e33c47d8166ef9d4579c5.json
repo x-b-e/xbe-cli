@@ -1,0 +1,96 @@
+{
+  "id": "ccb23f95cc74e766d6d1d9f625fb277bb669cd26410e33c47d8166ef9d4579c5",
+  "full_path": "view shift-time-card-requisitions list",
+  "description": "List shift time card requisitions.",
+  "permissions": "Requires authentication. Admins can list all shift time card requisitions. Non-admins can only list requisitions for tender job schedule shifts within their TenderJobScheduleShift policy scope.",
+  "side_effects": null,
+  "validation_notes": "--status accepts open or closed.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status (open/closed)",
+      "default": null,
+      "validation": "Enum values: open, closed."
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/shift_time_card_requisitions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/shift_time_card_requisition_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_time_card_requisition_policy.rb"
+    }
+  ]
+}

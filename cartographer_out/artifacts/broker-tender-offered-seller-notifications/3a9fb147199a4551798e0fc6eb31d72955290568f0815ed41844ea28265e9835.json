@@ -1,0 +1,171 @@
+{
+  "id": "3a9fb147199a4551798e0fc6eb31d72955290568f0815ed41844ea28265e9835",
+  "full_path": "view broker-tender-offered-seller-notifications list",
+  "description": "List broker tender offered seller notifications",
+  "permissions": "Authenticated user can list only notifications where the notification user matches the current user (policy scope).",
+  "side_effects": null,
+  "validation_notes": "Filters read, is-ready-for-delivery, is-created-at, and is-updated-at require strict boolean values (true/false). Delivery-decision-approach filter accepts enum values static or dynamic; value all disables filtering. Created-at-min/max and updated-at-min/max require non-empty, parseable date-time values (server validates). Notification-type filter values must constantize to a valid notification class; invalid values return a 400 error.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--read",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by read status (true/false)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--delivery-decision-approach",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by delivery decision approach (static/dynamic/all)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-ready-for-delivery",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ready-for-delivery status (true/false)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--deliver-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by deliver-at time (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--deliver-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by deliver-at on/after (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--deliver-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by deliver-at on/before (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notification-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by notification type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude notifications by ID (comma-separated)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_tender_offered_seller_notifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/notification.rb"
+    }
+  ]
+}

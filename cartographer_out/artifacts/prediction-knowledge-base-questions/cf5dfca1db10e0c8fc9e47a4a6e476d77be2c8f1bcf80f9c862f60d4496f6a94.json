@@ -1,0 +1,33 @@
+{
+  "description": "Delete a prediction knowledge base question",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required).",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do prediction-knowledge-base-questions delete",
+  "id": "cf5dfca1db10e0c8fc9e47a4a6e476d77be2c8f1bcf80f9c862f60d4496f6a94",
+  "permissions": "Only admins or broker admins can delete questions.",
+  "side_effects": "Deletes the question and its associated prediction knowledge base answer.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_knowledge_base_questions_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_knowledge_base_question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_knowledge_base_question.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (prediction knowledge base question ID). --confirm is required."
+}

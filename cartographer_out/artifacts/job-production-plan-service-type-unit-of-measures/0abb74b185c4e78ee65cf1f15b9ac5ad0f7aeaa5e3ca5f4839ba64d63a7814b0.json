@@ -1,0 +1,45 @@
+{
+  "id": "0abb74b185c4e78ee65cf1f15b9ac5ad0f7aeaa5e3ca5f4839ba64d63a7814b0",
+  "full_path": "do job-production-plan-service-type-unit-of-measures delete",
+  "description": "Remove a service type unit of measure from a job production plan.",
+  "permissions": "Allowed for users authorized to access the related job production plan per JobProductionPlanServiceTypeUnitOfMeasurePolicy (delegated to job_production_plan).",
+  "side_effects": "Deletes a job production plan service type unit of measure; enqueues background removal of time card service type unit of measures.",
+  "validation_notes": "The <id> argument is required. --confirm is required. Deletion is blocked when the service type unit of measure is a cohort trigger or part of a cohort while maintaining service type unit of measure cohorts is enabled.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true to proceed"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_service_type_unit_of_measures.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_service_type_unit_of_measures_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/job_production_plan_service_type_unit_of_measures_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_service_type_unit_of_measure_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_service_type_unit_of_measure_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_service_type_unit_of_measure.rb"
+    }
+  ]
+}

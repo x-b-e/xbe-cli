@@ -1,0 +1,63 @@
+{
+  "id": "f745de86815dd87ea68b47732fc7b0556323ab5a9b02d86bf04979a9bc4316ff",
+  "full_path": "do tenna-vehicles update",
+  "description": "Update Tenna vehicle trailer, tractor, or equipment assignments.",
+  "permissions": "Admin users can update Tenna vehicles. Non-admin users can update vehicles only if they are members of the vehicle's broker organization.",
+  "side_effects": "Updates Tenna vehicle trailer/tractor/equipment relationships. When a trailer or tractor is first assigned, the server may enqueue asynchronous vehicle location event creation for that vehicle.",
+  "validation_notes": "Requires <id> argument for the Tenna vehicle ID. At least one of --tractor, --trailer, or --equipment must be provided. Passing an empty string for a relationship clears that assignment. When both trailer and tractor are set, they must belong to the same trucker; when broker and trucker are present, they must match.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID",
+      "default": null,
+      "validation": "Example: 456. Use empty string to clear assignment."
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID",
+      "default": null,
+      "validation": "Example: 789. Use empty string to clear assignment."
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": "Example: 321. Use empty string to clear assignment."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tenna_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tenna_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tenna_vehicle.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/vehicle_location_event_vehicle.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/equipment_location_event_vehicle.rb"
+    }
+  ]
+}

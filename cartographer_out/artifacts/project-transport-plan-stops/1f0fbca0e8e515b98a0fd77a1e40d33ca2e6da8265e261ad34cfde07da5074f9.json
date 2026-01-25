@@ -1,0 +1,76 @@
+{
+  "id": "1f0fbca0e8e515b98a0fd77a1e40d33ca2e6da8265e261ad34cfde07da5074f9",
+  "full_path": "do project-transport-plan-stops update",
+  "description": "Update a project transport plan stop.",
+  "permissions": "Update is delegated to the related project transport plan. Project transport plan permissions delegate to the project; users need project update permissions (admin or practically manager of the project developer organization) to update a stop.",
+  "side_effects": "If changed_by_id is set, after commit the plan transport orders may be marked as managed. If project transport location changes, the system updates transport routes for related segments and refreshes inbound office cache for drivers after commit.",
+  "validation_notes": "Requires <id> argument (project transport plan stop ID). At least one field flag must be provided. Status must be one of: planned, started, finished, cancelled. Project transport location must belong to the same broker as the project transport plan. Project transport location must be valid for stops. Project transport plan is create-only and cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "project-transport-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "planned-completion-event-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned completion event type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Stop status (planned, started, finished, cancelled)",
+      "default": null,
+      "validation": "One of: planned, started, finished, cancelled."
+    },
+    {
+      "name": "position",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Stop position",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_stops_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_stop.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/trigger_set_transport_orders_managed.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

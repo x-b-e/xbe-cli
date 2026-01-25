@@ -1,0 +1,55 @@
+{
+  "id": "5e6c0299bc8b11bf8c614a10ecf550e2bf6f4b01d18078aa5b6c70d121ae4e22",
+  "full_path": "summarize transport-summary create",
+  "description": "Create a transport summary.",
+  "permissions": "User must be authenticated; admins are allowed. Non-admins must have access to all requested broker IDs (membership in the broker or in any customer belonging to the broker).",
+  "side_effects": null,
+  "validation_notes": "--entity-type is required and must be one of: transport_order, transport_plan, driver_assignment, live_loads. Filters must include broker; broker may be a comma-separated list of positive IDs. Filters can be provided via --filter key=value (repeatable) or --filters as a JSON object; --filters must be valid JSON and each --filter must include = with a non-empty key. Invalid filter combinations are rejected: trucker is invalid for transport_order and live_loads; customer is invalid for driver_assignment. status may be a comma-separated list and must be valid for the entity type (transport_order: editing, submitted, approved, cancelled, complete, scrapped; transport_plan: editing, approved, complete; driver_assignment: editing, pending, active; live_loads: editing, submitted, approved). customer, trucker, project_office, and project_category must be positive IDs when provided. start_date and end_date must be valid YYYY-MM-DD dates; end_date cannot be before start_date.",
+  "flags": [
+    {
+      "name": "--entity-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Entity type (transport_order, transport_plan, driver_assignment, live_loads)",
+      "default": null,
+      "validation": "Must be one of: transport_order, transport_plan, driver_assignment, live_loads."
+    },
+    {
+      "name": "--filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable)",
+      "default": null,
+      "validation": "Each entry must be in key=value format (e.g. broker=123)."
+    },
+    {
+      "name": "--filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. {\"broker\":\"123\"})",
+      "default": null,
+      "validation": "Must be a valid JSON object."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_summary_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/transport_summary.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_summary_resource.rb"
+    }
+  ]
+}

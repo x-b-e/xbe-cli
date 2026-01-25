@@ -1,0 +1,33 @@
+{
+  "id": "cccd92c7de2abb1eb0810c07bfe60e3bb5edd6c5d4a21a65914811ee0956d456",
+  "full_path": "view crew-requirement-credential-classifications list",
+  "description": "List crew requirement credential classifications with filtering and pagination.",
+  "permissions": "Records are scoped to crew requirements within the CrewRequirement policy scope for the user.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--crew-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by crew requirement ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/crew_requirement_credential_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/crew_requirement_credential_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_credential_classification_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "35c5f87835db0ebece2e14eb25794dbc7aa6777adb63a983b661d2e68198dc97",
+  "full_path": "do craft-classes create",
+  "description": "Create a new craft class.",
+  "permissions": "Requires permission to create craft classes for the specified parent craft; authorization is delegated to the related craft (CraftPolicy).",
+  "side_effects": "Creates a craft class record.",
+  "validation_notes": "--name is required. --craft is required. name must be unique within the craft (case-insensitive). code must be unique within the craft (case-insensitive).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Craft class name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--craft",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Parent craft ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Craft class code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-valid-for-drivers",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether valid for drivers",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_craft_classes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/craft_class_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/craft_class.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/craft_class_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/models/craft_class_spec.rb"
+    }
+  ]
+}

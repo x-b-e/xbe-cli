@@ -1,0 +1,23 @@
+{
+  "description": "Show raw transport tractor details",
+  "flags": [],
+  "full_path": "view raw-transport-tractors show",
+  "id": "932cbf0d7e6826b585cb09107cb0019f0a82ba47847c0632c094fffb61425b0e",
+  "permissions": "Admins can view all raw transport tractors. Broker admins can view tractors for brokers they admin.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/raw_transport_tractors_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/raw_transport_tractor_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_transport_tractor_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument."
+}

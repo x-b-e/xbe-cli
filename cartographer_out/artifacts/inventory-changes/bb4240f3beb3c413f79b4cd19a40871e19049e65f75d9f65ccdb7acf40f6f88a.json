@@ -1,0 +1,64 @@
+{
+  "id": "bb4240f3beb3c413f79b4cd19a40871e19049e65f75d9f65ccdb7acf40f6f88a",
+  "full_path": "do inventory-changes create",
+  "description": "Create an inventory change.",
+  "permissions": "Admins can create inventory changes. Non-admins can create inventory changes when they are manager members of the material supplier or broker associated with the material site.",
+  "side_effects": "Creates an inventory change and enqueues background work to calculate the change, update the most recent inventory estimate, and check inventory capacity thresholds.",
+  "validation_notes": "material-site, material-type, and estimate-at are required. estimate-at must be an ISO 8601 timestamp. forecast-start-at must be an ISO 8601 timestamp and must be before estimate-at. material-type must be valid for the material site (must belong to the same material supplier). If forecast-start-at is omitted and estimate-at is in the future, the server sets forecast-start-at to the current time.",
+  "flags": [
+    {
+      "name": "material-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material site ID (required).",
+      "default": null,
+      "validation": "Required ID of the material site."
+    },
+    {
+      "name": "material-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material type ID (required).",
+      "default": null,
+      "validation": "Required ID of the material type."
+    },
+    {
+      "name": "estimate-at",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Estimate timestamp (ISO 8601, required).",
+      "default": null,
+      "validation": "ISO 8601 timestamp, e.g., 2025-01-01T12:00:00Z."
+    },
+    {
+      "name": "forecast-start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Forecast start timestamp (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp that must be before estimate-at, e.g., 2025-01-01T00:00:00Z."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_inventory_changes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/inventory_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/inventory_change.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/inventory_change_policy.rb"
+    }
+  ]
+}

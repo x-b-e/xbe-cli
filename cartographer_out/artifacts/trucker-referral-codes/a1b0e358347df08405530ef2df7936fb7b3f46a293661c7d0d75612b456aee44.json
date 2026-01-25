@@ -1,0 +1,55 @@
+{
+  "id": "a1b0e358347df08405530ef2df7936fb7b3f46a293661c7d0d75612b456aee44",
+  "full_path": "do trucker-referral-codes create",
+  "description": "Create a trucker referral code.",
+  "permissions": "Requires authentication and broker membership for the broker referenced by --broker.",
+  "side_effects": "Creates a trucker referral code.",
+  "validation_notes": "--broker is required. --code is required. Codes are normalized to uppercase with whitespace removed. code must be unique per broker (case-insensitive). value must be numeric and >= 0.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Referral code (required)",
+      "default": null,
+      "validation": "Normalized to uppercase with whitespace removed; must be unique per broker (case-insensitive)."
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Referral value (numeric)",
+      "default": null,
+      "validation": "Numeric value; must be >= 0."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_referral_codes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_referral_code.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_referral_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_referral_code_resource.rb"
+    }
+  ]
+}

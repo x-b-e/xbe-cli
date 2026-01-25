@@ -1,0 +1,109 @@
+{
+  "description": "Create a base summary template",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Template label (required)",
+      "name": "--label",
+      "required": true,
+      "type": "string",
+      "validation": "Required; non-empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Group-by fields (comma-separated or repeatable)",
+      "name": "--group-bys",
+      "required": false,
+      "type": "array",
+      "validation": "Accepts comma-separated values or repeatable flag."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Explicit metrics (comma-separated or repeatable)",
+      "name": "--explicit-metrics",
+      "required": false,
+      "type": "array",
+      "validation": "Accepts comma-separated values or repeatable flag."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filters JSON object (e.g. '{\"broker\":\"123\"}')",
+      "name": "--filters",
+      "required": false,
+      "type": "string",
+      "validation": "Must be valid JSON."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter in key=value format (repeatable)",
+      "name": "--filter",
+      "required": false,
+      "type": "array",
+      "validation": "Each value must be key=value with a non-empty key."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Start date (YYYY-MM-DD)",
+      "name": "--start-date",
+      "required": false,
+      "type": "string",
+      "validation": "Expected format: YYYY-MM-DD."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "End date (YYYY-MM-DD)",
+      "name": "--end-date",
+      "required": false,
+      "type": "string",
+      "validation": "Expected format: YYYY-MM-DD."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do base-summary-templates create",
+  "id": "04950441cdf29e321286d9a9d10a7c4ee4765eca3ccf4685f337502dd8e52966",
+  "permissions": "Allowed for admins, or for users who are members of the broker specified on the template. If no broker is specified, admin access is required.",
+  "side_effects": "Creates a base summary template.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_base_summary_templates_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/base_summary_template_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/base_summary_template_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/base_summary_template.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--label is required. --filters must be valid JSON. --filter values must be in key=value form with a non-empty key. --start-date and --end-date expect YYYY-MM-DD. --group-bys and --explicit-metrics accept comma-separated values or repeatable flags."
+}

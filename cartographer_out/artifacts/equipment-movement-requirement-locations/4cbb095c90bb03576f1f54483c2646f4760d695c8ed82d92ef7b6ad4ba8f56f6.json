@@ -1,0 +1,33 @@
+{
+  "description": "Delete an equipment movement requirement location.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do equipment-movement-requirement-locations delete",
+  "id": "4cbb095c90bb03576f1f54483c2646f4760d695c8ed82d92ef7b6ad4ba8f56f6",
+  "permissions": "Admins can delete locations. Non-admin users can delete locations only for brokers they are members of.",
+  "side_effects": "Deletes an equipment movement requirement location.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_equipment_movement_requirement_locations_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/equipment_movement_requirement_location_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/equipment_movement_requirement_location.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required. Deletion is blocked if the location is related to a confirmed job production plan."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "9d307574369f36465954521ad374270b8418bafee1dc575da21163919b60eeab",
+  "full_path": "view action-item-tracker-update-requests show",
+  "description": "Show the full details of an action item tracker update request.",
+  "permissions": "User must be authorized to view the action item tracker update request via the delegated action_item_tracker policy (ActionItemTrackerUpdateRequestPolicy).",
+  "side_effects": null,
+  "validation_notes": "Argument <id> is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/action_item_tracker_update_requests_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_tracker_update_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_tracker_update_request_resource.rb"
+    }
+  ]
+}

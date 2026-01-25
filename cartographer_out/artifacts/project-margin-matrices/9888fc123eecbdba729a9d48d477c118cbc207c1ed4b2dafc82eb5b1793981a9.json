@@ -1,0 +1,37 @@
+{
+  "description": "List project margin matrices",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project ID",
+      "name": "--project",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-margin-matrices list",
+  "id": "9888fc123eecbdba729a9d48d477c118cbc207c1ed4b2dafc82eb5b1793981a9",
+  "permissions": "Authorized via ProjectMarginMatrixPolicy delegated to the related project; list access is limited to projects visible under ProjectPolicy (e.g., admins, developer members, broker members, material supplier members, or customer members with access to the project).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_margin_matrices_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_margin_matrix_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_margin_matrix_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

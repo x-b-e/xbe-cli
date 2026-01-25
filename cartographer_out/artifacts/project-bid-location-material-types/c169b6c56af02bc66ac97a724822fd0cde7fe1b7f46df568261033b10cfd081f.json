@@ -1,0 +1,73 @@
+{
+  "id": "c169b6c56af02bc66ac97a724822fd0cde7fe1b7f46df568261033b10cfd081f",
+  "full_path": "do project-bid-location-material-types create",
+  "description": "Create a project bid location material type.",
+  "permissions": "Allowed when the user can create on the associated project bid location (ProjectBidLocation policy) and the record has a project bid location.",
+  "side_effects": "Creates a project bid location material type record.",
+  "validation_notes": "--project-bid-location and --material-type are required. material_type_id must be unique within the same project_bid_location_id. quantity must be a number greater than or equal to 0 when provided.",
+  "flags": [
+    {
+      "name": "--project-bid-location",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project bid location ID",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material type ID",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned quantity",
+      "default": null,
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_bid_location_material_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_bid_location_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_bid_location_material_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_bid_location_material_type_resource.rb"
+    }
+  ]
+}

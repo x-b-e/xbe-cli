@@ -1,0 +1,37 @@
+{
+  "id": "27b6ba47ad239401acd669fe9742af315114fa9a6ab104c642f6715c71c77322",
+  "full_path": "do time-card-cost-code-allocations update",
+  "description": "Update a time card cost code allocation.",
+  "permissions": "Admin users; otherwise users who are practical members of the allocation customer (policy update).",
+  "side_effects": "Updates allocation details; touches related time_card and job_production_plan; refreshes invoice revisions; updates project phase cost item actuals.",
+  "validation_notes": "Allocation ID argument is required. If --details is provided it cannot be empty and must be a JSON array of allocation objects. Each allocation object may only include cost_code_id, percentage, and project_cost_classification_id; percentage must be between 0 and 1; total percentage across allocations must equal 1.0 (100%); cost_code_id values must belong to the customer; duplicate cost_code_id values are not allowed. At least one attribute must be provided to update.",
+  "flags": [
+    {
+      "name": "--details",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Allocation details JSON array",
+      "default": null,
+      "validation": "JSON array. Example: [{\"cost_code_id\":1,\"percentage\":1.0}]."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_cost_code_allocations_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_cost_code_allocation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/cost_code_allocation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/cost_code_allocation_policy.rb"
+    }
+  ]
+}

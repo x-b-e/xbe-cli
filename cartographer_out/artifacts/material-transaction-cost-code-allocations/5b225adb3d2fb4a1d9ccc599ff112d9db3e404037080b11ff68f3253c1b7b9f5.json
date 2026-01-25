@@ -1,0 +1,37 @@
+{
+  "description": "Update a material transaction cost code allocation",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Cost code allocation details JSON array",
+      "name": "--details",
+      "required": false,
+      "type": "string",
+      "validation": "JSON array of allocation objects; cannot be empty when provided (example: [{\"cost_code_id\":\"456\",\"percentage\":1}])."
+    }
+  ],
+  "full_path": "do material-transaction-cost-code-allocations update",
+  "id": "5b225adb3d2fb4a1d9ccc599ff112d9db3e404037080b11ff68f3253c1b7b9f5",
+  "permissions": "Admins may update allocations. Non-admin users may update allocations only when they are members of the allocation's customer.",
+  "side_effects": "Updates allocation details and, after commit, touches the related job production plan and refreshes derived project phase cost item actuals.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_transaction_cost_code_allocations_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_transaction_cost_code_allocation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/cost_code_allocation.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_transaction_cost_code_allocation.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Argument <id> is required. At least one attribute must be provided. If --details is provided it must be non-empty. Details must be a JSON array with at least one allocation. Each allocation may only include cost_code_id, percentage, and project_cost_classification_id. cost_code_id is required and must reference an existing cost code that belongs to the allocation's customer. percentage must be between 0 and 1, and the total percentage across allocations must equal 100%. Duplicate cost_code_id entries are not allowed."
+}

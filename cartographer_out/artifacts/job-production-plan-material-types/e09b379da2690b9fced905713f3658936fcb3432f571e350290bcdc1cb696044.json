@@ -1,0 +1,113 @@
+{
+  "id": "e09b379da2690b9fced905713f3658936fcb3432f571e350290bcdc1cb696044",
+  "full_path": "view job-production-plan-material-types list",
+  "description": "List job production plan material types.",
+  "permissions": "Visible when the user can access related job production plans via JobProductionPlanMaterialTypePolicy scope (delegated to JobProductionPlanPolicy) or is the seller operations contact on tender job schedule shifts tied to those plans.",
+  "side_effects": null,
+  "validation_notes": "start-on-min and start-on-max must be valid dates (YYYY-MM-DD). status must be one of: editing, submitted, rejected, approved, cancelled, complete, abandoned, scrapped.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID"
+    },
+    {
+      "name": "--material-type",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID"
+    },
+    {
+      "name": "--unit-of-measure",
+      "required": false,
+      "type": "string",
+      "description": "Filter by unit of measure ID"
+    },
+    {
+      "name": "--material-site",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID"
+    },
+    {
+      "name": "--default-cost-code",
+      "required": false,
+      "type": "string",
+      "description": "Filter by default cost code ID"
+    },
+    {
+      "name": "--explicit-material-mix-design",
+      "required": false,
+      "type": "string",
+      "description": "Filter by explicit material mix design ID"
+    },
+    {
+      "name": "--customer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID"
+    },
+    {
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID"
+    },
+    {
+      "name": "--material-supplier",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID"
+    },
+    {
+      "name": "--start-on-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by plan start date (min, YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--start-on-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by plan start date (max, YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by plan status",
+      "validation": "editing|submitted|rejected|approved|cancelled|complete|abandoned|scrapped"
+    },
+    {
+      "name": "--external-identification-value",
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_material_types.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_material_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

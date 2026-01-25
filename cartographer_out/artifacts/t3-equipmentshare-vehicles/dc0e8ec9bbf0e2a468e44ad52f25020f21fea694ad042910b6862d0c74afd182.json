@@ -1,0 +1,36 @@
+{
+  "description": "Update T3 EquipmentShare vehicle assignments.",
+  "flags": [
+    {
+      "description": "Trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Tractor ID",
+      "name": "--tractor",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "full_path": "do t3-equipmentshare-vehicles update",
+  "id": "dc0e8ec9bbf0e2a468e44ad52f25020f21fea694ad042910b6862d0c74afd182",
+  "permissions": "Admins can update T3 EquipmentShare vehicle assignments. Non-admins can update when they are members of the vehicle broker organization.",
+  "side_effects": "Updates trailer and/or tractor relationships on the T3 EquipmentShare vehicle; providing an empty value clears the relationship.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_t3_equipmentshare_vehicles_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one of --trailer or --tractor must be provided. The <id> argument is required and must be a non-empty T3 EquipmentShare vehicle ID."
+}

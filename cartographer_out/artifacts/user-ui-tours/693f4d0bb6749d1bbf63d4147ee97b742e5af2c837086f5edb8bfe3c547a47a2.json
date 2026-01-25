@@ -1,0 +1,29 @@
+{
+  "id": "693f4d0bb6749d1bbf63d4147ee97b742e5af2c837086f5edb8bfe3c547a47a2",
+  "full_path": "do user-ui-tours delete",
+  "description": "Delete a user UI tour",
+  "permissions": "Admins can delete any user UI tour; non-admin users can delete user UI tours belonging to themselves.",
+  "side_effects": "Deletes a user UI tour record.",
+  "validation_notes": "The <id> argument (user UI tour ID) is required and must be non-empty. --confirm must be set to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_ui_tours_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/policies/user_ui_tour_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "0c84464053bd0f3311dda20b1631f1277684dd55145274b5017c3542042b880c",
+  "full_path": "do action-item-line-items update",
+  "description": "Update an action item line item.",
+  "permissions": "User must be authorized to update action items via the delegated ActionItemLineItemPolicy (delegated to action_item); action item update permission allows admins or users with appropriate org membership per ActionItemPolicy.",
+  "side_effects": "Updates an action item line item and triggers an asynchronous action item summary update.",
+  "validation_notes": "At least one attribute or relationship must be provided to update. status must be open or closed when provided. due-on expects YYYY-MM-DD. responsible-person must be a team member on the parent action item when provided; setting responsible-person to an empty value clears it. action-item relationship is create-only and cannot be changed on update.",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Line item title",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Status (open/closed)",
+      "default": null,
+      "validation": "open or closed"
+    },
+    {
+      "name": "--due-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Due date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Responsible person user ID",
+      "default": null,
+      "validation": "Set empty to clear"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_line_items_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_line_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_line_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/action_item_line_item.rb"
+    }
+  ]
+}

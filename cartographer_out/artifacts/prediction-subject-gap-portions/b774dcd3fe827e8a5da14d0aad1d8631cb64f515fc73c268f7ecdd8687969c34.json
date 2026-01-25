@@ -1,0 +1,54 @@
+{
+  "description": "List prediction subject gap portions with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by prediction subject gap ID",
+      "name": "--prediction-subject-gap",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status (draft/approved)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "draft|approved"
+    }
+  ],
+  "full_path": "view prediction-subject-gap-portions list",
+  "id": "b774dcd3fe827e8a5da14d0aad1d8631cb64f515fc73c268f7ecdd8687969c34",
+  "permissions": "Visible to admins and users who can access the related prediction subject via policy scope: prediction subject members and broker admins for the prediction subject.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/prediction_subject_gap_portions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_gap_portion_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_gap_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/policies/prediction_subject_gap_portion_policy_spec.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/prediction_subject_gap_portion_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Status filter accepts draft or approved."
+}

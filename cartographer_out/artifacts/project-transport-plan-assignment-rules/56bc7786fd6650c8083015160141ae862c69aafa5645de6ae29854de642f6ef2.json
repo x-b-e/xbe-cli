@@ -1,0 +1,33 @@
+{
+  "description": "Delete a project transport plan assignment rule.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do project-transport-plan-assignment-rules delete",
+  "id": "56bc7786fd6650c8083015160141ae862c69aafa5645de6ae29854de642f6ef2",
+  "permissions": "Allowed for users who are broker managers for the rule broker or who can update the related level via that level policy.",
+  "side_effects": "Deletes the project transport plan assignment rule record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_assignment_rules_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_assignment_rule_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_assignment_rule.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument and --confirm=true."
+}

@@ -1,0 +1,42 @@
+{
+  "description": "List geofences (geographic boundaries).",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name",
+      "name": "name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view geofences list",
+  "id": "884892c459c312cb639dc32e8ae92f790e55f6fae84a4b58b497cfd6d66e5573",
+  "permissions": "Admins can list all geofences. Non-admin users can list geofences for brokers they are members of (visible member broker IDs).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/geofences_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/geofence_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/geofence_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters map to server-side filters on broker and name."
+}

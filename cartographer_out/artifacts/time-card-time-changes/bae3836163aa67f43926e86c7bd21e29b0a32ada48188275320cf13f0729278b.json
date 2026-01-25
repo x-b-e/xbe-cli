@@ -1,0 +1,82 @@
+{
+  "id": "bae3836163aa67f43926e86c7bd21e29b0a32ada48188275320cf13f0729278b",
+  "full_path": "do time-card-time-changes create",
+  "description": "Create a time card time change.",
+  "permissions": "Admins may create time card time changes; non-admins may create them only if they are allowed to create a time card approval for the related time card (per TimeCardApprovalPolicy#create?).",
+  "side_effects": "Creates a time card time change and applies the change after creation, which updates the time card, recalculates totals, creates a time card status change, updates related time sheet line items, and may update invoices or send an operations notification when invoiced time cards are changed.",
+  "validation_notes": "--time-card is required. --time-changes-attributes is required, must be valid JSON, and must include at least one change. Server validates that the time card has all time attributes present, that the change actually modifies time card times, and that the time card is not editable for this type of change unless --skip-time-card-not-editable is true. Server may reject changes for invoiced time cards. If --skip-quantity-validation is not true, server validates total hours are within allowed range.",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time card ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--time-changes-attributes",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time change attributes as JSON object (required)",
+      "default": null,
+      "validation": "Must be valid JSON and include at least one time change."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment describing the change",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Created by user ID (optional)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-time-card-not-editable",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip editable validation (true/false)",
+      "default": null,
+      "validation": "Use true or false."
+    },
+    {
+      "name": "--skip-quantity-validation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip quantity validation (true/false)",
+      "default": null,
+      "validation": "Use true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_time_changes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_time_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_time_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_time_change.rb"
+    }
+  ]
+}

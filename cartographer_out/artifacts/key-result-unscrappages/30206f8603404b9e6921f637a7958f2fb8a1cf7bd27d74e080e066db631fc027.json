@@ -1,0 +1,66 @@
+{
+  "id": "30206f8603404b9e6921f637a7958f2fb8a1cf7bd27d74e080e066db631fc027",
+  "full_path": "do key-result-unscrappages create",
+  "description": "Unscrap a key result.",
+  "permissions": "User must be an admin or be authorized to update the related key result (per KeyResultPolicy update?).",
+  "side_effects": "Creates a key result unscrappage action and restores the key result status from scrapped to the most recent non-scrapped status, or to unknown when none exists.",
+  "validation_notes": "Requires --key-result. The key result ID must be an integer and refer to an existing key result. The key result must currently be in scrapped status; otherwise validation fails. Model-level validations on the key result are enforced.",
+  "flags": [
+    {
+      "name": "--key-result",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Key result ID (required). Example: 123.",
+      "default": null,
+      "validation": "Must reference an existing key result in scrapped status."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment for the unscrappage. Example: Restoring key result.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_key_result_unscrappages_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_unscrappage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/key_result_actions/key_result_unscrappage.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/key_result_actions/key_result_scrappage.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_unscrappage_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_action_resource.rb"
+    }
+  ]
+}

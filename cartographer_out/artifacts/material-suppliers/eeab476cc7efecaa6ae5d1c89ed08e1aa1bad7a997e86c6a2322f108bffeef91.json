@@ -1,0 +1,87 @@
+{
+  "id": "eeab476cc7efecaa6ae5d1c89ed08e1aa1bad7a997e86c6a2322f108bffeef91",
+  "full_path": "do material-suppliers update",
+  "description": "Update a material supplier.",
+  "permissions": "Admins can update material suppliers. Non-admins can update if they are members of the supplier's broker or are manager members of the material supplier.",
+  "side_effects": "Updates material supplier attributes. If name changes, the server updates material transaction tonnage summaries asynchronously.",
+  "validation_notes": "At least one attribute flag is required. name is validated for presence when changed. url must be a valid URL when provided. phone-number must pass server phone number validation when provided. --active sets is_active true; --no-active sets is_active false. --is-controlled-by-broker sets is_controlled_by_broker true; --no-is-controlled-by-broker sets it false.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material supplier name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--url",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Company website URL",
+      "default": null,
+      "validation": "must be a valid URL"
+    },
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contact phone number",
+      "default": null,
+      "validation": "must be a valid phone number"
+    },
+    {
+      "name": "--active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Set as active",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--no-active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Set as inactive",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-controlled-by-broker",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Supplier is controlled by broker",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--no-is-controlled-by-broker",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Supplier is not controlled by broker",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_suppliers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_supplier_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_supplier.rb"
+    }
+  ]
+}

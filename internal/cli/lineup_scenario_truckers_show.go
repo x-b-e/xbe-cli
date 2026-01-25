@@ -225,17 +225,6 @@ func renderLineupScenarioTruckerDetails(cmd *cobra.Command, details lineupScenar
 	return nil
 }
 
-func anyAttr(attrs map[string]any, key string) any {
-	if attrs == nil {
-		return nil
-	}
-	value, ok := attrs[key]
-	if !ok || value == nil {
-		return nil
-	}
-	return value
-}
-
 func countConstraintItems(value any) int {
 	switch typed := value.(type) {
 	case []any:

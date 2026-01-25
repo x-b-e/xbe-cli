@@ -1,0 +1,55 @@
+{
+  "id": "7ccb7e2e1dd0e4672813d39792f32146f3a4ab33f9ece3692a7453717c10cfa7",
+  "full_path": "view commitments list",
+  "description": "List commitments with filtering and pagination.",
+  "permissions": "Admin users can view all commitments. Non-admin users can view commitments within policy scope where they have customer, broker, or trucker memberships matching the buyer or seller organization.",
+  "side_effects": "None.",
+  "validation_notes": "Status filter accepts: editing, active, inactive. broker/broker-id filters match commitments where buyer or seller is the given broker.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status. Example: --status active.",
+      "default": null,
+      "validation": "editing | active | inactive"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (matches buyer or seller broker). Example: --broker 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Alias for --broker.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/commitment.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_policy.rb"
+    }
+  ]
+}

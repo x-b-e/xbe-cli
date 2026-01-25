@@ -1,0 +1,54 @@
+{
+  "id": "1d4a9e7d8b92b590fdb0298cfa9ee99f354e94c287669506ef293327f73218ee",
+  "full_path": "do time-sheet-unapprovals create",
+  "description": "Unapprove a time sheet.",
+  "permissions": "Allowed for admins. For time sheets whose subject is a TruckerShiftSet, allowed for users who are manager members of the trucker or members of the trucker broker. For time sheets whose subject is a CrewRequirement, allowed for users who are job production plan time card approvers.",
+  "side_effects": "Creates a time sheet unapproval and updates the time sheet status from approved to submitted.",
+  "validation_notes": "--time-sheet is required. The referenced time sheet must exist. The time sheet must be in approved status to be unapproved; unapproving sets the new status to submitted.",
+  "flags": [
+    {
+      "name": "--time-sheet",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time sheet ID.",
+      "default": null,
+      "validation": "Example: \"123\"."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unapproval comment.",
+      "default": null,
+      "validation": "Example: \"Needs review\"."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_unapprovals_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_unapprovals.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_unapproval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_actions/time_sheet_unapproval.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

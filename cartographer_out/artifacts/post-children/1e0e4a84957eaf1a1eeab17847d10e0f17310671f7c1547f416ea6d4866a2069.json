@@ -1,0 +1,46 @@
+{
+  "id": "1e0e4a84957eaf1a1eeab17847d10e0f17310671f7c1547f416ea6d4866a2069",
+  "full_path": "do post-children create",
+  "description": "Create a post child link.",
+  "permissions": "User must be authorized to update the parent post to create a post child link.",
+  "side_effects": "Creates a post child link.",
+  "validation_notes": "--parent-post and --child-post are required. Child posts must be in scope for the parent post creator, cannot be the same as the parent post, and the child_post_id must be unique per parent_post_id.",
+  "flags": [
+    {
+      "name": "--parent-post",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Parent post ID (required).",
+      "default": null,
+      "validation": "Examples: --parent-post 123."
+    },
+    {
+      "name": "--child-post",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Child post ID (required).",
+      "default": null,
+      "validation": "Examples: --child-post 456."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_post_children_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/post_child.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_child_resource.rb"
+    }
+  ]
+}

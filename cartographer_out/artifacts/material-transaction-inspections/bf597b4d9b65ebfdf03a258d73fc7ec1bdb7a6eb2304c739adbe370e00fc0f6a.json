@@ -1,0 +1,30 @@
+{
+  "id": "bf597b4d9b65ebfdf03a258d73fc7ec1bdb7a6eb2304c739adbe370e00fc0f6a",
+  "full_path": "do material-transaction-inspections delete",
+  "description": "Delete a material transaction inspection.",
+  "permissions": "Admins can delete inspections. Non-admins can delete inspections if they are the inspection creator on a persisted record, a member of the broker tied to the inspection, a member of the customer tied to the inspection with permission to view the job production plan, a manager member of the job production plan developer, a job production plan inspector, or the driver on the tender job schedule shift when the job production plan expects an inspection.",
+  "side_effects": "Deletes a material transaction inspection.",
+  "validation_notes": "Requires <id> argument (inspection ID). --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_inspections_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_inspection.rb"
+    }
+  ]
+}

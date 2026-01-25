@@ -1,0 +1,23 @@
+{
+  "id": "505800f4ecaca2e256efdb497f1997533327bb963fa4cd35b346bc2823adf857",
+  "full_path": "view lineup-scenario-lineups show",
+  "description": "Show the full details of a lineup scenario lineup.",
+  "permissions": "User must be an admin or a broker manager for the lineup scenario broker; access is delegated to the lineup scenario relationship.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_scenario_lineups_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_lineup_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

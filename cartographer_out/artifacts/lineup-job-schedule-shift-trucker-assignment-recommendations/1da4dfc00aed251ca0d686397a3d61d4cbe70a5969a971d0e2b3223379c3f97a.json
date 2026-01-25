@@ -1,0 +1,23 @@
+{
+  "id": "1da4dfc00aed251ca0d686397a3d61d4cbe70a5969a971d0e2b3223379c3f97a",
+  "full_path": "view lineup-job-schedule-shift-trucker-assignment-recommendations show",
+  "description": "Show full recommendation details",
+  "permissions": "Visible to users within the LineupJobScheduleShift policy scope (admins can view all).",
+  "side_effects": null,
+  "validation_notes": "An id argument is required and must be the recommendation ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_job_schedule_shift_trucker_assignment_recommendations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_job_schedule_shift_trucker_assignment_recommendation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_job_schedule_shift_trucker_assignment_recommendation_resource.rb"
+    }
+  ]
+}

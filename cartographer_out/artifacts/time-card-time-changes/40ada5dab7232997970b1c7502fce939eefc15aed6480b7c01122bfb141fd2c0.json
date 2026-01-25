@@ -1,0 +1,55 @@
+{
+  "id": "40ada5dab7232997970b1c7502fce939eefc15aed6480b7c01122bfb141fd2c0",
+  "full_path": "do time-card-time-changes update",
+  "description": "Update a time card time change.",
+  "permissions": "Admins may update time card time changes; non-admins may update them only if they are allowed to create a time card approval for the related time card (per TimeCardApprovalPolicy#create?), and only while the change is unprocessed.",
+  "side_effects": "Updates a time card time change record.",
+  "validation_notes": "Requires a time card time change ID argument. Only unprocessed time card time changes can be updated. At least one attribute must be provided; otherwise the request is rejected. If --time-changes-attributes is provided it must be valid JSON and include at least one change. If --skip-quantity-validation is not true, server validates total hours are within allowed range.",
+  "flags": [
+    {
+      "name": "--time-changes-attributes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Time change attributes as JSON object",
+      "default": null,
+      "validation": "If provided, must be valid JSON and include at least one time change."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment describing the change",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-quantity-validation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip quantity validation (true/false)",
+      "default": null,
+      "validation": "Use true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_time_changes_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_time_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_time_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_time_change.rb"
+    }
+  ]
+}

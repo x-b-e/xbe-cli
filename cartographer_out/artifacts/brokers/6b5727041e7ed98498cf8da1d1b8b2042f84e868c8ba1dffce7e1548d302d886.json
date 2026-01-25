@@ -1,0 +1,29 @@
+{
+  "id": "6b5727041e7ed98498cf8da1d1b8b2042f84e868c8ba1dffce7e1548d302d886",
+  "full_path": "do brokers delete",
+  "description": "Delete a broker.",
+  "permissions": "Requires authentication and admin privileges to delete brokers.",
+  "side_effects": "Deletes a broker record.",
+  "validation_notes": "<id> argument is required; --confirm is required",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_brokers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_policy.rb"
+    }
+  ]
+}

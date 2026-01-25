@@ -1,0 +1,23 @@
+{
+  "id": "be6551b41cb2d9866e53a0a09a25be3197233806aafbbdd7daafac4d665d086b",
+  "full_path": "view project-material-types show",
+  "description": "Show project material type details",
+  "permissions": "Requires access to the related project via delegated project authorization (ProjectMaterialTypePolicy delegates to the project relationship).",
+  "side_effects": null,
+  "validation_notes": "The project material type ID argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_material_types_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_material_type_policy.rb"
+    }
+  ]
+}

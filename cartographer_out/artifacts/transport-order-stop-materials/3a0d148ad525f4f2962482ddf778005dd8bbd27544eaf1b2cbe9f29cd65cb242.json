@@ -1,0 +1,51 @@
+{
+  "description": "List transport order stop materials with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by explicit quantity",
+      "name": "--quantity-explicit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by transport order material ID (comma-separated for multiple)",
+      "name": "--transport-order-material",
+      "required": false,
+      "type": "string",
+      "validation": "Accepts comma-separated IDs."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by transport order stop ID (comma-separated for multiple)",
+      "name": "--transport-order-stop",
+      "required": false,
+      "type": "string",
+      "validation": "Accepts comma-separated IDs."
+    }
+  ],
+  "full_path": "view transport-order-stop-materials list",
+  "id": "3a0d148ad525f4f2962482ddf778005dd8bbd27544eaf1b2cbe9f29cd65cb242",
+  "permissions": "Requires authorization via TransportOrderStopPolicy for the related transport_order_stop (delegated policy).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/transport_order_stop_materials_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/transport_order_stop_material_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/transport_order_stop_material_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter values for --transport-order-material and --transport-order-stop accept comma-separated IDs."
+}

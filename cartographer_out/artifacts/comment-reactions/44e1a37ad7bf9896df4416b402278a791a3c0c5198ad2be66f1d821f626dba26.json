@@ -1,0 +1,29 @@
+{
+  "id": "44e1a37ad7bf9896df4416b402278a791a3c0c5198ad2be66f1d821f626dba26",
+  "full_path": "do comment-reactions delete",
+  "description": "Delete a comment reaction.",
+  "permissions": "Only the user who created the comment reaction can delete it.",
+  "side_effects": "Deletes the comment reaction record.",
+  "validation_notes": "Requires a comment reaction ID argument and the --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_comment_reactions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/comment_reaction_policy.rb"
+    }
+  ]
+}

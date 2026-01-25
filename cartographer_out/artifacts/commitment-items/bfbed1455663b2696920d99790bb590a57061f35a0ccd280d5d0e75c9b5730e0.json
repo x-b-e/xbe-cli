@@ -1,0 +1,19 @@
+{
+  "id": "bfbed1455663b2696920d99790bb590a57061f35a0ccd280d5d0e75c9b5730e0",
+  "full_path": "view commitment-items show",
+  "description": "Show full details of a commitment item",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires <id> positional argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_items_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/commitment_items_controller.rb"
+    }
+  ]
+}

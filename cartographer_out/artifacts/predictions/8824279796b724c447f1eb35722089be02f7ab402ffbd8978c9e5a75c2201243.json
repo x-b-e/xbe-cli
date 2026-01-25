@@ -1,0 +1,68 @@
+{
+  "id": "8824279796b724c447f1eb35722089be02f7ab402ffbd8978c9e5a75c2201243",
+  "full_path": "do predictions create",
+  "description": "Create a prediction.",
+  "permissions": "Allowed for admins. Non-admins can create predictions only if they have a prediction-subject membership for the target subject.",
+  "side_effects": "Creates a prediction record. May compute a continuous ranked probability score and may reset the prediction subject domain when status or probability distribution is set.",
+  "validation_notes": "--prediction-subject is required. Status defaults to draft if omitted and must be one of: draft, submitted, abandoned. --probability-distribution must be valid JSON when provided; empty string clears the value. A user can have only one alive prediction per prediction subject when predicted-by is set and no prediction agent is present.",
+  "flags": [
+    {
+      "name": "--prediction-subject",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Prediction subject ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--predicted-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Predicted-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Status (draft, submitted, abandoned)",
+      "default": "draft",
+      "validation": "Allowed values: draft, submitted, abandoned."
+    },
+    {
+      "name": "--probability-distribution",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "JSON probability distribution payload",
+      "default": null,
+      "validation": "Must be valid JSON when provided; payload includes class_name. An empty string clears the value."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_predictions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.predictions.sql"
+    }
+  ]
+}

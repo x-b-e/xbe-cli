@@ -1,0 +1,132 @@
+{
+  "description": "List material site readings",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "name": "--material-site",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs are supported."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material site measure ID (comma-separated for multiple)",
+      "name": "--material-site-measure",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs are supported."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material site reading material type ID (comma-separated for multiple)",
+      "name": "--material-site-reading-material-type",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs are supported."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material type ID (comma-separated for multiple)",
+      "name": "--material-type",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs are supported."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material type ID (join filter)",
+      "name": "--material-type-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs are supported."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by reading timestamp (ISO 8601)",
+      "name": "--reading-at",
+      "required": false,
+      "type": "string",
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum reading timestamp (ISO 8601)",
+      "name": "--reading-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum reading timestamp (ISO 8601)",
+      "name": "--reading-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by exact reading value",
+      "name": "--value",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum reading value",
+      "name": "--value-min",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum reading value",
+      "name": "--value-max",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view material-site-readings list",
+  "id": "8b12ed6f27cbe43bcd8f031bb288d07fbc5724b3504c74aafc27c83a41c72200",
+  "permissions": "Admins can list all material site readings. Non-admins can list readings where the material site material supplier is in the user material supplier memberships or the material supplier broker is in the user broker memberships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_site_readings_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_site_reading_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_site_reading_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "reading-at, reading-at-min, and reading-at-max must be ISO 8601 timestamps. Filters marked as comma-separated accept multiple IDs."
+}

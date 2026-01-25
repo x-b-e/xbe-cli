@@ -1,0 +1,19 @@
+{
+  "id": "f3e79b5906e4a38c686bfcea677e8e7b714b367afae7a5a7b411da8c8478202d",
+  "full_path": "view project-cancellations list",
+  "description": "List project cancellations.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_cancellations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_cancellation_resource.rb"
+    }
+  ]
+}

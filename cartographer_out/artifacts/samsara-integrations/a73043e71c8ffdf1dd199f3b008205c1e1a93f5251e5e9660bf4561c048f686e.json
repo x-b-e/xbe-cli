@@ -1,0 +1,29 @@
+{
+  "description": "Delete a Samsara integration",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Required; must be true to proceed."
+    }
+  ],
+  "full_path": "do samsara-integrations delete",
+  "id": "a73043e71c8ffdf1dd199f3b008205c1e1a93f5251e5e9660bf4561c048f686e",
+  "permissions": "Only admin users can delete Samsara integrations.",
+  "side_effects": "Deletes the specified Samsara integration.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_samsara_integrations_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/samsara_integration_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument (Samsara integration ID) is required. --confirm is required and must be set to true to delete."
+}

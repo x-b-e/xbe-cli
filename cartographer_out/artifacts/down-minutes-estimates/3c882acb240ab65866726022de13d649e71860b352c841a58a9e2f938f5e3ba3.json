@@ -1,0 +1,59 @@
+{
+  "id": "3c882acb240ab65866726022de13d649e71860b352c841a58a9e2f938f5e3ba3",
+  "full_path": "do down-minutes-estimates create",
+  "description": "Estimate down minutes for a shift.",
+  "permissions": "User must be authorized to access the tender job schedule shift; the shift must be within the TenderJobScheduleShift policy scope for the user.",
+  "side_effects": "Creates a down minutes estimate via the API and returns calculated down-minute fields.",
+  "validation_notes": "tender-job-schedule-shift is required. tender-job-schedule-shift must reference a broker tender job schedule shift. time-card-start-at and time-card-end-at are parsed as date-time values; only these attributes are writable while computed minute fields are read-only.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID (required)",
+      "default": null,
+      "validation": "Required. Example: 123."
+    },
+    {
+      "name": "--time-card-start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Time card start time (ISO-8601)",
+      "default": null,
+      "validation": "ISO-8601 timestamp. Example: 2025-01-01T08:00:00Z."
+    },
+    {
+      "name": "--time-card-end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Time card end time (ISO-8601)",
+      "default": null,
+      "validation": "ISO-8601 timestamp. Example: 2025-01-01T12:00:00Z."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_down_minutes_estimates_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/down_minutes_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/down_minutes_estimate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/down_minutes_estimate.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/down_minutes_estimates_controller.rb"
+    }
+  ]
+}

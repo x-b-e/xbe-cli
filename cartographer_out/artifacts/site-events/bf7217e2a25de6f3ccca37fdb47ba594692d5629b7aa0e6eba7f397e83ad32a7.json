@@ -1,0 +1,33 @@
+{
+  "id": "bf7217e2a25de6f3ccca37fdb47ba594692d5629b7aa0e6eba7f397e83ad32a7",
+  "full_path": "do site-events delete",
+  "description": "Delete a site event.",
+  "permissions": "User can delete site events if SiteEventPolicy allows: admin, manager member of the developer on the job production plan, job production plan inspector, or user with update permission on the related tender job schedule shift; the record must also be user-sourced to be deletable.",
+  "side_effects": "Deletes the site event record if it is eligible for deletion.",
+  "validation_notes": "Argument <id> is required. --confirm must be provided. Server blocks deletion when the site event is not user-sourced.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": "Must be true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_site_events_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/site_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/site_event.rb"
+    }
+  ]
+}

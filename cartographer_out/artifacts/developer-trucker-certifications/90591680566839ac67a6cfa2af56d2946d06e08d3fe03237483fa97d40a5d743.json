@@ -1,0 +1,27 @@
+{
+  "id": "90591680566839ac67a6cfa2af56d2946d06e08d3fe03237483fa97d40a5d743",
+  "full_path": "view developer-trucker-certifications show",
+  "description": "Show the full details of a developer trucker certification.",
+  "permissions": "Requires access to the related developer via DeveloperPolicy scope (admin, broker member, customer manager for the broker, or developer member).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (developer trucker certification ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/developer_trucker_certifications_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_trucker_certification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_trucker_certification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_policy.rb"
+    }
+  ]
+}

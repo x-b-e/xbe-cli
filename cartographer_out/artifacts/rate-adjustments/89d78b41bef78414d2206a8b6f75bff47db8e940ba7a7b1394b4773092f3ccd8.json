@@ -1,0 +1,23 @@
+{
+  "description": "Show rate adjustment details.",
+  "flags": [],
+  "full_path": "view rate-adjustments show",
+  "id": "89d78b41bef78414d2206a8b6f75bff47db8e940ba7a7b1394b4773092f3ccd8",
+  "permissions": "Requires authorization via RateAdjustmentPolicy, which delegates access to the associated rate (RatePolicy).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/rate_adjustments_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/rate_adjustment_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_adjustment_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires a rate adjustment ID argument."
+}

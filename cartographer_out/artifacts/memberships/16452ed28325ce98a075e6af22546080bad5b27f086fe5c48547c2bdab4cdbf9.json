@@ -1,0 +1,19 @@
+{
+  "description": "Show the full details of a specific membership.",
+  "flags": [],
+  "full_path": "view memberships show",
+  "id": "16452ed28325ce98a075e6af22546080bad5b27f086fe5c48547c2bdab4cdbf9",
+  "permissions": "Requires authorization via MembershipPolicy scope; non-admin access is limited by each membership-type policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/memberships_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/membership_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires a membership ID argument."
+}

@@ -1,0 +1,62 @@
+{
+  "id": "3b0f7ead050754056286fdb80317c50cd078a86f761ff774ac523060427446da",
+  "full_path": "do time-card-unscrappages create",
+  "description": "Create a time card unscrappage",
+  "permissions": "Allowed when the associated time card exists and the user is authorized to create a time card scrappage: either (a) TimeCardPolicy#create_or_approve? (admin, broker member, or customer manager with cost-plus visibility) or (b) a manager member of the customer where the customer is the time card's trucker, or (c) the time card approval_process is \"field\" and the job production plan lists the user as a time card approver.",
+  "side_effects": "Updates the time card status to submitted when the current status is scrapped.",
+  "validation_notes": "Requires --time-card. Time card must exist, be in the scrapped status, and have no invoices that prevent status changes; the time card must pass model validations.",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time card ID (required)",
+      "default": null,
+      "validation": "Must be provided and non-empty."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment explaining the change",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_unscrappages_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_unscrappage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_scrappage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_unscrappage.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

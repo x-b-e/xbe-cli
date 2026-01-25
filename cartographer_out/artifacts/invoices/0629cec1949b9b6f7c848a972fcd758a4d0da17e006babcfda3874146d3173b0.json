@@ -1,0 +1,23 @@
+{
+  "id": "0629cec1949b9b6f7c848a972fcd758a4d0da17e006babcfda3874146d3173b0",
+  "full_path": "view invoices show",
+  "description": "Show the full details of an invoice.",
+  "permissions": "Allowed for users authorized by InvoicePolicy scope; non-admin users can view invoices where they are visible as the buyer customer, the seller trucker (manager), or a broker tied to the invoice.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "Requires <id> argument; it is trimmed and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoices_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_policy.rb"
+    }
+  ]
+}

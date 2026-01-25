@@ -1,0 +1,23 @@
+{
+  "id": "3f0653a8f42d6e327ef689ee0666ceebd4199d967a5bd8e6bfc6e9fdcbb6e3a2",
+  "full_path": "view driver-assignment-acknowledgements show",
+  "description": "Show the full details of a driver assignment acknowledgement.",
+  "permissions": "Admins can view any acknowledgement. Non-admin users can view acknowledgements where they are the driver, a broker member for the shift broker, or a trucker manager for the shift trucker.",
+  "side_effects": null,
+  "validation_notes": "The acknowledgement ID argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_assignment_acknowledgements_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_assignment_acknowledgement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_assignment_acknowledgement_resource.rb"
+    }
+  ]
+}

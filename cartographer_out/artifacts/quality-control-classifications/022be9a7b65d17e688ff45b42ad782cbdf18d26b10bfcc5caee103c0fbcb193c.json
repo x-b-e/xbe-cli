@@ -1,0 +1,42 @@
+{
+  "id": "022be9a7b65d17e688ff45b42ad782cbdf18d26b10bfcc5caee103c0fbcb193c",
+  "full_path": "view quality-control-classifications list",
+  "description": "List quality control classifications with filtering and pagination.",
+  "permissions": "Admins can list all quality control classifications. Non-admin users can list classifications scoped to brokers where they are members (broker membership required).",
+  "side_effects": null,
+  "validation_notes": "--broker filters by broker ID. --name filter is a partial match and case-insensitive.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": "Partial match, case-insensitive"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/quality_control_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/quality_control_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/quality_control_classification_policy.rb"
+    }
+  ]
+}

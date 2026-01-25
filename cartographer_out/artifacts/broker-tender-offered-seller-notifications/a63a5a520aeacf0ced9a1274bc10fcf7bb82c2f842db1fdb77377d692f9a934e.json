@@ -1,0 +1,27 @@
+{
+  "id": "a63a5a520aeacf0ced9a1274bc10fcf7bb82c2f842db1fdb77377d692f9a934e",
+  "full_path": "view broker-tender-offered-seller-notifications show",
+  "description": "Show broker tender offered seller notification details",
+  "permissions": "Authenticated user can view only notifications where the notification user matches the current user (policy scope).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_tender_offered_seller_notifications_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_resource.rb"
+    }
+  ]
+}

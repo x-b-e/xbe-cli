@@ -1,0 +1,23 @@
+{
+  "id": "15ace1bdf464296ebbcc01a9b9a613b26498b295cc57e19fbbe67053cbbae0e9",
+  "full_path": "view press-releases show",
+  "description": "Show the full details of a specific press release.",
+  "permissions": "Anyone can view press releases, but anonymous and non-admin users only see press releases that are published and have released_at on or before the current time; admins can see all.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/press_releases_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/press_release_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/press_release_policy.rb"
+    }
+  ]
+}

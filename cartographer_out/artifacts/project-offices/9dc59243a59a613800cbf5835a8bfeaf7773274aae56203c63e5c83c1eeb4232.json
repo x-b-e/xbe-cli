@@ -1,0 +1,64 @@
+{
+  "description": "Create a new project office",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project office name (required)",
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Short code",
+      "name": "--abbreviation",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "true",
+      "description": "Whether active",
+      "name": "--is-active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-offices create",
+  "id": "9dc59243a59a613800cbf5835a8bfeaf7773274aae56203c63e5c83c1eeb4232",
+  "permissions": "Admins can create project offices. Broker admins can create project offices for their broker.",
+  "side_effects": "Creates a new project office record tied to the specified broker.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_offices_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_office_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_office.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/project_office_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--name and --broker are required. Server requires abbreviation presence and enforces name and abbreviation uniqueness per broker (case-insensitive). Broker relationship is required on create and cannot be changed later."
+}

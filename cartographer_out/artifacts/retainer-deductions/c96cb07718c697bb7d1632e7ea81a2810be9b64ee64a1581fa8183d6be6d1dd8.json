@@ -1,0 +1,59 @@
+{
+  "id": "c96cb07718c697bb7d1632e7ea81a2810be9b64ee64a1581fa8183d6be6d1dd8",
+  "full_path": "do retainer-deductions create",
+  "description": "Create a retainer deduction.",
+  "permissions": "Create permission is delegated to the associated retainer RetainerPolicy (via RetainerChildPolicy); users must be authorized to create on that retainer.",
+  "side_effects": "Creates a retainer deduction record.",
+  "validation_notes": "Requires --retainer and --amount. Amount must be a number greater than 0 and must be greater than or equal to the applied amount.",
+  "flags": [
+    {
+      "name": "--retainer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Retainer ID. Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--amount",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Deduction amount. Example: 100.50.",
+      "default": null,
+      "validation": "Must be a number greater than 0 and greater than or equal to the applied amount."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note for the deduction. Example: Fuel surcharge.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_retainer_deductions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/retainer_deduction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer_deduction.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_deduction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    }
+  ]
+}

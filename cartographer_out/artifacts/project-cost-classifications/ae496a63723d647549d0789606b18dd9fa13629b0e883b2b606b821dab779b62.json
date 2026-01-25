@@ -1,0 +1,46 @@
+{
+  "id": "ae496a63723d647549d0789606b18dd9fa13629b0e883b2b606b821dab779b62",
+  "full_path": "do project-cost-classifications update",
+  "description": "Update an existing project cost classification.",
+  "permissions": "Allowed for admins, broker manager members of the classification broker, customer managers under that broker, manager laborers for job production plans under that broker customer organizations, laborers who can manage projects under that broker customer organizations, or planners or project managers for job production plans under that broker customer organizations.",
+  "side_effects": "Updates the specified project cost classification fields.",
+  "validation_notes": "Requires a classification ID argument. At least one of --name or --parent must be provided. If --parent is provided with an empty value, the parent relationship is cleared. Name must be present and unique within the same broker and parent. If --parent is provided, broker must be present and match the parent broker.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Classification name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent classification ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_cost_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_cost_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/project_money_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_cost_classification.rb"
+    }
+  ]
+}

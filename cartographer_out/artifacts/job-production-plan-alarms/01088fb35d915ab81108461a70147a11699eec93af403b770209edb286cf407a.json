@@ -1,0 +1,23 @@
+{
+  "description": "Show job production plan alarm details",
+  "flags": [],
+  "full_path": "view job-production-plan-alarms show",
+  "id": "01088fb35d915ab81108461a70147a11699eec93af403b770209edb286cf407a",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_alarms.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/job_production_plan_alarms_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/job_production_plan_alarms_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires an alarm ID argument."
+}

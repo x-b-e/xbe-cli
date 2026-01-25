@@ -1,0 +1,33 @@
+{
+  "description": "Delete a project margin matrix",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "full_path": "do project-margin-matrices delete",
+  "id": "b5193581c21d4de7fe28689fe07032d37873b90351b22ab1321059ed2dce3085",
+  "permissions": "Authorized via ProjectMarginMatrixPolicy delegated to the related project; users must be allowed to destroy/update the associated project per ProjectPolicy (e.g., admins or practically managers of the project developer organization).",
+  "side_effects": "Deletes the project margin matrix record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_margin_matrices_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_margin_matrix_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (project margin matrix ID). Required: --confirm must be true to delete."
+}

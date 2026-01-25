@@ -1,0 +1,73 @@
+{
+  "id": "4cfbc17d3185873868d85b5f4219f954bbf4eb29dc8e0afcb8b08066f756f524",
+  "full_path": "do native-app-releases create",
+  "description": "Create a native app release.",
+  "permissions": "Only admin users can create native app releases (policy requires is_admin?).",
+  "side_effects": "Creates a native app release record.",
+  "validation_notes": "--git-sha is required and must be unique; --build-number is required. If --release-channel-details is provided, it must be a non-empty JSON array and each object channel and status must be in the server defined enums. git_tag, git_sha, and build_number are create-only attributes.",
+  "flags": [
+    {
+      "name": "--build-number",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Build number",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--git-sha",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Git commit SHA",
+      "default": null,
+      "validation": "Required; must be unique."
+    },
+    {
+      "name": "--git-tag",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Git tag",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--release-channel-details",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Release channel details JSON array",
+      "default": null,
+      "validation": "If provided, must be a non-empty JSON array of objects; each object channel and status must be valid server enums."
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes about the release",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_native_app_releases_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/native_app_release_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/native_app_release.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/native_app_release_policy.rb"
+    }
+  ]
+}

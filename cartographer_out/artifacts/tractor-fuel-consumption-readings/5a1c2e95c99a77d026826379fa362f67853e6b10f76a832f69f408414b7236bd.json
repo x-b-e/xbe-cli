@@ -1,0 +1,104 @@
+{
+  "id": "5a1c2e95c99a77d026826379fa362f67853e6b10f76a832f69f408414b7236bd",
+  "full_path": "do tractor-fuel-consumption-readings create",
+  "description": "Create a tractor fuel consumption reading.",
+  "permissions": "Allowed for admins. Non-admins may create if the reading is associated with a broker they are a member of, or if they are the driver on the driver day, or if they are a manager member of the trucker.",
+  "side_effects": "Creates a tractor fuel consumption reading.",
+  "validation_notes": "Required flags: --tractor, --unit-of-measure, --value. reading-on must use YYYY-MM-DD; reading-time must use HH:MM or HH:MM:SS. value must be present and >= 0. state-code must be a US state abbreviation. unit-of-measure must be one of liter or gallon. If driver-day is provided, the tractor must be on that driver day.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tractor ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Unit of measure ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Fuel consumption value (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Driver day ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reading-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reading date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--reading-time",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reading time (HH:MM or HH:MM:SS)",
+      "default": null,
+      "validation": "HH:MM or HH:MM:SS"
+    },
+    {
+      "name": "--date-sequence",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Sequence number for the day",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--state-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "State code (US abbreviation)",
+      "default": null,
+      "validation": "US state abbreviation"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tractor_fuel_consumption_readings_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_fuel_consumption_reading_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tractor_fuel_consumption_reading.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/tractor_reading.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tractor_fuel_consumption_reading_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "f04be4565d5154a01a2bd97c7155d4ed6ca6e502978c0abb15e971e75186fae9",
+  "full_path": "view shift-counters list",
+  "description": "List shift counters.",
+  "permissions": "No authorization required; ShiftCountersController skips auth enforcement and ApplicationPolicy#index allows index access by default.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/shift_counters_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/shift_counters.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/shift_counters_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

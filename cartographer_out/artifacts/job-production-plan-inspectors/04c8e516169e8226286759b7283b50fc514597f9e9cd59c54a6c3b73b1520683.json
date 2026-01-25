@@ -1,0 +1,23 @@
+{
+  "id": "04c8e516169e8226286759b7283b50fc514597f9e9cd59c54a6c3b73b1520683",
+  "full_path": "view job-production-plan-inspectors show",
+  "description": "Show job production plan inspector details",
+  "permissions": "Admins can view job production plan inspectors. Non-admins can view inspectors for job production plans where they are a developer manager, a broker member, or where the inspector user_id matches their user id.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_inspectors_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_inspector_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_inspector_policy.rb"
+    }
+  ]
+}

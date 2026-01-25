@@ -1,0 +1,33 @@
+{
+  "id": "389b9e862ee0826823c6921df2169982322766574161142dd10c4f941b718cba",
+  "full_path": "do geofence-restrictions delete",
+  "description": "Delete a geofence restriction.",
+  "permissions": "Admins can delete geofence restrictions. Non-admins can delete restrictions only for geofences owned by brokers they are members of.",
+  "side_effects": "Deletes the geofence restriction and its dependent geofence restriction entities.",
+  "validation_notes": "Requires a geofence restriction ID argument. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": "must be true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_geofence_restrictions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/geofence_restriction.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/geofence_restriction_policy.rb"
+    }
+  ]
+}

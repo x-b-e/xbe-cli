@@ -1,0 +1,23 @@
+{
+  "description": "Show pave frame actual statistic details",
+  "flags": [],
+  "full_path": "view pave-frame-actual-statistics show",
+  "id": "0f7fd8d7e867c3e179bdf12b88c0d329715a6e5e9df4a1e0bfbdaaf9af00ca1c",
+  "permissions": "User must be an admin or a broker membership manager; non-managers cannot access this resource.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/pave_frame_actual_statistics_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/pave_frame_actual_statistic_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/pave_frame_actual_statistic_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (statistic ID)."
+}

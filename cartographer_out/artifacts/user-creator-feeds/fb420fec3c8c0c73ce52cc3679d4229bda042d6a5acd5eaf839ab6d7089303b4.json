@@ -1,0 +1,33 @@
+{
+  "description": "Update a user creator feed.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID.",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do user-creator-feeds update",
+  "id": "fb420fec3c8c0c73ce52cc3679d4229bda042d6a5acd5eaf839ab6d7089303b4",
+  "permissions": "UserCreatorFeedPolicy allows update only when record.user equals the current user.",
+  "side_effects": "Updates fields on a user creator feed record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_user_creator_feeds_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/user_creator_feed_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/user_creator_feed.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (user creator feed ID). Each user can only have one user creator feed (user uniqueness validation)."
+}

@@ -1,0 +1,56 @@
+{
+  "id": "8149807afb5ccde6e98b80530192feabf0448f374710194de231618550f87eea",
+  "full_path": "do incident-unit-of-measure-quantities create",
+  "description": "Create an incident unit of measure quantity",
+  "permissions": "User must be authorized to create the related incident per IncidentPolicy (or be an admin), as IncidentUnitOfMeasureQuantity permissions defer to the incident policy.",
+  "side_effects": "Creates an incident unit of measure quantity and touches the associated tender_job_schedule_shift and job_production_plan after commit.",
+  "validation_notes": "Required flags: --incident-type, --incident-id, --unit-of-measure, --quantity. quantity must be numeric. incident and unit_of_measure relationships are required.",
+  "flags": [
+    {
+      "name": "--incident-type",
+      "required": true,
+      "type": "string",
+      "description": "Incident type (use incidents for standard incident records)",
+      "validation": "Required."
+    },
+    {
+      "name": "--incident-id",
+      "required": true,
+      "type": "string",
+      "description": "Incident ID",
+      "validation": "Required."
+    },
+    {
+      "name": "--unit-of-measure",
+      "required": true,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "validation": "Required."
+    },
+    {
+      "name": "--quantity",
+      "required": true,
+      "type": "string",
+      "description": "Quantity value",
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_unit_of_measure_quantities_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_unit_of_measure_quantity.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_unit_of_measure_quantity_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_unit_of_measure_quantity_resource.rb"
+    }
+  ]
+}

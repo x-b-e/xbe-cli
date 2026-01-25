@@ -1,0 +1,78 @@
+{
+  "id": "ce0d48488ac0615bb99802dfd35b56dd952e9a92d1370ac32880573b2c5786a2",
+  "full_path": "view user-location-estimates list",
+  "description": "List user location estimates for one or more users.",
+  "permissions": "Allowed only for users who can access the requested users via the UserPolicy scope; results are limited to users in that scope.",
+  "side_effects": null,
+  "validation_notes": "--user is required. --as-of, --earliest-event-at, and --latest-event-at must be parseable ISO8601 timestamps.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Filter by user ID (required)",
+      "default": null,
+      "validation": "Required user ID string (e.g., 123)."
+    },
+    {
+      "name": "--as-of",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference time for estimation (ISO8601)",
+      "default": null,
+      "validation": "ISO8601 timestamp (e.g., 2025-01-01T12:00:00Z)."
+    },
+    {
+      "name": "--earliest-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Override earliest event timestamp (ISO8601)",
+      "default": null,
+      "validation": "ISO8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--latest-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Override latest event timestamp (ISO8601)",
+      "default": null,
+      "validation": "ISO8601 timestamp (e.g., 2025-01-02T00:00:00Z)."
+    },
+    {
+      "name": "--max-abs-latency-seconds",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Override maximum absolute latency window (seconds)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--max-latest-seconds",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Override maximum latest event window (seconds)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_location_estimates_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_location_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_policy.rb"
+    }
+  ]
+}

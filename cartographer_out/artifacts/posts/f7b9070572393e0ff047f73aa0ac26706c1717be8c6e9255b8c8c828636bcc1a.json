@@ -1,0 +1,100 @@
+{
+  "id": "f7b9070572393e0ff047f73aa0ac26706c1717be8c6e9255b8c8c828636bcc1a",
+  "full_path": "do posts create",
+  "description": "Create a new post.",
+  "permissions": "User must be authenticated and the post creator must be the same as the authenticated user.",
+  "side_effects": "Creates a post. May enqueue background work to generate short_text_content, generate embeddings, create user_post_feed_posts (for creator and for users who had the subject post in feed), create a post router, and create a creator avatar.",
+  "validation_notes": "--post-type and --text-content are required. post-type must be one of: basic, notification, action, new_membership, post_summary, post_activity, objective_status, objective_completion, job_production_plan_recap, proffer. status must be one of: draft, published. published-at must be ISO 8601 datetime. creator type must be one of: User, JobProductionPlan, Notification, Objective, KeyResult, PostRouterJob, Broker, Project, Customer, MaterialSupplier, Trucker. Server requires at least one content field (text, image, video, audio, or action_content). text_content length max is 4000 characters by default (can vary by post type). short_text_content length max is 280 characters by default (can vary by post type). subject-post cannot be the same as the post. If creator is a User and subject-post is provided, the subject post must be in the creator's feed. If status is set to published and published-at is blank, the server sets published_at to the current time. For action post_type, action_content must be non-empty and match a valid action schema.",
+  "flags": [
+    {
+      "name": "--post-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Post type (required)",
+      "default": null,
+      "validation": "One of: basic, notification, action, new_membership, post_summary, post_activity, objective_status, objective_completion, job_production_plan_recap, proffer."
+    },
+    {
+      "name": "--text-content",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Post content text (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Post status (draft/published)",
+      "default": null,
+      "validation": "One of: draft, published."
+    },
+    {
+      "name": "--published-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Publication date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime."
+    },
+    {
+      "name": "--creator-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator type (users, brokers, etc.)",
+      "default": null,
+      "validation": "Must be a valid creator type; server accepts: User, JobProductionPlan, Notification, Objective, KeyResult, PostRouterJob, Broker, Project, Customer, MaterialSupplier, Trucker."
+    },
+    {
+      "name": "--creator-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--subject-post",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject post ID (for replies)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--private",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark post as private",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_posts_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/post.rb"
+    }
+  ]
+}

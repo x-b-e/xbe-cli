@@ -1,0 +1,46 @@
+{
+  "id": "abfc565cc1670e936b9b2bc014c27c1a3d84cde34d1ba924cabec38922d24250",
+  "full_path": "do customer-application-approvals create",
+  "description": "Approve a customer application.",
+  "permissions": "User must have a broker membership for the application broker (broker_memberships with organization_id equal to customer_application.broker_id).",
+  "side_effects": "Creates a new customer from the application data, sets its credit limit, marks the application approved, and adds the application user as a customer member; may attempt company address geocoding during customer creation.",
+  "validation_notes": "--customer-application and --credit-limit are required. Approval fails if the customer application is already approved. On invalid approval, the API returns Record Invalid (XBE-422).",
+  "flags": [
+    {
+      "name": "customer-application",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer application ID (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "credit-limit",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Credit limit for the customer (required)",
+      "default": null,
+      "validation": "required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_application_approvals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_application_approval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_application_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/customer_application_approval.rb"
+    }
+  ]
+}

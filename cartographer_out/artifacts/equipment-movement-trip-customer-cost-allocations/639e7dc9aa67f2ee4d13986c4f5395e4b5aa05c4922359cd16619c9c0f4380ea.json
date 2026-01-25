@@ -1,0 +1,41 @@
+{
+  "id": "639e7dc9aa67f2ee4d13986c4f5395e4b5aa05c4922359cd16619c9c0f4380ea",
+  "full_path": "do equipment-movement-trip-customer-cost-allocations update",
+  "description": "Update a customer cost allocation.",
+  "permissions": "Access is delegated to the related equipment movement trip via EquipmentMovementTripCustomerCostAllocationPolicy; the user must be authorized on the trip to update its cost allocation.",
+  "side_effects": "Updates allocation attributes for the specified cost allocation; if is_explicit is false, the allocation is auto-built from trip requirements before validation.",
+  "validation_notes": "Requires <id> argument (allocation ID). At least one attribute must be provided (is-explicit or allocation). If --allocation is provided, it must be valid JSON. Allocation details must include customer_id and percentage; percentage must be between 0 and 1 and all percentages must sum to 1. Allocation details must only reference customers from the trip requirements. Allocation details cannot be nil.",
+  "flags": [
+    {
+      "name": "--is-explicit",
+      "required": false,
+      "type": "boolean",
+      "description": "Mark allocation as explicit."
+    },
+    {
+      "name": "--allocation",
+      "required": false,
+      "type": "string",
+      "description": "Allocation JSON string (e.g., {\"details\":[{\"customer_id\":456,\"percentage\":\"1\"}]}).",
+      "validation": "Must be valid JSON."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_trip_customer_cost_allocations_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_trip_customer_cost_allocation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_customer_cost_allocation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_customer_cost_allocation_policy.rb"
+    }
+  ]
+}

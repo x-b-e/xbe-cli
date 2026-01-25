@@ -1,0 +1,38 @@
+{
+  "id": "1220f22d84461e5833cd2aa1c8acb4484fda922d608aedba272b22ed0ed7c9c2",
+  "full_path": "do material-type-material-site-inventory-locations create",
+  "description": "Create a material type material site inventory location.",
+  "permissions": null,
+  "side_effects": "Creates a material type material site inventory location mapping.",
+  "validation_notes": "--material-type is required. --material-site-inventory-location is required. Material types must be supplier-specific and share the same supplier as the inventory location.",
+  "flags": [
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material type ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-site-inventory-location",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material site inventory location ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_type_material_site_inventory_locations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_material_site_inventory_location_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "074302321efe00da8aadcc8608088e1ac05b1186e29560dd8d77c2269fcf3344",
+  "full_path": "view post-views show",
+  "description": "Show post view details",
+  "permissions": "User can show a post view only if it is within policy scope; for non-admins the scope is limited to post views where the viewer is the user and the post is in the users Post policy scope.",
+  "side_effects": null,
+  "validation_notes": "The post view id argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/post_views_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_view_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "config/routes.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "d2433a864bbe5572305b5ebaa8df059abc3c57053a8d7248ea0ec0c66b9a948f",
+  "full_path": "view job-production-plan-segments show",
+  "description": "Show the full details of a job production plan segment.",
+  "permissions": "User must be authorized to view the related job production plan; access is delegated to JobProductionPlanPolicy via JobProductionPlanSegmentPolicy.",
+  "side_effects": null,
+  "validation_notes": "<id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_segments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_segment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "d50433e37b73a168501b04aea0f6ab3518410b8cdc1d2ed25d0d3e13177fbe13",
+  "full_path": "view job-production-plan-safety-risks-suggestions show",
+  "description": "Show job production plan safety risks suggestion details.",
+  "permissions": "Access is delegated to the related job production plan. A user may view a suggestion if they can access the associated job production plan per JobProductionPlanPolicy (e.g., admin; customer manager/operations with visibility; broker member; assigned planner/project manager; time card approver or subscriber; or assigned laborer/notifying crew).",
+  "side_effects": null,
+  "validation_notes": "The suggestion id argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_safety_risks_suggestions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_safety_risks_suggestion_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_safety_risks_suggestion_policy.rb"
+    }
+  ]
+}

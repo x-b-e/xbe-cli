@@ -1,0 +1,159 @@
+{
+  "id": "366bb28b64b5bf22a41af27d8ba8e70d2d091cae17be7b603263f2d6c7e7601a",
+  "full_path": "view customer-vendors list",
+  "description": "List customer vendors with filtering and pagination",
+  "permissions": "Readable for users within TradingPartnerPolicy scope: user must be able to see the organization and partner via their policies; scope includes accessible Customer/Trucker/Broker combinations.",
+  "side_effects": null,
+  "validation_notes": "Organization filter uses Type|ID format. Partner filter uses Type|ID format. --organization-id requires --organization-type or --organization. --partner-id requires --partner-type or --partner. created-at and updated-at filters expect ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude by organization type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude by partner type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g. Customer|123)",
+      "default": null,
+      "validation": "Format Type|ID (e.g. Customer|123)."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (use with --organization-type)",
+      "default": null,
+      "validation": "Requires --organization-type or --organization."
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--partner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner (Type|ID, e.g. Trucker|456)",
+      "default": null,
+      "validation": "Format Type|ID (e.g. Trucker|456)."
+    },
+    {
+      "name": "--partner-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner ID (use with --partner-type)",
+      "default": null,
+      "validation": "Requires --partner-type or --partner."
+    },
+    {
+      "name": "--partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trading-partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trading partner type (e.g. CustomerVendor)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_vendors_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_vendor_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    }
+  ]
+}

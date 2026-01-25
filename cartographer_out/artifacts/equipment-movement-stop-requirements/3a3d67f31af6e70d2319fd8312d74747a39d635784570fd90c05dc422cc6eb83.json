@@ -1,0 +1,55 @@
+{
+  "id": "3a3d67f31af6e70d2319fd8312d74747a39d635784570fd90c05dc422cc6eb83",
+  "full_path": "do equipment-movement-stop-requirements create",
+  "description": "Create an equipment movement stop requirement.",
+  "permissions": "Requires permission to create a stop requirement through the related equipment movement stop (delegated via equipment movement stop requirement policy).",
+  "side_effects": "Creates an equipment movement stop requirement and may update the related customer cost allocation. When related job production plans are confirmed, notifications about stop changes may be scheduled.",
+  "validation_notes": "--stop and --requirement are required. kind is required by the model; if omitted, the API attempts to derive it from the stop location and requirement, and validation fails if it cannot. kind must be origin or destination. requirement must match the stop's location for the chosen kind. requirement_id must be unique per kind.",
+  "flags": [
+    {
+      "name": "--stop",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment movement stop ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requirement",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment movement requirement ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Requirement kind (origin/destination) (optional)",
+      "default": null,
+      "validation": "Must be one of: origin, destination."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_stop_requirements_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_stop_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_stop_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_requirement_policy.rb"
+    }
+  ]
+}

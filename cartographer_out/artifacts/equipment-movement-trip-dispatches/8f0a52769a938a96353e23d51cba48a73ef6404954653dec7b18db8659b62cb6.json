@@ -1,0 +1,64 @@
+{
+  "id": "8f0a52769a938a96353e23d51cba48a73ef6404954653dec7b18db8659b62cb6",
+  "full_path": "do equipment-movement-trip-dispatches update",
+  "description": "Update an equipment movement trip dispatch.",
+  "permissions": "Requires admin privileges (is_user_admin?).",
+  "side_effects": "Updates assignment and/or fulfillment processing attributes of an equipment movement trip dispatch.",
+  "validation_notes": "At least one attribute or relationship must be updated. Trucker/driver/trailer flags support clearing by passing an empty string.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker ID (leave blank to clear)",
+      "default": null,
+      "validation": "Empty string clears the trucker relationship"
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Driver (user) ID (leave blank to clear)",
+      "default": null,
+      "validation": "Empty string clears the driver relationship"
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID (leave blank to clear)",
+      "default": null,
+      "validation": "Empty string clears the trailer relationship"
+    },
+    {
+      "name": "--tell-clerk-synchronously",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Process fulfillment synchronously",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_trip_dispatches_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_dispatch_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_dispatch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_trip_dispatch.rb"
+    }
+  ]
+}

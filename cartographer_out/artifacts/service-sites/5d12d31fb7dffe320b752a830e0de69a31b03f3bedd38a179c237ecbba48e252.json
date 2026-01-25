@@ -1,0 +1,33 @@
+{
+  "id": "5d12d31fb7dffe320b752a830e0de69a31b03f3bedd38a179c237ecbba48e252",
+  "full_path": "do service-sites delete",
+  "description": "Delete a service site.",
+  "permissions": "Admins can delete service sites. Non-admin users must be manager members of the service site broker.",
+  "side_effects": "Deletes the service site record if allowed.",
+  "validation_notes": "Requires <id> argument (service site ID). --confirm must be set to true. Deletion is blocked if the service site has dependent work orders.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": "false",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_service_sites_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_site_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/service_site.rb"
+    }
+  ]
+}

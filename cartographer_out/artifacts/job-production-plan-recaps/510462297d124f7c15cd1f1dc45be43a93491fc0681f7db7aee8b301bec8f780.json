@@ -1,0 +1,69 @@
+{
+  "id": "510462297d124f7c15cd1f1dc45be43a93491fc0681f7db7aee8b301bec8f780",
+  "full_path": "view job-production-plan-recaps list",
+  "description": "List job production plan recaps.",
+  "permissions": "Authorization is delegated to the related job production plan via JobProductionPlanRecapPolicy (plan relationship); the user must be permitted to access the related job production plan.",
+  "side_effects": null,
+  "validation_notes": "No positional arguments allowed. Filters created-at-min/created-at-max and updated-at-min/updated-at-max must be ISO 8601 timestamps. Example filter: --plan 123.",
+  "flags": [
+    {
+      "name": "--plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_recaps_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_recap_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_recap_policy.rb"
+    }
+  ]
+}

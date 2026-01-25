@@ -1,0 +1,55 @@
+{
+  "description": "List raw transport tractors with filtering",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by import status (pending, success, failed)",
+      "name": "--import-status",
+      "required": false,
+      "type": "string",
+      "validation": "One of: pending, success, failed."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by importer (e.g., quantix_tmw)",
+      "name": "--importer",
+      "required": false,
+      "type": "string",
+      "validation": "One of: quantix_tmw."
+    }
+  ],
+  "full_path": "view raw-transport-tractors list",
+  "id": "55dac5444d0784ded84433d70aa84f6d0dbdd56a724e97aba0d1c7dc72b7d1ca",
+  "permissions": "Admins can list all raw transport tractors. Broker admins can list tractors for brokers they admin.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/raw_transport_tractors_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/raw_transport_tractor_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_transport_tractor_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/raw_transport/abstract_record.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter --import-status accepts: pending, success, failed. Filter --importer accepts: quantix_tmw."
+}

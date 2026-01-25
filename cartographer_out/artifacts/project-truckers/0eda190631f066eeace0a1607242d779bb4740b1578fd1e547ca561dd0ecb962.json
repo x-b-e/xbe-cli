@@ -1,0 +1,91 @@
+{
+  "id": "0eda190631f066eeace0a1607242d779bb4740b1578fd1e547ca561dd0ecb962",
+  "full_path": "view project-truckers list",
+  "description": "List project truckers with filtering",
+  "permissions": "Read access is allowed, but results are scoped: non-admin users only see project truckers whose project is in the Project policy scope; admins are not restricted by this scope.",
+  "side_effects": null,
+  "validation_notes": "Filters use ISO 8601 timestamps for created-at and updated-at bounds. The exclusion filter expects true/false.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-excluded-from-time-card-payroll-certification-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by exclusion flag (true/false)",
+      "default": null,
+      "validation": "Accepts true or false."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_truckers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_trucker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

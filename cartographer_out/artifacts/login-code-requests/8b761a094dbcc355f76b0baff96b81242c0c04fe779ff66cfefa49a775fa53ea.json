@@ -1,0 +1,58 @@
+{
+  "id": "8b761a094dbcc355f76b0baff96b81242c0c04fe779ff66cfefa49a775fa53ea",
+  "full_path": "do login-code-requests create",
+  "description": "Request a login code.",
+  "permissions": "No authentication required; the controller skips authorization checks for the current user.",
+  "side_effects": "Creates a login code request; if the contact method matches a user and the user is not in app review, creates a login code and a login code request notification, and updates device/user device details when a user is present.",
+  "validation_notes": "--contact-method and --device-id are required.",
+  "flags": [
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Email address or mobile number (required). Examples: user@example.com, +18155551234.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--device-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Device identifier (required). Example: xbe-cli.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_login_code_requests_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/login_code_requests_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/login_code_request_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/set_device_details.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/login_code_request.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/models/login_code_request_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/requests/login_code_requests_spec.rb"
+    }
+  ]
+}

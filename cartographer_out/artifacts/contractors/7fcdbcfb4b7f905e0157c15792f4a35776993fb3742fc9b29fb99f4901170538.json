@@ -1,0 +1,55 @@
+{
+  "id": "7fcdbcfb4b7f905e0157c15792f4a35776993fb3742fc9b29fb99f4901170538",
+  "full_path": "view contractors list",
+  "description": "List contractors with filtering and pagination.",
+  "permissions": "Admins can list all contractors. Non-admins can list contractors for brokers they belong to or for brokers tied to customers they manage.",
+  "side_effects": null,
+  "validation_notes": "Filters support broker ID, name partial match, and incident IDs; incident IDs are provided as a comma-separated list.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": "Example: 123"
+    },
+    {
+      "name": "--incidents",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated incident IDs. Example: 10,12"
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": "Partial match. Example: Acme"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/contractors_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/contractor_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/has_incidents_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/contractor_policy.rb"
+    }
+  ]
+}

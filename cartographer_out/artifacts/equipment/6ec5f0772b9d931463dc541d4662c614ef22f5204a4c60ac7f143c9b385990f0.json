@@ -1,0 +1,141 @@
+{
+  "id": "6ec5f0772b9d931463dc541d4662c614ef22f5204a4c60ac7f143c9b385990f0",
+  "full_path": "view equipment list",
+  "description": "List equipment.",
+  "permissions": "Admin users can list equipment. Non-admin users can only see equipment tied to organizations and brokers they are members/managers of, per EquipmentPolicy scope.",
+  "side_effects": null,
+  "validation_notes": "Filters --is-active, --is-rented, and --is-available expect boolean strings (true/false). --is-rented uses strict boolean validation.",
+  "flags": [
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker, Customer)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--mobilization-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by mobilization method",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-rented",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by rented status (true/false)",
+      "default": null,
+      "validation": "true/false (strict)"
+    },
+    {
+      "name": "--is-available",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by availability status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--nickname-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by nickname (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--search",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search equipment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_policy.rb"
+    }
+  ]
+}

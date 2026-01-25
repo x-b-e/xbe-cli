@@ -1,0 +1,86 @@
+{
+  "id": "5ff72c3463a8782880b5010d3526341deba212a8b7c16acc334f3e7c95eedb6d",
+  "full_path": "view change-requests list",
+  "description": "List change requests",
+  "permissions": "Any authenticated user can list change requests; non-admin results are limited to brokers in the user policy scope.",
+  "side_effects": null,
+  "validation_notes": "--organization must be in Type|ID format (e.g., Broker|123). --organization-id requires --organization-type unless the value already includes a Type|ID (contains |).",
+  "flags": [
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (format: Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Must be in Type|ID format (e.g., Broker|123)."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type or Type|ID)",
+      "default": null,
+      "validation": "Requires --organization-type unless the value already includes a Type|ID (contains |)."
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker, Customer, Trucker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude organization type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/change_requests_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_simulation_sets_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/change_request_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/change_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/change_request_policy_spec.rb"
+    }
+  ]
+}

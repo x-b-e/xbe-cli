@@ -1,0 +1,81 @@
+{
+  "description": "List organization invoices batch PDF generations with filtering",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization invoices batch ID",
+      "name": "--organization-invoices-batch",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status",
+      "name": "--status",
+      "required": false,
+      "type": "string",
+      "validation": "One of: processing, completed, failed."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    }
+  ],
+  "full_path": "view organization-invoices-batch-pdf-generations list",
+  "id": "dd69e5495d265701ffea7d118c0ebde27c0934bd739bba10ab72134ace14ccc1",
+  "permissions": "Allowed for users within the OrganizationInvoicesBatchPdfGeneration policy scope, which is delegated to the related organization invoices batch policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/organization_invoices_batch_pdf_generations_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/organization_invoices_batch_pdf_generation_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/organization_invoices_batch_pdf_generation.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_invoices_batch_pdf_generation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/delegated_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "created-at-min and created-at-max must be ISO 8601 timestamps. status filter values are processing, completed, or failed."
+}

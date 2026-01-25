@@ -1,0 +1,19 @@
+{
+  "id": "aedc1d37b8d370dd0423701676aa0d77d36fb90311c253acc9694027d332c30d",
+  "full_path": "view job-schedule-shift-start-at-changes show",
+  "description": "Show the full details of a job schedule shift start-at change.",
+  "permissions": "Admins can view any job schedule shift start-at change. Non-admin access is limited to changes within the policy scope: those tied to job schedule shifts related to the user broker memberships, customer memberships, or flexible shifts tied to accepted broker tenders where the user is a manager member of the trucker.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and must be a non-empty start-at change ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_schedule_shift_start_at_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_start_at_change_policy.rb"
+    }
+  ]
+}

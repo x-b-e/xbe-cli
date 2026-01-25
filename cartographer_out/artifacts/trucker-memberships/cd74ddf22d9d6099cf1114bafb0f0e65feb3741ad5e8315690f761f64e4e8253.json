@@ -1,0 +1,23 @@
+{
+  "id": "cd74ddf22d9d6099cf1114bafb0f0e65feb3741ad5e8315690f761f64e4e8253",
+  "full_path": "view trucker-memberships show",
+  "description": "Show the full details of a trucker membership.",
+  "permissions": "Admins can view any trucker membership. Non-admin users can view memberships when they are the membership user, are a broker member for the trucker\"s broker, are a trucker manager member for the trucker, or are a customer manager for a customer linked to the trucker.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument (trucker membership ID) is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_memberships_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/membership_policy.rb"
+    }
+  ]
+}

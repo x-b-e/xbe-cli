@@ -1,0 +1,37 @@
+{
+  "description": "Delete a lineup scenario trucker",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required).",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do lineup-scenario-truckers delete",
+  "id": "98cfe5d298808392aea664fb3ed313f007a2d24582553d66036226749943d999",
+  "permissions": "Allowed if the user is an admin or a manager member of the lineup scenario's broker (LineupScenarioPolicy destroy?; delegated through LineupScenarioTruckerPolicy).",
+  "side_effects": "Deletes a lineup scenario trucker record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_scenario_truckers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trucker_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/delegated_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required."
+}

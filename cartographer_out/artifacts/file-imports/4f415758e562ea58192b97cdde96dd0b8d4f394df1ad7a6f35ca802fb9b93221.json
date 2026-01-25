@@ -1,0 +1,64 @@
+{
+  "id": "4f415758e562ea58192b97cdde96dd0b8d4f394df1ad7a6f35ca802fb9b93221",
+  "full_path": "do file-imports create",
+  "description": "Create a new file import",
+  "permissions": "Admins can create file imports. Non-admins can create file imports for brokers they are members of.",
+  "side_effects": "Creates a file import record.",
+  "validation_notes": "--broker and --file-attachment are required. --processed-at must be an ISO 8601 timestamp when provided. The file attachment must be in scope for the importing user or their broker.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--file-attachment",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "File attachment ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--processed-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Processed at timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Import note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_file_imports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/file_import_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/file_import_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/file_import.rb"
+    }
+  ]
+}

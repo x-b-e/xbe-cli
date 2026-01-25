@@ -1,0 +1,81 @@
+{
+  "id": "8a8ba08fdf8cdc3d2adc6a747115e83ead759d7734abd7107a61f8078b751263",
+  "full_path": "do job-production-plan-service-type-unit-of-measures update",
+  "description": "Update a job production plan service type unit of measure.",
+  "permissions": "Allowed for users authorized to access the related job production plan per JobProductionPlanServiceTypeUnitOfMeasurePolicy (delegated to job_production_plan).",
+  "side_effects": "Updates attributes and/or relationships on a job production plan service type unit of measure.",
+  "validation_notes": "The <id> argument is required. At least one attribute or relationship flag must be provided. step-size must be one of: no_step, ceiling, floor, standard_rounding_up. service-type-unit-of-measure must be unique per job-production-plan.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": "Example: --job-production-plan 456"
+    },
+    {
+      "name": "--service-type-unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Service type unit of measure ID",
+      "default": null,
+      "validation": "Example: --service-type-unit-of-measure 789"
+    },
+    {
+      "name": "--step-size",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Step size rule (no_step, ceiling, floor, standard_rounding_up)",
+      "default": null,
+      "validation": "Allowed values: no_step, ceiling, floor, standard_rounding_up"
+    },
+    {
+      "name": "--explicit-step-size-target",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit step size target label",
+      "default": null,
+      "validation": "Example: --explicit-step-size-target \"Loads\""
+    },
+    {
+      "name": "--exclude-from-time-card-invoices",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Exclude from time card invoices",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_service_type_unit_of_measures.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_service_type_unit_of_measures_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/job_production_plan_service_type_unit_of_measures_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_service_type_unit_of_measure_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_service_type_unit_of_measure_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_service_type_unit_of_measure.rb"
+    }
+  ]
+}

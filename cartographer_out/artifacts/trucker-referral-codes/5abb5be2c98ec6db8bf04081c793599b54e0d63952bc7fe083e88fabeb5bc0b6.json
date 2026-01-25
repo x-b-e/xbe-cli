@@ -1,0 +1,87 @@
+{
+  "id": "5abb5be2c98ec6db8bf04081c793599b54e0d63952bc7fe083e88fabeb5bc0b6",
+  "full_path": "view trucker-referral-codes list",
+  "description": "List trucker referral codes.",
+  "permissions": "Requires authentication. Admins can list any trucker referral codes; non-admins are limited to brokers they belong to.",
+  "side_effects": null,
+  "validation_notes": "Filters: code matching is case-insensitive and ignores whitespace; created-at/updated-at filters must be ISO 8601 timestamps; is-created-at and is-updated-at must be true or false.",
+  "flags": [
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by code (case-insensitive, whitespace ignored)",
+      "default": null,
+      "validation": "Case-insensitive; whitespace is ignored."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "Strict boolean: true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "Strict boolean: true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_referral_codes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_referral_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_referral_code_policy.rb"
+    }
+  ]
+}

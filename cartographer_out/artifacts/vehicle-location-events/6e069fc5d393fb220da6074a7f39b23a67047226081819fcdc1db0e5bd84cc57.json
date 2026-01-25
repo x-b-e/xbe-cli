@@ -1,0 +1,27 @@
+{
+  "id": "6e069fc5d393fb220da6074a7f39b23a67047226081819fcdc1db0e5bd84cc57",
+  "full_path": "view vehicle-location-events show",
+  "description": "Show vehicle location event details",
+  "permissions": "User can view vehicle location events for tractors or trailers they are authorized to access (policy scope uses accessible tractor or trailer IDs).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (vehicle location event ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/vehicle_location_events_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/vehicle_location_events.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/vehicle_location_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_policy.rb"
+    }
+  ]
+}

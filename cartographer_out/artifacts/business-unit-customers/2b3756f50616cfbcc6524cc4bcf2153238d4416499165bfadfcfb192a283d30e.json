@@ -1,0 +1,23 @@
+{
+  "id": "2b3756f50616cfbcc6524cc4bcf2153238d4416499165bfadfcfb192a283d30e",
+  "full_path": "view business-unit-customers show",
+  "description": "Show business unit customer details.",
+  "permissions": "User must be authorized to view the related business unit; access is delegated to the business unit policy scope (BusinessUnitPolicy::Scope).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (business unit customer ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/business_unit_customers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "1ac29fae225b4308b6548126b85fbb700d9f7a52024f089ad7944f15ae4530e2",
+  "full_path": "do project-phase-cost-item-price-estimates create",
+  "description": "Create a project phase cost item price estimate",
+  "permissions": "User must be authorized to create price estimates for the related project phase cost item (delegated via ProjectPhaseCostItemPolicy).",
+  "side_effects": "Creates a project phase cost item price estimate record.",
+  "validation_notes": "Requires --project-phase-cost-item and --project-estimate-set. If --estimate is provided, it must be valid JSON representing an object; \"null\" is allowed to clear the estimate. Empty or non-JSON values are rejected.",
+  "flags": [
+    {
+      "name": "--project-phase-cost-item",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project phase cost item ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-estimate-set",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project estimate set ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--estimate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimate JSON object (optional)",
+      "default": null,
+      "validation": "Must be valid JSON that parses to an object; \"null\" is allowed."
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Created by user ID (optional)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_cost_item_price_estimates_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_phase_cost_item_price_estimates_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_cost_item_price_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_cost_item_price_estimate_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "7194b716214422acae56ffd3bdfecb377f45e6ce819f14ed4d6568f305a6a002",
+  "full_path": "do tender-job-schedule-shift-drivers create",
+  "description": "Create a tender job schedule shift driver.",
+  "permissions": "Allowed when TenderJobScheduleShiftPolicy#create? permits the related tender job schedule shift (admin, customer manager for the job customer, broker-shift trucker manager, shift driver/driver, or foreman).",
+  "side_effects": "Creates a tender job schedule shift driver; after save, enqueues DriverDayRecapPostSchedulerWorker and updates the shift seller_operations_contact when is_primary changes; after create, creates a TenderJobScheduleShiftDriverPartnerAssignmentNotification asynchronously when the driver is not primary.",
+  "validation_notes": "Requires --tender-job-schedule-shift and --user. User must be unique per tender job schedule shift. The shift must be a broker shift (trucker tender). For broker shifts, the user must have a membership with the seller and not be suspended from driving. User cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID. Example: --tender-job-schedule-shift 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID to assign as a driver. Example: --user 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-primary",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark the driver as primary.",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_job_schedule_shift_drivers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_driver_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_job_schedule_shift_driver.rb"
+    }
+  ]
+}

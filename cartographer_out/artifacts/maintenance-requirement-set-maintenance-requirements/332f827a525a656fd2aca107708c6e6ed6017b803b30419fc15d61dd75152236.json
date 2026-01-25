@@ -1,0 +1,42 @@
+{
+  "id": "332f827a525a656fd2aca107708c6e6ed6017b803b30419fc15d61dd75152236",
+  "full_path": "do maintenance-requirement-set-maintenance-requirements update",
+  "description": "Update a maintenance requirement set maintenance requirement.",
+  "permissions": "Access is delegated to the related maintenance requirement set; the user must be authorized to update or manage that set per MaintenanceRequirementSet policy.",
+  "side_effects": null,
+  "validation_notes": "The record ID argument is required; at least one of --maintenance-requirement-set or --maintenance-requirement must be provided; provided relationship IDs cannot be empty; the pair of maintenance_requirement_set_id and maintenance_requirement_id must be unique.",
+  "flags": [
+    {
+      "name": "--maintenance-requirement-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maintenance requirement set ID",
+      "default": null,
+      "validation": "cannot be empty if provided"
+    },
+    {
+      "name": "--maintenance-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maintenance requirement ID",
+      "default": null,
+      "validation": "cannot be empty if provided"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_set_maintenance_requirements_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_set_maintenance_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_set_maintenance_requirement_policy.rb"
+    }
+  ]
+}

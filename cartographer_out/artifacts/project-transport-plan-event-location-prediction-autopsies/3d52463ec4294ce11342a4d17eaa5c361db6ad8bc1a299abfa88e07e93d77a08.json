@@ -1,0 +1,33 @@
+{
+  "id": "3d52463ec4294ce11342a4d17eaa5c361db6ad8bc1a299abfa88e07e93d77a08",
+  "full_path": "view project-transport-plan-event-location-prediction-autopsies list",
+  "description": "List project transport plan event location prediction autopsies.",
+  "permissions": "User must be authorized to view related project transport plan events; access is scoped via the ProjectTransportPlanEvent policy through the autopsy relationship.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "project-transport-plan-event",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan event ID",
+      "default": "",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_event_location_prediction_autopsies_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_location_prediction_autopsy_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_location_prediction_autopsy_policy.rb"
+    }
+  ]
+}

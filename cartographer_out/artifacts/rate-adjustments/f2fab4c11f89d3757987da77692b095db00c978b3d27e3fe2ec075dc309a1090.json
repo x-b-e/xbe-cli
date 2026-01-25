@@ -1,0 +1,36 @@
+{
+  "description": "Delete a rate adjustment.",
+  "flags": [
+    {
+      "default": "false",
+      "description": "Confirm deletion (example: --confirm).",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to delete."
+    }
+  ],
+  "full_path": "do rate-adjustments delete",
+  "id": "f2fab4c11f89d3757987da77692b095db00c978b3d27e3fe2ec075dc309a1090",
+  "permissions": "Requires authorization via RateAdjustmentPolicy, which delegates access to the associated rate (RatePolicy); destroy allowed only when the rate adjustment is deletable (can_delete is true).",
+  "side_effects": "Deletes the rate adjustment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_rate_adjustments_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/rate_adjustment.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_adjustment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/rate_adjustment_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires a rate adjustment ID argument and the --confirm flag. Deletion is blocked when the model reports cannot_delete_reasons."
+}

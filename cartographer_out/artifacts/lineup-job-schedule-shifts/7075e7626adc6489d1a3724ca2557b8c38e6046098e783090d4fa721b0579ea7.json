@@ -1,0 +1,27 @@
+{
+  "id": "7075e7626adc6489d1a3724ca2557b8c38e6046098e783090d4fa721b0579ea7",
+  "full_path": "view lineup-job-schedule-shifts show",
+  "description": "Show lineup job schedule shift details",
+  "permissions": "Authorized via LineupJobScheduleShiftPolicy (delegated to lineup). User must be admin or have lineup access per LineupPolicy scope (managed customer, member broker, or manager laborer on a lineup job production plan).",
+  "side_effects": null,
+  "validation_notes": "Requires lineup job schedule shift ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_job_schedule_shifts_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

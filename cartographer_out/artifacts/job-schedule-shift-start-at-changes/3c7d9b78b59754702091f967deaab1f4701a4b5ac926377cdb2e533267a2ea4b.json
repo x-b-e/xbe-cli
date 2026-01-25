@@ -1,0 +1,46 @@
+{
+  "id": "3c7d9b78b59754702091f967deaab1f4701a4b5ac926377cdb2e533267a2ea4b",
+  "full_path": "do job-schedule-shift-start-at-changes create",
+  "description": "Create a job schedule shift start-at change.",
+  "permissions": "Allowed for admins. Otherwise, permitted when the user can create the related job (per Job policy), or when the shift is flexible and the user is a manager member of the accepted trucker for the broker tender. The policy allows create attempts even if the job schedule shift is missing, but validations will then fail.",
+  "side_effects": "Creates a job schedule shift start-at change record; updates the job schedule shift start time to the new value, adjusts end time by the same difference when present, sets old start-at values, permits schedule changes on the shift, and after commit creates notifications and schedules check-in requests for accepted broker tender job schedule shifts.",
+  "validation_notes": "--job-schedule-shift is required. --new-start-at is required and must be ISO 8601. The new start time must differ from the current start time. If the shift has start-at bounds, the new start time must be within them. For non-flexible shifts, flexible shift attributes (start-at min/max) must not be set. The related job must be movable, the shift must pass reschedule validation (no driver day comments), and if a driver is assigned the job production plan must be approved. The associated job schedule shift must be valid.",
+  "flags": [
+    {
+      "name": "--job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job schedule shift ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--new-start-at",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "New shift start time (ISO 8601, required)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_schedule_shift_start_at_changes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_start_at_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_schedule_shift_start_at_change.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_schedule_shift_start_at_change_resource.rb"
+    }
+  ]
+}

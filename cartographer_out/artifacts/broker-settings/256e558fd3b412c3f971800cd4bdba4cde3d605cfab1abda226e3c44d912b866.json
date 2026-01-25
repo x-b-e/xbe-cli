@@ -1,0 +1,87 @@
+{
+  "id": "256e558fd3b412c3f971800cd4bdba4cde3d605cfab1abda226e3c44d912b866",
+  "full_path": "do broker-settings update",
+  "description": "Update broker settings",
+  "permissions": "Admin users or users who are members of the broker that owns the setting can update it.",
+  "side_effects": "Updates broker settings. Changing plan-required flags triggers background jobs to update related job production plan requirements.",
+  "validation_notes": "Requires exactly one argument: id. At least one updatable attribute flag must be provided; otherwise the command errors with \"no attributes to update\".",
+  "flags": [
+    {
+      "name": "--is-auditing-time-card-approvals",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable time card approval auditing",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--enable-recap-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable recap notifications",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--plan-requires-project",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Require project for plans",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--plan-requires-business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Require business unit for plans",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--auto-cancel-shifts-without-activity",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Auto-cancel shifts without activity",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--restrict-contact-info-visibility",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Restrict contact info visibility",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--require-explicit-rate-editing-permission",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Require explicit rate editing permission",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_settings_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_setting_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_settings/broker_setting.rb"
+    }
+  ]
+}

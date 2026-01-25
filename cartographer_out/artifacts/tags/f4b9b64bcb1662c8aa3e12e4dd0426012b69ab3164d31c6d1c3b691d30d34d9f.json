@@ -1,0 +1,64 @@
+{
+  "id": "f4b9b64bcb1662c8aa3e12e4dd0426012b69ab3164d31c6d1c3b691d30d34d9f",
+  "full_path": "view tags list",
+  "description": "List tags",
+  "permissions": "Any authenticated user can list tags; non-admin users only see tags applied to taggables they can access.",
+  "side_effects": null,
+  "validation_notes": "Filter --name performs a partial, case-insensitive match. Filters --tag-category-slug and --for-taggable-type accept comma-separated lists.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match). Example: \"urgent\".",
+      "default": null,
+      "validation": "Partial, case-insensitive match."
+    },
+    {
+      "name": "--tag-category-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tag category ID. Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tag-category-slug",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tag category slug. Example: \"priority\".",
+      "default": null,
+      "validation": "Accepts comma-separated slugs."
+    },
+    {
+      "name": "--for-taggable-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by taggable entity type. Example: PredictionSubject.",
+      "default": null,
+      "validation": "Accepts comma-separated taggable types."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tags_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tag_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tag_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tagging_policy.rb"
+    }
+  ]
+}

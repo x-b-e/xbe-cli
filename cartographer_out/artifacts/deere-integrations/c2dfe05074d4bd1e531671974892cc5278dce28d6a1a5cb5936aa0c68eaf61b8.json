@@ -1,0 +1,72 @@
+{
+  "id": "c2dfe05074d4bd1e531671974892cc5278dce28d6a1a5cb5936aa0c68eaf61b8",
+  "full_path": "do deere-integrations create",
+  "description": "Create a Deere integration.",
+  "permissions": "Only admin users can create Deere integrations.",
+  "side_effects": "Creates a Deere integration.",
+  "validation_notes": "Required flags: --integration-identifier, --friendly-name, --broker, and --integration-config. The integration identifier must be present and unique. Friendly name must be present.",
+  "flags": [
+    {
+      "name": "--integration-identifier",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Integration identifier from Deere (required)",
+      "default": null,
+      "validation": "Must be present and unique."
+    },
+    {
+      "name": "--friendly-name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Friendly name for the integration (required)",
+      "default": null,
+      "validation": "Must be present."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "Must reference a broker."
+    },
+    {
+      "name": "--integration-config",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Integration config ID (required)",
+      "default": null,
+      "validation": "Must reference an integration config."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_deere_integrations_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_deere_integrations.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/deere_integration.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/deere_integration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/deere_integration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/deere_integrations_spec.rb"
+    }
+  ]
+}

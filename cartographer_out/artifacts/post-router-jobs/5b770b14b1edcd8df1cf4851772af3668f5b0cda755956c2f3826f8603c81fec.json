@@ -1,0 +1,51 @@
+{
+  "id": "5b770b14b1edcd8df1cf4851772af3668f5b0cda755956c2f3826f8603c81fec",
+  "full_path": "view post-router-jobs list",
+  "description": "List post router jobs with filtering and pagination.",
+  "permissions": "Allowed for users authorized to view the related Post; non-admin scope limits results to post router jobs whose post_router belongs to a post in the user Post policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--post-worker-class-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by post worker class name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--post-router",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by post router ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--post",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by post ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/post_router_jobs_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_router_job_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_router_job_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "f78852bed237bdc12d7e43fb09ff33ce565b5a4563928c8138f0462291d258cc",
+  "full_path": "view invoice-revisionizing-invoice-revisions show",
+  "description": "Show the full details of an invoice revisionizing invoice revision.",
+  "permissions": "Allowed for users who can access the record within the policy scope; access is granted when the invoice revisionizing invoice revision joins to an invoice revisionizing work visible under the InvoiceRevisionizingWork policy scope (non-admins limited to member broker IDs; admins can access all).",
+  "side_effects": "None (read-only).",
+  "validation_notes": "The <id> argument is required and must be a non-empty invoice revisionizing invoice revision ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_revisionizing_invoice_revisions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_revisionizing_invoice_revision_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_revisionizing_work_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "94216f2059be7e4ac385e053e3cff67007c18f51eccc5804782b0dc51318d7cf",
+  "full_path": "view material-type-conversions show",
+  "description": "Show the full details of a material type conversion.",
+  "permissions": "Admins can view any material type conversion. Non-admin users can view a conversion when they are members of the conversion's broker or the conversion's material supplier.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_type_conversions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_conversion_policy.rb"
+    }
+  ]
+}

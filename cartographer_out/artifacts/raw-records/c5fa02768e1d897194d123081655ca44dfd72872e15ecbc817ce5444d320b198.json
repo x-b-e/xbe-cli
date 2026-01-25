@@ -1,0 +1,110 @@
+{
+  "description": "List ingest raw records with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID.",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by integration config ID.",
+      "name": "--integration-config",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by integration config organization (Type|ID).",
+      "name": "--integration-config-organization",
+      "required": false,
+      "type": "string",
+      "validation": "Format: Type|ID."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by internal record (Type|ID).",
+      "name": "--internal-record",
+      "required": false,
+      "type": "string",
+      "validation": "Format: Type|ID (example: Project|456)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by external record type (example: Equipment).",
+      "name": "--external-record-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by external record ID (example: 123).",
+      "name": "--external-record-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by processed status (true/false).",
+      "name": "--is-processed",
+      "required": false,
+      "type": "string",
+      "validation": "true/false (example: true)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by failed status (true/false).",
+      "name": "--is-failed",
+      "required": false,
+      "type": "string",
+      "validation": "true/false (example: false)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by skipped status (true/false).",
+      "name": "--is-skipped",
+      "required": false,
+      "type": "string",
+      "validation": "true/false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by data presence (true/false).",
+      "name": "--has-data",
+      "required": false,
+      "type": "string",
+      "validation": "true/false."
+    }
+  ],
+  "full_path": "view raw-records list",
+  "id": "c5fa02768e1d897194d123081655ca44dfd72872e15ecbc817ce5444d320b198",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/raw_records_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/ingest/raw_record_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters accepting true/false: --is-processed, --is-failed, --is-skipped, --has-data. Polymorphic filters use Type|ID format for --integration-config-organization and --internal-record (example: Project|456)."
+}

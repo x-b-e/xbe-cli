@@ -1,0 +1,33 @@
+{
+  "id": "a58c369be230ebed9667f166b58eafefdf59fb46c520eee51a7de4375c14e817",
+  "full_path": "do trucker-insurances delete",
+  "description": "Delete a trucker insurance.",
+  "permissions": "User must have permission to update the associated trucker (policy checks Trucker update? on the related trucker).",
+  "side_effects": "Deletes a trucker insurance record.",
+  "validation_notes": "Requires <id> argument. --confirm is required and deletion is rejected if --confirm is false.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_insurances_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_insurance_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/trucker_insurances_controller.rb"
+    }
+  ]
+}

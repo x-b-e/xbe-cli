@@ -1,0 +1,29 @@
+{
+  "id": "e1850d724f037c9c521b287e31dbfdcf976135062e96b6477783353335f212fc",
+  "full_path": "do action-item-trackers delete",
+  "description": "Delete an action item tracker.",
+  "permissions": "Requires an admin user (policy allows only users with is_admin?).",
+  "side_effects": "Deletes the action item tracker.",
+  "validation_notes": "Requires an action item tracker ID argument. --confirm must be provided.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_trackers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_tracker_policy.rb"
+    }
+  ]
+}

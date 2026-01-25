@@ -1,0 +1,33 @@
+{
+  "id": "e8ef75c1110e4f9afc03fb026468d2b2e2750c7eeddac5333124de0fb38f0f6c",
+  "full_path": "do project-transport-plan-event-times delete",
+  "description": "Delete a project transport plan event time.",
+  "permissions": "Allowed if the user can update the related project transport plan event via ProjectTransportPlanEventPolicy, or if the user is a member in the broker branch and is an active driver assigned to a segment connected to the event's stop.",
+  "side_effects": "Deletes the specified project transport plan event time.",
+  "validation_notes": "The <id> argument is required. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_event_times_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_time_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_event_time.rb"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "4eff8c49e2919e20319da0d9f4819291e0e176031ead89e50095fcdaf1a0c646",
+  "full_path": "do retainers delete",
+  "description": "Delete a retainer.",
+  "permissions": "Broker retainers: admin users or broker members of the buyer broker. Customer retainers: admin users or broker members of the seller broker, or customer members of the buyer customer.",
+  "side_effects": "Deletes the retainer record.",
+  "validation_notes": "The retainer ID argument is required. --confirm is required. Deletion is blocked unless the retainer status is editing, and deletion will fail if the retainer has associated retainer payments.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_retainers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer.rb"
+    }
+  ]
+}

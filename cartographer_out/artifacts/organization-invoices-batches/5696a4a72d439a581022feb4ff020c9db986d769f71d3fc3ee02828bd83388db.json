@@ -1,0 +1,38 @@
+{
+  "id": "5696a4a72d439a581022feb4ff020c9db986d769f71d3fc3ee02828bd83388db",
+  "full_path": "do organization-invoices-batches create",
+  "description": "Create an organization invoices batch.",
+  "permissions": null,
+  "side_effects": "Creates an organization invoices batch.",
+  "validation_notes": "--organization is required and must be in Type|ID format (e.g. Broker|123); --invoices is required and must include at least one invoice ID (comma-separated).",
+  "flags": [
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization in Type|ID format (required)",
+      "default": null,
+      "validation": "Type|ID format (e.g. Broker|123)"
+    },
+    {
+      "name": "--invoices",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Invoice IDs (comma-separated, required)",
+      "default": null,
+      "validation": "Comma-separated invoice IDs; must include at least one ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_invoices_batches_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": "3ae558a639638d3450bef81a87c394759a75bea7effc2ec5238246ad0152beef",
+  "full_path": "view time-card-status-changes list",
+  "description": "List time card status changes",
+  "permissions": "User must be authorized to view TimeCard records; policy scope limits status changes to those whose time_card_id is within the TimeCard policy scope for the user.",
+  "side_effects": null,
+  "validation_notes": "No positional arguments allowed. created-at-min/created-at-max and updated-at-min/updated-at-max must be non-empty ISO 8601 timestamps. is-created-at and is-updated-at must be true or false. status must be a valid status enum value.",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ID",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status value",
+      "default": null,
+      "validation": "Must be a valid status enum value (e.g., submitted)."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-23T00:00:00Z)."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-24T00:00:00Z)."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of created-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-23T00:00:00Z)."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-24T00:00:00Z)."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of updated-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_status_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_status_change_policy.rb"
+    }
+  ]
+}

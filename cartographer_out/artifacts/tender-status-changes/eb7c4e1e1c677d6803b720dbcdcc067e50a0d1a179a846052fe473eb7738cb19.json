@@ -1,0 +1,46 @@
+{
+  "id": "eb7c4e1e1c677d6803b720dbcdcc067e50a0d1a179a846052fe473eb7738cb19",
+  "full_path": "view tender-status-changes list",
+  "description": "List tender status changes.",
+  "permissions": "User can view tender status changes for tenders they are authorized to view (non-admin scope limited to tenders in the Tender policy scope).",
+  "side_effects": null,
+  "validation_notes": "No positional arguments. The status filter must be one of: accepted, cancelled, editing, expired, offered, rejected, returned, sourced.",
+  "flags": [
+    {
+      "name": "--tender",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (accepted, cancelled, editing, expired, offered, rejected, returned, sourced).",
+      "default": null,
+      "validation": "accepted|cancelled|editing|expired|offered|rejected|returned|sourced"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_status_changes_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_status_changes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_status_change_policy.rb"
+    }
+  ]
+}

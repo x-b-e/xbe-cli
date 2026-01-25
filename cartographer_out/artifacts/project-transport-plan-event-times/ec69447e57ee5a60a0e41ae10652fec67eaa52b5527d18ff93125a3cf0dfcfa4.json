@@ -1,0 +1,23 @@
+{
+  "id": "ec69447e57ee5a60a0e41ae10652fec67eaa52b5527d18ff93125a3cf0dfcfa4",
+  "full_path": "view project-transport-plan-event-times show",
+  "description": "Show the full details of a project transport plan event time.",
+  "permissions": "Available to users within the policy scope of related project transport plan events (scope is limited to project transport plan events the user is authorized to access).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_event_times_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_time_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_time_policy.rb"
+    }
+  ]
+}

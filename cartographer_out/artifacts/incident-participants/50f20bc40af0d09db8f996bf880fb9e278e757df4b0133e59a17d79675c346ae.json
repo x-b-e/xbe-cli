@@ -1,0 +1,29 @@
+{
+  "id": "50f20bc40af0d09db8f996bf880fb9e278e757df4b0133e59a17d79675c346ae",
+  "full_path": "do incident-participants delete",
+  "description": "Delete an incident participant",
+  "permissions": null,
+  "side_effects": "Deletes an incident participant record.",
+  "validation_notes": "Argument <id> is required. --confirm must be set to true to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_participants_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_participant_policy.rb"
+    }
+  ]
+}

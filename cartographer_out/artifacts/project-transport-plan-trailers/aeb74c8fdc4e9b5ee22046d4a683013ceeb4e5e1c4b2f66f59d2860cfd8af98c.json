@@ -1,0 +1,118 @@
+{
+  "description": "List trailer assignments with filtering and pagination",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan ID",
+      "name": "--project-transport-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by segment start ID",
+      "name": "--segment-start",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by segment end ID",
+      "name": "--segment-end",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status (editing, active)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "allowed values: editing, active"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum cached window start date (YYYY-MM-DD)",
+      "name": "--window-start-at-cached-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum cached window start date (YYYY-MM-DD)",
+      "name": "--window-start-at-cached-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum cached window end date (YYYY-MM-DD)",
+      "name": "--window-end-at-cached-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum cached window end date (YYYY-MM-DD)",
+      "name": "--window-end-at-cached-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter to most recent assignment per trailer (true/false)",
+      "name": "--most-recent",
+      "required": false,
+      "type": "string",
+      "validation": "true/false (string); only 'true' applies the most-recent filter"
+    }
+  ],
+  "full_path": "view project-transport-plan-trailers list",
+  "id": "aeb74c8fdc4e9b5ee22046d4a683013ceeb4e5e1c4b2f66f59d2860cfd8af98c",
+  "permissions": "Authorized via ProjectTransportPlanTrailerPolicy, which delegates access to the related project transport plan.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_trailers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_trailer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_trailer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Status filter accepts 'editing' or 'active'. Window cached date filters expect YYYY-MM-DD. The most-recent filter only applies when set to the string 'true' to return the most recent assignment per trailer."
+}

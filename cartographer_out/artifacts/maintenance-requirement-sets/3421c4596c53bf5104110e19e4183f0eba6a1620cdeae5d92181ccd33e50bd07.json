@@ -1,0 +1,33 @@
+{
+  "description": "Delete a maintenance requirement set",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do maintenance-requirement-sets delete",
+  "id": "3421c4596c53bf5104110e19e4183f0eba6a1620cdeae5d92181ccd33e50bd07",
+  "permissions": "Admin users can delete sets. Managers can delete sets for their brokers. Operations users with manager business unit membership can delete template and non-template sets if they have at least one business unit. Operations users without manager business unit membership can delete non-template sets only if they have at least one business unit. General and technician business unit members cannot delete sets.",
+  "side_effects": "Deletes the maintenance requirement set.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_maintenance_requirement_sets_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/maintenance_requirement_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/maintenance_requirement_set_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required. Deletion is blocked if the set has associated maintenance requirements."
+}

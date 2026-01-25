@@ -1,0 +1,33 @@
+{
+  "description": "Delete an action item key result link",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Required to proceed with deletion."
+    }
+  ],
+  "full_path": "do action-item-key-results delete",
+  "id": "cfc9b6c7efa01b3056729ed29e0c6bac8ea1dff60197da0c02ac2826ea1d23e8",
+  "permissions": "User must be authorized to delete via ActionItemKeyResultPolicy (delegated to KeyResultPolicy).",
+  "side_effects": "Deletes an existing action item key result link.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_action_item_key_results_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/action_item_key_result_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/key_result_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (action item key result ID). Requires --confirm flag."
+}

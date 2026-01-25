@@ -1,0 +1,37 @@
+{
+  "id": "dcd3450feabd9827c0493e403ad4bc633bc35a4b174173d9f7ffdf1c38b8b067",
+  "full_path": "do cost-codes delete",
+  "description": "Delete a cost code.",
+  "permissions": "Admins can delete cost codes. Non-admins can delete when they are a member of the specified customer or a manager of the specified trucker, and the cost code is deletable.",
+  "side_effects": "Deletes the cost code when allowed.",
+  "validation_notes": "--confirm is required. Deletion is blocked when the cost code is related to a job production plan.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_codes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_code.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_code_resource.rb"
+    }
+  ]
+}

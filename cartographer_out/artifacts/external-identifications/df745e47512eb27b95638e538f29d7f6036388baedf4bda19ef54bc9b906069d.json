@@ -1,0 +1,42 @@
+{
+  "id": "df745e47512eb27b95638e538f29d7f6036388baedf4bda19ef54bc9b906069d",
+  "full_path": "do external-identifications update",
+  "description": "Update an external identification.",
+  "permissions": "User must be able to update the identified record (authorization is delegated to the identifies policy).",
+  "side_effects": "Updates the external identification and touches the identified record after commit when value changes.",
+  "validation_notes": "At least one attribute must be provided (value and or skip-value-validation). external_identification_type must be applicable to the identifies class. If value is set and the type has a format_validation_regex, value must match it unless skip-value-validation is set. If value is set and the type requires global uniqueness, value must be unique unless skip-value-validation is set. skip-value-validation must be true or false. Changes are rejected when the feature flag deny_user_changes_to_external_identifications_<identifies_type> is enabled for the current user.",
+  "flags": [
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "The external identification value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-value-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip format and uniqueness validation",
+      "default": null,
+      "validation": "When true, skips format and global uniqueness checks."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_external_identifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/external_identification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/external_identification_policy.rb"
+    }
+  ]
+}

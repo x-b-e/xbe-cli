@@ -1,0 +1,51 @@
+{
+  "id": "62dba68f052e883b12811607ca80671528872a3907245a97e4d1c5223710e660",
+  "full_path": "view project-revenue-item-price-estimates list",
+  "description": "List project revenue item price estimates.",
+  "permissions": "User must be authorized to view the related project revenue items; policy scope is delegated through project revenue items to the project scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--project-revenue-item",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project revenue item ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-estimate-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project estimate set ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_revenue_item_price_estimates_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_revenue_item_price_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_price_estimate_policy.rb"
+    }
+  ]
+}

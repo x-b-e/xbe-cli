@@ -1,0 +1,51 @@
+{
+  "description": "Update an existing glossary term.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New term name",
+      "name": "--term",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, must be unique (case-insensitive)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New definition",
+      "name": "--definition",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New source",
+      "name": "--source",
+      "required": false,
+      "type": "string",
+      "validation": "Must be one of: xbe, expert, giant_anchor (e.g., --source xbe)."
+    }
+  ],
+  "full_path": "do glossary-terms update",
+  "id": "da29a5449678cc82ec410a9ab19747f05ba51dc4716ff5cf77ab59d8ba166751",
+  "permissions": "Requires an authenticated admin user (is_admin true).",
+  "side_effects": "Updates specified glossary term fields; after save, enqueues asynchronous definition suggestion updates when the term changes.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_glossary_terms_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/glossary_term_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/glossary_term.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The glossary term id argument is required. At least one of --term, --definition, or --source is required. term must be unique case-insensitively. source, if provided, must be one of: xbe, expert, giant_anchor."
+}

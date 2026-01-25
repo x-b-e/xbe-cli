@@ -1,0 +1,114 @@
+{
+  "description": "List rates.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by service type unit of measure ID",
+      "name": "--service-type-unit-of-measure",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by parent rate ID",
+      "name": "--parent-rate",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status",
+      "name": "--status",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid rate status enum (e.g., active, inactive)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by rated type",
+      "name": "--rated-type",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --rated-id to apply the rated filter."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by rated ID",
+      "name": "--rated-id",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --rated-type to apply the rated filter."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name (partial match)",
+      "name": "--name-like",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer classification ID",
+      "name": "--trailer-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material type ID",
+      "name": "--material-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material site ID",
+      "name": "--material-site",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by rate agreement ID",
+      "name": "--rate-agreement",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view rates list",
+  "id": "d3c9e96a696e91f4fc2d5408741d1dc6366ab8fed6fabb4380dd9dd2984503a1",
+  "permissions": "User must be within the RatePolicy scope for list; access is derived from visibility on the rated object (tenders, rate agreements, retainers) and related broker/customer/trucker relationships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/rates_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/rate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "When filtering by rated, both --rated-type and --rated-id must be provided for the filter to apply. Status filter must match a valid rate status enum on the server (e.g., active/inactive)."
+}

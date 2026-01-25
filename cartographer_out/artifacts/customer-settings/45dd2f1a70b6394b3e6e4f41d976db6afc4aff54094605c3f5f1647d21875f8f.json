@@ -1,0 +1,23 @@
+{
+  "id": "45dd2f1a70b6394b3e6e4f41d976db6afc4aff54094605c3f5f1647d21875f8f",
+  "full_path": "view customer-settings list",
+  "description": "List customer settings.",
+  "permissions": "Admin users can list all customer settings. Non-admin users are limited to customer settings for customers in their Customer policy scope (customer memberships, broker memberships, or customers tied to the user trucker jobs).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_settings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_setting_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_policy.rb"
+    }
+  ]
+}

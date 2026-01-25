@@ -1,0 +1,27 @@
+{
+  "id": "a7a7a448f07f69917dd37ce0a2f6e7ecaf2676eed44a952f4c00d3376e0fe22f",
+  "full_path": "view trucker-shift-sets show",
+  "description": "Show the full details of a trucker shift set (driver day).",
+  "permissions": "Admins can view all trucker shift sets. Non-admins can view a shift set only if it is within their TruckerShiftSetPolicy scope; show access is checked by policy scope for the requested ID.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (trucker shift set ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_shift_sets_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_shift_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_shift_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

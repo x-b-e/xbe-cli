@@ -1,0 +1,78 @@
+{
+  "id": "f1e12fe98e30524c9810907e2fe8a0cf9b7df8ec0199d23886f01db09c8a51a1",
+  "full_path": "view broker-tender-returned-buyer-notifications list",
+  "description": "List broker tender returned buyer notifications",
+  "permissions": "Authenticated user can list broker tender returned buyer notifications scoped to their own user record (policy scope limits results to user_id for non-admins).",
+  "side_effects": null,
+  "validation_notes": "Filters: --read expects true/false; --delivery-decision-approach accepts static or dynamic; --is-ready-for-delivery expects true/false; --deliver-at expects an ISO8601 timestamp; --notification-type must be a valid notification class or the API returns a bad request.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--read",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by read status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--delivery-decision-approach",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by delivery decision approach (static/dynamic)",
+      "default": null,
+      "validation": "static/dynamic"
+    },
+    {
+      "name": "--is-ready-for-delivery",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ready for delivery (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--deliver-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by deliver-at timestamp (ISO8601)",
+      "default": null,
+      "validation": "ISO8601 timestamp"
+    },
+    {
+      "name": "--notification-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by notification type",
+      "default": null,
+      "validation": "Must be a valid notification class"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_tender_returned_buyer_notifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    }
+  ]
+}

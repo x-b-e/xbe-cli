@@ -1,0 +1,54 @@
+{
+  "id": "46c4cdd27ccbdd86f9d0cdbbd8b4569fb4e13c17dbe37baedf7062010d57ec41",
+  "full_path": "do time-sheets-exports create",
+  "description": "Create a time sheets export.",
+  "permissions": "Admins can create time sheets exports. Non-admins can create only if every associated time sheet passes TimeSheetPolicy#create? (delegated permission check).",
+  "side_effects": "Creates a time sheets export record and enqueues asynchronous formatting to generate the export body/file; status is set to processing and later updated to processed or failed.",
+  "validation_notes": "--organization-formatter is required and must reference an active organization formatter of type TimeSheetsExportFormatter. Time sheets are required and must be exportable; each time sheet must be a labor, equipment, or driver day time sheet and must be in scope for the exporting organization (broker/branch or customer). The export organization must match the organization formatter.",
+  "flags": [
+    {
+      "name": "--organization-formatter",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization formatter ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--time-sheet-ids",
+      "aliases": null,
+      "required": true,
+      "type": "array",
+      "description": "Time sheet IDs (required, comma-separated or repeated)",
+      "default": null,
+      "validation": "Required; comma-separated or repeated."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheets_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheets_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheets_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheets_export.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_organization_formatter_is_active.rb"
+    }
+  ]
+}

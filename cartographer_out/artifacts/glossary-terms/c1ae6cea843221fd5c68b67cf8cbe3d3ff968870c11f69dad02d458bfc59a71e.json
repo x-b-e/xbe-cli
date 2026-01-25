@@ -1,0 +1,33 @@
+{
+  "description": "Delete a glossary term.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "full_path": "do glossary-terms delete",
+  "id": "c1ae6cea843221fd5c68b67cf8cbe3d3ff968870c11f69dad02d458bfc59a71e",
+  "permissions": "Requires an authenticated admin user (is_admin true).",
+  "side_effects": "Deletes the glossary term record and related AnswerRelatedContent records; irreversible.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_glossary_terms_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/glossary_term_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/glossary_term.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The glossary term id argument is required. --confirm must be provided and true."
+}

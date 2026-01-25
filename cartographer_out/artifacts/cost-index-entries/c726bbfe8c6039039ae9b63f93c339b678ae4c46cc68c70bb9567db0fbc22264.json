@@ -1,0 +1,59 @@
+{
+  "id": "c726bbfe8c6039039ae9b63f93c339b678ae4c46cc68c70bb9567db0fbc22264",
+  "full_path": "do cost-index-entries update",
+  "description": "Update an existing cost index entry.",
+  "permissions": "Allowed for admins or users who manage the cost index broker. Authorization is delegated to the parent cost index policy.",
+  "side_effects": "Updates a cost index entry.",
+  "validation_notes": "Provide the entry ID as an argument. At least one of --start-on, --end-on, or --value must be specified. Server validations: entries cannot be changed when was_used_in_adjustment_calculation is true; entries cannot be added or modified when the cost index is expired; end_on must be on or after start_on; end_on cannot be after the cost index expiration date when expired_at is set; date ranges for a given cost index cannot overlap.",
+  "flags": [
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Entry start date",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2024-01-01."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Entry end date",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2024-06-30."
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Entry value",
+      "default": null,
+      "validation": "Example: 1.10."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_index_entries_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_index_entry.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_index_entry_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_entry_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_policy.rb"
+    }
+  ]
+}

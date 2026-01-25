@@ -1,0 +1,42 @@
+{
+  "id": "947776773928224f71201789d42900134c68b4646996bf7b4a33c02374df6504",
+  "full_path": "view project-labor-classifications list",
+  "description": "List project labor classifications",
+  "permissions": "Visible to users within policy scope: admins can access all; non-admins can view project labor classifications for projects in their project scope or job schedule shift project scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--labor-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by labor classification ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_labor_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_labor_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_labor_classification_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "795f6b48cd8e73ce59f8b8689bd5489987a4f9b69e6475fc723d390a9f54012b",
+  "full_path": "view project-actuals-exports show",
+  "description": "Show the full details of a project actuals export.",
+  "permissions": "Admin users can view project actuals exports. Non-admin access is limited to exports tied to visible broker memberships or organization memberships (manager role required for non-broker organizations), as determined by ProjectActualsExportPolicy scope.",
+  "side_effects": null,
+  "validation_notes": "The export ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_actuals_exports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_actuals_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_actuals_export_policy.rb"
+    }
+  ]
+}

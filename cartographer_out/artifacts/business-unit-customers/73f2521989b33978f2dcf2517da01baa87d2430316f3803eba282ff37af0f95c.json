@@ -1,0 +1,46 @@
+{
+  "id": "73f2521989b33978f2dcf2517da01baa87d2430316f3803eba282ff37af0f95c",
+  "full_path": "view business-unit-customers list",
+  "description": "List business unit customers with filtering and pagination.",
+  "permissions": "User must be authorized to view business units in scope; access is delegated to the related business unit policy scope (BusinessUnitPolicy::Scope).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/business_unit_customers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/business_unit_customer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    }
+  ]
+}

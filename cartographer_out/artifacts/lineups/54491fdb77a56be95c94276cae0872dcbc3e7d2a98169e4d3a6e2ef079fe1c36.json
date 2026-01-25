@@ -1,0 +1,69 @@
+{
+  "id": "54491fdb77a56be95c94276cae0872dcbc3e7d2a98169e4d3a6e2ef079fe1c36",
+  "full_path": "view lineups list",
+  "description": "List lineups",
+  "permissions": "Admins can list all lineups. Non-admins can list lineups for customers they manage, customers tied to brokers they belong to, or lineups associated with job production plans where the user is a manager laborer.",
+  "side_effects": null,
+  "validation_notes": "Filters accept customer ID, broker ID, name partial match, and start time bounds. start-at-min/start-at-max filters must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by start time on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--start-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by start time on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineups_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

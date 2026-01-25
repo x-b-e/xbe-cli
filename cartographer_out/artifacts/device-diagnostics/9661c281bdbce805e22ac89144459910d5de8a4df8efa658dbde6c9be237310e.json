@@ -1,0 +1,195 @@
+{
+  "id": "9661c281bdbce805e22ac89144459910d5de8a4df8efa658dbde6c9be237310e",
+  "full_path": "do device-diagnostics create",
+  "description": "Create a device diagnostic snapshot for tracking and permission state.",
+  "permissions": "Any authenticated user can create device diagnostics.",
+  "side_effects": "Creates a device diagnostic record and associates it to a device and user; providing a device identifier will find or create the device for the current user.",
+  "validation_notes": "Either --device-identifier or --device is required. --changeset must be valid JSON when provided; an empty string sends an empty object. --changed-at should be ISO8601 when provided.",
+  "flags": [
+    {
+      "name": "--device-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Device identifier (required unless --device is set).",
+      "default": null,
+      "validation": "Required unless --device is provided (example: ABC-123)."
+    },
+    {
+      "name": "--device",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Device ID (use instead of device identifier).",
+      "default": null,
+      "validation": "Required unless --device-identifier is provided."
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "User ID (defaults to current user).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-trackable",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Device is trackable.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-tracking",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Device is currently tracking.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--stop-on-terminate",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Stop tracking on app terminate.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-in-power-saver-mode",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Device power saver mode.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-ignoring-battery-optimizations",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Device ignores battery optimizations.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--permission-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Location permission status (example: authorized).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--motion-permission-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Motion permission status.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--location-accuracy-authorization-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Location accuracy authorization status.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--are-location-services-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Location services enabled.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-gps-location-provider-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "GPS provider enabled.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-network-location-provider-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Network provider enabled.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-not-tracking-because-of-stationary-mode",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Stationary mode disables tracking.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--changeset",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Changeset JSON payload (example: {\"battery_level\":85,\"network\":\"wifi\"}).",
+      "default": null,
+      "validation": "Must be valid JSON when provided."
+    },
+    {
+      "name": "--changed-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Change timestamp (ISO8601) (example: 2025-01-01T12:00:00Z).",
+      "default": null,
+      "validation": "Must be ISO8601 when provided."
+    },
+    {
+      "name": "--change-trigger-source",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Change trigger source.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--change-trigger-context",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Change trigger context.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_device_diagnostics_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/device_diagnostic_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/device_diagnostic_policy.rb"
+    }
+  ]
+}

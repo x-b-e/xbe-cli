@@ -1,0 +1,23 @@
+{
+  "id": "06b2d7c1b00196a1a3630bae1c46b98eef24ba17770ca4e8833b5921fbbcfa04",
+  "full_path": "view hos-ruleset-assignments show",
+  "description": "Show the full details of a HOS ruleset assignment.",
+  "permissions": "Admins can view any HOS ruleset assignment; non-admin users can view assignments for brokers where they are members (same branch), otherwise access is denied.",
+  "side_effects": null,
+  "validation_notes": "The HOS ruleset assignment ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_ruleset_assignments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_ruleset_assignment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/hos_ruleset_assignment_policy_spec.rb"
+    }
+  ]
+}

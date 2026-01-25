@@ -1,0 +1,347 @@
+{
+  "id": "7322c78a60f052451cc65784547c8c483af9b6f13bb5c30af20105d5ed535a0c",
+  "full_path": "view time-cards list",
+  "description": "List time cards with filtering.",
+  "permissions": "User must be in TimeCard policy scope: admin users can view all; non-admins can view time cards tied to their broker membership, customer membership, managed truckers, or trucker membership when they are the seller operations contact, a managed driver, or a shift driver on the tender job schedule shift.",
+  "side_effects": null,
+  "validation_notes": "--shift-date-between must be in format date1|date2; --start-at-min and --start-at-max expect ISO 8601; --shift-date, --shift-date-min, --shift-date-max, --approved-on-min, and --approved-on-max expect YYYY-MM-DD; --ticket-number and --cost-codes are comma-separated lists; Boolean filters require true/false where specified (is-audited, with-payroll-certification-requirement, with-payroll-certification-requirement-met, on-shortfall-broker-tender, on-shortfall-customer-tender, generate-broker-invoice, generate-trucker-invoice, has-ticket-report, has-submit-scheduled).",
+  "flags": [
+    {
+      "name": "--status",
+      "required": false,
+      "type": "string",
+      "description": "Filter by status"
+    },
+    {
+      "name": "--is-audited",
+      "required": false,
+      "type": "string",
+      "description": "Filter by audit status (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--with-payroll-certification-requirement",
+      "required": false,
+      "type": "string",
+      "description": "Filter by payroll certification requirement (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--with-payroll-certification-requirement-met",
+      "required": false,
+      "type": "string",
+      "description": "Filter by payroll certification requirement met (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--broker-tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker tender ID"
+    },
+    {
+      "name": "--broker-invoiced",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker invoiced (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--not-broker-invoiced",
+      "required": false,
+      "type": "string",
+      "description": "Filter by not broker invoiced (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--trucker-invoiced",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker invoiced (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--not-trucker-invoiced",
+      "required": false,
+      "type": "string",
+      "description": "Filter by not trucker invoiced (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--approval-count",
+      "required": false,
+      "type": "string",
+      "description": "Filter by approval count (exact)"
+    },
+    {
+      "name": "--approval-count-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum approval count"
+    },
+    {
+      "name": "--approval-count-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum approval count"
+    },
+    {
+      "name": "--developer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID"
+    },
+    {
+      "name": "--on-shortfall-broker-tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by shortfall broker tender (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--on-shortfall-customer-tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by shortfall customer tender (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--customer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID"
+    },
+    {
+      "name": "--customer-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (via customer relation)"
+    },
+    {
+      "name": "--business-unit",
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID"
+    },
+    {
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID"
+    },
+    {
+      "name": "--trucker-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (via trucker relation)"
+    },
+    {
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID"
+    },
+    {
+      "name": "--trailer-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID (via trailer relation)"
+    },
+    {
+      "name": "--contractor",
+      "required": false,
+      "type": "string",
+      "description": "Filter by contractor ID"
+    },
+    {
+      "name": "--contractor-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by contractor ID (via contractor relation)"
+    },
+    {
+      "name": "--job-number",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job number"
+    },
+    {
+      "name": "--invoice",
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice ID"
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID"
+    },
+    {
+      "name": "--job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job schedule shift ID"
+    },
+    {
+      "name": "--job-schedule-shift-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job schedule shift ID (via relation)"
+    },
+    {
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID"
+    },
+    {
+      "name": "--driver",
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver user ID"
+    },
+    {
+      "name": "--driver-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver user ID (via relation)"
+    },
+    {
+      "name": "--start-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start time (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--start-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start time (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--is-start-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of start time (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--shift-date",
+      "required": false,
+      "type": "string",
+      "description": "Filter by shift date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--shift-date-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum shift date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--shift-date-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum shift date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--shift-date-between",
+      "required": false,
+      "type": "string",
+      "description": "Filter by shift date range (format: date1|date2)",
+      "validation": "format: date1|date2"
+    },
+    {
+      "name": "--has-shift-date",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of shift date (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--approved-on-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum approved-on date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--approved-on-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum approved-on date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--ticket-number",
+      "required": false,
+      "type": "string",
+      "description": "Filter by ticket number(s) (comma-separated)",
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--approvable-by",
+      "required": false,
+      "type": "string",
+      "description": "Filter by approvable-by user ID"
+    },
+    {
+      "name": "--cost-codes",
+      "required": false,
+      "type": "string",
+      "description": "Filter by cost codes (comma-separated)",
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--generate-broker-invoice",
+      "required": false,
+      "type": "string",
+      "description": "Filter by generate broker invoice (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--generate-trucker-invoice",
+      "required": false,
+      "type": "string",
+      "description": "Filter by generate trucker invoice (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--has-ticket-report",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of ticket report (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--has-submit-scheduled",
+      "required": false,
+      "type": "string",
+      "description": "Filter by submit scheduled (true/false)",
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_cards_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_cards_controller.rb"
+    }
+  ]
+}

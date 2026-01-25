@@ -1,0 +1,86 @@
+{
+  "id": "da8f96626eba4c04ad4fabe6720c8955b9bcce0a5f5d6da18ed14887cad0de24",
+  "full_path": "do material-transaction-rate-summaries create",
+  "description": "Create a material transaction rate summary.",
+  "permissions": "Requires authentication. User must be authorized to update the referenced material site.",
+  "side_effects": "Computes a material transaction rate summary from existing material transactions; no data is persisted.",
+  "validation_notes": "--material-site is required. --group-by cannot be empty and must be \"hour\". start-at and end-at must be ISO-8601 timestamps when provided; if both are provided, end-at must be after start-at. material-type-hierarchies must be a comma-separated list when provided.",
+  "flags": [
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material site ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO-8601)",
+      "default": null,
+      "validation": "ISO-8601 timestamp (e.g. 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO-8601)",
+      "default": null,
+      "validation": "ISO-8601 timestamp (e.g. 2025-01-02T00:00:00Z); must be after start-at when both are provided."
+    },
+    {
+      "name": "--group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by interval (default: hour)",
+      "default": "hour",
+      "validation": "Enum values: hour."
+    },
+    {
+      "name": "--material-type-hierarchies",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material type hierarchies (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list (e.g. \"aggregate,asphalt\")."
+    },
+    {
+      "name": "--sparse",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Use sparse results (exclude zero-ton rows)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_rate_summaries_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/material_transaction_rate_summaries_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_rate_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_rate_summary.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_rate_summary_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "description": "Delete an OpenAI vector store.",
+  "flags": [
+    {
+      "description": "Confirm deletion (required).",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean"
+    }
+  ],
+  "full_path": "do open-ai-vector-stores delete",
+  "id": "ea0c3f1e3bfc56beaf79e2bbc6a333217617c53178b5ad981af8e0dddc3f98c3",
+  "permissions": "Only admins can delete OpenAI vector stores.",
+  "side_effects": "Deletes the vector store record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_open_ai_vector_stores_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/open_ai_vector_store_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/open_ai_vector_store.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires the vector store <id> argument. --confirm is required to delete."
+}

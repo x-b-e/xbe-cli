@@ -1,0 +1,23 @@
+{
+  "id": "575dd3958b8888768b24aea6bf01b702d2cb158e12ec965ed6cbe034a7f2d30c",
+  "full_path": "view retainer-payment-deductions show",
+  "description": "Show retainer payment deduction details.",
+  "permissions": "Users may view retainer payment deductions that fall within RetainerPaymentDeductionPolicy scope. For non-admin users, the scope is limited to deductions whose retainer_deduction retainer_id is in the user Retainer policy scope (retainers where the user is a member/manager of the associated customer, broker, or trucker organizations).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (retainer payment deduction ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/retainer_payment_deductions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_payment_deduction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "8e8607bf28c0d7f32c891f26dd7f152cc69d512eec77757a89bf3b9c0e041713",
+  "full_path": "do cost-index-entries delete",
+  "description": "Delete a cost index entry.",
+  "permissions": "Allowed for admins or users who manage the cost index broker, and only when the entry can be deleted. Authorization is delegated to the parent cost index policy.",
+  "side_effects": "Deletes a cost index entry.",
+  "validation_notes": "Provide the entry ID as an argument. --confirm is required. Entries that have been used in adjustment calculations cannot be deleted.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Required to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_index_entries_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_index_entry.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_entry_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_policy.rb"
+    }
+  ]
+}

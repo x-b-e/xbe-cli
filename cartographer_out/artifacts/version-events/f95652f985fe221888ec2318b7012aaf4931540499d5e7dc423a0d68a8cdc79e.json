@@ -1,0 +1,23 @@
+{
+  "id": "f95652f985fe221888ec2318b7012aaf4931540499d5e7dc423a0d68a8cdc79e",
+  "full_path": "view version-events show",
+  "description": "Show the full details of a version event.",
+  "permissions": "User must be an admin to access version events; non-admin users have an empty policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires exactly one <id> argument (version event ID). Empty IDs are rejected.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/version_events_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/version_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/version_event_policy_spec.rb"
+    }
+  ]
+}

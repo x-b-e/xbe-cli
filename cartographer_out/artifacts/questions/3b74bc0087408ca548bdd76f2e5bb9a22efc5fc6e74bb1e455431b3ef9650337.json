@@ -1,0 +1,145 @@
+{
+  "description": "List questions with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by question content",
+      "name": "--content",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by source (app/link)",
+      "name": "--source",
+      "required": false,
+      "type": "enum",
+      "validation": "app|link"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by motivation (serious/silly)",
+      "name": "--motivation",
+      "required": false,
+      "type": "enum",
+      "validation": "serious|silly"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by ignore newsletter scope (true/false)",
+      "name": "--ignore-organization-scoped-newsletters",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by triage status (true/false)",
+      "name": "--is-triaged",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by asking user ID",
+      "name": "--asked-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by assigned user ID",
+      "name": "--assigned-to",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by assignment presence (true/false)",
+      "name": "--is-assigned",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by feedback presence (true/false)",
+      "name": "--with-feedback",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by lack of feedback (true/false)",
+      "name": "--without-feedback",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by related content presence (true/false)",
+      "name": "--with-related-content",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by lack of related content (true/false)",
+      "name": "--without-related-content",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "view questions list",
+  "id": "3b74bc0087408ca548bdd76f2e5bb9a22efc5fc6e74bb1e455431b3ef9650337",
+  "permissions": "Requires authentication. Admins can list all questions; non-admins can only see questions that are public (respecting organization scope and org-children visibility) or questions they asked.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/questions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/question_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/question.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Boolean filters must be strict true/false values (is_triaged, is_assigned, ignore_organization_scoped_newsletters, with_feedback, without_feedback, with_related_content, without_related_content). content filter is case-insensitive. source is limited to app or link; motivation is limited to serious or silly."
+}

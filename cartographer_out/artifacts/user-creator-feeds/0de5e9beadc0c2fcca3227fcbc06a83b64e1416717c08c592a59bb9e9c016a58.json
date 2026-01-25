@@ -1,0 +1,33 @@
+{
+  "description": "Create a user creator feed.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID (optional; defaults to the authenticated user if supported by the API).",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do user-creator-feeds create",
+  "id": "0de5e9beadc0c2fcca3227fcbc06a83b64e1416717c08c592a59bb9e9c016a58",
+  "permissions": "UserCreatorFeedPolicy allows create only when record.user equals the current user.",
+  "side_effects": "Creates a user creator feed record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_user_creator_feeds_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/user_creator_feed_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/user_creator_feed.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Each user can only have one user creator feed (user uniqueness validation)."
+}

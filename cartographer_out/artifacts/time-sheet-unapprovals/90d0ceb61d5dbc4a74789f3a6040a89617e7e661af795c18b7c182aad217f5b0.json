@@ -1,0 +1,31 @@
+{
+  "id": "90d0ceb61d5dbc4a74789f3a6040a89617e7e661af795c18b7c182aad217f5b0",
+  "full_path": "view time-sheet-unapprovals list",
+  "description": "List time sheet unapprovals.",
+  "permissions": "Authorization uses TimeSheetUnapprovalPolicy; index? is allowed, with visibility limited by the policy scope (scope implementation not defined in policy source).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheet_unapprovals_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheet_unapprovals.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_unapproval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_unapproval_policy.rb"
+    }
+  ]
+}

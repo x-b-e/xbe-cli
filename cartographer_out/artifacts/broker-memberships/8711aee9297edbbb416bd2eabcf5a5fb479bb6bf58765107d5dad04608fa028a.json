@@ -1,0 +1,235 @@
+{
+  "id": "8711aee9297edbbb416bd2eabcf5a5fb479bb6bf58765107d5dad04608fa028a",
+  "full_path": "do broker-memberships create",
+  "description": "Create a broker membership",
+  "permissions": "Admins can create broker memberships. Users who are practically admins of the broker can create broker memberships; manager members of the broker can create broker memberships only when admin-only attributes (is_time_card_auditor) are not being set.",
+  "side_effects": "Creates a broker membership record.",
+  "validation_notes": "--user and --broker are required. kind must be operations or manager when provided. drives-shift-type must be any, day, or night when provided. Boolean flags must be true or false. start-at and end-at must be ISO 8601 timestamps when provided. color-hex expects a hex color value like #FF0000. explicit-sort-order must be an integer when provided. organization_type must be Broker. is_unapproved_time_card_subscriber must be false for broker memberships. can_see_rates_as_driver must be absent for broker memberships.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Role: operations or manager",
+      "default": "operations",
+      "validation": "operations | manager"
+    },
+    {
+      "name": "--is-admin",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Admin status (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Title within the organization",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--color-hex",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Display color (e.g. #FF0000)",
+      "default": null,
+      "validation": "Hex color value, e.g. #FF0000."
+    },
+    {
+      "name": "--external-employee-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External system employee ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-sort-order",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Manual sort order",
+      "default": null,
+      "validation": "Integer."
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Membership start date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Membership end date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--drives-shift-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Shift type: any, day, or night",
+      "default": "any",
+      "validation": "any | day | night"
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project office ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--can-see-rates-as-driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can see rates as driver (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-see-rates-as-manager",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can see rates as manager (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-validate-profit-improvements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can validate profit improvements (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-rate-editor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is rate editor (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-time-card-auditor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is time card auditor (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-equipment-rental-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is equipment rental team member (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is geofence violation team member (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is unapproved time card subscriber (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is default job production plan subscriber (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--enable-recap-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Enable recap notifications (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--enable-inventory-capacity-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Enable inventory capacity notifications (true/false)",
+      "default": null,
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_memberships_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/memberships/broker_membership.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/membership_resource.rb"
+    }
+  ]
+}

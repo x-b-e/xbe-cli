@@ -1,0 +1,46 @@
+{
+  "id": "0ba15c3d27d124f91563311a7a8d3710ebbbd5288c2082c4b65e6fb7e728fda3",
+  "full_path": "do project-cancellations create",
+  "description": "Cancel a project.",
+  "permissions": "User must be an admin or be authorized to update the related project (per project policy).",
+  "side_effects": "Creates a project cancellation action and transitions the project status to cancelled.",
+  "validation_notes": "Project ID is required and must be a non-empty string. Project must exist. Project must currently be in approved status to cancel.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID (required). Example: 123.",
+      "default": null,
+      "validation": "Required; must be a non-empty string."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment for the cancellation. Example: \"Customer withdrew\".",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_cancellations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_cancellation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_actions/project_cancellation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

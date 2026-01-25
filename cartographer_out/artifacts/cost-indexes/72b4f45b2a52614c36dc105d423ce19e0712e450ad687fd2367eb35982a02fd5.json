@@ -1,0 +1,69 @@
+{
+  "id": "72b4f45b2a52614c36dc105d423ce19e0712e450ad687fd2367eb35982a02fd5",
+  "full_path": "do cost-indexes create",
+  "description": "Create a new cost index.",
+  "permissions": "Admins or users who manage the broker associated with the cost index can create it.",
+  "side_effects": "Creates a cost index record; if broker is provided, associates it to that broker.",
+  "validation_notes": "--name is required. Name must be present and unique. url must be a valid URL if provided. expired-at should be ISO 8601 if provided. expired-at cannot be set if there are cost index entries active after that date.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID (omit for global)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Index description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expired-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expiration date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time string."
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Index name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--url",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference URL",
+      "default": null,
+      "validation": "Must be a valid URL if provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_indexes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_index.rb"
+    }
+  ]
+}

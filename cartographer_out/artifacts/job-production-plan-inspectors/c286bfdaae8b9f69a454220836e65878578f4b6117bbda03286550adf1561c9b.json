@@ -1,0 +1,36 @@
+{
+  "id": "c286bfdaae8b9f69a454220836e65878578f4b6117bbda03286550adf1561c9b",
+  "full_path": "view job-production-plan-inspectors list",
+  "description": "List job production plan inspectors with filtering and pagination",
+  "permissions": "Admins can list job production plan inspectors. Non-admins can list inspectors for job production plans where they are a developer manager, a broker member, or where the inspector user_id matches their user id.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--job-production-plan-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID"
+    },
+    {
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_inspectors_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_inspector_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_inspector_policy.rb"
+    }
+  ]
+}

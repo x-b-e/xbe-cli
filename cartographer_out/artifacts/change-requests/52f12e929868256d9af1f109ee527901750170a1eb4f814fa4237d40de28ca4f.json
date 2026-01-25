@@ -1,0 +1,49 @@
+{
+  "id": "52f12e929868256d9af1f109ee527901750170a1eb4f814fa4237d40de28ca4f",
+  "full_path": "do change-requests update",
+  "description": "Update a change request",
+  "permissions": "Admin users can update change requests; non-admin users can update change requests for organizations whose broker is in their membership scope (or when the organization has no broker).",
+  "side_effects": "Updates the change request record (currently requests only).",
+  "validation_notes": "Argument <id> is required. At least one updatable attribute must be provided; otherwise the request is rejected. When --requests is provided, it must be a JSON array of objects; use [] to clear. Server validates requests is an array of hashes.",
+  "flags": [
+    {
+      "name": "--requests",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Request items as JSON array (use [] to clear)",
+      "default": null,
+      "validation": "Must be a JSON array of objects; empty string is invalid (use [])."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_change_requests_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_change_requests_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/change_request_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/resources/v1/change_request_resource_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/change_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/change_request_policy_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/change_request.rb"
+    }
+  ]
+}

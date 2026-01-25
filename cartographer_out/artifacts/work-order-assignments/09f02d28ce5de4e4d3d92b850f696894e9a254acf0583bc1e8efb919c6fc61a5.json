@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a work order assignment.",
+  "flags": [],
+  "full_path": "view work-order-assignments show",
+  "id": "09f02d28ce5de4e4d3d92b850f696894e9a254acf0583bc1e8efb919c6fc61a5",
+  "permissions": "Allowed for users who can access related work orders via delegated policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/work_order_assignments_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/work_order_assignment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/work_order_assignment_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires assignment ID argument."
+}

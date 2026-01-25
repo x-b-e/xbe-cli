@@ -1,0 +1,26 @@
+{
+  "description": "Delete a crew rate",
+  "flags": [
+    {
+      "description": "Confirm deletion.",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean"
+    }
+  ],
+  "full_path": "do crew-rates delete",
+  "id": "247b86de3c64f58d5d90a27ff7d083722773af15b64756122797f26f2817ab3f",
+  "permissions": "Admin users can delete crew rates. Non-admin users can delete crew rates only for brokers they are a member of.",
+  "side_effects": "Deletes a crew rate.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_crew_rates_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/crew_rate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "<id> argument is required. --confirm is required."
+}

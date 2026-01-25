@@ -1,0 +1,33 @@
+{
+  "id": "66972e09a09d21c0ead839e7f15172c92068eaf6d6997e8318640e011c57e8f7",
+  "full_path": "do project-phase-revenue-item-actuals delete",
+  "description": "Delete a project phase revenue item actual.",
+  "permissions": "Allowed if user is admin, or can update the related project phase revenue item, or (when a job production plan is associated) is a manager member of the plan customer, a manager laborer, a laborer who can manage projects, the plan planner, or the plan project manager.",
+  "side_effects": "Deletes a project phase revenue item actual and may trigger job production plan recap generation and actual estimate set touch on commit.",
+  "validation_notes": "--confirm is required. Deletion can be blocked if related project phase cost item actuals exist (restrict_with_error).",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_revenue_item_actuals_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_revenue_item_actual_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_phase_revenue_item_actual.rb"
+    }
+  ]
+}

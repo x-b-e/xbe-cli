@@ -1,0 +1,19 @@
+{
+  "id": "f71f3879e314c25622678beb6ce7d9d82c8bce9ca5451dfe39e79ef064485c3c",
+  "full_path": "view project-subscriptions show",
+  "description": "Show project subscription details.",
+  "permissions": "Admins can view any project subscription. Non-admins can view subscriptions for projects they can access via Project policy scope and where they are members of the project broker.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (project subscription ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_subscriptions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_subscription_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "description": "Create a rate adjustment.",
+  "flags": [
+    {
+      "default": null,
+      "description": "Rate ID (example: 123).",
+      "name": "--rate",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "default": null,
+      "description": "Cost index ID (example: 456).",
+      "name": "--cost-index",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "default": null,
+      "description": "Zero intercept value (example: 100).",
+      "name": "--zero-intercept-value",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "default": null,
+      "description": "Zero intercept ratio.",
+      "name": "--zero-intercept-ratio",
+      "required": true,
+      "type": "string",
+      "validation": "Must be greater than 0 and less than 1 (example: 0.25)."
+    },
+    {
+      "default": null,
+      "description": "Minimum adjustment value.",
+      "name": "--adjustment-min",
+      "required": false,
+      "type": "string",
+      "validation": "If adjustment-max is also provided, adjustment-max must be greater than or equal to adjustment-min."
+    },
+    {
+      "default": null,
+      "description": "Maximum adjustment value.",
+      "name": "--adjustment-max",
+      "required": false,
+      "type": "string",
+      "validation": "If adjustment-min is also provided, adjustment-max must be greater than or equal to adjustment-min."
+    },
+    {
+      "default": "false",
+      "description": "Prevent rating when index value is missing.",
+      "name": "--prevent-rating-when-index-value-missing",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do rate-adjustments create",
+  "id": "726e83d305d033b3e7327b531fe2046c342bdedebac52aa034ce024f20bf1ca1",
+  "permissions": "Requires authorization via RateAdjustmentPolicy, which delegates access to the associated rate (RatePolicy).",
+  "side_effects": "Creates a rate adjustment linked to a rate and cost index.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_rate_adjustments_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/rate_adjustment_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/rate_adjustment.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_adjustment_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "zero-intercept-value is required; zero-intercept-ratio must be greater than 0 and less than 1. cost-index must be unique per rate. If both adjustment-min and adjustment-max are provided, adjustment-max must be greater than or equal to adjustment-min. If a parent rate adjustment is set, it must use the same cost index."
+}

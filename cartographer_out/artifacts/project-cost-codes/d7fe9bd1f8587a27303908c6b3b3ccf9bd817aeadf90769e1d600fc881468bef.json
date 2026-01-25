@@ -1,0 +1,45 @@
+{
+  "id": "d7fe9bd1f8587a27303908c6b3b3ccf9bd817aeadf90769e1d600fc881468bef",
+  "full_path": "do project-cost-codes update",
+  "description": "Update a project cost code.",
+  "permissions": "Update permission is delegated to the related project_customer and ultimately the project; allowed for users who can update the project under ProjectPolicy (admins or users who are practically managers of the project developer).",
+  "side_effects": "Updates the project cost code (explicit description).",
+  "validation_notes": "Requires <id> argument. At least one attribute must be provided; the command errors if no updatable attributes are set. explicit-description is only sent if the flag is present.",
+  "flags": [
+    {
+      "name": "--explicit-description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit cost code description (example: --explicit-description \"Custom labor description\").",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_cost_codes_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_cost_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_cost_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_cost_code.rb"
+    }
+  ]
+}

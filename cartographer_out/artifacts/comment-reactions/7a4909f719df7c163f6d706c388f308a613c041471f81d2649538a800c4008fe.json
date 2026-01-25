@@ -1,0 +1,83 @@
+{
+  "id": "7a4909f719df7c163f6d706c388f308a613c041471f81d2649538a800c4008fe",
+  "full_path": "view comment-reactions list",
+  "description": "List comment reactions with filtering and pagination.",
+  "permissions": "Admins can list all comment reactions; non-admins are limited to reactions on comments they are allowed to view (comment policy scope).",
+  "side_effects": null,
+  "validation_notes": "Filters: created-at-min/created-at-max must be ISO 8601 timestamps; is-created-at/is-updated-at expect true/false; not-id is a comma-separated list of IDs.",
+  "flags": [
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--not-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude reactions by ID (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list of IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/comment_reactions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/comment_reaction_policy.rb"
+    }
+  ]
+}

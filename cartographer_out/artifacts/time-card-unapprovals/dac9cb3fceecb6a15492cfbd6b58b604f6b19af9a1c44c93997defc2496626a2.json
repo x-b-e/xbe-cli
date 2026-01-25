@@ -1,0 +1,39 @@
+{
+  "id": "dac9cb3fceecb6a15492cfbd6b58b604f6b19af9a1c44c93997defc2496626a2",
+  "full_path": "view time-card-unapprovals list",
+  "description": "List time card unapprovals.",
+  "permissions": "Index is allowed by TimeCardUnapprovalPolicy (inherits ApplicationPolicy#index?), and records returned depend on the policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_unapprovals_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_unapprovals.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_card_unapprovals_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_unapproval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_unapproval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "9bac6f57408cf130f35f5e6227f692e33c32b542821373827902caf1092db5cb",
+  "full_path": "do meetings delete",
+  "description": "Delete a meeting",
+  "permissions": "Admins can delete meetings. Non-admins can delete meetings if they can update the meeting: managers of the meeting's organization, members of the organization's broker, or the meeting organizer who is a member of the organization.",
+  "side_effects": "Deletes the meeting record.",
+  "validation_notes": "The meeting ID argument is required, and --confirm must be set to perform the delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": "Must be set to true to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_meetings_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/meeting_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "c709dd21c41dd4841d11fce9ddea8b3ca54b6898843c95aac0a23ffa19a47c78",
+  "full_path": "do material-purchase-order-release-redemptions delete",
+  "description": "Delete a material purchase order release redemption.",
+  "permissions": "User must be an admin or a member of the broker or material supplier associated with the redemption.",
+  "side_effects": "Deletes a material purchase order release redemption.",
+  "validation_notes": "Requires <id> argument (release redemption ID). --confirm is required to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion. Example: --confirm",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_purchase_order_release_redemptions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_purchase_order_release_redemption_policy.rb"
+    }
+  ]
+}

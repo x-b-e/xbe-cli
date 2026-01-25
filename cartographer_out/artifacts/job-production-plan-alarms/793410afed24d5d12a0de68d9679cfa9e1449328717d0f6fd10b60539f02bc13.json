@@ -1,0 +1,69 @@
+{
+  "description": "Create a job production plan alarm",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job production plan ID (required)",
+      "name": "--job-production-plan",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tonnage trigger (required)",
+      "name": "--tons",
+      "required": true,
+      "type": "string",
+      "validation": "Must be a number greater than 0."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Base material type fully qualified name",
+      "name": "--base-material-type-fully-qualified-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Max latency in minutes",
+      "name": "--max-latency-minutes",
+      "required": false,
+      "type": "string",
+      "validation": "Must be an integer greater than 0."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Alarm note",
+      "name": "--note",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do job-production-plan-alarms create",
+  "id": "793410afed24d5d12a0de68d9679cfa9e1449328717d0f6fd10b60539f02bc13",
+  "permissions": null,
+  "side_effects": "Creates a job production plan alarm.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_alarms.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_job_production_plan_alarms_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_alarm_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --job-production-plan. Requires --tons; --tons must be a number greater than 0. If provided, --max-latency-minutes must be an integer greater than 0."
+}

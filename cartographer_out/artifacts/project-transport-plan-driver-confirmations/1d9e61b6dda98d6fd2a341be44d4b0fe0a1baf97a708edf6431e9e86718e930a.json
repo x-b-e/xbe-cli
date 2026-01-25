@@ -1,0 +1,23 @@
+{
+  "id": "1d9e61b6dda98d6fd2a341be44d4b0fe0a1baf97a708edf6431e9e86718e930a",
+  "full_path": "view project-transport-plan-driver-confirmations show",
+  "description": "Show the full details of a project transport plan driver confirmation.",
+  "permissions": "Admins can view any confirmation. Non-admins can view confirmations where they are the driver or where they have access to the related project transport plan via policy scope.",
+  "side_effects": null,
+  "validation_notes": "id argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_driver_confirmations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_driver_confirmation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_driver_confirmation_policy.rb"
+    }
+  ]
+}

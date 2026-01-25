@@ -1,0 +1,109 @@
+{
+  "id": "06ada690c57b2ea14447d6433edbde3db1e1353048c5e0bd907358d77239e072",
+  "full_path": "do project-bid-locations update",
+  "description": "Update a project bid location.",
+  "permissions": "Allowed if the user can update any prediction subject for the project or can create a prediction subject for the project (including broker admins).",
+  "side_effects": "Updates a project bid location.",
+  "validation_notes": "At least one updatable attribute flag must be provided. If --geometry is provided, it must be valid WKT or EWKB; only Point and LineString are accepted.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Location name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Location notes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--geometry",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Geometry in WKT or EWKB hex",
+      "default": null,
+      "validation": "Must be valid WKT or EWKB; only Point or LineString geometries are accepted."
+    },
+    {
+      "name": "--address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address longitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-place-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address place ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-plus-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address plus code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-address-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip geocoding the address",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_bid_locations_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_bid_location.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_bid_location_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_bid_location_policy.rb"
+    }
+  ]
+}

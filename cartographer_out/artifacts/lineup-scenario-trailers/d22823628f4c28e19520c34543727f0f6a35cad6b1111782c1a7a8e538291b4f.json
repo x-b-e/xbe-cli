@@ -1,0 +1,37 @@
+{
+  "id": "d22823628f4c28e19520c34543727f0f6a35cad6b1111782c1a7a8e538291b4f",
+  "full_path": "do lineup-scenario-trailers delete",
+  "description": "Delete a lineup scenario trailer.",
+  "permissions": "Delete access is delegated via the lineup scenario trucker to the associated lineup scenario. Users must be allowed by the lineup scenario policy (admin or broker manager for the scenario's broker organization) to delete records.",
+  "side_effects": "Deletes a lineup scenario trailer record; this action is permanent.",
+  "validation_notes": "Requires the lineup scenario trailer ID argument and --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenario_trailers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_trailer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

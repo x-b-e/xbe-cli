@@ -1,0 +1,38 @@
+{
+  "description": "Update a certification requirement.",
+  "flags": [
+    {
+      "description": "Period start date (YYYY-MM-DD)",
+      "name": "--period-start",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "description": "Period end date (YYYY-MM-DD)",
+      "name": "--period-end",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD."
+    }
+  ],
+  "full_path": "do certification-requirements update",
+  "id": "760daa664d861a17662e4a450e0a0e5672292970d6bec01875e577abc3f8ff85",
+  "permissions": "Allowed for admins or users who can update the required_by entity.",
+  "side_effects": "Updates the certification requirement; if required_by is a JobProductionPlan, a recap generation is triggered after save.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_certification_requirements_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/certification_requirement.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/certification_requirement_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one of --period-start or --period-end must be provided. Dates must be YYYY-MM-DD. If both period_start and period_end are set, period_start must be <= period_end. certification_type_id must be unique per required_by_id. required_by must support certification_requirements, must be a class allowed by certification_type.can_be_requirement_of, and its broker must match the certification_type broker."
+}

@@ -1,0 +1,100 @@
+{
+  "id": "8e4e5337101ca724626fe8b5474b61374bbe697fd90bbd702651dfdc730c600b",
+  "full_path": "view material-transaction-status-changes list",
+  "description": "List material transaction status changes",
+  "permissions": "User must be authorized to view MaterialTransaction records; policy scope limits status changes to those whose material_transaction_id is within the MaterialTransaction policy scope for the user.",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max and updated-at-min/updated-at-max must be ISO 8601 timestamps. is-created-at and is-updated-at must be true or false. status must be a valid status enum value.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ID",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status value",
+      "default": null,
+      "validation": "Must be a valid status enum value (e.g., accepted)."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-23T00:00:00Z)."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-24T00:00:00Z)."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of created-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-23T00:00:00Z)."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-24T00:00:00Z)."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of updated-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_status_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/status_changes_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_status_change_policy.rb"
+    }
+  ]
+}

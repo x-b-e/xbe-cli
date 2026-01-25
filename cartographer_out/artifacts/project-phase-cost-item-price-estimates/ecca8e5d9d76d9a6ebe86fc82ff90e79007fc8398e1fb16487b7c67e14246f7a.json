@@ -1,0 +1,55 @@
+{
+  "id": "ecca8e5d9d76d9a6ebe86fc82ff90e79007fc8398e1fb16487b7c67e14246f7a",
+  "full_path": "do project-phase-cost-item-price-estimates update",
+  "description": "Update a project phase cost item price estimate",
+  "permissions": "User must be authorized to update the related project phase cost item (delegated via ProjectPhaseCostItemPolicy).",
+  "side_effects": "Updates the estimate and/or relationships for a project phase cost item price estimate.",
+  "validation_notes": "Requires <id> argument. At least one of --estimate, --project-estimate-set, or --created-by must be provided. If --estimate is provided, it must be valid JSON representing an object; \"null\" is allowed. If --project-estimate-set or --created-by is provided, the value cannot be empty.",
+  "flags": [
+    {
+      "name": "--estimate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimate JSON object",
+      "default": null,
+      "validation": "Must be valid JSON that parses to an object; \"null\" is allowed."
+    },
+    {
+      "name": "--project-estimate-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project estimate set ID",
+      "default": null,
+      "validation": "If provided, must be a non-empty string."
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Created by user ID",
+      "default": null,
+      "validation": "If provided, must be a non-empty string."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_cost_item_price_estimates_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_phase_cost_item_price_estimates_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_cost_item_price_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_cost_item_price_estimate_policy.rb"
+    }
+  ]
+}

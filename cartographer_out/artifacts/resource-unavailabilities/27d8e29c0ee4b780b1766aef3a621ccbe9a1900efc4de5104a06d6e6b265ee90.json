@@ -1,0 +1,69 @@
+{
+  "description": "Create a resource unavailability.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Resource type (User, Equipment, Trailer, Tractor)",
+      "name": "--resource-type",
+      "required": true,
+      "type": "string",
+      "validation": "Allowed values: User, Equipment, Trailer, Tractor (case-insensitive; plural accepted for User/Trailer/Tractor)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Resource ID",
+      "name": "--resource-id",
+      "required": true,
+      "type": "string",
+      "validation": "Required with --resource-type. Example: 123."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Start timestamp (ISO 8601)",
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T08:00:00Z)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "End timestamp (ISO 8601)",
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T17:00:00Z). Must be after --start-at when both provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Description/note",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do resource-unavailabilities create",
+  "id": "27d8e29c0ee4b780b1766aef3a621ccbe9a1900efc4de5104a06d6e6b265ee90",
+  "permissions": null,
+  "side_effects": "Creates a resource unavailability.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_resource_unavailabilities_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/resource_unavailabilities_common.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/resource_unavailabilities_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--resource-type and --resource-id are required. Resource type must be one of User, Equipment, Trailer, Tractor (case-insensitive; plural accepted for User/Trailer/Tractor). If both --start-at and --end-at are provided, end-at must be after start-at."
+}

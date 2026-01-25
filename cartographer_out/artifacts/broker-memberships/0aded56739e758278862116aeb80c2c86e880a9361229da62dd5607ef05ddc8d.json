@@ -1,0 +1,150 @@
+{
+  "id": "0aded56739e758278862116aeb80c2c86e880a9361229da62dd5607ef05ddc8d",
+  "full_path": "view broker-memberships list",
+  "description": "List broker memberships with filtering and pagination",
+  "permissions": "Admins can list all broker memberships. Non-admin users can list broker memberships for brokers they belong to (scope is limited to their broker memberships).",
+  "side_effects": null,
+  "validation_notes": "kind must be one of operations or manager when provided. drives-shift-type must be one of any, day, or night when provided. Boolean filters must be true or false. organization expects the format Broker|<id>.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Broker|ID)",
+      "default": null,
+      "validation": "Format: Broker|<id>."
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project office ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by kind (operations/manager)",
+      "default": null,
+      "validation": "operations | manager"
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search by user name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--drives-shift-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by drives shift type (any/day/night)",
+      "default": null,
+      "validation": "any | day | night"
+    },
+    {
+      "name": "--external-employee-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external employee ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-rate-editor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by rate editor status (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-time-card-auditor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card auditor status (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-equipment-rental-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment rental team member (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by geofence violation team member (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by unapproved time card subscriber (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by default job production plan subscriber (true/false)",
+      "default": null,
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_memberships_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_membership_policy.rb"
+    }
+  ]
+}

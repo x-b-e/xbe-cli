@@ -1,0 +1,89 @@
+{
+  "id": "b6604a522c0ff6cf2eb221f849e66139019f253bf4e41b7370ee0d8fa11d8009",
+  "full_path": "do importer-configurations create",
+  "description": "Create an importer configuration for free ticketing imports.",
+  "permissions": "Admin users only.",
+  "side_effects": "Creates a new importer configuration.",
+  "validation_notes": "Requires --importer-data-source-type, --ticket-identifier-field, and --integration-config. --latest-tickets-queries and --additional-configurations must be valid JSON if provided. Server requires importer_data_source_type, ticket_identifier_field, and integration_config.",
+  "flags": [
+    {
+      "name": "--importer-data-source-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Importer data source type (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ticket-identifier-field",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Ticket identifier field name (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--integration-config",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Integration config ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--latest-tickets-queries",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "JSON object or array of query definitions.",
+      "default": null,
+      "validation": "Must be valid JSON when provided."
+    },
+    {
+      "name": "--additional-configurations",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "JSON object of additional settings.",
+      "default": null,
+      "validation": "Must be valid JSON when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_importer_configurations_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_importer_configurations.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/free_ticketing/importer_configuration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/free_ticketing/importer_configuration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/free_ticketing/importer_configuration.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/free_ticketing/importer_configurations_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/free_ticketing/importer_configuration_policy_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/resources/v1/free_ticketing/importer_configuration_resource_spec.rb"
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "id": "0733ff12a0d1b39673439b8b7326396b107f8112bab4a9c93a6932bed9df0121",
+  "full_path": "do liability-incidents update",
+  "description": "Update a liability incident.",
+  "permissions": "Admins can update liability incidents. Non-admins can update only when authorized for the subject; if the subject changes, authorization must also pass for the previous subject.",
+  "side_effects": "Updates the liability incident; may change incident type when --new-type is provided and may update incident unit-of-measure quantities for net impact values.",
+  "validation_notes": "At least one field or relationship must be provided. --subject-type and --subject-id must be set together. --parent-id is required when setting parent relationship; parent type defaults to liability-incidents if blank. --net-impact-minutes and --net-impact-dollars must be numeric when provided. --new-type must be an Incident subclass name. Status must be one of open/closed/abandoned/processing/parked. Kind must be one of accident_notification_and_assistance/damage/theft/vandalism/vehicle_incident. Severity must be one of low/medium/high/catastrophic. --did-stop-work must not be set for liability incidents. --subject-type must map to a valid subject type. --end-at must be after --start-at and is required when status is closed. --natures values must be unique and valid incident natures. If --equipment is set, --job-production-plan must be set and the equipment must belong to the job production plan. If --tender-job-schedule-shift and --job-production-plan are both set, they must reference the same job production plan. --tender-job-schedule-shift must be a broker shift. If --assignee is set, the user must have a relationship with the customer and be in scope for the subject.",
+  "flags": [
+    {
+      "name": "--assignee",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Assignee user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--did-stop-work",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Did stop work (not valid for liability incidents)",
+      "default": null,
+      "validation": "Must not be set for liability incidents"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; must be after start-at; required when status is closed"
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": "Requires job-production-plan; equipment must belong to that plan"
+    },
+    {
+      "name": "--headline",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Headline",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-down-time",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Down time flag",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Incident kind",
+      "default": null,
+      "validation": "One of accident_notification_and_assistance, damage, theft, vandalism, vehicle_incident"
+    },
+    {
+      "name": "--natures",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Incident natures (comma-separated)",
+      "default": null,
+      "validation": "Values must be unique and in: personal, property"
+    },
+    {
+      "name": "--net-impact-dollars",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Net impact dollars",
+      "default": null,
+      "validation": "Numeric"
+    },
+    {
+      "name": "--net-impact-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Net impact minutes",
+      "default": null,
+      "validation": "Numeric"
+    },
+    {
+      "name": "--new-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Change incident type (e.g., LiabilityIncident)",
+      "default": null,
+      "validation": "Must be an Incident subclass name"
+    },
+    {
+      "name": "--parent-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent incident ID",
+      "default": null,
+      "validation": "Required when setting parent relationship"
+    },
+    {
+      "name": "--parent-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent incident type (e.g., liability-incidents)",
+      "default": null,
+      "validation": "Defaults to liability-incidents when parent-id is set"
+    },
+    {
+      "name": "--severity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Severity (low, medium, high, catastrophic)",
+      "default": null,
+      "validation": "One of low, medium, high, catastrophic"
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status",
+      "default": null,
+      "validation": "One of open, closed, abandoned, processing, parked"
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject ID (use with --subject-type)",
+      "default": null,
+      "validation": "Must be set with --subject-type"
+    },
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject type (use with --subject-id)",
+      "default": null,
+      "validation": "Must be set with --subject-id and map to a valid subject type"
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID",
+      "default": null,
+      "validation": "Must be a broker shift; must relate to job-production-plan when both set"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_liability_incidents_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/liability_incidents_common.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/liability_incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    }
+  ]
+}

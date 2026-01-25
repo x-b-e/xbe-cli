@@ -1,0 +1,33 @@
+{
+  "id": "ac2bc462eb0fe4e9adece8d9909a1aa5f20c4f89bfb1790d6f632c2ef48e0a05",
+  "full_path": "do business-unit-customers delete",
+  "description": "Delete a business unit customer link.",
+  "permissions": "User must be authorized to destroy business units for the broker that owns the business unit (BusinessUnitPolicy#destroy?, delegated via BusinessUnitCustomerPolicy).",
+  "side_effects": "Deletes a business unit customer link.",
+  "validation_notes": "Requires <id> argument (business unit customer ID); --confirm flag is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_customers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    }
+  ]
+}

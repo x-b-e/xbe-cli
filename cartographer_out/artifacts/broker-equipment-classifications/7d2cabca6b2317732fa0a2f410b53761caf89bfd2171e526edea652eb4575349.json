@@ -1,0 +1,96 @@
+{
+  "id": "7d2cabca6b2317732fa0a2f410b53761caf89bfd2171e526edea652eb4575349",
+  "full_path": "view broker-equipment-classifications list",
+  "description": "List broker equipment classifications",
+  "permissions": "User must be authorized to view broker equipment classifications; non-admin users are limited to brokers in their policy scope.",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max and updated-at-min/updated-at-max expect ISO 8601 timestamps; is-created-at and is-updated-at accept true/false.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_equipment_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_equipment_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_equipment_classification_policy.rb"
+    }
+  ]
+}

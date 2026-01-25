@@ -1,0 +1,109 @@
+{
+  "id": "543d65c8a1c55f1b03c53f83cd15e9733f730285da3883b89eadf09471837623",
+  "full_path": "do production-measurements update",
+  "description": "Update a production measurement.",
+  "permissions": "User must be authorized for the production measurement via the associated job_production_plan_segment (delegated policy).",
+  "side_effects": "Updates a production measurement. When all calculation inputs are present, saving updates the related job_production_plan_segment quantity and quantity_per_hour.",
+  "validation_notes": "Requires <id> argument (production measurement ID). At least one attribute flag must be provided. width-display-unit-of-measure must be inches or feet when provided. pass-count must be greater than 0 when provided. width-inches, depth-inches, length-feet, speed-feet-per-minute, speed-feet-per-minute-possible, and density-lbs-per-cubic-foot must be greater than 0 when provided.",
+  "flags": [
+    {
+      "name": "--width-inches",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Width in inches.",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--depth-inches",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Depth in inches.",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--length-feet",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Length in feet.",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--speed-feet-per-minute",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Speed in feet per minute.",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--speed-feet-per-minute-possible",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Possible speed in feet per minute.",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--density-lbs-per-cubic-foot",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Density in lbs per cubic foot.",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--width-display-unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Width display unit of measure.",
+      "default": null,
+      "validation": "Allowed values: inches, feet."
+    },
+    {
+      "name": "--pass-count",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Pass count.",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_production_measurements_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/production_measurement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/production_measurement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/production_measurement_resource.rb"
+    }
+  ]
+}

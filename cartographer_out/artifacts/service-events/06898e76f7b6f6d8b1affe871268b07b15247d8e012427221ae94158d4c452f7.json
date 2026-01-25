@@ -1,0 +1,109 @@
+{
+  "id": "06898e76f7b6f6d8b1affe871268b07b15247d8e012427221ae94158d4c452f7",
+  "full_path": "view service-events list",
+  "description": "List service events.",
+  "permissions": "Read access is limited by policy scope. Non-admin users can only see service events whose tender job schedule shifts belong to job schedule shifts in their policy scope.",
+  "side_effects": null,
+  "validation_notes": "kind filter accepts ready_to_work or work_start_at. occurred-at-min/max should be ISO 8601 timestamps. is-occurred-at, via-gps, and via-material-transaction-acceptance expect true/false values.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by event kind (ready_to_work, work_start_at)",
+      "default": null,
+      "validation": "ready_to_work, work_start_at"
+    },
+    {
+      "name": "--occurred-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by occurred-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--occurred-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by occurred-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-occurred-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of occurred-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--via-gps",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by via GPS (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--via-material-transaction-acceptance",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by via material transaction acceptance (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job schedule shift ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_events_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_events.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_event_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "3b92df242259fb3f2b397a601ac1641cc62441bd184d1f923873f83ec7aac6b4",
+  "full_path": "do commitment-items delete",
+  "description": "Delete a commitment item",
+  "permissions": null,
+  "side_effects": "Deletes a commitment item.",
+  "validation_notes": "Requires <id> positional argument. --confirm must be set to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_commitment_items_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_item_policy.rb"
+    }
+  ]
+}

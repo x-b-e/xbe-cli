@@ -1,0 +1,33 @@
+{
+  "id": "6c0a483d8921a333be3a47a8a1789c95c63374ddc2da5a234c2c3b9469dea5ce",
+  "full_path": "do incident-requests delete",
+  "description": "Delete an incident request.",
+  "permissions": "Allowed when the customer allows drivers to create incidents and the user is an admin, the driver assigned to the shift, or a trucker manager for the shift (IncidentRequestPolicy#destroy? is an alias of create?).",
+  "side_effects": "Deletes the incident request.",
+  "validation_notes": "The incident request ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_requests_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_request.rb"
+    }
+  ]
+}

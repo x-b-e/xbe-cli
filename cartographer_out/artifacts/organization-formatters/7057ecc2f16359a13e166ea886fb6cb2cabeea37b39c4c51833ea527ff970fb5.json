@@ -1,0 +1,73 @@
+{
+  "description": "Update an existing organization formatter.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Formatter description.",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Formatter function source (JavaScript).",
+      "name": "--formatter-function",
+      "required": false,
+      "type": "string",
+      "validation": "Validated by executing the JavaScript format() when has_format_function is true."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Mark formatter as a shared library.",
+      "name": "--is-library",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Supported MIME types (comma-separated).",
+      "name": "--mime-types",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated list (e.g., text/csv,application/json)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Formatter status (active/inactive).",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "active|inactive"
+    }
+  ],
+  "full_path": "do organization-formatters update",
+  "id": "7057ecc2f16359a13e166ea886fb6cb2cabeea37b39c4c51833ea527ff970fb5",
+  "permissions": "Admins can update organization formatters. Non-admin users can update a formatter if they are a manager member of the formatter organization or a member of its broker organization.",
+  "side_effects": "Updates fields on an existing organization formatter.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_organization_formatters_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/organization_formatter_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/organization_formatter.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_formatter_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. At least one updatable field flag must be provided. status accepts active or inactive. formatter-function is validated by executing the JavaScript; errors are surfaced. organization and formatter-type cannot be changed."
+}

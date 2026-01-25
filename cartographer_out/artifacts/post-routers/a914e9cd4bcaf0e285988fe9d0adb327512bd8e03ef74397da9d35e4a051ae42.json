@@ -1,0 +1,37 @@
+{
+  "id": "a914e9cd4bcaf0e285988fe9d0adb327512bd8e03ef74397da9d35e4a051ae42",
+  "full_path": "do post-routers create",
+  "description": "Create a post router for a post.",
+  "permissions": "Admins can create post routers for any post; non-admins can create post routers only for posts they created.",
+  "side_effects": "Creates a post router that triggers asynchronous analysis and enqueues routing jobs for the post.",
+  "validation_notes": "--post is required and cannot be blank. Post routers must have a status set on the server.",
+  "flags": [
+    {
+      "name": "--post",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Post ID to route (required). Example: --post 123.",
+      "default": null,
+      "validation": "non-empty string"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_post_routers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_router_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_router_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/post_router.rb"
+    }
+  ]
+}

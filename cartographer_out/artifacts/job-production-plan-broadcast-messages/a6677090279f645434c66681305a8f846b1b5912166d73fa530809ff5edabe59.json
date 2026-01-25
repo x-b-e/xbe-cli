@@ -1,0 +1,23 @@
+{
+  "id": "a6677090279f645434c66681305a8f846b1b5912166d73fa530809ff5edabe59",
+  "full_path": "view job-production-plan-broadcast-messages show",
+  "description": "Show the full details of a job production plan broadcast message.",
+  "permissions": "Admins per ApplicationPolicy. Non-admin users can view a message if they are recipients (their user ID is in user_ids), if they can access the related job production plan via policy scope, or if they are a driver on broker tender job schedule shifts for the job production plan.",
+  "side_effects": null,
+  "validation_notes": "Argument <id> is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_broadcast_messages_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_broadcast_message_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_broadcast_message_resource.rb"
+    }
+  ]
+}

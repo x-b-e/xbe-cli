@@ -1,0 +1,46 @@
+{
+  "description": "Update a shift acknowledgement reminder notification subscription.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Notify by text (true/false). Example: --notify-by-txt.",
+      "name": "--notify-by-txt",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Notify by email (true/false). Example: --notify-by-email=false.",
+      "name": "--notify-by-email",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do shift-acknowledgement-reminder-notification-subscriptions update",
+  "id": "4bccaf86e76ae591f98f5989869091b46d4c8f8bcba2335a97f1e488a1cf0fae",
+  "permissions": "Allowed for admins, broker members of the trucker's broker, or trucker managers for the trucker.",
+  "side_effects": "Updates notification preferences for a shift acknowledgement reminder notification subscription.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_shift_acknowledgement_reminder_notification_subscriptions_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/shift_acknowledgement_reminder_notification_subscription_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/shift_acknowledgement_reminder_notification_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/notification_subscriptions/shift_acknowledgement_reminder_notification_subscription.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. At least one of --notify-by-txt or --notify-by-email must be provided. If not admin, the user must be a trucker manager, a broker member, or the broker's default dispatch contact for the trucker."
+}

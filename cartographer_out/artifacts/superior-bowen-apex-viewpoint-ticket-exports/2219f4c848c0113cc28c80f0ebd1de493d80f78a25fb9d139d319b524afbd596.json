@@ -1,0 +1,27 @@
+{
+  "id": "2219f4c848c0113cc28c80f0ebd1de493d80f78a25fb9d139d319b524afbd596",
+  "full_path": "view superior-bowen-apex-viewpoint-ticket-exports list",
+  "description": "List Superior Bowen Apex Viewpoint ticket exports.",
+  "permissions": "Any user can list these exports; the policy index action is unrestricted in ApplicationPolicy.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/superior_bowen_apex_viewpoint_ticket_exports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/superior_bowen_apex_viewpoint_ticket_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/policies/superior_bowen_apex_viewpoint_ticket_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/policies/application_policy.rb"
+    }
+  ]
+}

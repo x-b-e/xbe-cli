@@ -1,0 +1,77 @@
+{
+  "id": "4a177d5656b039d1b9b6394cb0017fd0550a81fdea6f0d294fb6a41efefc6c64",
+  "full_path": "do sourcing-searches create",
+  "description": "Run a sourcing search to find matching truckers, trailers, and broker tenders.",
+  "permissions": "Allowed for users who have a broker membership with the broker that owns the customer tender (customer_tender.buyer.broker). If the broker is missing, the policy allows the request but validation will fail.",
+  "side_effects": "Performs a sourcing search and returns matching results (truckers, trailers, broker tenders).",
+  "validation_notes": "customer_tender is required and must be an integer ID for a customer tender visible to the current user (policy scope). additional_certification_requirement_types and customer_tender IDs are cast to Integer on the server. If omitted, maximum_distance_miles defaults to 50 and maximum_result_count defaults to 100; additional_certification_requirement_types defaults to empty. The search is executed during create; invalid inputs return JSONAPI validation errors.",
+  "flags": [
+    {
+      "name": "--customer-tender",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer tender ID (required).",
+      "default": null,
+      "validation": "Must be an integer ID of an existing customer tender accessible to the current user (policy scope)."
+    },
+    {
+      "name": "--maximum-distance-miles",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum distance in miles.",
+      "default": null,
+      "validation": "Numeric (float) miles; if omitted, server default is 50."
+    },
+    {
+      "name": "--maximum-result-count",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Maximum number of results to return.",
+      "default": null,
+      "validation": "Integer; if omitted, server default is 100."
+    },
+    {
+      "name": "--minimum-trucker-rating",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Minimum trucker rating.",
+      "default": null,
+      "validation": "Numeric (float)."
+    },
+    {
+      "name": "--additional-certification-requirement-types",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Additional certification type IDs (comma-separated or repeated).",
+      "default": null,
+      "validation": "IDs must be integers; example: 45,67."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_sourcing_searches.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_sourcing_searches_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/sourcing_search_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/sourcing_search.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/sourcing_search_resource.rb"
+    }
+  ]
+}

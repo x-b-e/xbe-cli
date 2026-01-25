@@ -1,0 +1,19 @@
+{
+  "id": "8a5b76d4c3eacf1d9d129a177881177f48731a3dcb6d54fcfe796c45eff207bb",
+  "full_path": "do raw-transport-exports delete",
+  "description": "Delete a raw transport export (not supported)",
+  "permissions": "Deletion is not permitted for any user; the policy denies destroy on raw transport exports.",
+  "side_effects": "None. This command returns an error because deletion is not supported.",
+  "validation_notes": "The raw transport export ID argument is required. Raw transport exports do not support deletion.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_transport_exports_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_export_policy.rb"
+    }
+  ]
+}

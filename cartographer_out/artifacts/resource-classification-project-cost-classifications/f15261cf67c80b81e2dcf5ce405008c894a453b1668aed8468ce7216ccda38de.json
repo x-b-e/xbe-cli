@@ -1,0 +1,33 @@
+{
+  "id": "f15261cf67c80b81e2dcf5ce405008c894a453b1668aed8468ce7216ccda38de",
+  "full_path": "do resource-classification-project-cost-classifications delete",
+  "description": "Delete a resource classification project cost classification.",
+  "permissions": "Admins can delete; non-admins must be members of the broker associated with the resource classification project cost classification.",
+  "side_effects": "Deletes the resource classification project cost classification and clears matching crew requirements cache (sets resource_classification_project_cost_classification_id_cached to nil).",
+  "validation_notes": "<id> argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_resource_classification_project_cost_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/resource_classification_project_cost_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/resource_classification_project_cost_classification.rb"
+    }
+  ]
+}

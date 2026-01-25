@@ -1,0 +1,23 @@
+{
+  "id": "f626313b3f82fc29d02deeaff793c71ab015fb575b4fecd8fa0f2b778258c8b1",
+  "full_path": "view broker-certification-types show",
+  "description": "Show broker certification type details",
+  "permissions": "Admins can show any broker certification type. Non-admins can show broker certification types when the broker is in their Broker policy scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and cannot be empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_certification_types_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_certification_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_certification_type_resource.rb"
+    }
+  ]
+}

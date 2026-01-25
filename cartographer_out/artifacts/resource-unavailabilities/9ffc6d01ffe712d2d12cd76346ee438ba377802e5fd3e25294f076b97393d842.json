@@ -1,0 +1,87 @@
+{
+  "description": "List resource unavailabilities.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by resource type (User, Equipment, Trailer, Tractor)",
+      "name": "--resource-type",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: User, Equipment, Trailer, Tractor."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by resource ID (requires --resource-type)",
+      "name": "--resource-id",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --resource-type. Example: 123."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization (Type|ID, e.g., Broker|123)",
+      "name": "--organization",
+      "required": false,
+      "type": "string",
+      "validation": "Format Type|ID (e.g., Broker|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by start-at on/after (ISO 8601)",
+      "name": "--start-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by start-at on/before (ISO 8601)",
+      "name": "--start-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-31T23:59:59Z)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by end-at on/after (ISO 8601)",
+      "name": "--end-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by end-at on/before (ISO 8601)",
+      "name": "--end-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-31T23:59:59Z)."
+    }
+  ],
+  "full_path": "view resource-unavailabilities list",
+  "id": "9ffc6d01ffe712d2d12cd76346ee438ba377802e5fd3e25294f076b97393d842",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/resource_unavailabilities_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/resource_unavailabilities_common.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/resource_unavailability_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--resource-id requires --resource-type."
+}

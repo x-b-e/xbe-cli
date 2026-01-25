@@ -1,0 +1,33 @@
+{
+  "id": "968859c5ced422df0b197dbd6df599d80fea9325da0789184f7d2445f3f19c3d",
+  "full_path": "do project-phase-revenue-items delete",
+  "description": "Delete a project phase revenue item.",
+  "permissions": "Authorization is delegated to the related project phase (project_phase).",
+  "side_effects": "Deletes a project phase revenue item.",
+  "validation_notes": "--confirm is required. Deletion is restricted if project_phase_cost_items or project_phase_revenue_item_actuals exist for the item.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_revenue_items_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_revenue_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_phase_revenue_item.rb"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "82442fa095e4ae61083693046e813a4abbd433f0561d17f720af3d7d56345081",
+  "full_path": "view trucker-referrals list",
+  "description": "List trucker referrals.",
+  "permissions": "Admins can list all trucker referrals. Non-admins can list referrals where they are the referring user or manage the broker that owns the trucker.",
+  "side_effects": null,
+  "validation_notes": "Filters for referred-on, referred-on-min, and referred-on-max expect dates in YYYY-MM-DD format (e.g., 2025-01-01).",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by referring user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--referred-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by referral date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD (e.g., 2025-01-01)"
+    },
+    {
+      "name": "--referred-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by referral date on/after (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD (e.g., 2025-01-01)"
+    },
+    {
+      "name": "--referred-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by referral date on/before (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD (e.g., 2025-01-01)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_referrals_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_referral_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_referral_policy.rb"
+    }
+  ]
+}

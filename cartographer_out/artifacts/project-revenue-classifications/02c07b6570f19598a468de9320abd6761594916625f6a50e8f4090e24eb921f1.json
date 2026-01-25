@@ -1,0 +1,51 @@
+{
+  "id": "02c07b6570f19598a468de9320abd6761594916625f6a50e8f4090e24eb921f1",
+  "full_path": "do project-revenue-classifications create",
+  "description": "Create a new project revenue classification.",
+  "permissions": "Allowed for admin users or users who are manager members of the broker.",
+  "side_effects": "Creates a project revenue classification record.",
+  "validation_notes": "Requires --name and --broker. Name is required and must be unique within the same broker and parent. Name whitespace is stripped. If --parent is provided, the classification must have a broker and the broker must match the parent classification's broker.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Classification name (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent classification ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_revenue_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/project_money_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/project_money_classification.rb"
+    }
+  ]
+}

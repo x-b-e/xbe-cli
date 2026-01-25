@@ -1,0 +1,60 @@
+{
+  "description": "Update an existing tag category.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, must be unique (case-insensitive)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New slug",
+      "name": "--slug",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, must be unique (case-insensitive)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New entity types this can apply to",
+      "name": "--can-apply-to",
+      "required": false,
+      "type": "array",
+      "validation": "Comma-separated types; each must be one of: PredictionSubject, Comment, FileAttachment, PredictionKnowledgeBaseQuestion."
+    }
+  ],
+  "full_path": "do tag-categories update",
+  "id": "da5ff9533aa7e445c79295c30fbe628b998e66dcc04a9afe786d74e41bb26a57",
+  "permissions": "Only admin users can update tag categories.",
+  "side_effects": "Updates the specified tag category fields.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tag_categories_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/tag_category.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tag_category_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. At least one of --name, --slug, --description, or --can-apply-to must be provided. name and slug must be unique (case-insensitive). can-apply-to must include only allowed types: PredictionSubject, Comment, FileAttachment, PredictionKnowledgeBaseQuestion."
+}

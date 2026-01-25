@@ -1,0 +1,23 @@
+{
+  "id": "b153b4d23e547ae1ca7590e44e9f9588dafc354b8e4b84bcac1d608cf807bb79",
+  "full_path": "view material-transaction-preloads show",
+  "description": "Show the full details of a material transaction preload.",
+  "permissions": "User can view preloads for material transactions they are authorized to access via the delegated MaterialTransaction policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires a preload ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_preloads_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_preload_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_preload_policy.rb"
+    }
+  ]
+}

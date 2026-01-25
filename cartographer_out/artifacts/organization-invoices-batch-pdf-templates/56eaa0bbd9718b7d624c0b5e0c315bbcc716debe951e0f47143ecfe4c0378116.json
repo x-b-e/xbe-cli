@@ -1,0 +1,114 @@
+{
+  "id": "56eaa0bbd9718b7d624c0b5e0c315bbcc716debe951e0f47143ecfe4c0378116",
+  "full_path": "view organization-invoices-batch-pdf-templates list",
+  "description": "List organization invoices batch PDF templates.",
+  "permissions": "Admins can list all templates. Non-admins can list global templates and templates for organizations where they are broker members or organization managers (non-broker memberships).",
+  "side_effects": null,
+  "validation_notes": "--organization-id requires --organization-type or --organization in Type|ID format. --created-at-min and --created-at-max must be ISO 8601 timestamps. --is-active, --is-global, and --is-created-at expect true/false values.",
+  "flags": [
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (format: Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Type|ID format (example: Broker|123)"
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type or Type|ID)",
+      "default": null,
+      "validation": "Requires --organization-type or --organization Type|ID"
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker, Customer, Trucker)",
+      "default": null,
+      "validation": "Organization type (example: Broker, Customer, Trucker)"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-global",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by global status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_pdf_templates_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_pdf_template_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_pdf_template_policy.rb"
+    }
+  ]
+}

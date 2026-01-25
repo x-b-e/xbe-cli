@@ -1,0 +1,46 @@
+{
+  "id": "3929f5e109ee238001d7c1692ab3bf0cd17b8b69a57182e330beeb8eda6f7ff5",
+  "full_path": "do trucker-brokerages create",
+  "description": "Create a trucker brokerage",
+  "permissions": "Admins and users who are practically trucker managers for the brokering trucker can create trucker brokerages. If the brokering trucker is not yet set on the record, the policy allows creation and validations handle it.",
+  "side_effects": "Creates a trucker brokerage linking a brokering trucker and a brokered trucker.",
+  "validation_notes": "--trucker and --brokered-trucker are required. Trucker and brokered trucker must have the same broker, the brokering trucker cannot broker itself, and the trucker/brokered-trucker pair must be unique.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Brokering trucker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--brokered-trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Brokered trucker ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_brokerages_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_brokerage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_brokerage.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/validators/has_same_validator.rb"
+    }
+  ]
+}

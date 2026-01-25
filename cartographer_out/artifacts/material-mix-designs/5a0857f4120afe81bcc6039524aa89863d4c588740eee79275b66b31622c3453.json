@@ -1,0 +1,78 @@
+{
+  "id": "5a0857f4120afe81bcc6039524aa89863d4c588740eee79275b66b31622c3453",
+  "full_path": "do material-mix-designs create",
+  "description": "Create a material mix design",
+  "permissions": null,
+  "side_effects": "Creates a material mix design.",
+  "validation_notes": "--material-type is required. --start-at and --end-at must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--mix",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Mix identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_mix_designs_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/material_mix_designs_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_mix_design_policy.rb"
+    }
+  ]
+}

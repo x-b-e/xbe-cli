@@ -1,0 +1,42 @@
+{
+  "id": "671367d5661cf42e8c734537a2c7f77dd5700be8c36a134786bf6c1f98a8ebbf",
+  "full_path": "do raw-material-transaction-sales-customers create",
+  "description": "Create a raw material transaction sales customer",
+  "permissions": "Admins can create raw material transaction sales customers. Non-admin users can create when they are a member of the related broker; the policy also allows creation when customer or broker is missing, but validations may reject it.",
+  "side_effects": "Creates a raw material transaction sales customer record.",
+  "validation_notes": "--raw-sales-customer-id and --customer are required. The broker is derived from the customer and must match broker rules. raw_sales_customer_id must be present and is unique per broker.",
+  "flags": [
+    {
+      "name": "--raw-sales-customer-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Raw sales customer identifier (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_material_transaction_sales_customers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/raw_material_transaction_sales_customer.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_material_transaction_sales_customer_policy.rb"
+    }
+  ]
+}

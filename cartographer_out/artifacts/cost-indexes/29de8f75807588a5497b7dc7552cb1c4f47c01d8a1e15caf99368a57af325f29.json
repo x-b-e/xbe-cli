@@ -1,0 +1,33 @@
+{
+  "id": "29de8f75807588a5497b7dc7552cb1c4f47c01d8a1e15caf99368a57af325f29",
+  "full_path": "do cost-indexes delete",
+  "description": "Delete a cost index.",
+  "permissions": "Admins or users who manage the broker associated with the cost index can delete it.",
+  "side_effects": "Deletes the cost index; dependent cost index entries are destroyed if deletion is allowed.",
+  "validation_notes": "--confirm is required. Cost indexes with rate adjustments cannot be deleted. Cost indexes with entries used in rate adjustment calculations cannot be deleted.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_indexes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_index.rb"
+    }
+  ]
+}

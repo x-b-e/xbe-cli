@@ -1,0 +1,33 @@
+{
+  "description": "Update a customer tender offered buyer notification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Mark notification as read (true/false)",
+      "name": "--read",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "do customer-tender-offered-buyer-notifications update",
+  "id": "19823d77c73ea7481a0515fadd9b895ac096e057a63f437f9e02236c60da4b04",
+  "permissions": "Authentication required. Only the notification owner (user == record.user) may update.",
+  "side_effects": "Updates the notification read status.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_customer_tender_offered_buyer_notifications_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/notification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/notification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The notification id argument is required and cannot be blank. At least one writable field must be provided; only read is writable."
+}

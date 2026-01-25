@@ -1,0 +1,58 @@
+{
+  "id": "dc30eace6a20b39ebef6ceb24ee78cff43a46f86edf598edd29dd42b6b9fea92",
+  "full_path": "do organization-invoices-batch-file-exports create",
+  "description": "Export an organization invoices batch file.",
+  "permissions": "User must be authorized to create the referenced organization invoices batch file. This permission is delegated from OrganizationInvoicesBatchFileExportPolicy to OrganizationInvoicesBatchFilePolicy, which in turn defers to OrganizationInvoicesBatchPolicy: admins are allowed; otherwise, when the batch has an organization, the user must be a manager member of that organization or a member of the broker.",
+  "side_effects": "Creates an organization invoices batch file export and immediately runs the export (sets worker_class and calls perform). Exporting can send formatted invoice batch files to partner integrations and may trigger exporter notifications when errors occur.",
+  "validation_notes": "organization_invoices_batch_file is required. The export requires a worker_class (determined from the broker; supported branches are granite_rock and pb_materials). The organization invoices batch file must be for a valid organization branch. Exporter integration must be reachable (otherwise a base error 'could not connect to exporter integration' is added). The batch file must be a TK batch export file; if formatting failed, export is rejected; if status is not processed, export is rejected until formatting is completed.",
+  "flags": [
+    {
+      "name": "--organization-invoices-batch-file",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization invoices batch file ID (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--dry-run",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate export without sending",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_invoices_batch_file_exports.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_invoices_batch_file_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_file_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_file_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_file_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_invoices_batch_file_export.rb"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "37115a88c4fd3ed5e42f05422235f05fb5f0ff67d04d1e469e4d6208b8052c67",
+  "full_path": "do project-duplications create",
+  "description": "Duplicate a project from a template.",
+  "permissions": "User must be authorized to view the template project (project_template).",
+  "side_effects": "Creates a project duplication and a derived project; copies related records from the template unless skipped by flags.",
+  "validation_notes": "project_template is required. Template project must be valid for duplication; invalid related records in the template (material types, customers, truckers, cost codes, trailer classifications, labor classifications, certification requirements) cause validation errors unless the corresponding skip flag is set. derived_due_on must be ISO 8601 when provided.",
+  "flags": [
+    {
+      "name": "--project-template",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Template project ID",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--derived-project-template-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Derived project template name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--derived-project-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Derived project number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--derived-due-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Derived project due date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date"
+    },
+    {
+      "name": "--derived-is-prevailing-wage-applicable",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Override prevailing wage setting",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--derived-is-time-card-payroll-certification-required",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Override time card payroll certification setting",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--new-developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Developer ID for the derived project",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-project-material-types",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying project material types",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-project-customers",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying project customers",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-project-truckers",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying project truckers",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-project-trailer-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying project trailer classifications",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-project-labor-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying project labor classifications",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-certification-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying certification requirements",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-project-cost-codes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying project cost codes",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-project-revenue-items",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying project revenue items",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-project-phase-revenue-items",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying project phase revenue items",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_duplications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_duplication_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_duplication.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_duplication_resource.rb"
+    }
+  ]
+}

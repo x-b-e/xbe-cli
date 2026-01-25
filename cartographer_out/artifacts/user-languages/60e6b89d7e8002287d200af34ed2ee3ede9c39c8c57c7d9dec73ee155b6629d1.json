@@ -1,0 +1,55 @@
+{
+  "id": "60e6b89d7e8002287d200af34ed2ee3ede9c39c8c57c7d9dec73ee155b6629d1",
+  "full_path": "do user-languages create",
+  "description": "Create a user language preference.",
+  "permissions": "Allowed for admins or users with update permission on the target user.",
+  "side_effects": "Creates a user language; if is-default is true, other user languages for the same user are updated to is_default=false by a database trigger.",
+  "validation_notes": "--user and --language are required. --is-default expects true/false and is interpreted as true only when set to \"true\" (any other non-empty value is treated as false). A user can have only one user-language per language (unique user_id + language_id) and only one default language (unique user_id where is_default=true).",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--language",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Language ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-default",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default language flag (true/false)",
+      "default": null,
+      "validation": "true/false; interpreted as true only when set to \"true\""
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_languages_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_language_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_language.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.user_languages.sql"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "cb30425a72196dcf016c40f5f254885916d94ce6831576c4370199abe17c566d",
+  "full_path": "view raw-transport-exports show",
+  "description": "Show raw transport export details",
+  "permissions": "Admins can view all raw transport exports; non-admins can view only exports tied to brokers they are a member of (otherwise no access).",
+  "side_effects": null,
+  "validation_notes": "The raw transport export ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/raw_transport_exports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_export_policy.rb"
+    }
+  ]
+}

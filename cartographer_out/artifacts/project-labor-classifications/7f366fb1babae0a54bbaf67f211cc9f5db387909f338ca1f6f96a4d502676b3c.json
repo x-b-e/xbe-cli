@@ -1,0 +1,33 @@
+{
+  "id": "7f366fb1babae0a54bbaf67f211cc9f5db387909f338ca1f6f96a4d502676b3c",
+  "full_path": "do project-labor-classifications delete",
+  "description": "Delete a project labor classification",
+  "permissions": "Allowed for admins or users who are manager members of the project's broker.",
+  "side_effects": "Deletes the project labor classification; associated job_schedule_shifts and project_trailer_classifications are nullified.",
+  "validation_notes": "Requires the <id> argument (project labor classification ID). --confirm must be set to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_labor_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_labor_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_labor_classification.rb"
+    }
+  ]
+}

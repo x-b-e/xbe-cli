@@ -1,0 +1,220 @@
+{
+  "id": "d2ecf88551f60e6a641dab5832a43125c30225e4df1c08040a6cc8572df92960",
+  "full_path": "view temeda-vehicles list",
+  "description": "List temeda vehicles",
+  "permissions": "Admin users or members of the broker associated with the temeda vehicle; scope is limited to brokers the user can access.",
+  "side_effects": null,
+  "validation_notes": "Date-time filters (assigned-at-min, trailer-set-at-min/max, tractor-set-at-min/max, created-at-min/max, updated-at-min/max) must be valid date-times (ISO 8601); empty values are rejected. Boolean filters (has-trailer, has-tractor, is-trailer-set-at, is-tractor-set-at, is-created-at, is-updated-at) require strict true/false values.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of trailer (true/false)",
+      "default": null,
+      "validation": "true/false (strict)"
+    },
+    {
+      "name": "--has-tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of tractor (true/false)",
+      "default": null,
+      "validation": "true/false (strict)"
+    },
+    {
+      "name": "--assigned-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum assignment time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--integration-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer set on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--trailer-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer set on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--is-trailer-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of trailer-set-at (true/false)",
+      "default": null,
+      "validation": "true/false (strict)"
+    },
+    {
+      "name": "--tractor-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor set on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--tractor-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor set on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--is-tractor-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of tractor-set-at (true/false)",
+      "default": null,
+      "validation": "true/false (strict)"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of created-at (true/false)",
+      "default": null,
+      "validation": "true/false (strict)"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time (e.g., 2024-01-01T00:00:00Z)"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of updated-at (true/false)",
+      "default": null,
+      "validation": "true/false (strict)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/temeda_vehicles_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/temeda_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

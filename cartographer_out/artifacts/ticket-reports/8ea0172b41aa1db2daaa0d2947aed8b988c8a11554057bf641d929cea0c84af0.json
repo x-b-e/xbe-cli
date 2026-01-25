@@ -1,0 +1,37 @@
+{
+  "id": "8ea0172b41aa1db2daaa0d2947aed8b988c8a11554057bf641d929cea0c84af0",
+  "full_path": "do ticket-reports update",
+  "description": "Update an existing ticket report.",
+  "permissions": "Admins can update ticket reports. Non-admin users can update ticket reports for brokers they are members of.",
+  "side_effects": "Updates the ticket report file name.",
+  "validation_notes": "The ticket report ID argument is required. Only file name updates are supported.",
+  "flags": [
+    {
+      "name": "--file-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update the stored file name",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ticket_reports_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ticket_report_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ticket_report_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/ticket_report.rb"
+    }
+  ]
+}

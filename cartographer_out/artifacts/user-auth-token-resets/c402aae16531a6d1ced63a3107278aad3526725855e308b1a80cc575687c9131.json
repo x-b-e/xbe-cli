@@ -1,0 +1,45 @@
+{
+  "id": "c402aae16531a6d1ced63a3107278aad3526725855e308b1a80cc575687c9131",
+  "full_path": "do user-auth-token-resets create",
+  "description": "Reset a user's auth token.",
+  "permissions": "Allowed when the current user is permitted to update the target user (UserPolicy.update?); requires an authenticated user with appropriate admin/self or membership-based update rights.",
+  "side_effects": "Invalidates the user's current auth token and issues a new one by saving the user record.",
+  "validation_notes": "--user-id is required and must refer to an existing user; only user_id is accepted as a creatable attribute.",
+  "flags": [
+    {
+      "name": "--user-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID to reset (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_auth_token_resets_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_auth_token_resets.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_auth_token_reset_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_auth_token_reset_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_auth_token_reset.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_policy.rb"
+    }
+  ]
+}

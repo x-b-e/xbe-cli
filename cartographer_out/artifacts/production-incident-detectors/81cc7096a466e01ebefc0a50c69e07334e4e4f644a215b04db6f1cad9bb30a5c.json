@@ -1,0 +1,19 @@
+{
+  "id": "81cc7096a466e01ebefc0a50c69e07334e4e4f644a215b04db6f1cad9bb30a5c",
+  "full_path": "view production-incident-detectors list",
+  "description": "List production incident detector runs",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/production_incident_detectors_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/production_incident_detector_resource.rb"
+    }
+  ]
+}

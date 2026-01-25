@@ -1,0 +1,46 @@
+{
+  "description": "Update an existing equipment supplier.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Supplier name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --name \"New Name\""
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Supplier contract number",
+      "name": "--contract-number",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --contract-number \"EQ-2024-02\""
+    }
+  ],
+  "full_path": "do equipment-suppliers update",
+  "id": "544a21baa63b6c6c6b64151784167db9c953dd36c9d408d2e80bfaac7858e464",
+  "permissions": "Allowed for admin users or users who are members of the broker for the equipment supplier.",
+  "side_effects": "Updates the equipment supplier attributes provided in the request.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_equipment_suppliers_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/equipment_supplier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_supplier_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/equipment_supplier.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one attribute flag is required (--name or --contract-number). Name must be unique within the broker. Contract number, when provided, must be unique within the broker. Broker cannot be changed after creation."
+}

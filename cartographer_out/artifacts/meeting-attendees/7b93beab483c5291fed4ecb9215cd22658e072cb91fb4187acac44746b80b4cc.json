@@ -1,0 +1,73 @@
+{
+  "id": "7b93beab483c5291fed4ecb9215cd22658e072cb91fb4187acac44746b80b4cc",
+  "full_path": "do meeting-attendees update",
+  "description": "Update a meeting attendee.",
+  "permissions": "Allowed for admins, users who can update the meeting, or the attendee user when they can view the meeting.",
+  "side_effects": "Updates the meeting attendee; changing location latitude/longitude updates location_at.",
+  "validation_notes": "Meeting attendee ID argument is required. At least one attribute flag must be provided. location-kind must be one of: on_site, remote.",
+  "flags": [
+    {
+      "name": "--location-kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update location kind (on_site, remote)",
+      "default": null,
+      "validation": "on_site or remote"
+    },
+    {
+      "name": "--is-presence-required",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Update presence requirement (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-present",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Update present status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--location-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update location latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--location-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update location longitude",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_meeting_attendees_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/meeting_attendee.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/meeting_attendee_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/meeting_attendee_resource.rb"
+    }
+  ]
+}

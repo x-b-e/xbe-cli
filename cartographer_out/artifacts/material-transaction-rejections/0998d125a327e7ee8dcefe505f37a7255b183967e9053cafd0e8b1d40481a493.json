@@ -1,0 +1,23 @@
+{
+  "id": "0998d125a327e7ee8dcefe505f37a7255b183967e9053cafd0e8b1d40481a493",
+  "full_path": "view material-transaction-rejections show",
+  "description": "Show material transaction rejection details.",
+  "permissions": "Show is allowed when the record is included in the policy scope (ApplicationPolicy#show? uses the policy scope to authorize access).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (material transaction rejection ID); CLI rejects empty IDs.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_rejections_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "d60f75473247060d448193ed0fe667b667cad8b30e55684a6c4fc1823b7a160f",
+  "full_path": "do job-production-plan-approvals create",
+  "description": "Approve a submitted job production plan.",
+  "permissions": "User must be authorized to update the related job production plan (approval create? delegates to job production plan update permission).",
+  "side_effects": "Changes the job production plan status to approved; generates a job production plan recap; creates a job production plan supply/demand balance; creates missing safety meeting and labor requirement notifications; creates approved plan material type quantity notifications; schedules raw material transaction matching; caches cost code/project phase cost item matches; may create comments and Slack notifications for missing mix designs (unless skip_validate_required_mix_designs) or missing inspectors.",
+  "validation_notes": "--job-production-plan is required. The referenced job production plan must exist and be in submitted status; approvals are not allowed for template plans (template plans can only move to editing or abandoned). Validation requires the plan to be valid and meet submission checks: required job number when effective_approval_requires_job_number; start date/time and start site when the plan requires a start site (unless skip_validate_start_site); developer when the customer requires it; job site present; if trucking requires cost code allocation via material transactions, the plan must have cost codes and default cost codes for all material types; if trucking requires cost code allocation via segments, segments must be present and each have a cost code (unless no segments and exactly one cost code); service type unit of measures and trailer classifications required for trucking; material types required for materials; no soft-deleted material types; all material sites must be active; equipment movement trip required when the plan is only for equipment movement; driving minutes per cycle required when needed; material site minutes per cycle required when needed; different job site required when submission_requires_different_job_site and a template is present; business unit required when the plan requires it; at least one safety risk required when expecting a safety meeting; inspector required when required; certified weigher required when required; default cost codes required when material type default cost codes are required. Additional approval validations: customer cannot have a hold on approvals; required material mix designs must be present unless --skip-validate-required-mix-designs is true; project must exist when the plan requires one; required reference data fields must be present; zombie job must be valid if present.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Approval comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--suppress-status-change-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Suppress status change notifications",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-validate-required-mix-designs",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip required mix design validation",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_approvals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/job_production_plan_approvals_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_approval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/validates_job_production_plan_approval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_actions/job_production_plan_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_actions/job_production_plan_approval.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_job_production_plan_approval.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_job_production_plan_submission.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

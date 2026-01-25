@@ -1,0 +1,86 @@
+{
+  "id": "c100334042292b2235a7cc7c82f0b8d8e62a5c8c301b11ccf4f3dfeb7f2a5d2f",
+  "full_path": "summarize ptp-event-summary create",
+  "description": "Generate a project transport plan event summary.",
+  "permissions": "Requires an authenticated user (persisted account). Results are scoped to project transport plans visible to the user via policy scope; admins can access all plans.",
+  "side_effects": null,
+  "validation_notes": "Default group-by is event_type when --group-by is not provided. Default metrics are count and location_assignment_prediction_correct_pct unless --metrics/--metric are set; --all-metrics returns all metrics. --filters must be valid JSON object; --filter must be key=value with a non-empty key. Server parses created_date/created_date_min/created_date_max as dates, event_type and broker as integers, and has_transport_order_stop_role/has_location_prediction_position (and transport_order_is_managed if provided) as booleans; boolean filters use true/false.",
+  "flags": [
+    {
+      "name": "--group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to event_type unless set.",
+      "default": "event_type",
+      "validation": "Valid values: broker, created_date, event_type, has_location_prediction_position, has_transport_order_stop_role, project_transport_plan_created_by, transport_order_is_managed, transport_order_project_category, transport_order_project_office."
+    },
+    {
+      "name": "--metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated).",
+      "default": null,
+      "validation": "Valid metrics: count, location_assignment_prediction_missing_pct, location_assignment_prediction_correct_pct, location_assignment_prediction_incorrect_pct, location_assignment_prediction_top_2_pct, location_assignment_prediction_top_3_pct, location_assignment_prediction_top_5_pct, location_assignment_prediction_top_10_pct."
+    },
+    {
+      "name": "--metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable).",
+      "default": null,
+      "validation": "Repeatable; valid metrics: count, location_assignment_prediction_missing_pct, location_assignment_prediction_correct_pct, location_assignment_prediction_incorrect_pct, location_assignment_prediction_top_2_pct, location_assignment_prediction_top_3_pct, location_assignment_prediction_top_5_pct, location_assignment_prediction_top_10_pct."
+    },
+    {
+      "name": "--all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all metrics returned by the API.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. \"{\\\"broker\\\":\\\"123\\\"}\").",
+      "default": null,
+      "validation": "JSON object. Supported keys include broker, created_date (YYYY-MM-DD), created_date_min (YYYY-MM-DD), created_date_max (YYYY-MM-DD), event_type, has_transport_order_stop_role (true/false), has_location_prediction_position (true/false)."
+    },
+    {
+      "name": "--filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable).",
+      "default": null,
+      "validation": "Repeatable key=value. Supported keys include broker, created_date (YYYY-MM-DD), created_date_min (YYYY-MM-DD), created_date_max (YYYY-MM-DD), event_type, has_transport_order_stop_role (true/false), has_location_prediction_position (true/false). Examples: broker=123, created_date_min=2025-01-01."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ptp_event_summary_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/project_transport_plan_event_summaries_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_event_summary.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_summary_policy.rb"
+    }
+  ]
+}

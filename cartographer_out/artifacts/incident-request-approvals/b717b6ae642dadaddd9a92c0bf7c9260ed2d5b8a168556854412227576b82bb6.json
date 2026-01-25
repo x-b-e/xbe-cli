@@ -1,0 +1,46 @@
+{
+  "id": "b717b6ae642dadaddd9a92c0bf7c9260ed2d5b8a168556854412227576b82bb6",
+  "full_path": "do incident-request-approvals create",
+  "description": "Approve an incident request",
+  "permissions": "Allowed for admin users or users who are practically customer managers for the incident request customer.",
+  "side_effects": "Transitions the incident request from submitted to approved and creates an incident.",
+  "validation_notes": "--incident-request is required. Incident request must exist. Incident request status must be submitted to approve.",
+  "flags": [
+    {
+      "name": "--incident-request",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Incident request ID (required). Example: 12345.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Approval comment. Example: \"Approved\".",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_request_approvals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_request_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_request_actions/incident_request_approval.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

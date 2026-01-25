@@ -1,0 +1,27 @@
+{
+  "id": "75c65f44e38adb80b0f22ded5c84b90f0b773b25cdc2739108e67af08e66e25f",
+  "full_path": "view job-production-plan-rejections list",
+  "description": "List job production plan rejections.",
+  "permissions": "Record visibility is determined by the job production plan rejection policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_rejections_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_rejection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

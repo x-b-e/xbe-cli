@@ -1,0 +1,33 @@
+{
+  "id": "2e3e16f53fb2a3447da9437a01734ac9d67143712341d35122a9cf2bb4ad43f6",
+  "full_path": "do driver-day-constraints delete",
+  "description": "Delete a driver day constraint.",
+  "permissions": "User must be authorized to update the associated driver day (via DriverDayConstraintPolicy, which delegates to the driver day update permission).",
+  "side_effects": "Deletes the specified driver day constraint.",
+  "validation_notes": "Requires a driver day constraint ID argument. --confirm is required to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to proceed (example: --confirm)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_driver_day_constraints_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_day_constraint_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_day_constraint_resource.rb"
+    }
+  ]
+}

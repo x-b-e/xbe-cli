@@ -1,0 +1,27 @@
+{
+  "id": "4b3e00b0755b5f1f1f0f14349020f6f0853bd6b9d65689f1d255e0ebfb78d2d6",
+  "full_path": "view answer-related-contents show",
+  "description": "Show the details for a specific answer related content link.",
+  "permissions": "Authenticated users can show answer related content links within their policy scope; admins can access all records. Anonymous users have no access.",
+  "side_effects": null,
+  "validation_notes": "Requires an <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/answer_related_contents_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/answer_related_content_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/answer_related_content_resource.rb"
+    }
+  ]
+}

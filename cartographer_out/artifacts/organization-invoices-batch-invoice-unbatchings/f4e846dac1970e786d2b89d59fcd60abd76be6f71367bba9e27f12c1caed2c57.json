@@ -1,0 +1,54 @@
+{
+  "id": "f4e846dac1970e786d2b89d59fcd60abd76be6f71367bba9e27f12c1caed2c57",
+  "full_path": "do organization-invoices-batch-invoice-unbatchings create",
+  "description": "Unbatch an organization invoices batch invoice.",
+  "permissions": "Allowed for admin users, or for users who can update the related organization invoices batch (OrganizationInvoicesBatchPolicy#update?).",
+  "side_effects": "Creates an organization invoices batch invoice unbatching and transitions the batch invoice status to skipped.",
+  "validation_notes": "Requires --organization-invoices-batch-invoice. The referenced organization invoices batch invoice must exist. The batch invoice must currently have status successful or failed; otherwise the action is invalid. Example flags: --organization-invoices-batch-invoice 123, --comment \"Unbatching for correction\".",
+  "flags": [
+    {
+      "name": "--organization-invoices-batch-invoice",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization invoices batch invoice ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment for the unbatching",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_invoices_batch_invoice_unbatchings_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_invoice_unbatching_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_invoices_batch_invoice_actions/organization_invoices_batch_invoice_unbatching.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

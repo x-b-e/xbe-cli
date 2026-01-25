@@ -1,0 +1,68 @@
+{
+  "id": "d0340721ea745f7d29041f897cca711c32147989152d717e644abf1df9259645",
+  "full_path": "view root-causes list",
+  "description": "List root causes",
+  "permissions": "Authenticated user; scope limited to incidents visible via IncidentPolicy scope.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "--incident cannot be combined with --incident-type or --incident-id; --incident-id requires --incident-type; --incident expects Type|ID format (example: production-incidents|123); --is-triaged expects true/false.",
+  "flags": [
+    {
+      "name": "--incident",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident reference (Type|ID).",
+      "default": "",
+      "validation": "Cannot be combined with --incident-type or --incident-id; format Type|ID (example: production-incidents|123)."
+    },
+    {
+      "name": "--incident-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident type (use with --incident-id).",
+      "default": "",
+      "validation": "Use with --incident-id to filter a specific incident (example: production-incidents)."
+    },
+    {
+      "name": "--incident-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident ID (requires --incident-type).",
+      "default": "",
+      "validation": "Requires --incident-type (example: 123)."
+    },
+    {
+      "name": "--is-triaged",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by triage status (true/false).",
+      "default": "",
+      "validation": "Value must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/root_causes_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/root_causes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/root_cause_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/root_cause_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/root_cause_policy_spec.rb"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "843cc87806c944541f792331cf3ed6ba7c3d81758686a7d8b83d1ae55dc38f21",
+  "full_path": "do one-step-gps-vehicles update",
+  "description": "Update One Step GPS vehicle assignments",
+  "permissions": "Admins can update any One Step GPS vehicle. Non-admin users can update vehicles where they are members of the vehicle broker.",
+  "side_effects": "Updates One Step GPS vehicle assignment fields and trailer or tractor relationships.",
+  "validation_notes": "The <id> argument is required. At least one attribute or relationship must be provided; otherwise the CLI returns an error. Boolean flags require true or false.",
+  "flags": [
+    {
+      "name": "--skip-trailer-is-not-already-matched-validation",
+      "required": false,
+      "type": "boolean",
+      "description": "Skip trailer match validation (true/false). Example: true.",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--skip-tractor-is-not-already-matched-validation",
+      "required": false,
+      "type": "boolean",
+      "description": "Skip tractor match validation (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID. Example: 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_one_step_gps_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/one_step_gps_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

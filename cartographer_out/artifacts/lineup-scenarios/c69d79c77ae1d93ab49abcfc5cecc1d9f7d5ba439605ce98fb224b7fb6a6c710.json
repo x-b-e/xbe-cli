@@ -1,0 +1,95 @@
+{
+  "id": "c69d79c77ae1d93ab49abcfc5cecc1d9f7d5ba439605ce98fb224b7fb6a6c710",
+  "full_path": "do lineup-scenarios create",
+  "description": "Create a lineup scenario",
+  "permissions": "User must be an admin or a manager member of the broker organization.",
+  "side_effects": "Creates a lineup scenario; when add_lineups_automatically is true, automatically creates lineup_scenario_lineups after creation.",
+  "validation_notes": "--broker, --date, and --window are required; date must be in YYYY-MM-DD format; window must be day or night; if customer is provided it must belong to the same broker; date, window, add_lineups_automatically, broker, and customer are create-only attributes/relationships.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": "customer must belong to the same broker"
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Scenario name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--date",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Scenario date (YYYY-MM-DD) (required)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--window",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Scenario window (day or night) (required)",
+      "default": null,
+      "validation": "allowed values: day, night"
+    },
+    {
+      "name": "--include-trucker-assignments-as-constraints",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include trucker assignments as constraints",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--add-lineups-automatically",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Automatically add lineups",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenarios_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/lineup_scenario_like.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_scenario.rb"
+    }
+  ]
+}

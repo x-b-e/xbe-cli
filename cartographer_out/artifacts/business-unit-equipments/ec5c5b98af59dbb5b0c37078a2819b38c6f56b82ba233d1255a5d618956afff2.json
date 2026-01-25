@@ -1,0 +1,19 @@
+{
+  "id": "ec5c5b98af59dbb5b0c37078a2819b38c6f56b82ba233d1255a5d618956afff2",
+  "full_path": "view business-unit-equipments show",
+  "description": "Show the full details of a business unit equipment link.",
+  "permissions": "Admins can view any business unit equipment link; non-admin users can view links for business units where they have a membership.",
+  "side_effects": null,
+  "validation_notes": "The business unit equipment ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/business_unit_equipments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_equipment_policy.rb"
+    }
+  ]
+}

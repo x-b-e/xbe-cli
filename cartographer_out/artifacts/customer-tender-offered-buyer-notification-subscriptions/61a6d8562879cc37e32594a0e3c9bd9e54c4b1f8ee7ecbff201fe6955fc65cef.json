@@ -1,0 +1,19 @@
+{
+  "description": "Show the full details of a customer tender offered buyer notification subscription.",
+  "flags": [],
+  "full_path": "view customer-tender-offered-buyer-notification-subscriptions show",
+  "id": "61a6d8562879cc37e32594a0e3c9bd9e54c4b1f8ee7ecbff201fe6955fc65cef",
+  "permissions": "Non-admin users can only view subscriptions where the broker is one of their broker memberships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/customer_tender_offered_buyer_notification_subscriptions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_offered_buyer_notification_subscription_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Subscription ID argument is required and cannot be blank."
+}

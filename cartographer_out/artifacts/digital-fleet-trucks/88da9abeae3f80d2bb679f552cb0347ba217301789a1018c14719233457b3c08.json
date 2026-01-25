@@ -1,0 +1,46 @@
+{
+  "id": "88da9abeae3f80d2bb679f552cb0347ba217301789a1018c14719233457b3c08",
+  "full_path": "do digital-fleet-trucks update",
+  "description": "Update digital fleet truck trailer or tractor assignments.",
+  "permissions": "Allowed for admins; otherwise the user must be a member of the broker associated with the digital fleet truck.",
+  "side_effects": "Updates the digital fleet truck tractor and/or trailer relationships; providing an empty string clears the assignment.",
+  "validation_notes": "The <id> argument is required. At least one of --tractor or --trailer must be provided; otherwise the request is rejected.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID",
+      "default": null,
+      "validation": "Use an empty string to clear the tractor assignment."
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID",
+      "default": null,
+      "validation": "Use an empty string to clear the trailer assignment."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_digital_fleet_trucks_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/digital_fleet_truck_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    }
+  ]
+}

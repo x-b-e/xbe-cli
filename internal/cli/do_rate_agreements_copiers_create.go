@@ -122,12 +122,12 @@ func runDoRateAgreementsCopiersCreate(cmd *cobra.Command, _ []string) error {
 
 	if len(targetCustomers) > 0 {
 		relationships["target-customers"] = map[string]any{
-			"data": buildRelationshipDataList("customers", targetCustomers),
+			"data": buildRelationshipDataList(targetCustomers, "customers"),
 		}
 	}
 	if len(targetTruckers) > 0 {
 		relationships["target-truckers"] = map[string]any{
-			"data": buildRelationshipDataList("truckers", targetTruckers),
+			"data": buildRelationshipDataList(targetTruckers, "truckers"),
 		}
 	}
 

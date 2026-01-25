@@ -1,0 +1,42 @@
+{
+  "id": "8dbf5a3d9a2339f4257b23b29912746f31138b9ff965afb232ed65469805a163",
+  "full_path": "do work-order-service-codes update",
+  "description": "Update an existing work order service code",
+  "permissions": "Admins or broker manager members can update work order service codes for their broker.",
+  "side_effects": "Updates fields on a work order service code.",
+  "validation_notes": "The work order service code ID argument is required. At least one of --code or --description must be provided. Code must be present and unique per broker when supplied.",
+  "flags": [
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Service code value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_work_order_service_codes_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/work_order_service_code.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/work_order_service_code_policy.rb"
+    }
+  ]
+}

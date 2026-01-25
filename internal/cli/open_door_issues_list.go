@@ -311,15 +311,3 @@ func filterOpenDoorIssuesByNotOrganizationType(rows []openDoorIssueRow, notOrgan
 	}
 	return filtered
 }
-
-func normalizeOrganizationType(value string) string {
-	value = strings.TrimSpace(value)
-	if value == "" {
-		return ""
-	}
-	orgType, _, err := parseOrganization(value + "|0")
-	if err != nil {
-		return strings.ToLower(value)
-	}
-	return orgType
-}

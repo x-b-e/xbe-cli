@@ -1,0 +1,45 @@
+{
+  "id": "590ff7baca92a82b44472aafcb6c28232e54395c4b220a487f3ce23d7413c00b",
+  "full_path": "do action-item-team-members update",
+  "description": "Update an action item team member",
+  "permissions": "Allowed for admins or users who are members of the responsible organization (or its broker) for the action item (delegated from ActionItemPolicy update?).",
+  "side_effects": "Updates the action item team member; setting is_responsible_person to true will unset any existing responsible person for the same action item. Also triggers action item team member change notifications after commit.",
+  "validation_notes": "Argument <id> is required. At least one field must be provided to update; otherwise the request errors. Only one responsible person can be true per action item; if set true, existing responsible person is cleared. action_item and user relationships are create-only.",
+  "flags": [
+    {
+      "name": "--is-responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether the user is the responsible person",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_team_members_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_team_member_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_team_member_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/action_item_team_member.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.action_item_team_members.sql"
+    }
+  ]
+}

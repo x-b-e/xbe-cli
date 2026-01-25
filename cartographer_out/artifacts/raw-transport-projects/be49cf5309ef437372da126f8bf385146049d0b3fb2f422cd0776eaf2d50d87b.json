@@ -1,0 +1,33 @@
+{
+  "id": "be49cf5309ef437372da126f8bf385146049d0b3fb2f422cd0776eaf2d50d87b",
+  "full_path": "do raw-transport-projects delete",
+  "description": "Delete a raw transport project",
+  "permissions": "Allowed for admin users or users with admin broker membership for the project's broker.",
+  "side_effects": "Deletes the raw transport project and its dependent raw transport project audits.",
+  "validation_notes": "Requires <id> argument (raw transport project ID) and --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_transport_projects_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_project_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/raw_transport_project.rb"
+    }
+  ]
+}

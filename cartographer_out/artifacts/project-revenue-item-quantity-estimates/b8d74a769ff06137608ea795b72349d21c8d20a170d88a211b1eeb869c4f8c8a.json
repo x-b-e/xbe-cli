@@ -1,0 +1,68 @@
+{
+  "id": "b8d74a769ff06137608ea795b72349d21c8d20a170d88a211b1eeb869c4f8c8a",
+  "full_path": "do project-revenue-item-quantity-estimates update",
+  "description": "Update a project revenue item quantity estimate.",
+  "permissions": "Allowed for users who can update the related project revenue item: admin users or manager members of the broker for the related project revenue item (delegated via ProjectRevenueItemQuantityEstimatePolicy -> ProjectRevenueItemPolicy).",
+  "side_effects": "Updates a project revenue item quantity estimate.",
+  "validation_notes": "<id> argument is required. At least one flag must be provided. If --estimate is provided, it must be valid JSON; it must be a JSON object or JSON null (use null to clear). --estimate cannot be an empty string. --project-estimate-set and --created-by cannot be empty when provided.",
+  "flags": [
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator user ID",
+      "default": null,
+      "validation": "If provided, must be non-empty."
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimate description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--estimate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimate JSON payload (use null to clear)",
+      "default": null,
+      "validation": "Must be valid JSON; must be a JSON object or JSON null. Cannot be empty string."
+    },
+    {
+      "name": "--project-estimate-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project estimate set ID",
+      "default": null,
+      "validation": "If provided, must be non-empty."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_revenue_item_quantity_estimates_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_cost_item_quantity_estimates_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_revenue_item_quantity_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_quantity_estimate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_policy.rb"
+    }
+  ]
+}

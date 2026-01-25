@@ -1,0 +1,27 @@
+{
+  "id": "7a0764fd4a94cc0d4af571a0bf6a9f40318e0f37019bccc6f9aaadb2170b277f",
+  "full_path": "view post-routers show",
+  "description": "Show the full details of a post router.",
+  "permissions": "Admins can view any post router; non-admins can view post routers only if their posts are in the Post policy scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/post_routers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_router_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_router_resource.rb"
+    }
+  ]
+}

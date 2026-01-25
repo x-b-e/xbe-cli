@@ -1,0 +1,91 @@
+{
+  "id": "b99a4e4985fdeceb19caec43037d34e69048f7a850806a7fce27691437b316d8",
+  "full_path": "do meeting-attendees create",
+  "description": "Create a meeting attendee.",
+  "permissions": "Allowed for admins, users who can update the meeting, or the attendee user when they can view the meeting.",
+  "side_effects": "Creates a meeting attendee and enqueues a meeting attendee notification after commit; notification is skipped for self check-in.",
+  "validation_notes": "--meeting, --user, and --location-kind are required. location-kind must be one of: on_site, remote. Each user can only appear once per meeting (unique user_id scoped to meeting_id). If is-presence-required is omitted, the server default is true.",
+  "flags": [
+    {
+      "name": "--meeting",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Meeting ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--location-kind",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Location kind (on_site, remote) (required)",
+      "default": null,
+      "validation": "on_site or remote"
+    },
+    {
+      "name": "--is-presence-required",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Presence required (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-present",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Present status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--location-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Location latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--location-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Location longitude",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_meeting_attendees_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/meeting_attendee.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/meeting_attendee_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/meeting_attendee_resource.rb"
+    }
+  ]
+}

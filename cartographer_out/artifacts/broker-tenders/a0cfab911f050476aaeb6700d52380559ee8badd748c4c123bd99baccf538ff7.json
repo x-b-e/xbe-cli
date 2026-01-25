@@ -1,0 +1,172 @@
+{
+  "id": "a0cfab911f050476aaeb6700d52380559ee8badd748c4c123bd99baccf538ff7",
+  "full_path": "do broker-tenders create",
+  "description": "Create a broker tender.",
+  "permissions": "Admins or users who are members of the buyer broker.",
+  "side_effects": "Creates a broker tender record.",
+  "validation_notes": "Required flags: --job, --broker, --trucker. expires-at must be RFC3339. Boolean-like flags (is-trucker-shift-rejection-permitted, restrict-to-customer-truckers, displays-trips) expect 'true' or 'false'. payment-terms must be a number >= 0. buyer must be a Broker and seller must be a Trucker. seller_financial_contact must have a manager trucker membership with the seller; seller_operations_contact must have a membership with the seller; buyer_operations_contact and buyer_financial_contact must have memberships with the buyer. If restrict-to-customer-truckers is true, the seller must be in the customer truckers list; if there are accepted customer tenders, restrict-to-customer-truckers must match their restriction setting.",
+  "flags": [
+    {
+      "name": "--job",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expires-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expiration time (RFC3339)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note for the tender",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-trucker-shift-rejection-permitted",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Allow trucker shift rejection (true/false)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--payment-terms",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Payment terms (integer)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--payment-terms-and-conditions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Payment terms and conditions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--restrict-to-customer-truckers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Restrict to customer truckers (true/false)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maximum-travel-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum travel minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--billable-travel-minutes-per-travel-mile",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billable travel minutes per travel mile",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--displays-trips",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Display trips (true/false)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--seller-financial-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Seller financial contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--seller-operations-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Seller operations contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--buyer-operations-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Buyer operations contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--buyer-financial-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Buyer financial contact user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_tenders_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tenders/broker_tender.rb"
+    }
+  ]
+}

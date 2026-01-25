@@ -1,0 +1,72 @@
+{
+  "description": "Create an equipment movement requirement location.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Latitude coordinate",
+      "name": "--latitude",
+      "required": true,
+      "type": "string",
+      "validation": "Must be between -90 and 90"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Longitude coordinate",
+      "name": "--longitude",
+      "required": true,
+      "type": "string",
+      "validation": "Must be between -180 and 180"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Location name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Must be unique per broker when provided"
+    }
+  ],
+  "full_path": "do equipment-movement-requirement-locations create",
+  "id": "2a1aa40ada0349f36d6bdff8fa7b6e079a91740836dcaf94570c26fba93df45a",
+  "permissions": "Admins can create locations. Non-admin users can create locations only for brokers they are members of.",
+  "side_effects": "Creates an equipment movement requirement location.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_equipment_movement_requirement_locations_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/equipment_movement_requirement_location_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/equipment_movement_requirement_location.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/three_musketeers_validation.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/validators/coordinates_validator.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/equipment_movement_requirement_location_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--broker, --latitude, and --longitude are required. If either latitude or longitude is present, the other must also be present. Latitude must be between -90 and 90; longitude must be between -180 and 180. Name must be unique per broker when provided."
+}

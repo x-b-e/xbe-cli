@@ -1,0 +1,154 @@
+{
+  "id": "bc050bb2ce6fb8d4902aa9bce56c957bf80e87a7ccf531e5f465d9fd3f32dd27",
+  "full_path": "view vehicle-location-events list",
+  "description": "List vehicle location events",
+  "permissions": "User can list vehicle location events for tractors or trailers they are authorized to access (policy scope uses accessible tractor or trailer IDs).",
+  "side_effects": null,
+  "validation_notes": "include-device-location-events requires --tractor or --trailer when true. include-device-location-events, is-event-at, is-created-at, and is-updated-at must be true/false. time-slice-min and total-count-max must be integers >= 1. event-at-min/event-at-max, created-at-min/created-at-max, and updated-at-min/updated-at-max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum event timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--event-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum event timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has event timestamp (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--include-device-location-events",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include blended device location events (true/false)",
+      "default": null,
+      "validation": "true/false; requires --tractor or --trailer when true"
+    },
+    {
+      "name": "--time-slice-min",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Resample events into time buckets (integer minutes, >= 1)",
+      "default": null,
+      "validation": "integer >= 1"
+    },
+    {
+      "name": "--total-count-max",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Limit total events returned (integer, >= 1)",
+      "default": null,
+      "validation": "integer >= 1"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/vehicle_location_events_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/vehicle_location_events.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/vehicle_location_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_policy.rb"
+    }
+  ]
+}

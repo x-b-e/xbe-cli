@@ -1,0 +1,31 @@
+{
+  "id": "b9d8e1fa947b518cd29c8c9979029ae554db6d49003b18b8001c6d21151ca809",
+  "full_path": "view retainer-deductions show",
+  "description": "Show the full details of a retainer deduction.",
+  "permissions": "Visible to users who can access the associated retainer via RetainerPolicy scope (admin sees all; non-admins limited to retainers tied to their customer/broker/trucker memberships).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/retainer_deductions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/retainer_deduction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_deduction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    }
+  ]
+}

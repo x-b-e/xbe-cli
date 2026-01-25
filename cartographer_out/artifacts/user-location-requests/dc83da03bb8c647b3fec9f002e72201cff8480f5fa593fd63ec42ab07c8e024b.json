@@ -1,0 +1,33 @@
+{
+  "id": "dc83da03bb8c647b3fec9f002e72201cff8480f5fa593fd63ec42ab07c8e024b",
+  "full_path": "do user-location-requests create",
+  "description": "Create a user location request",
+  "permissions": "Allowed for admins. Non-admin users can create a request when the requested user shares broker, customer, trucker, or material supplier membership relationships with the requester.",
+  "side_effects": "Creates a user location request and triggers a user location request notification to the user.",
+  "validation_notes": "--user is required. Server rejects multiple requests for the same user within 5 minutes.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID to request location from (required, example: 123)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_location_requests_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_location_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_location_request.rb"
+    }
+  ]
+}

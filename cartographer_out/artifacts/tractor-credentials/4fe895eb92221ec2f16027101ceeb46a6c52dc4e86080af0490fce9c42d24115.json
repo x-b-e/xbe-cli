@@ -1,0 +1,29 @@
+{
+  "description": "Delete a tractor credential",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true."
+    }
+  ],
+  "full_path": "do tractor-credentials delete",
+  "id": "4fe895eb92221ec2f16027101ceeb46a6c52dc4e86080af0490fce9c42d24115",
+  "permissions": "Admin users can delete tractor credentials. Non-admin users can delete a tractor credential only if they are a manager of the tractor's trucker or broker and the credential classification is within their policy scope.",
+  "side_effects": "Deletes a tractor credential record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tractor_credentials_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/tractor_credential_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires the <id> argument. --confirm must be provided (true) to proceed."
+}

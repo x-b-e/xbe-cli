@@ -1,0 +1,78 @@
+{
+  "id": "1f04ddf5507d8238c95d440a5436ba991a5fcfcf876eda670c8bc8b5d6f3f5b2",
+  "full_path": "view posts list",
+  "description": "List posts with filtering and pagination.",
+  "permissions": "Users can list posts they created, and published posts that appear in their user post feed; other posts are not included in the non-admin scope.",
+  "side_effects": null,
+  "validation_notes": "Filters are combined with AND logic. status must be one of: draft, published. post-type must be one of: basic, notification, action, new_membership, post_summary, post_activity, objective_status, objective_completion, objective_status_scoreboard, objective_sales_responsible_person_assignment_issues, key_result_completion, key_result_status_scoreboard, key_result_customer_success_responsible_person_assignment_issues, job_production_plan_recap, job_production_plan_material_site_start_timing, customer_daily_job_production_plan_recap, customer_job_production_plan_schedule, customer_lineup_schedule, material_supplier_production_daily_recap, material_supplier_production_monthly_recap, trucker_shift_summary, trucking_time_card_administration_report_card, trucking_tender_acceptance_report_card, driver_day_recap, release_note_summary, proffer. published-at-min and published-at-max must be dates in YYYY-MM-DD format. subject-post accepts a comma-separated list of post IDs. creator must be in the format Type|ID (e.g., User|123).",
+  "flags": [
+    {
+      "name": "--creator",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator (e.g., User|123)",
+      "default": null,
+      "validation": "Format: <Type>|<id> (example: User|123)."
+    },
+    {
+      "name": "--post-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by post type",
+      "default": null,
+      "validation": "One of: basic, notification, action, new_membership, post_summary, post_activity, objective_status, objective_completion, objective_status_scoreboard, objective_sales_responsible_person_assignment_issues, key_result_completion, key_result_status_scoreboard, key_result_customer_success_responsible_person_assignment_issues, job_production_plan_recap, job_production_plan_material_site_start_timing, customer_daily_job_production_plan_recap, customer_job_production_plan_schedule, customer_lineup_schedule, material_supplier_production_daily_recap, material_supplier_production_monthly_recap, trucker_shift_summary, trucking_time_card_administration_report_card, trucking_tender_acceptance_report_card, driver_day_recap, release_note_summary, proffer."
+    },
+    {
+      "name": "--published-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to posts published on or before this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD."
+    },
+    {
+      "name": "--published-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to posts published on or after this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (draft/published)",
+      "default": null,
+      "validation": "One of: draft, published."
+    },
+    {
+      "name": "--subject-post",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject post ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of post IDs."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/posts_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "4b83b01e7bf52edd0e04ee5a9ac0d0f12806582772f11065c6c00020eb5eab90",
+  "full_path": "do maintenance-requirement-maintenance-requirement-parts delete",
+  "description": "Delete a maintenance requirement part link.",
+  "permissions": "Allowed when the user can destroy the related maintenance requirement part per MaintenanceRequirementPartPolicy (same rules as create/update: admin; managers can destroy parts; technicians can destroy non-template parts for assigned requirements; operations members can destroy non-template parts with equipment in accessible business units; operations-with-manager-business-unit cannot destroy template parts; general business unit members cannot destroy parts).",
+  "side_effects": "Deletes the maintenance requirement part link record; if the linked part is non-template and no other links remain, the maintenance requirement part record is deleted.",
+  "validation_notes": "The <id> argument is required. --confirm must be set to true.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_maintenance_requirement_parts_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_maintenance_requirement_part.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_maintenance_requirement_part_policy.rb"
+    }
+  ]
+}

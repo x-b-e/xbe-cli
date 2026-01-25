@@ -1,0 +1,33 @@
+{
+  "description": "Delete a material site.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true to proceed"
+    }
+  ],
+  "full_path": "do material-sites delete",
+  "id": "e9dcef9bbe57b88a53f69bea0f3c0dfe6da852341d179c56b6142aac73d2b0b4",
+  "permissions": "User must be authorized to update the related material supplier; MaterialSitePolicy#destroy? aliases create? and requires MaterialSupplierPolicy.update? on the material supplier.",
+  "side_effects": "Deletes the material site and, if deletion is allowed, destroys related material site supply/dump material types, removes the site from shift scopes, and deletes related job production plan material types/sites.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_sites_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_site_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_site.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Command requires a material site ID argument. --confirm must be provided. Deletion is blocked if the material site is associated with job material sites, job production plan material site changes, material site mixing lots, or material site readings."
+}

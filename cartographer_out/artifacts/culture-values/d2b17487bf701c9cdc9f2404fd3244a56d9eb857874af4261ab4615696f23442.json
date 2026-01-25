@@ -1,0 +1,55 @@
+{
+  "id": "d2b17487bf701c9cdc9f2404fd3244a56d9eb857874af4261ab4615696f23442",
+  "full_path": "do culture-values update",
+  "description": "Update an existing culture value.",
+  "permissions": "Authenticated admins can update culture values. Non-admins must be a practical manager of the culture value organization; if changing organization, they must be a practical manager of both the old and new organizations.",
+  "side_effects": "Updates attributes on an existing culture value record.",
+  "validation_notes": "<id> argument is required. At least one of --name, --description, or --position is required. --position is a 0-based index within the organization.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New sequence position (0-based index)",
+      "default": null,
+      "validation": "0-based index within the organization"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_culture_values_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/culture_value_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/culture_value_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/culture_value.rb"
+    }
+  ]
+}

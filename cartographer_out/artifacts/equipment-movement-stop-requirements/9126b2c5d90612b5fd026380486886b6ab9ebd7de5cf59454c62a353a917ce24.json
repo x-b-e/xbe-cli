@@ -1,0 +1,33 @@
+{
+  "id": "9126b2c5d90612b5fd026380486886b6ab9ebd7de5cf59454c62a353a917ce24",
+  "full_path": "do equipment-movement-stop-requirements delete",
+  "description": "Delete an equipment movement stop requirement.",
+  "permissions": "Requires permission to delete the stop requirement through the related equipment movement stop (delegated via equipment movement stop requirement policy).",
+  "side_effects": "Deletes the equipment movement stop requirement and may update the related customer cost allocation. When related job production plans are confirmed, notifications about stop changes may be scheduled.",
+  "validation_notes": "Requires <id> argument and --confirm. Deletion is blocked when related to a confirmed job production plan.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_stop_requirements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_stop_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_requirement_policy.rb"
+    }
+  ]
+}

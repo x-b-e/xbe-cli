@@ -1,0 +1,177 @@
+{
+  "id": "2b89f5148b753bcf8ed937d7b144f40bf29087da3d302e30220d87c07efebb06",
+  "full_path": "do shift-set-time-card-constraints create",
+  "description": "Create a shift set time card constraint.",
+  "permissions": "User must be authorized to create the constrained record (RateAgreement or Tender); create/update/destroy permission for a constraint delegates to the constrained record policy.",
+  "side_effects": "Creates a shift set time card constraint record; touching the associated RateAgreement on commit when the constrained record is a RateAgreement.",
+  "validation_notes": "Required flags: --constrained-type, --constrained-id, --constraint-type, --constrained-amount-type, --currency-code, --status, --service-type-unit-of-measures-constraint-type, --shift-set-grouped-by. Either --constrained-amount must be set, or both --calculated-constrained-amount-price-per-unit and --calculated-constrained-amount-unit-of-measure must be set; they are mutually exclusive with --constrained-amount. constrained-type must be Tender or RateAgreement (API types tenders or rate-agreements); constraint-type must be minimum/equality/maximum; constrained-amount-type must be effective/base; status must be active/inactive; service-type-unit-of-measures-constraint-type must be applicable/not_applicable; shift-set-grouped-by must be customer/broker. currency-code must be USD. Explicit constrained-amount and calculated-constrained-amount-price-per-unit must be > 0. calculated-constrained-amount-unit-of-measure must be present and its abbreviation must be one of: hr. If parent is provided, it must be a rate agreement constraint and match parent attributes; shift-scope must match parent shift-scope rules. When constrained is a broker RateAgreement, shift-set-grouped-by must be broker. service-type-unit-of-measures may be rejected if service type or unit of measure is disallowed.",
+  "flags": [
+    {
+      "name": "--constrained-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Constrained type (tenders, rate-agreements)",
+      "default": null,
+      "validation": "Allowed values: tenders, rate-agreements (server validates constrained_type as Tender or RateAgreement)."
+    },
+    {
+      "name": "--constrained-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Constrained ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--constraint-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Constraint type (minimum, equality, maximum)",
+      "default": null,
+      "validation": "Allowed values: minimum, equality, maximum."
+    },
+    {
+      "name": "--constrained-amount-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Constrained amount type (effective, base)",
+      "default": null,
+      "validation": "Allowed values: effective, base."
+    },
+    {
+      "name": "--currency-code",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Currency code (USD)",
+      "default": null,
+      "validation": "Allowed value: USD."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Status (active, inactive)",
+      "default": null,
+      "validation": "Allowed values: active, inactive."
+    },
+    {
+      "name": "--service-type-unit-of-measures-constraint-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Service type unit of measures constraint type (applicable, not_applicable)",
+      "default": null,
+      "validation": "Allowed values: applicable, not_applicable."
+    },
+    {
+      "name": "--shift-set-grouped-by",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Shift set grouped by (customer, broker)",
+      "default": null,
+      "validation": "Allowed values: customer, broker."
+    },
+    {
+      "name": "--constrained-amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit constrained amount",
+      "default": null,
+      "validation": "Required unless using calculated constrained amount fields; must be > 0 when provided."
+    },
+    {
+      "name": "--calculated-constrained-amount-price-per-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Calculated price per unit",
+      "default": null,
+      "validation": "Requires --calculated-constrained-amount-unit-of-measure; must be > 0 when provided."
+    },
+    {
+      "name": "--calculated-constrained-amount-unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Calculated unit of measure ID (unit-of-measures)",
+      "default": null,
+      "validation": "Requires --calculated-constrained-amount-price-per-unit; unit must have abbreviation hr."
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Constraint name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent constraint ID (create-only)",
+      "default": null,
+      "validation": "Parent must be a rate agreement constraint and the child must match parent attributes."
+    },
+    {
+      "name": "--shift-scope",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift scope ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-type-unit-of-measures",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Service type unit of measure IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated IDs; service type and unit of measure must be allowed by server validation."
+    },
+    {
+      "name": "--trailer-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer classification IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated IDs."
+    },
+    {
+      "name": "--material-types",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material type IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated IDs."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_set_time_card_constraints_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_set_time_card_constraint.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_set_time_card_constraint_policy.rb"
+    }
+  ]
+}

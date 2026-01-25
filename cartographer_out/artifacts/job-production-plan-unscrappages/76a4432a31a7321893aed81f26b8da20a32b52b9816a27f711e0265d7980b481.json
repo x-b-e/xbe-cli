@@ -1,0 +1,56 @@
+{
+  "description": "Unscrap a job production plan.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job production plan ID. Example: 123.",
+      "name": "--job-production-plan",
+      "required": true,
+      "type": "string",
+      "validation": "required"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Comment for the unscrappage. Example: Restoring plan.",
+      "name": "--comment",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Suppress status change notifications.",
+      "name": "--suppress-status-change-notifications",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip required material mix design validation.",
+      "name": "--skip-validate-required-mix-designs",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do job-production-plan-unscrappages create",
+  "id": "76a4432a31a7321893aed81f26b8da20a32b52b9816a27f711e0265d7980b481",
+  "permissions": null,
+  "side_effects": "Transitions the job production plan status to approved; may send status change notifications unless suppressed.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_unscrappages_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_unscrappage_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "job-production-plan is required. Only plans in scrapped status can be unscrapped. Required material mix design validation is performed unless skipped."
+}

@@ -112,7 +112,7 @@ func runMaterialUnitOfMeasureQuantitiesShow(cmd *cobra.Command, args []string) e
 		return err
 	}
 
-	details := buildMaterialUnitOfMeasureQuantityDetails(resp)
+	details := buildMaterialUnitOfMeasureQuantityShowDetails(resp)
 	if opts.JSON {
 		return writeJSON(cmd.OutOrStdout(), details)
 	}
@@ -134,7 +134,7 @@ func parseMaterialUnitOfMeasureQuantitiesShowOptions(cmd *cobra.Command) (materi
 	}, nil
 }
 
-func buildMaterialUnitOfMeasureQuantityDetails(resp jsonAPISingleResponse) materialUnitOfMeasureQuantityDetails {
+func buildMaterialUnitOfMeasureQuantityShowDetails(resp jsonAPISingleResponse) materialUnitOfMeasureQuantityDetails {
 	resource := resp.Data
 	attrs := resource.Attributes
 

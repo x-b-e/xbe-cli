@@ -1,0 +1,33 @@
+{
+  "id": "2b2739af720d297688d4a81bdf1f5860d5abd9eea9845d45094d3cdf14c6e555",
+  "full_path": "do broker-trucker-ratings delete",
+  "description": "Delete a broker trucker rating.",
+  "permissions": "Admins can delete broker trucker ratings. Non-admin users can delete ratings only for brokers tied to their broker memberships.",
+  "side_effects": "Deletes a broker trucker rating.",
+  "validation_notes": "The broker trucker rating ID argument is required. --confirm is required to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_trucker_ratings_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_trucker_rating_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/broker_trucker_rating.rb"
+    }
+  ]
+}

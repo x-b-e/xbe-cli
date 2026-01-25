@@ -1,0 +1,51 @@
+{
+  "id": "1f2f467cb4371025255a3733ea4b1172599f1f1fb781bb8e157b509516ecd227",
+  "full_path": "view developer-certified-weighers list",
+  "description": "List developer certified weighers",
+  "permissions": "User must be authorized to view developers within their policy scope; list results are limited to developers the user can access.",
+  "side_effects": null,
+  "validation_notes": "--is-active must be \"true\" or \"false\" when provided.",
+  "flags": [
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID (e.g., 456).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active status.",
+      "default": null,
+      "validation": "Must be true or false (e.g., true)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/developer_certified_weighers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_certified_weigher_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_certified_weigher_policy.rb"
+    }
+  ]
+}

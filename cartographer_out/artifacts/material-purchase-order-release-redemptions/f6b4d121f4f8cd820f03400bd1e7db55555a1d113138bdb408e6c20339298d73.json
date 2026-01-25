@@ -1,0 +1,177 @@
+{
+  "id": "f6b4d121f4f8cd820f03400bd1e7db55555a1d113138bdb408e6c20339298d73",
+  "full_path": "view material-purchase-order-release-redemptions list",
+  "description": "List material purchase order release redemptions with filtering and pagination.",
+  "permissions": "User must be an admin, a broker/customer/material supplier member on the linked purchase order, a manager member of the release trucker, or the tender job schedule shift seller operations contact.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--release",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by release ID. Example: --release 123",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ticket-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ticket number. Example: --ticket-number T-100",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (joined).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (joined).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver ID (joined).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-job-schedule-shift-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID (joined).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-supplier-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (joined).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID (joined).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--purchase-order",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by purchase order ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--purchase-order-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by purchase order ID (joined).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_purchase_order_release_redemptions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_purchase_order_release_redemption_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_purchase_order_release_redemption_policy.rb"
+    }
+  ]
+}

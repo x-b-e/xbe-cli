@@ -1,0 +1,73 @@
+{
+  "id": "5b739ef6e360c6b068cc313e44a009f6fa174497cb83e8f1d7b0a63fde6f4900",
+  "full_path": "do missing-rates create",
+  "description": "Create a missing rate.",
+  "permissions": "Admins can create missing rates. Non-admins can create a missing rate only if they are a manager member of the broker for the job customer.",
+  "side_effects": "Creates the missing rate, links the service type unit of measure to the job, creates rates for related customer and broker tenders, and posts a developer notification.",
+  "validation_notes": "job, service-type-unit-of-measure, currency-code, customer-price-per-unit, and trucker-price-per-unit are required. service type unit of measure must not already be related to the job. currency_code, customer_price_per_unit, and trucker_price_per_unit are validated for presence.",
+  "flags": [
+    {
+      "name": "--job",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-type-unit-of-measure",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Service type unit of measure ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--currency-code",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Currency code (e.g., USD)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer-price-per-unit",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer price per unit",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker-price-per-unit",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker price per unit",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_missing_rates_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/missing_rate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/missing_rate.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/missing_rate_resource.rb"
+    }
+  ]
+}

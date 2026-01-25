@@ -1,0 +1,19 @@
+{
+  "id": "b094fcb6d379e6543b56af26689d128f9e5869ca54d1d14c2703c4e44e9fffa9",
+  "full_path": "view crew-requirement-credential-classifications show",
+  "description": "Show the full details of a crew requirement credential classification.",
+  "permissions": "Record must be within the CrewRequirement policy scope for the user.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (link ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/crew_requirement_credential_classifications_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_credential_classification_policy.rb"
+    }
+  ]
+}

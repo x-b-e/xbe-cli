@@ -1,0 +1,64 @@
+{
+  "id": "62c0ccd90be2af9eba6d11f7e077754c71bc24c58c37b599d941f3da76ba59c8",
+  "full_path": "do developer-certified-weighers create",
+  "description": "Create a developer certified weigher",
+  "permissions": "User must be able to update the associated developer (developer update permission).",
+  "side_effects": "Creates a developer certified weigher record.",
+  "validation_notes": "--developer and --user are required. --is-active must be \"true\" or \"false\" when provided. User must have a material supplier membership with the developer's broker. The combination of developer, user, and number must be unique.",
+  "flags": [
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Developer ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Certified weigher number (e.g., CW-001).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Active status.",
+      "default": null,
+      "validation": "Must be true or false (e.g., false)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_certified_weighers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_certified_weigher_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_certified_weigher.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.developer_certified_weighers.sql"
+    }
+  ]
+}

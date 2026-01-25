@@ -1,0 +1,60 @@
+{
+  "id": "60f87e161568a3f8c0ffe48641289495ffda343785ec6c560eabf103de3f9e5c",
+  "full_path": "view project-transport-plan-segment-sets list",
+  "description": "List project transport plan segment sets",
+  "permissions": "Authorized via ProjectTransportPlanSegmentSetPolicy, delegated to the related project transport plan; user must have access to that project transport plan.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--project-transport-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-tms-leg-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external TMS leg number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--segment-miles-sum",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by cached segment miles sum",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_segment_sets_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_segment_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_set_policy.rb"
+    }
+  ]
+}

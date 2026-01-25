@@ -1,0 +1,46 @@
+{
+  "id": "c78b173311d1dd144c767ca3bfaf378ad6b08a6f5c295ce5c47c59f69ed11152",
+  "full_path": "do customer-truckers create",
+  "description": "Create a customer trucker link.",
+  "permissions": "User must be an admin or a member of the broker that owns the customer being linked.",
+  "side_effects": "Creates a customer trucker link record.",
+  "validation_notes": "--customer is required. --trucker is required. Customer and trucker must belong to the same broker. Trucker ID must be unique within a customer.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_truckers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/customer_trucker.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_trucker_resource.rb"
+    }
+  ]
+}

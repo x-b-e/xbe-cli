@@ -1,0 +1,60 @@
+{
+  "id": "e4f24c2d72c4ea07c40831d5e45712b5e9a03d40ed3ae0932e6d77c3609b3b09",
+  "full_path": "do follows update",
+  "description": "Update a follow relationship.",
+  "permissions": "Admins can update any follow. Non-admins can update follows only when they are the follower.",
+  "side_effects": "Updates the follower and/or creator relationships on the follow.",
+  "validation_notes": "The follow id argument is required. --creator cannot be combined with --creator-type or --creator-id. If --creator is used it must be in the format type|id. --creator-type and --creator-id must be used together. At least one of --follower, --creator, or --creator-type/--creator-id must be provided. Creator must be in scope for the follower. Creator type must be a valid post creator type. Follower and creator must be unique for a follow.",
+  "flags": [
+    {
+      "name": "--follower",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Follower user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--creator",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator (resource type|ID, e.g., projects|123)",
+      "default": null,
+      "validation": "Format: type|id (e.g., projects|123). Cannot be combined with --creator-type or --creator-id."
+    },
+    {
+      "name": "--creator-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator type (resource type, e.g., projects)",
+      "default": null,
+      "validation": "Must be used with --creator-id."
+    },
+    {
+      "name": "--creator-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator ID",
+      "default": null,
+      "validation": "Must be used with --creator-type."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_follows_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/follow_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/follow.rb"
+    }
+  ]
+}

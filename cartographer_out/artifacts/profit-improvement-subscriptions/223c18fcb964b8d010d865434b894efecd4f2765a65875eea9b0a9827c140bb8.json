@@ -1,0 +1,33 @@
+{
+  "id": "223c18fcb964b8d010d865434b894efecd4f2765a65875eea9b0a9827c140bb8",
+  "full_path": "do profit-improvement-subscriptions update",
+  "description": "Update a profit improvement subscription.",
+  "permissions": "Admin users can update subscriptions. Non-admin users can update a subscription if they can update the profit improvement, or if they can view the profit improvement and the subscription user is themselves.",
+  "side_effects": "Updates profit improvement subscription attributes.",
+  "validation_notes": "The <id> argument is required. At least one attribute must be provided. contact-method must be one of email_address or mobile_number.",
+  "flags": [
+    {
+      "name": "contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contact method (email_address, mobile_number)",
+      "default": null,
+      "validation": "One of: email_address, mobile_number."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_profit_improvement_subscriptions_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement_subscription.rb"
+    }
+  ]
+}

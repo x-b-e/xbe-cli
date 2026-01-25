@@ -1,0 +1,41 @@
+{
+  "id": "c676d4d50952087e3ebc2f76564ae616139ae3e8159cf5590ffd9967842af26b",
+  "full_path": "do lineup-scenario-solutions create",
+  "description": "Create a lineup scenario solution.",
+  "permissions": "User must be an admin or a broker manager for the lineup scenario broker; access is scoped to lineup scenarios belonging to brokers the user is a member of.",
+  "side_effects": "Creates a lineup scenario solution and enqueues an async solver job. The solution starts unsolved until the solver finishes and updates status, assignments, cost, and solved_at.",
+  "validation_notes": "--lineup-scenario is required and must be non-empty. A lineup_scenario relationship is required when creating a lineup scenario solution.",
+  "flags": [
+    {
+      "name": "lineup-scenario",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup scenario ID",
+      "default": null,
+      "validation": "must be non-empty"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenario_solutions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_solution_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_scenario_solution.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_solution_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

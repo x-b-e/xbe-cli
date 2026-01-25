@@ -1,0 +1,33 @@
+{
+  "id": "b3ed2d23bb5a99cd5016db2eb421e22222afe9f73f4034613e6f1891b8737a53",
+  "full_path": "do user-location-events delete",
+  "description": "Delete a user location event.",
+  "permissions": "Allowed for admins or when deleting a location event for the same user as the authenticated user.",
+  "side_effects": "Deletes a user location event record.",
+  "validation_notes": "The user location event ID argument is required. --confirm must be provided to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_location_events_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_location_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_location_event.rb"
+    }
+  ]
+}

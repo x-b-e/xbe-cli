@@ -1,0 +1,145 @@
+{
+  "id": "eb387ea05ec8214c0876171c9fd5862c106d3594f574fa12ce00f1f2690b9905",
+  "full_path": "do administrative-incidents create",
+  "description": "Create a new administrative incident",
+  "permissions": "Admins can create administrative incidents. Non-admins can create when authorized for the subject: JobProductionPlan uses subject create?; TenderJobScheduleShift uses its job production plan create?; Customer/Trucker/Developer/Contractor/MaterialSupplier/MaterialSite/ProjectTransportPlan use subject update?; Broker requires broker membership.",
+  "side_effects": "Creates an administrative incident; may set a default assignee based on customer and kind; may create/update the dollar incident unit-of-measure quantity when net impact dollars are provided.",
+  "validation_notes": "--subject, --start-at, and --status are required. --subject must use Type|ID with allowed types: Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, JobProductionPlan, TenderJobScheduleShift, ProjectTransportPlan. --start-at and --end-at must be ISO 8601 timestamps; when provided, --end-at must be later than --start-at. --end-at is required when status is set to closed. --status values must be valid incident statuses: open, closed, abandoned, processing, parked. --kind values must be valid incident kinds: capacity, good_catch, near_miss, planning, quality, trucking. --severity values must be valid incident severities: low, medium, high, catastrophic. --natures values must be valid incident natures (personal, property) and are validated for uniqueness. --net-impact-dollars must be a number greater than or equal to 0. Subject type must be one of the valid subject types; the server rejects other subject types. If --equipment is provided, a job production plan must also be set and the equipment must be related to that job production plan. If --tender-job-schedule-shift is provided alongside a job production plan, it must belong to the same job production plan and must be a broker shift. If --assignee is provided, the assignee must have a relationship with the customer/subject.",
+  "flags": [
+    {
+      "name": "subject",
+      "required": true,
+      "type": "string",
+      "description": "Subject in Type|ID format (required)",
+      "validation": "Format: Type|ID (e.g. Broker|123). Allowed types: Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, JobProductionPlan, TenderJobScheduleShift, ProjectTransportPlan."
+    },
+    {
+      "name": "start-at",
+      "required": true,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601, required)",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "status",
+      "required": true,
+      "type": "string",
+      "description": "Status (open, closed, abandoned, processing, parked)",
+      "validation": "Allowed values: open, closed, abandoned, processing, parked."
+    },
+    {
+      "name": "kind",
+      "required": false,
+      "type": "string",
+      "description": "Kind (capacity, good_catch, near_miss, planning, quality, trucking)",
+      "validation": "Allowed values: capacity, good_catch, near_miss, planning, quality, trucking."
+    },
+    {
+      "name": "severity",
+      "required": false,
+      "type": "string",
+      "description": "Severity (low, medium, high, catastrophic)",
+      "validation": "Allowed values: low, medium, high, catastrophic."
+    },
+    {
+      "name": "description",
+      "required": false,
+      "type": "string",
+      "description": "Description text"
+    },
+    {
+      "name": "headline",
+      "required": false,
+      "type": "string",
+      "description": "Headline text"
+    },
+    {
+      "name": "natures",
+      "required": false,
+      "type": "string",
+      "description": "Natures (comma-separated: personal,property)",
+      "validation": "Values must be valid incident natures: personal, property."
+    },
+    {
+      "name": "did-stop-work",
+      "required": false,
+      "type": "string",
+      "description": "Did stop work (true/false)",
+      "validation": "Value must be true or false."
+    },
+    {
+      "name": "end-at",
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "net-impact-dollars",
+      "required": false,
+      "type": "string",
+      "description": "Net impact dollars",
+      "validation": "Must be a number greater than or equal to 0."
+    },
+    {
+      "name": "assignee",
+      "required": false,
+      "type": "string",
+      "description": "Assignee user ID"
+    },
+    {
+      "name": "job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID"
+    },
+    {
+      "name": "equipment",
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID"
+    },
+    {
+      "name": "parent",
+      "required": false,
+      "type": "string",
+      "description": "Parent incident ID"
+    },
+    {
+      "name": "tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_administrative_incidents_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/administrative_incidents_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/administrative_incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/administrative_incident_policy.rb"
+    }
+  ]
+}

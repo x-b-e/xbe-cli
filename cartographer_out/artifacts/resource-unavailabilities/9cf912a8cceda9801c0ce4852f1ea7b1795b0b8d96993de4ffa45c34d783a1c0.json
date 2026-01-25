@@ -1,0 +1,19 @@
+{
+  "description": "Show the full details of a resource unavailability.",
+  "flags": [],
+  "full_path": "view resource-unavailabilities show",
+  "id": "9cf912a8cceda9801c0ce4852f1ea7b1795b0b8d96993de4ffa45c34d783a1c0",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/resource_unavailabilities_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/resource_unavailability_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument."
+}

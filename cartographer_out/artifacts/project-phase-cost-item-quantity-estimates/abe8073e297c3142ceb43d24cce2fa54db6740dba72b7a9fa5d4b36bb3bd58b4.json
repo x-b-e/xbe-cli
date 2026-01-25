@@ -1,0 +1,51 @@
+{
+  "description": "List quantity estimates for project phase cost items.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project phase cost item ID",
+      "name": "--project-phase-cost-item",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project estimate set ID",
+      "name": "--project-estimate-set",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-phase-cost-item-quantity-estimates list",
+  "id": "abe8073e297c3142ceb43d24cce2fa54db6740dba72b7a9fa5d4b36bb3bd58b4",
+  "permissions": "User must be authorized to view project phase cost items; access is scoped via ProjectPhaseCostItem policy delegation.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_phase_cost_item_quantity_estimates_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_cost_item_quantity_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_cost_item_quantity_estimate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

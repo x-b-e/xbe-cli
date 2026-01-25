@@ -1,0 +1,55 @@
+{
+  "description": "List shift acknowledgement reminder notification subscriptions.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID (example: 456).",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trucker ID (example: 123).",
+      "name": "--trucker-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trucker ID (example: 123).",
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view shift-acknowledgement-reminder-notification-subscriptions list",
+  "id": "88a974ad199104212f2a0d3d334b22fb9ce69fc954bab36730f015c3df7f7d9a",
+  "permissions": "Visible to admins. Non-admins can list subscriptions for truckers where they are a trucker manager or a member of the trucker's broker; scope is limited to those truckers.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/shift_acknowledgement_reminder_notification_subscriptions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/shift_acknowledgement_reminder_notification_subscription_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/notification_subscription_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/shift_acknowledgement_reminder_notification_subscription_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

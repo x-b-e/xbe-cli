@@ -1,0 +1,27 @@
+{
+  "id": "3b4f038860709fa3a753f856921c11f25bdf9ccb315050862a3f2372f4950da1",
+  "full_path": "view one-step-gps-vehicles show",
+  "description": "Show One Step GPS vehicle details",
+  "permissions": "Admins can view all One Step GPS vehicles. Non-admin users can view vehicles for brokers they are members of (policy scope uses broker membership).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/one_step_gps_vehicles_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

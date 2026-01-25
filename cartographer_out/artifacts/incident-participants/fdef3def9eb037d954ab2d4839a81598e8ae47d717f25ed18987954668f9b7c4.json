@@ -1,0 +1,56 @@
+{
+  "id": "fdef3def9eb037d954ab2d4839a81598e8ae47d717f25ed18987954668f9b7c4",
+  "full_path": "view incident-participants list",
+  "description": "List incident participants",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Filters: --incident and --user accept comma-separated lists; --mobile-number and --email-address are exact-match filters.",
+  "flags": [
+    {
+      "name": "--incident",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Accepts a comma-separated list of incident IDs. Example: 123,456"
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Accepts a comma-separated list of user IDs. Example: 10,11"
+    },
+    {
+      "name": "--mobile-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by mobile number (exact match)",
+      "default": null,
+      "validation": "Exact match only. Example: +18153471234"
+    },
+    {
+      "name": "--email-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by email address (exact match)",
+      "default": null,
+      "validation": "Exact match only. Example: user@example.com"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_participants_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/incident_participants_controller.rb"
+    }
+  ]
+}

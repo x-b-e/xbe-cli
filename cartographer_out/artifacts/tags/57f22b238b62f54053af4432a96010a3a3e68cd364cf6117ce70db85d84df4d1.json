@@ -1,0 +1,33 @@
+{
+  "id": "57f22b238b62f54053af4432a96010a3a3e68cd364cf6117ce70db85d84df4d1",
+  "full_path": "do tags delete",
+  "description": "Delete a tag",
+  "permissions": "User must be an admin to delete tags.",
+  "side_effects": "Deletes the tag and its taggings.",
+  "validation_notes": "Requires tag ID argument. Flag --confirm is required to delete a tag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tags_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tag_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tag.rb"
+    }
+  ]
+}

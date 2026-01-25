@@ -1,0 +1,19 @@
+{
+  "id": "5ca4f3850ccc331aaf8a257d6086e526a3b42a63e18cb11d020847985b31d188",
+  "full_path": "version",
+  "description": "Print the CLI version.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/root.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/version_event.rb"
+    }
+  ]
+}

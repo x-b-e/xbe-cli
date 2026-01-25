@@ -1,0 +1,78 @@
+{
+  "id": "01da04a9dfb324b32987d72c0cedb365745a357d05b304323eb6a55bca2c5643",
+  "full_path": "view equipment-utilization-readings list",
+  "description": "List equipment utilization readings.",
+  "permissions": "Admins can view all readings. Otherwise, users can view readings tied to equipment in organizations or brokers they are members of (including managed customer and broker memberships as resolved by EquipmentUtilizationReadingPolicy scope).",
+  "side_effects": null,
+  "validation_notes": "reported-at-min and reported-at-max expect ISO 8601 timestamps. The source filter treats manual as readings with a missing or null other_readings source.",
+  "flags": [
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reported-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by reported-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--reported-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by reported-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--source",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by reading source (manual includes empty source)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_utilization_readings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_utilization_reading_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_utilization_reading_policy.rb"
+    }
+  ]
+}

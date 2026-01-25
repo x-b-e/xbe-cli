@@ -1,0 +1,33 @@
+{
+  "description": "Delete a trailer.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Required."
+    }
+  ],
+  "full_path": "do trailers delete",
+  "id": "58d6227aacabdca93bd5d8d0cc4d85bb8340cc6bfb72d16f058608c34b42792a",
+  "permissions": "Admins can delete trailers. Non-admins can delete a trailer only if they can update the trailer's trucker via TruckerPolicy; if the trailer has no trucker, deletion is permitted.",
+  "side_effects": "Deletes the trailer record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_trailers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/trailer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/trailer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required. Deletion is blocked if the trailer is the default trailer or is associated with driver days (trucker shift sets)."
+}

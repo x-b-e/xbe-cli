@@ -1,0 +1,113 @@
+{
+  "description": "Create a question.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Question content (required)",
+      "name": "--content",
+      "required": true,
+      "type": "string",
+      "validation": "non-empty"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Source (app/link)",
+      "name": "--source",
+      "required": false,
+      "type": "enum",
+      "validation": "app|link"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Ignore org-scoped newsletters (true/false)",
+      "name": "--ignore-organization-scoped-newsletters",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Make question public (true/false)",
+      "name": "--is-public",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Share with org children (true/false)",
+      "name": "--is-public-to-organization-children",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Asking user ID",
+      "name": "--asked-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Public scope (type|id, e.g., brokers|123)",
+      "name": "--public-organization-scope",
+      "required": false,
+      "type": "string",
+      "validation": "type|id"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Public scope type (e.g., brokers)",
+      "name": "--public-organization-scope-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Public scope ID",
+      "name": "--public-organization-scope-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do questions create",
+  "id": "46d160f396940c3e76ecb598dcf41f1ed1f7e9f527a3be66ad28be4c2303d143",
+  "permissions": "Requires authentication; any user may create questions.",
+  "side_effects": "Creates an initial answer for the question after creation, assigns the question to an admin (or the creator if admin), and sends a Slack assignment notification when assigned_to is set.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_questions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/questions_helpers.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/question.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/question_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Boolean flags require true/false values (ignore_organization_scoped_newsletters, is_public, is_public_to_organization_children). --content is required and must be non-empty. --public-organization-scope cannot be combined with --public-organization-scope-type or --public-organization-scope-id. --public-organization-scope must be formatted as type|id; --public-organization-scope-type and --public-organization-scope-id must be provided together. public_organization_scope must be a valid organization type (Broker, Customer, Trucker, MaterialSupplier, or Developer). If is_public is false, public_organization_scope must be blank and is_public_to_organization_children must be false."
+}

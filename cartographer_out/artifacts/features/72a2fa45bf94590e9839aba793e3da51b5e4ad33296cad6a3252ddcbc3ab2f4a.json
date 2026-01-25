@@ -1,0 +1,29 @@
+{
+  "id": "72a2fa45bf94590e9839aba793e3da51b5e4ad33296cad6a3252ddcbc3ab2f4a",
+  "full_path": "do features delete",
+  "description": "Delete a feature.",
+  "permissions": "User must be an admin (is_user_admin?) to delete features.",
+  "side_effects": "Deletes the feature record.",
+  "validation_notes": "A feature id argument is required. --confirm is required to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_features_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/feature_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "f34c3d45a9d05100d6a58a5d74682f0718a0974112705f25d901243012599785",
+  "full_path": "do project-transport-plan-event-times create",
+  "description": "Create a project transport plan event time.",
+  "permissions": "Allowed if the user can update the related project transport plan event via ProjectTransportPlanEventPolicy, or if the user is a member in the broker branch and is an active driver assigned to a segment connected to the event's stop.",
+  "side_effects": "Creates a project transport plan event time; for expected or actual times, sets manual override state (is_manual_override true, is_app_owned false) when time values are set/changed. After create/update, may close the tractor actualization window and may publish a transport order stop arrival event.",
+  "validation_notes": "--project-transport-plan-event and --kind are required. Either --start-at or --at is required; --at sets start_at and end_at to the same value. kind must be one of: planned, expected, actual, modeled. start_at is required by the server. end_at must be greater than or equal to start_at when provided. kind must be unique per project transport plan event. For actual times, start_at/end_at cannot be earlier than actual times on earlier plan events with overlapping equipment.",
+  "flags": [
+    {
+      "name": "--project-transport-plan-event",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport plan event ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Time kind (planned, expected, actual, modeled) (required)",
+      "default": null,
+      "validation": "planned|expected|actual|modeled"
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Legacy timestamp; sets start and end to the same value",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_event_times_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_time_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_time_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_event_time.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a project phase cost item quantity estimate.",
+  "flags": [],
+  "full_path": "view project-phase-cost-item-quantity-estimates show",
+  "id": "46f28f97222b468605941790a583a4c03127f476a9a860a14461e91d0ace487b",
+  "permissions": "User must be authorized to view the related project phase cost item; access is scoped via ProjectPhaseCostItem policy delegation.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_phase_cost_item_quantity_estimates_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_cost_item_quantity_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_cost_item_quantity_estimate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The quantity estimate ID argument is required."
+}

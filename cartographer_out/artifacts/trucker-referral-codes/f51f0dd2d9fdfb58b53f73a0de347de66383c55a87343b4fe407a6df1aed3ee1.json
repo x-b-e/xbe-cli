@@ -1,0 +1,29 @@
+{
+  "id": "f51f0dd2d9fdfb58b53f73a0de347de66383c55a87343b4fe407a6df1aed3ee1",
+  "full_path": "do trucker-referral-codes delete",
+  "description": "Delete a trucker referral code.",
+  "permissions": "Requires authentication and broker membership for the broker associated with the trucker referral code.",
+  "side_effects": "Deletes a trucker referral code.",
+  "validation_notes": "The <id> argument is required. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_referral_codes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_referral_code_policy.rb"
+    }
+  ]
+}

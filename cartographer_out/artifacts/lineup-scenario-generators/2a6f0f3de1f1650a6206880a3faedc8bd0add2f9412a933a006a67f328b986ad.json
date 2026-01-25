@@ -1,0 +1,109 @@
+{
+  "description": "Create a lineup scenario generator.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Customer ID",
+      "name": "--customer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Scenario date (YYYY-MM-DD) (required)",
+      "name": "--date",
+      "required": true,
+      "type": "string",
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Scenario window (day or night) (required)",
+      "name": "--window",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: day, night"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Include trucker assignments as constraints",
+      "name": "--include-trucker-assignments-as-constraints",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Lookback window in days for assignment limits",
+      "name": "--trucker-assignment-limits-lookback-window-days",
+      "required": false,
+      "type": "integer",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip minimum assignment count constraint",
+      "name": "--skip-minimum-assignment-count",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip creating lineup scenario solutions",
+      "name": "--skip-create-lineup-scenario-solution",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Use most recent scenario constraints",
+      "name": "--use-most-recent-lineup-scenario-constraints",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do lineup-scenario-generators create",
+  "id": "2a6f0f3de1f1650a6206880a3faedc8bd0add2f9412a933a006a67f328b986ad",
+  "permissions": "User must be an admin or a member of the broker organization with manager role.",
+  "side_effects": "Creates a lineup scenario generator and asynchronously generates lineup scenarios and related records.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_scenario_generators_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_generator_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_generator_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/lineup_scenario_generator.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--broker, --date, and --window are required. Date must be YYYY-MM-DD. Window must be day or night. Attributes are create-only (broker, customer, date, window, include_trucker_assignments_as_constraints, trucker_assignment_limits_lookback_window_days, skip_minimum_assignment_count, skip_create_lineup_scenario_solution, use_most_recent_lineup_scenario_constraints). use_most_recent_lineup_scenario_constraints defaults to true when omitted."
+}

@@ -1,0 +1,415 @@
+{
+  "id": "2463e266ab95e8ad4c9e9195a57640d95c7aee99145ae39cce1395265c4fb40e",
+  "full_path": "do brokers create",
+  "description": "Create a new broker.",
+  "permissions": "Requires authentication and admin privileges to create brokers.",
+  "side_effects": "Creates a broker record.",
+  "validation_notes": "--name is required; Boolean flags expect true or false; --active-equipment-rental-notification-days must be valid JSON array of integers; modeled-to-actual-confidence-threshold and modeled-to-projected-confidence-threshold must be numbers between 0 and 1 when provided; default-trucker-payment-terms and default-customer-payment-terms must be >= 0; can-customers-see-driver-contact-information and can-customer-operations-see-driver-contact-information must be true or false; public-dispatch-phone-number-explicit must be a valid phone number; job-production-plan-recap-template must be a valid mustache template; is-transport-only must be true or false",
+  "flags": [
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Short abbreviation",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--active-equipment-rental-notification-days",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Active equipment rental notification days (JSON array, e.g. \"[1,2,3,4,5]\")",
+      "default": null,
+      "validation": "JSON array of integers"
+    },
+    {
+      "name": "--can-customer-operations-see-driver-contact-information",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer operations can see driver contact info (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--can-customers-see-driver-contact-information",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customers can see driver contact info (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--default-customer-payment-terms",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Default customer payment terms (days)",
+      "default": null,
+      "validation": "number >= 0"
+    },
+    {
+      "name": "--default-customer-rate-agreement-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default customer rate agreement template ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-dispatch-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default dispatch contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-financial-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default financial contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-operations-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default operations contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-prediction-subject-kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default prediction subject kind",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-prediction-subject-lead-time-hours",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Default prediction subject lead time hours",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-reply-to-email",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default reply-to email address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-trucker-payment-terms",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Default trucker payment terms (days)",
+      "default": null,
+      "validation": "number >= 0"
+    },
+    {
+      "name": "--disabled-feedback-types",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Disabled feedback types",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--enable-equipment-movement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Enable equipment movement (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--enable-implicit-time-card-approval",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Enable implicit time card approval (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--help-text",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Help text",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-accepting-open-door-issues",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Accepting open door issues (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Active status (true/false, admin only)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-generating-automated-shift-feedback",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Generating automated shift feedback (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-managing-driver-visibility",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Managing driver visibility (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-managing-quality-control-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Managing quality control requirements (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-non-driver-permitted-to-check-in",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Non-driver permitted to check in (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-transport-only",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Transport only (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--job-production-plan-recap-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan recap template",
+      "default": null,
+      "validation": "must be a valid mustache template"
+    },
+    {
+      "name": "--make-trucker-report-card-visible-to-truckers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Make trucker report card visible to truckers (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--min-duration-of-auto-trucking-incident-with-down-time",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Min duration of auto trucking incident with down time (minutes)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--modeled-to-actual-confidence-threshold",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Modeled to actual confidence threshold",
+      "default": null,
+      "validation": "number between 0 and 1"
+    },
+    {
+      "name": "--modeled-to-projected-confidence-threshold",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Modeled to projected confidence threshold",
+      "default": null,
+      "validation": "number between 0 and 1"
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Company name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--prefer-public-dispatch-phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Prefer public dispatch phone number (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--public-dispatch-phone-number-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Public dispatch phone number",
+      "default": null,
+      "validation": "must be a valid phone number"
+    },
+    {
+      "name": "--quickbooks-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "QuickBooks enabled (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--quickbooks-enabled-customer-ids",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "QuickBooks enabled customer IDs",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--remit-to-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Remit-to address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-cost-code-allocations",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requires cost code allocations (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--send-lineup-summaries-to",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Send lineup summaries to (email addresses)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-feedback-reason-notification-exclusions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift feedback reason notification exclusions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-material-transaction-image-extraction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip material transaction image extraction (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--skip-tender-job-schedule-shift-starting-seller-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip shift starting seller notifications (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--slack-horizon-channel",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Slack horizon channel (admin only)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--slack-ntfy-channel",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Slack notification channel (admin only)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--slack-ntfy-icon",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Slack notification icon (admin only)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_brokers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/broker.rb"
+    }
+  ]
+}

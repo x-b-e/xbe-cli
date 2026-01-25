@@ -1,0 +1,37 @@
+{
+  "id": "c93ff8eee6273a44753ad66dea00a41c2b4e5d7bc2e513ad75b2a98dd7f1b4a9",
+  "full_path": "do hos-annotations delete",
+  "description": "Delete a HOS annotation.",
+  "permissions": "Only admin users can delete HOS annotations.",
+  "side_effects": "Deletes the specified HOS annotation.",
+  "validation_notes": "The <id> argument is required. The --confirm flag is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_hos_annotations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_annotation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_annotation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/hos_annotations_controller.rb"
+    }
+  ]
+}

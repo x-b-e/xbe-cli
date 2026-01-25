@@ -1,0 +1,64 @@
+{
+  "id": "706d0e08867a2dcc4959b652be52da85a45495caacb2371ceec123c10760e442",
+  "full_path": "do material-site-inventory-locations update",
+  "description": "Update an existing material site inventory location.",
+  "permissions": "Allowed for admins, broker members of the material site's broker, or manager members of the material site's material supplier.",
+  "side_effects": "Updates a material site inventory location record.",
+  "validation_notes": "The <id> argument is required. At least one updatable field must be provided. Latitude and longitude must be provided together and are validated as coordinates. If --unit-of-measure is provided, it cannot be blank. qualified-name and material-site are create-only and cannot be updated.",
+  "flags": [
+    {
+      "name": "display-name-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Display name override",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latitude coordinate",
+      "default": null,
+      "validation": "Must be provided with --longitude."
+    },
+    {
+      "name": "longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Longitude coordinate",
+      "default": null,
+      "validation": "Must be provided with --latitude."
+    },
+    {
+      "name": "unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "default": null,
+      "validation": "If provided, value cannot be blank."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_inventory_locations_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_inventory_location_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_inventory_location_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_inventory_location.rb"
+    }
+  ]
+}

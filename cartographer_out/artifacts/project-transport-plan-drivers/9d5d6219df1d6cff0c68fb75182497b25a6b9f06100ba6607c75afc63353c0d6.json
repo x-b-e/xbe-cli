@@ -1,0 +1,37 @@
+{
+  "description": "Delete a project transport plan driver assignment",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-drivers delete",
+  "id": "9d5d6219df1d6cff0c68fb75182497b25a6b9f06100ba6607c75afc63353c0d6",
+  "permissions": "Deletion is delegated to the related project transport plan; allowed only if ProjectTransportPlanPolicy permits destroy on the referenced plan.",
+  "side_effects": "Deletes related project_transport_plan_segment_drivers and driver_assignment_recommendations, and nullifies related project_transport_plan_driver_confirmations.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_drivers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_driver.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_driver_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required."
+}

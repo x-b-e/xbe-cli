@@ -1,0 +1,41 @@
+{
+  "id": "4994d851f20f340d434f3c5db00a67ba85f240832e41688a46a6640b3f9856af",
+  "full_path": "do project-customers delete",
+  "description": "Delete a project customer.",
+  "permissions": "User must be authorized via the related project (project-customer policy delegates to project) and the project customer must be deletable (can_delete).",
+  "side_effects": "Deletes the project customer and also deletes dependent project_cost_codes.",
+  "validation_notes": "Requires a project customer ID argument. --confirm is required. Deletion is blocked when a related job production plan exists.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_customers_delete.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_customers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_customer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_customer.rb"
+    }
+  ]
+}

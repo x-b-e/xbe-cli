@@ -1,0 +1,33 @@
+{
+  "description": "Delete a project transport plan segment tractor.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do project-transport-plan-segment-tractors delete",
+  "id": "fb2d438a38d876ed5d0970e2516fe2dd638a1c55fdb6d5586c5105072890d676",
+  "permissions": "Authorized via ProjectTransportPlanSegmentTractorPolicy, which delegates destroy permission to the related project transport plan segment policy.",
+  "side_effects": "Deletes a project transport plan segment tractor.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_segment_tractors_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_segment_tractor.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_segment_tractor_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires the segment tractor <id> argument and --confirm=true. Deletion is blocked when the segment tractor is managed by a plan tractor, unless deleted via a cascading destroy from a plan tractor or segment."
+}

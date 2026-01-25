@@ -1,0 +1,82 @@
+{
+  "id": "51bd8f00fc6c5e690bf690299cb51a7e158bd9b1fbc900449bb743de6859e718",
+  "full_path": "do project-revenue-item-price-estimates create",
+  "description": "Create a project revenue item price estimate.",
+  "permissions": "User must be an admin or a manager member of the broker that owns the related project revenue item (delegated to project revenue item permissions).",
+  "side_effects": "Creates a project revenue item price estimate.",
+  "validation_notes": "--project-revenue-item is required. --kind must be one of: explicit, cost_multiplier. --price-per-unit-explicit must be numeric and is required when kind=explicit; it must be absent when kind=cost_multiplier. --cost-multiplier must be numeric and is required when kind=cost_multiplier; it must be absent when kind=explicit. --created-by is admin only.",
+  "flags": [
+    {
+      "name": "--project-revenue-item",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project revenue item ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-estimate-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project estimate set ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Estimate kind (explicit or cost_multiplier)",
+      "default": null,
+      "validation": "one of: explicit, cost_multiplier"
+    },
+    {
+      "name": "--price-per-unit-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit price per unit",
+      "default": null,
+      "validation": "numeric; required when kind=explicit; must be absent when kind=cost_multiplier"
+    },
+    {
+      "name": "--cost-multiplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cost multiplier",
+      "default": null,
+      "validation": "numeric; required when kind=cost_multiplier; must be absent when kind=explicit"
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Created-by user ID (admin only)",
+      "default": null,
+      "validation": "admin only"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_revenue_item_price_estimates_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_revenue_item_price_estimate.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_price_estimate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_policy.rb"
+    }
+  ]
+}

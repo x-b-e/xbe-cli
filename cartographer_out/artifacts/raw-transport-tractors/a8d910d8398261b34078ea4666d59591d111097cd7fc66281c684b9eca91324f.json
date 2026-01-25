@@ -1,0 +1,23 @@
+{
+  "description": "Update a raw transport tractor (not supported)",
+  "flags": [],
+  "full_path": "do raw-transport-tractors update",
+  "id": "a8d910d8398261b34078ea4666d59591d111097cd7fc66281c684b9eca91324f",
+  "permissions": "Admins or broker admins for the tractor's broker would be required, but updates are not supported.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/do_raw_transport_tractors_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/raw_transport_tractor_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_transport_tractor_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. Raw transport tractors are immutable; no writable fields are exposed for update and the command returns an error."
+}

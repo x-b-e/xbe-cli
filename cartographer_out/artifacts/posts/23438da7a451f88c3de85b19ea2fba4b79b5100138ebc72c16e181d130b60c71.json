@@ -1,0 +1,23 @@
+{
+  "id": "23438da7a451f88c3de85b19ea2fba4b79b5100138ebc72c16e181d130b60c71",
+  "full_path": "view posts show",
+  "description": "Show the full details of a specific post.",
+  "permissions": "Users can view posts they created, and published posts that appear in their user post feed; other posts are not included in the non-admin scope.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument for the post ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/posts_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_resource.rb"
+    }
+  ]
+}

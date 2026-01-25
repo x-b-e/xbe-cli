@@ -1,0 +1,33 @@
+{
+  "id": "3faa73446fca30f144e3af51a96638a6a13947ab400255d61ec8471824398655",
+  "full_path": "view crafts list",
+  "description": "List crafts",
+  "permissions": "Admins can list all crafts; non-admin users can list crafts for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/crafts_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/craft_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/craft_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "ee247354f161365e0b5b7f84ba079dc970bb4b9c0b6eda23af134da61f4e75cf",
+  "full_path": "do tractor-odometer-readings delete",
+  "description": "Delete a tractor odometer reading.",
+  "permissions": "Admins can delete. Non-admins can delete if the reading has no tractor yet, if they are a member of the broker for the reading, if they are the driver for the driver day, or if they are a manager member of the trucker for the reading.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (odometer reading ID) and --confirm to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tractor_odometer_readings_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_odometer_reading_policy.rb"
+    }
+  ]
+}

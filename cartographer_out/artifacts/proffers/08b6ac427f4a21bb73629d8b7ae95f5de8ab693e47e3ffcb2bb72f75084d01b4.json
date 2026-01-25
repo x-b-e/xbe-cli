@@ -1,0 +1,51 @@
+{
+  "id": "08b6ac427f4a21bb73629d8b7ae95f5de8ab693e47e3ffcb2bb72f75084d01b4",
+  "full_path": "do proffers update",
+  "description": "Update a proffer",
+  "permissions": "Allowed for admins or the proffer creator (policy update? checks admin or created_by).",
+  "side_effects": "Updates the proffer; changes to title/description/kind trigger background regeneration of title, embeddings, and moderation status (involves OpenAI calls).",
+  "validation_notes": "The <id> argument is required. At least one of --title, --description, or --kind must be provided. If title is provided, it must be present and unique. kind, if provided, must be one of hot_feed_post or make_it_so_action.",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Proffer title",
+      "default": null,
+      "validation": "If provided, must be present and unique."
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Proffer description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Proffer kind (hot_feed_post/make_it_so_action)",
+      "default": null,
+      "validation": "Allowed values: hot_feed_post, make_it_so_action."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_proffers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/proffer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/proffer.rb"
+    }
+  ]
+}

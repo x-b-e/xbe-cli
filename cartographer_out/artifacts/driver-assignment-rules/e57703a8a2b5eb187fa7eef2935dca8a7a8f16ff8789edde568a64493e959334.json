@@ -1,0 +1,68 @@
+{
+  "id": "e57703a8a2b5eb187fa7eef2935dca8a7a8f16ff8789edde568a64493e959334",
+  "full_path": "do driver-assignment-rules create",
+  "description": "Create a driver assignment rule.",
+  "permissions": "User can create when they are a manager of the broker for the rule or they have update permission on the level; admins are permitted.",
+  "side_effects": "Creates a driver assignment rule and enqueues a background job to cache driver assignment rule text for related job schedule shifts.",
+  "validation_notes": "--rule, --level-type, and --level-id are required; level must be one of the valid types and present; broker is derived from the level and must match the level broker; rule must be present.",
+  "flags": [
+    {
+      "name": "--rule",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Rule text (required).",
+      "default": null,
+      "validation": "Must be non-empty."
+    },
+    {
+      "name": "--level-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Level type (Broker, JobScheduleShift, Project, JobProductionPlan, MaterialSupplier, MaterialSite, MaterialType, Trucker, JobSite).",
+      "default": null,
+      "validation": "One of Broker, JobScheduleShift, Project, JobProductionPlan, MaterialSupplier, MaterialSite, MaterialType, Trucker, JobSite."
+    },
+    {
+      "name": "--level-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Level ID.",
+      "default": null,
+      "validation": "Must be non-empty."
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether the rule is active.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_driver_assignment_rules_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_assignment_rules_common.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/driver_assignment_rule.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_assignment_rule_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_assignment_rule_resource.rb"
+    }
+  ]
+}

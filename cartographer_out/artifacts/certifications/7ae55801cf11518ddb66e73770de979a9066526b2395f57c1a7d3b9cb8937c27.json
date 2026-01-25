@@ -1,0 +1,82 @@
+{
+  "id": "7ae55801cf11518ddb66e73770de979a9066526b2395f57c1a7d3b9cb8937c27",
+  "full_path": "view certifications list",
+  "description": "List certifications with filtering and pagination.",
+  "permissions": "Admins can view all certifications. Non-admin users can view certifications only for certifies records they are authorized to access (per policy scope for the certifies type, including trucker/broker membership rules).",
+  "side_effects": null,
+  "validation_notes": "Status filter values map to certification statuses: editing, submitted, approved, declined, expired, archived. Filters for expires-within-days and expires-before only consider certifications with expires_at set and exclude status=expired. by-certifies expects a Type|ID string (e.g., Trucker|123). expires-before expects a YYYY-MM-DD date string; expires-within-days expects a number of days.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--by-certifies",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by certified entity (Type|ID, e.g., Trucker|123)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Trucker|123)."
+    },
+    {
+      "name": "--certification-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by certification type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expires-before",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by expiration before date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD date format."
+    },
+    {
+      "name": "--expires-within-days",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by expiration within N days",
+      "default": null,
+      "validation": "Number of days (integer)."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status",
+      "default": null,
+      "validation": "One of: editing, submitted, approved, declined, expired, archived."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/certifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/certification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/certification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/certification_policy.rb"
+    }
+  ]
+}

@@ -245,26 +245,6 @@ func buildTimeSheetDetails(resp jsonAPISingleResponse) timeSheetDetails {
 	return details
 }
 
-func relationshipCount(rel jsonAPIRelationship) int {
-	if rel.Data != nil {
-		return 1
-	}
-	if len(rel.raw) == 0 {
-		return 0
-	}
-	raw := strings.TrimSpace(string(rel.raw))
-	if raw == "" || raw == "null" {
-		return 0
-	}
-	if raw[0] == '[' {
-		var items []jsonAPIResourceIdentifier
-		if err := json.Unmarshal(rel.raw, &items); err == nil {
-			return len(items)
-		}
-	}
-	return 0
-}
-
 func renderTimeSheetDetails(cmd *cobra.Command, details timeSheetDetails) error {
 	out := cmd.OutOrStdout()
 

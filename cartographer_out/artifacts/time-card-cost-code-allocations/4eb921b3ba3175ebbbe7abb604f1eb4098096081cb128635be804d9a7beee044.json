@@ -1,0 +1,33 @@
+{
+  "id": "4eb921b3ba3175ebbbe7abb604f1eb4098096081cb128635be804d9a7beee044",
+  "full_path": "view time-card-cost-code-allocations list",
+  "description": "List time card cost code allocations.",
+  "permissions": "Admin users; otherwise users who are members of the allocation customer or broker via membership (policy scope).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ID",
+      "default": null,
+      "validation": "Example: 123."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_cost_code_allocations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_cost_code_allocation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/cost_code_allocation_policy.rb"
+    }
+  ]
+}

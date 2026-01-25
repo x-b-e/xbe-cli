@@ -1,0 +1,35 @@
+{
+  "description": "Generate a signed URL for a file attachment.",
+  "flags": [
+    {
+      "description": "File attachment ID",
+      "name": "--file-attachment-id",
+      "required": true,
+      "type": "string",
+      "validation": "Required. Must reference an existing file attachment."
+    }
+  ],
+  "full_path": "do file-attachment-signed-urls create",
+  "id": "b90d647b8ecf63cb02658eb51997109fb9ed3c71fbefa2302932f424700bf520",
+  "permissions": "Allowed if the user has access to the file attachment: when the attachment is not attached to any resource, or when the user is authorized to view the resource the attachment is attached to.",
+  "side_effects": "Generates a short-lived signed URL for downloading the specified file attachment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_file_attachment_signed_urls_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/file_attachment_signed_url_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/file_attachment_signed_url.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/file_attachment_signed_url_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "file-attachment-id is required. file-attachment-id must reference an existing file attachment (otherwise validation error: no matching file attachment)."
+}

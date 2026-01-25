@@ -1,0 +1,33 @@
+{
+  "id": "04ddba7a56a2b2bdd09b39422d4ca5d6dae600a7000c15d496f7aa5330ea73da",
+  "full_path": "do profit-improvement-subscriptions delete",
+  "description": "Delete a profit improvement subscription.",
+  "permissions": "Admin users can delete subscriptions. Non-admin users can delete a subscription if they can update the profit improvement, or if they can view the profit improvement and the subscription user is themselves.",
+  "side_effects": "Deletes a profit improvement subscription record.",
+  "validation_notes": "The <id> argument is required. --confirm must be set to proceed.",
+  "flags": [
+    {
+      "name": "confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_profit_improvement_subscriptions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement_subscription.rb"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "ac092feea37b7c4dd022e71d9fea41fc27bd6144d6529de55ab375172f5041c5",
+  "full_path": "do ticket-reports delete",
+  "description": "Delete a ticket report.",
+  "permissions": "Admins can delete ticket reports. Non-admin users can delete ticket reports for brokers they are members of, and only when the ticket report can be deleted (no dispatches and no performed imports).",
+  "side_effects": "Deletes the ticket report and, when allowed, destroys related ticket report imports.",
+  "validation_notes": "The ticket report ID argument is required. --confirm is required to delete. Deletion is blocked when the ticket report is associated with ticket report dispatches or performed ticket report imports.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ticket_reports_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ticket_report_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ticket_report_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/ticket_report.rb"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "description": "Create a prediction subject.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction subject name (required)",
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Parent type (brokers or projects) (required)",
+      "name": "--parent-type",
+      "required": true,
+      "type": "enum",
+      "validation": "brokers|projects"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Parent ID (required)",
+      "name": "--parent-id",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Status (active, complete, abandoned)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "active|complete|abandoned"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction kind (lowest_losing_bid)",
+      "name": "--kind",
+      "required": false,
+      "type": "enum",
+      "validation": "lowest_losing_bid"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Actual value",
+      "name": "--actual",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Predictions due at (ISO 8601)",
+      "name": "--predictions-due-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Actual due at (ISO 8601)",
+      "name": "--actual-due-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Domain minimum value",
+      "name": "--domain-min",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Domain maximum value",
+      "name": "--domain-max",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Additional attributes JSON",
+      "name": "--additional-attributes",
+      "required": false,
+      "type": "string",
+      "validation": "JSON"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Reference number",
+      "name": "--reference-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (create-only)",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Business unit ID",
+      "name": "--business-unit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction consensus ID",
+      "name": "--prediction-consensus",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do prediction-subjects create",
+  "id": "08eac230f53d9ed4f83150c0ddc9c9ba2e0c55beeb8662997112d68d5685847a",
+  "permissions": "Admins can create prediction subjects. Non-admin users can create prediction subjects only when they are admin members of the associated broker.",
+  "side_effects": "Creates a prediction subject and a prediction subject membership for the creator. May ensure the broker has a self bidder and a recap vector store for lowest_losing_bid subjects, and may auto-complete the subject if an actual value is provided.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_subjects_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/prediction_subject_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--name, --parent-type, and --parent-id are required. parent-type must be brokers or projects. status must be one of active, complete, or abandoned. kind must be lowest_losing_bid when provided. actual-due-at must be after predictions-due-at when both are set. domain-max must be higher than domain-min when both are set. actual must be present when status is complete. additional-attributes must be valid JSON when provided."
+}

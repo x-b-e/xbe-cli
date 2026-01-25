@@ -1,0 +1,78 @@
+{
+  "id": "18f358b4e21590e093074b0bb90529f81a4b67123a7d6c92644204505b7986ae",
+  "full_path": "view job-production-plan-cost-codes list",
+  "description": "List job production plan cost codes with filtering and pagination",
+  "permissions": "User must be authorized to view the associated job production plan (delegated policy via job production plan).",
+  "side_effects": null,
+  "validation_notes": "Filters map to job production plan cost code resource filters; code/query/description filters resolve through related cost codes (code, search, or exact description).",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID",
+      "default": null,
+      "validation": "Example: --job-production-plan 123"
+    },
+    {
+      "name": "--cost-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by cost code ID",
+      "default": null,
+      "validation": "Example: --cost-code 456"
+    },
+    {
+      "name": "--project-resource-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project resource classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by cost code value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--query",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search by cost code code or description",
+      "default": null,
+      "validation": "Example: --query \"labor\""
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by cost code description",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_cost_codes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_cost_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_cost_code_policy.rb"
+    }
+  ]
+}

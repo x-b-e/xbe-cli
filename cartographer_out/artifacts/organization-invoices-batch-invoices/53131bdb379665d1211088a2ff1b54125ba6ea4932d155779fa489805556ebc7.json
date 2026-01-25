@@ -1,0 +1,35 @@
+{
+  "id": "53131bdb379665d1211088a2ff1b54125ba6ea4932d155779fa489805556ebc7",
+  "full_path": "view organization-invoices-batch-invoices show",
+  "description": "Show organization invoices batch invoice details",
+  "permissions": "Allowed for users who can access the related organization invoices batch via policy scope; scope delegates to OrganizationInvoicesBatch and permits admins, broker members, and manager-level members of other organization types (e.g., customer/trucker) tied to the batch.",
+  "side_effects": null,
+  "validation_notes": "The batch invoice id argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_invoices_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_invoice_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_invoice_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

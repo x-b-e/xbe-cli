@@ -1,0 +1,33 @@
+{
+  "id": "759e0930171401a9b9e8998f78f05d10c4295b19c98e942dcfcdd9c9b0de5939",
+  "full_path": "do trucker-brokerages delete",
+  "description": "Delete a trucker brokerage",
+  "permissions": "Admins and users who are practically trucker managers for the brokering trucker can delete trucker brokerages.",
+  "side_effects": "Deletes the trucker brokerage if validation allows.",
+  "validation_notes": "--confirm is required. Deletion is blocked if the brokering trucker has brokered tractors or brokered trailers.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_brokerages_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_brokerage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_brokerage.rb"
+    }
+  ]
+}

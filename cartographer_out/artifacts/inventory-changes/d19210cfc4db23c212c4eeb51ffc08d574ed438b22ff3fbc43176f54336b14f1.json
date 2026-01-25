@@ -1,0 +1,60 @@
+{
+  "id": "d19210cfc4db23c212c4eeb51ffc08d574ed438b22ff3fbc43176f54336b14f1",
+  "full_path": "view inventory-changes list",
+  "description": "List inventory changes with filtering and pagination.",
+  "permissions": "Admins can view all inventory changes. Non-admins can view inventory changes for material suppliers they are manager members of or for brokers they are manager members of (via the material supplier).",
+  "side_effects": null,
+  "validation_notes": "material-site, material-type, and material-supplier accept comma-separated IDs (e.g., 123,456). forecast-start-at must be an ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z).",
+  "flags": [
+    {
+      "name": "material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated for multiple).",
+      "default": null,
+      "validation": "Comma-separated list of material site IDs, e.g., 123,456."
+    },
+    {
+      "name": "material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID (comma-separated for multiple).",
+      "default": null,
+      "validation": "Comma-separated list of material type IDs, e.g., 456,789."
+    },
+    {
+      "name": "material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (comma-separated for multiple).",
+      "default": null,
+      "validation": "Comma-separated list of material supplier IDs, e.g., 789,101."
+    },
+    {
+      "name": "forecast-start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by forecast start timestamp (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp, e.g., 2025-01-01T00:00:00Z."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/inventory_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/inventory_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/inventory_change_policy.rb"
+    }
+  ]
+}

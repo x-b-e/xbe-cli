@@ -1,0 +1,141 @@
+{
+  "id": "77e7e340a530088324a662d03f024db132349107495b7f661fec515ca11d3edd",
+  "full_path": "view shift-feedbacks list",
+  "description": "List shift feedbacks (trucker/driver performance feedback).",
+  "permissions": "Admin users; otherwise limited to shift feedbacks tied to their memberships (customer or broker associated with the job, trucker memberships for the tender, seller operations contacts, or material supplier memberships linked via the job production plan).",
+  "side_effects": null,
+  "validation_notes": "Filter --automated must be boolean (true/false).",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reason",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by shift feedback reason ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--rating",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by rating",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by kind",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--automated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by automated status (true/false)",
+      "default": null,
+      "validation": "Must be boolean true/false."
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum shift date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum shift date",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/shift_feedbacks_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/shift_feedback_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_feedback_policy.rb"
+    }
+  ]
+}

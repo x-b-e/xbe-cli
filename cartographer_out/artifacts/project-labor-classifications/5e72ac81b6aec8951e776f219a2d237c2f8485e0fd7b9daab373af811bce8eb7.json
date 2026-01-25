@@ -1,0 +1,46 @@
+{
+  "id": "5e72ac81b6aec8951e776f219a2d237c2f8485e0fd7b9daab373af811bce8eb7",
+  "full_path": "do project-labor-classifications update",
+  "description": "Update an existing project labor classification",
+  "permissions": "Allowed for admins or users who are manager members of the project's broker.",
+  "side_effects": "Updates basic and/or fringe hourly rates on the project labor classification.",
+  "validation_notes": "Requires the <id> argument (project labor classification ID). At least one of --basic-hourly-rate or --fringe-hourly-rate must be provided. basic-hourly-rate and fringe-hourly-rate must be numeric values greater than 0 when provided.",
+  "flags": [
+    {
+      "name": "--basic-hourly-rate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Basic hourly rate",
+      "default": null,
+      "validation": "Must be a numeric value greater than 0 when provided."
+    },
+    {
+      "name": "--fringe-hourly-rate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Fringe hourly rate",
+      "default": null,
+      "validation": "Must be a numeric value greater than 0 when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_labor_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_labor_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_labor_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_labor_classification.rb"
+    }
+  ]
+}

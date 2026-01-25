@@ -1,0 +1,91 @@
+{
+  "id": "7ffdbdcfc8a8df2d071994342b8bb6917e53fbcfdbe1695c86158fb4d4545f15",
+  "full_path": "view retainers list",
+  "description": "List retainers with filtering and pagination.",
+  "permissions": "Admin users can list all retainers. Non-admin users can list retainers where they are a member of the buyer or seller organization: customer buyer memberships, broker buyer memberships, broker seller memberships, or trucker manager memberships for the seller.",
+  "side_effects": null,
+  "validation_notes": "status must be one of editing, active, terminated, expired, or closed when provided. buyer and seller filters must be in Type|ID format (e.g. Broker|123, Trucker|456). created-at-min/max and updated-at-min/max must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status",
+      "default": null,
+      "validation": "editing|active|terminated|expired|closed"
+    },
+    {
+      "name": "--buyer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by buyer (Type|ID, e.g. Broker|123)",
+      "default": null,
+      "validation": "Type|ID format (e.g. Broker|123)"
+    },
+    {
+      "name": "--seller",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by seller (Type|ID, e.g. Trucker|456)",
+      "default": null,
+      "validation": "Type|ID format (e.g. Trucker|456)"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/retainers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/retainer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer.rb"
+    }
+  ]
+}

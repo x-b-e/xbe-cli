@@ -1,0 +1,86 @@
+{
+  "id": "79e5341a89d6f1713fd5604ba9ceb99cec49feb141d885c59bf792dd82a36da0",
+  "full_path": "view lineup-dispatch-shifts list",
+  "description": "List lineup dispatch shifts.",
+  "permissions": "User must be authorized to access the related lineup dispatch lineup via LineupPolicy (admin, customer manager for the lineup customer, broker member for the lineup broker, or manager laborer on a job production plan associated with the lineup).",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max/updated-at-min/updated-at-max must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--lineup-dispatch",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup dispatch ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lineup-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_dispatch_shifts_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_dispatch_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

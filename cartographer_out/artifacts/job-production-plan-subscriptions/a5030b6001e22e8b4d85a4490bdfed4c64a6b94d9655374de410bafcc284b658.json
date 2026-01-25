@@ -1,0 +1,55 @@
+{
+  "description": "Create a job production plan subscription",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job production plan ID (required)",
+      "name": "--job-production-plan",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID (required)",
+      "name": "--user",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Contact method (email_address, mobile_number)",
+      "name": "--contact-method",
+      "required": false,
+      "type": "enum",
+      "validation": "One of: email_address, mobile_number. Example: email_address."
+    }
+  ],
+  "full_path": "do job-production-plan-subscriptions create",
+  "id": "a5030b6001e22e8b4d85a4490bdfed4c64a6b94d9655374de410bafcc284b658",
+  "permissions": "Admins can create. Non-admins can create if they are practically a member of the job customer or are a member of a material supplier associated with the job production plan.",
+  "side_effects": "Creates a job production plan subscription record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_subscriptions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/job_production_plan_subscription.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_subscription_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--job-production-plan and --user are required. contact-method, when provided, must be one of email_address or mobile_number. Server requires a contact method; if omitted, it is derived from the user default contact method. User must be contactable and must practically be a member of the customer or a related material supplier. User may only have one subscription per job production plan (unique user_id + job_production_plan_id)."
+}

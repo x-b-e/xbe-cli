@@ -1,0 +1,41 @@
+{
+  "id": "4eebdaeb18845e3ac6387341970014f2ecfc572d4e0c38499762e72357948d80",
+  "full_path": "do project-transport-plan-segment-drivers delete",
+  "description": "Delete a project transport plan segment driver.",
+  "permissions": "User must be authorized for the related project transport plan segment (policy delegates to the associated project transport plan and project).",
+  "side_effects": "Deletes a project transport plan segment driver.",
+  "validation_notes": "The project transport plan segment driver ID argument is required. --confirm is required. Deletion is blocked if the segment driver is managed by a plan driver (unless deleted via a managing plan driver or owning segment cascade).",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_segment_drivers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_segment_driver.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

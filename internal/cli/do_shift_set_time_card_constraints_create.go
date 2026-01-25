@@ -273,7 +273,7 @@ func runDoShiftSetTimeCardConstraintsCreate(cmd *cobra.Command, _ []string) erro
 		ids := splitCommaSeparatedIDs(opts.ServiceTypeUnitOfMeasures)
 		if len(ids) > 0 {
 			relationships["service-type-unit-of-measures"] = map[string]any{
-				"data": buildRelationshipDataList("service-type-unit-of-measures", ids),
+				"data": buildRelationshipDataList(ids, "service-type-unit-of-measures"),
 			}
 		}
 	}
@@ -281,7 +281,7 @@ func runDoShiftSetTimeCardConstraintsCreate(cmd *cobra.Command, _ []string) erro
 		ids := splitCommaSeparatedIDs(opts.TrailerClassifications)
 		if len(ids) > 0 {
 			relationships["trailer-classifications"] = map[string]any{
-				"data": buildRelationshipDataList("trailer-classifications", ids),
+				"data": buildRelationshipDataList(ids, "trailer-classifications"),
 			}
 		}
 	}
@@ -289,7 +289,7 @@ func runDoShiftSetTimeCardConstraintsCreate(cmd *cobra.Command, _ []string) erro
 		ids := splitCommaSeparatedIDs(opts.MaterialTypes)
 		if len(ids) > 0 {
 			relationships["material-types"] = map[string]any{
-				"data": buildRelationshipDataList("material-types", ids),
+				"data": buildRelationshipDataList(ids, "material-types"),
 			}
 		}
 	}
@@ -393,7 +393,7 @@ func splitCommaSeparatedIDs(value string) []string {
 	return out
 }
 
-func buildRelationshipDataList(resourceType string, ids []string) []map[string]any {
+func buildRelationshipDataList(ids []string, resourceType string) []map[string]any {
 	data := make([]map[string]any, 0, len(ids))
 	for _, id := range ids {
 		data = append(data, map[string]any{

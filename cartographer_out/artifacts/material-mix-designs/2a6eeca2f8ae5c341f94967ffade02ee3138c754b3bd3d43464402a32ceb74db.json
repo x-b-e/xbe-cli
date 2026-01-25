@@ -1,0 +1,33 @@
+{
+  "id": "2a6eeca2f8ae5c341f94967ffade02ee3138c754b3bd3d43464402a32ceb74db",
+  "full_path": "do material-mix-designs delete",
+  "description": "Delete a material mix design",
+  "permissions": null,
+  "side_effects": "Deletes a material mix design.",
+  "validation_notes": "Requires an <id> argument. --confirm is required to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_mix_designs_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/material_mix_designs_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_mix_design_policy.rb"
+    }
+  ]
+}

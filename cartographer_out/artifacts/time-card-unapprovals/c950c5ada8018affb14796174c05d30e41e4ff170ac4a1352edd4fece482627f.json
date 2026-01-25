@@ -1,0 +1,78 @@
+{
+  "id": "c950c5ada8018affb14796174c05d30e41e4ff170ac4a1352edd4fece482627f",
+  "full_path": "do time-card-unapprovals create",
+  "description": "Unapprove a time card.",
+  "permissions": "User can create a time card unapproval when a time card is present and TimeCardApprovalPolicy#create? allows approval for that time card (delegated via TimeCardUnapprovalPolicy), including cases where: (1) TimeCardPolicy#create_or_approve? is true, (2) the user is a manager member of the customer and the customer is the time card trucker, or (3) the time card approval process is field and the job production plan recognizes the user as a time card approver.",
+  "side_effects": "Creates a time card unapproval action that moves the time card to submitted status, regenerates tender shortfall quantities for the driver day, and destroys the time card approval audit if present.",
+  "validation_notes": "--time-card is required and must be non-empty. Time card must exist. Time card status must be approved (valid_old_statuses :approved). Status cannot change if the time card is already associated with an invoice.",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time card ID (required)",
+      "default": null,
+      "validation": "Required; must be non-empty. Example: 123."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unapproval comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_unapprovals_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_unapprovals.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_card_unapprovals_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_unapproval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_unapproval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/time_card_approval_delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_unapproval.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

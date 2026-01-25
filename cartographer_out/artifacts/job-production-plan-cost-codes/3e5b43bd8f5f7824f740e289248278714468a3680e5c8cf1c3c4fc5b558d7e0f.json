@@ -1,0 +1,55 @@
+{
+  "id": "3e5b43bd8f5f7824f740e289248278714468a3680e5c8cf1c3c4fc5b558d7e0f",
+  "full_path": "do job-production-plan-cost-codes create",
+  "description": "Create a job production plan cost code",
+  "permissions": "User must be authorized to create job production plans for the related job production plan (delegated policy via job production plan).",
+  "side_effects": "Creates a job production plan cost code record.",
+  "validation_notes": "job-production-plan and cost-code relationships are create-only; project-resource-classification is optional.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": "Example: --job-production-plan 123"
+    },
+    {
+      "name": "--cost-code",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Cost code ID",
+      "default": null,
+      "validation": "Example: --cost-code 456"
+    },
+    {
+      "name": "--project-resource-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project resource classification ID",
+      "default": null,
+      "validation": "Example: --project-resource-classification 789"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_cost_codes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_cost_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_cost_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

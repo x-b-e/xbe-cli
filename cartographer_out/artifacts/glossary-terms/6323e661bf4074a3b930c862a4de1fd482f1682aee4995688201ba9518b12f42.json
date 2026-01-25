@@ -1,0 +1,19 @@
+{
+  "description": "Show the full details of a specific glossary term.",
+  "flags": [],
+  "full_path": "view glossary-terms show",
+  "id": "6323e661bf4074a3b930c862a4de1fd482f1682aee4995688201ba9518b12f42",
+  "permissions": "Read-only; accessible to anonymous and non-admin users. Policy scope for anonymous/non-admin only includes terms with non-empty definitions.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/glossary_terms_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/glossary_term_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The glossary term id argument is required."
+}

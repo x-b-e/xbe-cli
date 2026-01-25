@@ -1,0 +1,78 @@
+{
+  "description": "List project transport plan segment trailers",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan segment ID",
+      "name": "--project-transport-plan-segment",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "full_path": "view project-transport-plan-segment-trailers list",
+  "id": "93747563a10d50fde22e6c4e60f0fa3789b75ba415e8a4ae932980177ed419c6",
+  "permissions": "Allowed for users authorized to view the related project transport plan segment (policy delegates to the project_transport_plan_segment relationship).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_segment_trailers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_segment_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_segment_trailer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter timestamps must be ISO 8601 when provided."
+}

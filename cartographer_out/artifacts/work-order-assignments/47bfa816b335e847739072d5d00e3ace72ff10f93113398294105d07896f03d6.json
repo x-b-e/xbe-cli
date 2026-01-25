@@ -1,0 +1,42 @@
+{
+  "description": "Update an existing work order assignment.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Work order ID. Example: 456.",
+      "name": "--work-order",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID. Example: 789.",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do work-order-assignments update",
+  "id": "47bfa816b335e847739072d5d00e3ace72ff10f93113398294105d07896f03d6",
+  "permissions": "Allowed if the user has delegated update permission on the related work order, or if the assignment user is the current user and the user is a technician in the brokers business unit and the work orders responsible party business unit.",
+  "side_effects": "Updates relationships on a work order assignment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_work_order_assignments_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/work_order_assignment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/work_order_assignment.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires assignment ID argument and at least one of --work-order or --user. Work order and user must exist if IDs are provided. User ID must be unique per work order ID."
+}

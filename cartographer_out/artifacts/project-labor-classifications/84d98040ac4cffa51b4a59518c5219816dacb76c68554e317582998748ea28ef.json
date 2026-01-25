@@ -1,0 +1,23 @@
+{
+  "id": "84d98040ac4cffa51b4a59518c5219816dacb76c68554e317582998748ea28ef",
+  "full_path": "view project-labor-classifications show",
+  "description": "Show project labor classification details",
+  "permissions": "Visible to users within policy scope: admins can access all; non-admins can view project labor classifications for projects in their project scope or job schedule shift project scope.",
+  "side_effects": null,
+  "validation_notes": "Requires the <id> argument (project labor classification ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_labor_classifications_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_labor_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_labor_classification_policy.rb"
+    }
+  ]
+}

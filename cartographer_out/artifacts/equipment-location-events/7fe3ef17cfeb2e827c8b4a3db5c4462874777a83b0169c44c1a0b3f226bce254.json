@@ -1,0 +1,144 @@
+{
+  "id": "7fe3ef17cfeb2e827c8b4a3db5c4462874777a83b0169c44c1a0b3f226bce254",
+  "full_path": "view equipment-location-events list",
+  "description": "List equipment location events.",
+  "permissions": "Admins can list all equipment location events. Non-admin users can only see events for equipment they are authorized to view via the equipment policy scope.",
+  "side_effects": null,
+  "validation_notes": "Date-time filters (event-at-min, event-at-max, created-at-min, created-at-max, updated-at-min, updated-at-max) must be non-empty and parseable date-time values. is-event-at, is-created-at, and is-updated-at accept only true or false. provenance must be one of gps or map.",
+  "flags": [
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--updated-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum event timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid date-time value (ISO 8601)."
+    },
+    {
+      "name": "--event-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum event timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid date-time value (ISO 8601)."
+    },
+    {
+      "name": "--is-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has event timestamp (true/false)",
+      "default": null,
+      "validation": "Accepts only true or false."
+    },
+    {
+      "name": "--provenance",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by provenance (gps, map)",
+      "default": null,
+      "validation": "gps, map"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid date-time value (ISO 8601)."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid date-time value (ISO 8601)."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "Accepts only true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid date-time value (ISO 8601)."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid date-time value (ISO 8601)."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "Accepts only true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_location_events_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_location_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/location_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/location_event.rb"
+    }
+  ]
+}

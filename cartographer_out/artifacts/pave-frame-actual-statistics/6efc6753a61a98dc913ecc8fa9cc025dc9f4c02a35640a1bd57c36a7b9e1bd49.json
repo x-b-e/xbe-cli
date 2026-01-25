@@ -1,0 +1,127 @@
+{
+  "description": "Create a pave frame actual statistic",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Latitude (-90 to 90)",
+      "name": "--latitude",
+      "required": true,
+      "type": "string",
+      "validation": "Number between -90 and 90"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Longitude (-180 to 180)",
+      "name": "--longitude",
+      "required": true,
+      "type": "string",
+      "validation": "Number between -180 and 180"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Minimum hourly temperature (F)",
+      "name": "--hour-minimum-temp-f",
+      "required": true,
+      "type": "string",
+      "validation": "Number between -50 and 150"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum hourly precipitation (in)",
+      "name": "--hour-maximum-precip-in",
+      "required": true,
+      "type": "string",
+      "validation": "Number between 0 and 10"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Minimum paving hour percent (0-1)",
+      "name": "--window-minimum-paving-hour-pct",
+      "required": true,
+      "type": "string",
+      "validation": "Number between 0 and 1"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Window (day/night)",
+      "name": "--window",
+      "required": false,
+      "type": "enum",
+      "validation": "day or night"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Aggregation level (day_of_year, week, month, year)",
+      "name": "--agg-level",
+      "required": true,
+      "type": "enum",
+      "validation": "day_of_year, week, month, year"
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Calculate results before create",
+      "name": "--calculate-results-before-create",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Minimum date (YYYY-MM-DD)",
+      "name": "--date-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum date (YYYY-MM-DD)",
+      "name": "--date-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Work days (comma-separated, 0=Sunday ... 6=Saturday)",
+      "name": "--work-days",
+      "required": true,
+      "type": "array",
+      "validation": "Comma-separated integers 0-6; must include at least one"
+    }
+  ],
+  "full_path": "do pave-frame-actual-statistics create",
+  "id": "6efc6753a61a98dc913ecc8fa9cc025dc9f4c02a35640a1bd57c36a7b9e1bd49",
+  "permissions": "User must be an admin or a broker membership manager.",
+  "side_effects": "Creates a pave frame actual statistic, may reverse-geocode and set name, and may compute results/results_at during or after creation depending on calculate_results_before_create.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_pave_frame_actual_statistics_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/pave_frame_actual_statistic.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/pave_frame_actual_statistic_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/pave_frame_actual_statistic_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Required fields: latitude (-90 to 90), longitude (-180 to 180), hour-minimum-temp-f (-50 to 150), hour-maximum-precip-in (0 to 10), window-minimum-paving-hour-pct (0 to 1), agg-level (day_of_year/week/month/year), work-days (comma-separated integers 0-6). Work-days must parse to at least one integer; invalid integers are rejected."
+}

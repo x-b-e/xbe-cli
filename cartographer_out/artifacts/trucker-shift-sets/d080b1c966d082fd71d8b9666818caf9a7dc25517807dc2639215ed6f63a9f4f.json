@@ -1,0 +1,140 @@
+{
+  "id": "d080b1c966d082fd71d8b9666818caf9a7dc25517807dc2639215ed6f63a9f4f",
+  "full_path": "do trucker-shift-sets update",
+  "description": "Update a trucker shift set (driver day).",
+  "permissions": "Admins can update. Non-admins can update if they are a member of the broker for the shift set's trucker, if they manage a customer that is linked to the trucker, or if they are the driver/shift driver and only change odometer_start_value, odometer_end_value, or odometer_unit_of_measure_explicit.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (trucker shift set ID). At least one field must be provided to update. explicit-mobilization-before-minutes, explicit-pre-trip-minutes, and explicit-post-trip-minutes must be integers >= 0 when provided. odometer-start-value and odometer-end-value must be numeric between 0 and 1,000,000 when provided, and odometer-end-value must be >= odometer-start-value when both are set. odometer-unit-of-measure-explicit must be one of mile or kilometer.",
+  "flags": [
+    {
+      "name": "--new-shift-ids",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New shift IDs to add (comma-separated)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-mobilization-before-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Explicit mobilization before minutes",
+      "default": null,
+      "validation": ">= 0"
+    },
+    {
+      "name": "--explicit-pre-trip-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Explicit pre-trip minutes",
+      "default": null,
+      "validation": ">= 0"
+    },
+    {
+      "name": "--explicit-post-trip-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Explicit post-trip minutes",
+      "default": null,
+      "validation": ">= 0"
+    },
+    {
+      "name": "--is-customer-amount-constraint-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable customer amount constraint",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-broker-amount-constraint-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable broker amount constraint",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-time-sheet-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable time sheets",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--odometer-start-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Odometer start value",
+      "default": null,
+      "validation": "numeric between 0 and 1,000,000"
+    },
+    {
+      "name": "--odometer-end-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Odometer end value",
+      "default": null,
+      "validation": "numeric between 0 and 1,000,000"
+    },
+    {
+      "name": "--odometer-unit-of-measure-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Odometer unit of measure (mile|kilometer)",
+      "default": null,
+      "validation": "One of: mile, kilometer."
+    },
+    {
+      "name": "--explicit-broker-amount-constraint",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit broker amount constraint ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trips",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trip IDs to set (comma-separated)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_shift_sets_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_shift_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_shift_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_shift_set.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tractor_odometer_reading.rb"
+    }
+  ]
+}

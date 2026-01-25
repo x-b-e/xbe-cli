@@ -1,0 +1,55 @@
+{
+  "description": "Create a new equipment supplier.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Supplier name (required)",
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "validation": "Example: --name \"Acme Equipment\""
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": "Example: --broker 123"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Supplier contract number",
+      "name": "--contract-number",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --contract-number \"EQ-2024-01\""
+    }
+  ],
+  "full_path": "do equipment-suppliers create",
+  "id": "14e2f04b98a84d8ea574324cd06fba5e23e80dbf56597e0779a09f824348d6de",
+  "permissions": "Allowed for admin users or users who are members of the broker specified by --broker.",
+  "side_effects": "Creates a new equipment supplier associated with the provided broker.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_equipment_suppliers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/equipment_supplier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_supplier_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/equipment_supplier.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--name and --broker are required. The broker relationship is required. Name must be present and unique within the broker. Contract number, when provided, must be unique within the broker."
+}

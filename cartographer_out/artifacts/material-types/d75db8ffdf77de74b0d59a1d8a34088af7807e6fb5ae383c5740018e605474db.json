@@ -1,0 +1,33 @@
+{
+  "id": "d75db8ffdf77de74b0d59a1d8a34088af7807e6fb5ae383c5740018e605474db",
+  "full_path": "do material-types delete",
+  "description": "Delete a material type.",
+  "permissions": "Allowed for admins. Non-admins can delete only when they are a manager member of the material supplier or a member of its broker; deletion is denied if the material supplier is blank.",
+  "side_effects": "Deletes the material type if allowed; also removes related associations (rate material types, material site supply/dump links, shift constraints, and shift scope material type references) before destroy.",
+  "validation_notes": "--confirm is required. Material types in use may not be deletable; deletion fails when the server reports cannot-delete reasons.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_type.rb"
+    }
+  ]
+}

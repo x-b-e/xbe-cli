@@ -1,0 +1,33 @@
+{
+  "id": "e49991da963b930acf8580fec9253076bf791e13fdf0419083ba9ba437ab37f5",
+  "full_path": "do developer-references delete",
+  "description": "Delete a developer reference.",
+  "permissions": "Admin users can delete developer references. Non-admin users can delete a developer reference only if they are authorized to update the referenced subject (subject policy update? must allow).",
+  "side_effects": "Deletes a developer reference record.",
+  "validation_notes": "Requires the <id> argument and --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": "Must be set to proceed with deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_references_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_reference_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/developer_references_controller.rb"
+    }
+  ]
+}

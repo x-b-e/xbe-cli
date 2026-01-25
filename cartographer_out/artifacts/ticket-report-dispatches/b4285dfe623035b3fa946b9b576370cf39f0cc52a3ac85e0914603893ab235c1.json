@@ -1,0 +1,45 @@
+{
+  "description": "Create a ticket report dispatch",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Ticket report ID to dispatch (required)",
+      "name": "--ticket-report",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    }
+  ],
+  "full_path": "do ticket-report-dispatches create",
+  "id": "b4285dfe623035b3fa946b9b576370cf39f0cc52a3ac85e0914603893ab235c1",
+  "permissions": "Allowed for users who can create the related ticket report (delegated to TicketReportPolicy#create?; admins or broker members for the ticket report).",
+  "side_effects": "Creates a ticket report dispatch and triggers asynchronous fulfillment processing after commit.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_ticket_report_dispatches_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/ticket_report_dispatch_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/ticket_report_dispatch_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/delegated_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/ticket_report_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/ticket_report_dispatch.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--ticket-report is required. Ticket report must have a transform result with no errors and no transform error."
+}

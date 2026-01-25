@@ -1,0 +1,42 @@
+{
+  "id": "5a0c44df5e6d5a57c29a9b02c92fe0493bef664617cd0b37b74859e2435f6a17",
+  "full_path": "do broker-certification-types create",
+  "description": "Create a broker certification type",
+  "permissions": "Admins can create broker certification types. Non-admins can create broker certification types when they have update permission on the broker.",
+  "side_effects": "Creates a broker certification type record.",
+  "validation_notes": "--broker and --certification-type are required and must be non-empty. The certification type must belong to the broker.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "Required; must be non-empty. Example: 123."
+    },
+    {
+      "name": "--certification-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Certification type ID (required)",
+      "default": null,
+      "validation": "Required; must be non-empty. Example: 456."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_certification_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_certification_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/broker_certification_type.rb"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "59fe16219034a3a7fde0c890f5ae15532f8be3c9a43a5c14a9a29788d85a8aa3",
+  "full_path": "do job-production-plan-recap-generations create",
+  "description": "Generate a job production plan recap",
+  "permissions": "User must be authorized to show the related job production plan (create is delegated to job_production_plan show?).",
+  "side_effects": "Schedules/queues asynchronous recap generation for the specified job production plan.",
+  "validation_notes": "--job-production-plan is required. Job production plan must be approved or complete to generate a recap.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": "Required. Example: 123."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_recap_generations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_recap_generation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_recap_generation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_recap_generation_resource.rb"
+    }
+  ]
+}

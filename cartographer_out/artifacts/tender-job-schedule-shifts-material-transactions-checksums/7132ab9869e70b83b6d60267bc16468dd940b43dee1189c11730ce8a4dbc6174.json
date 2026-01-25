@@ -1,0 +1,77 @@
+{
+  "id": "7132ab9869e70b83b6d60267bc16468dd940b43dee1189c11730ce8a4dbc6174",
+  "full_path": "do tender-job-schedule-shifts-material-transactions-checksums create",
+  "description": "Create a tender job schedule shift material transaction checksum",
+  "permissions": "User must be an admin or be authorized to update the related job production plan when job_production_plan_id is provided.",
+  "side_effects": "Creates a checksum record for the specified job number and transaction window.",
+  "validation_notes": "raw_job_number, transaction_at_min, and transaction_at_max are required. raw_job_number must parse into one or more raw_job_numbers. transaction_at_min and transaction_at_max are parsed as date-times (ISO 8601 in CLI help).",
+  "flags": [
+    {
+      "name": "--raw-job-number",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Raw job number (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated values allowed (e.g., 3882 or 3882,3883)."
+    },
+    {
+      "name": "--transaction-at-min",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Transaction window start (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--transaction-at-max",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Transaction window end (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-02T00:00:00Z)."
+    },
+    {
+      "name": "--material-site-ids",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comma-separated material site IDs",
+      "default": null,
+      "validation": "Comma-separated IDs (e.g., 101,102)."
+    },
+    {
+      "name": "--job-production-plan-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_job_schedule_shifts_material_transactions_checksums_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shifts_material_transactions_checksum_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_job_schedule_shifts_material_transactions_checksum.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shifts_material_transactions_checksum_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "config/routes.rb"
+    }
+  ]
+}

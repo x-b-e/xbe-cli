@@ -1,0 +1,29 @@
+{
+  "id": "b4aa4cbe90d0016241574e36f6719fec869de7fd3ec547a6290dfe540b90a039",
+  "full_path": "do broker-commitments delete",
+  "description": "Delete a broker commitment.",
+  "permissions": "User must be an admin or a manager member of the broker (buyer) on the commitment.",
+  "side_effects": "Deletes a broker commitment record.",
+  "validation_notes": "The broker commitment ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_commitments_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_commitment_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "ece3c45856a9451496801f296828554c7119310f89064a9c824273e65d4f2da0",
+  "full_path": "do material-site-reading-material-types create",
+  "description": "Create a new material site reading material type.",
+  "permissions": "User must be practically a member of the broker for the material site or be a manager member of the material supplier for the material site.",
+  "side_effects": "Creates a material site reading material type mapping.",
+  "validation_notes": "Requires material site and external ID. External ID must be unique per material site and integration config. If a material type is provided, it must belong to the same material supplier as the material site.",
+  "flags": [
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material site ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "External identifier (e.g., \"EXT-100\").",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material type ID (e.g., 456).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_reading_material_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_reading_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_reading_material_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_reading_material_type_resource.rb"
+    }
+  ]
+}

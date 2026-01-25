@@ -1,0 +1,60 @@
+{
+  "id": "2d19b8f0b6e75d422dcb0c3e7a24e88ec2e1b9a6a510860f27fa849d2e9d24ac",
+  "full_path": "view transport-references list",
+  "description": "List transport references.",
+  "permissions": "User must be authorized to view the transport reference via the subject policy; scope includes references whose subject is a TransportOrder, TransportOrderStop, or TransportOrderMaterial within the user policy scope.",
+  "side_effects": null,
+  "validation_notes": "Subject filtering is applied only when both subject type and subject ID are provided.",
+  "flags": [
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject type (e.g., transport-orders, TransportOrder)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--key",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by reference key",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by reference position",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/transport_references_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_reference_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_reference_resource.rb"
+    }
+  ]
+}

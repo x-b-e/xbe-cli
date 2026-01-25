@@ -1,0 +1,23 @@
+{
+  "id": "890c92273dfdaf5a2cfb1c97ba96fc0320cffbb952e1da676450680a34821dac",
+  "full_path": "view reaction-classifications list",
+  "description": "List reaction classifications.",
+  "permissions": "Any authenticated user can list reaction classifications.",
+  "side_effects": "None.",
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/reaction_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/reaction_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/reaction_classification_policy_spec.rb"
+    }
+  ]
+}

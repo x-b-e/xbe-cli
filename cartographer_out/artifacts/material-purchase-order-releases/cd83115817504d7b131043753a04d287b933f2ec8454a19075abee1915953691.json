@@ -1,0 +1,70 @@
+{
+  "description": "Update a material purchase order release.",
+  "flags": [
+    {
+      "description": "Release status (editing,approved,redeemed,closed)",
+      "name": "status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing, approved, redeemed, closed"
+    },
+    {
+      "description": "Release quantity",
+      "name": "quantity",
+      "required": false,
+      "type": "string",
+      "validation": "numeric, greater than 0"
+    },
+    {
+      "description": "Skip tender shift match validation",
+      "name": "skip-validate-tender-job-schedule-shift-match",
+      "required": false,
+      "type": "boolean"
+    },
+    {
+      "description": "Trucker ID",
+      "name": "trucker",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Tender job schedule shift ID",
+      "name": "tender-job-schedule-shift",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Job schedule shift ID",
+      "name": "job-schedule-shift",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "full_path": "do material-purchase-order-releases update",
+  "id": "cd83115817504d7b131043753a04d287b933f2ec8454a19075abee1915953691",
+  "permissions": "User must be authorized to manage the related purchase order via the MaterialPurchaseOrderRelease policy (delegated to purchase orders). If the only change is tender_job_schedule_shift_id, a managed trucker for the release may update it; otherwise the standard purchase order permissions apply for admins or members of the purchase order broker, customer, or material supplier organizations.",
+  "side_effects": "Server may derive the job or tender shift relationship based on the provided shift (tender shift sets job shift, or job shift with accepted broker tender sets tender shift).",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_purchase_order_releases_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_purchase_order_release_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_purchase_order_release.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_release_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "status must be one of editing, approved, redeemed, closed. quantity must be numeric and greater than 0 when provided. skip-validate-tender-job-schedule-shift-match skips tender shift matching validation only when the flag is provided. purchase_order cannot be changed after creation. Sum of release quantities for a purchase order cannot exceed the purchase order quantity. If tender_job_schedule_shift is set, it must be a broker tender and match the release (trucker, customer, time range, material supplier, material site, and material type) unless skip-validate-tender-job-schedule-shift-match is true; if job_schedule_shift is not set then trucker is required. job_schedule_shift must match tender_job_schedule_shift when a tender shift is present and must match the release (customer, time range, material supplier, material site, material type) unless skip_validate_job_schedule_shift_match is true (not exposed). Releases cannot be approved unless the purchase order is approved. status cannot be changed when a redemption exists. trucker and tender_job_schedule_shift cannot be changed when the release is redeemed. trucker and tender_job_schedule_shift cannot be set when the release is not active (status not approved or redeemed)."
+}

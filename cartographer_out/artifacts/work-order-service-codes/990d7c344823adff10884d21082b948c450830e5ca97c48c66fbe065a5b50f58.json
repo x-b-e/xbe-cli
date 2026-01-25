@@ -1,0 +1,55 @@
+{
+  "id": "990d7c344823adff10884d21082b948c450830e5ca97c48c66fbe065a5b50f58",
+  "full_path": "do work-order-service-codes create",
+  "description": "Create a new work order service code",
+  "permissions": "Admins or broker manager members can create work order service codes for their broker.",
+  "side_effects": "Creates a work order service code.",
+  "validation_notes": "--code and --broker are required. Code must be present and unique per broker. Broker is required.",
+  "flags": [
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Service code value (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_work_order_service_codes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/work_order_service_code.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/work_order_service_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/work_order_service_code_resource.rb"
+    }
+  ]
+}

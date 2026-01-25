@@ -1,0 +1,49 @@
+{
+  "id": "0dac83dac57ce572987cba2bd27da3ce5d4abc7e981bd7173e9ebad04a5e79ee",
+  "full_path": "do lineup-dispatch-fulfillment-clerks create",
+  "description": "Create a lineup dispatch fulfillment clerk.",
+  "permissions": "User must be authorized to create the related lineup dispatch; this permission delegates to the lineup policy for the associated lineup (admin, customer manager or broker manager, or a manager laborer tied to one of the lineup job production plans).",
+  "side_effects": "Creates a lineup dispatch fulfillment clerk and triggers the asynchronous fulfillment workflow by enqueuing perform_async for the lineup dispatch.",
+  "validation_notes": "Lineup dispatch relationship is required. The CLI rejects empty --lineup-dispatch, and the model validates presence of lineup_dispatch before performing async fulfillment.",
+  "flags": [
+    {
+      "name": "--lineup-dispatch",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup dispatch ID (required)",
+      "default": null,
+      "validation": "Required. Example: 123."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_dispatch_fulfillment_clerks_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_dispatch_fulfillment_clerk_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_fulfillment_clerk_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_dispatch_fulfillment_clerk.rb"
+    }
+  ]
+}

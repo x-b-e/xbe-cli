@@ -1,0 +1,42 @@
+{
+  "id": "14411b87203392e703adb99a3f04be2a42154f034e3687b4e3cca1e7f3d22fc9",
+  "full_path": "view mechanic-user-associations list",
+  "description": "List mechanic user associations with filters and pagination.",
+  "permissions": "Admin users can list all mechanic user associations. Non-admin users can list associations for brokers they are members of (broker memberships).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maintenance-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maintenance requirement ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/mechanic_user_associations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/mechanic_user_association_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/mechanic_user_association_policy.rb"
+    }
+  ]
+}

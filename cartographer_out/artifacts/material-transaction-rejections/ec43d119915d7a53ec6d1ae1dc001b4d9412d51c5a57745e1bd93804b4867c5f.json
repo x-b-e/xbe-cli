@@ -1,0 +1,54 @@
+{
+  "id": "ec43d119915d7a53ec6d1ae1dc001b4d9412d51c5a57745e1bd93804b4867c5f",
+  "full_path": "do material-transaction-rejections create",
+  "description": "Reject a material transaction.",
+  "permissions": "Allowed for admins, users who are practically customer members of the material transaction's likely customer (or its broker), or users who are members of the material supplier associated with the material transaction.",
+  "side_effects": "Creates a material-transaction-rejection action that transitions the material transaction to rejected; may update time card quantities, maintain unloaded trips, toggle unmanaged shift alive status, export a Connex e-ticket, and adjust related raw material transaction voiding for certain previous statuses.",
+  "validation_notes": "--material-transaction is required and must refer to an existing material transaction. The material transaction must have a prior status of invalidated, denied, submitted, accepted, editing, or unmatched before rejection. Rejection is blocked when the material transaction has invoices preventing changes, when it affects an approved time card, when it is recently created in editing status, or when a user-sourced material transaction is not related to a shift.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material transaction ID",
+      "default": null,
+      "validation": "Required; must refer to an existing material transaction."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Rejection comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_rejections_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_rejection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_acceptance_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_rejection.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_action.rb"
+    }
+  ]
+}

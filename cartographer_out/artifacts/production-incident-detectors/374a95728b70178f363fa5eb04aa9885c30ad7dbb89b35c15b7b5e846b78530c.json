@@ -1,0 +1,60 @@
+{
+  "id": "374a95728b70178f363fa5eb04aa9885c30ad7dbb89b35c15b7b5e846b78530c",
+  "full_path": "do production-incident-detectors create",
+  "description": "Run production incident detection for a job production plan",
+  "permissions": null,
+  "side_effects": "Creates a production incident detector run and computes detected incidents for the job production plan.",
+  "validation_notes": "Job production plan is required.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--lookahead-offset",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Lookahead offset in minutes",
+      "default": "60",
+      "validation": null
+    },
+    {
+      "name": "--minutes-threshold",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Minutes threshold in minutes",
+      "default": "60",
+      "validation": null
+    },
+    {
+      "name": "--quantity-threshold",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Quantity threshold in units",
+      "default": "75",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_production_incident_detectors_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/production_incident_detector_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/production_incident_detector.rb"
+    }
+  ]
+}

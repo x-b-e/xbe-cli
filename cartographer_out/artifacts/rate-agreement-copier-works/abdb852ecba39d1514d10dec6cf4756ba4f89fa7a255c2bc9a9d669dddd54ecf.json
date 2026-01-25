@@ -1,0 +1,73 @@
+{
+  "id": "abdb852ecba39d1514d10dec6cf4756ba4f89fa7a255c2bc9a9d669dddd54ecf",
+  "full_path": "view rate-agreement-copier-works list",
+  "description": "List rate agreement copier works with filtering and pagination.",
+  "permissions": "Results are limited by RateAgreementCopierWorkPolicy scope, which restricts access to copier works tied to rate agreements the user can access via the RateAgreement policy scope.",
+  "side_effects": null,
+  "validation_notes": "target-organization-type accepts Customer or Trucker (case-insensitive; plural forms are normalized).",
+  "flags": [
+    {
+      "name": "--rate-agreement-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by rate agreement template ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--target-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by target organization type (Customer, Trucker)",
+      "default": null,
+      "validation": "Customer or Trucker (case-insensitive; plural forms accepted)."
+    },
+    {
+      "name": "--target-organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by target organization ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/rate_agreement_copier_works_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/rate_agreement_copier_works_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/rate_agreement_copier_work_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/rate_agreement_copier_work_policy.rb"
+    }
+  ]
+}

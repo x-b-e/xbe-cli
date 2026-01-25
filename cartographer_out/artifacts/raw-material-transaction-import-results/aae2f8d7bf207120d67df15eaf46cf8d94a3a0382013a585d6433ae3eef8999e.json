@@ -1,0 +1,176 @@
+{
+  "id": "aae2f8d7bf207120d67df15eaf46cf8d94a3a0382013a585d6433ae3eef8999e",
+  "full_path": "view raw-material-transaction-import-results list",
+  "description": "List raw material transaction import results",
+  "permissions": "Admins can view all raw material transaction import results. Non-admin users can only view results for brokers where they have broker memberships (scoped by broker_id).",
+  "side_effects": null,
+  "validation_notes": "--source accepts Type|ID values and supports comma-separated entries. --source-id is used with --source-type. --has-errors, --is-earliest-created-transaction-at, --is-latest-created-transaction-at, and --is-disconnected-at must be strict booleans (true/false). Date-time filters require valid date-time values (ISO 8601) and cannot be empty.",
+  "flags": [
+    {
+      "name": "--source",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by source (Type|ID, comma-separated for multiple)",
+      "default": null,
+      "validation": "Type|ID; comma-separated for multiple"
+    },
+    {
+      "name": "--source-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by source type (e.g., MaterialSite or material-sites)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--source-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by source ID (used with --source-type)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--batch-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by batch ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--location-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-errors",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by error status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--earliest-created-transaction-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by earliest created transaction on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--earliest-created-transaction-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by earliest created transaction on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-earliest-created-transaction-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of earliest created transaction (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--latest-created-transaction-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by latest created transaction on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--latest-created-transaction-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by latest created transaction on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-latest-created-transaction-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of latest created transaction (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--disconnected-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by disconnected-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--disconnected-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by disconnected-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-disconnected-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of disconnected-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/raw_material_transaction_import_results_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_material_transaction_import_result_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_material_transaction_import_result_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

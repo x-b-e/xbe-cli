@@ -1,0 +1,33 @@
+{
+  "description": "Delete a laborer",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do laborers delete",
+  "id": "de1267e3ea19c0f389233226edfeb531dbe1931dfc5b6dc3d06f7fa14a98b6ce",
+  "permissions": "User must be an admin, an organization manager for the laborer\u2019s organization, or a broker member.",
+  "side_effects": "Deletes the laborer record if allowed.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_laborers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/laborer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/laborer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires a laborer ID argument. --confirm must be provided. Deletion is blocked if the laborer is assigned on a labor requirement."
+}

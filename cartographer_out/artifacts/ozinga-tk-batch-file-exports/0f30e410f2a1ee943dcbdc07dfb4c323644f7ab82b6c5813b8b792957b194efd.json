@@ -1,0 +1,50 @@
+{
+  "id": "0f30e410f2a1ee943dcbdc07dfb4c323644f7ab82b6c5813b8b792957b194efd",
+  "full_path": "do ozinga-tk-batch-file-exports create",
+  "description": "Create an Ozinga TK batch file export.",
+  "permissions": "User must be authorized to create the referenced organization invoices batch file (delegated OrganizationInvoicesBatchFilePolicy create?).",
+  "side_effects": "Creates an Ozinga TK batch file export; unless dry-run is set, submits the processed organization invoices batch file to the Ozinga TK integration and records export results or errors.",
+  "validation_notes": "organization_invoices_batch_file is required. The batch file must belong to a valid Ozinga organization, must be a TK batch export file, and must have completed processing (status processed); exports are rejected if formatting failed or if processing is incomplete. Export requires a valid exporter integration; errors are returned if no exporter is available or it cannot connect.",
+  "flags": [
+    {
+      "name": "--organization-invoices-batch-file",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization invoices batch file ID. Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--dry-run",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate and preview export without sending.",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ozinga_tk_batch_file_exports.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ozinga_tk_batch_file_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ozinga_tk_batch_file_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ozinga_tk_batch_file_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/ozinga_tk_batch_file_export.rb"
+    }
+  ]
+}

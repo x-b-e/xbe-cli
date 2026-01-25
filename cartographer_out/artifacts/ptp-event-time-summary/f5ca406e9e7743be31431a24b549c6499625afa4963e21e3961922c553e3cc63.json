@@ -1,0 +1,72 @@
+{
+  "id": "f5ca406e9e7743be31431a24b549c6499625afa4963e21e3961922c553e3cc63",
+  "full_path": "summarize ptp-event-time-summary create",
+  "description": "Create a project transport plan event time summary.",
+  "permissions": "Authenticated user with a persisted account. Results are scoped to the user’s ProjectTransportPlan policy scope unless the user is admin.",
+  "side_effects": "Server generates a summary from project transport plan event time data; no persistent changes are described.",
+  "validation_notes": "Server defaults filters to event_kind=actual and has_full_duration=true when not provided. group-by cannot include start_at_confidence or end_at_confidence; invalid values return 400. --filter values must be key=value and key is required; invalid format returns an error. --filters must be valid JSON object. filter[event_date_local], _min, _max must be YYYY-MM-DD parseable dates. filter[broker], [driver], [event_type], [location], [material_type], [plan], [project], [project_transport_organization] must be integer IDs (one or many). filter[plan_status] must be a valid project_transport_plan_status value; invalid values yield no results. filter[event_kind] must match project_transport_plan_event_time_kind (help text lists actual/other). filter[is_app_owned], [is_manual_override], [transport_order_is_managed] are booleans. filter[start_at_confidence_min/max] and filter[end_at_confidence_min/max] must be numeric floats between 0.0 and 1.0 or the API returns 400.",
+  "flags": [
+    {
+      "name": "--all-metrics",
+      "required": false,
+      "type": "boolean",
+      "description": "Include all metrics returned by the API",
+      "default": "false"
+    },
+    {
+      "name": "--filter",
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable)",
+      "validation": "Each entry must be key=value; key is required.",
+      "default": null
+    },
+    {
+      "name": "--filters",
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. '{\"broker\":\"123\"}')",
+      "validation": "Must be valid JSON object.",
+      "default": null
+    },
+    {
+      "name": "--group-by",
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to event_type unless set.",
+      "default": "event_type"
+    },
+    {
+      "name": "--metric",
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable)",
+      "default": null
+    },
+    {
+      "name": "--metrics",
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated)",
+      "default": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ptp_event_time_summary_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_time_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_time_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_event_time_summary.rb"
+    }
+  ]
+}

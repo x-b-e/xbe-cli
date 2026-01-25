@@ -1,0 +1,64 @@
+{
+  "id": "9929877a221166bba95afa71266327907a6b16f7707afd532be7c5629bb17fa5",
+  "full_path": "do lineups create",
+  "description": "Create a lineup",
+  "permissions": "Admins can create lineups. Non-admins can create lineups for a customer if they are a customer manager for that customer (considering broker context) or if they manage laborers on job production plans tied to the lineup; policy allows creation when customer is nil so validation can handle it.",
+  "side_effects": "Creates a lineup record.",
+  "validation_notes": "--customer, --start-at-min, and --start-at-max are required. start-at-min/start-at-max must be ISO 8601 timestamps. start-at-max must be after start-at-min. A customer cannot have an overlapping lineup with the same name (case-insensitive); unnamed lineups also cannot overlap within the same time range.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Lineup name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Earliest start time (ISO 8601, required)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--start-at-max",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Latest start time (ISO 8601, required)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineups_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

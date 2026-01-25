@@ -1,0 +1,26 @@
+{
+  "id": "d8af260e64d8da85ca8511122596b128db34d641d81a892f5b78a67c094b71af",
+  "full_path": "do equipment-movement-trip-customer-cost-allocations delete",
+  "description": "Delete a customer cost allocation.",
+  "permissions": "Access is delegated to the related equipment movement trip via EquipmentMovementTripCustomerCostAllocationPolicy; the user must be authorized on the trip to delete its cost allocation.",
+  "side_effects": "Deletes the specified equipment movement trip customer cost allocation.",
+  "validation_notes": "Requires <id> argument (allocation ID). --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_trip_customer_cost_allocations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_customer_cost_allocation_policy.rb"
+    }
+  ]
+}

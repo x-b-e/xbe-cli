@@ -1,0 +1,51 @@
+{
+  "id": "738cfc7b35f4ae02088627c176d498fc8cb473b7b9fccd96a39a45037a783fe8",
+  "full_path": "view material-site-subscriptions list",
+  "description": "List material site subscriptions with filtering.",
+  "permissions": "Admins can list all material site subscriptions. Non-admin users can list subscriptions for material sites belonging to material suppliers or brokers they are members of (per policy scope).",
+  "side_effects": null,
+  "validation_notes": "contact-method filter must be one of: email_address, mobile_number. user and material-site filters accept comma-separated IDs.",
+  "flags": [
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by contact method (email_address, mobile_number)",
+      "default": null,
+      "validation": "one of: email_address, mobile_number"
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_site_subscriptions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_subscription_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_subscription_policy.rb"
+    }
+  ]
+}

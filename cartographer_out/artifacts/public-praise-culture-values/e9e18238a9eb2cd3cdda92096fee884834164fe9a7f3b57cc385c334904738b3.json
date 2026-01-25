@@ -1,0 +1,23 @@
+{
+  "id": "e9e18238a9eb2cd3cdda92096fee884834164fe9a7f3b57cc385c334904738b3",
+  "full_path": "view public-praise-culture-values show",
+  "description": "Show public praise culture value details",
+  "permissions": "Allowed when the user can access the related public praise via the PublicPraise policy scope (delegated policy scope).",
+  "side_effects": null,
+  "validation_notes": "The public praise culture value ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/public_praise_culture_values_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_culture_value_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_policy.rb"
+    }
+  ]
+}

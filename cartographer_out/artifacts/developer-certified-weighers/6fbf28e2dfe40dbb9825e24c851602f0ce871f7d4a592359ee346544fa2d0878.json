@@ -1,0 +1,23 @@
+{
+  "id": "6fbf28e2dfe40dbb9825e24c851602f0ce871f7d4a592359ee346544fa2d0878",
+  "full_path": "view developer-certified-weighers show",
+  "description": "Show developer certified weigher details",
+  "permissions": "User must be authorized to view the developer associated with the certified weigher (developer must be in the user policy scope).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/developer_certified_weighers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_certified_weigher_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_certified_weigher_resource.rb"
+    }
+  ]
+}

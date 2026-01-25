@@ -1,0 +1,240 @@
+{
+  "id": "927951ff5327ece304421cb80e17d6a78aeeb3d5b8d4a637410991532522f6ba",
+  "full_path": "view incidents list",
+  "description": "List incidents.",
+  "permissions": "Authenticated users with access per IncidentPolicy scope. Admins can view all incidents; non-admins can list incidents whose subjects fall within the user policy scopes (e.g., subjects they can mutate) or where policy scope permits access.",
+  "side_effects": null,
+  "validation_notes": "Filters marked (true/false) expect literal true or false values. subject-type must be a valid incident subject type.",
+  "flags": [
+    {
+      "name": "--assignee",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by assignee user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--end-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum end timestamp",
+      "default": null,
+      "validation": "timestamp"
+    },
+    {
+      "name": "--end-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum end timestamp",
+      "default": null,
+      "validation": "timestamp"
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has equipment (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--has-live-action-items",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has live action items (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--has-parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has parent (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--incident-tag",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident tag ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--incident-tag-slug",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident tag slug",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by kind",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search query",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--severity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by severity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start timestamp",
+      "default": null,
+      "validation": "timestamp"
+    },
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start timestamp",
+      "default": null,
+      "validation": "timestamp"
+    },
+    {
+      "name": "--start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start date",
+      "default": null,
+      "validation": "date"
+    },
+    {
+      "name": "--start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start date",
+      "default": null,
+      "validation": "date"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject type",
+      "default": null,
+      "validation": "valid incident subject type"
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incidents_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_resource.rb"
+    }
+  ]
+}

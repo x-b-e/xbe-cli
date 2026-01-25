@@ -1,0 +1,23 @@
+{
+  "id": "e21241b31e9a3125c8c2797009787e12d37868a71af6a8b8a646e56ecef3bd2d",
+  "full_path": "view hos-violations show",
+  "description": "Show the full details of an HOS violation.",
+  "permissions": "Read-only; non-admin access is limited to HOS violations for brokers the user is a member of, per policy scope.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "The <id> argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_violations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_violation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_violation_policy.rb"
+    }
+  ]
+}

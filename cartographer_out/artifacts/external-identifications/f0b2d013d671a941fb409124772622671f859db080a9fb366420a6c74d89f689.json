@@ -1,0 +1,29 @@
+{
+  "id": "f0b2d013d671a941fb409124772622671f859db080a9fb366420a6c74d89f689",
+  "full_path": "do external-identifications delete",
+  "description": "Delete an external identification.",
+  "permissions": "User must be able to update the identified record (authorization is delegated to the identifies policy).",
+  "side_effects": "Deletes the external identification.",
+  "validation_notes": "--confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_external_identifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/external_identification_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "description": "Show the full details of a lineup scenario trailer lineup job schedule shift.",
+  "flags": [],
+  "full_path": "view lineup-scenario-trailer-lineup-job-schedule-shifts show",
+  "id": "402b043643c4988b36bb4128299db5c2406440c266072d430c2de367006d6605",
+  "permissions": "User must be an admin or a member of the broker that owns the related lineup scenario (access is scoped via the lineup scenario associated to the trailer and shift).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/lineup_scenario_trailer_lineup_job_schedule_shifts_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_trailer_lineup_job_schedule_shift_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trailer_lineup_job_schedule_shift_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required."
+}

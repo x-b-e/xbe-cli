@@ -1,0 +1,51 @@
+{
+  "id": "3925b8ea3ebea0832f5664ebd1a096e5a8289e138b95ee196ae56e31a99b6b15",
+  "full_path": "do broker-project-transport-event-types create",
+  "description": "Create a broker project transport event type",
+  "permissions": "User must be an admin or an admin member of the broker organization.",
+  "side_effects": "Creates a broker project transport event type.",
+  "validation_notes": "All required flags must be set to non-empty values.",
+  "flags": [
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker-specific event type code (required)",
+      "default": null,
+      "validation": "Example: --code \"PICK\""
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "Example: --broker 123"
+    },
+    {
+      "name": "--project-transport-event-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport event type ID (required)",
+      "default": null,
+      "validation": "Example: --project-transport-event-type 456"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_project_transport_event_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_project_transport_event_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_project_transport_event_type_policy.rb"
+    }
+  ]
+}

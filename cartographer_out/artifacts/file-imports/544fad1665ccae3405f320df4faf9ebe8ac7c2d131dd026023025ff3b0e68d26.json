@@ -1,0 +1,33 @@
+{
+  "id": "544fad1665ccae3405f320df4faf9ebe8ac7c2d131dd026023025ff3b0e68d26",
+  "full_path": "do file-imports delete",
+  "description": "Delete a file import",
+  "permissions": "Admins can delete file imports. Non-admins can delete file imports for brokers they are members of.",
+  "side_effects": "Deletes the file import record.",
+  "validation_notes": "The file import id argument is required. --confirm must be set to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_file_imports_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/file_import_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/file_import.rb"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "c45afca6d6627a57ea93121974d7d4ffb5e0df9d34257ec1290886aaaa334138",
+  "full_path": "view resource-classification-project-cost-classifications list",
+  "description": "List resource classification project cost classifications.",
+  "permissions": "Admins can view any resource classification project cost classifications; non-admins can only view records for brokers they are members of (policy scope).",
+  "side_effects": null,
+  "validation_notes": "--resource-classification-id requires --resource-classification-type. Resource classification type must be LaborClassification or EquipmentClassification when filtering. created-at/updated-at min/max filters expect ISO 8601 timestamps. is-created-at/is-updated-at expect true or false.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by presence of created-at (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by presence of updated-at (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--project-cost-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project cost classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-classification-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by resource classification ID (requires --resource-classification-type)",
+      "default": null,
+      "validation": "Requires --resource-classification-type"
+    },
+    {
+      "name": "--resource-classification-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by resource classification type (LaborClassification, EquipmentClassification)",
+      "default": null,
+      "validation": "LaborClassification or EquipmentClassification"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/resource_classification_project_cost_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/resource_classification_project_cost_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/resource_classification_project_cost_classification.rb"
+    }
+  ]
+}

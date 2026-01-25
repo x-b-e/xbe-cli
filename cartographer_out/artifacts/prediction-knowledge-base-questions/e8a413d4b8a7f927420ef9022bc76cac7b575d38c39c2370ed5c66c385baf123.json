@@ -1,0 +1,87 @@
+{
+  "description": "List prediction knowledge base questions",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by prediction knowledge base ID (e.g., 123).",
+      "name": "--prediction-knowledge-base",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by prediction subject ID.",
+      "name": "--prediction-subject",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status (open/resolved/dismissed) (e.g., open).",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "open|resolved|dismissed"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tag names (comma-separated, all required) (e.g., \"priority\").",
+      "name": "--tagged-with",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated; all tags required"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by any tag names (comma-separated).",
+      "name": "--tagged-with-any",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated; any tag matches"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by all tag names (comma-separated).",
+      "name": "--tagged-with-all",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated; all tags required"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tag category slug (comma-separated).",
+      "name": "--in-tag-category",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated"
+    }
+  ],
+  "full_path": "view prediction-knowledge-base-questions list",
+  "id": "e8a413d4b8a7f927420ef9022bc76cac7b575d38c39c2370ed5c66c385baf123",
+  "permissions": "Available to admins. Non-admin access is limited by policy scope to questions in prediction knowledge bases where the user is a broker member, plus questions tied to prediction subjects where the user is a member.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/prediction_knowledge_base_questions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/prediction_knowledge_base_question_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_knowledge_base_question_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "status must be one of: open, resolved, dismissed. tagged-with expects a comma-separated list and requires all listed tags. tagged-with-any matches any listed tag. tagged-with-all matches all listed tags. in-tag-category expects a comma-separated list of tag category slugs."
+}

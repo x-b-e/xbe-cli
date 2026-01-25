@@ -1,0 +1,87 @@
+{
+  "id": "f087bd6c203c00de0ce89708e98e66e06b47d4c628d17136066c90201d48de4f",
+  "full_path": "view material-site-inventory-locations list",
+  "description": "List material site inventory locations with filtering and pagination.",
+  "permissions": "Admin users can view all material site inventory locations. Non-admin users can view locations for material sites tied to a material supplier they belong to or a broker they belong to (via the material site).",
+  "side_effects": null,
+  "validation_notes": "Filters support comma-separated IDs where noted. Results are limited to the policy scope for the current user.",
+  "flags": [
+    {
+      "name": "qualified-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by qualified name",
+      "default": null,
+      "validation": "Example: --qualified-name \"Plant A\""
+    },
+    {
+      "name": "material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs supported. Example: --material-site 123"
+    },
+    {
+      "name": "unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by unit of measure ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs supported."
+    },
+    {
+      "name": "broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs supported."
+    },
+    {
+      "name": "broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs supported. Example: --broker 456"
+    },
+    {
+      "name": "material-supplier-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs supported."
+    },
+    {
+      "name": "material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs supported."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_site_inventory_locations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_inventory_location_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_inventory_location_policy.rb"
+    }
+  ]
+}

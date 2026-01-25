@@ -1,0 +1,33 @@
+{
+  "id": "27b104ada5667faaf93b902a8fca89b7626dee8a19b6e663a3119f72f42bfc0c",
+  "full_path": "do material-supplier-memberships delete",
+  "description": "Delete a material supplier membership.",
+  "permissions": "Allowed for admins, broker members of the material supplier broker, or manager members of the material supplier.",
+  "side_effects": "Deletes the material supplier membership and may deactivate developer certified weighers for the same broker and user.",
+  "validation_notes": "The material supplier membership ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_supplier_memberships_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_supplier_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/memberships/material_supplier_membership.rb"
+    }
+  ]
+}

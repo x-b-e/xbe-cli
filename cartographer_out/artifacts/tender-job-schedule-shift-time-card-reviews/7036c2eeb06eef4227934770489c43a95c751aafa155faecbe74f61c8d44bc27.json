@@ -1,0 +1,37 @@
+{
+  "description": "Create a time card review",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Tender job schedule shift ID (required)",
+      "name": "tender-job-schedule-shift",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    }
+  ],
+  "full_path": "do tender-job-schedule-shift-time-card-reviews create",
+  "id": "7036c2eeb06eef4227934770489c43a95c751aafa155faecbe74f61c8d44bc27",
+  "permissions": "Admin users can create time card reviews. Non-admin users can create reviews only for tender job schedule shifts associated with their broker membership.",
+  "side_effects": "Creates a time card review and triggers an asynchronous automated analysis. The analysis may update the associated time card\u2019s start/end times, create a time card time change, and possibly create a time card approval audit.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tender_job_schedule_shift_time_card_reviews_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/tender_job_schedule_shift_time_card_review_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tender_job_schedule_shift_time_card_review_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/tender_job_schedule_shift_time_card_review.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--tender-job-schedule-shift is required. The tender job schedule shift must be a broker tender job schedule shift and must not be cancelled."
+}

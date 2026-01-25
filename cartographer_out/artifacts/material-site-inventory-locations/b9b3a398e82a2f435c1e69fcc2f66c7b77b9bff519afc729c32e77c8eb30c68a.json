@@ -1,0 +1,23 @@
+{
+  "id": "b9b3a398e82a2f435c1e69fcc2f66c7b77b9bff519afc729c32e77c8eb30c68a",
+  "full_path": "view material-site-inventory-locations show",
+  "description": "Show material site inventory location details.",
+  "permissions": "Admin users can view all material site inventory locations. Non-admin users can view locations for material sites tied to a material supplier they belong to or a broker they belong to (via the material site).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required. Access is limited to the policy scope for the current user.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_site_inventory_locations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_inventory_location_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_inventory_location_policy.rb"
+    }
+  ]
+}

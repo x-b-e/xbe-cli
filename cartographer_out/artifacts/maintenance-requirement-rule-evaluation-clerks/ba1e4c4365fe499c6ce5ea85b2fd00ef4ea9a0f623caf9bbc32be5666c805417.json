@@ -1,0 +1,41 @@
+{
+  "id": "ba1e4c4365fe499c6ce5ea85b2fd00ef4ea9a0f623caf9bbc32be5666c805417",
+  "full_path": "do maintenance-requirement-rule-evaluation-clerks create",
+  "description": "Request evaluation of maintenance requirement rules for equipment.",
+  "permissions": "User must be an admin to create a maintenance requirement rule evaluation clerk.",
+  "side_effects": "Triggers an async maintenance requirement rule evaluation for the equipment; creates maintenance requirement rule evaluation records and may create maintenance requirement sets and maintenance work orders when rules are due and auto-create is enabled.",
+  "validation_notes": "--equipment is required and must be non-empty; server raises an error if equipment_id is missing.",
+  "flags": [
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment ID (required)",
+      "default": null,
+      "validation": "Required; must be non-empty."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_rule_evaluation_clerks_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_evaluation_clerk_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/maintenance_requirement_rule_evaluation_clerk_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_rule_evaluation_clerk.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_rule_evaluation.rb"
+    }
+  ]
+}

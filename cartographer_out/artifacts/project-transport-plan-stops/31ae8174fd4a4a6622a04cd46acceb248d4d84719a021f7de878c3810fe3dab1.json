@@ -1,0 +1,41 @@
+{
+  "id": "31ae8174fd4a4a6622a04cd46acceb248d4d84719a021f7de878c3810fe3dab1",
+  "full_path": "do project-transport-plan-stops delete",
+  "description": "Delete a project transport plan stop.",
+  "permissions": "Delete is delegated to the related project transport plan. Project transport plan permissions delegate to the project; users need project update permissions (admin or practically manager of the project developer organization) to delete a stop.",
+  "side_effects": "Destroying a stop also destroys origin segments, destination segments, related project transport plan events, and stop order stop join records. It deletes stop insertions where this stop is the reference, and nullifies stop_to_move and existing_stop references in related stop insertions.",
+  "validation_notes": "Requires <id> argument (project transport plan stop ID). --confirm is required.",
+  "flags": [
+    {
+      "name": "confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_stops_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_stop.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "268618cd89d60366141bea7aa46b9296a0f07e3090260c13afb14ed749286152",
+  "full_path": "view invoice-approvals list",
+  "description": "List invoice approvals.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_approvals_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_approvals.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/invoice_approvals_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_approval_resource.rb"
+    }
+  ]
+}

@@ -193,14 +193,3 @@ func renderEquipmentUtilizationReadingDetails(cmd *cobra.Command, details equipm
 
 	return nil
 }
-
-func formatJSONValue(value any) string {
-	if value == nil {
-		return ""
-	}
-	payload, err := json.Marshal(value)
-	if err != nil {
-		return fmt.Sprintf("%v", value)
-	}
-	return string(payload)
-}

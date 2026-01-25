@@ -1,0 +1,33 @@
+{
+  "id": "3b2e744939cbb73a06f70679d1aeff765c6240fe7d96d26cbf8498268f659886",
+  "full_path": "do user-post-feeds update",
+  "description": "Update a user post feed",
+  "permissions": "Allowed for admins or for the user who owns the feed.",
+  "side_effects": "If enable-vector-indexing changes, background work may create or remove an OpenAI vector store and process feed posts for vector indexing.",
+  "validation_notes": "enable-vector-indexing expects true/false. Vector indexing can only be updated once per hour. At least one field must be provided for update.",
+  "flags": [
+    {
+      "name": "--enable-vector-indexing",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Enable vector indexing (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_post_feeds_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_post_feed_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_post_feed.rb"
+    }
+  ]
+}

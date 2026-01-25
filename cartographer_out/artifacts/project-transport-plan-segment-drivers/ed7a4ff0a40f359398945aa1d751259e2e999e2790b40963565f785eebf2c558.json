@@ -1,0 +1,86 @@
+{
+  "id": "ed7a4ff0a40f359398945aa1d751259e2e999e2790b40963565f785eebf2c558",
+  "full_path": "view project-transport-plan-segment-drivers list",
+  "description": "List project transport plan segment drivers.",
+  "permissions": "User must be authorized for the related project transport plan segment (policy delegates to the associated project transport plan and project).",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max and updated-at-min/updated-at-max must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--project-transport-plan-segment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan segment ID.",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver (user) ID.",
+      "default": null,
+      "validation": "Example: 456."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_segment_drivers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_segment_driver_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

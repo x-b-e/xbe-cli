@@ -1,0 +1,29 @@
+{
+  "description": "Delete an inventory capacity.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "full_path": "do inventory-capacities delete",
+  "id": "1a90fb85431a08fd3dd7c657e490af14906ef0ae60327e2be695e8c45f495945",
+  "permissions": "Admins can delete inventory capacities. Non-admin users can delete inventory capacities for material sites whose material suppliers belong to a broker the user can see or whose material suppliers are directly visible to the user.",
+  "side_effects": "Deletes the inventory capacity record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_inventory_capacities_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/inventory_capacity_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires the <id> argument and the --confirm flag."
+}

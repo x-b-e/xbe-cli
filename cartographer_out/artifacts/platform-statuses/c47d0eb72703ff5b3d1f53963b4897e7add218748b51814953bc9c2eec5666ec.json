@@ -1,0 +1,27 @@
+{
+  "id": "c47d0eb72703ff5b3d1f53963b4897e7add218748b51814953bc9c2eec5666ec",
+  "full_path": "view platform-statuses show",
+  "description": "Show platform status details",
+  "permissions": "Any authenticated user can view a platform status.",
+  "side_effects": null,
+  "validation_notes": "The platform status ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/platform_statuses_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/platform_statuses.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/platform_status_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/platform_status_policy_spec.rb"
+    }
+  ]
+}

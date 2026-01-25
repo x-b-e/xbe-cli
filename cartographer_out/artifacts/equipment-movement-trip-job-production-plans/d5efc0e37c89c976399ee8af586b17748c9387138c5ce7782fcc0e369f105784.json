@@ -1,0 +1,23 @@
+{
+  "id": "d5efc0e37c89c976399ee8af586b17748c9387138c5ce7782fcc0e369f105784",
+  "full_path": "view equipment-movement-trip-job-production-plans show",
+  "description": "Show the full details of an equipment movement trip job production plan link.",
+  "permissions": "Requires access to the related equipment movement trip. Admins can view all; non-admins can view trips they can access (e.g., broker members, manager truckers tied to related seller tenders, or seller operations contacts on related tender job schedule shifts).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (link ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_trip_job_production_plans_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_policy.rb"
+    }
+  ]
+}

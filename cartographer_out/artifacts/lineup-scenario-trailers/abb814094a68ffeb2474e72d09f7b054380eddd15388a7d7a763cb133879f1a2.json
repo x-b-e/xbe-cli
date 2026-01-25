@@ -1,0 +1,41 @@
+{
+  "id": "abb814094a68ffeb2474e72d09f7b054380eddd15388a7d7a763cb133879f1a2",
+  "full_path": "do lineup-scenario-trailers update",
+  "description": "Update a lineup scenario trailer.",
+  "permissions": "Update access is delegated via the lineup scenario trucker to the associated lineup scenario. Users must be allowed by the lineup scenario policy (admin or broker manager for the scenario's broker organization) to update records.",
+  "side_effects": "Updates a lineup scenario trailer record.",
+  "validation_notes": "Requires the lineup scenario trailer ID argument. At least one attribute must be provided. last-assigned-on must be a valid date. lineup-scenario-trucker and trailer relationships are create-only and cannot be changed.",
+  "flags": [
+    {
+      "name": "--last-assigned-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Last assigned date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenario_trailers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_trailer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_trailer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

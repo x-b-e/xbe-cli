@@ -1,0 +1,45 @@
+{
+  "description": "Delete a project phase cost item actual.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion.",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-phase-cost-item-actuals delete",
+  "id": "9429632226d35da21d376d2161bbefaef7729e49b6a4d4ab9193805e22b8f116",
+  "permissions": "Allowed for admins. Non-admins are allowed if they can update the related project phase cost item, or if they are a manager member of the job production plan customer, a manager laborer, a laborer who can manage projects, or the job production plan planner/project manager.",
+  "side_effects": "Deletes the project phase cost item actual record; after commit it triggers job production plan recap generation and touches the project actual estimate set.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phase_cost_item_actuals_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_project_phase_cost_item_actuals.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_cost_item_actual_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_cost_item_actual_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_phase_cost_item_actual.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/validate_created_by_permitted_to_update.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --confirm. Deletion is blocked when the record is associated with a cost code allocation."
+}

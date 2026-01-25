@@ -1,0 +1,573 @@
+{
+  "id": "8a1116dd14eed6389d84c7898e82756a7aa29b99fd36961b799e67672316372a",
+  "full_path": "do customers create",
+  "description": "Create a new customer.",
+  "permissions": "Authenticated admin users or broker members of the broker specified in --broker.",
+  "side_effects": "Creates a customer record and links it to the specified broker (and any provided relationships).",
+  "validation_notes": "Authentication is required. --name and --broker are required. Flags marked (true/false) expect literal true or false values. --rate-agreement-template is create-only.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Company name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Phone number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--fax-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Fax number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Company address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Longitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-place-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Google Place ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-plus-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Plus code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-company-address-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip geocoding (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-company-address-formatted-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Formatted address flag (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--bill-to-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Bill-to address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-url",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Company website URL",
+      "default": null,
+      "validation": "URL"
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-union-drivers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requires union drivers (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-trucking-company",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is trucking company (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--estimated-annual-material-transport-spend",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated annual spend",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-payment-terms",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Default payment terms",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--generate-daily-invoice",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Generate daily invoice (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--group-daily-invoice-by-job-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group daily invoice by job site (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--automatically-approve-daily-invoice",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Auto-approve daily invoice (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--billing-period-day-count",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Billing period day count",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--billing-period-end-invoice-offset-day-count",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Billing period end offset",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--billing-period-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billing period start date",
+      "default": null,
+      "validation": "date"
+    },
+    {
+      "name": "--split-billing-periods-spanning-months",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Split billing periods (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--default-time-card-approval-process",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default time card approval process",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--credit-limit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Credit limit",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--credit-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Credit type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--credit-type-changed-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Credit type changed timestamp",
+      "default": null,
+      "validation": "timestamp"
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Active status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-controlled-by-broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Controlled by broker (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is developer (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--favorite",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Favorite (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--restrict-tenders-to-customer-truckers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Restrict tenders (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--requires-job-production-plans",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requires job production plans (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--send-lineup-summaries-to",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Send lineup summaries to",
+      "default": null,
+      "validation": "email"
+    },
+    {
+      "name": "--default-automatic-submission-delay-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Submission delay minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-delay-automatic-submission-after-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Delay after hours (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--can-manage-crew-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can manage crew requirements (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--default-is-managing-crew-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default managing crew requirements (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--default-is-expecting-safety-meeting",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default expecting safety meeting (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--job-production-plan-recap-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Recap template",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan-recap-summary-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Recap summary template",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-time-card-start-at-evidence-required",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Time card evidence required (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--requires-cost-code-allocations",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requires cost code allocations (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--enable-non-default-contractors",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Enable non-default contractors (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--hold-job-production-plan-approval",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Hold job production plan approval (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--exclude-from-lineup-scenarios",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude from lineup scenarios (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-eticketing-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "E-ticketing enabled (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-eticketing-raw-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "E-ticketing raw enabled (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-eticketing-cycle-time-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "E-ticketing cycle time enabled (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-material-transaction-inspection-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material inspection enabled (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-expecting-crew-requirement-time-sheets",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expecting crew time sheets (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--expecting-crew-requirement-time-sheets-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Date expecting time sheets",
+      "default": null,
+      "validation": "date"
+    },
+    {
+      "name": "--is-accepting-open-door-issues",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Accepting open door issues (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Developer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-operations-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default operations contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-financial-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default financial contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-dispatch-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default dispatch contact user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-contractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default contractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--rate-agreement-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Rate agreement template ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_resource.rb"
+    }
+  ]
+}

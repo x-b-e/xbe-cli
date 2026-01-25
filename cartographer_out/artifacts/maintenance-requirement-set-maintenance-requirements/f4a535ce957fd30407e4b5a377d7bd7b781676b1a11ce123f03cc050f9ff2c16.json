@@ -1,0 +1,19 @@
+{
+  "id": "f4a535ce957fd30407e4b5a377d7bd7b781676b1a11ce123f03cc050f9ff2c16",
+  "full_path": "view maintenance-requirement-set-maintenance-requirements show",
+  "description": "Show the full details of a maintenance requirement set maintenance requirement.",
+  "permissions": "Access is delegated to the related maintenance requirement set; the user must be authorized to view that set per MaintenanceRequirementSet policy.",
+  "side_effects": null,
+  "validation_notes": "The record ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/maintenance_requirement_set_maintenance_requirements_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_set_maintenance_requirement_policy.rb"
+    }
+  ]
+}

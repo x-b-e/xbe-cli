@@ -1,0 +1,37 @@
+{
+  "id": "da69a4581b63baf64e8a56325d26278b8964ed5c327be961fc18ade6b71d2769",
+  "full_path": "do email-address-statuses create",
+  "description": "Check an email address status.",
+  "permissions": "Admin users only (user must be admin/is_admin true).",
+  "side_effects": "Performs an email reject-list lookup to determine status; no persistent changes are described.",
+  "validation_notes": "Authentication is required. The email_address attribute is required and cannot be blank after trimming whitespace. Only email_address is accepted on create; other attributes are read-only.",
+  "flags": [
+    {
+      "name": "--email-address",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Email address to check (required)",
+      "default": null,
+      "validation": "non-empty"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_email_address_statuses_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/email_address_status_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/email_address_status_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/email_address_status.rb"
+    }
+  ]
+}

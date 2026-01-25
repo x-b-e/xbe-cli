@@ -1,0 +1,33 @@
+{
+  "id": "1071e59ae1696ec1edaa8f81741cae402c7bbb9adfca17016806cc3471218ba6",
+  "full_path": "do equipment-classifications delete",
+  "description": "Delete an equipment classification",
+  "permissions": "User must be an admin.",
+  "side_effects": "Permanently deletes an equipment classification. Deleting a classification also deletes its child classifications and broker equipment classifications.",
+  "validation_notes": "<id> argument is required. --confirm is required. Deletion is blocked if dependent records exist that use restrict_with_error (equipment rentals, resource classification project cost classifications, crew rates).",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_classification.rb"
+    }
+  ]
+}

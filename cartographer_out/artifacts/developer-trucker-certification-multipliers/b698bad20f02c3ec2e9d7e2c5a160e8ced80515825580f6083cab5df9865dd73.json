@@ -1,0 +1,37 @@
+{
+  "description": "Delete a developer trucker certification multiplier.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do developer-trucker-certification-multipliers delete",
+  "id": "b698bad20f02c3ec2e9d7e2c5a160e8ced80515825580f6083cab5df9865dd73",
+  "permissions": "Allowed when the user can destroy the related developer trucker certification via delegated policy to the developer policy (admins, broker members, broker-customer managers, or manager members of the developer).",
+  "side_effects": "Deletes a developer trucker certification multiplier.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_developer_trucker_certification_multipliers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/developer_trucker_certification_multiplier_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_trucker_certification_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument and the --confirm flag."
+}

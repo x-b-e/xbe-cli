@@ -1,0 +1,64 @@
+{
+  "id": "4a30f5baae2593a8ef43c8960946dfbb93bb1b5c8d2ebdff6de1155a1a18b413",
+  "full_path": "do material-site-unavailabilities create",
+  "description": "Create a material site unavailability",
+  "permissions": "Allowed when the user is authorized for the related material site (policy delegates authorization via the material_site relationship).",
+  "side_effects": "Creates a material site unavailability record.",
+  "validation_notes": "--material-site is required. At least one of --start-at or --end-at is required. start-at and end-at must be RFC3339 timestamps. If start-at is provided, end-at must be later than start-at. Overlapping unavailabilities for the same material site are rejected. Unavailabilities are rejected when they overlap job production plans for the material site.",
+  "flags": [
+    {
+      "name": "material-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material site ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp (e.g. 2026-01-24T08:00:00Z)"
+    },
+    {
+      "name": "end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp (e.g. 2026-01-24T12:00:00Z)"
+    },
+    {
+      "name": "description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_unavailabilities_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_unavailability.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_unavailability_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_unavailability_resource.rb"
+    }
+  ]
+}

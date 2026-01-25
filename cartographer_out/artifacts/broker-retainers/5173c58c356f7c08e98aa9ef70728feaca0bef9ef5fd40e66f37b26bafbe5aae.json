@@ -1,0 +1,105 @@
+{
+  "id": "5173c58c356f7c08e98aa9ef70728feaca0bef9ef5fd40e66f37b26bafbe5aae",
+  "full_path": "do broker-retainers update",
+  "description": "Update a broker retainer",
+  "permissions": null,
+  "side_effects": "Updates a broker retainer.",
+  "validation_notes": "The broker retainer ID argument is required. Provide at least one attribute or relationship to update. --buyer/--seller use Type|ID format (e.g., Broker|123).",
+  "flags": [
+    {
+      "name": "--buyer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Buyer (Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Type|ID (e.g., Broker|123)"
+    },
+    {
+      "name": "--seller",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Seller (Type|ID, e.g., Trucker|456)",
+      "default": null,
+      "validation": "Type|ID (e.g., Trucker|456)"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID (buyer)",
+      "default": null,
+      "validation": "ID"
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker ID (seller)",
+      "default": null,
+      "validation": "ID"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Retainer status (editing/active/terminated/expired/closed)",
+      "default": null,
+      "validation": "editing|active|terminated|expired|closed"
+    },
+    {
+      "name": "--terminated-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Termination date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--maximum-expected-daily-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum expected daily hours",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maximum-travel-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum travel minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--billable-travel-minutes-per-travel-mile",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billable travel minutes per travel mile",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_retainers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/broker_retainers_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_retainer_policy.rb"
+    }
+  ]
+}

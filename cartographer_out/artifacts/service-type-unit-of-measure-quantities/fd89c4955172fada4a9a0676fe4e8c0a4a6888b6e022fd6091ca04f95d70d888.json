@@ -1,0 +1,105 @@
+{
+  "id": "fd89c4955172fada4a9a0676fe4e8c0a4a6888b6e022fd6091ca04f95d70d888",
+  "full_path": "view service-type-unit-of-measure-quantities list",
+  "description": "List service type unit of measure quantities with filtering and pagination.",
+  "permissions": "Access is controlled by ServiceTypeUnitOfMeasureQuantityPolicy scope. Non-admin access is limited to time-card quantified quantities tied to tenders/jobs the user can access as a broker, trucker, or customer member; customer/trucker visibility requires exclude_from_time_card_invoices to be false.",
+  "side_effects": null,
+  "validation_notes": "--quantifies-id requires --quantifies-type. --quantifies-start-on-min and --quantifies-start-on-max must be valid dates in YYYY-MM-DD format.",
+  "flags": [
+    {
+      "name": "--service-type-unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by service type unit of measure ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by quantity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--calculated-quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by calculated quantity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by explicit quantity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantifies-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by quantified resource type",
+      "default": null,
+      "validation": "Example: time-cards"
+    },
+    {
+      "name": "--quantifies-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by quantified resource ID",
+      "default": null,
+      "validation": "Requires --quantifies-type."
+    },
+    {
+      "name": "--quantifies-start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by quantifies start date on or after (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "--quantifies-start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by quantifies start date on or before (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_type_unit_of_measure_quantities_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_type_unit_of_measure_quantity_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_type_unit_of_measure_quantity_policy.rb"
+    }
+  ]
+}

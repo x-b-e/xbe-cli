@@ -1,0 +1,23 @@
+{
+  "id": "4383ff9fc11c2d6b4f4b3258997b2a58e4e5bb2fe9aa0051edc3df27660d7f26",
+  "full_path": "view job-production-plan-status-changes show",
+  "description": "Show the full details of a job production plan status change.",
+  "permissions": "Visible to users with access to the associated job production plans; scope is limited to status changes whose job production plans are in the users JobProductionPlan policy scope.",
+  "side_effects": null,
+  "validation_notes": "The status change ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_status_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_status_change_policy.rb"
+    }
+  ]
+}

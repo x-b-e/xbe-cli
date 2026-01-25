@@ -1,0 +1,55 @@
+{
+  "id": "0fed18596bd0a81c4764763668c3e03addee841e74c9eac04c527aee3f91a851",
+  "full_path": "do cost-code-trucking-cost-summaries update",
+  "description": "Update a cost code trucking cost summary.",
+  "permissions": "Admins can update summaries. Managers who are members of the broker can update summaries for that broker.",
+  "side_effects": "None (updates are rejected because summaries are immutable).",
+  "validation_notes": "Summary ID argument is required. At least one of broker, start-on, or end-on must be provided. Updates are rejected because summaries are immutable.",
+  "flags": [
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Must be a date in YYYY-MM-DD format."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Must be a date in YYYY-MM-DD format and on/after start-on."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_code_trucking_cost_summaries_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_code_trucking_cost_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_code_trucking_cost_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_code_trucking_cost_summary.rb"
+    }
+  ]
+}

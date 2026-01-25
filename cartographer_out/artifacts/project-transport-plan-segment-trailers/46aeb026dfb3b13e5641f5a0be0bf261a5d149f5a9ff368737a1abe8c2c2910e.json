@@ -1,0 +1,23 @@
+{
+  "description": "Show project transport plan segment trailer details",
+  "flags": [],
+  "full_path": "view project-transport-plan-segment-trailers show",
+  "id": "46aeb026dfb3b13e5641f5a0be0bf261a5d149f5a9ff368737a1abe8c2c2910e",
+  "permissions": "Allowed for users authorized to view the related project transport plan segment (policy delegates to the project_transport_plan_segment relationship).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_segment_trailers_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_segment_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_segment_trailer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required."
+}

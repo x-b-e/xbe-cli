@@ -1,0 +1,37 @@
+{
+  "id": "4b2f2e29f3f3121cf1ca1cc4a412d70cc05377d6198e7019546693ff5691d958",
+  "full_path": "do material-type-unavailabilities delete",
+  "description": "Delete a material type unavailability.",
+  "permissions": "Allowed for admins, or users who are managers of the material supplier or members of the broker for the related material type (delegated via material_type relationship).",
+  "side_effects": "Deletes a material type unavailability record.",
+  "validation_notes": "Requires material type unavailability ID argument. Requires --confirm to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_type_unavailabilities_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_unavailability_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_type_unavailability.rb"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "f52b2c50c1909f8d85d3adccb9526beede80880836993655888f573c061c03d9",
+  "full_path": "do project-import-file-verifications create",
+  "description": "Create a project import file verification",
+  "permissions": "User must be authorized to create a project import file verification via ProjectImportFileVerificationPolicy, which delegates authorization to the related project policy.",
+  "side_effects": "Creates a project import file verification and, unless it is a dry run, queues asynchronous processing that updates the related projects file import status and may update the file import's processed_at, raw_data, and note fields.",
+  "validation_notes": "verification-type, file-import, and project are required. verification-type must be one of the supported verification types (currently Bid2Win). If the associated file import is not a supported file type for the verification handler, processing fails.",
+  "flags": [
+    {
+      "name": "--verification-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Verification type (required). Example: Bid2Win.",
+      "default": null,
+      "validation": "Required; must be one of the supported verification types."
+    },
+    {
+      "name": "--file-import",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "File import ID (required). Example: 123.",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID (required). Example: 456.",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--is-dry-run",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Create a dry run verification (does not process the file).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_import_file_verifications_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_import_file_verifications.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_import_file_verification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_import_file_verification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_import_file_verification.rb"
+    }
+  ]
+}

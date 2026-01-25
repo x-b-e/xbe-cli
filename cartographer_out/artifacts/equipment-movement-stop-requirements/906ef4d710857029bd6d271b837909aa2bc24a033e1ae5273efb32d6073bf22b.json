@@ -1,0 +1,23 @@
+{
+  "id": "906ef4d710857029bd6d271b837909aa2bc24a033e1ae5273efb32d6073bf22b",
+  "full_path": "view equipment-movement-stop-requirements show",
+  "description": "Show the full details of an equipment movement stop requirement.",
+  "permissions": "Requires permission to view the related equipment movement stop (delegated via equipment movement stop requirement policy).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_stop_requirements_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_stop_requirement_resource.rb"
+    }
+  ]
+}

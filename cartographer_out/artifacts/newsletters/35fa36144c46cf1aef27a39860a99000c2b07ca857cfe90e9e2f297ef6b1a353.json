@@ -1,0 +1,131 @@
+{
+  "id": "35fa36144c46cf1aef27a39860a99000c2b07ca857cfe90e9e2f297ef6b1a353",
+  "full_path": "view newsletters list",
+  "description": "List published newsletters with filtering and pagination.",
+  "permissions": "Admins can list all newsletters. Authenticated non-admins can list public, published newsletters with published_on on/before today, plus newsletters scoped to their organization manager/broker memberships or user_scopes (still requiring is_published true and published_on on/before today). Anonymous users are limited to public, published newsletters with published_on on/before today.",
+  "side_effects": null,
+  "validation_notes": "published-on, published-on-min, and published-on-max must be valid dates; published-on-min/max reject blank values. has-published-on and has-organization require strict true/false values. is-published and is-public expect true/false values.",
+  "flags": [
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Filter by broker organization id",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of organization (true/false)",
+      "default": null,
+      "validation": "true/false (strict)."
+    },
+    {
+      "name": "--has-published-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of published-on date (true/false)",
+      "default": null,
+      "validation": "true/false (strict)."
+    },
+    {
+      "name": "--is-public",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by public status (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-published",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by published status (true/false)",
+      "default": "true",
+      "validation": "true/false."
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (e.g., Broker|123)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--published-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to newsletters published on this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date value (YYYY-MM-DD)."
+    },
+    {
+      "name": "--published-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to newsletters published on or before this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date value (YYYY-MM-DD)."
+    },
+    {
+      "name": "--published-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to newsletters published on or after this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date value (YYYY-MM-DD)."
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search newsletters",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/newsletters_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/newsletter_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/newsletter_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    }
+  ]
+}

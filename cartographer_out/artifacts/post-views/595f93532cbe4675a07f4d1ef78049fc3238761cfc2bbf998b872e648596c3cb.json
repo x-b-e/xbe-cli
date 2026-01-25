@@ -1,0 +1,103 @@
+{
+  "id": "595f93532cbe4675a07f4d1ef78049fc3238761cfc2bbf998b872e648596c3cb",
+  "full_path": "view post-views list",
+  "description": "List post views",
+  "permissions": "User can list post views only within policy scope; for non-admins the scope is limited to post views where the viewer is the user and the post is in the users Post policy scope.",
+  "side_effects": null,
+  "validation_notes": "viewed-at-min, viewed-at-max, created-at-min, created-at-max, updated-at-min, and updated-at-max must be ISO 8601 timestamps. is-viewed-at, is-created-at, and is-updated-at must be true/false.",
+  "flags": [
+    {
+      "name": "--post",
+      "required": false,
+      "type": "string",
+      "description": "Filter by post ID"
+    },
+    {
+      "name": "--viewer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by viewer user ID"
+    },
+    {
+      "name": "--viewed-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by viewed-at on/after (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--viewed-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by viewed-at on/before (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--is-viewed-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by has viewed-at (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--is-created-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/post_views_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_view_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_view_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "config/routes.rb"
+    }
+  ]
+}

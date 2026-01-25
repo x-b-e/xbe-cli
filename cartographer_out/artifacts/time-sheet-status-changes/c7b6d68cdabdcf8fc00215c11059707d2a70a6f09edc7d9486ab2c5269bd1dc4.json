@@ -1,0 +1,50 @@
+{
+  "id": "c7b6d68cdabdcf8fc00215c11059707d2a70a6f09edc7d9486ab2c5269bd1dc4",
+  "full_path": "view time-sheet-status-changes list",
+  "description": "List time sheet status changes",
+  "permissions": "Visible only for time sheet status changes whose time_sheet is within the user TimeSheet policy scope.",
+  "side_effects": null,
+  "validation_notes": "--status must be a valid time sheet status enum value.",
+  "flags": [
+    {
+      "name": "--time-sheet",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time sheet ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status",
+      "default": null,
+      "validation": "Must be a valid time sheet status enum value."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheet_status_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/status_changes_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_status_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

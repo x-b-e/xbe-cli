@@ -1,0 +1,29 @@
+{
+  "id": "8d31f78537e5c1f278d67759cbf57411698edf5a69ae0a445300a34d6c2a9f57",
+  "full_path": "do trailer-credentials delete",
+  "description": "Delete a trailer credential",
+  "permissions": "Admin users can delete trailer credentials. Non-admin users can delete when they are a manager of the trailer's trucker or broker and the tractor-trailer credential classification is within their policy scope.",
+  "side_effects": "Deletes the specified trailer credential.",
+  "validation_notes": "--confirm must be provided to delete a trailer credential.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trailer_credentials_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trailer_credential_policy.rb"
+    }
+  ]
+}

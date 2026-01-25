@@ -1,0 +1,31 @@
+{
+  "description": "Show lineup scenario trucker details",
+  "flags": [],
+  "full_path": "view lineup-scenario-truckers show",
+  "id": "2bd20013035a94968ae3612daba042a0f36c9c6253d790643dc7657767e71b6a",
+  "permissions": "Allowed if the user can access the associated lineup scenario via LineupScenario policy scope (admin users, or users who are members of the broker that owns the lineup scenario).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/lineup_scenario_truckers_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_trucker_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trucker_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/delegated_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

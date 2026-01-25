@@ -1,0 +1,68 @@
+{
+  "id": "a79f03787d8ece3f3b93e00e62ea8e846bb4e16303a2cbf2e10ccfa846ec8c6f",
+  "full_path": "view project-transport-plan-stops list",
+  "description": "List project transport plan stops.",
+  "permissions": "Access is delegated to the related project transport plan. Users can list stops if the plan is in their policy scope, which includes plans tied to projects they can access or plans where they are an active driver.",
+  "side_effects": null,
+  "validation_notes": "Filter flags accept comma-separated values.",
+  "flags": [
+    {
+      "name": "project-transport-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "project-transport-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport location ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "planned-completion-event-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by planned completion event type ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "external-tms-stop-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external TMS stop number (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of values."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_stops_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

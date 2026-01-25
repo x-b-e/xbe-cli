@@ -1,0 +1,73 @@
+{
+  "id": "478fb89cd31b32237b2b4ea9e8550314893b1e5503596aa5c89eb6d3c50229e7",
+  "full_path": "do projects-file-imports create",
+  "description": "Import projects from a file.",
+  "permissions": "Admin users can create projects file imports. Non-admin users can create imports for brokers they are members of (based on the broker associated with the file import or subject).",
+  "side_effects": "Creates a projects file import record and enqueues asynchronous processing. If not a dry run, the import processes the file, writes results, and updates the related file import metadata.",
+  "validation_notes": "--file-import and --file-import-type are required. --subject-type and --subject-id must be set together; if both are omitted, the subject defaults to the file import broker. file_import_type must be supported for the broker and must match a supported importer type. The file import attachment must be an allowed file type for the selected importer. The subject and file import must belong to the same broker.",
+  "flags": [
+    {
+      "name": "--file-import",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "File import ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--file-import-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "File import type (required)",
+      "default": null,
+      "validation": "Must be a supported file import type for the broker. Example: SageProjectsFileImport."
+    },
+    {
+      "name": "--is-dry-run",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate without importing",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject type (use with --subject-id)",
+      "default": null,
+      "validation": "Use with --subject-id. Example: brokers."
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject ID (use with --subject-type)",
+      "default": null,
+      "validation": "Use with --subject-type. Example: 456."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_projects_file_imports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/projects_file_import.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/projects_file_import_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/projects_file_import_resource.rb"
+    }
+  ]
+}

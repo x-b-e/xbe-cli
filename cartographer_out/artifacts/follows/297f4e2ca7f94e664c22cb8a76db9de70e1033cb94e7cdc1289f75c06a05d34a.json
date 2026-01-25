@@ -1,0 +1,114 @@
+{
+  "id": "297f4e2ca7f94e664c22cb8a76db9de70e1033cb94e7cdc1289f75c06a05d34a",
+  "full_path": "view follows list",
+  "description": "List follow relationships with filtering and pagination.",
+  "permissions": "Admins can list all follows. Non-admins can list follows where they are the follower.",
+  "side_effects": null,
+  "validation_notes": "--creator cannot be combined with --creator-type or --creator-id. --creator-id requires --creator-type. --creator expects Type|ID (e.g., Project|123). --created-at-min/--created-at-max expect ISO 8601 timestamps. --is-created-at/--is-updated-at expect true/false.",
+  "flags": [
+    {
+      "name": "--follower",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by follower user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--creator",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator (Type|ID, e.g., Project|123)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Project|123). Cannot be combined with --creator-type or --creator-id."
+    },
+    {
+      "name": "--creator-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator type (e.g., Project)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--creator-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator ID (requires --creator-type)",
+      "default": null,
+      "validation": "Requires --creator-type."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/follows_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/follow_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/follow_policy.rb"
+    }
+  ]
+}

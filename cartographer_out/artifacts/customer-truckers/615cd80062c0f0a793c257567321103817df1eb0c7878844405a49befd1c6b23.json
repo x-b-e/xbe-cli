@@ -1,0 +1,33 @@
+{
+  "id": "615cd80062c0f0a793c257567321103817df1eb0c7878844405a49befd1c6b23",
+  "full_path": "do customer-truckers delete",
+  "description": "Delete a customer trucker link.",
+  "permissions": "User must be an admin or a member of the broker that owns the customer linked by the customer trucker record.",
+  "side_effects": "Deletes a customer trucker link record.",
+  "validation_notes": "Requires customer trucker ID argument. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_truckers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/customer_trucker.rb"
+    }
+  ]
+}

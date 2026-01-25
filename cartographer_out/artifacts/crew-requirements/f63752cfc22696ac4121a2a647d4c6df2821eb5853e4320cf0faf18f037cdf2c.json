@@ -1,0 +1,33 @@
+{
+  "id": "f63752cfc22696ac4121a2a647d4c6df2821eb5853e4320cf0faf18f037cdf2c",
+  "full_path": "do crew-requirements delete",
+  "description": "Delete a crew requirement",
+  "permissions": "User must be authorized to update the associated job production plan (CrewRequirementPolicy#destroy?).",
+  "side_effects": "Deletes the crew requirement.",
+  "validation_notes": "Requires a crew requirement ID argument. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_crew_requirements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_requirement.rb"
+    }
+  ]
+}

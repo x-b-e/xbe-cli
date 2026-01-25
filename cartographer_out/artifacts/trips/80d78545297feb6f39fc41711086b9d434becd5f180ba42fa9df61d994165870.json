@@ -1,0 +1,106 @@
+{
+  "id": "80d78545297feb6f39fc41711086b9d434becd5f180ba42fa9df61d994165870",
+  "full_path": "do trips update",
+  "description": "Update a trip.",
+  "permissions": "User must be authorized to update the trip per TripPolicy (same checks as create).",
+  "side_effects": "Updates the trip. Updates can enqueue background work to recalculate mileage, update summaries, process shift updates, and create inventory changes.",
+  "validation_notes": "CLI requires the <id> positional argument and at least one attribute or relationship update. To change origin, both --origin-type and --origin-id must be provided together; likewise for destination. origin_type and destination_type must be one of JobSite, MaterialSite, or ParkingSite. origin_at must be before destination_at. Origin and destination must be different. unloaded_subject_type (if set) must be TenderJobScheduleShift or TruckerShiftSet. Material/job sites must be in scope for the tender job schedule shift when present, and the tender job schedule shift must be a broker tender. Trips with material transactions require both a job site and a material site. Unloaded trips cannot have material transactions. Unloaded subject and tender job schedule shift must be in scope. User-sourced trips require a tender job schedule shift (or a user-sourced material transaction with a shift). Trips cannot change unloaded status, accepted material transactions, approved time cards, or invoiced shifts.",
+  "flags": [
+    {
+      "name": "origin-type",
+      "required": false,
+      "type": "string",
+      "description": "Origin type",
+      "validation": "Must be provided with --origin-id"
+    },
+    {
+      "name": "origin-id",
+      "required": false,
+      "type": "string",
+      "description": "Origin ID",
+      "validation": "Must be provided with --origin-type"
+    },
+    {
+      "name": "destination-type",
+      "required": false,
+      "type": "string",
+      "description": "Destination type",
+      "validation": "Must be provided with --destination-id"
+    },
+    {
+      "name": "destination-id",
+      "required": false,
+      "type": "string",
+      "description": "Destination ID",
+      "validation": "Must be provided with --destination-type"
+    },
+    {
+      "name": "tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID"
+    },
+    {
+      "name": "driver-day",
+      "required": false,
+      "type": "string",
+      "description": "Driver day ID"
+    },
+    {
+      "name": "origin-at",
+      "required": false,
+      "type": "string",
+      "description": "Origin time (ISO 8601)",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "origin-notes",
+      "required": false,
+      "type": "string",
+      "description": "Origin notes"
+    },
+    {
+      "name": "destination-at",
+      "required": false,
+      "type": "string",
+      "description": "Destination time (ISO 8601)",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "destination-notes",
+      "required": false,
+      "type": "string",
+      "description": "Destination notes"
+    },
+    {
+      "name": "submitted-mileage",
+      "required": false,
+      "type": "string",
+      "description": "Submitted mileage"
+    },
+    {
+      "name": "submitted-minutes",
+      "required": false,
+      "type": "string",
+      "description": "Submitted minutes"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trips_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trip_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trip_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trip.rb"
+    }
+  ]
+}

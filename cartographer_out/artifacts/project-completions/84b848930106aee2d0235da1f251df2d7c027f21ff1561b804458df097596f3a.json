@@ -1,0 +1,19 @@
+{
+  "id": "84b848930106aee2d0235da1f251df2d7c027f21ff1561b804458df097596f3a",
+  "full_path": "view project-completions list",
+  "description": "List project completions.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_completions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_completion_resource.rb"
+    }
+  ]
+}

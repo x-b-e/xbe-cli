@@ -1,0 +1,23 @@
+{
+  "id": "93414e63c953169cca49619cf8f7eafa6e8c5a67a52b299982f04223ab75af0e",
+  "full_path": "view trucker-applications show",
+  "description": "Show the full details of a trucker application.",
+  "permissions": "Admins can view any trucker application. Non-admins may view applications they created with no trucker assigned, applications for brokers they belong to, or applications for truckers they belong to.",
+  "side_effects": null,
+  "validation_notes": "The trucker application ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_applications_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_application_resource.rb"
+    }
+  ]
+}

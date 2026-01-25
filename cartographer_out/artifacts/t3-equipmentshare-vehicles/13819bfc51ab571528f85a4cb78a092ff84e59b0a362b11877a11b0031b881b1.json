@@ -1,0 +1,167 @@
+{
+  "description": "List T3 EquipmentShare vehicles with filtering and pagination.",
+  "flags": [
+    {
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by trucker ID",
+      "name": "--trucker",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by tractor ID",
+      "name": "--tractor",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by presence of trailer (true/false)",
+      "name": "--has-trailer",
+      "required": false,
+      "type": "boolean",
+      "validation": "Strict boolean. Example: true"
+    },
+    {
+      "description": "Filter by presence of tractor (true/false)",
+      "name": "--has-tractor",
+      "required": false,
+      "type": "boolean",
+      "validation": "Strict boolean. Example: true"
+    },
+    {
+      "description": "Filter by minimum assignment time (ISO 8601)",
+      "name": "--assigned-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp. Example: 2024-01-01T00:00:00Z"
+    },
+    {
+      "description": "Filter by integration identifier",
+      "name": "--integration-identifier",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by trailer set on/after (ISO 8601)",
+      "name": "--trailer-set-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "description": "Filter by trailer set on/before (ISO 8601)",
+      "name": "--trailer-set-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "description": "Filter by presence of trailer-set-at (true/false)",
+      "name": "--is-trailer-set-at",
+      "required": false,
+      "type": "boolean",
+      "validation": "Strict boolean"
+    },
+    {
+      "description": "Filter by tractor set on/after (ISO 8601)",
+      "name": "--tractor-set-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "description": "Filter by tractor set on/before (ISO 8601)",
+      "name": "--tractor-set-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "description": "Filter by presence of tractor-set-at (true/false)",
+      "name": "--is-tractor-set-at",
+      "required": false,
+      "type": "boolean",
+      "validation": "Strict boolean"
+    },
+    {
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "description": "Filter by presence of created-at (true/false)",
+      "name": "--is-created-at",
+      "required": false,
+      "type": "boolean",
+      "validation": "Strict boolean"
+    },
+    {
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "description": "Filter by presence of updated-at (true/false)",
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "boolean",
+      "validation": "Strict boolean"
+    }
+  ],
+  "full_path": "view t3-equipmentshare-vehicles list",
+  "id": "13819bfc51ab571528f85a4cb78a092ff84e59b0a362b11877a11b0031b881b1",
+  "permissions": "Admins can view all T3 EquipmentShare vehicles. Non-admins can view vehicles only when they belong to a broker the user is a member of (policy scope limited by broker membership).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/t3_equipmentshare_vehicles_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/active_record_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/base_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Boolean filters require strict true/false values. Date-time filters require non-empty, valid ISO 8601 timestamps; invalid or blank values are rejected. created-at/updated-at/trailer-set-at/tractor-set-at filters also accept is-<field> boolean filters that check presence."
+}

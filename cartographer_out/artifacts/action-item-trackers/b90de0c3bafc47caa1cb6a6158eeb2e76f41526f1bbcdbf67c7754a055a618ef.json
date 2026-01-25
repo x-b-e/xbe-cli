@@ -1,0 +1,23 @@
+{
+  "id": "b90de0c3bafc47caa1cb6a6158eeb2e76f41526f1bbcdbf67c7754a055a618ef",
+  "full_path": "view action-item-trackers list",
+  "description": "List action item trackers.",
+  "permissions": "Requires an admin user (policy allows only users with is_admin?; non-admin scope is empty).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/action_item_trackers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_tracker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_tracker_resource.rb"
+    }
+  ]
+}

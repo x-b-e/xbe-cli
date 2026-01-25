@@ -1,0 +1,109 @@
+{
+  "id": "f834d3e682015f7e6d1c98899a491752fce5df9127b43406a3217feb1b1e5403",
+  "full_path": "do action-item-trackers create",
+  "description": "Create a new action item tracker.",
+  "permissions": "Requires an admin user (policy allows only users with is_admin?).",
+  "side_effects": "Changing tracker status can sync the linked action item status based on server-side mappings.",
+  "validation_notes": "Action item relationship is required on create and is create-only. dev-effort-minutes must be >= 0 when provided. has-due-date-agreement and is-unplanned must be true or false. status must be one of: charter_in_discussion_com, charter_ready_for_review, charter_in_discussion_dev, ready_for_work, in_development, in_rework, dev_done, in_verification, complete, on_hold, blocked. dev-effort-size must be one of: s, m, l, xl, xxl.",
+  "flags": [
+    {
+      "name": "--action-item",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Action item ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Tracker status.",
+      "default": null,
+      "validation": "Allowed values: charter_in_discussion_com, charter_ready_for_review, charter_in_discussion_dev, ready_for_work, in_development, in_rework, dev_done, in_verification, complete, on_hold, blocked."
+    },
+    {
+      "name": "--dev-effort-size",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Dev effort size.",
+      "default": null,
+      "validation": "Allowed values: s, m, l, xl, xxl."
+    },
+    {
+      "name": "--dev-effort-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Dev effort estimate in minutes.",
+      "default": null,
+      "validation": ">= 0"
+    },
+    {
+      "name": "--has-due-date-agreement",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Due date agreement (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-unplanned",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Unplanned tracker (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--priority-position",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Priority position (integer or ranking hint).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--dev-assignee",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Development assignee user ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer-success-assignee",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer success assignee user ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_trackers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_tracker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/action_item_tracker.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_tracker_policy.rb"
+    }
+  ]
+}

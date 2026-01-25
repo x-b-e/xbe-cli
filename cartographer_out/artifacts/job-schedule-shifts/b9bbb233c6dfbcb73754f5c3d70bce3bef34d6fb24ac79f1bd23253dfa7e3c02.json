@@ -1,0 +1,212 @@
+{
+  "id": "b9bbb233c6dfbcb73754f5c3d70bce3bef34d6fb24ac79f1bd23253dfa7e3c02",
+  "full_path": "view job-schedule-shifts list",
+  "description": "List job schedule shifts with filtering.",
+  "permissions": "Authenticated users can list job schedule shifts in policy scope. Non-admins are scoped to shifts for customers they manage or broker, and to shifts linked to truckers in their tendered shifts; admins have full access.",
+  "side_effects": null,
+  "validation_notes": "Boolean filters must be true or false: on-accepted-broker-tender, on-accepted-customer-tender, is-cancelled, is-managed, is-managed-or-alive, is-subsequent-shift-in-driver-day, unsourced, ordered, has-start-date, is-start-at, is-end-at. start-date/start-date-min/start-date-max must be YYYY-MM-DD; start-at-min/start-at-max/end-at-min/end-at-max must be ISO 8601 timestamps. active-on-tender expects tender ID(s); values true/false are invalid. matches-material-purchase-order-release must reference an existing material purchase order release.",
+  "flags": [
+    {
+      "name": "job",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job ID."
+    },
+    {
+      "name": "business-unit",
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID."
+    },
+    {
+      "name": "matches-material-purchase-order-release",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material purchase order release ID.",
+      "validation": "Must reference an existing material purchase order release."
+    },
+    {
+      "name": "on-accepted-broker-tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by accepted broker tender (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "on-accepted-customer-tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by accepted customer tender (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "active-on-tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender ID with active shifts.",
+      "validation": "Must be a tender ID; values true/false are invalid."
+    },
+    {
+      "name": "is-cancelled",
+      "required": false,
+      "type": "string",
+      "description": "Filter by cancelled status (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "is-managed",
+      "required": false,
+      "type": "string",
+      "description": "Filter by managed status (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "is-managed-or-alive",
+      "required": false,
+      "type": "string",
+      "description": "Filter by managed-or-alive status (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "is-subsequent-shift-in-driver-day",
+      "required": false,
+      "type": "string",
+      "description": "Filter by subsequent shift in driver day (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "unsourced",
+      "required": false,
+      "type": "string",
+      "description": "Filter by unsourced status (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "customer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID."
+    },
+    {
+      "name": "customer-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (job-based)."
+    },
+    {
+      "name": "broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID."
+    },
+    {
+      "name": "broker-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (job-based)."
+    },
+    {
+      "name": "ordered",
+      "required": false,
+      "type": "string",
+      "description": "Filter by ordered status (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "job-production-plan-status",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan status."
+    },
+    {
+      "name": "start-date",
+      "required": false,
+      "type": "string",
+      "description": "Filter by start date (YYYY-MM-DD). Example: 2025-01-01.",
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "start-date-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start date (YYYY-MM-DD).",
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "start-date-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start date (YYYY-MM-DD).",
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "has-start-date",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of start date (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "start-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "start-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "is-start-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of start time (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "end-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum end time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "end-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum end time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "is-end-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of end time (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "related-to-trucker-through-accepted-tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_schedule_shifts_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "36a92eb259cfb1957dab9e9a8e028b0464550ddb8ff2c8c5c3a5843f8dca30c6",
+  "full_path": "do job-production-plan-uncancellations create",
+  "description": "Uncancel a job production plan.",
+  "permissions": "User must be authorized to update the referenced job production plan.",
+  "side_effects": "Creates a job production plan uncancellation action, updates the plan status, uncancels related tenders, and schedules a recap generation.",
+  "validation_notes": "Job production plan must exist. The plan must currently be in a cancelled status to be uncancelled. Status changes are rejected when the plan is related to invoices preventing changes. For template plans, the resulting status must be abandoned or editing.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": "Required. Must reference an existing job production plan."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status change comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--suppress-status-change-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Suppress status change notifications",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_uncancellations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_uncancellation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_uncancellation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_actions/job_production_plan_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_actions/job_production_plan_uncancellation.rb"
+    }
+  ]
+}

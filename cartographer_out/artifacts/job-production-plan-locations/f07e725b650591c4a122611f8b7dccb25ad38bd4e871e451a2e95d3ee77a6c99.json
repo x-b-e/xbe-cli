@@ -1,0 +1,135 @@
+{
+  "id": "f07e725b650591c4a122611f8b7dccb25ad38bd4e871e451a2e95d3ee77a6c99",
+  "full_path": "do job-production-plan-locations update",
+  "description": "Update a job production plan location",
+  "permissions": "User must be authorized to update the related job production plan (JobProductionPlanPolicy update? delegated via JobProductionPlanLocationPolicy), including admins, customer managers, broker members, assigned planner/project manager, or time card approvers.",
+  "side_effects": "Updates a job production plan location and triggers geocoding/cached time zone updates when address data changes; after commit it triggers job production plan driver movement observation async.",
+  "validation_notes": "At least one attribute or relationship must be provided. site-kind cannot be changed if there are dependent job schedule shifts at this location. If segment is provided, it must belong to the same job production plan and segment_id must be unique. address_time_zone_id must be a valid time zone if present.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Location name (example: New Name).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--site-kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Site kind (job_site, other).",
+      "default": null,
+      "validation": "Allowed values: job_site, other."
+    },
+    {
+      "name": "--is-start-site-candidate",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as start site candidate.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--no-is-start-site-candidate",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Clear start site candidate flag.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--segment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan segment ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full address (will be geocoded). Example: 456 Oak Ave, Springfield, IL.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address latitude (example: 39.7817).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address longitude (example: -89.6501).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-place-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Google Place ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-plus-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Plus code.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-address-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip geocoding the address.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_locations_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_location.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_location_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_location_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/geocoded_attributes.rb"
+    }
+  ]
+}

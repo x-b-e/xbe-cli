@@ -1,0 +1,60 @@
+{
+  "id": "8592d264d0f0b36d9a1fa7d65d23e07b36a27734471f8d34fd9bc649613dfb14",
+  "full_path": "view project-revenue-classifications list",
+  "description": "List project revenue classifications with filtering and pagination.",
+  "permissions": "Admin users can list all project revenue classifications. Non-admin users can list classifications with broker_id null or broker_id in their member brokers.",
+  "side_effects": null,
+  "validation_notes": "Filter --has-broker must be a boolean value (true/false).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker presence (true/false)",
+      "default": null,
+      "validation": "must be a boolean value (true/false)"
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by parent classification ID (use 'null' to show root classifications)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_revenue_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/project_money_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/project_money_classification_policy.rb"
+    }
+  ]
+}

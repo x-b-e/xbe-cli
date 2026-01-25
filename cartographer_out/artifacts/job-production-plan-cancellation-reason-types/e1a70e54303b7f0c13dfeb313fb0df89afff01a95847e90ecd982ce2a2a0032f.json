@@ -1,0 +1,29 @@
+{
+  "id": "e1a70e54303b7f0c13dfeb313fb0df89afff01a95847e90ecd982ce2a2a0032f",
+  "full_path": "do job-production-plan-cancellation-reason-types delete",
+  "description": "Delete a job production plan cancellation reason type.",
+  "permissions": "Only admin users can delete cancellation reason types.",
+  "side_effects": "Deletes a job production plan cancellation reason type.",
+  "validation_notes": "Requires <id> argument and --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_cancellation_reason_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_cancellation_reason_type_policy.rb"
+    }
+  ]
+}

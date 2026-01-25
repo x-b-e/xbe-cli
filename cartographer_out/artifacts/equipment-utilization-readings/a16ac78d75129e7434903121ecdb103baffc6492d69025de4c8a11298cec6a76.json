@@ -1,0 +1,29 @@
+{
+  "id": "a16ac78d75129e7434903121ecdb103baffc6492d69025de4c8a11298cec6a76",
+  "full_path": "do equipment-utilization-readings delete",
+  "description": "Delete an equipment utilization reading.",
+  "permissions": "User must be an admin, a manager of the equipment organization, or a member of the equipment broker.",
+  "side_effects": "Deletes the specified equipment utilization reading.",
+  "validation_notes": "The <id> argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_utilization_readings_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_utilization_reading_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "Show time card payroll certification details",
+  "flags": [],
+  "full_path": "view time-card-payroll-certifications show",
+  "id": "e84ba461e3a21ca82a24bb37568b9464a2dc4c678240e9311a6bc6c16f8ab6ab",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/time_card_payroll_certifications_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_card_payroll_certification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (time card payroll certification ID)."
+}

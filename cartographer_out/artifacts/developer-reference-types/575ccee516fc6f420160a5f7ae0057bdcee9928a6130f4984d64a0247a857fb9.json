@@ -1,0 +1,33 @@
+{
+  "id": "575ccee516fc6f420160a5f7ae0057bdcee9928a6130f4984d64a0247a857fb9",
+  "full_path": "do developer-reference-types delete",
+  "description": "Delete a developer reference type",
+  "permissions": "Allowed for admin users or users who are manager members of the broker associated with the developer.",
+  "side_effects": "Deletes a developer reference type.",
+  "validation_notes": "Reference type ID argument is required; --confirm is required; deletion is blocked when related developer references exist.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_reference_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_reference_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_reference_type_policy.rb"
+    }
+  ]
+}

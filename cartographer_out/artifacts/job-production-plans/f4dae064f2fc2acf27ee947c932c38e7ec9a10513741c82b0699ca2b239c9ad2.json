@@ -1,0 +1,27 @@
+{
+  "id": "f4dae064f2fc2acf27ee947c932c38e7ec9a10513741c82b0699ca2b239c9ad2",
+  "full_path": "view job-production-plans show",
+  "description": "Show details of a specific plan",
+  "permissions": "Access is granted per JobProductionPlanPolicy scope (admins; authorized broker/customer members; and related roles such as planner, project manager, time card approver, subscriber, notifying crew laborer, or material supplier member).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plans_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/job_production_plans_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

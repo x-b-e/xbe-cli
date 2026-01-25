@@ -1,0 +1,110 @@
+{
+  "id": "48904834deafb3e788cb72a83534b7e12339fd753ed6034b70c00fe8cc87bb89",
+  "full_path": "do trucker-invoices update",
+  "description": "Update an existing trucker invoice.",
+  "permissions": "Allowed for admin users, manager members of the trucker seller, or members of the broker buyer.",
+  "side_effects": "Updates a trucker invoice record.",
+  "validation_notes": "The trucker invoice ID argument is required. At least one field must be provided to update. --buyer-type and --buyer are required together when changing buyer. --seller-type and --seller are required together when changing seller. --notes accepts an empty string to clear. --time-cards accepts a comma-separated list; an empty value clears time cards. currency-code must be USD. due-on must be on or after invoice-date. Buyer must be a broker and seller must be a trucker.",
+  "flags": [
+    {
+      "name": "--invoice-date",
+      "required": false,
+      "type": "string",
+      "description": "Invoice date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--due-on",
+      "required": false,
+      "type": "string",
+      "description": "Due date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--adjustment-amount",
+      "required": false,
+      "type": "string",
+      "description": "Adjustment amount"
+    },
+    {
+      "name": "--currency-code",
+      "required": false,
+      "type": "string",
+      "description": "Currency code (USD)",
+      "validation": "USD"
+    },
+    {
+      "name": "--notes",
+      "required": false,
+      "type": "string",
+      "description": "Notes"
+    },
+    {
+      "name": "--explicit-buyer-name",
+      "required": false,
+      "type": "string",
+      "description": "Explicit buyer name override"
+    },
+    {
+      "name": "--explicit-buyer-address",
+      "required": false,
+      "type": "string",
+      "description": "Explicit buyer address override"
+    },
+    {
+      "name": "--buyer-type",
+      "required": false,
+      "type": "string",
+      "description": "Buyer type (brokers)",
+      "validation": "brokers"
+    },
+    {
+      "name": "--buyer",
+      "required": false,
+      "type": "string",
+      "description": "Buyer ID"
+    },
+    {
+      "name": "--seller-type",
+      "required": false,
+      "type": "string",
+      "description": "Seller type (truckers)",
+      "validation": "truckers"
+    },
+    {
+      "name": "--seller",
+      "required": false,
+      "type": "string",
+      "description": "Seller ID"
+    },
+    {
+      "name": "--time-cards",
+      "required": false,
+      "type": "string",
+      "description": "Time card IDs (comma-separated)",
+      "validation": "comma-separated; empty value clears"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_invoices_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_invoice_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoices/trucker_invoice.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_invoice_resource.rb"
+    }
+  ]
+}

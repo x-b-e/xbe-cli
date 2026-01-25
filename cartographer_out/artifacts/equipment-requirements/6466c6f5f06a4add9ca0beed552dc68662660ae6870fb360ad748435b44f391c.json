@@ -1,0 +1,37 @@
+{
+  "id": "6466c6f5f06a4add9ca0beed552dc68662660ae6870fb360ad748435b44f391c",
+  "full_path": "do equipment-requirements delete",
+  "description": "Delete an equipment requirement",
+  "permissions": "User must be authorized to update the associated job production plan.",
+  "side_effects": "Deletes related inbound/outbound equipment movement trip dispatches.",
+  "validation_notes": "--confirm is required. Deletion is blocked if there is an inbound movement requirement, outbound movement requirement, an approved/complete job production plan that is only for equipment movement, or time sheet line items.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_requirements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_requirements/equipment_requirement.rb"
+    }
+  ]
+}

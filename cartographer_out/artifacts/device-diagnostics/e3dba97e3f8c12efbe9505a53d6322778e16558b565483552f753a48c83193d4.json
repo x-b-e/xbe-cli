@@ -1,0 +1,163 @@
+{
+  "id": "e3dba97e3f8c12efbe9505a53d6322778e16558b565483552f753a48c83193d4",
+  "full_path": "view device-diagnostics list",
+  "description": "List device diagnostic snapshots with filtering and pagination.",
+  "permissions": "Authenticated users can list device diagnostics within policy scope: diagnostics tied to their devices, diagnostics where they are the user, or diagnostics for users visible via active broker memberships.",
+  "side_effects": null,
+  "validation_notes": "Boolean filters require strict true or false values; invalid values are rejected by the API.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--device",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by device ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--device-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by device identifier (example: ABC-123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--permission-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by permission status (example: authorized).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-permission-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude permission status.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-permission-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by permission status presence (true/false).",
+      "default": null,
+      "validation": "Must be true or false (example: true)."
+    },
+    {
+      "name": "--motion-permission-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by motion permission status.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-motion-permission-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude motion permission status.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-motion-permission-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by motion permission status presence (true/false).",
+      "default": null,
+      "validation": "Must be true or false (example: true)."
+    },
+    {
+      "name": "--location-accuracy-authorization-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by location accuracy authorization status.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-location-accuracy-authorization-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by location accuracy authorization status presence (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--are-location-services-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by location services enabled (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-gps-location-provider-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by GPS location provider enabled (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-network-location-provider-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by network location provider enabled (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-not-tracking-because-of-stationary-mode",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by stationary mode tracking disable (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/device_diagnostics_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/device_diagnostic_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/device_diagnostic_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    }
+  ]
+}

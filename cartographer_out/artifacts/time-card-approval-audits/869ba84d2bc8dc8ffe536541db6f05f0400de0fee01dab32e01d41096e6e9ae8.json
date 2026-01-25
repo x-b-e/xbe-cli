@@ -1,0 +1,41 @@
+{
+  "id": "869ba84d2bc8dc8ffe536541db6f05f0400de0fee01dab32e01d41096e6e9ae8",
+  "full_path": "do time-card-approval-audits delete",
+  "description": "Delete a time card approval audit.",
+  "permissions": "User must be an admin or a time card auditor for the time card broker, and the audit must be deletable (no time card invoices).",
+  "side_effects": "Deletes the time card approval audit record.",
+  "validation_notes": "Requires <id> argument (time card approval audit ID) and --confirm. Deletion is blocked when the time card has invoices.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to delete the audit."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_approval_audits.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_approval_audits_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_approval_audit_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_approval_audit.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_approval_audit_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "id": "a4d1dea157e79a6a2ba4c9d2bf35aa4f63434a9034c53851eb7928baa80835a2",
+  "full_path": "do retainer-periods update",
+  "description": "Update a retainer period.",
+  "permissions": "Allowed when the user can update the parent retainer. Retainer periods delegate update permission to the retainer policy: admins are allowed; broker retainers allow broker members of the buyer organization; customer retainers allow broker members of the seller organization or customer members of the buyer organization.",
+  "side_effects": "Updates a retainer period.",
+  "validation_notes": "Requires the retainer period ID argument. At least one of start-on, end-on, weekly-payment-amount, or retainer must be provided. Dates must be provided as YYYY-MM-DD. end_on must be greater than start_on. weekly_payment_amount must be greater than 0. start_on and end_on must not overlap an existing retainer period for the same retainer. Retainer period can only be updated while its retainer is editing. The sum of retainer payment amounts must be less than or equal to the maximum total payment for the period.",
+  "flags": [
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "--weekly-payment-amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Weekly payment amount",
+      "default": null,
+      "validation": "Must be greater than 0."
+    },
+    {
+      "name": "--retainer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Retainer ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_retainer_periods_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer_period.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_period_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_retainer_policy.rb"
+    }
+  ]
+}

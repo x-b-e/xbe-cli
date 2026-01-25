@@ -1,0 +1,91 @@
+{
+  "id": "820d6d50a42b346dbb227961ce4a17e3b0ac98aef0dd3c140dcab6af0d1cf7b1",
+  "full_path": "view invoice-revisionizing-invoice-revisions list",
+  "description": "List invoice revisionizing invoice revisions",
+  "permissions": "Allowed for users who can list InvoiceRevisionizingWork records; the policy scope joins invoice_revisionizing_work and applies the InvoiceRevisionizingWork policy scope (non-admins are limited to member broker IDs; admins can access all).",
+  "side_effects": "None (read-only).",
+  "validation_notes": "created-at-min/max and updated-at-min/max must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--invoice-revisionizing-work",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice revisionizing work ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--invoice-revision",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice revision ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_revisionizing_invoice_revisions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_revisionizing_invoice_revision_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_revisionizing_invoice_revision_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_revisionizing_work_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "dfc720570175b95687b74439680dcd8d3d4ad1d4f9b7fdbc7efe9f5189fe0898",
+  "full_path": "view driver-day-adjustment-plans show",
+  "description": "Show driver day adjustment plan details",
+  "permissions": "Admin users can view all driver day adjustment plans; non-admin users must be in scope via trucker manager memberships or broker memberships tied to the trucker.",
+  "side_effects": null,
+  "validation_notes": "An <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_day_adjustment_plans_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_day_adjustment_plan_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a specific inventory capacity.",
+  "flags": [],
+  "full_path": "view inventory-capacities show",
+  "id": "9c4ccce24fce1c613aacdb66cf3e4afe080db1db9d936698cae3e0155b83e988",
+  "permissions": "Admins can view all inventory capacities. Non-admin users can view inventory capacities for material sites whose material suppliers belong to a broker the user can see or whose material suppliers are directly visible to the user.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/inventory_capacities_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/inventory_capacity_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/inventory_capacity_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires the <id> argument."
+}

@@ -1,0 +1,64 @@
+{
+  "description": "Create a Samsara integration",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Integration identifier from Samsara (required)",
+      "name": "--integration-identifier",
+      "required": true,
+      "type": "string",
+      "validation": "Required. Must be unique."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Friendly name for the integration (required)",
+      "name": "--friendly-name",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Integration config ID (required)",
+      "name": "--integration-config",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    }
+  ],
+  "full_path": "do samsara-integrations create",
+  "id": "0488dec37740d59a1368fce96b89bbe36e695299abae7b9f019a3fc1e019f58c",
+  "permissions": "Only admin users can create Samsara integrations.",
+  "side_effects": "Creates a Samsara integration and links it to the specified broker and integration config.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_samsara_integrations_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/samsara_integration_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/samsara_integration.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/samsara_integration_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--integration-identifier, --friendly-name, --broker, and --integration-config are required. integration_identifier must be present and unique. friendly_name must be present."
+}

@@ -1,0 +1,41 @@
+{
+  "id": "7f0cdb2a4484d89e07591c753e863c113531853a236f756e598b032964195978",
+  "full_path": "do prediction-knowledge-bases create",
+  "description": "Create a prediction knowledge base.",
+  "permissions": "Allowed for admin users or users who are members of the broker (any membership) associated with the knowledge base.",
+  "side_effects": "Creates a prediction knowledge base record associated with the broker.",
+  "validation_notes": "The --broker flag is required. Each broker can have only one prediction knowledge base (broker_id uniqueness).",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required). Example: --broker 123.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_knowledge_bases_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_knowledge_base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_knowledge_base_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_knowledge_base.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.prediction_knowledge_bases.sql"
+    }
+  ]
+}

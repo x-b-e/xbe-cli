@@ -1,0 +1,63 @@
+{
+  "id": "20ac7ba2d5bb3378f2a62ae40bbfd3655503e8483146400846a9f5cac729d060",
+  "full_path": "do verizon-reveal-vehicles update",
+  "description": "Update Verizon Reveal vehicle assignments",
+  "permissions": "Admins can update Verizon Reveal vehicle assignments; non-admin users can update a vehicle only if they are members of the vehicle's broker organization.",
+  "side_effects": "Updates the Verizon Reveal vehicle's trailer, tractor, and/or equipment assignment relationships.",
+  "validation_notes": "The Verizon Reveal vehicle ID argument is required. At least one of --trailer, --tractor, or --equipment must be provided. If a provided flag value is empty, the corresponding relationship is cleared.",
+  "flags": [
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_verizon_reveal_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/verizon_reveal_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/verizon_reveal_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/equipment_location_event_source_vehicle_resource.rb"
+    }
+  ]
+}

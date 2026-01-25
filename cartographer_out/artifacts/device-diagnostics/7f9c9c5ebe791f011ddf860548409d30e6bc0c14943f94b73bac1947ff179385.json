@@ -1,0 +1,19 @@
+{
+  "id": "7f9c9c5ebe791f011ddf860548409d30e6bc0c14943f94b73bac1947ff179385",
+  "full_path": "view device-diagnostics show",
+  "description": "Show the full details of a device diagnostic snapshot.",
+  "permissions": "Authenticated users can view device diagnostics within policy scope: diagnostics tied to their devices, diagnostics where they are the user, or diagnostics for users visible via active broker memberships.",
+  "side_effects": null,
+  "validation_notes": "The device diagnostic ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/device_diagnostics_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/device_diagnostic_policy.rb"
+    }
+  ]
+}

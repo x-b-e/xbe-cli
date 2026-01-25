@@ -1,0 +1,55 @@
+{
+  "id": "838ce451dbb853750db4d416441f3ca19751f7199b13b4d7801992aa3e004f95",
+  "full_path": "do cost-code-trucking-cost-summaries create",
+  "description": "Create a cost code trucking cost summary.",
+  "permissions": "Admins can create summaries. Managers who are members of the broker can create summaries for that broker.",
+  "side_effects": "Creates a summary record and computes/stores results for the specified broker and date range.",
+  "validation_notes": "broker, start-on, and end-on are required. start-on and end-on must be present dates; end-on must be on or after start-on.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Start date (YYYY-MM-DD) (required)",
+      "default": null,
+      "validation": "Must be a date in YYYY-MM-DD format."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "End date (YYYY-MM-DD) (required)",
+      "default": null,
+      "validation": "Must be a date in YYYY-MM-DD format and on/after start-on."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_code_trucking_cost_summaries_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_code_trucking_cost_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_code_trucking_cost_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_code_trucking_cost_summary.rb"
+    }
+  ]
+}

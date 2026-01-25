@@ -1,0 +1,27 @@
+{
+  "description": "Show Samsara integration details",
+  "flags": [],
+  "full_path": "view samsara-integrations show",
+  "id": "e72d7225354a33338ae4a55c9dc7ef4b1487537fc093930464027d3203399aea",
+  "permissions": "Admins can view all Samsara integrations. Non-admin users can view integrations for brokers in their broker memberships. Anonymous users have no access.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/samsara_integrations_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/samsara_integration_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/samsara_integration_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument (Samsara integration ID) is required."
+}

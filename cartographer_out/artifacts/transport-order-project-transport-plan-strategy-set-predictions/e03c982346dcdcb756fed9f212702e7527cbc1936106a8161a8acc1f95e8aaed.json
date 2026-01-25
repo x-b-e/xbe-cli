@@ -1,0 +1,23 @@
+{
+  "description": "Show transport order strategy set prediction details.",
+  "flags": [],
+  "full_path": "view transport-order-project-transport-plan-strategy-set-predictions show",
+  "id": "e03c982346dcdcb756fed9f212702e7527cbc1936106a8161a8acc1f95e8aaed",
+  "permissions": "Admins can view any prediction. Non-admins can view predictions only for transport orders tied to brokers they are members of.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/transport_order_project_transport_plan_strategy_set_predictions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/transport_order_project_transport_plan_strategy_set_prediction_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/transport_order_project_transport_plan_strategy_set_prediction_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required."
+}

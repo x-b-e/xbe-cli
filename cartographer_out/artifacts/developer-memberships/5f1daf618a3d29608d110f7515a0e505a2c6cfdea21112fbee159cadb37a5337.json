@@ -1,0 +1,159 @@
+{
+  "id": "5f1daf618a3d29608d110f7515a0e505a2c6cfdea21112fbee159cadb37a5337",
+  "full_path": "do developer-memberships create",
+  "description": "Create a developer membership.",
+  "permissions": "Allowed for admins; broker members of the developer's broker; or manager members of the developer organization. If creating an admin membership, the user must be a practical admin of the organization.",
+  "side_effects": "Creates a developer membership record; may enqueue a NewMembershipPostWorker job for valid creator types; clears cached user membership data after commit.",
+  "validation_notes": "--user and --developer are required. kind must be operations or manager (default operations). drives-shift-type must be any, day, or night (default any). Boolean flags accept true/false. start-at and end-at must be ISO 8601 timestamps; if start-at is set, end-at must be after start-at. color-hex must be a valid hex color. explicit-sort-order must be an integer. external-employee-id must be unique per organization. A user cannot have overlapping memberships for the same organization in the effective period. project-office must belong to the same broker as the membership. can-see-rates-as-manager can only be set for manager memberships. can-validate-profit-improvements can only be set for broker managers. organization_type must be Developer. can_see_rates_as_driver, enable_recap_notifications, is_time_card_auditor, is_equipment_rental_team_member, and is_rate_editor must be absent.",
+  "flags": [
+    {
+      "name": "--user",
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)."
+    },
+    {
+      "name": "--developer",
+      "required": true,
+      "type": "string",
+      "description": "Developer ID (required)."
+    },
+    {
+      "name": "--kind",
+      "required": false,
+      "type": "enum",
+      "description": "Role: operations (default) or manager.",
+      "default": "operations",
+      "validation": "operations|manager"
+    },
+    {
+      "name": "--is-admin",
+      "required": false,
+      "type": "boolean",
+      "description": "Admin status (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--title",
+      "required": false,
+      "type": "string",
+      "description": "Title within the organization."
+    },
+    {
+      "name": "--color-hex",
+      "required": false,
+      "type": "string",
+      "description": "Display color (e.g., #FF0000).",
+      "validation": "hex color"
+    },
+    {
+      "name": "--external-employee-id",
+      "required": false,
+      "type": "string",
+      "description": "External system employee ID."
+    },
+    {
+      "name": "--explicit-sort-order",
+      "required": false,
+      "type": "integer",
+      "description": "Manual sort order.",
+      "validation": "integer"
+    },
+    {
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "description": "Membership start date (ISO 8601).",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "description": "Membership end date (ISO 8601).",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--drives-shift-type",
+      "required": false,
+      "type": "enum",
+      "description": "Shift type: any (default), day, or night.",
+      "default": "any",
+      "validation": "any|day|night"
+    },
+    {
+      "name": "--project-office",
+      "required": false,
+      "type": "string",
+      "description": "Project office ID."
+    },
+    {
+      "name": "--can-see-rates-as-manager",
+      "required": false,
+      "type": "boolean",
+      "description": "Can see rates as manager (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--can-validate-profit-improvements",
+      "required": false,
+      "type": "boolean",
+      "description": "Can validate profit improvements (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "required": false,
+      "type": "boolean",
+      "description": "Is geofence violation team member (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "required": false,
+      "type": "boolean",
+      "description": "Is unapproved time card subscriber (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "required": false,
+      "type": "boolean",
+      "description": "Is default job production plan subscriber (true/false).",
+      "validation": "true|false"
+    },
+    {
+      "name": "--enable-inventory-capacity-notifications",
+      "required": false,
+      "type": "boolean",
+      "description": "Enable inventory capacity notifications (true/false).",
+      "validation": "true|false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_memberships_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/membership.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/memberships/developer_membership.rb"
+    }
+  ]
+}

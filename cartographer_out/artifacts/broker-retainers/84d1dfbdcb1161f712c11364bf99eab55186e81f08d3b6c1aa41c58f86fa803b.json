@@ -1,0 +1,33 @@
+{
+  "id": "84d1dfbdcb1161f712c11364bf99eab55186e81f08d3b6c1aa41c58f86fa803b",
+  "full_path": "do broker-retainers delete",
+  "description": "Delete a broker retainer",
+  "permissions": null,
+  "side_effects": "Deletes a broker retainer.",
+  "validation_notes": "The broker retainer ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_retainers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/broker_retainers_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_retainer_policy.rb"
+    }
+  ]
+}

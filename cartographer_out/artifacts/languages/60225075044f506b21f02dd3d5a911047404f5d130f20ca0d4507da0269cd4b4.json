@@ -1,0 +1,33 @@
+{
+  "id": "60225075044f506b21f02dd3d5a911047404f5d130f20ca0d4507da0269cd4b4",
+  "full_path": "view languages list",
+  "description": "List available languages.",
+  "permissions": "Any user, including anonymous users, can list languages; admin privileges are only required for create/update/destroy.",
+  "side_effects": null,
+  "validation_notes": "--code filters by language code (ISO code like en, es).",
+  "flags": [
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by language code",
+      "default": null,
+      "validation": "ISO language code (e.g., en, es)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/languages_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/language_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/language_resource.rb"
+    }
+  ]
+}

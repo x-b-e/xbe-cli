@@ -1,0 +1,60 @@
+{
+  "id": "79de4fe168c4ff5306bba02a06f6bde86dc28ce855fc471d2527bb75ba3ee3a9",
+  "full_path": "do crew-requirement-credential-classifications create",
+  "description": "Create a crew requirement credential classification.",
+  "permissions": "User must be authorized to update the related crew requirement; create is denied if no crew_requirement is set.",
+  "side_effects": "Creates a crew requirement credential classification link between a crew requirement and a credential classification.",
+  "validation_notes": "All required flags must be provided. Crew requirement type must be LaborRequirement. Credential classification type must be UserCredentialClassification for LaborRequirement. When the crew requirement is a LaborRequirement with an assigned laborer and effective dates, the credential classification must match the assigned laborer's user credentials.",
+  "flags": [
+    {
+      "name": "--crew-requirement-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Crew requirement type (e.g., labor-requirements) (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--crew-requirement",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Crew requirement ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--credential-classification-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Credential classification type (e.g., user-credential-classifications) (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--credential-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Credential classification ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_crew_requirement_credential_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_requirement_credential_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_credential_classification_policy.rb"
+    }
+  ]
+}

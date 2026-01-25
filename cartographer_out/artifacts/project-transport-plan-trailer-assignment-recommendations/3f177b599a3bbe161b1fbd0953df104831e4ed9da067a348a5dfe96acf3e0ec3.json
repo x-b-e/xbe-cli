@@ -1,0 +1,33 @@
+{
+  "id": "3f177b599a3bbe161b1fbd0953df104831e4ed9da067a348a5dfe96acf3e0ec3",
+  "full_path": "do project-transport-plan-trailer-assignment-recommendations create",
+  "description": "Generate trailer assignment recommendations for a project transport plan trailer.",
+  "permissions": "User must be allowed to update the related project transport plan trailer.",
+  "side_effects": "Creates trailer assignment recommendation records for the specified project transport plan trailer.",
+  "validation_notes": "Requires --project-transport-plan-trailer.",
+  "flags": [
+    {
+      "name": "--project-transport-plan-trailer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport plan trailer ID",
+      "default": null,
+      "validation": "required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_trailer_assignment_recommendations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_trailer_assignment_recommendation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_trailer_assignment_recommendation_policy.rb"
+    }
+  ]
+}

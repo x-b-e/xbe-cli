@@ -1,0 +1,149 @@
+{
+  "description": "Create a project transport plan stop insertion",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Insertion mode",
+      "name": "--mode",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: replace, insert_before, insert_after, insert_at_head, insert_at_tail, seed_plan, move_before, move_after, delete. Example: --mode insert_before."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Reuse half (upstream or downstream)",
+      "name": "--reuse-half",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: upstream, downstream. Example: --reuse-half upstream."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Boundary choice (join_upstream or join_downstream)",
+      "name": "--boundary-choice",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: join_upstream, join_downstream."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Planned event time start (RFC3339)",
+      "name": "--planned-event-time-start-at",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Planned event time end (RFC3339)",
+      "name": "--planned-event-time-end-at",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp; requires planned-event-time-start-at; must be >= planned-event-time-start-at."
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Preserve stop record in delete mode",
+      "name": "--preserve-stop-on-delete",
+      "required": false,
+      "type": "boolean",
+      "validation": "Only allowed in delete mode. Example: --preserve-stop-on-delete."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Reference project transport plan stop ID",
+      "name": "--reference-project-transport-plan-stop",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport plan ID",
+      "name": "--project-transport-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport location ID",
+      "name": "--project-transport-location",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport plan segment set ID",
+      "name": "--project-transport-plan-segment-set",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Planned completion event type ID",
+      "name": "--planned-completion-event-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Existing project transport plan stop ID",
+      "name": "--existing-project-transport-plan-stop",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Stop to move ID",
+      "name": "--stop-to-move",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-stop-insertions create",
+  "id": "d9821f79a729a008c98cd1e54edac9a20c5fa7cd08e19dc3e663b6b1e98d2bdc",
+  "permissions": "User must be authorized for the related project transport plan via the delegated policy (same permissions as ProjectTransportPlan).",
+  "side_effects": "Creates a stop insertion and applies it, which can create, move, replace, or delete project transport plan stops and segments, update related assignments, and create or update planned completion events and planned event times.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_stop_insertions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/project_transport_plan_stop_insertions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_stop_insertion_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_stop_insertion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_stop_insertion_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--mode is required and must be one of replace, insert_before, insert_after, insert_at_head, insert_at_tail, seed_plan, move_before, move_after, delete. --reuse-half is required and must be one of upstream, downstream. --boundary-choice must be join_upstream or join_downstream; it is required when inserting at a segment set boundary unless project_transport_plan_segment_set is provided, and it is not applicable in delete mode. planned-event-time-start-at and planned-event-time-end-at must be RFC3339 timestamps; if planned-event-time-end-at is provided, planned-event-time-start-at is required, and end-at must be >= start-at. preserve-stop-on-delete is only allowed in delete mode. reference-project-transport-plan-stop is required unless mode is seed_plan, insert_at_head, or insert_at_tail. project-transport-location is required for insert_before/insert_after/insert_at_head/insert_at_tail/seed_plan unless reusing an existing stop. In delete mode, project-transport-location, boundary-choice, and project-transport-plan-segment-set must not be provided; deletion must not leave a segment set with no segments. For move_before/move_after, stop-to-move is required, must belong to the project transport plan, and cannot be the same as the reference stop. project-transport-plan must match the plan of reference stop, existing stop, and stop-to-move when those are provided. project-transport-plan-segment-set must belong to the same plan as the reference stop or project transport plan. existing-project-transport-plan-stop is only allowed for insert modes; it requires a reference stop, must be in the same plan, must differ from the reference stop, must have no connected segments, and cannot be combined with project-transport-location. project-transport-location must belong to the same broker as the project transport plan (or the reference stop plan)."
+}

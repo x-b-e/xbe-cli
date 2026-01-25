@@ -1,0 +1,41 @@
+{
+  "id": "78c001dcb64863e48150ecde7b16d274b8db20405e7622ffd9c5b1c6085ae773",
+  "full_path": "do answer-feedbacks delete",
+  "description": "Delete answer feedback.",
+  "permissions": "Admin users only; AnswerFeedbackPolicy delegates destroy to AnswerPolicy, which requires user.is_admin?.",
+  "side_effects": "Deletes an answer feedback and touches the associated question (updates timestamps).",
+  "validation_notes": "Requires the answer feedback id argument. --confirm must be set to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": "Must be true to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_answer_feedbacks_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/answer_feedback.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/answer_feedback_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/answer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    }
+  ]
+}

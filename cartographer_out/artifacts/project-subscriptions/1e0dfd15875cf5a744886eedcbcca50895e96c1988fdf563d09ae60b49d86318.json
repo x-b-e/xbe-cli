@@ -1,0 +1,55 @@
+{
+  "id": "1e0dfd15875cf5a744886eedcbcca50895e96c1988fdf563d09ae60b49d86318",
+  "full_path": "do project-subscriptions create",
+  "description": "Create a project subscription.",
+  "permissions": "Allowed for admins or members of the broker associated with the project.",
+  "side_effects": "Creates related job production plan subscriptions asynchronously after creation.",
+  "validation_notes": "--project is required. --user is required. contact-method must be one of: email_address, mobile_number. User must be contactable and a member of the project broker (or an admin). One subscription per user/project; duplicates are rejected. If contact-method is omitted or unavailable, it falls back to the user default contact method.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Contact method.",
+      "default": null,
+      "validation": "one of: email_address, mobile_number"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_subscriptions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_subscription.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_subscription_resource.rb"
+    }
+  ]
+}

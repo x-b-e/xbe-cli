@@ -1,0 +1,29 @@
+{
+  "id": "03de96d2f9eb71f89f9653a8f404e42dd6761f23091a20e9e8617c9a72edd5a1",
+  "full_path": "do mechanic-user-associations delete",
+  "description": "Delete a mechanic user association.",
+  "permissions": "Admin users can delete mechanic user associations. Broker managers can delete associations for their broker. Business unit managers can delete associations for maintenance requirements whose equipment is in their business units (including descendants). Technicians can self-assign to maintenance requirements on work orders when the responsible party is their exact business unit.",
+  "side_effects": "Deletes a mechanic user association record.",
+  "validation_notes": "The <id> argument is required. Requires --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_mechanic_user_associations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/mechanic_user_association_policy.rb"
+    }
+  ]
+}

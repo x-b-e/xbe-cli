@@ -1,0 +1,64 @@
+{
+  "id": "6e6ece45338ab128d2c1d6ffecd0377236ac38e00c4dc6beb986053e26693207",
+  "full_path": "do job-schedule-shift-splits create",
+  "description": "Split a job schedule shift into a new shift.",
+  "permissions": "Admin users, users allowed to update the job schedule shift, or trucker managers for the accepted broker tender trucker tied to the shift.",
+  "side_effects": "Creates a job schedule shift split and a new job schedule shift; reduces the original shift expected material transaction count/tons when provided; creates related lineup and tender job schedule shift records tied to the original shift tenders.",
+  "validation_notes": "--job-schedule-shift is required. The job schedule shift must be flexible and must have accepted broker and customer tender job schedule shifts. If expected material transaction count is provided, the original shift must have an expected count and the split must leave at least 1 count remaining. If expected material transaction tons is provided, the original shift must have expected tons and the split must leave at least 1 ton remaining. If new-start-at is provided, it must differ from the original shift start and fall between the shift start_at_min and start_at_max when those bounds are set.",
+  "flags": [
+    {
+      "name": "--job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expected-material-transaction-count",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Expected material transaction count",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expected-material-transaction-tons",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expected material transaction tons",
+      "default": null,
+      "validation": "Float value."
+    },
+    {
+      "name": "--new-start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New shift start time (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_schedule_shift_splits_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_schedule_shift_split_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_split_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_schedule_shift_split.rb"
+    }
+  ]
+}

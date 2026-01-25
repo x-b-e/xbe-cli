@@ -1,0 +1,97 @@
+{
+  "id": "fb7a3047939f881c29b5e71d69fa30db39c054d663225724d82c2c1ba76cfe2c",
+  "full_path": "do shift-scope-tenders create",
+  "description": "Find tenders for a shift scope.",
+  "permissions": "Delegated to the related record. The user must be allowed to create the related shift scope, rate, or shift set time card constraint (the policy delegates to the relationship's policy). Shift scope creation requires an admin user or a manager of the owning customer/trucker/broker organization.",
+  "side_effects": "Runs a server-side tender query for matching shifts and returns tenders; no persistent records are written.",
+  "validation_notes": "Must provide exactly one of --shift-scope, --rate, or --shift-set-time-card-constraint. --rate and --shift-set-time-card-constraint are mutually exclusive. created-at-min/max must be YYYY-MM-DD or RFC3339. Server only accepts created_at_min and created_at_max filters; any other filter keys return a 400 invalid argument error. limit defaults to 10 when omitted.",
+  "flags": [
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Minimum tender created_at.",
+      "default": null,
+      "validation": "Format YYYY-MM-DD or RFC3339 (example: 2025-01-01)."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum tender created_at.",
+      "default": null,
+      "validation": "Format YYYY-MM-DD or RFC3339 (example: 2025-01-31)."
+    },
+    {
+      "name": "--rate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Rate ID (derives shift scope).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-scope",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift scope ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-set-time-card-constraint",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift set time card constraint ID (derives shift scope).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_scope_tenders_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/shift_scope_tenders_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/shift_scope_tender_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_scope_tender.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_scope_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_scope_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/organization_owned_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/rate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_set_time_card_constraint_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "116c856c4f43342f50047d93e37c4ff8479f92ef34f3f85e6834eda639e9d006",
+  "full_path": "view equipment-movement-stop-requirements list",
+  "description": "List equipment movement stop requirements with filtering and pagination.",
+  "permissions": "Requires permission to view the related equipment movement stop (delegated via equipment movement stop requirement policy).",
+  "side_effects": null,
+  "validation_notes": "Filter kind is limited to origin or destination.",
+  "flags": [
+    {
+      "name": "--stop",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment movement stop ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment movement requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by requirement kind (origin/destination)",
+      "default": null,
+      "validation": "Must be one of: origin, destination."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_stop_requirements_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_stop_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_requirement_policy.rb"
+    }
+  ]
+}

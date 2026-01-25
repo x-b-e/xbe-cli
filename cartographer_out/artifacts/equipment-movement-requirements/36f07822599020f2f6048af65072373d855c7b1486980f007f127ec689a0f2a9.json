@@ -1,0 +1,23 @@
+{
+  "id": "36f07822599020f2f6048af65072373d855c7b1486980f007f127ec689a0f2a9",
+  "full_path": "view equipment-movement-requirements show",
+  "description": "Show equipment movement requirement details.",
+  "permissions": "Admins can view any equipment movement requirement. Non-admin users can only view requirements for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "Requirement ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_requirements_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_requirement_resource.rb"
+    }
+  ]
+}

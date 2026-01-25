@@ -1,0 +1,95 @@
+{
+  "id": "551fb0a9817c8596a95c48eff578604fadb33c92a3b642217c7f3cc6a31b2ff1",
+  "full_path": "do project-phase-revenue-item-actuals create",
+  "description": "Create a project phase revenue item actual.",
+  "permissions": "Allowed if user is admin, or can update the related project phase revenue item, or (when a job production plan is associated) is a manager member of the plan customer, a manager laborer, a laborer who can manage projects, the plan planner, or the plan project manager.",
+  "side_effects": "Creates a project phase revenue item actual; after commit it triggers job production plan recap generation and touches the actual estimate set, and it updates cached revenue item or margin matrix data.",
+  "validation_notes": "--project-phase-revenue-item is required. quantity must be numeric when provided. revenue_date is required by the model but is auto-set to the record created-on date if not supplied. If job production plan is set, revenue_date must match the job production plan start_on date and the job production plan must be for the same project. If job-production-plan-project-phase-revenue-item is set, it must refer to the same project_phase_revenue_item. created-by must be permitted to update the record (admin only per CLI help).",
+  "flags": [
+    {
+      "name": "--project-phase-revenue-item",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project phase revenue item ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan-project-phase-revenue-item",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan project phase revenue item ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Actual quantity (direct).",
+      "default": null,
+      "validation": "numeric"
+    },
+    {
+      "name": "--revenue-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Revenue date (YYYY-MM-DD).",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--quantity-strategy-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Quantity strategy (direct or indirect).",
+      "default": null,
+      "validation": "direct|indirect"
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Created-by user ID (admin only).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_revenue_item_actuals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_revenue_item_actual_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_revenue_item_actual_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_phase_revenue_item_actual.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validate_created_by_permitted_to_update.rb"
+    }
+  ]
+}

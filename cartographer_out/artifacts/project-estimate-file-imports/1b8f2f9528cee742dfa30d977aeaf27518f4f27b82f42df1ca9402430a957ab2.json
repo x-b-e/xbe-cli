@@ -1,0 +1,23 @@
+{
+  "id": "1b8f2f9528cee742dfa30d977aeaf27518f4f27b82f42df1ca9402430a957ab2",
+  "full_path": "view project-estimate-file-imports list",
+  "description": "List project estimate file imports.",
+  "permissions": "No explicit allow for listing: PlainOldPolicy scope raises for PlainOldModel resources, and ProjectEstimateFileImportPolicy show? is false.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_estimate_file_imports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_estimate_file_import_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/plain_old_policy.rb"
+    }
+  ]
+}

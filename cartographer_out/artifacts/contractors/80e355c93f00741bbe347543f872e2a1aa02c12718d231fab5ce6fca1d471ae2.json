@@ -1,0 +1,23 @@
+{
+  "id": "80e355c93f00741bbe347543f872e2a1aa02c12718d231fab5ce6fca1d471ae2",
+  "full_path": "view contractors show",
+  "description": "Show the full details of a contractor.",
+  "permissions": "Admins can view any contractor. Non-admins can view contractors for brokers they belong to or for brokers tied to customers they manage.",
+  "side_effects": null,
+  "validation_notes": "A contractor ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/contractors_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/contractor_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/contractor_policy.rb"
+    }
+  ]
+}

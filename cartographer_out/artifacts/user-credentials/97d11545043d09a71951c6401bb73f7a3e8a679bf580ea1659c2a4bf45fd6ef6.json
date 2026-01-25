@@ -1,0 +1,46 @@
+{
+  "description": "Update a user credential",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Issue date",
+      "name": "--issued-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Expiration date",
+      "name": "--expires-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "full_path": "do user-credentials update",
+  "id": "97d11545043d09a71951c6401bb73f7a3e8a679bf580ea1659c2a4bf45fd6ef6",
+  "permissions": "Allowed for admins. Non-admins must have a credentialed user and a user credential classification, be a manager of the credentialed user's organization or its broker via memberships, and the classification must be within the caller's UserCredentialClassification policy scope.",
+  "side_effects": "Updates issued-on and/or expires-on on a user credential.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_user_credentials_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/user_credential_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_credential_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/user_credential.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "An ID argument is required. At least one of --issued-on or --expires-on must be provided. Issued-on and expires-on must use YYYY-MM-DD format when provided. If both issued_on and expires_on are present, expires_on must be greater than or equal to issued_on. A user cannot have overlapping credentials for the same classification. When both dates are set, issued_on and expires_on must not conflict with related user labor requirements."
+}

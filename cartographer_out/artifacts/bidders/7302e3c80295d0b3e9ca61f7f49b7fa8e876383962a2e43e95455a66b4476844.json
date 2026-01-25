@@ -1,0 +1,55 @@
+{
+  "id": "7302e3c80295d0b3e9ca61f7f49b7fa8e876383962a2e43e95455a66b4476844",
+  "full_path": "do bidders create",
+  "description": "Create a new bidder.",
+  "permissions": "Admins can create bidders for any broker; broker members can create bidders for their broker.",
+  "side_effects": "Creates a bidder record.",
+  "validation_notes": "--name and --broker are required. --is-self-for-broker is required and must be true/false. Name must be unique within a broker. is_self_for_broker must be boolean; only one self bidder is allowed per broker (is_self_for_broker=true).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Bidder name (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--is-self-for-broker",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Mark as the broker's self bidder",
+      "default": null,
+      "validation": "true/false (flag must be provided)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_bidders_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/bidder.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/bidder_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/bidder_resource.rb"
+    }
+  ]
+}

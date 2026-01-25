@@ -1,0 +1,19 @@
+{
+  "id": "6a014b498e2c190247c8e85f4b493e9f0c9dadfd870a8893f2201ab583c4b132",
+  "full_path": "view trucker-settings show",
+  "description": "Show trucker setting details.",
+  "permissions": "Admins can view all. Non-admins can view trucker settings only for truckers in their Trucker policy scope (e.g., broker members or permitted trucker members).",
+  "side_effects": null,
+  "validation_notes": "A trucker setting ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_settings_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_setting_policy.rb"
+    }
+  ]
+}

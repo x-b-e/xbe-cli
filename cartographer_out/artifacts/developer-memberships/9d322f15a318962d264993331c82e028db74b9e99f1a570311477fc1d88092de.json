@@ -1,0 +1,34 @@
+{
+  "id": "9d322f15a318962d264993331c82e028db74b9e99f1a570311477fc1d88092de",
+  "full_path": "do developer-memberships delete",
+  "description": "Delete a developer membership.",
+  "permissions": "Allowed for admins; broker members of the developer's broker; or manager members of the developer organization.",
+  "side_effects": "Deletes the developer membership record; nullifies associated default contacts; destroys invalid notification subscriptions; deactivates related laborers; nullifies invalid objective/key result ownership; clears cached user membership data; and posts an audit log notification.",
+  "validation_notes": "The developer membership ID argument and --confirm flag are required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_memberships_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/membership.rb"
+    }
+  ]
+}

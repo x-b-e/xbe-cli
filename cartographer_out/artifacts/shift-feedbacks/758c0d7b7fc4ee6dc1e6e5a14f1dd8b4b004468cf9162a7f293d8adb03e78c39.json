@@ -1,0 +1,29 @@
+{
+  "id": "758c0d7b7fc4ee6dc1e6e5a14f1dd8b4b004468cf9162a7f293d8adb03e78c39",
+  "full_path": "do shift-feedbacks delete",
+  "description": "Delete a shift feedback.",
+  "permissions": "Admin users; otherwise broker members or the user who created the feedback.",
+  "side_effects": "Deletes the shift feedback.",
+  "validation_notes": "ID argument is required; --confirm must be true to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_feedbacks_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_feedback_policy.rb"
+    }
+  ]
+}

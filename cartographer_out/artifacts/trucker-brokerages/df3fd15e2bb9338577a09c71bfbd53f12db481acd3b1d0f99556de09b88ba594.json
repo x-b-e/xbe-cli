@@ -1,0 +1,46 @@
+{
+  "id": "df3fd15e2bb9338577a09c71bfbd53f12db481acd3b1d0f99556de09b88ba594",
+  "full_path": "do trucker-brokerages update",
+  "description": "Update a trucker brokerage",
+  "permissions": "Admins and users who are practically trucker managers for the brokering trucker can update trucker brokerages.",
+  "side_effects": "Updates the brokering trucker and/or brokered trucker relationships for the trucker brokerage.",
+  "validation_notes": "At least one of --trucker or --brokered-trucker must be provided. Trucker and brokered trucker must have the same broker, the brokering trucker cannot broker itself, and the trucker/brokered-trucker pair must be unique.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Brokering trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--brokered-trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Brokered trucker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_brokerages_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_brokerage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_brokerage.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/validators/has_same_validator.rb"
+    }
+  ]
+}

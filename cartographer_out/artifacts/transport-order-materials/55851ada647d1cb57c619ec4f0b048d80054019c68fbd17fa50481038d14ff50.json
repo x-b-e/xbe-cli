@@ -1,0 +1,60 @@
+{
+  "id": "55851ada647d1cb57c619ec4f0b048d80054019c68fbd17fa50481038d14ff50",
+  "full_path": "view transport-order-materials list",
+  "description": "List transport order materials with filtering and pagination.",
+  "permissions": "User must be authorized to access related transport orders; authorization delegates to the transport_order relationship.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--transport-order",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by transport order ID. Example: --transport-order 123",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID. Example: --material-type 456",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by unit of measure ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by explicit quantity",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/transport_order_materials_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_order_material_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_material_policy.rb"
+    }
+  ]
+}

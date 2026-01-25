@@ -1,0 +1,33 @@
+{
+  "description": "Delete a question.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do questions delete",
+  "id": "547eeb21292be1b39ceb1da9c905948aaa4186edcdd9a72a1dfa8f2a0fe1a617",
+  "permissions": "Requires authentication. Admins can delete any question; non-admins can delete questions they asked only when policy conditions are met.",
+  "side_effects": "Deletes the question and destroys related answers and related content records.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_questions_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/question.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. --confirm is required to proceed."
+}

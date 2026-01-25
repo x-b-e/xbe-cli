@@ -1,0 +1,23 @@
+{
+  "description": "Show crew rate details",
+  "flags": [],
+  "full_path": "view crew-rates show",
+  "id": "61e6ec00de698ef8d3e4186a2a24179147664b94e35e39de46d87cab7e0df910",
+  "permissions": "Admin users can view any crew rate. Non-admin users can view crew rates only for brokers they are a member of.",
+  "side_effects": "None (read-only).",
+  "sources": [
+    {
+      "file_path": "internal/cli/crew_rates_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/crew_rate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/crew_rate_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "<id> argument is required."
+}

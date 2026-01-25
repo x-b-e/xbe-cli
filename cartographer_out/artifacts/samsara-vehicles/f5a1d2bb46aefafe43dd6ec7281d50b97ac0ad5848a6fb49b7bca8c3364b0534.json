@@ -1,0 +1,208 @@
+{
+  "description": "List samsara vehicles",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trucker ID",
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tractor ID",
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of trailer (true/false)",
+      "name": "--has-trailer",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of tractor (true/false)",
+      "name": "--has-tractor",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum assignment time (ISO 8601)",
+      "name": "--assigned-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by integration identifier",
+      "name": "--integration-identifier",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer set on/after (ISO 8601)",
+      "name": "--trailer-set-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer set on/before (ISO 8601)",
+      "name": "--trailer-set-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of trailer-set-at (true/false)",
+      "name": "--is-trailer-set-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tractor set on/after (ISO 8601)",
+      "name": "--tractor-set-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tractor set on/before (ISO 8601)",
+      "name": "--tractor-set-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of tractor-set-at (true/false)",
+      "name": "--is-tractor-set-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of created-at (true/false)",
+      "name": "--is-created-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of updated-at (true/false)",
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "view samsara-vehicles list",
+  "id": "f5a1d2bb46aefafe43dd6ec7281d50b97ac0ad5848a6fb49b7bca8c3364b0534",
+  "permissions": "Admins can list all samsara vehicles; non-admin users can list samsara vehicles for brokers they are members of.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/samsara_vehicles_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/samsara_vehicle_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "has-trailer and has-tractor require strict boolean values (true/false). is-trailer-set-at, is-tractor-set-at, is-created-at, and is-updated-at require true/false. assigned-at-min, trailer-set-at-min, trailer-set-at-max, tractor-set-at-min, tractor-set-at-max, created-at-min, created-at-max, updated-at-min, and updated-at-max must be ISO 8601 datetimes."
+}

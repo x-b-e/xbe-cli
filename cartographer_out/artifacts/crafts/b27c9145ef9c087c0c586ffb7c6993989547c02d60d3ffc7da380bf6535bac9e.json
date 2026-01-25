@@ -1,0 +1,59 @@
+{
+  "id": "b27c9145ef9c087c0c586ffb7c6993989547c02d60d3ffc7da380bf6535bac9e",
+  "full_path": "do crafts create",
+  "description": "Create a new craft",
+  "permissions": "Admins can create crafts; non-admin users can create crafts for brokers they are manager members of.",
+  "side_effects": "Creates a craft.",
+  "validation_notes": "--name and --broker are required. name and code must be unique per broker (case-insensitive). broker_id is required.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Craft name (required)",
+      "default": null,
+      "validation": "Required (non-empty). Must be unique per broker (case-insensitive)."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "Required (non-empty)."
+    },
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Short code",
+      "default": null,
+      "validation": "Must be unique per broker (case-insensitive)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_crafts_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/craft_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/craft.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.crafts.sql"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/craft_resource.rb"
+    }
+  ]
+}

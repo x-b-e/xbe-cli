@@ -1,0 +1,60 @@
+{
+  "id": "c3e8e6d4bb2eaad43d114e5d620e7b9347358a1f71d8bd4a6ed05ec8e05770d5",
+  "full_path": "view developer-references list",
+  "description": "List developer references.",
+  "permissions": "Admin users can list all developer references. Non-admin users are limited by policy scope to developer reference types tied to developers they can access and to subjects within their policy scopes.",
+  "side_effects": null,
+  "validation_notes": "Subject filtering requires both --subject-type and --subject-id; the CLI only applies the subject filter when both are provided.",
+  "flags": [
+    {
+      "name": "--developer-reference-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer reference type ID.",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID.",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject type.",
+      "default": null,
+      "validation": "Use with --subject-id. Example: projects."
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject ID.",
+      "default": null,
+      "validation": "Use with --subject-type. Example: 456."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/developer_references_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_reference_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_reference_policy.rb"
+    }
+  ]
+}

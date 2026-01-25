@@ -1,0 +1,23 @@
+{
+  "id": "6d79c7f6f75de0ee4350eeb09599bfcd4388fe7eb9cadae0747e22f8fea39018",
+  "full_path": "view service-sites show",
+  "description": "Show the full details of a specific service site.",
+  "permissions": "Admins can view any service site. Non-admin users can view service sites for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (service site ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_sites_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_site_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_site_resource.rb"
+    }
+  ]
+}

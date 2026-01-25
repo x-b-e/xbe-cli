@@ -1,0 +1,55 @@
+{
+  "id": "600a2a6ba6a3d22be473640a4013434fe66e172f4afaa24270ab24c652b87058",
+  "full_path": "do comment-reactions create",
+  "description": "Create a comment reaction.",
+  "permissions": "Admins can create comment reactions; non-admins can create reactions on comments they are allowed to view (comment policy show).",
+  "side_effects": "Creates a comment reaction record.",
+  "validation_notes": "--comment and --reaction-classification are required. The reaction is unique per (created_by, comment, reaction_classification) and is rejected if the same user already reacted with the same classification on the same comment.",
+  "flags": [
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Comment ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reaction-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reaction classification ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Created-by user ID (defaults to current user)",
+      "default": "current user",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_comment_reactions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/comment_reaction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/comment_reaction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/comment_reaction.rb"
+    }
+  ]
+}

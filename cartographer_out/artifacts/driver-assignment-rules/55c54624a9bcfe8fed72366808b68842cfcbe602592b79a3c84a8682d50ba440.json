@@ -1,0 +1,23 @@
+{
+  "id": "55c54624a9bcfe8fed72366808b68842cfcbe602592b79a3c84a8682d50ba440",
+  "full_path": "view driver-assignment-rules show",
+  "description": "Show full details of a driver assignment rule.",
+  "permissions": "User can view a rule when the rule level is in their policy scope; admins are permitted.",
+  "side_effects": null,
+  "validation_notes": "The command requires a non-empty driver assignment rule ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_assignment_rules_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_assignment_rule_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_assignment_rule_resource.rb"
+    }
+  ]
+}

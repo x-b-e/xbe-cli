@@ -1,0 +1,42 @@
+{
+  "description": "Update a tractor credential",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Issue date (YYYY-MM-DD)",
+      "name": "--issued-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Expiration date (YYYY-MM-DD)",
+      "name": "--expires-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "full_path": "do tractor-credentials update",
+  "id": "b7f5588c9eead16a5394cb822a4182514fcfc8904f78c5cb0dff85c4ae6ff10b",
+  "permissions": "Admin users can update tractor credentials. Non-admin users can update a tractor credential only if they are a manager of the tractor's trucker or broker and the credential classification is within their policy scope.",
+  "side_effects": "Updates issued_on and/or expires_on on a tractor credential record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tractor_credentials_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/tractor_credential_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/tractor_credential.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires the <id> argument. At least one of --issued-on or --expires-on must be provided. Date fields expect YYYY-MM-DD. If both issued_on and expires_on are set, expires_on must be >= issued_on. Credential periods cannot overlap an existing credential for the same tractor and classification."
+}

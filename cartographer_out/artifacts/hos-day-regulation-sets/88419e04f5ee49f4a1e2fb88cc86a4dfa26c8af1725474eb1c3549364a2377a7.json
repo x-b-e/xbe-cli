@@ -1,0 +1,23 @@
+{
+  "id": "88419e04f5ee49f4a1e2fb88cc86a4dfa26c8af1725474eb1c3549364a2377a7",
+  "full_path": "view hos-day-regulation-sets show",
+  "description": "Show HOS day regulation set details",
+  "permissions": "Read access is governed by HosDayRegulationSetPolicy scope; non-admin users only see records where broker_id is in visible_member_broker_ids, otherwise none.",
+  "side_effects": null,
+  "validation_notes": "<id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_day_regulation_sets_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_day_regulation_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_day_regulation_set_policy.rb"
+    }
+  ]
+}

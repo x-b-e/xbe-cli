@@ -1,0 +1,23 @@
+{
+  "id": "ca209f9ea07f4b8c28a8f8fa0f2e0c434462df2ff9e60df2c714372890ab397b",
+  "full_path": "view invoice-revisions show",
+  "description": "Show the full details of an invoice revision.",
+  "permissions": "Allowed for users who can view invoices in the InvoicePolicy scope; non-admins are limited to revisions whose invoice is in that scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and must be a non-empty invoice revision ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_revisions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_revision_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_revision_policy.rb"
+    }
+  ]
+}

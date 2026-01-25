@@ -1,0 +1,78 @@
+{
+  "id": "a7750adad8e00698a2955260acf9ceeee5b62881113d48db5cbebc19c2482bad",
+  "full_path": "view action-item-tracker-update-requests list",
+  "description": "List action item tracker update requests.",
+  "permissions": "User must be authorized to view action item tracker update requests via the delegated action_item_tracker policy (ActionItemTrackerUpdateRequestPolicy).",
+  "side_effects": null,
+  "validation_notes": "Filters accept ISO 8601 timestamps for created/updated at bounds; is-created-at and is-updated-at expect true/false.",
+  "flags": [
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/action_item_tracker_update_requests_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_tracker_update_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_tracker_update_request_resource.rb"
+    }
+  ]
+}

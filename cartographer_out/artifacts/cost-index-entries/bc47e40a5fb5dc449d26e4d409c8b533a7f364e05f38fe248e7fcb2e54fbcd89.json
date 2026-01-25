@@ -1,0 +1,68 @@
+{
+  "id": "bc47e40a5fb5dc449d26e4d409c8b533a7f364e05f38fe248e7fcb2e54fbcd89",
+  "full_path": "do cost-index-entries create",
+  "description": "Create a new cost index entry.",
+  "permissions": "Allowed for admins or users who manage the cost index broker. Authorization is delegated to the parent cost index policy.",
+  "side_effects": "Creates a cost index entry.",
+  "validation_notes": "Server validates presence of start_on, end_on, and value; end_on must be on or after start_on; date ranges for a given cost index cannot overlap; entries cannot be added or modified when the cost index is expired; end_on cannot be after the cost index expiration date when expired_at is set.",
+  "flags": [
+    {
+      "name": "--cost-index",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Parent cost index ID (required)",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Entry start date (required)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2024-01-01."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Entry end date (required)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2024-03-31."
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Entry value (required)",
+      "default": null,
+      "validation": "Example: 1.05."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_index_entries_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_index_entry.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_index_entry_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_entry_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_policy.rb"
+    }
+  ]
+}

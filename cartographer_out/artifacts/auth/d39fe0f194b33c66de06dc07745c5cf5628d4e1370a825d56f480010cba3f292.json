@@ -1,0 +1,19 @@
+{
+  "id": "d39fe0f194b33c66de06dc07745c5cf5628d4e1370a825d56f480010cba3f292",
+  "full_path": "auth whoami",
+  "description": "Show the current authenticated user",
+  "permissions": "Valid API token for the target base URL.",
+  "side_effects": "Requests /v1/users/me to fetch the current user profile.",
+  "validation_notes": "Requires authentication; if no token is resolved, the command fails with not authenticated: use xbe auth login to authenticate.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/auth_whoami.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/concerns/abstract_oauth2_authorizations_controller.rb"
+    }
+  ]
+}

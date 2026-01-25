@@ -1,0 +1,77 @@
+{
+  "id": "658f0656f9748be61b456b666685c8eaaff20d35c16b525126aae0313d069e24",
+  "full_path": "do platform-statuses update",
+  "description": "Update a platform status",
+  "permissions": "Only authenticated admin users can update platform statuses.",
+  "side_effects": "Updates a platform status record.",
+  "validation_notes": "The platform status ID argument is required. At least one field must be provided to update. Published-at, start-at, and end-at must be ISO 8601 timestamps when provided. Title and description must be present (model validation).",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status title",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--published-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Published timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_platform_statuses_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_platform_statuses.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/platform_status_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/platform_status.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/platform_status_resource.rb"
+    }
+  ]
+}

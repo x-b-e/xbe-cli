@@ -1,0 +1,46 @@
+{
+  "id": "557e45fe64fa0bbb1e2157210293cece61ec141c90751735b91be3270461a7b9",
+  "full_path": "view meetings show",
+  "description": "Show meeting details",
+  "permissions": "Admins can view meetings. Non-admins can view meetings tied to organizations they are members of, including access via broker memberships for the meeting's organization (polymorphic membership scope).",
+  "side_effects": null,
+  "validation_notes": "The meeting ID argument is required.",
+  "flags": [
+    {
+      "name": "--include-description-links",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include description links meta",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--include-safety-meeting-plans-info",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include safety meeting job plan info meta",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/meetings_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/meeting_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/meeting_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

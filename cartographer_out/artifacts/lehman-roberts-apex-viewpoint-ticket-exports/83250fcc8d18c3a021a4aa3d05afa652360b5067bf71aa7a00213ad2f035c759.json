@@ -1,0 +1,23 @@
+{
+  "description": "List Lehman Roberts Apex Viewpoint ticket exports",
+  "flags": [],
+  "full_path": "view lehman-roberts-apex-viewpoint-ticket-exports list",
+  "id": "83250fcc8d18c3a021a4aa3d05afa652360b5067bf71aa7a00213ad2f035c759",
+  "permissions": "Allowed for any authenticated user per policy index; record visibility is limited by the policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/lehman_roberts_apex_viewpoint_ticket_exports_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/application_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lehman_roberts_apex_viewpoint_ticket_export_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

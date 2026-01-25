@@ -1,0 +1,42 @@
+{
+  "id": "84b67e87c5a348af8a33845acb9c0f715a4963a9aac98faa21e5d26583b50286",
+  "full_path": "view project-material-type-quality-control-requirements list",
+  "description": "List project material type quality control requirements with filtering and pagination.",
+  "permissions": "User must be authorized to view related project material types; access is delegated to the ProjectMaterialType policy via the project_material_type relationship.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--project-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quality-control-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by quality control classification ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_material_type_quality_control_requirements_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_material_type_quality_control_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_material_type_quality_control_requirement_policy.rb"
+    }
+  ]
+}

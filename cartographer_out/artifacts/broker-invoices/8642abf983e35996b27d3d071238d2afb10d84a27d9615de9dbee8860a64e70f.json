@@ -1,0 +1,240 @@
+{
+  "id": "8642abf983e35996b27d3d071238d2afb10d84a27d9615de9dbee8860a64e70f",
+  "full_path": "view broker-invoices list",
+  "description": "List broker invoices with filtering and pagination.",
+  "permissions": "Admins can view all invoices. Non-admin access is limited to invoices where the user is a member of the buyer customer (including management-service-type invoices with customer_ids_cached overlap), a manager member of the seller trucker, or a member of the seller broker as scoped by InvoicePolicy.",
+  "side_effects": null,
+  "validation_notes": "buyer/seller use Type|ID (e.g., Customer|123 or Broker|456); invoice-date/due-on and min/max variants require YYYY-MM-DD; has-invoice-date, has-due-on, is-management-service-type, and has-ticket-report expect true/false; material-transaction-ticket-numbers is a comma-separated list; batch-status uses Type|ID|status (e.g., customers|89|never_processed); status is an enum filter and excludes non_exportable by default.",
+  "flags": [
+    {
+      "name": "--buyer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by buyer (Type|ID, e.g., Customer|123)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Customer|123)"
+    },
+    {
+      "name": "--seller",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by seller (Type|ID, e.g., Broker|456)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Broker|456)"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--invoice-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--invoice-date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum invoice date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--invoice-date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum invoice date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--has-invoice-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of invoice date (true/false)",
+      "default": null,
+      "validation": "Expected values: true or false"
+    },
+    {
+      "name": "--due-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by due date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--due-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum due date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--due-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum due date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--has-due-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of due date (true/false)",
+      "default": null,
+      "validation": "Expected values: true or false"
+    },
+    {
+      "name": "--ticket-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ticket number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-transaction-ticket-numbers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ticket numbers (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list"
+    },
+    {
+      "name": "--tender",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender ID(s)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-management-service-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by management service type (true/false)",
+      "default": null,
+      "validation": "Expected values: true or false"
+    },
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID(s)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude business unit ID(s)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID(s)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-transaction-cost-codes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction cost codes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--allocated-cost-codes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by allocated cost codes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID(s)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-ticket-report",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has ticket report (true/false)",
+      "default": null,
+      "validation": "Expected values: true or false"
+    },
+    {
+      "name": "--batch-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by batch status (format: Type|ID|status, e.g., customers|89|never_processed)",
+      "default": null,
+      "validation": "Format: Type|ID|status (e.g., customers|89|never_processed)"
+    },
+    {
+      "name": "--having-plans-with-job-number-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job number match",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_invoices_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_policy.rb"
+    }
+  ]
+}

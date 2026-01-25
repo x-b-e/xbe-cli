@@ -1,0 +1,23 @@
+{
+  "id": "d1a2485f1e4c956670ec27dce679116c38f8e32fd5dffdd584867a1d1f6903bb",
+  "full_path": "do commitment-simulation-sets update",
+  "description": "Update a commitment simulation set.",
+  "permissions": "Admin users or manager members of broker, customer, or trucker organizations are authorized to update, but updates are not supported.",
+  "side_effects": null,
+  "validation_notes": "Commitment simulation sets are immutable and expose no writable fields; the command always errors and recommends delete/recreate. Commitment simulation set ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_commitment_simulation_sets_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_simulation_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_simulation_set_policy.rb"
+    }
+  ]
+}

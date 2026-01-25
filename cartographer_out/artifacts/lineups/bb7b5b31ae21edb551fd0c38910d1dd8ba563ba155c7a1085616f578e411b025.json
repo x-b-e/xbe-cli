@@ -1,0 +1,55 @@
+{
+  "id": "bb7b5b31ae21edb551fd0c38910d1dd8ba563ba155c7a1085616f578e411b025",
+  "full_path": "do lineups update",
+  "description": "Update a lineup",
+  "permissions": "Admins can update lineups. Non-admins can update lineups for a customer if they are a customer manager for that customer (considering broker context) or if they manage laborers on job production plans tied to the lineup.",
+  "side_effects": "Updates lineup attributes.",
+  "validation_notes": "The lineup ID argument is required. At least one of --name, --start-at-min, or --start-at-max must be provided. start-at-min/start-at-max must be ISO 8601 timestamps. start-at-max must be after start-at-min. A customer cannot have an overlapping lineup with the same name (case-insensitive); unnamed lineups also cannot overlap within the same time range. Customer relationship is create-only and cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Lineup name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Earliest start time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--start-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latest start time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineups_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

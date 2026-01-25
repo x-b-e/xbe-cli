@@ -1,0 +1,46 @@
+{
+  "id": "cfde627ea187c5be9e1976d3b83b55a89741c98f4347f5025cb5c008be13259a",
+  "full_path": "view stakeholder-classifications list",
+  "description": "List stakeholder classifications with filtering and pagination.",
+  "permissions": "No special permissions; policy scope allows anonymous and non-admin access to stakeholder classifications.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--slug",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by slug",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--leverage-factor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by leverage factor",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/stakeholder_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/stakeholder_classifications_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/stakeholder_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/stakeholder_classification_resource.rb"
+    }
+  ]
+}

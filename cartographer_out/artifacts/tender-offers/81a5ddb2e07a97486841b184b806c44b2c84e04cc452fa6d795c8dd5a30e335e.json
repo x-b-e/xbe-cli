@@ -1,0 +1,88 @@
+{
+  "id": "81a5ddb2e07a97486841b184b806c44b2c84e04cc452fa6d795c8dd5a30e335e",
+  "full_path": "do tender-offers create",
+  "description": "Offer a tender",
+  "permissions": "Allowed when the user can create the associated tender. For broker tenders: admin or member of the buyer broker. For customer tenders: admin or member of the buyer customer or the seller broker.",
+  "side_effects": "Creates a tender offer action and transitions the tender to offered; may schedule unaccepted tender notifications for the tender.",
+  "validation_notes": "--tender-type is required and must be one of customer-tenders or broker-tenders. --tender is required and must be non-empty. Tender must be in editing status to be offered. Tender must have job schedule shifts present. Tender must have rates, including required service type unit of measures. Customer tenders require the job to have a quantified unit of measure (e.g., hour, ton, tolls, load). Broker tenders must be related to an accepted customer tender on the job. Job must match trucker billing requirement (bills_broker forbids management rate; bills_customer requires it). If the customer requires job production plans, the job must have one. Buyer and seller compliance validations are enforced unless skip certification validation is set.",
+  "flags": [
+    {
+      "name": "--tender-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Tender type (customer-tenders, broker-tenders) (required)",
+      "default": null,
+      "validation": "Must be one of customer-tenders or broker-tenders."
+    },
+    {
+      "name": "--tender",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender ID (required)",
+      "default": null,
+      "validation": "Must be provided and non-empty."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Offer comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-certification-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip certification requirement validation",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_offers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/tender_offers_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_offer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_offer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_with_certification_confirmation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_actions/tender_offer.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validate_job_production_plan_before_tender_action.rb"
+    }
+  ]
+}

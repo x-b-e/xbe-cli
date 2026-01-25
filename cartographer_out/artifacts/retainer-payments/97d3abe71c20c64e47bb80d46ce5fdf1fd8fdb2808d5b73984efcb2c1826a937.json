@@ -1,0 +1,44 @@
+{
+  "description": "Delete a retainer payment.",
+  "flags": [
+    {
+      "default": null,
+      "description": "Confirm deletion.",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Required to delete."
+    }
+  ],
+  "full_path": "do retainer-payments delete",
+  "id": "97d3abe71c20c64e47bb80d46ce5fdf1fd8fdb2808d5b73984efcb2c1826a937",
+  "permissions": "Authorization is checked by RetainerPaymentPolicy, which delegates destroy? to RetainerPeriodPolicy/RetainerPolicy. RetainerPolicy only defines scope rules (buyer/seller org membership) and does not define explicit destroy? rules.",
+  "side_effects": "Deletes the retainer payment record if allowed.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_retainer_payments_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/retainer_payment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_period_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/retainer_child_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/retainer_payment.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (retainer payment ID). --confirm flag is required. Server blocks deletion when status is batched or exported."
+}

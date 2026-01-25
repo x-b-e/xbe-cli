@@ -1,0 +1,23 @@
+{
+  "description": "Show project transport plan stop insertion details",
+  "flags": [],
+  "full_path": "view project-transport-plan-stop-insertions show",
+  "id": "dc9376500c84ad2403ebd2618f251513b953c621f1ea83c3cfbc9a46d06b56ea",
+  "permissions": "User must be authorized for the related project transport plan via the delegated policy (same permissions as ProjectTransportPlan).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_stop_insertions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_stop_insertion_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_stop_insertion_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The stop insertion ID argument is required."
+}

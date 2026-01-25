@@ -1,0 +1,135 @@
+{
+  "description": "List OpenAI realtime sessions with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by client feature enum",
+      "name": "--client-feature",
+      "required": false,
+      "type": "enum",
+      "validation": "Valid values: giant_anchor_prediction_creation, giant_anchor_prediction_comment, expert_broadcast_message_creation, expert_job_production_plan_dispatch_instruction_creation, development, super_power_post_creation, slack_realtime_chat."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum secret expiration time (ISO 8601)",
+      "name": "--client-secret-expires-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid ISO 8601 date-time."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum secret expiration time (ISO 8601)",
+      "name": "--client-secret-expires-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid ISO 8601 date-time."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by whether secret expiration is set (true/false)",
+      "name": "--is-client-secret-expires-at",
+      "required": false,
+      "type": "boolean",
+      "validation": "Must be true or false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid ISO 8601 date-time."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid ISO 8601 date-time."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has created-at (true/false)",
+      "name": "--is-created-at",
+      "required": false,
+      "type": "boolean",
+      "validation": "Must be true or false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid ISO 8601 date-time."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid ISO 8601 date-time."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has updated-at (true/false)",
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "boolean",
+      "validation": "Must be true or false."
+    }
+  ],
+  "full_path": "view open-ai-realtime-sessions list",
+  "id": "63d4affe9182e4464409a4ea878167e28cee2d3369ef190b1bf04b699fcff313",
+  "permissions": "Admin users only.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/open_ai_realtime_sessions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/open_ai_realtime_session_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/base_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/active_record_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/open_ai_realtime_session.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/open_ai_realtime_session_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Date-time filters require valid ISO 8601 timestamps and cannot be empty. Boolean filters must be strict true or false. client-feature values must be one of the allowed enum names."
+}

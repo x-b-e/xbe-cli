@@ -1,0 +1,46 @@
+{
+  "id": "e896956cc10ebed454a63c3fa70aed27fd842bbcbe3821eece219fc900bed11f",
+  "full_path": "do trucker-application-approvals create",
+  "description": "Approve a trucker application.",
+  "permissions": "User must have a broker membership for the trucker application's broker organization.",
+  "side_effects": "Creates a trucker from the application data, marks the application as approved, and can set the application user as the trucker manager.",
+  "validation_notes": "trucker-application is required. Approval fails if the trucker application is already approved.",
+  "flags": [
+    {
+      "name": "--trucker-application",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker application ID",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--add-application-user-as-trucker-manager",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Add the application user as a trucker manager",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_application_approvals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_application_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_application_approval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_application_approval.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Show full details of a raw material transaction.",
+  "flags": [],
+  "full_path": "view raw-material-transactions show",
+  "id": "57b3e7d9df38519bf3df70c2d279632f46e99595fbef8a790aaaae44c72d0c3a",
+  "permissions": "Users can view raw material transactions for material sites they are authorized to access; non-admin scope is limited to material sites available via the MaterialSitePolicy scope. Raw attributes are only available to admins.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/raw_material_transactions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/raw_material_transaction_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_material_transaction_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The raw material transaction ID argument is required."
+}

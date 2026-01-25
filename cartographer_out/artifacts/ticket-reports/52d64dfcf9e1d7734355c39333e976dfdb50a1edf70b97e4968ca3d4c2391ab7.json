@@ -1,0 +1,73 @@
+{
+  "id": "52d64dfcf9e1d7734355c39333e976dfdb50a1edf70b97e4968ca3d4c2391ab7",
+  "full_path": "do ticket-reports create",
+  "description": "Create a new ticket report.",
+  "permissions": "Admins can create ticket reports. Non-admin users can create ticket reports for brokers they are members of (broker defaults to the ticket report type broker if not provided).",
+  "side_effects": "Creates a ticket report, stores the uploaded file, and attempts to transform it, setting transform result or error.",
+  "validation_notes": "--ticket-report-type is required. Exactly one of --file-path or --file is required. --file-name is required when using --file, and required when --file-path has no base name; otherwise it defaults to the file name from --file-path. The file must be present and the file name must be present. The file type must be supported by the ticket report type.",
+  "flags": [
+    {
+      "name": "--ticket-report-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Ticket report type ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--file-path",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Path to the ticket file",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--file-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Override file name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--file",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Base64-encoded file contents",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ticket_reports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ticket_report_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ticket_report_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/ticket_report.rb"
+    }
+  ]
+}

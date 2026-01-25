@@ -1,0 +1,29 @@
+{
+  "description": "Delete an open door team membership.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be provided as true to proceed."
+    }
+  ],
+  "full_path": "do open-door-team-memberships delete",
+  "id": "7f397123b454aef1c67781817d32689a75029f326c9fb4631158c7265afb6dec",
+  "permissions": "Admins can delete open door team memberships. Non-admins can delete only if they could create the membership or they are the membership user.",
+  "side_effects": "Deletes an open door team membership.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_open_door_team_memberships_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/open_door_team_membership_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. --confirm is required to delete."
+}

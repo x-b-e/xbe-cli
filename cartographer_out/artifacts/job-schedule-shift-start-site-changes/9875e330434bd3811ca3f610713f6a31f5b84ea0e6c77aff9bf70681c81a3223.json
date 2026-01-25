@@ -1,0 +1,55 @@
+{
+  "description": "Create a job schedule shift start site change",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job schedule shift ID (required)",
+      "name": "--job-schedule-shift",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New start site type (job-sites or material-sites) (required)",
+      "name": "--new-start-site-type",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: job-sites, material-sites"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New start site ID (required)",
+      "name": "--new-start-site-id",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do job-schedule-shift-start-site-changes create",
+  "id": "9875e330434bd3811ca3f610713f6a31f5b84ea0e6c77aff9bf70681c81a3223",
+  "permissions": "Admin users can create job schedule shift start site changes. Non-admin users can create a change when the job schedule shift job customer broker is in the user broker memberships; if the job schedule shift has no job, policy allows create and validation determines validity.",
+  "side_effects": "Creates a job schedule shift start site change, updates the job schedule shift start site (and clears start location) during validation, and may create job schedule shift start site change notifications for affected users after commit when the job production plan is approved or missing.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_schedule_shift_start_site_changes_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/job_schedule_shift_start_site_change_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/job_schedule_shift_start_site_change.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/job_schedule_shift_start_site_change_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--job-schedule-shift, --new-start-site-type, and --new-start-site-id are required. --new-start-site-type must be either job-sites or material-sites. The new start site cannot be the same as the old start site. Job schedule shift, old start site, and new start site must be present."
+}

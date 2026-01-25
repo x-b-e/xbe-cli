@@ -1,0 +1,69 @@
+{
+  "id": "ece8a4eb067c4e23d118c42a04e22fa9b6e0c3085fef869df4f2f78e7c387761",
+  "full_path": "do time-card-rejections create",
+  "description": "Reject a time card.",
+  "permissions": "Allowed when the TimeCardApprovalPolicy#create? check passes for the related time card: the time card must exist, and the user is admin, or is a member of the broker for the time card, or is a manager member of the customer with cost-plus visibility, or is a manager member of the customer and the customer is the trucker for the time card, or the time card approval_process is \"field\" and the user is a job production plan time card approver.",
+  "side_effects": "Creates a time card rejection action and updates the associated time card status to rejected (including status_change_comment).",
+  "validation_notes": "--time-card is required and must be a non-empty string; time card must exist; time card status must be submitted unless the status is already rejected (no status change); time card cannot change status if already associated with an invoice; time card must be valid or validation errors are returned.",
+  "flags": [
+    {
+      "name": "time-card",
+      "required": true,
+      "type": "string",
+      "description": "Time card ID (required)",
+      "validation": "must be a non-empty string"
+    },
+    {
+      "name": "comment",
+      "required": false,
+      "type": "string",
+      "description": "Rejection comment"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_rejections_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_card_rejections_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_rejection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_rejection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/time_card_approval_delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_rejection.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

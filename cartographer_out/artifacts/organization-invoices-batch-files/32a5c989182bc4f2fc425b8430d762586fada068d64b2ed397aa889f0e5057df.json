@@ -1,0 +1,27 @@
+{
+  "id": "32a5c989182bc4f2fc425b8430d762586fada068d64b2ed397aa889f0e5057df",
+  "full_path": "view organization-invoices-batch-files show",
+  "description": "Show the full details of an organization invoices batch file.",
+  "permissions": "User can view batch file details they are authorized to access via the organization invoices batch scope: admins can access all; non-admins must have broker membership or manager membership for the batch organization.",
+  "side_effects": null,
+  "validation_notes": "Requires the organization invoices batch file ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_files_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_file_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_file_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    }
+  ]
+}

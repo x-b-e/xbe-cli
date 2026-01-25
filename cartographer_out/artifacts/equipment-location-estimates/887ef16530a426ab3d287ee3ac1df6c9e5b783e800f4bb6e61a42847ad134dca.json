@@ -1,0 +1,82 @@
+{
+  "id": "887ef16530a426ab3d287ee3ac1df6c9e5b783e800f4bb6e61a42847ad134dca",
+  "full_path": "view equipment-location-estimates list",
+  "description": "List equipment location estimates.",
+  "permissions": "User must be within the Equipment policy scope (e.g., admin or a user with access to equipment through organization/broker memberships) to read equipment and its location estimates.",
+  "side_effects": null,
+  "validation_notes": "The server requires the equipment filter; requests without it are rejected. Time filters must be parseable as RFC3339 timestamps (e.g., 2026-01-23T12:00:00Z).",
+  "flags": [
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment ID (required)",
+      "default": null,
+      "validation": "Example: 123"
+    },
+    {
+      "name": "--as-of",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimate time (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp (e.g., 2026-01-23T12:00:00Z)"
+    },
+    {
+      "name": "--earliest-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Earliest event time (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp (e.g., 2026-01-22T00:00:00Z)"
+    },
+    {
+      "name": "--latest-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latest event time (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp (e.g., 2026-01-23T00:00:00Z)"
+    },
+    {
+      "name": "--max-abs-latency-seconds",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum absolute latency in seconds",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--max-latest-seconds",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum seconds added for latest event window",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_location_estimates.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_location_estimates_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_location_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_policy.rb"
+    }
+  ]
+}

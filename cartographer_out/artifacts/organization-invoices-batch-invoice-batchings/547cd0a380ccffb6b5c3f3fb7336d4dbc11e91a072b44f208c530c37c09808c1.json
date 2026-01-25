@@ -1,0 +1,37 @@
+{
+  "id": "547cd0a380ccffb6b5c3f3fb7336d4dbc11e91a072b44f208c530c37c09808c1",
+  "full_path": "do organization-invoices-batch-invoice-batchings create",
+  "description": "Batch an organization invoices batch invoice.",
+  "permissions": "User must be an admin or be authorized to update the related organization invoices batch.",
+  "side_effects": "Creates a batching action for the organization invoices batch invoice and transitions its status to successful.",
+  "validation_notes": "--organization-invoices-batch-invoice is required and must be non-empty. Batching is only valid when the prior status is skipped or failed.",
+  "flags": [
+    {
+      "name": "organization-invoices-batch-invoice",
+      "required": true,
+      "type": "string",
+      "description": "Organization invoices batch invoice ID (required)",
+      "validation": "must be non-empty"
+    },
+    {
+      "name": "comment",
+      "required": false,
+      "type": "string",
+      "description": "Comment explaining the change"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_invoices_batch_invoice_batchings_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_invoice_batching_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_invoices_batch_invoice_actions/organization_invoices_batch_invoice_batching.rb"
+    }
+  ]
+}

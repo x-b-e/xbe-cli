@@ -1,0 +1,102 @@
+{
+  "description": "Create a crew rate",
+  "flags": [
+    {
+      "description": "Price per unit.",
+      "name": "--price-per-unit",
+      "required": true,
+      "type": "string",
+      "validation": "Must be greater than 0."
+    },
+    {
+      "description": "Start date (YYYY-MM-DD) (example: 2025-01-01).",
+      "name": "--start-on",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Active status (true/false).",
+      "name": "--is-active",
+      "required": true,
+      "type": "string",
+      "validation": "Must be true or false."
+    },
+    {
+      "description": "Broker ID (example: 123).",
+      "name": "--broker",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Description.",
+      "name": "--description",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "End date (YYYY-MM-DD) (example: 2025-12-31).",
+      "name": "--end-on",
+      "required": false,
+      "type": "string",
+      "validation": "Must be greater than start-on when provided."
+    },
+    {
+      "description": "Resource type (Laborer, Equipment).",
+      "name": "--resource-type",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: Laborer, Equipment. Must be provided with --resource-id."
+    },
+    {
+      "description": "Resource ID (example: 789).",
+      "name": "--resource-id",
+      "required": false,
+      "type": "string",
+      "validation": "Must be provided with --resource-type."
+    },
+    {
+      "description": "Resource classification type (LaborClassification, EquipmentClassification).",
+      "name": "--resource-classification-type",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: LaborClassification, EquipmentClassification. Must be provided with --resource-classification-id."
+    },
+    {
+      "description": "Resource classification ID (example: 456).",
+      "name": "--resource-classification-id",
+      "required": false,
+      "type": "string",
+      "validation": "Must be provided with --resource-classification-type."
+    },
+    {
+      "description": "Craft class ID (example: 321).",
+      "name": "--craft-class",
+      "required": false,
+      "type": "string",
+      "validation": "Required if no resource or resource classification is provided. Must share the same broker."
+    }
+  ],
+  "full_path": "do crew-rates create",
+  "id": "f20f359637c088b628aa1b53c882097434f45de0d91a43e73e4cc0b493991b6f",
+  "permissions": "Admin users can create crew rates. Non-admin users can create crew rates only for brokers they are a member of.",
+  "side_effects": "Creates a crew rate.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_crew_rates_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/crew_rates_common.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/crew_rate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/crew_rate.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--price-per-unit, --start-on, --is-active, and --broker are required. --is-active must be true or false. One of: --resource-type/--resource-id, --resource-classification-type/--resource-classification-id, or --craft-class is required. --resource-type and --resource-id must be provided together. --resource-classification-type and --resource-classification-id must be provided together. --resource-type expects Laborer or Equipment. --resource-classification-type expects LaborClassification or EquipmentClassification. price_per_unit must be greater than 0. end_on must be greater than start_on if provided. Resource must belong to the specified resource classification when both are provided. Active crew rates cannot overlap for the same broker and resource classification (and resource when specified). At least one of resource classification, resource, or craft class must be present. If craft class is provided, it must share the same broker."
+}

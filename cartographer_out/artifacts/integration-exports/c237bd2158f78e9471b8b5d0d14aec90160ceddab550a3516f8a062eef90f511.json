@@ -1,0 +1,27 @@
+{
+  "id": "c237bd2158f78e9471b8b5d0d14aec90160ceddab550a3516f8a062eef90f511",
+  "full_path": "view integration-exports show",
+  "description": "Show integration export details.",
+  "permissions": "Available to admin users or to users who are members of brokers linked to the integration config for the export; access is enforced by IntegrationExportPolicy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (integration export ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/integration_exports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/integration_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/integration_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

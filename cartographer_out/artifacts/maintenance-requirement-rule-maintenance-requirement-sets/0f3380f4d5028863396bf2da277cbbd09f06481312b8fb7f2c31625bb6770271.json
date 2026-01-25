@@ -1,0 +1,46 @@
+{
+  "id": "0f3380f4d5028863396bf2da277cbbd09f06481312b8fb7f2c31625bb6770271",
+  "full_path": "view maintenance-requirement-rule-maintenance-requirement-sets list",
+  "description": "List maintenance requirement rule maintenance requirement sets with filtering and pagination",
+  "permissions": "User must be authorized to view the related maintenance requirement rule. Access follows MaintenanceRequirementRulePolicy#show? and scope: admins; broker managers; operations users with appropriate business unit membership; and technician business unit members within scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--maintenance-requirement-rule",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maintenance requirement rule ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maintenance-requirement-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maintenance requirement set ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/maintenance_requirement_rule_maintenance_requirement_sets_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/maintenance_requirement_rule_maintenance_requirement_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_maintenance_requirement_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_policy.rb"
+    }
+  ]
+}

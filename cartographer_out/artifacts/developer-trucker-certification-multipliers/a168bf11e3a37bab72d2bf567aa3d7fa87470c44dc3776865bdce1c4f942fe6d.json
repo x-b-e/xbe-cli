@@ -1,0 +1,63 @@
+{
+  "description": "Create a developer trucker certification multiplier.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Developer trucker certification ID (required)",
+      "name": "--developer-trucker-certification",
+      "required": true,
+      "type": "string",
+      "validation": "Example: 123"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer ID (required)",
+      "name": "--trailer",
+      "required": true,
+      "type": "string",
+      "validation": "Example: 456"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Multiplier value between 0 and 1 (required)",
+      "name": "--multiplier",
+      "required": true,
+      "type": "string",
+      "validation": "Numeric between 0 and 1 (inclusive). Example: 0.85"
+    }
+  ],
+  "full_path": "do developer-trucker-certification-multipliers create",
+  "id": "a168bf11e3a37bab72d2bf567aa3d7fa87470c44dc3776865bdce1c4f942fe6d",
+  "permissions": "Allowed when the user can create the related developer trucker certification via delegated policy to the developer policy (admins, broker members, or manager members of the broker's customers).",
+  "side_effects": "Creates a developer trucker certification multiplier record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_developer_trucker_certification_multipliers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/developer_trucker_certification_multiplier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/developer_trucker_certification_multiplier.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_trucker_certification_multiplier_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_trucker_certification_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --developer-trucker-certification, --trailer, and --multiplier. Multiplier must be numeric between 0 and 1 (inclusive). Trailer must belong to the same trucker as the certification, and trailer IDs must be unique per certification."
+}

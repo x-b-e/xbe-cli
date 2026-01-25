@@ -1,0 +1,29 @@
+{
+  "id": "446f10dbb84b48287e0b419ff064b7aee296b4b1e14bc1e97393149fe0e79ec7",
+  "full_path": "do trucker-referrals delete",
+  "description": "Delete a trucker referral.",
+  "permissions": "Admins can delete trucker referrals. Non-admins can delete referrals only if they are managers who are members of the broker that owns the trucker.",
+  "side_effects": "Deletes the trucker referral.",
+  "validation_notes": "The trucker referral ID argument is required. --confirm must be set to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true to delete"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_referrals_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_referral_policy.rb"
+    }
+  ]
+}

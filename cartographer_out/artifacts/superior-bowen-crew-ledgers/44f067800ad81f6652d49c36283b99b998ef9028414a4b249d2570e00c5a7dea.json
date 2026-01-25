@@ -1,0 +1,37 @@
+{
+  "id": "44f067800ad81f6652d49c36283b99b998ef9028414a4b249d2570e00c5a7dea",
+  "full_path": "do superior-bowen-crew-ledgers create",
+  "description": "Create a Superior Bowen crew ledger for a job production plan.",
+  "permissions": "User must be an admin to create a Superior Bowen crew ledger.",
+  "side_effects": "Creates a Superior Bowen crew ledger for the specified job production plan.",
+  "validation_notes": "--job-production-plan is required. The job production plan must be present and have a planner, raw job number, and calculated start date configured.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_superior_bowen_crew_ledgers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/superior_bowen_crew_ledger_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/superior_bowen_crew_ledger.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/superior_bowen_crew_ledger_resource.rb"
+    }
+  ]
+}

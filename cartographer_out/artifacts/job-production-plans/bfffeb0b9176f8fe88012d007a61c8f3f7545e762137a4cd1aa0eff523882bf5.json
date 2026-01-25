@@ -1,0 +1,649 @@
+{
+  "id": "bfffeb0b9176f8fe88012d007a61c8f3f7545e762137a4cd1aa0eff523882bf5",
+  "full_path": "view job-production-plans list",
+  "description": "List job production plans with filtering",
+  "permissions": "Access is granted per JobProductionPlanPolicy scope: admins; broker members; customer managers; customer operations members with permitted roles (e.g., created by, notifying crew laborer, time card approver, subscriber, project manager, planner for customer, labor manager) and eligible plan statuses; and material supplier members for plans using their material sites.",
+  "side_effects": null,
+  "validation_notes": "Either --start-on or --start-on-min is required. Dates use YYYY-MM-DD. --start-time-min/--start-time-max use HH:MM; --start-at-min/--start-at-max and --job-site-active-around use ISO 8601. --status accepts editing, submitted, rejected, approved, cancelled, complete, abandoned, scrapped. --default-time-card-approval-process accepts admin or field. Boolean filters expect true/false values; numeric filters expect numbers. --practically-start-on-between expects date1|date2. --reference-data requires key|value pairs. Comma-separated values are required where indicated.",
+  "flags": [
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exact start date(s), comma-separated (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD; comma-separated"
+    },
+    {
+      "name": "--start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start of date range (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End of date range (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (editing/submitted/rejected/approved/cancelled/complete/abandoned/scrapped)",
+      "default": null,
+      "validation": "editing|submitted|rejected|approved|cancelled|complete|abandoned|scrapped"
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--planner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by planner user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--project-manager",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project manager user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--job-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search by job name or number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--job-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job number (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--contractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by contractor ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--is-template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by template status (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--cost-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by cost code ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--start-time-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start time (HH:MM)",
+      "default": null,
+      "validation": "HH:MM"
+    },
+    {
+      "name": "--start-time-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start time (HH:MM)",
+      "default": null,
+      "validation": "HH:MM"
+    },
+    {
+      "name": "--remaining-quantity-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum remaining quantity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--remaining-quantity-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum remaining quantity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by default trucker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--not-customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude plans for customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--trailer-classification-or-equivalent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer classification",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-only-for-equipment-movement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment movement only status (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--is-auditing-time-card-approvals",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card audit status (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--planned-tons-per-productive-segment-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum planned tons per productive segment",
+      "default": null,
+      "validation": "number"
+    },
+    {
+      "name": "--planned-tons-per-productive-segment-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum planned tons per productive segment",
+      "default": null,
+      "validation": "number"
+    },
+    {
+      "name": "--default-time-card-approval-process",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by approval process (admin/field)",
+      "default": null,
+      "validation": "admin|field"
+    },
+    {
+      "name": "--is-using-volumetric-measurements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by volumetric measurements (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--has-supply-demand-balance-cannot-compute-reasons",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by supply/demand balance compute issues (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--start-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--active-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active on date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--practically-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by practical start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--practically-start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum practical start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--practically-start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum practical start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--checksum-difference",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by exact checksum difference",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--checksum-difference-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum checksum difference",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--checksum-difference-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum checksum difference",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-checksum-difference",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by having checksum difference (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--has-manager-assignment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by manager assignment (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--user-has-stake",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID with stake (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--template-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by template name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--template-start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum template start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--template-start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum template start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by template ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--duplication-token",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by duplication token",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-site-active-around",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job site active around datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--has-project-phase-revenue-items",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project phase revenue items (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--has-crew-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by crew requirements (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--has-labor-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by labor requirements (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--has-equipment-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment requirements (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--could-have-labor-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by potential labor requirements (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--ultimate-material-types",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ultimate material type names (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--material-type-ultimate-parent-count-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum material type ultimate parent count",
+      "default": null,
+      "validation": "number"
+    },
+    {
+      "name": "--material-type-ultimate-parent-count-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum material type ultimate parent count",
+      "default": null,
+      "validation": "number"
+    },
+    {
+      "name": "--has-material-types-with-qc-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by QC requirements (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--with-non-deletable-lineup-jpps",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by non-deletable lineup plans (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--q-segments",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search segments by description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reference-data",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by reference data (format: key|value)",
+      "default": null,
+      "validation": "key|value"
+    },
+    {
+      "name": "--practically-start-on-between",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by practical start date range (format: date1|date2)",
+      "default": null,
+      "validation": "date1|date2"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plans_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/job_production_plans_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

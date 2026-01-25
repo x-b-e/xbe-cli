@@ -1,0 +1,33 @@
+{
+  "description": "Update a material transaction ticket generator.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Ticket number format rule",
+      "name": "--format-rule",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, must be non-empty."
+    }
+  ],
+  "full_path": "do material-transaction-ticket-generators update",
+  "id": "34087520e0f5a88861e22e4e8b4ebf70b566827a8ac8f7ce179dd5d8bdf3885f",
+  "permissions": "Admins can update ticket generators. For Broker organizations, the user must be a broker member with practical manager access to that broker. For MaterialSupplier organizations, the user must be a manager member of the supplier or a member of the associated broker.",
+  "side_effects": "Updates fields on a material transaction ticket generator record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_transaction_ticket_generators_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_transaction_ticket_generator_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_transaction_ticket_generator.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one updatable attribute must be provided. format_rule must be present if provided."
+}

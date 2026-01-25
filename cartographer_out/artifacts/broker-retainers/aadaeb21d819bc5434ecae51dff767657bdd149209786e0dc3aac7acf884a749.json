@@ -1,0 +1,23 @@
+{
+  "id": "aadaeb21d819bc5434ecae51dff767657bdd149209786e0dc3aac7acf884a749",
+  "full_path": "view broker-retainers show",
+  "description": "Show the full details of a broker retainer",
+  "permissions": null,
+  "side_effects": "Reads a broker retainer.",
+  "validation_notes": "The broker retainer ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_retainers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/broker_retainers_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_retainer_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "5d0c51565b143ea53d98dd23b62634f7e938e7f8a34a015e7aa678d4bd971c28",
+  "full_path": "do follows delete",
+  "description": "Delete a follow relationship.",
+  "permissions": "Admins can delete any follow. Non-admins can delete follows only when they are the follower.",
+  "side_effects": "Deletes the follow record and nullifies associated user_creator_feed_creators.",
+  "validation_notes": "The follow id argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_follows_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/follow_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/follow.rb"
+    }
+  ]
+}

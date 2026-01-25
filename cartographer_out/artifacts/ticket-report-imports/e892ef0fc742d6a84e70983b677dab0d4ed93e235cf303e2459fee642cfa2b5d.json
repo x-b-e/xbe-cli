@@ -1,0 +1,33 @@
+{
+  "id": "e892ef0fc742d6a84e70983b677dab0d4ed93e235cf303e2459fee642cfa2b5d",
+  "full_path": "do ticket-report-imports delete",
+  "description": "Delete a ticket report import",
+  "permissions": "User must be a member of the broker for the ticket report import (policy checks broker membership).",
+  "side_effects": "Deletes the ticket report import record.",
+  "validation_notes": "The ticket report import ID argument is required; --confirm is required; imports cannot be deleted once related material transactions exist.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ticket_report_imports_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ticket_report_import_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/ticket_report_import.rb"
+    }
+  ]
+}

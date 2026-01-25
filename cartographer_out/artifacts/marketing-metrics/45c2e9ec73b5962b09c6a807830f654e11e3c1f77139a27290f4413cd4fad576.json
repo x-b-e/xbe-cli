@@ -1,0 +1,31 @@
+{
+  "id": "45c2e9ec73b5962b09c6a807830f654e11e3c1f77139a27290f4413cd4fad576",
+  "full_path": "do marketing-metrics create",
+  "description": "Refresh marketing metrics.",
+  "permissions": "No authentication required; the controller skips auth and the marketing metrics policy allows create for all requests.",
+  "side_effects": "Refreshes the cached marketing metrics snapshot on the server.",
+  "validation_notes": "No positional arguments.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_marketing_metrics_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/marketing_metrics_common.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/marketing_metrics_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/marketing_metrics_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/marketing_metrics_resource.rb"
+    }
+  ]
+}

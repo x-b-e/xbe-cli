@@ -1,0 +1,31 @@
+{
+  "id": "6c0515a6fac4fb602362a5683d5062cc1f5dce679fd82b92eb5a2095e34c6204",
+  "full_path": "view project-revenue-item-quantity-estimates show",
+  "description": "Show the full details of a project revenue item quantity estimate.",
+  "permissions": "Authorized via ProjectRevenueItemQuantityEstimatePolicy delegating to ProjectRevenueItemPolicy on the related project revenue item; show access is limited to project revenue items whose project is in the user's Project policy scope.",
+  "side_effects": null,
+  "validation_notes": "<id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_revenue_item_quantity_estimates_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_revenue_item_quantity_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_quantity_estimate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

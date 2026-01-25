@@ -1,0 +1,55 @@
+{
+  "description": "Update a project estimate set",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimate set name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Must be unique per project (case-insensitive) when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Created-by user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Backup estimate set ID",
+      "name": "--backup-estimate-set",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, backup estimate set must belong to the same project and cannot create a backup cycle."
+    }
+  ],
+  "full_path": "do project-estimate-sets update",
+  "id": "e4cb4d8e69502e192a7ec7e207f499f35aaeb0368232cf30126a2f1722f0f9a9",
+  "permissions": "Allowed for users who can update the related project (ProjectPolicy update? via delegated policy).",
+  "side_effects": "Updates the project estimate set.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_estimate_sets_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/project_estimate_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_estimate_set_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. At least one of --name, --created-by, or --backup-estimate-set must be provided. Name must be unique per project (case-insensitive) when provided. If provided, backup estimate set must belong to the same project and cannot create a backup chain that points back to this estimate set."
+}

@@ -1,0 +1,46 @@
+{
+  "id": "cdabbee263bc171d908771ad24f29d6e863878359c1ac3af8db970dcabf24c16",
+  "full_path": "do shift-time-card-requisitions create",
+  "description": "Create a shift time card requisition.",
+  "permissions": "Requires authentication. Admins or members of the broker associated with the tender job schedule shift can create a shift time card requisition.",
+  "side_effects": "Creates a shift time card requisition and enqueues async fulfillment, which may create and submit a time card, close the requisition, and record fulfillment errors.",
+  "validation_notes": "--tender-job-schedule-shift is required. If invalid-when-hourly is true, the shift must not be quantified by the hour. Only one open requisition is allowed per tender job schedule shift. The tender job schedule shift must be ready for a time card and not already have one.",
+  "flags": [
+    {
+      "name": "--invalid-when-hourly",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Reject hourly-quantified shifts (true/false)",
+      "default": "true",
+      "validation": "Strict boolean: true or false."
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_time_card_requisitions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/shift_time_card_requisition_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_time_card_requisition.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_time_card_requisition_policy.rb"
+    }
+  ]
+}

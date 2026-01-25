@@ -1,0 +1,29 @@
+{
+  "id": "c3a2b1cdf83fef7fa1aa114dff1e35368d57ae1eefd53197123ac5da64a5ac10",
+  "full_path": "do raw-transport-orders delete",
+  "description": "Delete a raw transport order",
+  "permissions": "User must be an admin or an admin member of the target broker.",
+  "side_effects": "Deletes the raw transport order record. Does not delete the processed transport order.",
+  "validation_notes": "The raw transport order ID argument is required. --confirm must be set to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_transport_orders_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_order_policy.rb"
+    }
+  ]
+}

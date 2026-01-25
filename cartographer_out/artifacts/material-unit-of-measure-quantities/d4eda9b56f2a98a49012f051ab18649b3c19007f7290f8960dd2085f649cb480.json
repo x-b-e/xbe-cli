@@ -1,0 +1,27 @@
+{
+  "id": "d4eda9b56f2a98a49012f051ab18649b3c19007f7290f8960dd2085f649cb480",
+  "full_path": "view material-unit-of-measure-quantities show",
+  "description": "Show the full details of a material unit of measure quantity.",
+  "permissions": "Admin users can show. Non-admin users can show only quantities whose material_transaction is within the MaterialTransactionPolicy scope for the user (material supplier, trip/sales customer, or other permitted transaction scope).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_unit_of_measure_quantities_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_unit_of_measure_quantity_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_unit_of_measure_quantity_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    }
+  ]
+}

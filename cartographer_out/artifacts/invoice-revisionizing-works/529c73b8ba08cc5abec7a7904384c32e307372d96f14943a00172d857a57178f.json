@@ -1,0 +1,27 @@
+{
+  "id": "529c73b8ba08cc5abec7a7904384c32e307372d96f14943a00172d857a57178f",
+  "full_path": "view invoice-revisionizing-works show",
+  "description": "Show full details of an invoice revisionizing work item.",
+  "permissions": "Admin users can view any invoice revisionizing work. Non-admin users can view a work item only if it is within their policy scope, which is limited to brokers they are a member of.",
+  "side_effects": "None.",
+  "validation_notes": "id argument is required and must be a non-empty invoice revisionizing work ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_revisionizing_works_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_revisionizing_work_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_revisionizing_work_resource.rb"
+    }
+  ]
+}

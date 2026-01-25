@@ -1,0 +1,42 @@
+{
+  "id": "868a54ad4b6aef9a3ac28200b862d4c333fc9695c9d4d17184931786fd35ccb4",
+  "full_path": "view business-unit-equipments list",
+  "description": "List business unit equipment links with filtering and pagination.",
+  "permissions": "Admins can list all business unit equipment links; non-admin users can list only links for business units where they have a membership.",
+  "side_effects": null,
+  "validation_notes": "Filter examples: --business-unit 123; --equipment 456.",
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID",
+      "default": null,
+      "validation": "Example: 123"
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID",
+      "default": null,
+      "validation": "Example: 456"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/business_unit_equipments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/business_unit_equipment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_equipment_policy.rb"
+    }
+  ]
+}

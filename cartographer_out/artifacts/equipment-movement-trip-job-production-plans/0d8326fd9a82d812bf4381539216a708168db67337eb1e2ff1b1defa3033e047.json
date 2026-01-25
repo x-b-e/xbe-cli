@@ -1,0 +1,82 @@
+{
+  "id": "0d8326fd9a82d812bf4381539216a708168db67337eb1e2ff1b1defa3033e047",
+  "full_path": "view equipment-movement-trip-job-production-plans list",
+  "description": "List equipment movement trip job production plans.",
+  "permissions": "Requires access to related equipment movement trips. Admins can list all; non-admins can list trips they can access (e.g., broker members, manager truckers tied to related seller tenders, or seller operations contacts on related tender job schedule shifts).",
+  "side_effects": null,
+  "validation_notes": "created-at-min/max and updated-at-min/max must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--equipment-movement-trip",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment movement trip ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_trip_job_production_plans_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_job_production_plan_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_policy.rb"
+    }
+  ]
+}

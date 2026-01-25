@@ -1,0 +1,23 @@
+{
+  "id": "921ecb35b179f90bbb55664f9a4ff0d3fc128611a9db211d8a2bb66c772a4fc8",
+  "full_path": "view predictions show",
+  "description": "Show the full details of a prediction.",
+  "permissions": "Allowed for admins. Non-admins can view predictions they created (alive predictions), predictions for subjects where they have a membership allowing visibility without creating a prediction, and broker admins for their broker\"s subjects subject to scope restrictions.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/predictions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_resource.rb"
+    }
+  ]
+}

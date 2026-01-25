@@ -1,0 +1,27 @@
+{
+  "id": "944da219633aebae73a5fe5ce435e6338427864b0b41aa96754e91074c0d1bff",
+  "full_path": "view hos-days show",
+  "description": "Show the full details of a specific HOS day.",
+  "permissions": "Admins can view any HOS day. Non-admin users can view an HOS day only if it is within the scoped broker memberships allowed by the policy scope.",
+  "side_effects": null,
+  "validation_notes": "HOS day ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_days_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_day_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_day_resource.rb"
+    }
+  ]
+}

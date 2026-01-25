@@ -1,0 +1,37 @@
+{
+  "id": "d22cabff3e3573bd94072c2b5c77dbb5f72bcb923c0e8c08e38c8bc01db75b94",
+  "full_path": "do developer-trucker-certifications delete",
+  "description": "Delete a developer trucker certification.",
+  "permissions": "User must be authorized to delete for the related developer via DeveloperPolicy (admin, broker member, customer manager for the broker, or developer manager member).",
+  "side_effects": "Deletes a developer trucker certification.",
+  "validation_notes": "Requires <id> argument (developer trucker certification ID) and --confirm. Deletion is blocked when the certification is associated with multipliers.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_trucker_certifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_trucker_certification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_trucker_certification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_policy.rb"
+    }
+  ]
+}

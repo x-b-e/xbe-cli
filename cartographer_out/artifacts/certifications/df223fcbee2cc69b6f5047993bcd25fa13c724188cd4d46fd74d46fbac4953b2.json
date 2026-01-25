@@ -1,0 +1,33 @@
+{
+  "id": "df223fcbee2cc69b6f5047993bcd25fa13c724188cd4d46fd74d46fbac4953b2",
+  "full_path": "do certifications delete",
+  "description": "Delete a certification.",
+  "permissions": "Allowed for admins or users who have update permission on the certifies record (per the certifies policy).",
+  "side_effects": "Permanently deletes the certification record.",
+  "validation_notes": "The <id> argument is required. --confirm is required to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_certifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/certification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/certification.rb"
+    }
+  ]
+}

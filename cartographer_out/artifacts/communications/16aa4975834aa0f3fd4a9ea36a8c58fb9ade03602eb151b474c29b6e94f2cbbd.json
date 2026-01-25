@@ -1,0 +1,189 @@
+{
+  "description": "List communications with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by subject type",
+      "name": "--subject-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by subject ID (requires --subject-type)",
+      "name": "--subject-id",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --subject-type"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by delivery status",
+      "name": "--delivery-status",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid delivery status enum value"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by message type",
+      "name": "--message-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by message ID",
+      "name": "--message-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by message-sent-at on/after (ISO 8601)",
+      "name": "--message-sent-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by message-sent-at on/before (ISO 8601)",
+      "name": "--message-sent-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of message-sent-at (true/false)",
+      "name": "--is-message-sent-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by addressed status (true/false)",
+      "name": "--is-addressed",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by retried status (true/false)",
+      "name": "--is-retried",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of created-at (true/false)",
+      "name": "--is-created-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of updated-at (true/false)",
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "view communications list",
+  "id": "16aa4975834aa0f3fd4a9ea36a8c58fb9ade03602eb151b474c29b6e94f2cbbd",
+  "permissions": "Any authenticated user can list communications. Non-admin users only see communications in their scope (their own or users they can access via active broker memberships).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/communications_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/communication_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/communication_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/communication.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/base_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/policies/communication_policy_spec.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "subject-id requires subject-type. message-sent-at-min/max, created-at-min/max, and updated-at-min/max must be ISO 8601 timestamps. is-message-sent-at, is-addressed, is-retried, is-created-at, and is-updated-at expect true/false values. delivery-status must be one of: outgoing_confirmation_pending, outgoing_confirmed_delivered, outgoing_confirmed_undelivered, outgoing_undeliverable, incoming_received, addressed, outgoing_delivery_exception."
+}

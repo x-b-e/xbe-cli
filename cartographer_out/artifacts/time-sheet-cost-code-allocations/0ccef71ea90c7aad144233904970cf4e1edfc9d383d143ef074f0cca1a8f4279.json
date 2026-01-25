@@ -1,0 +1,19 @@
+{
+  "id": "0ccef71ea90c7aad144233904970cf4e1edfc9d383d143ef074f0cca1a8f4279",
+  "full_path": "view time-sheet-cost-code-allocations show",
+  "description": "Show the full details of a time sheet cost code allocation.",
+  "permissions": "User must be an admin or a member of the customer or broker associated with the time sheet customer.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheet_cost_code_allocations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/cost_code_allocation_policy.rb"
+    }
+  ]
+}

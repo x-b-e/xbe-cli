@@ -1,0 +1,19 @@
+{
+  "id": "e4e35da85c845a25ed475296376fd58a4236a9334074b8684df63a52130e8575",
+  "full_path": "view organization-invoices-batch-invoice-failures show",
+  "description": "Show organization invoices batch invoice failure details.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Argument <id> is required. Server routes expose only create for organization-invoices-batch-invoice-failures; show is not available and may return 404.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_invoice_failures_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "config/routes.rb"
+    }
+  ]
+}

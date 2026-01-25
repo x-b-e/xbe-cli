@@ -1,0 +1,90 @@
+{
+  "id": "3bda53f1908b5dd9a34f83c995e2e18baf424bf0a3d46c86224cb7509a0406cd",
+  "full_path": "summarize device-location-event-summary create",
+  "description": "Generate a device location event summary.",
+  "permissions": "User must be an admin to create the summary. Results are constrained to devices in the user\u2019s policy scope because the server injects a current_user filter.",
+  "side_effects": "Reads and aggregates device location event day summaries with related device and user data; no persistent changes.",
+  "validation_notes": "group-by values must be valid summary attributes; filters must use supported keys; included metrics must be valid; sort values must reference valid summary attributes or metrics; filters cannot be blank. --filters must be valid JSON, and --filter must be in key=value form with a non-empty key.",
+  "flags": [
+    {
+      "name": "--group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to device unless set.",
+      "default": "device",
+      "validation": "Values must be from: device, device_identifier, device_manufacturer, device_model, device_name, device_platform, device_version, event_on, native_app_version, native_ota_version, user. Example: device,user."
+    },
+    {
+      "name": "--metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated).",
+      "default": null,
+      "validation": "Valid metric: event_count."
+    },
+    {
+      "name": "--metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable).",
+      "default": null,
+      "validation": "Valid metric: event_count."
+    },
+    {
+      "name": "--all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all metrics returned by the API.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. '{\"user\":\"123\"}').",
+      "default": null,
+      "validation": "Must be valid JSON object."
+    },
+    {
+      "name": "--filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable).",
+      "default": null,
+      "validation": "Format key=value with a non-empty key. Example: event_on_min=2025-01-01."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_device_location_event_summary_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_device_location_event_summary.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/device_location_event_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/device_location_event_summary.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/abstract_summary_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/abstract_summary_resource.rb"
+    }
+  ]
+}

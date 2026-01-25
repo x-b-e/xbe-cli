@@ -1,0 +1,33 @@
+{
+  "id": "866b28d0d7e65a482d1619bf2f847fbd471367a96ac8c5539b1ec8d73e4fed25",
+  "full_path": "view organization-invoices-batch-pdf-files show",
+  "description": "Show organization invoices batch PDF file details",
+  "permissions": "Requires access to the related organization invoices batch via the PDF generation relationship; non-admin users must be in the policy scope for that batch (broker members or manager members of the batch organization), while admins are allowed.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required. When --include-pdf-body is set and the PDF body exists, the response includes base64-encoded PDF content.",
+  "flags": [
+    {
+      "name": "--include-pdf-body",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include base64 PDF body in the response",
+      "default": null,
+      "validation": "If true, response includes base64 PDF body when available."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_pdf_files_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_pdf_file_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_pdf_file_policy.rb"
+    }
+  ]
+}

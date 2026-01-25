@@ -1,0 +1,37 @@
+{
+  "description": "Delete a project transport plan",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plans delete",
+  "id": "664613710dacd40290f41ccfef60c2b80ab15159c1c5e3376210a390c9eca4d6",
+  "permissions": "Authorized via ProjectTransportPlanPolicy (delegates to project).",
+  "side_effects": "If the plan can be deleted, the API updates the plan status to cancelled instead of hard-deleting; otherwise it falls back to the default removal behavior.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plans_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. --confirm is required. Deletion may be blocked when the plan has assigned drivers, tractors, or trailers."
+}

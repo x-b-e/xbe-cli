@@ -1,0 +1,31 @@
+{
+  "id": "c4282f8d1d15118bb055cab3d8e52729222a4b9ddb1311aaf917374dda999915",
+  "full_path": "view material-transaction-submissions list",
+  "description": "List material transaction submissions.",
+  "permissions": "Allowed when the MaterialTransactionSubmissionPolicy scope includes the records (no additional checks are defined beyond the base policy).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_submissions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_submission_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_submission_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "37be6108d4a25fa4ec20965883bc3874e67c8ef730e53b1e5235e7251f8b9a9c",
+  "full_path": "do broker-trucker-ratings create",
+  "description": "Create a broker trucker rating.",
+  "permissions": "Admins can create broker trucker ratings. Non-admin users can create ratings only for brokers tied to their broker memberships.",
+  "side_effects": "Creates a broker trucker rating.",
+  "validation_notes": "--broker, --trucker, and --rating are required. rating must be an integer between 1 and 5. Each trucker can only be rated once per broker (trucker_id must be unique per broker_id).",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--rating",
+      "aliases": null,
+      "required": true,
+      "type": "integer",
+      "description": "Rating (1-5, required)",
+      "default": null,
+      "validation": "1-5 integer"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_trucker_ratings_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/broker_trucker_rating.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_trucker_rating_policy.rb"
+    }
+  ]
+}

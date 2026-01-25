@@ -1,0 +1,23 @@
+{
+  "id": "bd666a9bfd8a50439d9c537c54bc64b120653ce7d8f7bb561bf9f5582b070dfd",
+  "full_path": "view driver-assignment-refusals show",
+  "description": "Show the full details of a driver assignment refusal.",
+  "permissions": "Admins can view refusals. Non-admins can view refusals where they are the driver, are a manager member of the trucker for the shift, or are a member of the broker for the shift.",
+  "side_effects": null,
+  "validation_notes": "The refusal ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_assignment_refusals_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_assignment_refusal_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "e68e6c859272edadda73ba25af1b0b8b29939611c065bf6cc4cd5bc186f29e09",
+  "full_path": "do dispatch-user-matchers create",
+  "description": "Match a dispatch user by phone number.",
+  "permissions": "Authenticated user (user present) required to create a dispatch user matcher.",
+  "side_effects": null,
+  "validation_notes": "phone-number is required and must be non-empty after trimming whitespace.",
+  "flags": [
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Caller phone number to match (required)",
+      "default": null,
+      "validation": "Required; must be non-empty after trimming whitespace. Example: +15551234567."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_dispatch_user_matchers_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_dispatch_user_matchers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/dispatch_user_matchers_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/dispatch_user_matcher_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/dispatch_user_matcher_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/dispatch_user_matcher.rb"
+    }
+  ]
+}

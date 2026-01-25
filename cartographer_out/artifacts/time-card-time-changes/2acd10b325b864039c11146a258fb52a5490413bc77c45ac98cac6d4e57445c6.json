@@ -1,0 +1,60 @@
+{
+  "id": "2acd10b325b864039c11146a258fb52a5490413bc77c45ac98cac6d4e57445c6",
+  "full_path": "view time-card-time-changes list",
+  "description": "List time card time changes.",
+  "permissions": "Admins can list all time card time changes; non-admins can list time card time changes for time cards they are allowed to see via TimeCardPolicy scope.",
+  "side_effects": null,
+  "validation_notes": "Filters accept comma-separated IDs for --time-card, --created-by, and --broker. --is-processed expects a strict boolean (true/false).",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created by user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-processed",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by processed status (true/false)",
+      "default": null,
+      "validation": "Must be a strict boolean: true or false."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_time_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_time_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_time_change_policy.rb"
+    }
+  ]
+}

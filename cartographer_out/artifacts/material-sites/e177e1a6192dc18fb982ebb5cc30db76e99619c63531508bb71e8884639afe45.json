@@ -1,0 +1,244 @@
+{
+  "description": "Update a material site.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site name",
+      "name": "name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material supplier ID",
+      "name": "material-supplier",
+      "required": false,
+      "type": "string",
+      "validation": "Cannot be changed once set unless server-side skip_cannot_change_supplier_validation is true"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Contact phone number",
+      "name": "phone-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "CB radio channel",
+      "name": "cb-channel",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Operating hours description",
+      "name": "hours-description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Notes about the site",
+      "name": "notes",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Display color (hex format)",
+      "name": "color-hex",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid hex color"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Operating status (active, inactive)",
+      "name": "operating-status",
+      "required": false,
+      "type": "string",
+      "validation": "Valid values: active, inactive"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site can create tickets",
+      "name": "is-ticket-maker",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site cannot create tickets",
+      "name": "no-is-ticket-maker",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site has a scale",
+      "name": "has-scale",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site does not have a scale",
+      "name": "no-has-scale",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Can be used as job material site",
+      "name": "can-be-job-material-site",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Cannot be used as job material site",
+      "name": "no-can-be-job-material-site",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Can be used as start site",
+      "name": "can-be-start-site",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Cannot be used as start site",
+      "name": "no-can-be-start-site",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site is portable",
+      "name": "is-portable",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site is not portable",
+      "name": "no-is-portable",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site is productive",
+      "name": "is-productive",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site is not productive",
+      "name": "no-is-productive",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Full address (will be geocoded)",
+      "name": "address",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address latitude",
+      "name": "address-latitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address longitude",
+      "name": "address-longitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip geocoding the address",
+      "name": "skip-geocoding",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do material-sites update",
+  "id": "e177e1a6192dc18fb982ebb5cc30db76e99619c63531508bb71e8884639afe45",
+  "permissions": "User must be authorized to update the material supplier: MaterialSitePolicy#update? requires create? for the current material supplier and also checks MaterialSupplierPolicy.update? for the prior supplier.",
+  "side_effects": "Updates a material site record. Address may be geocoded unless --skip-geocoding is set. If the name changes, the server triggers an async material transaction tonnage summary update. If is-ticket-maker is set true, the server sets has-scale true during validation.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_sites_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_site_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/material_site_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_site.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Command requires a material site ID argument. operating-status must be active or inactive. color-hex must be a valid color hex value. If parent is provided, the parent must be portable and must not itself have a parent; a site with a parent cannot be portable. Material supplier cannot be changed once set unless skip_cannot_change_supplier_validation is true (not exposed by CLI)."
+}

@@ -1,0 +1,99 @@
+{
+  "id": "8d4cf2a0d2e4db7cd5674b639db92f06d1d35ebb5a82fa3c56103c72aa13a87b",
+  "full_path": "view project-phase-revenue-item-actuals list",
+  "description": "List project phase revenue item actuals.",
+  "permissions": "User must be authorized via ProjectPhaseRevenueItemActualPolicy scope (delegated to ProjectPhaseRevenueItem -> ProjectPhase -> Project). Non-admin access is granted per ProjectPolicy scope for projects tied to the users developer, broker, material supplier, or customer memberships.",
+  "side_effects": null,
+  "validation_notes": "Date filters require YYYY-MM-DD format.",
+  "flags": [
+    {
+      "name": "--project-phase-revenue-item",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project phase revenue item ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID (e.g., 456).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--revenue-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by revenue date (YYYY-MM-DD).",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--revenue-date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by revenue date on/after (YYYY-MM-DD).",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--revenue-date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by revenue date on/before (YYYY-MM-DD).",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_phase_revenue_item_actuals_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_revenue_item_actual_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_revenue_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_revenue_item_actual_resource.rb"
+    }
+  ]
+}

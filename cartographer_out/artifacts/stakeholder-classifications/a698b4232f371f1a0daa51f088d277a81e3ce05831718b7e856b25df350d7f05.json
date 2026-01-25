@@ -1,0 +1,55 @@
+{
+  "id": "a698b4232f371f1a0daa51f088d277a81e3ce05831718b7e856b25df350d7f05",
+  "full_path": "do stakeholder-classifications update",
+  "description": "Update an existing stakeholder classification.",
+  "permissions": "User must be an admin to update stakeholder classifications (StakeholderClassificationPolicy#update?).",
+  "side_effects": "Updates a stakeholder classification record; when the title changes, background jobs generate objective stakeholder classifications and update objective OpenAI files.",
+  "validation_notes": "Requires the stakeholder classification ID argument. At least one of --title, --leverage-factor, or --objectives-narrative-explicit must be provided. Title must be unique (case-insensitive) and present if set. Slug is read-only and cannot be changed. Leverage factor must be greater than 0 when provided.",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Classification title",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--leverage-factor",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Leverage factor (influence level)",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--objectives-narrative-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit objectives narrative",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_stakeholder_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/stakeholder_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/stakeholder_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/stakeholder_classification_resource.rb"
+    }
+  ]
+}

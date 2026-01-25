@@ -1,0 +1,23 @@
+{
+  "id": "04d16db1c3c865f517ee9bb7a8b349d41f15a4613e40eebdc611ad3da657b7a6",
+  "full_path": "view bidders show",
+  "description": "Show the full details of a bidder.",
+  "permissions": "Admins can view any bidder; broker members can view bidders for brokers they belong to.",
+  "side_effects": null,
+  "validation_notes": "Requires a bidder ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/bidders_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/bidder_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/bidder_resource.rb"
+    }
+  ]
+}

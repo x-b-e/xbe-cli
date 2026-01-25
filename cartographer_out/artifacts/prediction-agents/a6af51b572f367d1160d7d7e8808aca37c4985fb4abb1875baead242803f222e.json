@@ -1,0 +1,33 @@
+{
+  "id": "a6af51b572f367d1160d7d7e8808aca37c4985fb4abb1875baead242803f222e",
+  "full_path": "do prediction-agents delete",
+  "description": "Delete a prediction agent",
+  "permissions": "Admins can delete prediction agents; non-admins can delete if they have membership on the prediction subject.",
+  "side_effects": "Deletes the prediction agent; any associated prediction keeps its record but the prediction_agent reference is nullified.",
+  "validation_notes": "Prediction agent ID argument is required. --confirm must be set to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_agents_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_agent.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_agent_policy.rb"
+    }
+  ]
+}

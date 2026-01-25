@@ -1,0 +1,54 @@
+{
+  "id": "14d7d3fc94f11415d8271a796a9f37186966b0a06ebef6290bacee3a45ae678d",
+  "full_path": "do material-transactions-exports create",
+  "description": "Create a material transaction export.",
+  "permissions": "Admin users can create exports. Non-admin users must be permitted to create each related material transaction; the policy delegates create authorization to MaterialTransactionPolicy for every selected material transaction.",
+  "side_effects": "Creates a material transaction export and its material_transaction_exports join records. After commit, an async formatter job runs and updates status, body, file_name, mime_type, and formatter_errors_details.",
+  "validation_notes": "organization-formatter and material-transaction-ids are required. organization-formatter must be active and must be a MaterialTransactionsExportFormatter type. The export organization and organization-formatter must belong to the same organization. material-transactions must be present, integration-sourced, in scope with the exporting organization, and exportable (not voided).",
+  "flags": [
+    {
+      "name": "organization-formatter",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization formatter ID (required)",
+      "default": null,
+      "validation": "Required"
+    },
+    {
+      "name": "material-transaction-ids",
+      "aliases": null,
+      "required": true,
+      "type": "array",
+      "description": "Material transaction IDs (comma-separated or repeated) (required)",
+      "default": null,
+      "validation": "Required; accepts comma-separated or repeated values"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transactions_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transactions_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transactions_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transactions_export.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_organization_formatter_is_active.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/validators/has_same_validator.rb"
+    }
+  ]
+}

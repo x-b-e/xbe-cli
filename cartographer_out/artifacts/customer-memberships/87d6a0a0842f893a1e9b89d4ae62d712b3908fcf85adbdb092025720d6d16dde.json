@@ -1,0 +1,231 @@
+{
+  "id": "87d6a0a0842f893a1e9b89d4ae62d712b3908fcf85adbdb092025720d6d16dde",
+  "full_path": "do customer-memberships create",
+  "description": "Create a new customer membership.",
+  "permissions": "Authentication required; an API token must be available.",
+  "side_effects": "Creates a new customer membership.",
+  "validation_notes": "--user and --customer are required. kind must be operations or manager. drives-shift-type must be any, day, or night. start-at and end-at must be ISO 8601 timestamps when provided. explicit-sort-order must be an integer when provided. Boolean flags accept true or false.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Role: operations or manager.",
+      "default": "operations",
+      "validation": "Allowed values: operations, manager."
+    },
+    {
+      "name": "--is-admin",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Admin status (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Title within the organization.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--color-hex",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Display color (e.g. #FF0000).",
+      "default": null,
+      "validation": "Example: #FF0000."
+    },
+    {
+      "name": "--external-employee-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External system employee ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-sort-order",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Manual sort order.",
+      "default": null,
+      "validation": "Integer value."
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Membership start date (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Membership end date (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--drives-shift-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Shift type: any, day, or night.",
+      "default": "any",
+      "validation": "Allowed values: any, day, night."
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project office ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--can-see-rates-as-driver",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can see rates as driver (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--can-see-rates-as-manager",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can see rates as manager (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--can-validate-profit-improvements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can validate profit improvements (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-rate-editor",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is rate editor (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-time-card-auditor",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is time card auditor (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-equipment-rental-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is equipment rental team member (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is geofence violation team member (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is unapproved time card subscriber (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is default job production plan subscriber (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--enable-recap-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable recap notifications (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--enable-inventory-capacity-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable inventory capacity notifications (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_memberships_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_membership_policy.rb"
+    }
+  ]
+}

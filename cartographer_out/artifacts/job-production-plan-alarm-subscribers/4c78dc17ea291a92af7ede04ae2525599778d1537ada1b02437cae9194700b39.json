@@ -1,0 +1,37 @@
+{
+  "description": "Delete a job production plan alarm subscriber.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do job-production-plan-alarm-subscribers delete",
+  "id": "4c78dc17ea291a92af7ede04ae2525599778d1537ada1b02437cae9194700b39",
+  "permissions": "Allowed via JobProductionPlanAlarmSubscriberPolicy and delegated to the related job production plan alarm; the alarm policy allows create/destroy/update when the user has update permission on the related job production plan.",
+  "side_effects": "Deletes a job production plan alarm subscriber record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_alarm_subscribers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_alarm_subscriber_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_alarm_subscriber_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_alarm_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. --confirm must be set to delete."
+}

@@ -1,0 +1,154 @@
+{
+  "id": "df109c8252e0383b2995aab97f8dc0260e8dece2461a8133e7977593db8ec70a",
+  "full_path": "view hos-days list",
+  "description": "List HOS days.",
+  "permissions": "Admins can list all HOS days. Non-admin users can list HOS days only for brokers where they have a visible broker membership (scope limited to those broker IDs).",
+  "side_effects": null,
+  "validation_notes": "service-date, service-date-min, and service-date-max must be in YYYY-MM-DD format. has-service-date must be true/false. created-at-min and created-at-max must be ISO 8601 timestamps. is-created-at and is-updated-at must be true/false.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID (alias of driver)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by service date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--service-date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum service date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--service-date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum service date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-service-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of service date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--regulation-set-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by regulation set code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_days_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_day_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_day_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "731faedb8efc3a536c3ba6edfdea3bfab68f0b0812665562b99d8ad0cb2b171f",
+  "full_path": "do shift-feedback-reasons create",
+  "description": "Create a new shift feedback reason",
+  "permissions": "Admin users only.",
+  "side_effects": "Creates a shift feedback reason.",
+  "validation_notes": "--name, --kind, and --slug are required. kind must be one of: driver, equipment, admin. name is required and must be unique within the same kind. default_rating, if set, must be between 1 and 5. slug must be unique; blank slugs are stored as null. name, slug, and corrective_action have surrounding whitespace stripped.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reason name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Feedback kind (required, e.g., positive, negative)",
+      "default": null,
+      "validation": "Must be one of: driver, equipment, admin."
+    },
+    {
+      "name": "--slug",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "URL-friendly identifier (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-rating",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default rating value",
+      "default": null,
+      "validation": "If set, must be between 1 and 5."
+    },
+    {
+      "name": "--corrective-action",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Corrective action text",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_feedback_reasons_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_feedback_reason_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/shift_feedback_reason_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_feedback_reason.rb"
+    }
+  ]
+}

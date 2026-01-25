@@ -1,0 +1,91 @@
+{
+  "description": "List project transport plan assignment rules with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by asset type (driver/tractor/trailer)",
+      "name": "--asset-type",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: driver, tractor, trailer."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by level (format: Type|ID)",
+      "name": "--level",
+      "required": false,
+      "type": "string",
+      "validation": "Format: Type|ID (e.g., Broker|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by level type",
+      "name": "--level-type",
+      "required": false,
+      "type": "string",
+      "validation": "Level type for the polymorphic level; server restricts valid level types (currently Broker)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by level ID (use with --level-type)",
+      "name": "--level-id",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --level-type or --level."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Exclude a level type",
+      "name": "--not-level-type",
+      "required": false,
+      "type": "string",
+      "validation": "Excludes rows matching the provided level type (client-side filter)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by active status (true/false)",
+      "name": "--is-active",
+      "required": false,
+      "type": "string",
+      "validation": "Expected values: true or false."
+    }
+  ],
+  "full_path": "view project-transport-plan-assignment-rules list",
+  "id": "9c2b51c2d7329cae38235f78a8b6b0bf03de6abc093d29468530e6bcdf602aea",
+  "permissions": "Readable within the policy scope for ProjectTransportPlanAssignmentRule; for non-admins, rules are scoped to levels returned by policy scope on valid level types.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_assignment_rules_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_assignment_rule_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_assignment_rule_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_assignment_rule.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--level-id requires --level-type or --level. --level expects format Type|ID (e.g., Broker|123). --is-active expects true/false. Asset type filter is expected to be driver, tractor, or trailer."
+}

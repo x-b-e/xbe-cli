@@ -1,0 +1,159 @@
+{
+  "id": "a8d188196b4377b47211a66c2ed4468d5b565923229829af7c6ed5a10832e067",
+  "full_path": "view invoice-generations list",
+  "description": "List invoice generations with filtering",
+  "permissions": "Admins can list invoice generations. Non-admin users must be manager members of a broker; they can list invoice generations for that broker and its associated customers/truckers.",
+  "side_effects": null,
+  "validation_notes": "--organization-id requires --organization-type unless provided as Type|ID. --organization uses Type|ID format. --time-cards is a comma-separated list of IDs and is validated against existing time cards. completed-at/created-at/updated-at filters must be ISO 8601 timestamps. is-completed, is-completed-at, is-created-at, and is-updated-at expect true/false.",
+  "flags": [
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (format: Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Broker|123)."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type or Type|ID)",
+      "default": null,
+      "validation": "Requires --organization-type unless provided as Type|ID."
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker, Customer, Trucker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude organization type (e.g., Customer)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--time-cards",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list of time card IDs; IDs must exist."
+    },
+    {
+      "name": "--completed-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by completed-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--completed-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by completed-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-completed-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has completed-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-completed",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by completion status (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_generations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_generation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_generation_policy.rb"
+    }
+  ]
+}

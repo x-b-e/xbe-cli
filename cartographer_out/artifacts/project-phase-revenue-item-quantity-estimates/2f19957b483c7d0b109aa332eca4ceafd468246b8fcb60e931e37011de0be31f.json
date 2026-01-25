@@ -1,0 +1,55 @@
+{
+  "description": "List quantity estimates for project phase revenue items.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project phase revenue item ID",
+      "name": "--project-phase-revenue-item",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project estimate set ID",
+      "name": "--project-estimate-set",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-phase-revenue-item-quantity-estimates list",
+  "id": "2f19957b483c7d0b109aa332eca4ceafd468246b8fcb60e931e37011de0be31f",
+  "permissions": "Allowed for users who can view the related project via delegated policy scope: admins, members/managers of the project developer, members of the project broker, or members of material suppliers/customers tied to the project broker.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_phase_revenue_item_quantity_estimates_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/project_phase_revenue_item_quantity_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_phase_revenue_item_quantity_estimate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

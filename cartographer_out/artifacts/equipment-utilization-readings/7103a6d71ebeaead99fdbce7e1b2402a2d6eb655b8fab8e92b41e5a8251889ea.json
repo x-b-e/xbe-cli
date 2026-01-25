@@ -1,0 +1,87 @@
+{
+  "id": "7103a6d71ebeaead99fdbce7e1b2402a2d6eb655b8fab8e92b41e5a8251889ea",
+  "full_path": "do equipment-utilization-readings create",
+  "description": "Create an equipment utilization reading.",
+  "permissions": "User must be an admin, a manager of the equipment organization, or a member of the equipment broker.",
+  "side_effects": "Creates a new equipment utilization reading record for the specified equipment (and optional business unit/user).",
+  "validation_notes": "--equipment is required. --reported-at is required and should be ISO 8601. At least one of --odometer or --hourmeter is required. other-readings must be valid JSON when provided. Odometer and hourmeter must be numeric and >= 0. Odometer/hourmeter cannot be less than the previous reading for the same equipment.",
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Business unit ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--hourmeter",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Hourmeter reading",
+      "default": null,
+      "validation": "Numeric; >= 0"
+    },
+    {
+      "name": "--odometer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Odometer reading",
+      "default": null,
+      "validation": "Numeric; >= 0"
+    },
+    {
+      "name": "--other-readings",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Other readings payload (JSON string)",
+      "default": null,
+      "validation": "Valid JSON"
+    },
+    {
+      "name": "--reported-at",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reported timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "User ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_utilization_readings_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_utilization_reading.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_utilization_reading_policy.rb"
+    }
+  ]
+}

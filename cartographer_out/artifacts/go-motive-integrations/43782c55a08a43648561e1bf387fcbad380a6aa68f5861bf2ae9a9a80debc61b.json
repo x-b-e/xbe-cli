@@ -1,0 +1,68 @@
+{
+  "description": "Create a GoMotive integration.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "GoMotive integration identifier",
+      "name": "--integration-identifier",
+      "required": true,
+      "type": "string",
+      "validation": "Must be unique."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Friendly name",
+      "name": "--friendly-name",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Integration config ID",
+      "name": "--integration-config",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do go-motive-integrations create",
+  "id": "43782c55a08a43648561e1bf387fcbad380a6aa68f5861bf2ae9a9a80debc61b",
+  "permissions": "Only admin users can create GoMotive integrations.",
+  "side_effects": "Creates a GoMotive integration and links it to the specified broker and integration config.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_go_motive_integrations_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/go_motive_integration_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/go_motive_integration.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/go_motive_integration_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "db/structure_split/tables/public.go_motive_integrations.sql",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Required flags: --integration-identifier, --friendly-name, --broker, --integration-config. integration_identifier must be unique. broker and integration_config are create-only relationships."
+}

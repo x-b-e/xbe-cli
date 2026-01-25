@@ -1,0 +1,64 @@
+{
+  "id": "fec53c12f5dd687e2c6bf93e55ddc5eecaa4378c783a8992d6a35b2cf65a0559",
+  "full_path": "do developers update",
+  "description": "Update an existing developer.",
+  "permissions": "Allowed for admins, broker members for the developer's broker, customer managers whose broker matches, or manager members of the developer.",
+  "side_effects": "Updates developer fields; changing the name triggers an async material transaction tonnage summary update.",
+  "validation_notes": "At least one field must be provided. Name must be present if provided and unique per broker.",
+  "flags": [
+    {
+      "name": "--is-certification-required-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicitly set certification requirement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-prevailing-wage-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicitly set prevailing wage requirement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Developer name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--weigher-seal-label",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Weigher seal label",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer.rb"
+    }
+  ]
+}

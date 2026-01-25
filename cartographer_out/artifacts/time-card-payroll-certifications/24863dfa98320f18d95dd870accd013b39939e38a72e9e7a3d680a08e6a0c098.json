@@ -1,0 +1,29 @@
+{
+  "description": "Create a time card payroll certification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Time card ID (required)",
+      "name": "--time-card",
+      "required": true,
+      "type": "string",
+      "validation": "required"
+    }
+  ],
+  "full_path": "do time-card-payroll-certifications create",
+  "id": "24863dfa98320f18d95dd870accd013b39939e38a72e9e7a3d680a08e6a0c098",
+  "permissions": null,
+  "side_effects": "Creates a time card payroll certification for the specified time card.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_time_card_payroll_certifications_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_card_payroll_certification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--time-card is required."
+}

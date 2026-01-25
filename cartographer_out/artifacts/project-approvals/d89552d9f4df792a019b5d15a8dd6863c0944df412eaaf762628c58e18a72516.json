@@ -1,0 +1,19 @@
+{
+  "description": "List project approvals.",
+  "flags": [],
+  "full_path": "view project-approvals list",
+  "id": "d89552d9f4df792a019b5d15a8dd6863c0944df412eaaf762628c58e18a72516",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_approvals_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_approval_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

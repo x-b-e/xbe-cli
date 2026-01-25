@@ -1,0 +1,95 @@
+{
+  "id": "7bcd561fb81acd9dfe7701aa3d93232afe4f088aefde5ce8cb11ec0a94cf5a4c",
+  "full_path": "do raw-transport-projects create",
+  "description": "Create a raw transport project",
+  "permissions": "Allowed for admin users or users with admin broker membership for the specified broker.",
+  "side_effects": "Creates a raw transport project record and schedules an async import after creation when an importer is configured; tables rowversion min/max may be derived from tables when not provided.",
+  "validation_notes": "Requires --broker, --external-project-number, and --tables. --tables must be a valid JSON array. importer must be one of: quantix_tmw. external_project_number is required on the server.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-project-number",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "External project number (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tables",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tables JSON array (required)",
+      "default": null,
+      "validation": "Must be valid JSON array."
+    },
+    {
+      "name": "--importer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Importer key (e.g., quantix_tmw)",
+      "default": null,
+      "validation": "Must be one of: quantix_tmw."
+    },
+    {
+      "name": "--tables-rowversion-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tables rowversion minimum",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tables-rowversion-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tables rowversion maximum",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-managed",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as managed",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_transport_projects_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_project_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_project_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/raw_transport_project.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/raw_transport/abstract_record.rb"
+    }
+  ]
+}

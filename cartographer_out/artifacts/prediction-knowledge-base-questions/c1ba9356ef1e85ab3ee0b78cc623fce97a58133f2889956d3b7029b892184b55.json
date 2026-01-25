@@ -1,0 +1,23 @@
+{
+  "description": "Show prediction knowledge base question details",
+  "flags": [],
+  "full_path": "view prediction-knowledge-base-questions show",
+  "id": "c1ba9356ef1e85ab3ee0b78cc623fce97a58133f2889956d3b7029b892184b55",
+  "permissions": "Available to admins. Non-admin access is limited by policy scope to questions in prediction knowledge bases where the user is a broker member, plus questions tied to prediction subjects where the user is a member.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/prediction_knowledge_base_questions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_knowledge_base_question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/prediction_knowledge_base_question_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (prediction knowledge base question ID)."
+}

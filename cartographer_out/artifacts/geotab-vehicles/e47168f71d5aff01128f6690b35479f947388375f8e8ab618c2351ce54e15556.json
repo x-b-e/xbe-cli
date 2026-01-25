@@ -1,0 +1,38 @@
+{
+  "id": "e47168f71d5aff01128f6690b35479f947388375f8e8ab618c2351ce54e15556",
+  "full_path": "do geotab-vehicles update",
+  "description": "Update geotab vehicle assignments",
+  "permissions": "Admins can update geotab vehicles; non-admins can update vehicles for brokers where they have membership.",
+  "side_effects": "Updates trailer and/or tractor assignments for the geotab vehicle; providing an empty value clears the corresponding assignment.",
+  "validation_notes": "At least one of --trailer or --tractor must be provided; if the flag is provided with an empty value, the relationship is cleared.",
+  "flags": [
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_geotab_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": "82acac40a4c43758acca5d34243a35df5de82fad8ff598dd416b7d3dec0a1715",
+  "full_path": "view cost-code-trucking-cost-summaries list",
+  "description": "List cost code trucking cost summaries.",
+  "permissions": "Admins can list all summaries. Non-admins can list summaries only for brokers where they are manager members.",
+  "side_effects": null,
+  "validation_notes": "Filters for created-at and updated-at require non-empty ISO 8601 date-time values; is-created-at and is-updated-at must be strict booleans (true or false).",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/cost_code_trucking_cost_summaries_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_code_trucking_cost_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_code_trucking_cost_summary_policy.rb"
+    }
+  ]
+}

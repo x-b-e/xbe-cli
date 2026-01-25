@@ -1,0 +1,64 @@
+{
+  "id": "a14c5feef5c0d9f73ff787ec78689237cf635cffc1b0e42d3ce168e7a577de23",
+  "full_path": "view project-transport-plan-stop-order-stops list",
+  "description": "List project transport plan stop order stops with filtering and pagination.",
+  "permissions": "User must be authorized to view project transport plan stop order stops via access to the related project transport plan stop; authorization is delegated through the project transport plan stop to the project transport plan.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--project-transport-plan-stop",
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan stop ID. Example: --project-transport-plan-stop 123"
+    },
+    {
+      "name": "--transport-order-stop",
+      "required": false,
+      "type": "string",
+      "description": "Filter by transport order stop ID. Example: --transport-order-stop 456"
+    },
+    {
+      "name": "--project-transport-plan",
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan ID. Example: --project-transport-plan 123"
+    },
+    {
+      "name": "--transport-order",
+      "required": false,
+      "type": "string",
+      "description": "Filter by transport order ID. Example: --transport-order 456"
+    },
+    {
+      "name": "--project-transport-plan-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan ID (via plan stop join). Example: --project-transport-plan-id 123"
+    },
+    {
+      "name": "--transport-order-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by transport order ID (via order stop join). Example: --transport-order-id 456"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_stop_order_stops_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_stop_order_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_order_stop_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_policy.rb"
+    }
+  ]
+}

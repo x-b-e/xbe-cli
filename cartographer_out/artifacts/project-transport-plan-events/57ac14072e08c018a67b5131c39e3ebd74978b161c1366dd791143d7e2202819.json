@@ -1,0 +1,95 @@
+{
+  "id": "57ac14072e08c018a67b5131c39e3ebd74978b161c1366dd791143d7e2202819",
+  "full_path": "do project-transport-plan-events create",
+  "description": "Create a project transport plan event",
+  "permissions": "User must be authorized for the related project transport plan (delegated via the project transport plan; access is based on project access or being an active driver on the plan).",
+  "side_effects": "Creates a project transport plan event; may create a project transport location event type for the location/event type pair; may enqueue a location prediction autopsy when a location is set.",
+  "validation_notes": "--project-transport-plan and --project-transport-event-type are required. project_transport_location must belong to the same broker as the plan. project_material_type must belong to the same project as the plan. If project_transport_plan_stop is set with project_transport_location, the location must match the stop location. If a plan stop is linked, the event type role must match linked transport order stop roles.",
+  "flags": [
+    {
+      "name": "--project-transport-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport plan ID (example: 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-transport-event-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport event type ID (example: 456).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-tms-event-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External TMS event identifier (example: EVT-001).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Event position (0-based index).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-transport-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport location ID (example: 789).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project material type ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-transport-plan-stop",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport plan stop ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_events_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_event.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

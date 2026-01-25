@@ -1,0 +1,33 @@
+{
+  "id": "dc68fe00276ed4e440fb5782983bce4d23850d7601d3d22832a307820f398646",
+  "full_path": "do proffer-likes delete",
+  "description": "Delete a proffer like.",
+  "permissions": "Authenticated user who created the proffer like or an admin can delete a proffer like.",
+  "side_effects": "Deletes the proffer like record, decrements the associated proffer like_count, and refreshes the proffer like user ID list.",
+  "validation_notes": "Requires <id> argument (proffer like ID). --confirm must be set to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to proceed. Example: --confirm"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_proffer_likes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/proffer_like_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/proffer_like.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "15650131764b9722d204781045fcbfdb9133271200369dff8504bb3f192e4bdc",
+  "full_path": "do project-revenue-item-quantity-estimates delete",
+  "description": "Delete a project revenue item quantity estimate.",
+  "permissions": "Allowed for users who can delete the related project revenue item: admin users or manager members of the broker for the related project revenue item (delegated via ProjectRevenueItemQuantityEstimatePolicy -> ProjectRevenueItemPolicy).",
+  "side_effects": "Deletes a project revenue item quantity estimate.",
+  "validation_notes": "<id> argument is required. --confirm is required and must be true.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_revenue_item_quantity_estimates_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_quantity_estimate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_policy.rb"
+    }
+  ]
+}

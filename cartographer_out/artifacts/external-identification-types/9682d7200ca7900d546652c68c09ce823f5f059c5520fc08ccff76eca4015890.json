@@ -1,0 +1,46 @@
+{
+  "id": "9682d7200ca7900d546652c68c09ce823f5f059c5520fc08ccff76eca4015890",
+  "full_path": "view external-identification-types list",
+  "description": "List external identification types",
+  "permissions": "Available to all users (including anonymous); policy scope resolves all records for anonymous and non-admin users.",
+  "side_effects": null,
+  "validation_notes": "Filters are optional. filter[name] performs a partial, case-insensitive match; filter[can-apply-to] filters by entity type.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": "Partial match; case-insensitive."
+    },
+    {
+      "name": "--can-apply-to",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by entity type (e.g., Trucker)",
+      "default": null,
+      "validation": "Must be a valid entity type. Allowed values: Broker, BrokerInvoice, Customer, CustomerCommitment, CustomerTender, Developer, Equipment, Job, JobProductionPlan, JobProductionPlanMaterialType, JobSite, Laborer, MaterialPurchaseOrder, MaterialPurchaseOrderRelease, MaterialSite, MaterialSupplier, MaterialType, Project, ProjectCostClassification, ProjectRevenueClassification, ProjectRevenueItem, ProjectTransportLocation, ProjectTransportOrganization, ProjectTransportPlanEvent, ProjectTransportPlanSegment, ProjectTransportPlanSegmentSet, TradingPartner, TransportOrder, TransportOrderStop, Trucker, TruckerInvoice."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/external_identification_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/external_identification_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/external_identification_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/external_identification_type.rb"
+    }
+  ]
+}

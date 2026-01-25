@@ -1,0 +1,29 @@
+{
+  "id": "5a137c4ee7107e5e669885f35e47e116c7d2e3d4e4cad6a17704193b361ece1e",
+  "full_path": "do customer-incident-default-assignees delete",
+  "description": "Delete a customer incident default assignee",
+  "permissions": "User must be allowed to update the related customer (CustomerPolicy update?).",
+  "side_effects": "Deletes a customer incident default assignee record.",
+  "validation_notes": "The <id> argument is required and --confirm must be set to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_incident_default_assignees_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_incident_default_assignee_policy.rb"
+    }
+  ]
+}

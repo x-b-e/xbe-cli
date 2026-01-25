@@ -1,0 +1,127 @@
+{
+  "id": "cff0079dbb789a72ba18ca66b1a15c1fa27de87c12246688331255de4d2e3885",
+  "full_path": "view incident-requests list",
+  "description": "List incident requests.",
+  "permissions": "Readable for users within the IncidentRequestPolicy scope, which is delegated to the TenderJobScheduleShift policy.",
+  "side_effects": null,
+  "validation_notes": "Filter values for status must match the incident request status enum: submitted, approved, rejected, or cancelled. Filter values for time value type must match the enum: deducted_time or credited_time. Start/end filters use ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--assignee",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by assignee user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by start-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--start-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by start-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--end-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by end-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--end-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by end-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status",
+      "default": null,
+      "validation": "One of: submitted, approved, rejected, cancelled"
+    },
+    {
+      "name": "--time-value-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time value type",
+      "default": null,
+      "validation": "One of: deducted_time, credited_time"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_requests_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_request_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_request.rb"
+    }
+  ]
+}

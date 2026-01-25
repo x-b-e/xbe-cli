@@ -1,0 +1,68 @@
+{
+  "id": "0548c698724cddc0aad43b925a6fb042a2af673dbf9153ff02b13026971ebcdd",
+  "full_path": "do trucker-insurances create",
+  "description": "Create a trucker insurance.",
+  "permissions": "User must have permission to update the associated trucker (policy checks Trucker update? on the related trucker).",
+  "side_effects": "Creates a trucker insurance record.",
+  "validation_notes": "--trucker is required. Server requires company_name, contact_name, and phone_number to be present. phone_number must pass phone number validation.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Insurance company name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--contact-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contact name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Phone number",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_insurances_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_insurance_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_insurance.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_phone_number.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_insurance_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "description": "Update a tender job schedule shift cancelled trucker contact notification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Mark notification as read (true/false)",
+      "name": "read",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "do tender-job-schedule-shift-cancelled-trucker-contact-notifications update",
+  "id": "229280e54258deaf158582a01f1a917ef0c0d01e0936e60348653fdcf45af19e",
+  "permissions": "Allowed only when the current user is the notification user.",
+  "side_effects": "Updates notification read status.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tender_job_schedule_shift_cancelled_trucker_contact_notifications_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/notification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/notification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires a notification id argument. At least one writable field must be provided; otherwise the command fails. read accepts true/false."
+}

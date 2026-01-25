@@ -1,0 +1,37 @@
+{
+  "id": "ac0d4ceb593cc9a82d5e9d83f8793f85e4896c8356d1475aa0b08d4eb98088bb",
+  "full_path": "do hos-days update",
+  "description": "Update an existing HOS day.",
+  "permissions": "Only admin users can update HOS days.",
+  "side_effects": "Updates the HOS day record (regulation set code when provided).",
+  "validation_notes": "HOS day ID argument is required. At least one updatable field must be provided or the request fails with \"no fields to update\".",
+  "flags": [
+    {
+      "name": "--regulation-set-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Regulation set code",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_hos_days_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_day_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_day_resource.rb"
+    }
+  ]
+}

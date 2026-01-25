@@ -1,0 +1,55 @@
+{
+  "id": "9eb472ef6c1825de67f9f470e07675fe0a474f6b025d2461733c26d0b809b143",
+  "full_path": "do customer-incident-default-assignees create",
+  "description": "Create a customer incident default assignee",
+  "permissions": "User must be allowed to update the related customer (CustomerPolicy update?).",
+  "side_effects": "Creates a customer incident default assignee record.",
+  "validation_notes": "customer, default-assignee, and kind are required. kind must be a valid incident kind and is unique per customer. default-assignee must be an admin or have a membership with the customer or the customer broker.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required)",
+      "default": null,
+      "validation": "Must be a valid customer ID."
+    },
+    {
+      "name": "--default-assignee",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID for the default assignee (required)",
+      "default": null,
+      "validation": "Must be a valid user ID with a relationship to the customer (admin, customer member, or broker member)."
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Incident kind (required)",
+      "default": null,
+      "validation": "One of: equipment, plant, trucking, crew, safety, quality, weather, traffic, capacity, job_site_condition, planning, near_miss, property_damage, personal_injury, over_trucking, good_catch, damage, overloading, subcontractor_delay, mobilization, accident_notification_and_assistance, theft, vandalism, vehicle_incident, work_zone_intrusion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_incident_default_assignees_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_incident_default_assignee_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/customer_incident_default_assignee.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    }
+  ]
+}

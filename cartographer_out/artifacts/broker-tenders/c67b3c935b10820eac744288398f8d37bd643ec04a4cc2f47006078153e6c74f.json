@@ -1,0 +1,29 @@
+{
+  "id": "c67b3c935b10820eac744288398f8d37bd643ec04a4cc2f47006078153e6c74f",
+  "full_path": "do broker-tenders delete",
+  "description": "Delete a broker tender.",
+  "permissions": "Admins or users who are members of the buyer broker.",
+  "side_effects": "Deletes a broker tender record.",
+  "validation_notes": "Requires a broker tender ID argument. --confirm must be set.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_tenders_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_tender_policy.rb"
+    }
+  ]
+}

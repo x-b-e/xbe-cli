@@ -1,0 +1,69 @@
+{
+  "description": "List material transaction cost code allocations",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material transaction ID (comma-separated for multiple)",
+      "name": "--material-transaction",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated material transaction IDs (example: 123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (example: 2025-01-01T00:00:00Z)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (example: 2025-12-31T23:59:59Z)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (example: 2025-01-01T00:00:00Z)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp (example: 2025-12-31T23:59:59Z)."
+    }
+  ],
+  "full_path": "view material-transaction-cost-code-allocations list",
+  "id": "47ce59f4263c59810d14e86245b25c2b7acf597321093c80d56f17ab15131eaf",
+  "permissions": "Admins can list all material transaction cost code allocations. Non-admin users are limited to allocations whose customer is in their customer membership list or whose customer belongs to a broker the user is a member of.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_transaction_cost_code_allocations_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/concerns/cost_code_allocation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/material_transaction_cost_code_allocation_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters accept ISO 8601 timestamps for created-at/updated-at bounds. The material-transaction filter accepts a comma-separated list of IDs."
+}

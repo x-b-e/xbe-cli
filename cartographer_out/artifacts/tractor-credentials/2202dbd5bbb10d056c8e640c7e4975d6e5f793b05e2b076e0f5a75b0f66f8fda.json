@@ -1,0 +1,87 @@
+{
+  "description": "List tractor credentials",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tractor ID",
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by classification ID",
+      "name": "--tractor-trailer-credential-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum issue date (YYYY-MM-DD)",
+      "name": "--issued-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum issue date (YYYY-MM-DD)",
+      "name": "--issued-on-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum expiration date (YYYY-MM-DD)",
+      "name": "--expires-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum expiration date (YYYY-MM-DD)",
+      "name": "--expires-on-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by active on date (YYYY-MM-DD)",
+      "name": "--active-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "full_path": "view tractor-credentials list",
+  "id": "2202dbd5bbb10d056c8e640c7e4975d6e5f793b05e2b076e0f5a75b0f66f8fda",
+  "permissions": "Admin users can list all tractor credentials. Non-admin users can list tractor credentials only for tractors within their Tractor policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/tractor_credentials_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/tractor_credential_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tractor_credential_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Date filters (--issued-on-min/max, --expires-on-min/max, --active-on) expect YYYY-MM-DD."
+}

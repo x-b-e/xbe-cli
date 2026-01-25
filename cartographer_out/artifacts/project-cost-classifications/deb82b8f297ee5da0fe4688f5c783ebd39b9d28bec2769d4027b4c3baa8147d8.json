@@ -1,0 +1,37 @@
+{
+  "id": "deb82b8f297ee5da0fe4688f5c783ebd39b9d28bec2769d4027b4c3baa8147d8",
+  "full_path": "do project-cost-classifications delete",
+  "description": "Delete a project cost classification.",
+  "permissions": "Allowed for admins, broker manager members of the classification broker, customer managers under that broker, manager laborers for job production plans under that broker customer organizations, laborers who can manage projects under that broker customer organizations, or planners or project managers for job production plans under that broker customer organizations.",
+  "side_effects": "Deletes the specified project cost classification if allowed.",
+  "validation_notes": "Requires a classification ID argument and --confirm. Deletion is blocked if the classification has project phase cost items, project revenue item price estimates, or crew requirements. Deletion is also blocked if it has child classifications or related project_project_cost_classifications.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_cost_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_cost_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/project_money_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_cost_classification.rb"
+    }
+  ]
+}

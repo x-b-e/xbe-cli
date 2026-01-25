@@ -1,0 +1,50 @@
+{
+  "id": "f6f9fee5e7d0c3fcc3540cdbc67517fe501eb44666b539378549a1e2c0b44405",
+  "full_path": "do time-sheet-no-shows create",
+  "description": "Create a time sheet no-show.",
+  "permissions": "User must be authorized to create no-shows for the related time sheet; permission is delegated to the time sheet policy via DelegatedPolicy.",
+  "side_effects": "Creates a time sheet no-show record for the specified time sheet.",
+  "validation_notes": "--time-sheet is required. --no-show-reason is required. The time sheet relationship is required on create and cannot be changed later. no_show_reason must be present.",
+  "flags": [
+    {
+      "name": "--time-sheet",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time sheet ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--no-show-reason",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reason for the no-show",
+      "default": "",
+      "validation": "Required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_no_shows_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_no_show_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_no_show.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_no_show_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    }
+  ]
+}

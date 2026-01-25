@@ -1,0 +1,23 @@
+{
+  "id": "7e8411de7e09a0add7bf49527c2cf62340a870c4026f0aa9e5fa2d74fc71fc4d",
+  "full_path": "view change-requests show",
+  "description": "Show change request details",
+  "permissions": "Admin users may view any change request; non-admin users may view change requests only within their broker policy scope.",
+  "side_effects": null,
+  "validation_notes": "Argument <id> is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/change_requests_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/change_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/change_request_policy_spec.rb"
+    }
+  ]
+}

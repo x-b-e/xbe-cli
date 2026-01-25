@@ -1,0 +1,19 @@
+{
+  "id": "0f38a14d3c36139a7f41694a45422dc9469c239cc56596b57208e501937dc053",
+  "full_path": "view customer-certification-types show",
+  "description": "Show customer certification type details",
+  "permissions": "User can view customer certification types for customers within their policy scope; admins can access all.",
+  "side_effects": null,
+  "validation_notes": "Requires a customer certification type ID argument; ID cannot be empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_certification_types_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_certification_type_policy.rb"
+    }
+  ]
+}

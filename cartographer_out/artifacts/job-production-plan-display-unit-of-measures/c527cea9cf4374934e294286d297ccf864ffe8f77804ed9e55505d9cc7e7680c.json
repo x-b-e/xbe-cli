@@ -1,0 +1,29 @@
+{
+  "id": "c527cea9cf4374934e294286d297ccf864ffe8f77804ed9e55505d9cc7e7680c",
+  "full_path": "do job-production-plan-display-unit-of-measures delete",
+  "description": "Delete a job production plan display unit of measure",
+  "permissions": "Allowed when the user is authorized to update the related job production plan via JobProductionPlanDisplayUnitOfMeasurePolicy (delegated to JobProductionPlanPolicy).",
+  "side_effects": "Deletes the job production plan display unit of measure record.",
+  "validation_notes": "Requires <id> argument. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion. Example: --confirm.",
+      "default": null,
+      "validation": "Required to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_display_unit_of_measures_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_display_unit_of_measure_policy.rb"
+    }
+  ]
+}

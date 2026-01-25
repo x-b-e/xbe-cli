@@ -1,0 +1,27 @@
+{
+  "id": "bc827917f32a190cdf9279ef4f8d1406fb3de05a02cd19dc5880088dcad23d85",
+  "full_path": "view post-children show",
+  "description": "Show post child link details.",
+  "permissions": "User can view a post child link when its parent post is within their Post policy scope (creator or in their feed and published).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/post_children_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_child_resource.rb"
+    }
+  ]
+}

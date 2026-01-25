@@ -1,0 +1,71 @@
+{
+  "id": "f4eb3d3cc26887ed5067482250b277f4e8ae23ed61ee2fdbeaa461d544a94873",
+  "full_path": "do tender-rejections create",
+  "description": "Reject a tender.",
+  "permissions": "Allowed for admins. For broker tenders: users with broker membership for the tender seller. For trucker tenders: users with broker membership for the tender buyer or trucker membership for the tender seller.",
+  "side_effects": "Updates the tender status from offered to rejected, cancels any unaccepted tender notifications, and for broker tenders creates a broker tender rejection notification to the customer dispatch user.",
+  "validation_notes": "Tender must be in offered status. --tender is required. When --tender is an ID, --tender-type is required. If --tender uses Type|ID format, --tender-type must be omitted and the format must include a non-empty type and id. Tender IDs are cast to integer by the API.",
+  "flags": [
+    {
+      "name": "--tender",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender ID or Type|ID (required)",
+      "default": null,
+      "validation": "Accepts either Type|ID or a plain ID. If Type|ID is used, do not also set --tender-type and both parts must be non-empty. Tender IDs are cast to integer by the API."
+    },
+    {
+      "name": "--tender-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tender type (e.g., broker-tenders, customer-tenders)",
+      "default": null,
+      "validation": "Required when --tender is an ID without a type; must be a tender type such as broker-tenders or customer-tenders."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Rejection comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_rejections_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/tender_rejections_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_rejection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_rejection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_acceptance_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_actions/tender_rejection.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_actions/tender_action.rb"
+    }
+  ]
+}

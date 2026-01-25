@@ -1,0 +1,33 @@
+{
+  "description": "Delete a work order assignment.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion.",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do work-order-assignments delete",
+  "id": "c0c0ed842cbdae927f8acbfa22cc8e124a4e3cd87009be03ee5292e3892ac65b",
+  "permissions": "Allowed if the user has delegated destroy permission on the related work order, or if the assignment user is the current user and the user is a technician in the brokers business unit and the work orders responsible party business unit.",
+  "side_effects": "Deletes the work order assignment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_work_order_assignments_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/work_order_assignment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/work_order_assignment.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires assignment ID argument and --confirm flag."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "5b0dc054975384a576f99a949d8b39ba3abe3506ee4ed128326d2a5ed9a7aa5f",
+  "full_path": "view developer-memberships show",
+  "description": "Show developer membership details.",
+  "permissions": "Admins can view any developer membership. Non-admin access is limited to memberships where the developer's broker is in the user's broker memberships or the developer is in the user's developer memberships.",
+  "side_effects": null,
+  "validation_notes": "The developer membership ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/developer_memberships_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_membership_policy.rb"
+    }
+  ]
+}

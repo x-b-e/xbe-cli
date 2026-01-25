@@ -1,0 +1,42 @@
+{
+  "description": "List work order assignments.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by work order ID (example: 123).",
+      "name": "--work-order",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID (example: 456).",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view work-order-assignments list",
+  "id": "79656011cdb83844ebcc1f71796cc3378265944d0fee7161d8c745e55676ea0e",
+  "permissions": "Allowed for users who can access related work orders via delegated policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/work_order_assignments_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/work_order_assignment_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/work_order_assignment_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

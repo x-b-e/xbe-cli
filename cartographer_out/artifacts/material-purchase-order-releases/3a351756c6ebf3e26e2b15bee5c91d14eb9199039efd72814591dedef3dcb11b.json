@@ -1,0 +1,30 @@
+{
+  "description": "Delete a material purchase order release.",
+  "flags": [
+    {
+      "description": "Confirm deletion (required)",
+      "name": "confirm",
+      "required": true,
+      "type": "boolean"
+    }
+  ],
+  "full_path": "do material-purchase-order-releases delete",
+  "id": "3a351756c6ebf3e26e2b15bee5c91d14eb9199039efd72814591dedef3dcb11b",
+  "permissions": "User must be authorized to manage the related purchase order via the MaterialPurchaseOrderRelease policy (delegated to purchase orders), which allows access for admins or members of the purchase order broker, customer, or material supplier organizations.",
+  "side_effects": "Deletes the material purchase order release.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_purchase_order_releases_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_release_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. confirm is required."
+}

@@ -1,0 +1,91 @@
+{
+  "id": "afcb64b5e8a9849b1e99178ae7cf191a48211283f3868c32b965e266ebe34baa",
+  "full_path": "view lineup-job-schedule-shifts list",
+  "description": "List lineup job schedule shifts",
+  "permissions": "Authorized via LineupJobScheduleShiftPolicy (delegated to lineup). User must be admin or have lineup access per LineupPolicy scope (managed customer, member broker, or manager laborer on a lineup job production plan).",
+  "side_effects": null,
+  "validation_notes": "Filters is-ready-to-dispatch and without-lineup-dispatch-shift require strict boolean values (true/false). Filter trailer-classification-equivalent-type must be one of: tendered, assigned.",
+  "flags": [
+    {
+      "name": "--lineup",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job schedule shift ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer classification ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-ready-to-dispatch",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ready to dispatch (true/false).",
+      "default": null,
+      "validation": "true/false (e.g., true)"
+    },
+    {
+      "name": "--without-lineup-dispatch-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by missing lineup dispatch shift (true/false).",
+      "default": null,
+      "validation": "true/false (e.g., true)"
+    },
+    {
+      "name": "--trailer-classification-equivalent-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by trailer classification equivalent type.",
+      "default": null,
+      "validation": "tendered, assigned"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_job_schedule_shifts_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

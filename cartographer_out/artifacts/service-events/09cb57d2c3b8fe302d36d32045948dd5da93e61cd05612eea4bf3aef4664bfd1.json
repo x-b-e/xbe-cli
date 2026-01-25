@@ -1,0 +1,27 @@
+{
+  "id": "09cb57d2c3b8fe302d36d32045948dd5da93e61cd05612eea4bf3aef4664bfd1",
+  "full_path": "view service-events show",
+  "description": "Show the full details of a service event.",
+  "permissions": "Read access is limited by policy scope. Non-admin users can only see service events whose tender job schedule shifts belong to job schedule shifts in their policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires the service event ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_events_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_events.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_event_policy.rb"
+    }
+  ]
+}

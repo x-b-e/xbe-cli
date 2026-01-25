@@ -1,0 +1,27 @@
+{
+  "id": "44c27402fb42cf6eb741cbe1ced6365c0a32874cd3b0ebd0cf0b183119a8aa06",
+  "full_path": "do open-door-issues delete",
+  "description": "Delete an open door issue.",
+  "permissions": "Admins can delete any open door issue. Non-admins can delete only if they reported the issue and it is still in editing status.",
+  "side_effects": "Deletes the open door issue.",
+  "validation_notes": "Requires <id> argument. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_open_door_issues_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/open_door_issue_policy.rb"
+    }
+  ]
+}

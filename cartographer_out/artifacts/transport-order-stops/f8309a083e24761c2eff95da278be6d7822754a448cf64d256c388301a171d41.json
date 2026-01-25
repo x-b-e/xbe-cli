@@ -1,0 +1,23 @@
+{
+  "id": "f8309a083e24761c2eff95da278be6d7822754a448cf64d256c388301a171d41",
+  "full_path": "view transport-order-stops show",
+  "description": "Show the full details of a transport order stop.",
+  "permissions": "User must be authorized to view the related transport order; access is delegated through TransportOrderStopPolicy to the associated transport order.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (transport order stop ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/transport_order_stops_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_order_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_stop_policy.rb"
+    }
+  ]
+}

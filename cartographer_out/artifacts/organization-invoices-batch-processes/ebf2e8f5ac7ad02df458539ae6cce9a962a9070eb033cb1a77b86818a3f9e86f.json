@@ -1,0 +1,19 @@
+{
+  "description": "List organization invoices batch processes.",
+  "flags": [],
+  "full_path": "view organization-invoices-batch-processes list",
+  "id": "ebf2e8f5ac7ad02df458539ae6cce9a962a9070eb033cb1a77b86818a3f9e86f",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/organization_invoices_batch_processes_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/organization_invoices_batch_process_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

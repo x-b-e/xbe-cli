@@ -1,0 +1,166 @@
+{
+  "id": "6eb93a4a8fbb294ea97766374612b7207360691cc9ed87b9c32c8e8d27c08bfc",
+  "full_path": "view trading-partners list",
+  "description": "List trading partners with filtering and pagination.",
+  "permissions": "Any authenticated user can list trading partners. Non-admin users are limited by TradingPartnerPolicy scope to trading partners where their broker, customer, trucker, or material site policy scopes match the organization/partner pairings (Customer<->Trucker, Customer<->Broker, Broker<->Trucker, Broker<->MaterialSite, Broker<->Customer).",
+  "side_effects": null,
+  "validation_notes": "--organization-id requires --organization-type or --organization. --partner-id requires --partner-type or --partner. created-at-min/max and updated-at-min/max must be ISO 8601 timestamps and cannot be blank when provided.",
+  "flags": [
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g. Broker|123)",
+      "default": null,
+      "validation": "Type|ID format (example: Broker|123)."
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g. Broker, Customer)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (use with --organization-type)",
+      "default": null,
+      "validation": "Requires --organization-type or --organization."
+    },
+    {
+      "name": "--not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude by organization type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--partner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner (Type|ID, e.g. Customer|456)",
+      "default": null,
+      "validation": "Type|ID format (example: Customer|456)."
+    },
+    {
+      "name": "--partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner type (e.g. Customer, Broker, Trucker, MaterialSite)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--partner-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner ID (use with --partner-type)",
+      "default": null,
+      "validation": "Requires --partner-type or --partner."
+    },
+    {
+      "name": "--not-partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude by partner type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trading-partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trading partner type (e.g. BrokerCustomer)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; cannot be blank when provided."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; cannot be blank when provided."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; cannot be blank when provided."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; cannot be blank when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trading_partners_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trading_partners.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trading_partner_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/externally_identifiable_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    }
+  ]
+}

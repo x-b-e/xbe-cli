@@ -1,0 +1,19 @@
+{
+  "id": "e28646ad686487d270e2f9d737d966d76f7c2694f40b54b4eebfade165953c0c",
+  "full_path": "view job-site-times show",
+  "description": "Show the full details of a job site time.",
+  "permissions": "Admin users can view any job site time. Non-admin users can view job site times where the job production plan is in their JobProductionPlan policy scope or where they are the user on the job site time.",
+  "side_effects": null,
+  "validation_notes": "Requires a job site time ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_site_times_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_site_time_policy.rb"
+    }
+  ]
+}

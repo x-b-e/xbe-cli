@@ -1,0 +1,240 @@
+{
+  "id": "abea8b5a7033feb05ff675d58c7f4e4ace6ad831795c89720a8b73f92cb77903",
+  "full_path": "do profit-improvements update",
+  "description": "Update an existing profit improvement.",
+  "permissions": "Admins can update any profit improvement. Owners can update. Organization admins can update when not changing validated fields. If changing validated fields or setting status to validated, the user must have can_validate_profit_improvements membership in the organization.",
+  "side_effects": "Updates the profit improvement; may adjust subscriptions for key users and enqueue change notifications on qualifying updates.",
+  "validation_notes": "The profit improvement ID argument is required. At least one field or relationship must be provided for update. If using --organization-type or --organization-id, both must be provided together; --organization accepts Type|ID. organization_type must be Broker. Date fields expect YYYY-MM-DD. impact-frequency-estimated and impact-frequency-validated must be one_time or recurring; impact-interval-estimated and impact-interval-validated must be monthly, quarterly, or annual. impact_interval_estimated is required when impact_frequency_estimated is recurring and must be absent when one_time; impact_interval_validated is required when impact_frequency_validated is recurring and must be absent when one_time. amount_estimated must be > 0 when provided; amount_validated must be >= 0 when provided. gain_share_fee_percentage must be between 0 and 1; if status is invoiced it must be > 0. gain_share_fee_start_on is required when gain_share_fee_percentage is set; gain_share_fee_end_on must be >= gain_share_fee_start_on when both set. impact_end_on_estimated must be >= impact_start_on_estimated when both set; impact_end_on_validated must be >= impact_start_on_validated when both set; impact_start_on_estimated is required when impact_end_on_estimated is set; impact_start_on_validated is required when impact_end_on_validated is set. validated_by is required when status is validated and must belong to the organization with can_validate_profit_improvements; owned_by must be a member of the organization. If original is set, the status is forced to duplicate.",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Title",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Status",
+      "default": null,
+      "validation": "draft/submitted/rejected/in_progress/completed/validated/recommended/approved/invoiced/cancelled/duplicate"
+    },
+    {
+      "name": "--amount-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated amount",
+      "default": null,
+      "validation": "number (> 0)"
+    },
+    {
+      "name": "--impact-frequency-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Estimated impact frequency (one_time/recurring)",
+      "default": null,
+      "validation": "one_time/recurring"
+    },
+    {
+      "name": "--impact-interval-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Estimated impact interval (monthly/quarterly/annual)",
+      "default": null,
+      "validation": "monthly/quarterly/annual"
+    },
+    {
+      "name": "--impact-start-on-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated impact start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-end-on-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated impact end date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--amount-validated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Validated amount",
+      "default": null,
+      "validation": "number (>= 0)"
+    },
+    {
+      "name": "--impact-frequency-validated",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Validated impact frequency (one_time/recurring)",
+      "default": null,
+      "validation": "one_time/recurring"
+    },
+    {
+      "name": "--impact-interval-validated",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Validated impact interval (monthly/quarterly/annual)",
+      "default": null,
+      "validation": "monthly/quarterly/annual"
+    },
+    {
+      "name": "--impact-start-on-validated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Validated impact start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-end-on-validated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Validated impact end date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--gain-share-fee-percentage",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Gain share fee percentage (0-1)",
+      "default": null,
+      "validation": "0-1"
+    },
+    {
+      "name": "--gain-share-fee-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Gain share fee start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--gain-share-fee-end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Gain share fee end date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--profit-improvement-category",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Profit improvement category ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Organization in Type|ID format (e.g., Broker|123)",
+      "default": null,
+      "validation": "Type|ID"
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Organization type",
+      "default": null,
+      "validation": "requires --organization-id when used"
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Organization ID",
+      "default": null,
+      "validation": "requires --organization-type when used"
+    },
+    {
+      "name": "--original",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Original profit improvement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--owned-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Owned-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--validated-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Validated-by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_profit_improvements_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement.rb"
+    }
+  ]
+}

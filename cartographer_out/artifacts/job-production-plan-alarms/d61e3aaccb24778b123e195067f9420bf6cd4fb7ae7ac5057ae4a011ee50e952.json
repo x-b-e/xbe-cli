@@ -1,0 +1,33 @@
+{
+  "description": "Delete a job production plan alarm",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true."
+    }
+  ],
+  "full_path": "do job-production-plan-alarms delete",
+  "id": "d61e3aaccb24778b123e195067f9420bf6cd4fb7ae7ac5057ae4a011ee50e952",
+  "permissions": null,
+  "side_effects": "Deletes a job production plan alarm.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_alarms.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_job_production_plan_alarms_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_alarm_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires an alarm ID argument. --confirm is required and must be set to true."
+}

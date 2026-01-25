@@ -1,0 +1,83 @@
+{
+  "id": "1cc363c798c4d680c5fc31ae0fcee149f872af271bd0ce07947bad8abd3e387c",
+  "full_path": "view text-messages list",
+  "description": "List text messages with filtering",
+  "permissions": "Requires an admin user to list text messages.",
+  "side_effects": null,
+  "validation_notes": "--date-sent, --date-sent-after, and --date-sent-before expect dates in YYYY-MM-DD format. --to and --from are normalized to machine-format phone numbers by the server.",
+  "flags": [
+    {
+      "name": "--to",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by recipient phone number",
+      "default": null,
+      "validation": "Example: +15551234567."
+    },
+    {
+      "name": "--from",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by sender phone number",
+      "default": null,
+      "validation": "Example: +15559876543."
+    },
+    {
+      "name": "--date-sent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by date sent (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2025-01-20."
+    },
+    {
+      "name": "--date-sent-after",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by date sent on/after (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2025-01-01."
+    },
+    {
+      "name": "--date-sent-before",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by date sent on/before (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2025-12-31."
+    },
+    {
+      "name": "--max-messages",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Max number of messages to return",
+      "default": null,
+      "validation": "Example: 10."
+    },
+    {
+      "name": "--page-size",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Page size for Twilio requests",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/text_messages_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/text_message_resource.rb"
+    }
+  ]
+}

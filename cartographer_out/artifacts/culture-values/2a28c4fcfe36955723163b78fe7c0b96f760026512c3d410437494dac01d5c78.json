@@ -1,0 +1,33 @@
+{
+  "id": "2a28c4fcfe36955723163b78fe7c0b96f760026512c3d410437494dac01d5c78",
+  "full_path": "do culture-values delete",
+  "description": "Delete a culture value.",
+  "permissions": "Authenticated admins can delete culture values. Non-admins must be a practical manager of the culture value organization.",
+  "side_effects": "Permanently deletes the culture value record and its dependent public praise associations.",
+  "validation_notes": "<id> argument is required. --confirm is required to perform deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_culture_values_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/culture_value_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/culture_value.rb"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2c7fb5fd16ae43194b383e2ee86c9d910cde7a5304db835e9704a310d0a9c889",
+  "full_path": "view organization-invoices-batch-invoice-status-changes show",
+  "description": "Show organization invoices batch invoice status change details",
+  "permissions": "Admin users can view all organization invoices batch invoice status changes. Non-admin users can view status changes only for organization invoices batch invoices they are authorized to access; access is delegated through OrganizationInvoicesBatchInvoice scope to OrganizationInvoicesBatch, which allows managers of the organization or members of its broker organization.",
+  "side_effects": null,
+  "validation_notes": "id argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_invoice_status_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_invoice_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/status_changes_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_invoice_status_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_invoice_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_invoices_batch_invoice.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

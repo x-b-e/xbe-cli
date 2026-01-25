@@ -1,0 +1,50 @@
+{
+  "id": "b3ae2e3ae9ff8a9fd364f6156660bac90d2430f12d4c39a9e7d6f4ef28a8c4a7",
+  "full_path": "view organization-invoices-batch-status-changes list",
+  "description": "List organization invoices batch status changes.",
+  "permissions": "Allowed for users authorized by OrganizationInvoicesBatchStatusChangePolicy. Non-admins can only access status changes for organization invoices batches within their OrganizationInvoicesBatch policy scope (manager membership or broker membership).",
+  "side_effects": null,
+  "validation_notes": "Status filter accepts only: not_processed, processed. Multiple filters can be combined; all filters use AND logic.",
+  "flags": [
+    {
+      "name": "organization-invoices-batch",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization invoices batch ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (not_processed/processed)",
+      "default": null,
+      "validation": "one of: not_processed, processed"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_status_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_status_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/status_changes_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_status_change_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "23393bd3e498a4f29efe3ddac4c08672afab299d1bcff9820afd3a9197c109bd",
+  "full_path": "do incident-unit-of-measure-quantities delete",
+  "description": "Delete an incident unit of measure quantity",
+  "permissions": "User must be authorized to create the related incident per IncidentPolicy (or be an admin), as IncidentUnitOfMeasureQuantity permissions defer to the incident policy.",
+  "side_effects": "Deletes an incident unit of measure quantity and touches the associated tender_job_schedule_shift and job_production_plan after commit.",
+  "validation_notes": "Requires <id> argument. --confirm is required to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "validation": "Required to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_unit_of_measure_quantities_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_unit_of_measure_quantity.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_unit_of_measure_quantity_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "e3901ceae86e2a3dff9295faa88684971f56acc6660d3d72c21a35cc9125e241",
+  "full_path": "do proffer-likes create",
+  "description": "Create a new proffer like.",
+  "permissions": "Authenticated user whose user ID matches the provided user relationship may create a proffer like.",
+  "side_effects": "Creates a proffer like record, increments the associated proffer like_count, and refreshes the proffer like user ID list.",
+  "validation_notes": "--proffer is required. --user is required and must match the current user. A user can only like a given proffer once (proffer_id unique per user_id).",
+  "flags": [
+    {
+      "name": "--proffer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Proffer ID (required)",
+      "default": null,
+      "validation": "Example: --proffer 123"
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required, must match current user)",
+      "default": null,
+      "validation": "Must match current user. Example: --user 456"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_proffer_likes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/proffer_like_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/proffer_like.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b6ae6d5b1aa308e6181dbbbae5f76f283328725078eb4505e02e8ae0a36ab507",
+  "full_path": "do action-item-team-members delete",
+  "description": "Delete an action item team member",
+  "permissions": "Allowed for admins or users who are members of the responsible organization (or its broker) for the action item (delegated from ActionItemPolicy destroy?).",
+  "side_effects": "Deletes the action item team member record.",
+  "validation_notes": "Argument <id> is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_team_members_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_team_member_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_policy.rb"
+    }
+  ]
+}

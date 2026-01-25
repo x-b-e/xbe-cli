@@ -1,0 +1,51 @@
+{
+  "description": "List raw transport trailers.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by importer key",
+      "name": "--importer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by import status (pending, success, failed)",
+      "name": "--import-status",
+      "required": false,
+      "type": "enum",
+      "validation": "one of: pending, success, failed"
+    }
+  ],
+  "full_path": "view raw-transport-trailers list",
+  "id": "ae649696cceec3f99ce00acc8788dc4abaa866fbe886a36461049e7ac7dd8fb9",
+  "permissions": "Admin users or broker members with admin access to the broker can list raw transport trailers scoped to their brokers.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/raw_transport_trailers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/raw_transport_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_transport_trailer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--import-status must be one of: pending, success, failed."
+}

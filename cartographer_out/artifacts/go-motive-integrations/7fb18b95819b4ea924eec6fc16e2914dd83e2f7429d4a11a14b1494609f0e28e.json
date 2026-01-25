@@ -1,0 +1,37 @@
+{
+  "description": "Delete a GoMotive integration.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true."
+    }
+  ],
+  "full_path": "do go-motive-integrations delete",
+  "id": "7fb18b95819b4ea924eec6fc16e2914dd83e2f7429d4a11a14b1494609f0e28e",
+  "permissions": "Only admin users can delete GoMotive integrations.",
+  "side_effects": "Deletes the GoMotive integration and its related go_motive_integration_truckers records.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_go_motive_integrations_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/go_motive_integration_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/go_motive_integration.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/go_motive_integration_trucker.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Positional <id> is required. --confirm must be true."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "9c237e288523adaf0db37ba934efd9e4cf8b65a2d2f5f3c5938c9bff530c5bc7",
+  "full_path": "do job-production-plan-segment-sets delete",
+  "description": "Delete a job production plan segment set",
+  "permissions": "User must be authorized to delete the segment set's job production plan (delegated through the job_production_plan relationship).",
+  "side_effects": "Deletes the segment set and nullifies its association on related job production plan segments. May enqueue a background job to update the job production plan checksum range when the plan is configured to update checksum range from segments.",
+  "validation_notes": "Segment set ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_segment_sets_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_segment_set.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_segment_set_policy.rb"
+    }
+  ]
+}

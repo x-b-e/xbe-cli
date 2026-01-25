@@ -1,0 +1,81 @@
+{
+  "id": "954c1bf1be2eeecf01449fb97c11063c3a57a047c447de4775334a02ee30c15d",
+  "full_path": "do time-card-submissions create",
+  "description": "Submit a time card.",
+  "permissions": "Allowed when the user is authorized to create the associated time card (TimeCardPolicy#create?).",
+  "side_effects": "Creates a time card submission action that moves the time card to submitted status, maintains unloaded trips, may trigger automatic approval flows, creates shift feedback for first-time submissions, caches job production plan driver movement, creates driver movement observations, generates job production plan recaps, updates cost code matches, and creates or updates the related time sheet line item.",
+  "validation_notes": "--time-card is required and must be non-empty. Time card status must be editing or rejected. Status cannot change if the time card is already associated with an invoice. Duplicate submission requests are rejected. Server validations include: time card must be valid; required attachments may be enforced; transportation billing requires time attributes; service type/unit-of-measure quantities must meet minimums and match the job; positive quantity validation is skipped when --skip-positive-quantity-validation is set; quantity validation checks are skipped when --skip-quantity-validation is set (or when the time card has a pre-approval).",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time card ID (required)",
+      "default": null,
+      "validation": "Required; must be non-empty. Example: 123."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Submission comment",
+      "default": null,
+      "validation": "Example: \"Submitted\"."
+    },
+    {
+      "name": "--skip-quantity-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip quantity validation checks",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--create-zero-ppu-missing-rates",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Create zero PPU missing rates",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-positive-quantity-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip positive quantity validation checks",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_submissions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_card_submissions_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_submission_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_submission_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_submission.rb"
+    }
+  ]
+}

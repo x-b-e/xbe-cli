@@ -1,0 +1,23 @@
+{
+  "id": "fa9afda8eff6424786e8fda0a4609f9bde59b7810d6c77e89d8b9b7ae46f14b8",
+  "full_path": "view driver-day-adjustments show",
+  "description": "Show the full details of a driver day adjustment.",
+  "permissions": "Non-admin users can view adjustments when they are the driver for the driver day, have broker memberships for the trucker, or are manager members of the trucker.",
+  "side_effects": null,
+  "validation_notes": "Requires the adjustment ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_day_adjustments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_day_adjustment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_day_adjustment_policy.rb"
+    }
+  ]
+}

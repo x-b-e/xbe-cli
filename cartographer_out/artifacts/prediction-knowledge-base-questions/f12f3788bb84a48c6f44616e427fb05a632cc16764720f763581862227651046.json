@@ -1,0 +1,64 @@
+{
+  "description": "Update a prediction knowledge base question",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Question title.",
+      "name": "--title",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Question description.",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Question status (open/resolved/dismissed).",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "open|resolved|dismissed"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction subject ID (empty to clear).",
+      "name": "--prediction-subject",
+      "required": false,
+      "type": "string",
+      "validation": "empty value clears relationship"
+    }
+  ],
+  "full_path": "do prediction-knowledge-base-questions update",
+  "id": "f12f3788bb84a48c6f44616e427fb05a632cc16764720f763581862227651046",
+  "permissions": "Allowed for admins and broker admins. Members who can manage gaps on the prediction subject can update when a prediction subject is present. The creator can update their own question as long as they are not changing status to resolved or dismissed.",
+  "side_effects": "Updates can regenerate the associated answer when title or description changes. Status changes can trigger an async recap generation for the linked prediction subject.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_knowledge_base_questions_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_knowledge_base_question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_knowledge_base_question.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_knowledge_base_answer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (prediction knowledge base question ID). At least one of --title, --description, --status, or --prediction-subject must be provided. --prediction-subject can be set to an empty string to clear it. status must be one of: open, resolved, dismissed. Status updates may be restricted by policy."
+}

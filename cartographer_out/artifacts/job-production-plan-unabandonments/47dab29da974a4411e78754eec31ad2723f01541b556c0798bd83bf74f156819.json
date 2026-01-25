@@ -1,0 +1,19 @@
+{
+  "id": "47dab29da974a4411e78754eec31ad2723f01541b556c0798bd83bf74f156819",
+  "full_path": "view job-production-plan-unabandonments show",
+  "description": "Show job production plan unabandonment details",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (job production plan unabandonment ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_unabandonments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_unabandonment_resource.rb"
+    }
+  ]
+}

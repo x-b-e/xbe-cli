@@ -1,0 +1,75 @@
+{
+  "id": "d787970250dbf90e96e51fa1d74f18fbd420b80bf7fc8c1d8ed6e4049893ad75",
+  "full_path": "do tender-returns create",
+  "description": "Return a tender",
+  "permissions": "Allowed for admins, or for users with membership based on the tender seller: if seller is a Broker, user must have a broker membership for tender.seller_id; if seller is a Trucker, user must have a broker membership for tender.buyer_id or a trucker membership for tender.seller_id (TenderReturnPolicy inherits TenderAcceptancePolicy#create?).",
+  "side_effects": "Transitions the tender status to returned; may cancel related broker tenders for customer tenders, cancel tender job schedule shifts, update sourced customer tenders, create broker tender returned buyer notifications, and cancel unaccepted tender notifications.",
+  "validation_notes": "--tender-type and --tender-id are required; tender-id must be an integer; tender must exist; tender status must be accepted; tender must have no material transactions and no associated time cards.",
+  "flags": [
+    {
+      "name": "--tender-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender resource type (required, e.g., broker-tenders)",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--tender-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender ID (required)",
+      "default": null,
+      "validation": "required; must be an integer"
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment for the tender return",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_returns_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_return_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_return_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_acceptance_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_actions/tender_return.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/tender_cancel_like_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

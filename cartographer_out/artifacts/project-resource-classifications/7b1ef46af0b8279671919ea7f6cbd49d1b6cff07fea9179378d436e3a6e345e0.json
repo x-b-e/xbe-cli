@@ -1,0 +1,33 @@
+{
+  "id": "7b1ef46af0b8279671919ea7f6cbd49d1b6cff07fea9179378d436e3a6e345e0",
+  "full_path": "do project-resource-classifications delete",
+  "description": "Delete a project resource classification",
+  "permissions": "Allowed for admins or users who are manager members of the classification's broker.",
+  "side_effects": "Deletes a project resource classification.",
+  "validation_notes": "Requires classification ID argument. --confirm is required. Deletion is blocked if the classification is a reserved name or has related project phase cost items or job production plan cost codes.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_resource_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/project_money_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_resource_classification.rb"
+    }
+  ]
+}

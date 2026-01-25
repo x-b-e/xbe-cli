@@ -1,0 +1,41 @@
+{
+  "id": "cb5caa6533d2933e795029b30aaf438c9b44b2d2523726dad61f52af140e3260",
+  "full_path": "do tender-job-schedule-shift-drivers update",
+  "description": "Update a tender job schedule shift driver.",
+  "permissions": "Allowed when TenderJobScheduleShiftPolicy#update? permits the related tender job schedule shift (admin, customer manager for the job customer, broker-shift trucker manager, shift driver/driver, or foreman; additional update rules may apply on the shift).",
+  "side_effects": "Updates the shift driver; after save, enqueues DriverDayRecapPostSchedulerWorker and updates the shift seller_operations_contact when is_primary changes.",
+  "validation_notes": "Requires <id> argument (shift driver ID). At least one attribute must be provided (currently only --is-primary). The shift must be a broker shift (trucker tender). For broker shifts, the user must have a membership with the seller and not be suspended from driving. User cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--is-primary",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark the driver as primary (true/false). Example: --is-primary true.",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_job_schedule_shift_drivers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_driver_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_job_schedule_shift_driver.rb"
+    }
+  ]
+}

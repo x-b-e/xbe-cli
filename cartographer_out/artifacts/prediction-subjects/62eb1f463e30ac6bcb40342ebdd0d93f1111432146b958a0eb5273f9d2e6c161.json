@@ -1,0 +1,159 @@
+{
+  "description": "Update a prediction subject.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction subject name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Status (active, complete, abandoned)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "active|complete|abandoned"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction kind (lowest_losing_bid)",
+      "name": "--kind",
+      "required": false,
+      "type": "enum",
+      "validation": "lowest_losing_bid"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Actual value",
+      "name": "--actual",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Predictions due at (ISO 8601)",
+      "name": "--predictions-due-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Actual due at (ISO 8601)",
+      "name": "--actual-due-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Domain minimum value",
+      "name": "--domain-min",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Domain maximum value",
+      "name": "--domain-max",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Additional attributes JSON",
+      "name": "--additional-attributes",
+      "required": false,
+      "type": "string",
+      "validation": "JSON"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Reference number",
+      "name": "--reference-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Parent type (brokers or projects)",
+      "name": "--parent-type",
+      "required": false,
+      "type": "enum",
+      "validation": "brokers|projects"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Parent ID",
+      "name": "--parent-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Business unit ID",
+      "name": "--business-unit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction consensus ID",
+      "name": "--prediction-consensus",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do prediction-subjects update",
+  "id": "62eb1f463e30ac6bcb40342ebdd0d93f1111432146b958a0eb5273f9d2e6c161",
+  "permissions": "Admins can update prediction subjects. Non-admin users can update prediction subjects only when they are admin members of the associated broker; if only updating prediction consensus, the user must have a prediction subject membership with can_update_prediction_consensus.",
+  "side_effects": "Updating a prediction subject may auto-complete it when an actual value is set, may trigger recap generation, may update prediction scores when actual changes, and may create a prediction agent when a consensus is set for the first time.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_subjects_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The prediction subject ID argument is required. --parent-type and --parent-id are required together when updating the parent. parent-type must be brokers or projects when provided. status must be one of active, complete, or abandoned. kind must be lowest_losing_bid when provided. actual-due-at must be after predictions-due-at when both are set. domain-max must be higher than domain-min when both are set. actual must be present when status is complete. additional-attributes must be valid JSON when provided. actual cannot be changed when prediction subject gaps exist. prediction consensus cannot be changed when prediction subject gaps exist. kind cannot be changed from lowest_losing_bid when dependent gaps exist."
+}

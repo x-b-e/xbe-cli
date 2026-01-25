@@ -1,0 +1,33 @@
+{
+  "id": "29a9e90012ff1a4c684a87dd6c3a0480a0b176a6149a9e5688c4d5249115c27f",
+  "full_path": "do shift-set-time-card-constraints delete",
+  "description": "Delete a shift set time card constraint.",
+  "permissions": "User must be authorized to create the constrained record (RateAgreement or Tender); create/update/destroy permission for a constraint delegates to the constrained record policy.",
+  "side_effects": "Deletes the shift set time card constraint; deletes its shift_scope if present; deletion is blocked if the constraint has children.",
+  "validation_notes": "The <id> argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_set_time_card_constraints_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_set_time_card_constraint.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_set_time_card_constraint_policy.rb"
+    }
+  ]
+}

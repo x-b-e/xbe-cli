@@ -1,0 +1,41 @@
+{
+  "id": "b0a643a3db62ce4c37bdd8f66882b710e4140c29009d08f1fba1b002f6d0bc98",
+  "full_path": "do time-sheet-line-item-equipment-requirements delete",
+  "description": "Delete a time sheet line item equipment requirement.",
+  "permissions": "Allowed if the user is authorized for the related time sheet line item via delegated policy to the time sheet. Admins are allowed. Non-admin access follows TimeSheetPolicy based on the time sheet subject (e.g., broker members, customer managers, trucker/driver roles, laborer users on labor requirements, or authorized work order roles/assignments).",
+  "side_effects": "Deletes the time sheet line item equipment requirement; if it was primary, clears the time sheet line item equipment_requirement_id.",
+  "validation_notes": "Requires <id> argument. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_line_item_equipment_requirements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_line_item_equipment_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_line_item_equipment_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    }
+  ]
+}

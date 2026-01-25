@@ -1,0 +1,33 @@
+{
+  "id": "431f0d738419ee6f75bc5c2d63d96c965a19a2014e4d791f6e99e8fcc6974de8",
+  "full_path": "do material-transactions delete",
+  "description": "Delete a material transaction",
+  "permissions": "Only user-sourced material transactions can be deleted. User must also satisfy create permissions (admin, member of broker or material supplier, or can update the associated trip).",
+  "side_effects": "Soft deletes by marking the transaction status as invalidated, adding a \"Deleted\" status comment, and recording the current user as the changer.",
+  "validation_notes": "Requires <id> argument and --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transactions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    }
+  ]
+}

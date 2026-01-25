@@ -1,0 +1,127 @@
+{
+  "id": "5b7f26d2a2a3418facc6472dcbbbf487cbb52a9288347b8de265e72fea5b8409",
+  "full_path": "do project-material-types update",
+  "description": "Update a project material type",
+  "permissions": "Requires access to update project material types via delegated project authorization (ProjectMaterialTypePolicy delegates to the project relationship).",
+  "side_effects": "Updates a project material type.",
+  "validation_notes": "Project and material type cannot be changed after creation. At least one updatable field must be provided. Quantity must be between 0 and 99,999,999 when provided. For a given project, material type must be unique by scope: without sites, per material site, per job site, or per material site and job site combination. Material type must be generic or belong to the same broker as the project. Material site must belong to the same broker as the project. Job site must belong to one of the project customers. pickup_at_min must be less than pickup_at_max when both present. deliver_at_min must be less than deliver_at_max when both present. Pickup times must be before delivery times when both are present. Pickup and delivery locations must be nil unless the project is transport-only. Pickup and delivery locations must belong to the same broker as the project.",
+  "flags": [
+    {
+      "name": "--quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Quantity",
+      "default": null,
+      "validation": "Must be between 0 and 99,999,999"
+    },
+    {
+      "name": "--explicit-display-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit display name override (use empty to clear)",
+      "default": null,
+      "validation": "Use empty string to clear"
+    },
+    {
+      "name": "--pickup-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Earliest pickup time (ISO 8601, use empty to clear)",
+      "default": null,
+      "validation": "ISO 8601 datetime; use empty string to clear"
+    },
+    {
+      "name": "--pickup-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latest pickup time (ISO 8601, use empty to clear)",
+      "default": null,
+      "validation": "ISO 8601 datetime; use empty string to clear"
+    },
+    {
+      "name": "--deliver-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Earliest delivery time (ISO 8601, use empty to clear)",
+      "default": null,
+      "validation": "ISO 8601 datetime; use empty string to clear"
+    },
+    {
+      "name": "--deliver-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latest delivery time (ISO 8601, use empty to clear)",
+      "default": null,
+      "validation": "ISO 8601 datetime; use empty string to clear"
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID (use empty to clear)",
+      "default": null,
+      "validation": "Use empty string to clear"
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material site ID (use empty to clear)",
+      "default": null,
+      "validation": "Use empty string to clear"
+    },
+    {
+      "name": "--job-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job site ID (use empty to clear)",
+      "default": null,
+      "validation": "Use empty string to clear"
+    },
+    {
+      "name": "--pickup-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Pickup location ID (use empty to clear)",
+      "default": null,
+      "validation": "Use empty string to clear"
+    },
+    {
+      "name": "--delivery-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Delivery location ID (use empty to clear)",
+      "default": null,
+      "validation": "Use empty string to clear"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_material_types_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_material_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_material_type_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "description": "List lineup scenario generators.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by date (YYYY-MM-DD)",
+      "name": "--date",
+      "required": false,
+      "type": "string",
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by date on/after (YYYY-MM-DD)",
+      "name": "--date-min",
+      "required": false,
+      "type": "string",
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by date on/before (YYYY-MM-DD)",
+      "name": "--date-max",
+      "required": false,
+      "type": "string",
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by window (day or night)",
+      "name": "--window",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: day, night"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by completion on/after (ISO 8601)",
+      "name": "--completed-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "Format: ISO 8601"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by completion on/before (ISO 8601)",
+      "name": "--completed-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "Format: ISO 8601"
+    }
+  ],
+  "full_path": "view lineup-scenario-generators list",
+  "id": "4b9ceeebfe32a2ac65662bb60fcf9e7371ea8f71c8f340ff1419ef78804c19f6",
+  "permissions": "Admins can view all lineup scenario generators; non-admin users can view generators for brokers where they have membership.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/lineup_scenario_generators_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_generator_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_generator_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Date filters expect YYYY-MM-DD; completed-at filters expect ISO 8601; window filter accepts day or night."
+}

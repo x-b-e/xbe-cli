@@ -1,0 +1,23 @@
+{
+  "id": "976d66eb7be6884b6d0385e89801eeeea443b4f485fa6b57b0540791c50ffc08",
+  "full_path": "view ui-tours show",
+  "description": "Show the full details of a UI tour.",
+  "permissions": "Read access is available to non-admin users via policy scope (scope resolves all UI tours); admins are also allowed.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (UI tour ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/ui_tours_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ui_tour_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ui_tour_policy.rb"
+    }
+  ]
+}

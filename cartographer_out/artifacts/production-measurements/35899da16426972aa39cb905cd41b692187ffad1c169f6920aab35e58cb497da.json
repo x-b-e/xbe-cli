@@ -1,0 +1,33 @@
+{
+  "id": "35899da16426972aa39cb905cd41b692187ffad1c169f6920aab35e58cb497da",
+  "full_path": "view production-measurements list",
+  "description": "List production measurements.",
+  "permissions": "Access is authorized via the associated job_production_plan_segment relationship; results are scoped to segments the user is permitted to view.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--job-production-plan-segment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan segment ID. Example: 123.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/production_measurements_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/production_measurement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/production_measurement_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "53f6a1112ad6822a734e07b019e78314d053ee5e2405894043607a80744545c6",
+  "full_path": "do job-production-plan-time-card-approvers delete",
+  "description": "Delete a job production plan time card approver",
+  "permissions": "Allowed only if the user can update the associated job production plan (per JobProductionPlan policy).",
+  "side_effects": "Deletes the job production plan time card approver record.",
+  "validation_notes": "The <id> argument is required. The --confirm flag is required to delete a job production plan time card approver.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_time_card_approvers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_time_card_approver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_time_card_approver_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "17086a147634ce8f545e3f6b95bb7d19fb0b839cc6efaf72e39983cf5437a3c0",
+  "full_path": "view liability-incidents show",
+  "description": "Show liability incident details.",
+  "permissions": "Admins can view any liability incident. Non-admins can view an incident if they can show the subject or if they created the incident.",
+  "side_effects": null,
+  "validation_notes": "Liability incident ID argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/liability_incidents_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "934a8fad42dd633f5b003b77a58e1f253984fc281b53b0c7e4e2581b83daea11",
+  "full_path": "view prediction-knowledge-base-answers list",
+  "description": "List prediction knowledge base answers.",
+  "permissions": "User must be authorized to view the related prediction knowledge base question; list scope is limited to answers whose questions are visible to the user (per PredictionKnowledgeBaseQuestion policy scope).",
+  "side_effects": null,
+  "validation_notes": "Does not accept positional arguments.",
+  "flags": [
+    {
+      "name": "prediction-knowledge-base-question",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by prediction knowledge base question ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prediction_knowledge_base_answers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_knowledge_base_answer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_knowledge_base_answer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_knowledge_base_question_policy.rb"
+    }
+  ]
+}

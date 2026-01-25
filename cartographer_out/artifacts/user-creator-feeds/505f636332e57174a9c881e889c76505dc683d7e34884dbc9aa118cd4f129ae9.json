@@ -1,0 +1,23 @@
+{
+  "description": "Show user creator feed details.",
+  "flags": [],
+  "full_path": "view user-creator-feeds show",
+  "id": "505f636332e57174a9c881e889c76505dc683d7e34884dbc9aa118cd4f129ae9",
+  "permissions": "UserCreatorFeedPolicy permits access only when the feed belongs to the current user; non-admin access is limited to their own records.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/user_creator_feeds_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/user_creator_feed_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/policies/user_creator_feed_policy_spec.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (user creator feed ID)."
+}

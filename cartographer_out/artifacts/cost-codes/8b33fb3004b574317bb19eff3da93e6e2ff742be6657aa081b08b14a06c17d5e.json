@@ -1,0 +1,87 @@
+{
+  "id": "8b33fb3004b574317bb19eff3da93e6e2ff742be6657aa081b08b14a06c17d5e",
+  "full_path": "view cost-codes list",
+  "description": "List cost codes with filtering and pagination.",
+  "permissions": "Users can list cost codes they are authorized to see: admins see all; non-admins see cost codes linked to customers, truckers, or brokers they are a member/manager of per policy scope.",
+  "side_effects": null,
+  "validation_notes": "Filters support partial match for code and description, general search via --q, and job-number filtering.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by code (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "General search",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by description (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job number",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/cost_codes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_code_policy.rb"
+    }
+  ]
+}

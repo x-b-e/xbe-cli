@@ -1,0 +1,19 @@
+{
+  "description": "Show project trailer classification details",
+  "flags": [],
+  "full_path": "view project-trailer-classifications show",
+  "id": "c6f58628285f669a40877c78a080b814c1a1fa8bbde511b8019d313ae497cfff",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_trailer_classifications_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/project_trailer_classifications_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The project trailer classification ID argument is required."
+}

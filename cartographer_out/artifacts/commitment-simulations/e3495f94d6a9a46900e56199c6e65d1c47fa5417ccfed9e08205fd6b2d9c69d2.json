@@ -1,0 +1,27 @@
+{
+  "id": "e3495f94d6a9a46900e56199c6e65d1c47fa5417ccfed9e08205fd6b2d9c69d2",
+  "full_path": "view commitment-simulations show",
+  "description": "Show commitment simulation details",
+  "permissions": "User must be authorized for the related commitment via CommitmentPolicy (admin or membership as the commitment buyer/seller organization: customer manager, broker member, or trucker manager).",
+  "side_effects": null,
+  "validation_notes": "The commitment simulation ID argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_simulations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_simulation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_simulation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_policy.rb"
+    }
+  ]
+}

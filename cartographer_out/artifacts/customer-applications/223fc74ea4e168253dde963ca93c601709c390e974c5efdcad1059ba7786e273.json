@@ -1,0 +1,37 @@
+{
+  "id": "223fc74ea4e168253dde963ca93c601709c390e974c5efdcad1059ba7786e273",
+  "full_path": "do customer-applications delete",
+  "description": "Delete a customer application",
+  "permissions": "Allowed only when the customer application is pending and the user passes the create? policy checks (application user without status changes, or broker member without approving status); admins can act via full scope.",
+  "side_effects": "Deletes the customer application record.",
+  "validation_notes": "requires <id> argument (customer application ID) and --confirm",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_applications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/customer_application.rb"
+    }
+  ]
+}

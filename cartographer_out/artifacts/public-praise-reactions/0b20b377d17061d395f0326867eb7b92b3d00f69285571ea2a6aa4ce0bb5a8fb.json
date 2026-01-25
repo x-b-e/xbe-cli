@@ -1,0 +1,56 @@
+{
+  "id": "0b20b377d17061d395f0326867eb7b92b3d00f69285571ea2a6aa4ce0bb5a8fb",
+  "full_path": "view public-praise-reactions list",
+  "description": "List public praise reactions.",
+  "permissions": "Any authenticated user; non-admin users are limited to reactions on public praises within their PublicPraise policy scope.",
+  "side_effects": null,
+  "validation_notes": "Filters --created-at-min, --created-at-max, --updated-at-min, and --updated-at-max must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/public_praise_reactions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_reaction_policy.rb"
+    }
+  ]
+}

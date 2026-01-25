@@ -1,0 +1,108 @@
+{
+  "id": "d1e26a6a83242de1e3321644e23b0d9a55085115bfea15c9766921a68ac7e312",
+  "full_path": "do time-sheets create",
+  "description": "Create a time sheet.",
+  "permissions": "Admins can create time sheets. Non-admin users can create time sheets based on the subject: TruckerShiftSet drivers/shift drivers in the broker branch, trucker managers of the shift set, or broker members; CrewRequirement broker members, customer managers, job production plan time card approvers, or laborers tied to the requirement in the broker branch; WorkOrder broker managers, operations managers with manager business units, or assigned technicians.",
+  "side_effects": "Creates a time sheet record.",
+  "validation_notes": "--subject-type and --subject-id are required. --subject-type must be WorkOrder, CrewRequirement, or TruckerShiftSet (also accepts work-orders, crew-requirements, trucker-shift-sets). --start-at and --end-at expect ISO 8601 timestamps when provided. --break-minutes must be an integer. --skip-validate-overlap is a boolean. --driver is create-only.",
+  "flags": [
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Subject type (WorkOrder, CrewRequirement, TruckerShiftSet; also accepts work-orders, crew-requirements, trucker-shift-sets)",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Subject ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Driver user ID (create only)",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "default": "",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "default": "",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--break-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Break minutes",
+      "default": "0",
+      "validation": null
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--skip-validate-overlap",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip overlap validation",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheets_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheets.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheets_common.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a project transport location.",
+  "flags": [],
+  "full_path": "view project-transport-locations show",
+  "id": "031923fffbdcdfcc47e3867c8d6cbed7b62ff5275b3f644bb555f879f8e8b897",
+  "permissions": "Admins can view any project transport location. Non-admin users can view locations scoped to brokers they are members of; visibility is limited to broker memberships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_locations_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_location_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_location_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required."
+}

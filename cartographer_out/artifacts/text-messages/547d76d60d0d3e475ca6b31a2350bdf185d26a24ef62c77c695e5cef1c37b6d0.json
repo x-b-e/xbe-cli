@@ -1,0 +1,19 @@
+{
+  "id": "547d76d60d0d3e475ca6b31a2350bdf185d26a24ef62c77c695e5cef1c37b6d0",
+  "full_path": "view text-messages show",
+  "description": "Show text message details",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "The <sid> argument (Twilio message SID) is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/text_messages_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/text_message_resource.rb"
+    }
+  ]
+}

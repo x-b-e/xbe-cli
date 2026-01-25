@@ -1,0 +1,46 @@
+{
+  "id": "1998cf75275f9864b7a3b728860c41019bdc11bf0a95e7467cc73567835c4f34",
+  "full_path": "do time-sheet-approvals create",
+  "description": "Approve a time sheet",
+  "permissions": "Allowed for admin users or users who are time sheet approvers for the time sheet (time_sheet.is_user_time_sheet_approver?(user)).",
+  "side_effects": "Creates a time sheet approval and transitions the time sheet status to approved; may trigger notifications to time card approvers after commit when all plan time sheets are approved.",
+  "validation_notes": "--time-sheet is required and must identify an existing time sheet. Time sheet status must be editing or submitted. Time sheet must have a duration. If the time sheet is for a crew requirement and cost code allocation is required by the job production plan or customer, a time sheet cost code allocation must be present.",
+  "flags": [
+    {
+      "name": "--time-sheet",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time sheet ID",
+      "default": null,
+      "validation": "Required; must be a non-empty time sheet ID."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Approval comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_approvals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_actions/time_sheet_approval.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

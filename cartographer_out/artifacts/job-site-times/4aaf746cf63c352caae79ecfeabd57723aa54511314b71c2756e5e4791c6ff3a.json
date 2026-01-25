@@ -1,0 +1,73 @@
+{
+  "id": "4aaf746cf63c352caae79ecfeabd57723aa54511314b71c2756e5e4791c6ff3a",
+  "full_path": "do job-site-times create",
+  "description": "Create a job site time.",
+  "permissions": "Admin users can create job site times. Non-admin users can create when they are the same user as the job site time and are related to the job production plan, or when they can update the related job production plan.",
+  "side_effects": "Creates a job site time and touches related time cards and time sheets.",
+  "validation_notes": "--job-production-plan and --user are required. start-at/end-at must be RFC3339 when provided. end-at must be greater than start-at when both are set. Times must not overlap another job site time for the same user and job production plan. start-at must be within 24 hours of the job site start at. User must be related to the job production plan. Job site times cannot be changed if the related time card is confirmed.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_site_times_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_site_time_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_site_time.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_site_time_resource.rb"
+    }
+  ]
+}

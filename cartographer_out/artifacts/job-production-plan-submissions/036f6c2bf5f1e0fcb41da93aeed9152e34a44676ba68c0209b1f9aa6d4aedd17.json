@@ -1,0 +1,59 @@
+{
+  "id": "036f6c2bf5f1e0fcb41da93aeed9152e34a44676ba68c0209b1f9aa6d4aedd17",
+  "full_path": "do job-production-plan-submissions create",
+  "description": "Submit a job production plan.",
+  "permissions": "User must be an admin or have permission to update the associated job production plan.",
+  "side_effects": "Creates a job production plan submission action, may create default job production plan subscriptions for eligible users, and may clean up unused material types/sites and reset start sites (including job schedule shift start sites) during submission processing. Status-change notifications may be sent unless suppressed.",
+  "validation_notes": "Requires --job-production-plan. Submission validates the job production plan: must have a job site; job number required if approval requires it; start date/time and start site required when the plan requires a start site; developer required when customer requires it; material types required when materials are required; no soft-deleted material types; all material sites must be active; equipment movement trip required when plan is only for equipment movement; driving minutes per cycle required when required; material site minutes per cycle required when required; job site must differ from template when submission requires a different job site; business unit required when required; at least one safety risk required when expecting a safety meeting; inspector required when required; certified weigher required when required; if cost code allocation is required and cost codes are estimated via material transactions, cost codes must exist and each material type must have a default cost code; if cost code allocation is required and cost codes are estimated via segments, segments must be present and all must have a cost code (unless there are no segments and exactly one cost code).",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status change comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--suppress-status-change-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Suppress status change notifications",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_submissions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_submission_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_job_production_plan_submission.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_actions/job_production_plan_submission.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_action_resource.rb"
+    }
+  ]
+}

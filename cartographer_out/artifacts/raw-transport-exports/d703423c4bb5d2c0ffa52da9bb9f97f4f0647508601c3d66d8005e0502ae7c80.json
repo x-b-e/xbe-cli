@@ -1,0 +1,217 @@
+{
+  "id": "d703423c4bb5d2c0ffa52da9bb9f97f4f0647508601c3d66d8005e0502ae7c80",
+  "full_path": "do raw-transport-exports create",
+  "description": "Create a raw transport export",
+  "permissions": "Admins can create raw transport exports. Non-admins can create exports with no broker set, or with a broker they are a member of.",
+  "side_effects": "Creates a raw transport export record and may update a related project transport plan to reference the new export.",
+  "validation_notes": "--external-order-number and --target-database are required. --headers, --rows, and --export-results must be valid JSON. --stp-numbers and --not-exportable-reasons must be JSON arrays. Timestamp fields expect ISO 8601. --is-exportable and --is-exported are only sent when explicitly set. If --broker or --transport-order are provided, the referenced records must exist.",
+  "flags": [
+    {
+      "name": "--external-order-number",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "External order number. Example: ORD-123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--target-database",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Target database. Example: tmw.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--target-table",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Target table. Example: stops.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--export-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Export type. Example: quantix_tmw.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--headers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Headers payload as JSON. Example: [\"col1\",\"col2\"].",
+      "default": null,
+      "validation": "valid JSON"
+    },
+    {
+      "name": "--rows",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Rows payload as JSON. Example: [[\"val1\",\"val2\"]].",
+      "default": null,
+      "validation": "valid JSON"
+    },
+    {
+      "name": "--formatted-export",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Formatted export payload.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--checksum",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Export checksum.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--sequence",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Export sequence.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--stp-numbers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Stop numbers as JSON array.",
+      "default": null,
+      "validation": "JSON array"
+    },
+    {
+      "name": "--is-exportable",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Exportable flag (true/false).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-exported",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Exported flag (true/false).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-exportable-reasons",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Non-exportable reasons as JSON array.",
+      "default": null,
+      "validation": "JSON array"
+    },
+    {
+      "name": "--issue-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Issue type.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--first-seen-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "First seen timestamp (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--throttled-until",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Throttled until timestamp (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--export-results",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Export results payload as JSON.",
+      "default": null,
+      "validation": "valid JSON"
+    },
+    {
+      "name": "--exported-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exported timestamp (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID. Example: 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--transport-order",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Transport order ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator user ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_transport_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/raw_transport_export.rb"
+    }
+  ]
+}

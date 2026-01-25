@@ -1,0 +1,23 @@
+{
+  "id": "41cd82994dc0c1f508ba39578ef1f8ba2892dcca159663173fa456c15632d7cf",
+  "full_path": "view job-production-plan-safety-risks show",
+  "description": "Show job production plan safety risk details",
+  "permissions": "User must be authorized to view the related job production plan (JobProductionPlanSafetyRiskPolicy delegates to job production plan access).",
+  "side_effects": "None (read-only).",
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_safety_risks_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_safety_risk_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_safety_risk_resource.rb"
+    }
+  ]
+}

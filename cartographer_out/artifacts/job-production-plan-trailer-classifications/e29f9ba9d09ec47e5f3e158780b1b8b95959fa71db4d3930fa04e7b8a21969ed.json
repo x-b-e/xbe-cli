@@ -1,0 +1,73 @@
+{
+  "id": "e29f9ba9d09ec47e5f3e158780b1b8b95959fa71db4d3930fa04e7b8a21969ed",
+  "full_path": "do job-production-plan-trailer-classifications create",
+  "description": "Add a trailer classification to a job production plan.",
+  "permissions": "User must be authorized to create/update the related job production plan; access is delegated to job production plan permissions.",
+  "side_effects": "Touches related broker tender job schedule shifts after commit.",
+  "validation_notes": "--job-production-plan and --trailer-classification are required. Trailer classification must be unique per job production plan. trailer-classification-equivalent-ids cannot include the primary trailer classification and must refer to existing trailer classifications. gross-weight-legal-limit-lbs-explicit must be greater than 0 when provided. explicit-material-transaction-tons-max must be greater than 0 and less than 100 when provided.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": "Required. Example: --job-production-plan 123"
+    },
+    {
+      "name": "--trailer-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trailer classification ID",
+      "default": null,
+      "validation": "Required. Example: --trailer-classification 456"
+    },
+    {
+      "name": "--trailer-classification-equivalent-ids",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Equivalent trailer classification IDs (comma-separated or repeated)",
+      "default": null,
+      "validation": "Example: --trailer-classification-equivalent-ids 111,222"
+    },
+    {
+      "name": "--gross-weight-legal-limit-lbs-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit gross weight legal limit (lbs)",
+      "default": null,
+      "validation": "Must be greater than 0 when provided. Example: --gross-weight-legal-limit-lbs-explicit 80000"
+    },
+    {
+      "name": "--explicit-material-transaction-tons-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit material transaction tons max",
+      "default": null,
+      "validation": "Must be greater than 0 and less than 100 when provided. Example: --explicit-material-transaction-tons-max 20"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_trailer_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_trailer_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_trailer_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_trailer_classification.rb"
+    }
+  ]
+}

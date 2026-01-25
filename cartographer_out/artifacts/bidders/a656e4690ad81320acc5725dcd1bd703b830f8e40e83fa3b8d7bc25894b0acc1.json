@@ -1,0 +1,33 @@
+{
+  "id": "a656e4690ad81320acc5725dcd1bd703b830f8e40e83fa3b8d7bc25894b0acc1",
+  "full_path": "do bidders delete",
+  "description": "Delete a bidder.",
+  "permissions": "Admins can delete any bidder; broker members can delete bidders for their broker.",
+  "side_effects": "Deletes a bidder record.",
+  "validation_notes": "Requires a bidder ID argument and --confirm. Deletion is blocked if the bidder has dependent prediction_subject_bids.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_bidders_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/bidder.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/bidder_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "285cf8509d3e1d319cc7c20a1e68639c1657dc9d812af8bf875c6093221259a2",
+  "full_path": "do time-card-approval-audits create",
+  "description": "Create a time card approval audit.",
+  "permissions": "User must be an admin or a time card auditor for the time card broker.",
+  "side_effects": "Creates a time card approval audit record.",
+  "validation_notes": "Requires --time-card and --user. Each time card can have only one audit. Time card must be approved and must not be invoiced. User must be a valid auditor (admin or broker membership with time card auditor role for the time card broker). If is_bot is true, user must be blank; if is_bot is false, user must be present.",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Approved time card ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Audit note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_approval_audits.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_approval_audits_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_approval_audit_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_approval_audit.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_approval_audit_resource.rb"
+    }
+  ]
+}

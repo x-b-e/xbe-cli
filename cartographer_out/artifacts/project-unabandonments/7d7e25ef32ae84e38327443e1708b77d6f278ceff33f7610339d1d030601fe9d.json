@@ -1,0 +1,66 @@
+{
+  "id": "7d7e25ef32ae84e38327443e1708b77d6f278ceff33f7610339d1d030601fe9d",
+  "full_path": "do project-unabandonments create",
+  "description": "Unabandon an abandoned project.",
+  "permissions": "Allowed for admins or users who can update the target project (project update permission via ProjectPolicy).",
+  "side_effects": "Creates a project unabandonment action and updates the project status to its most recent non-abandoned status (or a default when unavailable).",
+  "validation_notes": "--project is required. Project must exist. Project status must be abandoned; otherwise validation fails with previous status not valid. Underlying project must be valid for update.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID (required)",
+      "default": null,
+      "validation": "Required; must reference an existing project."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unabandonment comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_unabandonments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "config/routes.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_unabandonment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_unabandonment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_actions/project_unabandonment.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "770a8aee3ddf1bab1b6242c7cb423cb441e1e7b539ad3bb6548427b53a72e92f",
+  "full_path": "view profit-improvements show",
+  "description": "Show the full details of a profit improvement.",
+  "permissions": "Admins can view all profit improvements. Non-admins can view a profit improvement only if it is within their membership scope for the organization (policy scope).",
+  "side_effects": null,
+  "validation_notes": "The profit improvement ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/profit_improvements_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/profit_improvement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

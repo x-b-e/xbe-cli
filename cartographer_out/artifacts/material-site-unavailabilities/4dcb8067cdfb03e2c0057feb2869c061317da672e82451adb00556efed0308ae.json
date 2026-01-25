@@ -1,0 +1,23 @@
+{
+  "id": "4dcb8067cdfb03e2c0057feb2869c061317da672e82451adb00556efed0308ae",
+  "full_path": "view material-site-unavailabilities show",
+  "description": "Show material site unavailability details",
+  "permissions": "Allowed when the user is authorized for the related material site (policy delegates authorization via the material_site relationship).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_site_unavailabilities_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_unavailability_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_unavailability_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "614ede0520c9088e83d396a67936d9da634005c7ee5fc26eac0bf7cb615797f5",
+  "full_path": "do mechanic-user-associations update",
+  "description": "Update a mechanic user association.",
+  "permissions": "Admin users can update mechanic user associations. Broker managers can update associations for their broker. Business unit managers can update associations for maintenance requirements whose equipment is in their business units (including descendants). Technicians can self-assign to maintenance requirements on work orders when the responsible party is their exact business unit.",
+  "side_effects": "Updates a mechanic user association record.",
+  "validation_notes": "The <id> argument is required. At least one of --user or --maintenance-requirement must be provided. If provided, those flags cannot be empty. User must be unique per maintenance requirement.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "User ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maintenance-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maintenance requirement ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_mechanic_user_associations_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/mechanic_user_association_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/mechanic_user_association.rb"
+    }
+  ]
+}

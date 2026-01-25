@@ -1,0 +1,37 @@
+{
+  "id": "4da3b83749cbda1e08865f814155f90326cb012c79511a70453c5755f5a2a562",
+  "full_path": "view culture-values list",
+  "description": "List culture values.",
+  "permissions": "Authenticated admins can list all culture values. Non-admins can list culture values only for organizations in their broker/trucker/customer policy scope.",
+  "side_effects": null,
+  "validation_notes": "--organization filter must be in Type|ID format (e.g., Broker|123); organization type must be Broker, Customer, or Trucker.",
+  "flags": [
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Broker|123)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/culture_values_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/culture_value_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/culture_value_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/culture_value.rb"
+    }
+  ]
+}

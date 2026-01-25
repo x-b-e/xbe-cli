@@ -1,0 +1,19 @@
+{
+  "id": "3950819d9641c1492b809d5394746e06e710c5fdd1925e4f2a096181d2044141",
+  "full_path": "view trucker-referrals show",
+  "description": "Show trucker referral details.",
+  "permissions": "Admins can view any trucker referral. Non-admins can view referrals where they are the referring user or manage the broker that owns the trucker.",
+  "side_effects": null,
+  "validation_notes": "The trucker referral ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_referrals_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_referral_policy.rb"
+    }
+  ]
+}

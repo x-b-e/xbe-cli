@@ -1,0 +1,70 @@
+{
+  "id": "bfbe8e7e537b8ea455b30731977f2f564cc7db6ac87ba8b3c262517ee68cb4e5",
+  "full_path": "do material-transaction-denials create",
+  "description": "Deny a material transaction.",
+  "permissions": "User must be an admin or be authorized to update the related material transaction.",
+  "side_effects": "Creates a material transaction denial (status changes to denied), updates time card quantities and unloaded trips, may toggle unmanaged shift alive status, exports Connex e-ticket data, and may mark the related raw material transaction as voided with an audit note.",
+  "validation_notes": "--material-transaction is required and must reference an existing material transaction. The material transaction must be in a valid previous status: editing, submitted, or accepted. Denial is blocked when the material transaction has invoices preventing changes. Status cannot be changed when it affects an approved time card; the time card must be unapproved before denying. A denial comment is required unless the material transaction is in editing status. User-sourced material transactions must be related to a shift. Material transactions that are editing and not stale cannot be denied.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material transaction ID",
+      "default": null,
+      "validation": "Required. Must be a valid material transaction ID."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Denial comment",
+      "default": null,
+      "validation": "Required unless the material transaction is in editing status."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_denials_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_denial_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_denial.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_rejection_like.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_void_like.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_denial_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

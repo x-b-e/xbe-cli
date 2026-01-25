@@ -1,0 +1,33 @@
+{
+  "id": "22dcf8bfafddca0c5f116db9a6bbb4bfbb321f8f1a36e7a17d427113c56f241c",
+  "full_path": "do stakeholder-classifications delete",
+  "description": "Delete a stakeholder classification.",
+  "permissions": "User must be an admin to delete stakeholder classifications (StakeholderClassificationPolicy#destroy?).",
+  "side_effects": "Deletes the stakeholder classification and its dependent objective stakeholder classifications.",
+  "validation_notes": "Requires the stakeholder classification ID argument. The --confirm flag is required to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_stakeholder_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/stakeholder_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/stakeholder_classification.rb"
+    }
+  ]
+}

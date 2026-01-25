@@ -1,0 +1,60 @@
+{
+  "description": "Create an OpenAI vector store.",
+  "flags": [
+    {
+      "description": "Vector store purpose (platform_content, user_post_feed, prediction_subject_lowest_losing_bid_recap).",
+      "name": "--purpose",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: platform_content, user_post_feed, prediction_subject_lowest_losing_bid_recap."
+    },
+    {
+      "description": "Scope in Type|ID format (e.g., UserPostFeed|123).",
+      "name": "--scope",
+      "required": false,
+      "type": "string",
+      "validation": "Must be in Type|ID format."
+    },
+    {
+      "description": "Scope type (use with --scope-id).",
+      "name": "--scope-type",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --scope-id if set."
+    },
+    {
+      "description": "Scope ID (use with --scope-type).",
+      "name": "--scope-id",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --scope-type if set."
+    }
+  ],
+  "full_path": "do open-ai-vector-stores create",
+  "id": "6203dec47d2e4df6bd9940d822bfd213ea2dd94cceef4e342de429f9a472087a",
+  "permissions": "Only admins can create OpenAI vector stores.",
+  "side_effects": "Creates a vector store record and triggers creation of an OpenAI vector store via XBEAi using a purpose-specific API key.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_open_ai_vector_stores_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/open_ai_vector_stores_helpers.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/open_ai_vector_store.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/open_ai_vector_store_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/open_ai_vector_store_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--purpose is required. --scope must be in Type|ID format when provided. --scope-type and --scope-id must be provided together. Purpose must be unique per scope_type/scope_id. If purpose is user_post_feed, scope must be present and be a UserPostFeed. If purpose is prediction_subject_lowest_losing_bid_recap, scope must be present and be a Broker. API resource marks purpose, scope_type, scope_id, and scope as read-only; attempts to set them via the API may be rejected."
+}

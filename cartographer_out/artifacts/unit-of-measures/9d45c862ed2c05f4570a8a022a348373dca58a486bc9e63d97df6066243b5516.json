@@ -1,0 +1,55 @@
+{
+  "id": "9d45c862ed2c05f4570a8a022a348373dca58a486bc9e63d97df6066243b5516",
+  "full_path": "view unit-of-measures list",
+  "description": "List units of measure",
+  "permissions": "Available to any user, including anonymous; no special role required.",
+  "side_effects": null,
+  "validation_notes": "name filter is a partial, case-insensitive match. metric must be one of: length, area, volume, mass. measurement-system must be one of: imperial, metric.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match, case-insensitive), e.g., Tons.",
+      "default": "",
+      "validation": "Partial match, case-insensitive."
+    },
+    {
+      "name": "--metric",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by metric type (e.g., mass).",
+      "default": "",
+      "validation": "Allowed values: length, area, volume, mass."
+    },
+    {
+      "name": "--measurement-system",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by measurement system (e.g., imperial).",
+      "default": "",
+      "validation": "Allowed values: imperial, metric."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/unit_of_measures_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/unit_of_measure_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/unit_of_measure_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/unit_of_measure.rb"
+    }
+  ]
+}

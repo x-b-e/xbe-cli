@@ -1,0 +1,77 @@
+{
+  "description": "Allocate driver day shortfall quantities.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Shift set time card constraint IDs (comma-separated or repeated)",
+      "name": "--shift-set-time-card-constraint-ids",
+      "required": true,
+      "type": "array",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Service type unit of measure ID",
+      "name": "--service-type-unit-of-measure",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Total shortfall quantity to allocate",
+      "name": "--quantity",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Time card IDs to allocate across (comma-separated or repeated)",
+      "name": "--time-card-ids",
+      "required": false,
+      "type": "array",
+      "validation": "Required unless --allocation-quantities supplies time_card_id values."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Allocation quantities JSON array",
+      "name": "--allocation-quantities",
+      "required": false,
+      "type": "string",
+      "validation": "Must be valid JSON array; each entry should include time_card_id and quantity; percentages must sum to 100% when provided. Example: [{\"time_card_id\":\"123\",\"quantity\":1.25}]."
+    }
+  ],
+  "full_path": "do driver-day-shortfall-allocations create",
+  "id": "9e2052e7a1bc21724cfbc747ed1acd350e1e30138b86c3a2d85ca4bb851d7aee",
+  "permissions": null,
+  "side_effects": "Creates a driver day shortfall allocation and distributes the shortfall across time cards; ensures related tenders have rates for the service type unit of measure.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_driver_day_shortfall_allocations.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_driver_day_shortfall_allocations_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/driver_day_shortfall_allocations_controller.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/driver_day_shortfall_allocation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/driver_day_shortfall_allocation_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--service-type-unit-of-measure, --quantity, and --shift-set-time-card-constraint-ids are required. --time-card-ids is required unless --allocation-quantities supplies time_card_id values. --allocation-quantities must be valid JSON array; each entry should include time_card_id and quantity; percentages must sum to 100% when provided; entries must include a non-empty time_card_id."
+}

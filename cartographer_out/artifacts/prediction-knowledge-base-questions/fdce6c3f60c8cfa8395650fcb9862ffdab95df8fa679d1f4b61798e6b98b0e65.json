@@ -1,0 +1,82 @@
+{
+  "description": "Create a prediction knowledge base question",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction knowledge base ID (required) (e.g., 123).",
+      "name": "--prediction-knowledge-base",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Question title (required).",
+      "name": "--title",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Question description.",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Question status (open/resolved/dismissed).",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "open|resolved|dismissed"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction subject ID.",
+      "name": "--prediction-subject",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Creator user ID.",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do prediction-knowledge-base-questions create",
+  "id": "fdce6c3f60c8cfa8395650fcb9862ffdab95df8fa679d1f4b61798e6b98b0e65",
+  "permissions": "Allowed for admins, broker members of the prediction knowledge base broker, and members of the linked prediction subject.",
+  "side_effects": "Creates the question and an associated prediction knowledge base answer. The answer creation can enqueue background generation if the question has a prediction subject and status is open.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_knowledge_base_questions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_knowledge_base_question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_knowledge_base_question.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_knowledge_base_answer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--prediction-knowledge-base and --title are required. status must be one of: open, resolved, dismissed."
+}

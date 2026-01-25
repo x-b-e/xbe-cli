@@ -1,0 +1,72 @@
+{
+  "description": "Update a retainer payment.",
+  "flags": [
+    {
+      "default": null,
+      "description": "Payment status.",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: editing, approved, batched, exported. Example: approved."
+    },
+    {
+      "default": null,
+      "description": "Payment amount.",
+      "name": "--amount",
+      "required": false,
+      "type": "string",
+      "validation": "Numeric >= 0. Example: 1400.00."
+    },
+    {
+      "default": null,
+      "description": "Payment creation date.",
+      "name": "--created-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD. Example: 2025-01-24."
+    },
+    {
+      "default": null,
+      "description": "Retainer period ID.",
+      "name": "--retainer-period",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, must be non-empty."
+    }
+  ],
+  "full_path": "do retainer-payments update",
+  "id": "af9790f29ec611076f3846119bff5a573bc9fd11342f2dd4c2712e2038b5c84c",
+  "permissions": "Authorization is checked by RetainerPaymentPolicy, which delegates update? to RetainerPeriodPolicy/RetainerPolicy. RetainerPolicy only defines scope rules (buyer/seller org membership) and does not define explicit update? rules.",
+  "side_effects": "Updates attributes or retainer period relationship for the specified retainer payment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_retainer_payments_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/retainer_payment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_period_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/retainer_child_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/retainer_payment.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/retainer_payment_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (retainer payment ID). At least one updatable field must be provided. If --retainer-period is provided it cannot be empty. Amount, created-on, and retainer period can only be changed when status is editing. Server validations: status enum (editing, approved, batched, exported); amount numeric >= 0; created_on required; kind enum pre/closing. If kind is pre: retainer_period must be present; created_on must be between retainer_period start_on and end_on; amount must equal retainer_period weekly_payment_amount minus retainer deductions; created_on must be the only payment in its week for the retainer period; retainer must match the retainer period; retainer_period must remain valid. If kind is closing: retainer_period must be absent."
+}

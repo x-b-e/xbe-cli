@@ -1,0 +1,29 @@
+{
+  "id": "12c012beb620eb1c2b7fc08b25e4a9dd69c00c36e10755c52808a2db6b681dd4",
+  "full_path": "do customer-certification-types delete",
+  "description": "Delete a customer certification type",
+  "permissions": "Allowed for admins or users authorized to update the related customer.",
+  "side_effects": "Deletes a customer certification type.",
+  "validation_notes": "Requires a customer certification type ID argument. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true to proceed"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_certification_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_certification_type_policy.rb"
+    }
+  ]
+}

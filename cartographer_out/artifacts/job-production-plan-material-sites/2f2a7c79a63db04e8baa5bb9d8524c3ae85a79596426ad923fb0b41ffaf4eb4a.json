@@ -1,0 +1,131 @@
+{
+  "id": "2f2a7c79a63db04e8baa5bb9d8524c3ae85a79596426ad923fb0b41ffaf4eb4a",
+  "full_path": "do job-production-plan-material-sites update",
+  "description": "Update a job production plan material site.",
+  "permissions": "Requires permission to update the related job production plan (JobProductionPlanMaterialSitePolicy delegates authorization to the job production plan).",
+  "side_effects": "On update, triggers async updates of related calculated miles, updates shift-level material transaction privileges, and may schedule material site subscriber notifications if material site subscriptions are affected.",
+  "validation_notes": "At least one updatable attribute flag is required; otherwise the command errors with no attributes to update. default-ticket-maker must be one of: user, material_site. user-ticket-maker-material-type-ids accepts comma-separated or repeated values. material_site.is_only_for_equipment_movement must match job production plan is_only_for_equipment_movement, and equipment-movement plans can have only one material site. material_site must remain unique per job production plan; is_default must be unique per job production plan when true. Changes are blocked for attributes not allowed when the related job production plan has invoiced time cards. If plan-requires-* flags are omitted, they default from the material site when available, otherwise false.",
+  "flags": [
+    {
+      "name": "--is-default",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Set as the default material site",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--no-is-default",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Unset default material site",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--miles",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned miles between job site and material site",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-ticket-maker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default ticket maker (user, material_site)",
+      "default": null,
+      "validation": "user, material_site"
+    },
+    {
+      "name": "--user-ticket-maker-material-type-ids",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Material type IDs where user is ticket maker (comma-separated or repeated)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-user-scale-tickets",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable user scale tickets",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--no-has-user-scale-tickets",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Disable user scale tickets",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--plan-requires-site-specific-material-types",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable site-specific material types requirement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--no-plan-requires-site-specific-material-types",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Disable site-specific material types requirement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--plan-requires-supplier-specific-material-types",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable supplier-specific material types requirement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--no-plan-requires-supplier-specific-material-types",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Disable supplier-specific material types requirement",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_material_sites_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_material_site.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/belongs_to_job_production_plan.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/plan_requires_material_types.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_site_policy.rb"
+    }
+  ]
+}

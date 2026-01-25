@@ -1,0 +1,54 @@
+{
+  "id": "d80a104b19561d252d88e34ac2cf65e8d67f4d651c0c38ab8e580457c59265bb",
+  "full_path": "view key-result-status-changes list",
+  "description": "List key result status changes",
+  "permissions": "User must be authorized to view the related key result; scope is limited to key results in the user\u2019s Objective policy scope (non-admin).",
+  "side_effects": "None.",
+  "validation_notes": "If provided, status must be one of: unknown, not_started, red, yellow, green, completed, scrapped.",
+  "flags": [
+    {
+      "name": "--key-result",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by key result ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (e.g., green).",
+      "default": null,
+      "validation": "Allowed values: unknown, not_started, red, yellow, green, completed, scrapped."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/key_result_status_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/status_changes_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_status_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/key_result.rb"
+    }
+  ]
+}

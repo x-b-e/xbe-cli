@@ -1,0 +1,64 @@
+{
+  "id": "5fb73ef6cda9aa824440c25e8f730d87c2adc28c99692a966f61784224afc600",
+  "full_path": "do user-ui-tours create",
+  "description": "Create a user UI tour",
+  "permissions": "Admins can create user UI tour records for any user; non-admin users can create records only for themselves.",
+  "side_effects": "Creates a user UI tour completion or skip record.",
+  "validation_notes": "--user and --ui-tour are required. Exactly one of --completed-at or --skipped-at must be set. The server rejects records that are both completed and skipped or neither, and enforces uniqueness of ui_tour_id scoped to user_id.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ui-tour",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "UI tour ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--completed-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Completion timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--skipped-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skipped timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_ui_tours_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/user_ui_tour_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/policies/user_ui_tour_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/models/user_ui_tour.rb"
+    }
+  ]
+}

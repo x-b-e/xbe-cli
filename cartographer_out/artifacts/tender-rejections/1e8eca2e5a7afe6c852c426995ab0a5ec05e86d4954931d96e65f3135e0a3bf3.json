@@ -1,0 +1,27 @@
+{
+  "id": "1e8eca2e5a7afe6c852c426995ab0a5ec05e86d4954931d96e65f3135e0a3bf3",
+  "full_path": "view tender-rejections list",
+  "description": "List tender rejections.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_rejections_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/tender_rejections_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_rejection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_rejection_policy.rb"
+    }
+  ]
+}

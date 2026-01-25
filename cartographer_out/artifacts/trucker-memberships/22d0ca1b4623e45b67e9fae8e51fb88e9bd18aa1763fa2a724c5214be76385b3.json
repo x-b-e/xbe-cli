@@ -1,0 +1,33 @@
+{
+  "id": "22d0ca1b4623e45b67e9fae8e51fb88e9bd18aa1763fa2a724c5214be76385b3",
+  "full_path": "do trucker-memberships delete",
+  "description": "Delete a trucker membership.",
+  "permissions": "Admins can delete trucker memberships. Non-admin users can delete trucker memberships when they are a broker member for the trucker\"s broker, are a trucker manager member for the trucker, or are a customer manager for a customer linked to the trucker.",
+  "side_effects": "Deletes a trucker membership record (irreversible).",
+  "validation_notes": "The <id> argument (trucker membership ID) is required. --confirm is required to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_memberships_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/membership_policy.rb"
+    }
+  ]
+}

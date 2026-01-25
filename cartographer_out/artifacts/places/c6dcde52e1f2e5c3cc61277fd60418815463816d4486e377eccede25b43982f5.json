@@ -1,0 +1,23 @@
+{
+  "id": "c6dcde52e1f2e5c3cc61277fd60418815463816d4486e377eccede25b43982f5",
+  "full_path": "view places show",
+  "description": "Show the full details of a Google Place.",
+  "permissions": null,
+  "side_effects": "Performs an external HTTP request to the Google Places API to fetch place details.",
+  "validation_notes": "Requires a non-empty <place-id> argument; the CLI trims whitespace and errors if empty. The server returns record-not-found when the Google Places API key is missing or the place ID cannot be found.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/places_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/place.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/place_resource.rb"
+    }
+  ]
+}

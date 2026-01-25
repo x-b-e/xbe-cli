@@ -1,0 +1,96 @@
+{
+  "id": "6d4667c878c0f3e0898b240e92b561a07c9b8c8391201699a104bab175f9a1fe",
+  "full_path": "view time-sheets-exports list",
+  "description": "List time sheets exports with filtering and pagination.",
+  "permissions": "Admins can list all time sheets exports. Non-admins can list exports scoped by policy: exports tied to brokers they are members of, and exports tied to organizations they belong to (non-broker memberships require manager role).",
+  "side_effects": null,
+  "validation_notes": "--organization must be in Type|ID format (e.g., Broker|123). --organization-id requires --organization-type unless --organization-id already includes Type|ID. --status must be one of: processing, processed, failed. --time-sheets expects a comma-separated list of time sheet IDs.",
+  "flags": [
+    {
+      "name": "--organization-formatter",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization formatter ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (processing, processed, failed)",
+      "default": "",
+      "validation": "One of: processing, processed, failed."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (format: Type|ID, e.g., Broker|123)",
+      "default": "",
+      "validation": "Format: Type|ID (e.g., Broker|123)."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type or Type|ID)",
+      "default": "",
+      "validation": "Requires --organization-type unless provided as Type|ID."
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker, Customer, Trucker)",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--time-sheets",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time sheet IDs (comma-separated)",
+      "default": "",
+      "validation": "Comma-separated list of time sheet IDs."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheets_exports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheets_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheets_export_policy.rb"
+    }
+  ]
+}

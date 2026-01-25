@@ -1,0 +1,55 @@
+{
+  "id": "04bd6dd136872010a62ed4b2160772085ca209776e40c772ba76429b7a16ed10",
+  "full_path": "do devices update",
+  "description": "Update a device.",
+  "permissions": null,
+  "side_effects": "Updates device attributes via the API.",
+  "validation_notes": "Requires <id> argument. At least one of --nickname, --pushable-status, or --is-preferred must be provided; otherwise the command errors with 'no attributes to update'. Pushable-status must be a valid server-defined enum value (not enumerated in CLI).",
+  "flags": [
+    {
+      "name": "nickname",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Device nickname",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "pushable-status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Pushable status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "is-preferred",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether this is the user's preferred device",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_devices.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_devices_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/devices_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/device_policy.rb"
+    }
+  ]
+}

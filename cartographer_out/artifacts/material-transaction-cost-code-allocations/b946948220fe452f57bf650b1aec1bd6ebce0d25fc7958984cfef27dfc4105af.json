@@ -1,0 +1,37 @@
+{
+  "description": "Delete a material transaction cost code allocation",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to delete."
+    }
+  ],
+  "full_path": "do material-transaction-cost-code-allocations delete",
+  "id": "b946948220fe452f57bf650b1aec1bd6ebce0d25fc7958984cfef27dfc4105af",
+  "permissions": "Admins may delete allocations. Non-admin users may delete allocations only when they are members of the allocation's customer.",
+  "side_effects": "Deletes a material transaction cost code allocation if permitted and not blocked by dependent records.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_transaction_cost_code_allocations_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_transaction_cost_code_allocation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_transaction_cost_code_allocation.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/cost_code_allocation.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Argument <id> is required. --confirm must be set to true. Deletion is blocked if dependent project phase cost item actuals exist."
+}

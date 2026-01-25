@@ -1,0 +1,23 @@
+{
+  "id": "a5e5a9e80e132f4e37b65290be3107bf9417c8f8efa9bf2197cbd97202cd8d0b",
+  "full_path": "view key-result-scrappages show",
+  "description": "Show full details of a key result scrappage.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (key result scrappage ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/key_result_scrappages_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_scrappage_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

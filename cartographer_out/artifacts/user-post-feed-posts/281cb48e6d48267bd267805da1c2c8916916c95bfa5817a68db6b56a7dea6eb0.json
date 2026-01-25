@@ -1,0 +1,159 @@
+{
+  "description": "List user post feed posts with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID (relationship).",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID via feed membership.",
+      "name": "--user-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by post ID.",
+      "name": "--post",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by post type (comma-separated for multiple).",
+      "name": "--post-type",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated for multiple values."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator (e.g., User|123).",
+      "name": "--creator",
+      "required": false,
+      "type": "string",
+      "validation": "Polymorphic type|id input (e.g., User|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by score.",
+      "name": "--score",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by feed-at on/after (ISO 8601).",
+      "name": "--feed-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by feed-at on/before (ISO 8601).",
+      "name": "--feed-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of feed-at (true/false).",
+      "name": "--is-feed-at",
+      "required": false,
+      "type": "string",
+      "validation": "Use true/false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by subscription start on/after (ISO 8601).",
+      "name": "--subscription-start-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by subscription start on/before (ISO 8601).",
+      "name": "--subscription-start-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of subscription start (true/false).",
+      "name": "--is-subscription-start-at",
+      "required": false,
+      "type": "string",
+      "validation": "Use true/false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by subscription end on/after (ISO 8601).",
+      "name": "--subscription-end-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by subscription end on/before (ISO 8601).",
+      "name": "--subscription-end-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of subscription end (true/false).",
+      "name": "--is-subscription-end-at",
+      "required": false,
+      "type": "string",
+      "validation": "Use true/false."
+    }
+  ],
+  "full_path": "view user-post-feed-posts list",
+  "id": "281cb48e6d48267bd267805da1c2c8916916c95bfa5817a68db6b56a7dea6eb0",
+  "permissions": "Admin users can list all user post feed posts; non-admins are limited to posts where the user_post_feed belongs to the current user.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/user_post_feed_posts_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/user_post_feed_post_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_post_feed_post_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters with -min/-max expect ISO 8601 timestamps; is-feed-at/is-subscription-start-at/is-subscription-end-at expect true/false strings; post-type accepts comma-separated values; creator expects a polymorphic type|id (e.g., User|123)."
+}

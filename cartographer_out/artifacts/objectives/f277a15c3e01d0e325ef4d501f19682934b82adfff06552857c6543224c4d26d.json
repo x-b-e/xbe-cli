@@ -1,0 +1,23 @@
+{
+  "id": "f277a15c3e01d0e325ef4d501f19682934b82adfff06552857c6543224c4d26d",
+  "full_path": "view objectives show",
+  "description": "Show objective details.",
+  "permissions": "Anonymous users can view template objectives; authenticated non-admin users can view template objectives plus objectives tied to organizations they belong to (including organizations under brokers they belong to); admins can view all objectives.",
+  "side_effects": null,
+  "validation_notes": "Requires an objective ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/objectives_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/objectives_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_policy.rb"
+    }
+  ]
+}

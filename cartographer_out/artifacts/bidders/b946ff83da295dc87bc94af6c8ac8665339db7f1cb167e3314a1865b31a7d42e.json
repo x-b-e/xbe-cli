@@ -1,0 +1,46 @@
+{
+  "id": "b946ff83da295dc87bc94af6c8ac8665339db7f1cb167e3314a1865b31a7d42e",
+  "full_path": "do bidders update",
+  "description": "Update an existing bidder.",
+  "permissions": "Admins can update any bidder; broker members can update bidders for their broker.",
+  "side_effects": "Updates bidder fields.",
+  "validation_notes": "Requires a bidder ID argument. At least one of --name or --is-self-for-broker must be provided. Name must be unique within a broker if changed. is_self_for_broker must be boolean; only one self bidder is allowed per broker (is_self_for_broker=true). Broker cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Bidder name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-self-for-broker",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as the broker's self bidder",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_bidders_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/bidder.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/bidder_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/bidder_resource.rb"
+    }
+  ]
+}

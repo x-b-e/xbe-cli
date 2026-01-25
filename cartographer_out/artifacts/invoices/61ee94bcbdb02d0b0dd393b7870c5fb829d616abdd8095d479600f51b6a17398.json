@@ -1,0 +1,192 @@
+{
+  "id": "61ee94bcbdb02d0b0dd393b7870c5fb829d616abdd8095d479600f51b6a17398",
+  "full_path": "view invoices list",
+  "description": "List invoices with filtering and pagination.",
+  "permissions": "Allowed for users authorized by InvoicePolicy scope; non-admin users can list invoices where they are visible as the buyer customer, the seller trucker (manager), or a broker tied to the invoice.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "Filters using dates require YYYY-MM-DD (invoice-date, invoice-date-min/max, due-on, due-on-min/max). Boolean-like filters must be true/false (has-invoice-date, has-due-on, is-management-service-type, has-ticket-report; has-ticket-report is strict). Batch-status must follow org|id|status[,status]. Comma-separated lists are accepted where noted. Status values must be valid invoice status enum values; default excludes non_exportable.",
+  "flags": [
+    {
+      "name": "buyer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by buyer ID (comma-separated for multiple)",
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "seller",
+      "required": false,
+      "type": "string",
+      "description": "Filter by seller ID (comma-separated for multiple)",
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "status",
+      "required": false,
+      "type": "string",
+      "description": "Filter by status (comma-separated for multiple)",
+      "validation": "Comma-separated list; values must be valid invoice status enum values."
+    },
+    {
+      "name": "invoice-date",
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "invoice-date-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum invoice date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "invoice-date-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum invoice date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "has-invoice-date",
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice date presence (true/false)",
+      "validation": "true/false."
+    },
+    {
+      "name": "due-on",
+      "required": false,
+      "type": "string",
+      "description": "Filter by due date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "due-on-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum due date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "due-on-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum due date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD."
+    },
+    {
+      "name": "has-due-on",
+      "required": false,
+      "type": "string",
+      "description": "Filter by due date presence (true/false)",
+      "validation": "true/false."
+    },
+    {
+      "name": "ticket-number",
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ticket number (comma-separated for multiple)",
+      "validation": "Comma-separated list."
+    },
+    {
+      "name": "material-transaction-ticket-numbers",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ticket numbers (comma-separated)",
+      "validation": "Comma-separated list."
+    },
+    {
+      "name": "tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender ID (comma-separated for multiple)",
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "is-management-service-type",
+      "required": false,
+      "type": "string",
+      "description": "Filter by management service type (true/false)",
+      "validation": "true/false."
+    },
+    {
+      "name": "business-unit",
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID (comma-separated for multiple)",
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "not-business-unit",
+      "required": false,
+      "type": "string",
+      "description": "Exclude business unit ID (comma-separated for multiple)",
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "customer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "material-transaction-cost-codes",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction cost codes (comma-separated)",
+      "validation": "Comma-separated list."
+    },
+    {
+      "name": "allocated-cost-codes",
+      "required": false,
+      "type": "string",
+      "description": "Filter by allocated cost codes (comma-separated)",
+      "validation": "Comma-separated list."
+    },
+    {
+      "name": "broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "validation": "Comma-separated list of IDs."
+    },
+    {
+      "name": "has-ticket-report",
+      "required": false,
+      "type": "string",
+      "description": "Filter by ticket report presence (true/false)",
+      "validation": "true/false (strict)."
+    },
+    {
+      "name": "batch-status",
+      "required": false,
+      "type": "string",
+      "description": "Filter by batch status (org|id|status[,status])",
+      "validation": "Format org|id|status[,status]."
+    },
+    {
+      "name": "having-plans-with-job-number-like",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job number match (comma-separated)",
+      "validation": "Comma-separated list."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoices_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_policy.rb"
+    }
+  ]
+}

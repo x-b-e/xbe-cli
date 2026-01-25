@@ -269,22 +269,6 @@ func formatRateAgreementsCopierTargets(targetType string, targetCount int) strin
 	return targetType
 }
 
-func mapAttr(attrs map[string]any, key string) map[string]any {
-	if attrs == nil {
-		return nil
-	}
-	value, ok := attrs[key]
-	if !ok || value == nil {
-		return nil
-	}
-	switch typed := value.(type) {
-	case map[string]any:
-		return typed
-	default:
-		return nil
-	}
-}
-
 func mapLenAttr(attrs map[string]any, key string) int {
 	return len(mapAttr(attrs, key))
 }

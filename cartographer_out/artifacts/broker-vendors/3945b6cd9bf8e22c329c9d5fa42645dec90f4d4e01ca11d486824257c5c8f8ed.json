@@ -1,0 +1,29 @@
+{
+  "id": "3945b6cd9bf8e22c329c9d5fa42645dec90f4d4e01ca11d486824257c5c8f8ed",
+  "full_path": "do broker-vendors delete",
+  "description": "Delete a broker-vendor relationship.",
+  "permissions": "Allowed when the user can see both the organization and partner and is an admin, a broker branch member, or an organization manager per TradingPartnerPolicy.",
+  "side_effects": "Deletes a broker-vendor relationship.",
+  "validation_notes": "Requires <id> argument. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_vendors_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    }
+  ]
+}

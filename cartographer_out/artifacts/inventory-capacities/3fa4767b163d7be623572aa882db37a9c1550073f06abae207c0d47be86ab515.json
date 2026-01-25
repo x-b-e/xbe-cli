@@ -1,0 +1,69 @@
+{
+  "description": "Create an inventory capacity.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site ID (required)",
+      "name": "--material-site",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material type ID (required)",
+      "name": "--material-type",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum capacity in tons",
+      "name": "--max-capacity-tons",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Minimum capacity in tons",
+      "name": "--min-capacity-tons",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Alert threshold in tons",
+      "name": "--threshold-tons",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    }
+  ],
+  "full_path": "do inventory-capacities create",
+  "id": "3fa4767b163d7be623572aa882db37a9c1550073f06abae207c0d47be86ab515",
+  "permissions": "Admins can create inventory capacities. Non-admin users can create inventory capacities for material sites whose material suppliers belong to a broker the user can see or whose material suppliers are directly visible to the user.",
+  "side_effects": "Creates an inventory capacity record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_inventory_capacities_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/inventory_capacity.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/inventory_capacity_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--material-site and --material-type are required. max_capacity_tons, min_capacity_tons, and threshold_tons must be numbers greater than or equal to 0 when provided. material_site_id must be unique within a given material_type_id."
+}

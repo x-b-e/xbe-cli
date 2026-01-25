@@ -1,0 +1,76 @@
+{
+  "id": "25610ce96a3d1c2596d3c6573c74935e25d54096f85aa7ce70b765e0d0d73b28",
+  "full_path": "do raw-transport-drivers create",
+  "description": "Create a raw transport driver record.",
+  "permissions": "User must be an admin or have admin membership in the broker specified by --broker.",
+  "side_effects": "Creates a raw transport driver and schedules an asynchronous import job after creation when an importer is configured.",
+  "validation_notes": "--broker, --external-driver-id, and --tables are required. --tables must be a JSON array. Each table entry must include table_name, query, and primary_key_column. If a table has rows, at least one row must include a column whose key matches primary_key_column. Column entries require key. external_driver_id is required on the model. importer, when provided, must be quantix_tmw. If the only validation error is a duplicate import checksum for the broker, the API returns the existing record instead of failing.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-driver-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "External driver identifier (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tables",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tables JSON array (required)",
+      "default": null,
+      "validation": "Must be a JSON array"
+    },
+    {
+      "name": "--importer",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Importer key (e.g., quantix_tmw)",
+      "default": null,
+      "validation": "quantix_tmw"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_transport_drivers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_driver_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/raw_transport_driver.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/raw_transport/abstract_record.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/raw_transport/table_structures.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/raw_transport/import_checksum_tracking.rb"
+    }
+  ]
+}

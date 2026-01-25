@@ -1,0 +1,54 @@
+{
+  "id": "d7b0f29c72ece53d17d1e59ffd2706858a1b7c652db6d9ffbeb7e22cad97947b",
+  "full_path": "do material-transaction-inspections create",
+  "description": "Create a material transaction inspection.",
+  "permissions": "Admins can create inspections. Non-admins can create inspections if they are the inspection creator on a persisted record, a member of the broker tied to the inspection, a member of the customer tied to the inspection with permission to view the job production plan, a manager member of the job production plan developer, a job production plan inspector, or the driver on the tender job schedule shift when the job production plan expects an inspection.",
+  "side_effects": "Creates a material transaction inspection.",
+  "validation_notes": "--material-transaction is required. Status accepts: open, closed, and is required by the model. Strategy accepts: delivery_site_personnel; default is delivery_site_personnel when omitted. Material transaction inspections are unique per material transaction (material_transaction_id must be unique). Delivery site must be a JobSite or MaterialSite and must match the trip destination; delivery site is auto-set from the trip destination.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "required": true,
+      "type": "string",
+      "description": "Material transaction ID (required)"
+    },
+    {
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "description": "Inspection status (open,closed)",
+      "validation": "Allowed values: open, closed."
+    },
+    {
+      "name": "--strategy",
+      "required": false,
+      "type": "enum",
+      "description": "Inspection strategy (delivery_site_personnel)",
+      "validation": "Allowed values: delivery_site_personnel."
+    },
+    {
+      "name": "--note",
+      "required": false,
+      "type": "string",
+      "description": "Inspection note"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_inspections_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_inspection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_inspection.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_policy.rb"
+    }
+  ]
+}

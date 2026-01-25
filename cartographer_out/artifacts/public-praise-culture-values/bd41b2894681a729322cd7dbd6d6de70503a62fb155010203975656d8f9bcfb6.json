@@ -1,0 +1,82 @@
+{
+  "id": "bd41b2894681a729322cd7dbd6d6de70503a62fb155010203975656d8f9bcfb6",
+  "full_path": "view public-praise-culture-values list",
+  "description": "List public praise culture values",
+  "permissions": "Allowed when the user can access the related public praise via the PublicPraise policy scope (delegated policy scope).",
+  "side_effects": null,
+  "validation_notes": "created-at-min, created-at-max, updated-at-min, and updated-at-max expect ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--public-praise",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by public praise ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--culture-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by culture value ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/public_praise_culture_values_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/public_praise_culture_value_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_culture_value_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_policy.rb"
+    }
+  ]
+}

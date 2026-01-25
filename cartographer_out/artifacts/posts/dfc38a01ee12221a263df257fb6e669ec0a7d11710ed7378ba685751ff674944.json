@@ -1,0 +1,33 @@
+{
+  "id": "dfc38a01ee12221a263df257fb6e669ec0a7d11710ed7378ba685751ff674944",
+  "full_path": "do posts delete",
+  "description": "Delete an existing post.",
+  "permissions": "User must be authenticated and must be the creator of the post to delete it.",
+  "side_effects": "Deletes the post and dependent records (sub_posts, post_children, user_post_feed_posts, post_views, post_routers).",
+  "validation_notes": "Requires <id> argument for the post ID. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_posts_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/post.rb"
+    }
+  ]
+}

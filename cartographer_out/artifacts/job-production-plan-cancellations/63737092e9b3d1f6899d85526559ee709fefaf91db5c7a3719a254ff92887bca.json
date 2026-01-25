@@ -1,0 +1,19 @@
+{
+  "id": "63737092e9b3d1f6899d85526559ee709fefaf91db5c7a3719a254ff92887bca",
+  "full_path": "view job-production-plan-cancellations show",
+  "description": "Show job production plan cancellation details",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (job production plan cancellation ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_cancellations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_cancellation_resource.rb"
+    }
+  ]
+}

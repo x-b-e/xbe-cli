@@ -1,0 +1,50 @@
+{
+  "id": "d495a185043f963860af636e4e887da0a0fa3d66e9f9e42d346f384e57799834",
+  "full_path": "do project-abandonments create",
+  "description": "Abandon a project.",
+  "permissions": "Allowed for admins or users who are authorized to update the target project.",
+  "side_effects": "Transitions the project status to abandoned and records a project abandonment.",
+  "validation_notes": "Requires --project. Project ID must be a numeric identifier for an existing project. Only projects in editing, submitted, or rejected status can be abandoned. The project must be valid; model validation errors are surfaced.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID (required)",
+      "default": null,
+      "validation": "Required; must be a numeric project ID that exists."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment for the abandonment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_abandonments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_abandonment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_actions/project_abandonment.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

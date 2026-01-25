@@ -1,0 +1,33 @@
+{
+  "id": "63c977a1a69c3807ff770742471ed474d7d3722cdc83460e1c9144092b4d6b0e",
+  "full_path": "do project-bid-location-material-types delete",
+  "description": "Delete a project bid location material type.",
+  "permissions": "Allowed when the user can create on the associated project bid location (ProjectBidLocation policy); destroy permission mirrors create?.",
+  "side_effects": "Deletes a project bid location material type record.",
+  "validation_notes": "Requires the --confirm flag and a project bid location material type ID argument.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_bid_location_material_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_bid_location_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_bid_location_material_type.rb"
+    }
+  ]
+}

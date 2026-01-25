@@ -1,0 +1,144 @@
+{
+  "id": "038b1819663e9d7ba67290747b3e943893dd1fe2e60377b66f3eb2e5ec626fdd",
+  "full_path": "view time-sheet-line-items list",
+  "description": "List time sheet line items with filtering and pagination.",
+  "permissions": "Delegated to the related time sheet. Allowed if the user is an admin or is authorized for the associated time sheet per TimeSheetPolicy scope (e.g., driver/shift driver, trucker manager, broker member, customer member/manager, laborer on the crew requirement, or work-order roles such as manager/operations/technician).",
+  "side_effects": null,
+  "validation_notes": "Filter IDs accept comma-separated values (e.g., 123,456). start/end min/max filters require ISO 8601 timestamps (e.g., 2025-01-01T00:00:00Z). is-start-at and is-end-at accept true/false.",
+  "flags": [
+    {
+      "name": "--time-sheet",
+      "required": false,
+      "type": "array",
+      "description": "Filter by time sheet ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--cost-code",
+      "required": false,
+      "type": "array",
+      "description": "Filter by cost code ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--craft-class",
+      "required": false,
+      "type": "array",
+      "description": "Filter by craft class ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--time-card",
+      "required": false,
+      "type": "array",
+      "description": "Filter by time card ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--maintenance-requirement",
+      "required": false,
+      "type": "array",
+      "description": "Filter by maintenance requirement ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--broker",
+      "required": false,
+      "type": "array",
+      "description": "Filter by broker ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--trucker",
+      "required": false,
+      "type": "array",
+      "description": "Filter by trucker ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--customer",
+      "required": false,
+      "type": "array",
+      "description": "Filter by customer ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--craft-class-effective",
+      "required": false,
+      "type": "array",
+      "description": "Filter by craft class effective ID.",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--craft-class-effective-id",
+      "required": false,
+      "type": "array",
+      "description": "Filter by craft class effective ID (legacy filter).",
+      "validation": "Comma-separated IDs (e.g., 123,456)."
+    },
+    {
+      "name": "--start-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start timestamp.",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--start-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start timestamp.",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--end-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum end timestamp.",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--end-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum end timestamp.",
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--is-start-at",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of start timestamp.",
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-end-at",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of end timestamp.",
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheet_line_items_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_line_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_line_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_line_item.rb"
+    }
+  ]
+}

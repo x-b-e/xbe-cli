@@ -1,0 +1,23 @@
+{
+  "id": "9138a824877bd14618b955151178700c3e4cb4286bb44a117f307ab4af36ff82",
+  "full_path": "view follows show",
+  "description": "Show the full details of a follow relationship.",
+  "permissions": "Admins can view any follow. Non-admins can view follows where they are the follower.",
+  "side_effects": null,
+  "validation_notes": "The follow id argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/follows_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/follow_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/follow_policy_spec.rb"
+    }
+  ]
+}

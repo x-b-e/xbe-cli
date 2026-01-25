@@ -1,0 +1,27 @@
+{
+  "description": "Show project transport plan segment tractor details.",
+  "flags": [],
+  "full_path": "view project-transport-plan-segment-tractors show",
+  "id": "1e0888a9f3337b242039c6ba676036c746d29ceab79d5678bf91d54812b3501e",
+  "permissions": "Authorized via ProjectTransportPlanSegmentTractorPolicy, which delegates access to the related project transport plan segment (scoped through its project transport plan access).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_segment_tractors_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_segment_tractor_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_segment_tractor_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires the segment tractor <id> argument."
+}

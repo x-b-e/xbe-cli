@@ -1,0 +1,113 @@
+{
+  "id": "aa9cde56811a7d734ef8489d50c422b3210a126ef770f1b068f77d3f24805d69",
+  "full_path": "do job-production-plan-material-types create",
+  "description": "Create a job production plan material type.",
+  "permissions": "Allowed when the user can create or update the associated job production plan per JobProductionPlanPolicy (delegated by JobProductionPlanMaterialTypePolicy).",
+  "side_effects": "Creates a job production plan material type. On save it may schedule inventory change recalculations, and if explicit material mix design is set it may enqueue material transaction mix design reassignment. If the plan is approved and material type or quantity changes, it can enqueue material type change notifications to plan subscribers.",
+  "validation_notes": "quantity is required; must be > 0 and < 2,147,483,648 unless is-quantity-unknown is true, in which case quantity must be 0. material-type must be unique per job production plan (and per material-site when provided). unit-of-measure must be valid for material units. material-site, when set, must belong to the job production plan and be active. If plan-requires-site-specific-material-types or plan-requires-supplier-specific-material-types is true, material-site is required and material-type must be specific to the site or supplier, respectively. material-type must be from the same broker as the plan and from a related material supplier for the material site or job site. default-cost-code must belong to the same customer and be among the plan cost codes. explicit-material-mix-design must match the material type and be in scope for the material site and plan time. material-type and material-site must be available at the plan material site start time when set. If the plan validates project material types, material-type must be one of them; if the plan is only for equipment movement, material-type must be equipment.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)"
+    },
+    {
+      "name": "--material-type",
+      "required": true,
+      "type": "string",
+      "description": "Material type ID (required)"
+    },
+    {
+      "name": "--unit-of-measure",
+      "required": true,
+      "type": "string",
+      "description": "Unit of measure ID (required)"
+    },
+    {
+      "name": "--quantity",
+      "required": true,
+      "type": "string",
+      "description": "Planned quantity (required)",
+      "validation": "Must be numeric; use 0 when --is-quantity-unknown is true"
+    },
+    {
+      "name": "--is-quantity-unknown",
+      "required": false,
+      "type": "boolean",
+      "description": "Mark quantity as unknown"
+    },
+    {
+      "name": "--explicit-display-name",
+      "required": false,
+      "type": "string",
+      "description": "Display name override"
+    },
+    {
+      "name": "--plan-requires-site-specific-material-types",
+      "required": false,
+      "type": "boolean",
+      "description": "Override plan site-specific requirement"
+    },
+    {
+      "name": "--plan-requires-supplier-specific-material-types",
+      "required": false,
+      "type": "boolean",
+      "description": "Override plan supplier-specific requirement"
+    },
+    {
+      "name": "--material-site",
+      "required": false,
+      "type": "string",
+      "description": "Material site ID"
+    },
+    {
+      "name": "--default-cost-code",
+      "required": false,
+      "type": "string",
+      "description": "Default cost code ID"
+    },
+    {
+      "name": "--explicit-material-mix-design",
+      "required": false,
+      "type": "string",
+      "description": "Explicit material mix design ID"
+    },
+    {
+      "name": "--explicit-material-type-material-site-inventory-location",
+      "required": false,
+      "type": "string",
+      "description": "Explicit inventory location ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_material_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_material_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/plan_requires_material_types.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/plan_requires_material_types_resource.rb"
+    }
+  ]
+}

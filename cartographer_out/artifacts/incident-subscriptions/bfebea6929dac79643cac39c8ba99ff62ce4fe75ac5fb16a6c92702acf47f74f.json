@@ -1,0 +1,19 @@
+{
+  "id": "bfebea6929dac79643cac39c8ba99ff62ce4fe75ac5fb16a6c92702acf47f74f",
+  "full_path": "view incident-subscriptions show",
+  "description": "Show full details of an incident subscription.",
+  "permissions": "Admin users can view any incident subscription. Non-admin users can view subscriptions where they are the user or where they belong to associated customer or broker organizations (including broker customer memberships).",
+  "side_effects": null,
+  "validation_notes": "Requires the incident subscription ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_subscriptions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_subscription_policy.rb"
+    }
+  ]
+}

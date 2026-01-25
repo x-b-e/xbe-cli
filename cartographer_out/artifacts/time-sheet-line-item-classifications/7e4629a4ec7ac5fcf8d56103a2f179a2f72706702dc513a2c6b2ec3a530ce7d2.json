@@ -1,0 +1,55 @@
+{
+  "description": "Create a new time sheet line item classification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Classification name (required)",
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "validation": "Must be non-empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Classification description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Subject types (comma-separated or repeated)",
+      "name": "--subject-types",
+      "required": false,
+      "type": "array",
+      "validation": "Each value must be one of DriverDay, LaborRequirement, EquipmentRequirement, or CrewRequirement."
+    }
+  ],
+  "full_path": "do time-sheet-line-item-classifications create",
+  "id": "7e4629a4ec7ac5fcf8d56103a2f179a2f72706702dc513a2c6b2ec3a530ce7d2",
+  "permissions": "Only admin users can create time sheet line item classifications.",
+  "side_effects": "Creates a time sheet line item classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_time_sheet_line_item_classifications_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_time_sheet_line_item_classifications.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_sheet_line_item_classification_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/time_sheet_line_item_classification.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--name is required. subject-types must be one of DriverDay, LaborRequirement, EquipmentRequirement, or CrewRequirement when provided."
+}

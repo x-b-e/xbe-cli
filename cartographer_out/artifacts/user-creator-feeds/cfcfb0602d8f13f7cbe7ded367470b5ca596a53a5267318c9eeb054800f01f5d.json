@@ -1,0 +1,87 @@
+{
+  "description": "List user creator feeds.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID.",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601).",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp, e.g. 2024-01-01T00:00:00Z"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601).",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp, e.g. 2024-01-01T00:00:00Z"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has created-at (true/false).",
+      "name": "--is-created-at",
+      "required": false,
+      "type": "string",
+      "validation": "true or false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601).",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp, e.g. 2024-01-01T00:00:00Z"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601).",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp, e.g. 2024-01-01T00:00:00Z"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has updated-at (true/false).",
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "string",
+      "validation": "true or false"
+    }
+  ],
+  "full_path": "view user-creator-feeds list",
+  "id": "cfcfb0602d8f13f7cbe7ded367470b5ca596a53a5267318c9eeb054800f01f5d",
+  "permissions": "Access is limited by UserCreatorFeedPolicy scope; non-admin users can only view feeds where record.user is the current user.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/user_creator_feeds_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/user_creator_feed_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/user_creator_feed_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "created-at-min/created-at-max and updated-at-min/updated-at-max expect ISO 8601 timestamps (e.g., 2024-01-01T00:00:00Z). is-created-at and is-updated-at accept true/false values."
+}

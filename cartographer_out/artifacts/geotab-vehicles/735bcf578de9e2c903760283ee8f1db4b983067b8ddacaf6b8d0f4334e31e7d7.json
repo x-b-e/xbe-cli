@@ -1,0 +1,208 @@
+{
+  "id": "735bcf578de9e2c903760283ee8f1db4b983067b8ddacaf6b8d0f4334e31e7d7",
+  "full_path": "view geotab-vehicles list",
+  "description": "List geotab vehicles",
+  "permissions": "Admins can list all geotab vehicles; non-admins can only list vehicles for brokers where they have membership (policy scope).",
+  "side_effects": null,
+  "validation_notes": "Boolean filters require strict true/false values (has-trailer, has-tractor, is-trailer-set-at, is-tractor-set-at, is-created-at, is-updated-at). Date-time filters require valid ISO 8601 timestamps (assigned-at-min, trailer-set-at-min/max, tractor-set-at-min/max, created-at-min/max, updated-at-min/max).",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (example: 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of trailer (true/false).",
+      "default": null,
+      "validation": "Value must be a strict boolean: true or false."
+    },
+    {
+      "name": "--has-tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of tractor (true/false).",
+      "default": null,
+      "validation": "Value must be a strict boolean: true or false."
+    },
+    {
+      "name": "--assigned-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum assignment time (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp (example: 2024-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--integration-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration identifier.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer set on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp."
+    },
+    {
+      "name": "--trailer-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer set on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-trailer-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of trailer-set-at (true/false).",
+      "default": null,
+      "validation": "Value must be a strict boolean: true or false."
+    },
+    {
+      "name": "--tractor-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor set on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp."
+    },
+    {
+      "name": "--tractor-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor set on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-tractor-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of tractor-set-at (true/false).",
+      "default": null,
+      "validation": "Value must be a strict boolean: true or false."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of created-at (true/false).",
+      "default": null,
+      "validation": "Value must be a strict boolean: true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of updated-at (true/false).",
+      "default": null,
+      "validation": "Value must be a strict boolean: true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/geotab_vehicles_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    }
+  ]
+}

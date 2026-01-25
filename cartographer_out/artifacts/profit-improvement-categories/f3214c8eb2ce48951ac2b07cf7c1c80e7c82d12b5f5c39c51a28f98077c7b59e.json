@@ -1,0 +1,33 @@
+{
+  "id": "f3214c8eb2ce48951ac2b07cf7c1c80e7c82d12b5f5c39c51a28f98077c7b59e",
+  "full_path": "do profit-improvement-categories delete",
+  "description": "Delete an existing profit improvement category.",
+  "permissions": "No users can delete profit improvement categories; policy denies destroy and categories are read-only via the API.",
+  "side_effects": "Deletes the profit improvement category record.",
+  "validation_notes": "Requires --confirm to be true. Deletion is blocked when the category has associated profit improvements (dependent restrict).",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_profit_improvement_categories_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_category_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement_category.rb"
+    }
+  ]
+}

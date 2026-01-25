@@ -1,0 +1,64 @@
+{
+  "id": "ce3252c6c4e3ddb71bebfe5dbe09f58967a7a54f8a37e5eefef7c137c405f20d",
+  "full_path": "do equipment-classifications update",
+  "description": "Update an existing equipment classification",
+  "permissions": "User must be an admin.",
+  "side_effects": "Updates fields on an equipment classification record.",
+  "validation_notes": "<id> argument is required. At least one field must be provided to update. mobilization-method must be one of: crew, heavy_equipment_transport, lowboy, itself, trailer. Name must be unique within the same parent. Abbreviation, if provided, must be unique within the same parent. Broker-specific classifications must have a parent.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New name",
+      "default": null,
+      "validation": "Must be unique within the same parent when provided."
+    },
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New abbreviation",
+      "default": null,
+      "validation": "Must be unique within the same parent when provided."
+    },
+    {
+      "name": "--mobilization-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New mobilization method",
+      "default": null,
+      "validation": "Must be one of: crew, heavy_equipment_transport, lowboy, itself, trailer."
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New parent classification ID",
+      "default": null,
+      "validation": "Required for broker-specific classifications."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/mobilizable.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "29a78e1e8cdcdfb6170cfd6d4bcee92b47d56e26dca31588f5e43eb5562eced9",
+  "full_path": "view broker-tenders show",
+  "description": "Show broker tender details.",
+  "permissions": "Admins and users visible via BrokerTenderPolicy::Scope (broker members of the buyer broker, customer managers with customer-managed trucker relationships to the seller, and trucker managers/drivers with rate access for non-editing tenders). Rates and payment_terms fields are hidden unless the user is an admin, broker member, managed trucker member, or customer member with a direct trucker relationship.",
+  "side_effects": null,
+  "validation_notes": "Requires a broker tender ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_tenders_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_tender_resource.rb"
+    }
+  ]
+}

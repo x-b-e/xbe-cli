@@ -1,0 +1,342 @@
+{
+  "id": "e3ed2dca71c160cfdc47454da1b02a9beda75d4c61e6e822e9ee4a2b04e3afcc",
+  "full_path": "view administrative-incidents list",
+  "description": "List administrative incidents",
+  "permissions": "Admins can list administrative incidents. Non-admins can list incidents whose subjects are within their policy scope (subject-specific policy scope with can_mutate true) for valid subject types.",
+  "side_effects": null,
+  "validation_notes": "--subject and --subject-id cannot be used together. --subject-id requires --subject-type. --subject must use Type|ID with allowed types: Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, JobProductionPlan, TenderJobScheduleShift, ProjectTransportPlan. --subject-type values are limited to: JobProductionPlan, TenderJobScheduleShift, Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, ProjectTransportPlan. Boolean filters require true/false values: --has-parent, --has-equipment, --has-live-action-items, --zero-incident-tags, --did-stop-work. Date filters: --start-on/--start-on-min/--start-on-max require YYYY-MM-DD; --start-at-min/--start-at-max/--end-at-min/--end-at-max require ISO 8601 timestamps. --natures values must be valid incident natures: personal, property. --status values must be valid incident statuses: open, closed, abandoned, processing, parked. --kind values must be valid incident kinds: capacity, good_catch, near_miss, planning, quality, trucking. --severity values must be valid incident severities: low, medium, high, catastrophic. If --net-impact-dollars is set, the CLI uses it to populate missing --net-impact-dollars-min and --net-impact-dollars-max.",
+  "flags": [
+    {
+      "name": "status",
+      "required": false,
+      "type": "string",
+      "description": "Filter by status (comma-separated)",
+      "validation": "Values must be valid incident statuses: open, closed, abandoned, processing, parked."
+    },
+    {
+      "name": "kind",
+      "required": false,
+      "type": "string",
+      "description": "Filter by kind (comma-separated)",
+      "validation": "Values must be valid incident kinds: capacity, good_catch, near_miss, planning, quality, trucking."
+    },
+    {
+      "name": "severity",
+      "required": false,
+      "type": "string",
+      "description": "Filter by severity (comma-separated)",
+      "validation": "Values must be valid incident severities: low, medium, high, catastrophic."
+    },
+    {
+      "name": "broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated)"
+    },
+    {
+      "name": "customer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated)"
+    },
+    {
+      "name": "developer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID (comma-separated)"
+    },
+    {
+      "name": "trucker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (comma-separated)"
+    },
+    {
+      "name": "contractor",
+      "required": false,
+      "type": "string",
+      "description": "Filter by contractor ID (comma-separated)"
+    },
+    {
+      "name": "material-supplier",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (comma-separated)"
+    },
+    {
+      "name": "material-site",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated)"
+    },
+    {
+      "name": "job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID (comma-separated)"
+    },
+    {
+      "name": "job-production-plan-project",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan project ID (comma-separated)"
+    },
+    {
+      "name": "equipment",
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID (comma-separated)"
+    },
+    {
+      "name": "assignee",
+      "required": false,
+      "type": "string",
+      "description": "Filter by assignee user ID (comma-separated)"
+    },
+    {
+      "name": "created-by",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID (comma-separated)"
+    },
+    {
+      "name": "parent",
+      "required": false,
+      "type": "string",
+      "description": "Filter by parent incident ID (comma-separated)"
+    },
+    {
+      "name": "subject",
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject Type|ID (e.g. Broker|123)",
+      "validation": "Format: Type|ID. Allowed types: Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, JobProductionPlan, TenderJobScheduleShift, ProjectTransportPlan."
+    },
+    {
+      "name": "subject-type",
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject type (Broker, Customer, JobProductionPlan, etc.)",
+      "validation": "Allowed values: JobProductionPlan, TenderJobScheduleShift, Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, ProjectTransportPlan."
+    },
+    {
+      "name": "subject-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject ID (requires --subject-type)"
+    },
+    {
+      "name": "not-subject-type",
+      "required": false,
+      "type": "string",
+      "description": "Filter by excluding subject types (comma-separated)"
+    },
+    {
+      "name": "has-parent",
+      "required": false,
+      "type": "string",
+      "description": "Filter by has parent (true/false)",
+      "validation": "Value must be true or false."
+    },
+    {
+      "name": "has-equipment",
+      "required": false,
+      "type": "string",
+      "description": "Filter by has equipment (true/false)",
+      "validation": "Value must be true or false."
+    },
+    {
+      "name": "has-live-action-items",
+      "required": false,
+      "type": "string",
+      "description": "Filter by has live action items (true/false)",
+      "validation": "Value must be true or false."
+    },
+    {
+      "name": "incident-tag",
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident tag ID (comma-separated)"
+    },
+    {
+      "name": "incident-tag-slug",
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident tag slug"
+    },
+    {
+      "name": "zero-incident-tags",
+      "required": false,
+      "type": "string",
+      "description": "Filter by zero incident tags (true/false)",
+      "validation": "Value must be true or false."
+    },
+    {
+      "name": "root-causes",
+      "required": false,
+      "type": "string",
+      "description": "Filter by root cause IDs (comma-separated)"
+    },
+    {
+      "name": "action-items",
+      "required": false,
+      "type": "string",
+      "description": "Filter by action item IDs (comma-separated)"
+    },
+    {
+      "name": "tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID (comma-separated)"
+    },
+    {
+      "name": "tender-job-schedule-shift-driver",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift driver ID (comma-separated)"
+    },
+    {
+      "name": "tender-job-schedule-shift-trucker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift trucker ID (comma-separated)"
+    },
+    {
+      "name": "job-number",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job number"
+    },
+    {
+      "name": "notifiable-to",
+      "required": false,
+      "type": "string",
+      "description": "Filter by notifiable-to user ID (comma-separated)"
+    },
+    {
+      "name": "user-has-stake",
+      "required": false,
+      "type": "string",
+      "description": "Filter by user-has-stake user ID (comma-separated)"
+    },
+    {
+      "name": "responsible-person",
+      "required": false,
+      "type": "string",
+      "description": "Filter by responsible person user ID (comma-separated)"
+    },
+    {
+      "name": "natures",
+      "required": false,
+      "type": "string",
+      "description": "Filter by nature (comma-separated: personal,property)",
+      "validation": "Values must be valid incident natures: personal, property."
+    },
+    {
+      "name": "did-stop-work",
+      "required": false,
+      "type": "string",
+      "description": "Filter by did stop work (true/false)",
+      "validation": "Value must be true or false."
+    },
+    {
+      "name": "start-on",
+      "required": false,
+      "type": "string",
+      "description": "Filter by exact start date (YYYY-MM-DD)",
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "start-on-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start date (YYYY-MM-DD)",
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "start-on-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start date (YYYY-MM-DD)",
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "start-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start timestamp (ISO 8601)",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "start-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start timestamp (ISO 8601)",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "end-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum end timestamp (ISO 8601)",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "end-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum end timestamp (ISO 8601)",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "net-impact-dollars",
+      "required": false,
+      "type": "string",
+      "description": "Filter by exact net impact dollars"
+    },
+    {
+      "name": "net-impact-dollars-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum net impact dollars"
+    },
+    {
+      "name": "net-impact-dollars-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum net impact dollars"
+    },
+    {
+      "name": "q",
+      "required": false,
+      "type": "string",
+      "description": "Search query"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/administrative_incidents_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/administrative_incidents_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/administrative_incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    }
+  ]
+}

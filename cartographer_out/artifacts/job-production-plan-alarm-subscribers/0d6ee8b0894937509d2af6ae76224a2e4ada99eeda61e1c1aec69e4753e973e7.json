@@ -1,0 +1,46 @@
+{
+  "description": "List job production plan alarm subscribers with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan alarm ID",
+      "name": "job-production-plan-alarm",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by subscriber user ID",
+      "name": "subscriber",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view job-production-plan-alarm-subscribers list",
+  "id": "0d6ee8b0894937509d2af6ae76224a2e4ada99eeda61e1c1aec69e4753e973e7",
+  "permissions": "Access is authorized via JobProductionPlanAlarmSubscriberPolicy and delegated to the related job production plan alarm; scope is limited to job production plan alarms tied to job production plans the user is permitted to access.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_alarm_subscribers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_alarm_subscriber_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_alarm_subscriber_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_alarm_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "No arguments allowed."
+}

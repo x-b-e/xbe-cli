@@ -1,0 +1,23 @@
+{
+  "id": "d4be402076375ce1eb282f977fd96ee225c9b64e51f2e6994f0b9b6e6f125312",
+  "full_path": "view customer-memberships show",
+  "description": "Show the full details of a specific customer membership.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_memberships_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_membership_policy.rb"
+    }
+  ]
+}

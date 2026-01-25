@@ -1,0 +1,118 @@
+{
+  "id": "1524b40b056b80874a4db2d08e7049f2c15a1fc25201ebbcba7bdf5803e38769",
+  "full_path": "do material-types create",
+  "description": "Create a new material type.",
+  "permissions": "Allowed for admins. Non-admins can create only when a material supplier is set and they are a manager member of that material supplier or a member of its broker.",
+  "side_effects": "Creates a material type record. For generic types, may refresh cached generic material type names after commit.",
+  "validation_notes": "name is required and cannot include restricted characters : or tabs/newlines. name and fully qualified name must be unique (generic types unique without a material supplier; supplier-specific unique per supplier). start-site-type must be JobSite or MaterialSite when provided. lbs-per-cubic-foot must be greater than 0 when provided. aggregate-gradation and aggregate-ecce must be between 0 and 100 when provided. If parent-material-type belongs to a material supplier, material-supplier must be set and match. If material-supplier is set, parent-material-type is required unless the server override flag is used.",
+  "flags": [
+    {
+      "name": "--aggregate-bed",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Aggregate bed",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--aggregate-ecce",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Aggregate ECCE",
+      "default": null,
+      "validation": "Must be between 0 and 100."
+    },
+    {
+      "name": "--aggregate-gradation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Aggregate gradation",
+      "default": null,
+      "validation": "Must be between 0 and 100."
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-display-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Display name override",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lbs-per-cubic-foot",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Pounds per cubic foot",
+      "default": null,
+      "validation": "Must be a number greater than 0."
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material supplier ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material type name (required)",
+      "default": null,
+      "validation": "Required; must not include : or tabs/newlines."
+    },
+    {
+      "name": "--parent-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-site-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start site type",
+      "default": null,
+      "validation": "Must be JobSite or MaterialSite when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_type.rb"
+    }
+  ]
+}

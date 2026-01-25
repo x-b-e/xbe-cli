@@ -1,0 +1,37 @@
+{
+  "description": "Delete a project estimate set",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do project-estimate-sets delete",
+  "id": "75f7454e029663e65fc11a090269449b224af5949e0aee24f504cf03922ffa00",
+  "permissions": "Allowed for users who can update the related project (ProjectPolicy update? via delegated policy).",
+  "side_effects": "Deletes the project estimate set and its dependent estimates (revenue item and phase estimates, phase dates estimates).",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_estimate_sets_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/project_estimate_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_estimate_set_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. --confirm is required. Deletion is blocked if other estimate sets reference this one as a backup estimate set."
+}

@@ -1,0 +1,42 @@
+{
+  "description": "List retainer earning statuses with filtering and pagination",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by retainer ID",
+      "name": "--retainer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by calculated date (YYYY-MM-DD)",
+      "name": "--calculated-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "full_path": "view retainer-earning-statuses list",
+  "id": "293825e92d9ec44d835eb6b37b5931c00fac47738fc1e09ba907c4ec6c75cbaa",
+  "permissions": "Access is scoped by RetainerEarningStatusPolicy; non-admin users only see statuses whose retainer_id is in their Retainer policy scope.",
+  "side_effects": "None; read-only API request.",
+  "sources": [
+    {
+      "file_path": "internal/cli/retainer_earning_statuses_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/retainer_earning_status_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_earning_status_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "calculated-on must be a date in YYYY-MM-DD format when provided."
+}

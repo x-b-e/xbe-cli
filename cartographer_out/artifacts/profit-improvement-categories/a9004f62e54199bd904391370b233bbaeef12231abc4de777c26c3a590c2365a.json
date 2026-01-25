@@ -1,0 +1,33 @@
+{
+  "id": "a9004f62e54199bd904391370b233bbaeef12231abc4de777c26c3a590c2365a",
+  "full_path": "do profit-improvement-categories update",
+  "description": "Update an existing profit improvement category.",
+  "permissions": "No users can update profit improvement categories; policy denies update and categories are read-only via the API.",
+  "side_effects": "Updates profit improvement category attributes.",
+  "validation_notes": "At least one updatable field must be provided. Name, if provided, must be present and unique.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Category name",
+      "default": null,
+      "validation": "Must be unique if provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_profit_improvement_categories_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_category_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement_category.rb"
+    }
+  ]
+}

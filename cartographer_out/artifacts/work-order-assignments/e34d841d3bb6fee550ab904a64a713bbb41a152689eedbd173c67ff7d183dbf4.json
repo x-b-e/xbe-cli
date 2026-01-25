@@ -1,0 +1,42 @@
+{
+  "description": "Create a work order assignment.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Work order ID (required). Example: 123.",
+      "name": "--work-order",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID (required). Example: 456.",
+      "name": "--user",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do work-order-assignments create",
+  "id": "e34d841d3bb6fee550ab904a64a713bbb41a152689eedbd173c67ff7d183dbf4",
+  "permissions": "Allowed if the user has delegated create permission on the related work order, or if the assignment user is the current user and the user is a technician in the brokers business unit and the work orders responsible party business unit.",
+  "side_effects": "Creates a work order assignment linking a user to a work order.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_work_order_assignments_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/work_order_assignment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/work_order_assignment.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Both --work-order and --user are required. Work order and user must exist if IDs are provided. User ID must be unique per work order ID."
+}

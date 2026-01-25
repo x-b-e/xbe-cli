@@ -1,0 +1,64 @@
+{
+  "description": "Update an existing customer tender offered buyer notification subscription.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID.",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": "Cannot be empty when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID.",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": "Cannot be empty when provided."
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Notify by text (true/false).",
+      "name": "--notify-by-txt",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Notify by email (true/false).",
+      "name": "--notify-by-email",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do customer-tender-offered-buyer-notification-subscriptions update",
+  "id": "211bf5c87617c52a209f0cdf3b88b558af43e070ed61e4dac3e8cfd2969d90e0",
+  "permissions": "User must have a broker membership with the broker on the subscription.",
+  "side_effects": "Updates the customer tender offered buyer notification subscription.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_customer_tender_offered_buyer_notification_subscriptions_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_offered_buyer_notification_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/notification_subscriptions/customer_tender_offered_buyer_notification_subscription.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/customer_tender_offered_buyer_notification_subscription_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Subscription ID argument is required. At least one field flag must be provided. If --broker or --user is provided, it cannot be empty. The user must have a broker membership with the broker."
+}

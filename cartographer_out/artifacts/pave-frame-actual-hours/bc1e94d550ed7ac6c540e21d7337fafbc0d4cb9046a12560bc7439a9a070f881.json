@@ -1,0 +1,23 @@
+{
+  "id": "bc1e94d550ed7ac6c540e21d7337fafbc0d4cb9046a12560bc7439a9a070f881",
+  "full_path": "view pave-frame-actual-hours list",
+  "description": "List pave frame actual hours.",
+  "permissions": "Non-admin users must have broker memberships to see any records; otherwise the policy scope returns none.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/pave_frame_actual_hours_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/pave_frame_actual_hour_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/pave_frame_actual_hour_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "description": "Update a parking site.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Whether the site is active",
+      "name": "--is-active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Active start time (ISO 8601)",
+      "name": "--active-start",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 date-time."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Active end time (ISO 8601)",
+      "name": "--active-end",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 date-time; must be after active-start when both are set."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address of the parking site",
+      "name": "--address",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Latitude coordinate",
+      "name": "--latitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Longitude coordinate",
+      "name": "--longitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip geocoding the address",
+      "name": "--skip-geocoding",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do parking-sites update",
+  "id": "3b93be6236d108dd0915aa7ec817904fab75563abc3d67d48d2326d144367410",
+  "permissions": "Allowed if the user can create the parked resource (per its policy); if parked is nil, update is allowed by policy.",
+  "side_effects": "Updates a parking site; may trigger address geocoding unless skip-geocoding is set.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_parking_sites_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/parking_site_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/parking_site_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/parking_site.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires an <id> argument. At least one attribute flag must be provided. If active_start is set, active_end must be greater than active_start when provided. address must be present (may be derived from the parked record). Active parking sites enforce uniqueness of parked_id scoped to parked_type."
+}

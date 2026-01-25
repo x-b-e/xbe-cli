@@ -1,0 +1,68 @@
+{
+  "description": "Create a lineup scenario trailer lineup job schedule shift.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Lineup scenario trailer ID (required)",
+      "name": "--lineup-scenario-trailer",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Lineup scenario lineup job schedule shift ID (required)",
+      "name": "--lineup-scenario-lineup-job-schedule-shift",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Start site distance minutes (non-negative integer)",
+      "name": "--start-site-distance-minutes",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be a non-negative integer."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "End site distance minutes (non-negative integer)",
+      "name": "--end-site-distance-minutes",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be a non-negative integer."
+    }
+  ],
+  "full_path": "do lineup-scenario-trailer-lineup-job-schedule-shifts create",
+  "id": "501f6d3772c03910d128f5b6195d8d0ba8a2012e25160e9eda00e6f18b985dbc",
+  "permissions": "User must be an admin or a manager member of the broker that owns the related lineup scenario (create is delegated through the lineup scenario).",
+  "side_effects": "Creates a lineup scenario trailer lineup job schedule shift record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_scenario_trailer_lineup_job_schedule_shifts_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_trailer_lineup_job_schedule_shift_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/lineup_scenario_trailer_lineup_job_schedule_shift.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trailer_lineup_job_schedule_shift_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--lineup-scenario-trailer and --lineup-scenario-lineup-job-schedule-shift are required. start-site-distance-minutes and end-site-distance-minutes must be non-negative integers when provided. The lineup scenario trailer and lineup scenario lineup job schedule shift must belong to the same lineup scenario."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "996f55262abf2c173f642506b918df7ecdd3b6a4532049b8c5f198709df72239",
+  "full_path": "do truck-scopes delete",
+  "description": "Delete a truck scope.",
+  "permissions": "Allowed for admin users or users who can manage the truck scope organization per OrganizationOwnedPolicy.",
+  "side_effects": "Deletes a truck scope record.",
+  "validation_notes": "Requires scope ID argument. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_truck_scopes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/truck_scope_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/organization_owned_policy.rb"
+    }
+  ]
+}

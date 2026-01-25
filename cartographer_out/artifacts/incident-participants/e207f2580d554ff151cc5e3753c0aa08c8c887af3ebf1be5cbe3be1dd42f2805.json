@@ -1,0 +1,65 @@
+{
+  "id": "e207f2580d554ff151cc5e3753c0aa08c8c887af3ebf1be5cbe3be1dd42f2805",
+  "full_path": "do incident-participants create",
+  "description": "Create an incident participant",
+  "permissions": null,
+  "side_effects": "Creates an incident participant record.",
+  "validation_notes": "--incident and --name are required. Either --email-address or --mobile-number is required.",
+  "flags": [
+    {
+      "name": "--incident",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Incident ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Participant name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--email-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Email address",
+      "default": null,
+      "validation": "Required if --mobile-number is blank. Example: jamie@example.com"
+    },
+    {
+      "name": "--mobile-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Mobile number",
+      "default": null,
+      "validation": "Required if --email-address is blank. Example: +18153471234"
+    },
+    {
+      "name": "--involvement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Involvement summary",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_participants_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_participant_policy.rb"
+    }
+  ]
+}

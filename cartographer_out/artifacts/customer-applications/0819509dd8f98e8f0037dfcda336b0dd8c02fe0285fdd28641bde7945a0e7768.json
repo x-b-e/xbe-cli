@@ -1,0 +1,184 @@
+{
+  "id": "0819509dd8f98e8f0037dfcda336b0dd8c02fe0285fdd28641bde7945a0e7768",
+  "full_path": "do customer-applications create",
+  "description": "Create a customer application",
+  "permissions": "Allowed when the current user is the application user and does not change status, or when the user is a member of the broker for the application and the status is not approved; admins can act via full scope.",
+  "side_effects": "Creates a customer application record and related broker/user (and optional job types) relationships.",
+  "validation_notes": "--company-name, --company-address, --requires-union-drivers, --is-trucking-company, --broker, and --user are required; requires-union-drivers and is-trucking-company must be true or false; status must be one of pending, reviewing, denied, approved; company-url must be a valid URL when provided; estimated-annual-material-transport-spend must be numeric and >= 0 when provided; company-name and company-address are required by the model; broker and user relationships are required.",
+  "flags": [
+    {
+      "name": "--company-name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Applicant company name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Company address (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-union-drivers",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Requires union drivers (true/false, required)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--is-trucking-company",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Is trucking company (true/false, required)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Status (pending, reviewing, denied, approved)",
+      "default": null,
+      "validation": "one of pending, reviewing, denied, approved"
+    },
+    {
+      "name": "--company-url",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Company website URL",
+      "default": null,
+      "validation": "valid URL"
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Longitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-place-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Google Place ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-plus-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Plus code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-company-address-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip geocoding (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--estimated-annual-material-transport-spend",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated annual spend",
+      "default": null,
+      "validation": "numeric >= 0"
+    },
+    {
+      "name": "--job-types",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Job type IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated job type IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_applications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/customer_application.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/customer_like.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/customer_like_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_application_resource.rb"
+    }
+  ]
+}

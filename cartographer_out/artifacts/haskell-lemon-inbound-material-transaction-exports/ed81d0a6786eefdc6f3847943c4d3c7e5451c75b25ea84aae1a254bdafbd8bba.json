@@ -1,0 +1,68 @@
+{
+  "id": "ed81d0a6786eefdc6f3847943c4d3c7e5451c75b25ea84aae1a254bdafbd8bba",
+  "full_path": "do haskell-lemon-inbound-material-transaction-exports create",
+  "description": "Create a Haskell Lemon inbound material transaction export.",
+  "permissions": "Allowed for admins or users who are members of the Haskell Lemon broker organization tied to the export (policy create?).",
+  "side_effects": "Creates an export record and enqueues asynchronous CSV generation; when eligible, it sends an email with the CSV to recipients (defaults are applied when not a test export).",
+  "validation_notes": "transaction-date is required and should be YYYY-MM-DD; when is-test is true, to-addresses must be provided; to-addresses and cc-addresses accept comma-separated strings or repeated values.",
+  "flags": [
+    {
+      "name": "--transaction-date",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Transaction date (YYYY-MM-DD) (required)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--to-addresses",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Recipient email addresses (comma-separated or repeated)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--cc-addresses",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "CC email addresses (comma-separated or repeated)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-test",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Create a test export (requires --to-addresses)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_haskell_lemon_inbound_material_transaction_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/abstract_haskell_lemon_material_transaction_export.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/abstract_haskell_lemon_material_transaction_transaction_date_export.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/haskell_lemon_material_transaction_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/haskell_lemon_material_transaction_export_policy.rb"
+    }
+  ]
+}

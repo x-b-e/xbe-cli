@@ -1,0 +1,23 @@
+{
+  "id": "bbe97a57342bae0a92ecd248ca1fb98bd033bb2db9835a52b4944e6050c788fc",
+  "full_path": "view keep-truckin-vehicles show",
+  "description": "Show the full details of a KeepTruckin vehicle.",
+  "permissions": "Admin users can view any KeepTruckin vehicle. Non-admin users can view vehicles only for brokers in their visible memberships (scope filters by broker_id).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (KeepTruckin vehicle ID) and it must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/keep_truckin_vehicles_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/keep_truckin_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "id": "ee79ed69d23a4b48292b8258c4f586f1d33505e073d4888427c3e1cae6e4105a",
+  "full_path": "do trucker-memberships update",
+  "description": "Update an existing trucker membership.",
+  "permissions": "Admins can update trucker memberships; if changing admin status, the user must be a practical admin of the organization and cannot change their own membership. Non-admin users can update trucker memberships when they are a broker member for the trucker\"s broker, are a trucker manager member for the trucker, or are a customer manager for a customer linked to the trucker.",
+  "side_effects": "Updates fields on a trucker membership record and can add, change, or clear the project office relationship.",
+  "validation_notes": "The <id> argument (trucker membership ID) is required. At least one field flag must be provided. User and trucker cannot be changed after creation. --can-validate-profit-improvements must not be true for trucker memberships. --is-unapproved-time-card-subscriber and --is-default-job-production-plan-subscriber must be false for trucker memberships. Trucker memberships do not support rate editor, time card auditor, or equipment rental team member settings. Setting --project-office to an empty value clears the relationship.",
+  "flags": [
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Role: operations or manager",
+      "default": null,
+      "validation": "operations|manager"
+    },
+    {
+      "name": "--is-admin",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Admin status (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Title within the organization",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--color-hex",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Display color (e.g. #FF0000)",
+      "default": null,
+      "validation": "Hex color such as #FF0000"
+    },
+    {
+      "name": "--external-employee-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External system employee ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-sort-order",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Manual sort order",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Membership start date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date/time"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Membership end date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date/time"
+    },
+    {
+      "name": "--drives-shift-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Shift type: any, day, or night",
+      "default": null,
+      "validation": "any|day|night"
+    },
+    {
+      "name": "--trailer-coassignments-reset-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer coassignment reset date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project office ID",
+      "default": null,
+      "validation": "Provide an ID to set; provide empty to clear."
+    },
+    {
+      "name": "--can-see-rates-as-driver",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can see rates as driver (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--can-see-rates-as-manager",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can see rates as manager (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--can-validate-profit-improvements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can validate profit improvements (true/false)",
+      "default": null,
+      "validation": "true|false (must be false for trucker memberships)"
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is geofence violation team member (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is unapproved time card subscriber (true/false; must be false)",
+      "default": null,
+      "validation": "true|false (must be false)"
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is default job production plan subscriber (true/false; must be false)",
+      "default": null,
+      "validation": "true|false (must be false)"
+    },
+    {
+      "name": "--enable-recap-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable recap notifications (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--enable-inventory-capacity-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable inventory capacity notifications (true/false)",
+      "default": null,
+      "validation": "true|false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_memberships_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/memberships/trucker_membership.rb"
+    }
+  ]
+}

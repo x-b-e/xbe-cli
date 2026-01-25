@@ -1,0 +1,23 @@
+{
+  "id": "594f55ded794db07a0051d567ccf86b59f806f2c1afffc75eab7a960477e87e4",
+  "full_path": "view commitments show",
+  "description": "Show full details of a commitment.",
+  "permissions": "Admin users can view all commitments. Non-admin users can view commitments within policy scope where they have customer, broker, or trucker memberships matching the buyer or seller organization.",
+  "side_effects": "None.",
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "25a45795e5ee5a1b675bc84600fca4504bb867a34e1128f7ac09b8b05c39d622",
+  "full_path": "do material-transaction-inspection-rejections create",
+  "description": "Create a new material transaction inspection rejection",
+  "permissions": "Allowed for users permitted to create related material transaction inspections per MaterialTransactionInspectionPolicy (delegated).",
+  "side_effects": "Creates a material transaction inspection rejection record.",
+  "validation_notes": "--material-transaction-inspection, --unit-of-measure, and --quantity are required. quantity must be greater than 0. material transaction inspection must be open.",
+  "flags": [
+    {
+      "name": "--material-transaction-inspection",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material transaction inspection ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Rejected quantity (must be > 0)",
+      "default": null,
+      "validation": "> 0"
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Rejection note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_inspection_rejections_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_inspection_rejection.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_inspection_rejection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_rejection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_policy.rb"
+    }
+  ]
+}

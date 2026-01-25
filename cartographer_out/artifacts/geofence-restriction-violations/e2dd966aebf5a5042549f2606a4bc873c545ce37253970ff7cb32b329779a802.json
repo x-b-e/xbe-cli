@@ -1,0 +1,27 @@
+{
+  "id": "e2dd966aebf5a5042549f2606a4bc873c545ce37253970ff7cb32b329779a802",
+  "full_path": "view geofence-restriction-violations show",
+  "description": "Show the full details of a specific geofence restriction violation.",
+  "permissions": "Admins can view any geofence restriction violation. Non-admin users can view violations for geofences belonging to brokers where they have memberships.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/geofence_restriction_violations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/geofence_restriction_violation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/geofence_restriction_violation_policy.rb"
+    }
+  ]
+}

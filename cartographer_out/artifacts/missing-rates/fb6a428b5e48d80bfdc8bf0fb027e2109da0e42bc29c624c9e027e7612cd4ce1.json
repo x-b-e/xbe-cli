@@ -1,0 +1,23 @@
+{
+  "id": "fb6a428b5e48d80bfdc8bf0fb027e2109da0e42bc29c624c9e027e7612cd4ce1",
+  "full_path": "view missing-rates show",
+  "description": "Show the full details of a missing rate.",
+  "permissions": "Admins can show any missing rate. Non-admins can show a missing rate only if it is within the broker manager scope for the job customer broker.",
+  "side_effects": null,
+  "validation_notes": "The missing rate id argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/missing_rates_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/missing_rate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "description": "Show project estimate set details",
+  "flags": [],
+  "full_path": "view project-estimate-sets show",
+  "id": "867a5dce3c15ec2fb19faef42db7a376318cf50794e961542d6bd8925bd9c526",
+  "permissions": "Allowed for users who can access the related project via ProjectPolicy scope (delegated policy through project relationship).",
+  "side_effects": "May enqueue cache refresh for effective estimates when the estimate set prefers cached effective estimates.",
+  "sources": [
+    {
+      "file_path": "internal/cli/project_estimate_sets_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_estimate_set_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_estimate_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_estimate_set_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required."
+}

@@ -1,0 +1,55 @@
+{
+  "id": "1888cbbd063a6d14e6c4558c5f66ceb69b796ca7f4caf0f6fd4a22ab89d9f91d",
+  "full_path": "do customer-vendors create",
+  "description": "Create a customer-vendor relationship",
+  "permissions": "User must be able to see the organization and partner via their policies and must be an admin, a broker-branch member, or an organization manager (TradingPartnerPolicy).",
+  "side_effects": "Creates a customer-vendor trading partner relationship record.",
+  "validation_notes": "--customer is required. --vendor is required. Vendor must be in Type|ID format and only Trucker is supported. Organization and partner are required by the TradingPartner model.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-accounting-customer-vendor-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External accounting customer vendor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--vendor",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Vendor in Type|ID format (Trucker)",
+      "default": null,
+      "validation": "Format Type|ID; only Trucker is supported."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_vendors_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trading_partner.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trading_partners/customer_vendor.rb"
+    }
+  ]
+}

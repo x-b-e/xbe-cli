@@ -1,0 +1,31 @@
+{
+  "id": "8b2c34b715bf68c24f1044e23c2d029b0d67557096ffed8451f169e79a43af36",
+  "full_path": "view temeda-vehicles show",
+  "description": "Show temeda vehicle details",
+  "permissions": "Admin users or members of the broker associated with the temeda vehicle; access is limited by policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument for the temeda vehicle.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/temeda_vehicles_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/temeda_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "70116ec7ab3fab5009a75723b29a1eec3ee8904b0229682208a3beb04af46ef3",
+  "full_path": "do certification-types delete",
+  "description": "Delete a certification type.",
+  "permissions": "User must be an admin or a manager who is a member of the certification type's broker.",
+  "side_effects": "Permanently deletes the certification type if it has no associated certifications.",
+  "validation_notes": "Requires certification type ID argument and --confirm flag. Deletion is blocked if the certification type has associated certifications.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_certification_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/certification_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/certification_type_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "2ef12c00aa5248290616e0a730aec4fd510e029aab85da66a38b1a6507680654",
+  "full_path": "do quality-control-classifications delete",
+  "description": "Delete a quality control classification.",
+  "permissions": "Allowed for admins or users who are manager members of the broker organization, and only if the classification can be deleted.",
+  "side_effects": "Deletes the specified quality control classification.",
+  "validation_notes": "Classification ID argument is required. --confirm flag is required. Deletion is blocked when the classification is associated with a job material type quality control requirement.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_quality_control_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/quality_control_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/quality_control_classification.rb"
+    }
+  ]
+}

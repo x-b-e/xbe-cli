@@ -1,0 +1,55 @@
+{
+  "id": "51fc9b4a2d5b9c12d79fdee5a64821b895067cc7253a5de430fa12fc593c3258",
+  "full_path": "view integration-invoices-batch-exports list",
+  "description": "List integration invoices batch exports with filtering and pagination.",
+  "permissions": "Admin users can list all integration invoices batch exports. Non-admin users can list exports only when they are linked to integration exports whose integration configs belong to brokers the user is a visible member of; otherwise no records are returned.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--organization-invoices-batch",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization invoices batch ID. Example: --organization-invoices-batch 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-invoices-batch-file",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization invoices batch file ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--integration-export",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration export ID. Example: --integration-export 456.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/integration_invoices_batch_exports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/integration_invoices_batch_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/integration_invoices_batch_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

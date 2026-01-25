@@ -1,0 +1,271 @@
+{
+  "id": "c407040a555200fde1a20977ee25aa0f2b6f5c0c1fd5bf11f5255f569a4ca908",
+  "full_path": "do trucker-settings update",
+  "description": "Update trucker settings.",
+  "permissions": "Allowed for admins, broker members of the trucker, or trucker manager members; trucker managers are blocked if changing is_trucker_shift_rejection_permitted.",
+  "side_effects": "If notify_driver_when_gps_not_available changes on save, a background job updates related tender job schedule shifts notify_driver_when_gps_not_available values for upcoming shifts.",
+  "validation_notes": "A trucker settings ID argument is required. At least one field to update is required. Boolean flags expect true/false values. Date fields use YYYY-MM-DD. Time fields use HH:MM.",
+  "flags": [
+    {
+      "name": "auto-combine-overlapping-driver-days",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Auto-combine overlapping driver days (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "auto-generate-time-sheet-line-items-per-job",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Auto-generate time sheet line items per job (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "billing-period-day-count",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billing period day count.",
+      "default": null,
+      "validation": "Integer."
+    },
+    {
+      "name": "billing-period-end-invoice-offset-day-count",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billing period end invoice offset day count.",
+      "default": null,
+      "validation": "Integer."
+    },
+    {
+      "name": "billing-period-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billing period start date (YYYY-MM-DD).",
+      "default": null,
+      "validation": "Date format YYYY-MM-DD."
+    },
+    {
+      "name": "create-detected-production-incidents",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Create detected production incidents (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "day-shift-assignment-reminder-time",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Day shift assignment reminder time (HH:MM) (e.g., 08:00).",
+      "default": null,
+      "validation": "Time format HH:MM."
+    },
+    {
+      "name": "default-hours-after-which-overtime-applies",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default hours after which overtime applies.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "default-payment-terms-and-conditions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default payment terms and conditions.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "default-tender-dispatch-instructions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default tender dispatch instructions.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "default-time-sheet-line-item-classification-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default time sheet line item classification ID.",
+      "default": null,
+      "validation": "Integer."
+    },
+    {
+      "name": "deliver-new-invoices",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Deliver new invoices (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "generate-daily-invoice",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Generate daily invoice (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "group-daily-invoice-by-job-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group daily invoice by job number (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "invoice-date-calculation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Invoice date calculation (average/latest).",
+      "default": null,
+      "validation": "Enum: average, latest."
+    },
+    {
+      "name": "invoices-batch-processing-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Invoices batch processing start date (YYYY-MM-DD).",
+      "default": null,
+      "validation": "Date format YYYY-MM-DD."
+    },
+    {
+      "name": "invoices-grouped-by-time-card-start-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group invoices by time card start date (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "is-trucker-shift-rejection-permitted",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is trucker shift rejection permitted (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "logo-svg",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Logo SVG content.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "minimum-driver-tracking-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Minimum driver tracking minutes.",
+      "default": null,
+      "validation": "Integer."
+    },
+    {
+      "name": "night-shift-assignment-reminder-time",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Night shift assignment reminder time (HH:MM) (e.g., 18:00).",
+      "default": null,
+      "validation": "Time format HH:MM."
+    },
+    {
+      "name": "notify-driver-when-gps-not-available",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notify driver when GPS not available (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "primary-color",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Primary color (hex).",
+      "default": null,
+      "validation": "Hex color value."
+    },
+    {
+      "name": "restrict-line-item-classification-edit-to-time-sheet-approver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Restrict line item edits to time sheet approver (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "sets-shift-material-transaction-expectations",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Sets shift material transaction expectations (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "show-planner-info-to-drivers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Show planner info to drivers (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    },
+    {
+      "name": "split-billing-periods-spanning-months",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Split billing periods spanning months (true/false).",
+      "default": null,
+      "validation": "Boolean (true/false)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_settings_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_setting_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_setting_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_settings/trucker_setting.rb"
+    }
+  ]
+}

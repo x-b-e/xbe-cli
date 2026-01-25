@@ -1,0 +1,46 @@
+{
+  "id": "36847abe6bbdaa4a4c4c4ab72e5ee755ae91e44424b7de7d72b61d8070365191",
+  "full_path": "do time-card-cost-code-allocations create",
+  "description": "Create a time card cost code allocation.",
+  "permissions": "Admin users; otherwise users who are practical members of the allocation customer (policy create).",
+  "side_effects": "Creates a time card cost code allocation; touches related time_card and job_production_plan; refreshes invoice revisions; updates project phase cost item actuals.",
+  "validation_notes": "--time-card is required. --details is required and must be a JSON array of allocation objects. Each allocation object may only include cost_code_id, percentage, and project_cost_classification_id; percentage must be between 0 and 1; total percentage across allocations must equal 1.0 (100%); cost_code_id values must belong to the customer; duplicate cost_code_id values are not allowed.",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time card ID",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--details",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Allocation details JSON array",
+      "default": null,
+      "validation": "JSON array. Example: [{\"cost_code_id\":1,\"percentage\":0.6},{\"cost_code_id\":2,\"percentage\":0.4}]."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_cost_code_allocations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_cost_code_allocation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/cost_code_allocation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/cost_code_allocation_policy.rb"
+    }
+  ]
+}

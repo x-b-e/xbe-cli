@@ -1,0 +1,23 @@
+{
+  "id": "1791512d91bc7bd99a21e58321191becb4d2e3027b7ec93138a83c1981c85ab1",
+  "full_path": "view proffer-likes show",
+  "description": "Show the full details of a proffer like.",
+  "permissions": "Any authenticated user can view a proffer like; policy show? resolves via the scope which returns all proffer likes.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (proffer like ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/proffer_likes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/proffer_like_policy.rb"
+    }
+  ]
+}

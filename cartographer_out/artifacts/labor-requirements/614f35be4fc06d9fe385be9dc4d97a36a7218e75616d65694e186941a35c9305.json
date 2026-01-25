@@ -1,0 +1,180 @@
+{
+  "id": "614f35be4fc06d9fe385be9dc4d97a36a7218e75616d65694e186941a35c9305",
+  "full_path": "do labor-requirements create",
+  "description": "Create a labor requirement.",
+  "permissions": "User must be authorized to update the related job production plan; create permission is delegated via CrewRequirementPolicy to the job production plan policy.",
+  "side_effects": "Creates a labor requirement record. When an assignment is created or scheduled on an approved plan, the server may send assignment/reschedule notifications and safety meeting invites and trigger job production plan recap generation.",
+  "validation_notes": "--job-production-plan and --labor-classification are required. --start-at and --end-at must be set together; end-at must be after start-at when provided. explicit inbound/outbound latitude and longitude must form valid coordinate pairs. labor requirements cannot be on job production plans that are only for equipment movement. Assigned laborers must be active, in-scope for the job customer, and meet required credential classifications for the scheduled time. Labor requirements cannot have labor-requirement or origin-material-site set. requires-inbound-movement and requires-outbound-movement must be nil for labor requirements.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--labor-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Labor classification ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--laborer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Laborer ID to assign",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--craft-class",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Craft class ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-cost-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project cost classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; requires --end-at"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; requires --start-at"
+    },
+    {
+      "name": "--mobilization-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Mobilization method (crew, heavy_equipment_transport, lowboy, itself, trailer)",
+      "default": null,
+      "validation": "crew|heavy_equipment_transport|lowboy|itself|trailer"
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-validating-overlapping",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate overlaps (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--explicit-inbound-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit inbound latitude",
+      "default": null,
+      "validation": "Requires explicit inbound longitude and must be a valid latitude."
+    },
+    {
+      "name": "--explicit-inbound-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit inbound longitude",
+      "default": null,
+      "validation": "Requires explicit inbound latitude and must be a valid longitude."
+    },
+    {
+      "name": "--explicit-outbound-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit outbound latitude",
+      "default": null,
+      "validation": "Requires explicit outbound longitude and must be a valid latitude."
+    },
+    {
+      "name": "--explicit-outbound-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit outbound longitude",
+      "default": null,
+      "validation": "Requires explicit outbound latitude and must be a valid longitude."
+    },
+    {
+      "name": "--requires-inbound-movement",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Inbound movement requirement",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--requires-outbound-movement",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Outbound movement requirement",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_labor_requirements.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_labor_requirements_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/labor_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_requirements/labor_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_requirement.rb"
+    }
+  ]
+}

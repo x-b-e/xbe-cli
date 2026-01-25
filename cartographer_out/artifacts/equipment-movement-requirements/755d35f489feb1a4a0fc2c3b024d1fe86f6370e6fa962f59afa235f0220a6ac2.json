@@ -1,0 +1,132 @@
+{
+  "id": "755d35f489feb1a4a0fc2c3b024d1fe86f6370e6fa962f59afa235f0220a6ac2",
+  "full_path": "view equipment-movement-requirements list",
+  "description": "List equipment movement requirements.",
+  "permissions": "Admins can list all equipment movement requirements. Non-admin users can only list requirements for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "origin-at-min-min, origin-at-min-max, destination-at-max-min, destination-at-max-max, created-at-min, created-at-max, updated-at-min, and updated-at-max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--inbound-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by inbound equipment requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--outbound-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by outbound equipment requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--origin-at-min-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by origin-at-min on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--origin-at-min-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by origin-at-min on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--destination-at-max-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by destination-at-max on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--destination-at-max-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by destination-at-max on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_requirements_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_requirement_policy.rb"
+    }
+  ]
+}

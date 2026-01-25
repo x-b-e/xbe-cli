@@ -1,0 +1,23 @@
+{
+  "id": "8bb12a2712c0ef4876dff3da8e333e9a9a391ef31565714a4b0969a8feec1d1f",
+  "full_path": "view profit-improvement-subscriptions show",
+  "description": "Show the full details of a profit improvement subscription.",
+  "permissions": "Admin users can view any profit improvement subscription. Non-admin users can view subscriptions only for profit improvements they are authorized to view via the ProfitImprovement policy scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/profit_improvement_subscriptions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/profit_improvement_subscription_resource.rb"
+    }
+  ]
+}

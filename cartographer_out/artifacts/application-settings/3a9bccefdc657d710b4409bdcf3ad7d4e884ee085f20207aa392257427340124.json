@@ -1,0 +1,19 @@
+{
+  "description": "Show the full details of a specific application setting.",
+  "flags": [],
+  "full_path": "view application-settings show",
+  "id": "3a9bccefdc657d710b4409bdcf3ad7d4e884ee085f20207aa392257427340124",
+  "permissions": "Admin users only; non-admin scope resolves no application settings.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/application_settings_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/application_setting_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires application setting ID argument. Access restricted to admin users."
+}

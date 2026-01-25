@@ -1,0 +1,19 @@
+{
+  "id": "b112fc90d54a0f0acbd32e5671132b93c961b3a2d126ff87e399f8ebc3d7e2db",
+  "full_path": "view customer-incident-default-assignees show",
+  "description": "Show customer incident default assignee details",
+  "permissions": "User must have the related customer within Customer policy scope to view the default assignee.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "The <id> argument is required and must be a non-empty customer incident default assignee ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_incident_default_assignees_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_incident_default_assignee_policy.rb"
+    }
+  ]
+}

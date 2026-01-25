@@ -1,0 +1,54 @@
+{
+  "description": "Create an action item key result link",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Action item ID (required)",
+      "name": "--action-item",
+      "required": true,
+      "type": "string",
+      "validation": "Required; must be non-empty. Example: 123."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Key result ID (required)",
+      "name": "--key-result",
+      "required": true,
+      "type": "string",
+      "validation": "Required; must be non-empty. Example: 456."
+    }
+  ],
+  "full_path": "do action-item-key-results create",
+  "id": "903c24826cb0bf3ba45cfbf3cb034059cc61ae06cdaf830e0dd5a55eabeb82e9",
+  "permissions": "User must be authorized to create via ActionItemKeyResultPolicy (delegated to KeyResultPolicy), which requires access to the related key result (and its objective when present).",
+  "side_effects": "Creates a new action item key result link between an action item and a key result.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_action_item_key_results_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/action_item_key_result_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/action_item_key_result.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/models/action_item_key_result_spec.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/action_item_key_result_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/key_result_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --action-item and --key-result (non-empty). Action item and key result must belong to the same broker. The action_item_id must be unique within the key_result_id. Action item and key result relationships are create-only."
+}

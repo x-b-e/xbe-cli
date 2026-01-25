@@ -1,0 +1,46 @@
+{
+  "id": "1156dd5a072b5f9313aaf1a6bb35addae46b2f405bfd9f29fb27b1e1296e4df9",
+  "full_path": "view time-card-approval-audits list",
+  "description": "List time card approval audits.",
+  "permissions": "Admins can list all audits; non-admins can list audits for time cards whose broker tender buyer is in organizations where they are a broker membership manager.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_approval_audits_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_approval_audit_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_approval_audit_resource.rb"
+    }
+  ]
+}

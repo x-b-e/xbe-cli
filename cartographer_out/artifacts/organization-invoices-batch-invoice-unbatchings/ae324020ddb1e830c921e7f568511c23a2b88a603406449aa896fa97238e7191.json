@@ -1,0 +1,23 @@
+{
+  "id": "ae324020ddb1e830c921e7f568511c23a2b88a603406449aa896fa97238e7191",
+  "full_path": "view organization-invoices-batch-invoice-unbatchings list",
+  "description": "List organization invoices batch invoice unbatchings.",
+  "permissions": "Authorization is governed by OrganizationInvoicesBatchInvoiceUnbatchingPolicy. index? is allowed by default in ApplicationPolicy; non-admin visibility is constrained by the policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_invoice_unbatchings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_invoice_unbatching_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

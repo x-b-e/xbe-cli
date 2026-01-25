@@ -1,0 +1,23 @@
+{
+  "id": "6318f70d340588ed6e664b9a6e91f7efe3ad61faa5b3925d4b9f36473a01993a",
+  "full_path": "view prediction-knowledge-bases show",
+  "description": "Show the full details of a prediction knowledge base.",
+  "permissions": "Admin users can view any prediction knowledge base; non-admin users can view only those whose broker is in their broker policy scope (broker membership).",
+  "side_effects": null,
+  "validation_notes": "Argument <id> is required and must be a prediction knowledge base ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prediction_knowledge_bases_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_knowledge_base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_knowledge_base_policy.rb"
+    }
+  ]
+}

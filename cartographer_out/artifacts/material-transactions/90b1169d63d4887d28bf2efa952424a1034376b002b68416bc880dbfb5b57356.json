@@ -1,0 +1,442 @@
+{
+  "id": "90b1169d63d4887d28bf2efa952424a1034376b002b68416bc880dbfb5b57356",
+  "full_path": "view material-transactions list",
+  "description": "List material transactions with filtering",
+  "permissions": "User must be in MaterialTransactionPolicy scope: admins are allowed; non-admins are scoped via visible material suppliers or via trips/sales customers/truckers they can access.",
+  "side_effects": null,
+  "validation_notes": "By default, invalidated and denied statuses are excluded unless --status is set or --include-all is used. If --date is provided, date range filters (--date-min/--date-max) are ignored; otherwise date-min/date-max apply to transaction_at. Server enforces strict boolean values for boolean-like filters (true/false). Server limits page size for users to 100.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by transaction date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum transaction date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum transaction date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--explicit-confirmation-of-match-accuracy",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by explicit confirmation (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--from-import-source",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by import source (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-material-mix-design",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by having material mix design (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--has-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by whether transaction has a shift (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--include-all",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include invalidated and denied transactions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-plan-driver-expecting-inspection",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver expecting inspection (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-voided",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by voided status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--job-or-sales-customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job or sales customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--likely-job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by likely job production plan ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-mix-design",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material mix design ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type-hierarchy-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type hierarchy (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type-not-ultimate-parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude ultimate parent material type ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type-ultimate-parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ultimate parent material type ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--missing-required-mix-design",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by missing required mix design (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--not-from-import-source",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude import source (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full-text search",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--raw-hauler-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by raw hauler type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--raw-is-millings",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by raw millings status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--raw-is-voided",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by raw voided status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--raw-job-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by raw job number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--raw-material-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by raw material ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--raw-truck-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by raw truck name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--raw-trucker-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by raw trucker name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--sales-customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by sales customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-job-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by shift job number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-truck-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by shift truck number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--source",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by source (Type|ID, comma-separated for multiple)",
+      "default": null,
+      "validation": "Type|ID"
+    },
+    {
+      "name": "--source-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by source type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (editing,submitted,accepted,rejected,unmatched,denied,invalidated)",
+      "default": null,
+      "validation": "editing,submitted,accepted,rejected,unmatched,denied,invalidated"
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ticket-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ticket number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker-shift-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker shift set (driver day)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transactions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/material_transactions_controller.rb"
+    }
+  ]
+}

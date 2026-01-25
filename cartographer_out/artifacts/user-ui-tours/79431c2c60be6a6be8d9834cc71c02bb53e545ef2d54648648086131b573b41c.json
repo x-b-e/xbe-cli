@@ -1,0 +1,87 @@
+{
+  "id": "79431c2c60be6a6be8d9834cc71c02bb53e545ef2d54648648086131b573b41c",
+  "full_path": "view user-ui-tours list",
+  "description": "List user UI tours with filtering",
+  "permissions": "Admins can list all user UI tours; non-admin users are limited to user UI tours belonging to themselves.",
+  "side_effects": null,
+  "validation_notes": "--not-id expects a comma-separated list of user UI tour IDs. --created-at-min/--created-at-max and --updated-at-min/--updated-at-max expect ISO 8601 timestamps. --is-created-at and --is-updated-at expect true/false values.",
+  "flags": [
+    {
+      "name": "--not-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude user UI tour IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated IDs."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_ui_tours_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/user_ui_tour_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/policies/user_ui_tour_policy.rb"
+    }
+  ]
+}

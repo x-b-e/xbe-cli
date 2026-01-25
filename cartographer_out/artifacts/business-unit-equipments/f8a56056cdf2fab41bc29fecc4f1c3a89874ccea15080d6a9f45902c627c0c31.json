@@ -1,0 +1,46 @@
+{
+  "id": "f8a56056cdf2fab41bc29fecc4f1c3a89874ccea15080d6a9f45902c627c0c31",
+  "full_path": "do business-unit-equipments create",
+  "description": "Create a business unit equipment link.",
+  "permissions": "Admins, org admins of the broker that owns the business unit, or managers of the business unit can create business unit equipment links.",
+  "side_effects": "Creates a business unit equipment link record.",
+  "validation_notes": "--business-unit example: 123. --equipment example: 456. Equipment can only be linked once per business unit. Business unit and equipment must belong to the same broker.",
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Business unit ID (required)",
+      "default": null,
+      "validation": "Example: 123"
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment ID (required)",
+      "default": null,
+      "validation": "Example: 456"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_equipments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/business_unit_equipment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/business_unit_equipment.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_equipment_policy.rb"
+    }
+  ]
+}

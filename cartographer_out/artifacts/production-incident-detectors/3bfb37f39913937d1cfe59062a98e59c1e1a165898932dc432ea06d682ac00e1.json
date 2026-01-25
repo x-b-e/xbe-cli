@@ -1,0 +1,19 @@
+{
+  "id": "3bfb37f39913937d1cfe59062a98e59c1e1a165898932dc432ea06d682ac00e1",
+  "full_path": "view production-incident-detectors show",
+  "description": "Show production incident detector details",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Detector run ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/production_incident_detectors_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/production_incident_detector_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "description": "Delete a transport order stop material.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do transport-order-stop-materials delete",
+  "id": "1655f523a7bc95cde4cda5114514168ebe18c406871624643a4220d5a06173e0",
+  "permissions": "Requires authorization via TransportOrderStopPolicy for the related transport_order_stop (delegated policy).",
+  "side_effects": "Deletes a transport order stop material record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_transport_order_stop_materials_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/transport_order_stop_material_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/transport_order_stop_material_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. --confirm is required to perform deletion."
+}

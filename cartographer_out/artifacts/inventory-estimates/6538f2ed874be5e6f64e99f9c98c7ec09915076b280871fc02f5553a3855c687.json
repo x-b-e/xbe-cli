@@ -1,0 +1,33 @@
+{
+  "id": "6538f2ed874be5e6f64e99f9c98c7ec09915076b280871fc02f5553a3855c687",
+  "full_path": "do inventory-estimates delete",
+  "description": "Delete an inventory estimate",
+  "permissions": "Admins can delete inventory estimates. Non-admins can delete inventory estimates if they are manager members of the related material supplier or broker.",
+  "side_effects": "Deletes the inventory estimate record when permitted.",
+  "validation_notes": "Requires <id> argument (inventory estimate ID) and --confirm. Deletion is blocked when the estimate is referenced as the most recent inventory estimate on an inventory change.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_inventory_estimates_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/inventory_estimate.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/inventory_estimate_policy.rb"
+    }
+  ]
+}

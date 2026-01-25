@@ -1,0 +1,57 @@
+{
+  "id": "87a56553089943a7a4f67f98adf6d0feda64ec1e256c10f8c39e25c9a03e18b6",
+  "full_path": "do time-sheet-submissions create",
+  "description": "Submit a time sheet.",
+  "permissions": "Admin users can submit. Otherwise, permission depends on the time sheet subject: for TruckerShiftSet, the user must be a manager member of the trucker, a member of the trucker’s broker, or the driver; for CrewRequirement, the user must be the laborer (or the labor requirement user for equipment requirements) or a job production plan time card approver.",
+  "side_effects": "Creates a time sheet submission action that changes the time sheet status to submitted; may update submitted terms and notify time card approvers when all plan time sheets are submitted.",
+  "validation_notes": "Time sheet is required and must exist. Time sheet must be in editing or rejected status. Time sheet must include a duration (duration_minutes present). Time sheet must be valid per model validations.",
+  "flags": [
+    {
+      "name": "time-sheet",
+      "required": true,
+      "type": "string",
+      "description": "Time sheet ID (required)",
+      "validation": "Must reference an existing time sheet."
+    },
+    {
+      "name": "comment",
+      "required": false,
+      "type": "string",
+      "description": "Status change comment"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_submissions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_sheet_submissions_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_submission_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_submission_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_actions/time_sheet_submission.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2d72fcb26a6d82ed9561886a8c0b66b059fba978205ab88be38b343de57fe3a1",
+  "full_path": "view project-customers show",
+  "description": "Show the full details of a project customer.",
+  "permissions": "User must be authorized via the related project (project-customer policy delegates to project).",
+  "side_effects": null,
+  "validation_notes": "Requires a project customer ID argument; it cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_customers_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_customers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_customer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_customer_policy.rb"
+    }
+  ]
+}

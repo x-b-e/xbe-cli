@@ -228,18 +228,6 @@ func buildProjectRevenueItemDetails(resp jsonAPISingleResponse) projectRevenueIt
 	return details
 }
 
-func relationshipIDStrings(rel jsonAPIRelationship) []string {
-	var refs []jsonAPIResourceIdentifier
-	if err := json.Unmarshal(rel.raw, &refs); err != nil {
-		return nil
-	}
-	ids := make([]string, 0, len(refs))
-	for _, ref := range refs {
-		ids = append(ids, ref.ID)
-	}
-	return ids
-}
-
 func renderProjectRevenueItemDetails(cmd *cobra.Command, details projectRevenueItemDetails) error {
 	out := cmd.OutOrStdout()
 

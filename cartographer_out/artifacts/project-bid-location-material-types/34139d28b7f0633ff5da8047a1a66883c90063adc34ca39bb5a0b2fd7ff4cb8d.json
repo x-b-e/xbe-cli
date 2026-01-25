@@ -1,0 +1,42 @@
+{
+  "id": "34139d28b7f0633ff5da8047a1a66883c90063adc34ca39bb5a0b2fd7ff4cb8d",
+  "full_path": "view project-bid-location-material-types list",
+  "description": "List project bid location material types with optional filtering by project bid location or material type.",
+  "permissions": "User must be authorized to view project bid locations via the ProjectBidLocation policy scope (non-admin scope joins project bid locations).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--project-bid-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project bid location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_bid_location_material_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_bid_location_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_bid_location_material_type_policy.rb"
+    }
+  ]
+}

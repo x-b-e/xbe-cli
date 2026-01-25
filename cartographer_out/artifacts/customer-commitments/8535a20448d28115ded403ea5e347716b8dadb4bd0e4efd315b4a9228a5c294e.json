@@ -1,0 +1,101 @@
+{
+  "description": "Create a customer commitment.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Customer ID",
+      "name": "--customer",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Status (editing, active, inactive)",
+      "name": "--status",
+      "required": true,
+      "type": "string",
+      "validation": "One of: editing, active, inactive (example: active)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Commitment label",
+      "name": "--label",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Commitment notes",
+      "name": "--notes",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Committed tons",
+      "name": "--tons",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Committed tons per shift",
+      "name": "--tons-per-shift",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Truck scope ID",
+      "name": "--truck-scope",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Preceding customer commitment ID",
+      "name": "--preceding-commitment",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do customer-commitments create",
+  "id": "8535a20448d28115ded403ea5e347716b8dadb4bd0e4efd315b4a9228a5c294e",
+  "permissions": null,
+  "side_effects": "Creates a customer commitment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_customer_commitments_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/customer_commitments_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "customer, broker, and status are required. status must be one of: editing, active, inactive."
+}

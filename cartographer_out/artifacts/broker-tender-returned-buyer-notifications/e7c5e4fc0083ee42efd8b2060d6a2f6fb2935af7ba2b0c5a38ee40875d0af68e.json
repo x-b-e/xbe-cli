@@ -1,0 +1,33 @@
+{
+  "id": "e7c5e4fc0083ee42efd8b2060d6a2f6fb2935af7ba2b0c5a38ee40875d0af68e",
+  "full_path": "do broker-tender-returned-buyer-notifications update",
+  "description": "Update a broker tender returned buyer notification",
+  "permissions": "Authenticated user can update a broker tender returned buyer notification only when they are the notification's user (policy requires user == record.user).",
+  "side_effects": "Updates the notification's read status.",
+  "validation_notes": "Requires <id> argument (notification ID). At least one writable field must be provided; otherwise the command errors with no fields to update. --read is boolean (true/false).",
+  "flags": [
+    {
+      "name": "--read",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark notification as read (true/false)",
+      "default": "false",
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_tender_returned_buyer_notifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    }
+  ]
+}

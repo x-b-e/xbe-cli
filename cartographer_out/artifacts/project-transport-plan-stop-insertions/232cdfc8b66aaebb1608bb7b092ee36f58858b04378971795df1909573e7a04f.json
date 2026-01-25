@@ -1,0 +1,145 @@
+{
+  "description": "List project transport plan stop insertions",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan ID",
+      "name": "--project-transport-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan ID (alias)",
+      "name": "--project-transport-plan-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by reference stop ID",
+      "name": "--reference-project-transport-plan-stop",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport location ID",
+      "name": "--project-transport-location",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan segment set ID",
+      "name": "--project-transport-plan-segment-set",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by planned completion event type ID",
+      "name": "--planned-completion-event-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: pending, applied, failed. Example: --status applied."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by mode",
+      "name": "--mode",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: replace, insert_before, insert_after, insert_at_head, insert_at_tail, seed_plan, move_before, move_after, delete."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by reuse half",
+      "name": "--reuse-half",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: upstream, downstream."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by boundary choice",
+      "name": "--boundary-choice",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: join_upstream, join_downstream."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by existing stop ID",
+      "name": "--existing-project-transport-plan-stop",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by stop-to-move ID",
+      "name": "--stop-to-move",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-transport-plan-stop-insertions list",
+  "id": "232cdfc8b66aaebb1608bb7b092ee36f58858b04378971795df1909573e7a04f",
+  "permissions": "User must be authorized for the related project transport plan via the delegated policy (same permissions as ProjectTransportPlan).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_stop_insertions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_stop_insertion_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_stop_insertion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_stop_insertion_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter enums: status is one of pending, applied, failed; mode is one of replace, insert_before, insert_after, insert_at_head, insert_at_tail, seed_plan, move_before, move_after, delete; reuse-half is one of upstream, downstream; boundary-choice is one of join_upstream, join_downstream. Example: --status applied."
+}

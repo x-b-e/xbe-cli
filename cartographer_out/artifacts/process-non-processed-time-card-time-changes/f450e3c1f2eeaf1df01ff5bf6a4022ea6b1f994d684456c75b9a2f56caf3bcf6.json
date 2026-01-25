@@ -1,0 +1,50 @@
+{
+  "id": "f450e3c1f2eeaf1df01ff5bf6a4022ea6b1f994d684456c75b9a2f56caf3bcf6",
+  "full_path": "do process-non-processed-time-card-time-changes create",
+  "description": "Process non-processed time card time changes.",
+  "permissions": "User must be an admin and permitted to update each referenced time card time change via the delegated TimeCardTimeChange policy; the action is denied if no time card time changes are found.",
+  "side_effects": "Processes the specified time card time changes, updates related invoices, and may delete unprocessed time card time changes after processing; on failure it can enqueue an async retry.",
+  "validation_notes": "--time-card-time-change-ids is required and must refer to existing time card time changes.",
+  "flags": [
+    {
+      "name": "--time-card-time-change-ids",
+      "aliases": null,
+      "required": true,
+      "type": "array",
+      "description": "Time card time change IDs (required, comma-separated or repeated). Example: 123,456.",
+      "default": null,
+      "validation": "Must refer to existing time card time changes."
+    },
+    {
+      "name": "--delete-unprocessed",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Delete unprocessed time card time changes after processing. Example: false.",
+      "default": "true",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_process_non_processed_time_card_time_changes_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_process_non_processed_time_card_time_changes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/sombreros/process_non_processed_time_card_time_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/sombreros/process_non_processed_time_card_time_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/sombreros/process_non_processed_time_card_time_change.rb"
+    }
+  ]
+}

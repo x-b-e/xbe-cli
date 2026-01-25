@@ -1,0 +1,19 @@
+{
+  "id": "d7c4a2476ca64ba5051ae82785cd7f2b1f8a0b90f85bdc7df3f2da57004be4ed",
+  "full_path": "view material-purchase-orders show",
+  "description": "Show the full details of a material purchase order.",
+  "permissions": "Admin users or users who are members of the broker, customer, or material supplier associated with the purchase order can view material purchase order details.",
+  "side_effects": null,
+  "validation_notes": "The material purchase order ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_purchase_orders_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_purchase_order_policy.rb"
+    }
+  ]
+}

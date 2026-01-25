@@ -1,0 +1,117 @@
+{
+  "id": "a977e540e9dd0937920d760db5c6afd2fb518e31a8cb077f7122ce5bc723fdf2",
+  "full_path": "view organization-invoices-batch-invoices list",
+  "description": "List organization invoices batch invoices",
+  "permissions": "Allowed for users who can access the related organization invoices batch via policy scope; scope delegates to OrganizationInvoicesBatch and permits admins, broker members, and manager-level members of other organization types (e.g., customer/trucker) tied to the batch.",
+  "side_effects": null,
+  "validation_notes": "Filters expecting Type|ID format: --invoice and --organization. --organization-id requires --organization-type unless a Type|ID value is provided. --successful expects a strict boolean (true/false) and maps to successful/failed scopes.",
+  "flags": [
+    {
+      "name": "--changed-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by changed-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice (format: Type|ID)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., BrokerInvoice|123)."
+    },
+    {
+      "name": "--invoice-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (format: Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Broker|123)."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type or Type|ID)",
+      "default": null,
+      "validation": "Requires --organization-type unless a Type|ID value is provided."
+    },
+    {
+      "name": "--organization-invoices-batch",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization invoices batch ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker, Customer, Trucker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--successful",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by successful status (true/false)",
+      "default": null,
+      "validation": "Strict boolean expected: true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_invoices_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_simulation_sets_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_invoice_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_invoice_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    }
+  ]
+}

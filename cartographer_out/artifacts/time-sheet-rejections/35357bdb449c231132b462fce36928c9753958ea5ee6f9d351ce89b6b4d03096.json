@@ -1,0 +1,50 @@
+{
+  "id": "35357bdb449c231132b462fce36928c9753958ea5ee6f9d351ce89b6b4d03096",
+  "full_path": "do time-sheet-rejections create",
+  "description": "Reject a submitted time sheet.",
+  "permissions": "Allowed for admins. For time sheets on TruckerShiftSet: allowed for trucker managers, broker members of the trucker, or the driver on the shift set. For time sheets on CrewRequirement: allowed for users who are job production plan time card approvers.",
+  "side_effects": "Creates a time sheet rejection and transitions the associated time sheet status from submitted to rejected.",
+  "validation_notes": "--time-sheet is required. The referenced time sheet must exist. Time sheet status must be submitted. Action validates the time sheet model and returns validation errors if invalid.",
+  "flags": [
+    {
+      "name": "--time-sheet",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time sheet ID (required)",
+      "default": null,
+      "validation": "Required. Must reference an existing time sheet."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment explaining the rejection",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_rejections_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_rejection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_actions/time_sheet_rejection.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_rejection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

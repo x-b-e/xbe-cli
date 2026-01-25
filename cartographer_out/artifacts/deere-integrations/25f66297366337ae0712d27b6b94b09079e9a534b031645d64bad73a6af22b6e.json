@@ -1,0 +1,27 @@
+{
+  "id": "25f66297366337ae0712d27b6b94b09079e9a534b031645d64bad73a6af22b6e",
+  "full_path": "view deere-integrations show",
+  "description": "Show the full details of a Deere integration.",
+  "permissions": "Admin users can view all Deere integrations. Non-admin users can view integrations for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/deere_integrations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/deere_integration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/deere_integration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/deere_integrations_spec.rb"
+    }
+  ]
+}

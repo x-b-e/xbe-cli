@@ -1,0 +1,140 @@
+{
+  "id": "fa63b311e6a60b2b0f6fc49db53399bd4470ba6bf826fcfa8d75099d5721a60c",
+  "full_path": "do lineup-job-schedule-shifts update",
+  "description": "Update a lineup job schedule shift",
+  "permissions": "Authorized via LineupJobScheduleShiftPolicy (delegated to lineup). User must be admin or permitted by LineupPolicy.update? (customer manager or manager laborer on a lineup job production plan).",
+  "side_effects": "Updates a lineup job schedule shift. After commit, may update job production plan trailer classifications, may mark related lineup dispatch shift as not fulfilled when trucker changes, and may recalculate time cards when trailer classification changes.",
+  "validation_notes": "Requires lineup job schedule shift ID argument and at least one field to update. Trailer classification equivalent type must be tendered or assigned. travel-minutes must be a number >= 0 when provided. When is-ready-to-dispatch is true, the shift must have a trailer classification and either be brokered or have a trucker. Job schedule shift must be managed. Trucker must be managed and match the lineup customer or broker, and for non-brokered shifts the trucker must have a direct customer relationship. Trailer classification must be included in the job trailer classifications. If driver is set, a trucker is required and the driver must be a member of the trucker and have an active shift for the lineup. Trucker cannot be changed when related to an active broker shift. Trailer classification and trailer classification equivalent type cannot be changed when related to an active broker shift with an assigned trailer or time card.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker ID (empty clears).",
+      "default": null,
+      "validation": "empty value clears relationship"
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Driver (user) ID (empty clears).",
+      "default": null,
+      "validation": "empty value clears relationship"
+    },
+    {
+      "name": "--trailer-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer classification ID (empty clears).",
+      "default": null,
+      "validation": "empty value clears relationship"
+    },
+    {
+      "name": "--trailer-classification-equivalent-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Trailer classification equivalent type (tendered, assigned).",
+      "default": null,
+      "validation": "tendered, assigned"
+    },
+    {
+      "name": "--is-brokered",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update brokered flag (true/false).",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-ready-to-dispatch",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update ready to dispatch (true/false).",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--exclude-from-lineup-scenarios",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update exclude from lineup scenarios (true/false).",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--travel-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update travel minutes (deprecated).",
+      "default": null,
+      "validation": "number >= 0"
+    },
+    {
+      "name": "--loaded-tons-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update loaded tons max (deprecated alias).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-material-transaction-tons-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update explicit material transaction tons max.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notify-driver-on-late-shift-assignment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update notify driver on late shift assignment (true/false).",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-expecting-time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update expecting time card (true/false).",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_job_schedule_shifts_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_job_schedule_shift.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

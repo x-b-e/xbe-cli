@@ -1,0 +1,19 @@
+{
+  "id": "0c00675e36f523ba1278f35189e690a6eb6dc83f85ab72702479f04305360e64",
+  "full_path": "view equipment-movement-trip-customer-cost-allocations show",
+  "description": "Show the full details of a customer cost allocation.",
+  "permissions": "Access is delegated to the related equipment movement trip via EquipmentMovementTripCustomerCostAllocationPolicy; the user must be authorized on the trip to view its cost allocation.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (allocation ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_trip_customer_cost_allocations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_customer_cost_allocation_policy.rb"
+    }
+  ]
+}

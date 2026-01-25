@@ -1,0 +1,42 @@
+{
+  "id": "c4d7898552defc55e8dadca9f6a94ad2081fa1551408f4620ff78cad9538b6a7",
+  "full_path": "view job-production-plan-duplication-works list",
+  "description": "List job production plan duplication work items with pagination.",
+  "permissions": "User must be authorized via the job production plan template relationship (delegated JobProductionPlan permissions).",
+  "side_effects": null,
+  "validation_notes": "processed-at must be an ISO 8601 timestamp when provided. job-production-plan-template-id must be a job production plan template ID when provided.",
+  "flags": [
+    {
+      "name": "--processed-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by processed-at timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--job-production-plan-template-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan template ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_duplication_works_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_duplication_work_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_duplication_work_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "id": "bb34aaaae0b06f3178fa36b508c38b62638d92333d1bec7afe1bf48fdcc6897c",
+  "full_path": "view deere-equipments list",
+  "description": "List Deere equipment with filtering and pagination.",
+  "permissions": "Admins can list all Deere equipment. Non-admin users can only list Deere equipment scoped to brokers they are members of (policy scope filters by broker membership).",
+  "side_effects": null,
+  "validation_notes": "Date-time filters (equipment-assigned-at-min, equipment-set-at-min/max, created-at-min/max, updated-at-min/max) must be non-empty, parseable date-time values (ISO 8601). Boolean filters (has-equipment, is-equipment-set-at, is-created-at, is-updated-at) require strict true/false values; other values are rejected.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by assigned equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-equipment",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by equipment assignment (true/false)",
+      "default": null,
+      "validation": "Must be true or false (strict boolean)."
+    },
+    {
+      "name": "--equipment-assigned-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment assignment timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--integration-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum equipment set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--equipment-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum equipment set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--is-equipment-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has equipment set timestamp (true/false)",
+      "default": null,
+      "validation": "Must be true or false (strict boolean)."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false (strict boolean)."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 date-time."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false (strict boolean)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/deere_equipments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/equipment_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

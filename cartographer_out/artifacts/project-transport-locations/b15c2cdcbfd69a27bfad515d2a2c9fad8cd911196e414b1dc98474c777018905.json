@@ -1,0 +1,96 @@
+{
+  "description": "List project transport locations with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport organization ID",
+      "name": "--project-transport-organization",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by nearest project office ID",
+      "name": "--nearest-project-office-cached",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name (partial match)",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "General search",
+      "name": "--q",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by proximity (lat|lng|miles)",
+      "name": "--near",
+      "required": false,
+      "type": "string",
+      "validation": "Format: latitude|longitude|proximity_miles"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by external TMS company ID",
+      "name": "--external-tms-company-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by external identification value",
+      "name": "--external-identification-value",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-transport-locations list",
+  "id": "b15c2cdcbfd69a27bfad515d2a2c9fad8cd911196e414b1dc98474c777018905",
+  "permissions": "Admins can list all project transport locations. Non-admin users can list locations scoped to brokers they are members of; visibility is limited to broker memberships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_locations_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_location_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_location_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters are optional. The --near filter must use the format \"latitude|longitude|proximity_miles\" and is validated before applying proximity search."
+}

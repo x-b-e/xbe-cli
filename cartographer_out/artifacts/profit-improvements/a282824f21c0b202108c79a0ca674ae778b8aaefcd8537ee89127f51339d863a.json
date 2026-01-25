@@ -1,0 +1,478 @@
+{
+  "id": "a282824f21c0b202108c79a0ca674ae778b8aaefcd8537ee89127f51339d863a",
+  "full_path": "view profit-improvements list",
+  "description": "List profit improvements with filtering and pagination.",
+  "permissions": "Admins can view all profit improvements. Non-admins can view profit improvements for organizations where they have a membership (policy scope joins memberships on organization_id/type).",
+  "side_effects": null,
+  "validation_notes": "Date filters expect YYYY-MM-DD. Presence filters expect true/false. Organization ID filtering requires --organization-type or --organization (Type|ID). impact-frequency-estimated and impact-frequency-validated must be one_time or recurring; impact-interval-estimated and impact-interval-validated must be monthly, quarterly, or annual. status must be one of: draft/submitted/rejected/in_progress/completed/validated/recommended/approved/invoiced/cancelled/duplicate.",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by title (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by description (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status",
+      "default": null,
+      "validation": "draft/submitted/rejected/in_progress/completed/validated/recommended/approved/invoiced/cancelled/duplicate"
+    },
+    {
+      "name": "--profit-improvement-category",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by profit improvement category ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--original",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by original profit improvement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--owned-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by owner user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--validated-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by validator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID)",
+      "default": null,
+      "validation": "Type|ID"
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type or Type|ID)",
+      "default": null,
+      "validation": "requires --organization-type or --organization (Type|ID)"
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude organization type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--amount-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by estimated amount",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--amount-estimated-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum estimated amount",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--amount-estimated-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum estimated amount",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--amount-validated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by validated amount",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--amount-validated-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum validated amount",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--amount-validated-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum validated amount",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--gain-share-fee-percentage",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by gain share fee percentage",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--gain-share-fee-percentage-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum gain share fee percentage",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--gain-share-fee-percentage-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum gain share fee percentage",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--impact-frequency-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by estimated impact frequency",
+      "default": null,
+      "validation": "one_time/recurring"
+    },
+    {
+      "name": "--impact-interval-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by estimated impact interval",
+      "default": null,
+      "validation": "monthly/quarterly/annual"
+    },
+    {
+      "name": "--impact-frequency-validated",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by validated impact frequency",
+      "default": null,
+      "validation": "one_time/recurring"
+    },
+    {
+      "name": "--impact-interval-validated",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by validated impact interval",
+      "default": null,
+      "validation": "monthly/quarterly/annual"
+    },
+    {
+      "name": "--impact-start-on-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by estimated impact start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-start-on-estimated-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum estimated impact start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-start-on-estimated-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum estimated impact start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-impact-start-on-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of estimated impact start date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--impact-end-on-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by estimated impact end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-end-on-estimated-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum estimated impact end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-end-on-estimated-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum estimated impact end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-impact-end-on-estimated",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of estimated impact end date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--impact-start-on-validated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by validated impact start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-start-on-validated-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum validated impact start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-start-on-validated-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum validated impact start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-impact-start-on-validated",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of validated impact start date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--impact-end-on-validated",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by validated impact end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-end-on-validated-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum validated impact end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--impact-end-on-validated-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum validated impact end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-impact-end-on-validated",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of validated impact end date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--gain-share-fee-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by gain share fee start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--gain-share-fee-start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum gain share fee start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--gain-share-fee-start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum gain share fee start date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-gain-share-fee-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of gain share fee start date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--gain-share-fee-end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by gain share fee end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--gain-share-fee-end-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum gain share fee end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--gain-share-fee-end-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum gain share fee end date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-gain-share-fee-end-on",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of gain share fee end date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/profit_improvements_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/profit_improvement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement.rb"
+    }
+  ]
+}

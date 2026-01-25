@@ -1,0 +1,59 @@
+{
+  "id": "b5d816f5ccaf4bb1fe61683277fb41f89ec017f12b1fd744400e6ce94937716b",
+  "full_path": "do trucker-insurances update",
+  "description": "Update a trucker insurance.",
+  "permissions": "User must have permission to update the associated trucker (policy checks Trucker update? on the related trucker).",
+  "side_effects": "Updates fields on a trucker insurance record.",
+  "validation_notes": "Requires <id> argument. At least one of --company-name, --contact-name, or --phone-number must be provided. Server requires company_name, contact_name, and phone_number to be present; phone_number must pass phone number validation. Only company_name, contact_name, and phone_number are updatable fields.",
+  "flags": [
+    {
+      "name": "--company-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Insurance company name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--contact-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contact name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Phone number",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_insurances_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_insurance_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_insurance.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_phone_number.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_insurance_resource.rb"
+    }
+  ]
+}

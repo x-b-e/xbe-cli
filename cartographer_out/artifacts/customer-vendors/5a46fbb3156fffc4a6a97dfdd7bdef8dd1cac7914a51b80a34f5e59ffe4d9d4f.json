@@ -1,0 +1,23 @@
+{
+  "id": "5a46fbb3156fffc4a6a97dfdd7bdef8dd1cac7914a51b80a34f5e59ffe4d9d4f",
+  "full_path": "view customer-vendors show",
+  "description": "Show a customer vendor by ID",
+  "permissions": "Readable for users within TradingPartnerPolicy scope: user must be able to see the organization and partner via their policies; scope includes accessible Customer/Trucker/Broker combinations.",
+  "side_effects": null,
+  "validation_notes": "Requires an <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_vendors_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_vendor_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    }
+  ]
+}

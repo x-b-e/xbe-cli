@@ -1,0 +1,90 @@
+{
+  "id": "a0ba75a479f1b8a0544fbb4c98282885b7b0c88ee563e3632c55a68c91a3f2b8",
+  "full_path": "view commitment-simulations list",
+  "description": "List commitment simulations with filtering",
+  "permissions": "User must be authorized for the related commitment via CommitmentPolicy (admin or membership as the commitment buyer/seller organization: customer manager, broker member, or trucker manager).",
+  "side_effects": null,
+  "validation_notes": "Status filter accepts only enqueued or processed. created-at-min/max and updated-at-min/max must be valid date-time values (ISO 8601) and may not be empty when provided.",
+  "flags": [
+    {
+      "name": "--commitment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by commitment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (enqueued, processed). Example: --status enqueued.",
+      "default": null,
+      "validation": "Allowed values: enqueued, processed."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 date-time; filter cannot be empty."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 date-time; filter cannot be empty."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 date-time; filter cannot be empty."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a valid ISO 8601 date-time; filter cannot be empty."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_simulations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_simulation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_simulation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "description": "Create a project transport plan segment tractor.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport plan segment ID (required)",
+      "name": "project-transport-plan-segment",
+      "required": true,
+      "type": "string",
+      "validation": "Must be a non-empty segment ID."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tractor ID (required)",
+      "name": "tractor",
+      "required": true,
+      "type": "string",
+      "validation": "Must be a non-empty tractor ID."
+    }
+  ],
+  "full_path": "do project-transport-plan-segment-tractors create",
+  "id": "b3c16a44922c4684d4a49d399050ae3ca1ee083c737a683a3d4fadf8b68a7932",
+  "permissions": "Authorized via ProjectTransportPlanSegmentTractorPolicy, which delegates create permission to the related project transport plan segment policy.",
+  "side_effects": "Creates a project transport plan segment tractor record linking a segment to a tractor.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_segment_tractors_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_segment_tractor_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_segment_tractor.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_segment_tractor_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --project-transport-plan-segment and --tractor. The tractor must belong to the same trucker as the segment. Each segment can only have one tractor relationship. Project transport plan segment and tractor relationships are create-only."
+}

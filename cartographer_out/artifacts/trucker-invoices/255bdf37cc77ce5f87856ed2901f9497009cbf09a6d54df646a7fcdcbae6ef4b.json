@@ -1,0 +1,110 @@
+{
+  "id": "255bdf37cc77ce5f87856ed2901f9497009cbf09a6d54df646a7fcdcbae6ef4b",
+  "full_path": "do trucker-invoices create",
+  "description": "Create a trucker invoice.",
+  "permissions": "Allowed for admin users, manager members of the trucker seller, or members of the broker buyer.",
+  "side_effects": "Creates a trucker invoice record.",
+  "validation_notes": "Required flags: --buyer-type, --buyer, --seller-type, --seller, --invoice-date, --due-on, --adjustment-amount, --currency-code. buyer-type must be brokers and seller-type must be truckers. currency-code must be USD. due-on must be on or after invoice-date. Buyer must be a broker and seller must be a trucker.",
+  "flags": [
+    {
+      "name": "--buyer-type",
+      "required": true,
+      "type": "string",
+      "description": "Buyer type (brokers)",
+      "validation": "brokers"
+    },
+    {
+      "name": "--buyer",
+      "required": true,
+      "type": "string",
+      "description": "Buyer ID"
+    },
+    {
+      "name": "--seller-type",
+      "required": true,
+      "type": "string",
+      "description": "Seller type (truckers)",
+      "validation": "truckers"
+    },
+    {
+      "name": "--seller",
+      "required": true,
+      "type": "string",
+      "description": "Seller ID"
+    },
+    {
+      "name": "--invoice-date",
+      "required": true,
+      "type": "string",
+      "description": "Invoice date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--due-on",
+      "required": true,
+      "type": "string",
+      "description": "Due date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--adjustment-amount",
+      "required": true,
+      "type": "string",
+      "description": "Adjustment amount"
+    },
+    {
+      "name": "--currency-code",
+      "required": true,
+      "type": "string",
+      "description": "Currency code (USD)",
+      "validation": "USD"
+    },
+    {
+      "name": "--notes",
+      "required": false,
+      "type": "string",
+      "description": "Notes"
+    },
+    {
+      "name": "--explicit-buyer-name",
+      "required": false,
+      "type": "string",
+      "description": "Explicit buyer name override"
+    },
+    {
+      "name": "--explicit-buyer-address",
+      "required": false,
+      "type": "string",
+      "description": "Explicit buyer address override"
+    },
+    {
+      "name": "--time-cards",
+      "required": false,
+      "type": "string",
+      "description": "Time card IDs (comma-separated)",
+      "validation": "comma-separated"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_invoices_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_invoice_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoices/trucker_invoice.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_invoice_resource.rb"
+    }
+  ]
+}

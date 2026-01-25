@@ -1,0 +1,37 @@
+{
+  "description": "List Samsara integrations with filtering",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID (comma-separated)",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated broker IDs."
+    }
+  ],
+  "full_path": "view samsara-integrations list",
+  "id": "ac5bbb451f6054f102ebd09b6cebd06808b8549b2b811fa5fa98beea650a4369",
+  "permissions": "Admins can view all Samsara integrations. Non-admin users can view integrations for brokers in their broker memberships. Anonymous users have no access.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/samsara_integrations_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/samsara_integration_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/samsara_integration_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--broker expects a comma-separated list of broker IDs."
+}

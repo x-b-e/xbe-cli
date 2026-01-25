@@ -1,0 +1,60 @@
+{
+  "id": "c6f19370998ba5c842fbafe46eb2602612e0206457f9bb3dcf57cb50960a8724",
+  "full_path": "view prediction-subject-bids list",
+  "description": "List prediction subject bids.",
+  "permissions": "Requires authorization to view prediction subject bids via the delegated LowestLosingBidPredictionSubjectDetail policy.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--bidder",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by bidder ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lowest-losing-bid-prediction-subject-detail",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lowest losing bid detail ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--prediction-subject",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by prediction subject ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prediction_subject_bids_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_subject_bid_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_bid_policy.rb"
+    }
+  ]
+}

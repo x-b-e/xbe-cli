@@ -1,0 +1,50 @@
+{
+  "id": "21b5c2b86cca7b135720befb72485e7c38fdcbcca55f7086d1c6f5e39ef5838d",
+  "full_path": "do key-result-scrappages create",
+  "description": "Create a key result scrappage.",
+  "permissions": "User must be an admin or be permitted to update the related key result (via KeyResultPolicy#update?).",
+  "side_effects": "Updates the related key result status to scrapped and records the status change comment and changed_by user.",
+  "validation_notes": "--key-result is required and must refer to an existing key result. The key result current status must be one of: unknown, not_started, red, yellow, green. The key result must be valid or the action fails with validation errors.",
+  "flags": [
+    {
+      "name": "--key-result",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Key result ID (required)",
+      "default": null,
+      "validation": "Required. Must identify an existing key result."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment explaining the change",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_key_result_scrappages_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_scrappage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/key_result_actions/key_result_scrappage.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "ac96ccaa51eee86236042718a3eb58ac22a8ec22542a6d26d03db7d264def1c9",
+  "full_path": "do api-tokens create",
+  "description": "Create a new API token.",
+  "permissions": null,
+  "side_effects": "Creates an API token for the specified user; token value is only returned at creation time.",
+  "validation_notes": "--user is required; --expires-at must be RFC3339 if provided.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Token label",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expires-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expiration timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_api_tokens_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/api_tokens_controller.rb"
+    }
+  ]
+}

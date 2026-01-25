@@ -1,0 +1,29 @@
+{
+  "id": "1fee7f83186e3e341c562542a3c6f16584e03c10dbe1e95afe486e3197c7fac5",
+  "full_path": "do incident-subscriptions delete",
+  "description": "Delete an incident subscription.",
+  "permissions": "Admin users can delete any incident subscription. Non-admin users can delete subscriptions where they are the user or where they are a practical member of the scoped organization; if an incident is scoped, membership in the incident organizations also permits deletion.",
+  "side_effects": "Deletes an incident subscription.",
+  "validation_notes": "Requires the incident subscription ID argument and the --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_subscriptions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_subscription_policy.rb"
+    }
+  ]
+}

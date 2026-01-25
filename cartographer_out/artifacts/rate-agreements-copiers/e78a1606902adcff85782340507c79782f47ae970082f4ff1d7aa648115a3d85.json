@@ -1,0 +1,51 @@
+{
+  "description": "List rate agreements copiers",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Filter by broker ID (example: 123)",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Filter by template rate agreement ID (example: 456)",
+      "name": "--rate-agreement-template",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view rate-agreements-copiers list",
+  "id": "e78a1606902adcff85782340507c79782f47ae970082f4ff1d7aa648115a3d85",
+  "permissions": "User must be authorized to view rate agreements copiers within the RateAgreementsCopierPolicy scope, which is limited to rate agreement templates in the users RateAgreement policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/rate_agreements_copiers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/rate_agreements_copier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreements_copier_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

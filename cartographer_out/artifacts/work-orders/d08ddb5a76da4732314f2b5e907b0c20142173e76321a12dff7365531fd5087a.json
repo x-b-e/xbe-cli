@@ -1,0 +1,33 @@
+{
+  "id": "d08ddb5a76da4732314f2b5e907b0c20142173e76321a12dff7365531fd5087a",
+  "full_path": "do work-orders delete",
+  "description": "Delete a work order",
+  "permissions": "Admin users can delete work orders. Operations members with manager business unit membership can delete work orders for their business units (responsible party must be set and the user must be a member). Manager members of a broker can delete work orders for their brokers. Operations members can delete work orders only for their business units (responsible party must be set and the user must be a member). General business unit members and technician business unit members cannot delete work orders.",
+  "side_effects": "Deletes a work order.",
+  "validation_notes": "Requires <id> positional argument. --confirm is required. Deletion is blocked if the work order has maintenance requirement sets or an associated time sheet.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_work_orders_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/work_order_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/work_order.rb"
+    }
+  ]
+}

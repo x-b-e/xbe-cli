@@ -1,0 +1,54 @@
+{
+  "id": "b351f47ac8d5f209aedcbe0b6eaa0cb1d100b44dced9ff6d7911511227f5c4e1",
+  "full_path": "view importer-configurations list",
+  "description": "List importer configurations with filtering and pagination.",
+  "permissions": "Authenticated users can list importer configurations, but non-admin scope resolves to no records; admins can list all.",
+  "side_effects": null,
+  "validation_notes": "--integration-config and --broker accept comma-separated IDs for filtering.",
+  "flags": [
+    {
+      "name": "--integration-config",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration config ID (comma-separated).",
+      "default": null,
+      "validation": "Comma-separated list of integration config IDs."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated).",
+      "default": null,
+      "validation": "Comma-separated list of broker IDs."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/importer_configurations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/free_ticketing/importer_configuration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/free_ticketing/importer_configuration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/free_ticketing/importer_configuration.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/free_ticketing/importer_configurations_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/free_ticketing/importer_configuration_policy_spec.rb"
+    }
+  ]
+}

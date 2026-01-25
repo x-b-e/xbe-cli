@@ -1,0 +1,37 @@
+{
+  "description": "Delete a project phase revenue item quantity estimate.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do project-phase-revenue-item-quantity-estimates delete",
+  "id": "97cd5bb35c1ea5e374d3855b468a804ba138ee7c11f56e5de583ef144001096e",
+  "permissions": "Delete is delegated to the related project. Allowed for admins or users who are practically managers of the project developer.",
+  "side_effects": "Deletes the specified project phase revenue item quantity estimate.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phase_revenue_item_quantity_estimates_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_phase_revenue_item_quantity_estimate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/models/project_phase_revenue_item_quantity_estimate.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required to delete the record."
+}

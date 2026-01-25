@@ -1,0 +1,38 @@
+{
+  "description": "List time card payroll certifications",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by time card ID",
+      "name": "--time-card",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-by user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view time-card-payroll-certifications list",
+  "id": "a01fcfae720f163178d78b6ae640453f7839d14ffced88a70e805485e560e9ce",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/time_card_payroll_certifications_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_card_payroll_certification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

@@ -1,0 +1,19 @@
+{
+  "id": "6551e935b8d414952967aa4c9e26e6486e85284af468acacdde5753b8b6c4ccc",
+  "full_path": "view organization-invoices-batch-invoice-batchings list",
+  "description": "List organization invoices batch invoice batchings.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_invoice_batchings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/organization_invoices_batch_invoice_batchings_controller.rb"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "f13ced9cc4467eb0bc6aabc8231cdda7d54385f8ed6cebe6548d6214b788d892",
+  "full_path": "do gauge-vehicles update",
+  "description": "Update gauge vehicle assignments",
+  "permissions": "User must be an admin or a member of a broker organization associated with the gauge vehicle to update it.",
+  "side_effects": "Updates gauge vehicle trailer and/or tractor assignments; providing an empty value clears the corresponding assignment.",
+  "validation_notes": "The <id> argument is required (example: 123). At least one of --trailer or --tractor must be specified.",
+  "flags": [
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID",
+      "default": null,
+      "validation": "Example: 456. If provided as an empty string, the trailer assignment is cleared."
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID",
+      "default": null,
+      "validation": "Example: 789. If provided as an empty string, the tractor assignment is cleared."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_gauge_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/gauge_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    }
+  ]
+}

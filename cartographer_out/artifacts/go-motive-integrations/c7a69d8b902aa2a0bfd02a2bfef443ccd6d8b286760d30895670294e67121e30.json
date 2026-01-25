@@ -1,0 +1,87 @@
+{
+  "description": "List GoMotive integrations with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has created-at (true/false)",
+      "name": "--is-created-at",
+      "required": false,
+      "type": "string",
+      "validation": "Expected values: true or false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has updated-at (true/false)",
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "string",
+      "validation": "Expected values: true or false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    }
+  ],
+  "full_path": "view go-motive-integrations list",
+  "id": "c7a69d8b902aa2a0bfd02a2bfef443ccd6d8b286760d30895670294e67121e30",
+  "permissions": "Admin users can view all GoMotive integrations; broker members can view integrations for their broker; non-broker users have no access.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/go_motive_integrations_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/go_motive_integration_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/policies/go_motive_integration_policy_spec.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "created-at and updated-at filters expect ISO 8601 timestamps. is-created-at and is-updated-at expect true/false strings."
+}

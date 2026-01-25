@@ -1,0 +1,217 @@
+{
+  "id": "af641cbbeda4739273d39df531f1e94a7743b05dafa26abbb857e81e8e5e71bb",
+  "full_path": "view material-types list",
+  "description": "List material types.",
+  "permissions": "Admins can list all material types. Non-admins can list non-archived generic material types and material types for brokers tied to their memberships, per MaterialTypePolicy scope.",
+  "side_effects": null,
+  "validation_notes": "material-sites must be valid material site IDs. for-material-suppliers must be valid material supplier IDs (comma-separated). has-material-supplier, requiring-mix-design, missing-required-mix-design, has-inventory-estimates expect true/false. is-archived and is-soft-deleted are strict booleans (true/false). is-available-at must be a single ISO 8601 datetime. parent-material-type-id may be empty to request top-level material types.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-display-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by explicit display name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--for-material-suppliers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter for material suppliers (comma-separated IDs)",
+      "default": null,
+      "validation": "Must be valid material supplier IDs."
+    },
+    {
+      "name": "--has-inventory-estimates",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by having inventory estimates (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--has-material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by having material supplier (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--hierarchy-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by hierarchy (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-archived",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by archived status (true/false)",
+      "default": null,
+      "validation": "Strict boolean; must be true or false."
+    },
+    {
+      "name": "--is-available-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by availability at datetime (ISO 8601)",
+      "default": null,
+      "validation": "Single ISO 8601 datetime value."
+    },
+    {
+      "name": "--is-soft-deleted",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by soft deleted status (true/false)",
+      "default": null,
+      "validation": "Strict boolean; must be true or false."
+    },
+    {
+      "name": "--material-sites",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site IDs (comma-separated)",
+      "default": null,
+      "validation": "Must be valid material site IDs."
+    },
+    {
+      "name": "--material-sub-types",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material sub type IDs (comma-separated)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--mix-design-description-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by mix design description (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--missing-required-mix-design",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by missing required mix design (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by parent material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent-material-type-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by parent material type ID (empty for top-level)",
+      "default": null,
+      "validation": "Empty value requests top-level material types."
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "General search",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requiring-mix-design",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by requiring mix design (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--ultimate-parent-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ultimate parent material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ultimate-parent-qualified-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by ultimate parent qualified name",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/material_types_controller.rb"
+    }
+  ]
+}

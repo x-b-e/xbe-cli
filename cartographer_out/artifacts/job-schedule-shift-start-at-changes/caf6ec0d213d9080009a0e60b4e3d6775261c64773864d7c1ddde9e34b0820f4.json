@@ -1,0 +1,56 @@
+{
+  "id": "caf6ec0d213d9080009a0e60b4e3d6775261c64773864d7c1ddde9e34b0820f4",
+  "full_path": "view job-schedule-shift-start-at-changes list",
+  "description": "List job schedule shift start-at changes with filtering and pagination.",
+  "permissions": "Admins can list all job schedule shift start-at changes. Non-admins are limited to changes whose job schedule shift is associated with: (1) a broker organization the user is a member of via the job customer, (2) a customer organization the user is a member of via the job, or (3) a flexible shift tied to an accepted broker tender where the user is a manager member of the trucker.",
+  "side_effects": null,
+  "validation_notes": "Filter timestamps must be ISO 8601 when provided.",
+  "flags": [
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_schedule_shift_start_at_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_start_at_change_policy.rb"
+    }
+  ]
+}

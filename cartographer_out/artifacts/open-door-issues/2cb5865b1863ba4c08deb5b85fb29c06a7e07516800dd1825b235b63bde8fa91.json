@@ -1,0 +1,52 @@
+{
+  "id": "2cb5865b1863ba4c08deb5b85fb29c06a7e07516800dd1825b235b63bde8fa91",
+  "full_path": "do open-door-issues update",
+  "description": "Update an open door issue.",
+  "permissions": "Admins can update any issue. Non-admins can update issues they reported, and open door team members for the organization can update; changing organization or reported-by requires membership for the previous/new organization as enforced by policy.",
+  "side_effects": "Updates an open door issue. If status is changed to reported for the first time, creates open door issue reported notifications for the organization's team memberships.",
+  "validation_notes": "Requires <id> argument. At least one of --description, --status, --organization, or --reported-by must be provided. --status must be one of: editing, reported, resolved. --organization must be Type|ID format and cannot be empty when provided. --reported-by cannot be empty when provided. Organization type must be Broker, Customer, or Trucker. Reported-by must have a membership with the organization's broker. Organization must be accepting open door issues when newly created or when status is changed to reported.",
+  "flags": [
+    {
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "description": "Issue description",
+      "validation": "Must be non-empty when provided."
+    },
+    {
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "description": "Issue status (editing, reported, resolved)",
+      "validation": "Allowed values: editing, reported, resolved."
+    },
+    {
+      "name": "--organization",
+      "required": false,
+      "type": "string",
+      "description": "Organization in Type|ID format (e.g. Broker|123)",
+      "validation": "Type|ID format (e.g. Broker|123); cannot be empty when provided."
+    },
+    {
+      "name": "--reported-by",
+      "required": false,
+      "type": "string",
+      "description": "Reporting user ID",
+      "validation": "Cannot be empty when provided; user must have a membership with the organization's broker."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_open_door_issues_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/open_door_issue_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/open_door_issue.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "563d789259a436d748af06de0c49a581d5dedfa2244377dc4c4a3795e2af9365",
+  "full_path": "view job-production-plan-project-phase-revenue-items show",
+  "description": "Show the full details of a job production plan project phase revenue item.",
+  "permissions": "Requires permission to view the related job production plan; access is delegated to the associated job production plan policy.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_project_phase_revenue_items_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_project_phase_revenue_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_project_phase_revenue_item_policy.rb"
+    }
+  ]
+}

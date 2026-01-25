@@ -1,0 +1,33 @@
+{
+  "description": "Delete a material transaction ticket generator.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true to proceed with deletion."
+    }
+  ],
+  "full_path": "do material-transaction-ticket-generators delete",
+  "id": "f1bfb1aa40375b7cb5d8a2522f15460cf88c2c5ca4c8a58eeda23069fc08ce81",
+  "permissions": "Admins can delete ticket generators. For Broker organizations, the user must be a broker member with practical manager access to that broker. For MaterialSupplier organizations, the user must be a manager member of the supplier or a member of the associated broker.",
+  "side_effects": "Deletes a material transaction ticket generator record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_transaction_ticket_generators_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_transaction_ticket_generator_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_transaction_ticket_generator.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. --confirm is required. Deletion is blocked if the generator has associated material transaction ticket generations."
+}

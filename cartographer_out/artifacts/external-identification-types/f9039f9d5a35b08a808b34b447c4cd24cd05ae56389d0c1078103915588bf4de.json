@@ -1,0 +1,64 @@
+{
+  "id": "f9039f9d5a35b08a808b34b447c4cd24cd05ae56389d0c1078103915588bf4de",
+  "full_path": "do external-identification-types create",
+  "description": "Create a new external identification type",
+  "permissions": "Requires an admin user; policy create? requires is_user_admin?.",
+  "side_effects": "Creates a new external identification type record.",
+  "validation_notes": "--name is required and must be unique. --can-apply-to is required and must include at least one entity type; each entry must be one of: Broker, BrokerInvoice, Customer, CustomerCommitment, CustomerTender, Developer, Equipment, Job, JobProductionPlan, JobProductionPlanMaterialType, JobSite, Laborer, MaterialPurchaseOrder, MaterialPurchaseOrderRelease, MaterialSite, MaterialSupplier, MaterialType, Project, ProjectCostClassification, ProjectRevenueClassification, ProjectRevenueItem, ProjectTransportLocation, ProjectTransportOrganization, ProjectTransportPlanEvent, ProjectTransportPlanSegment, ProjectTransportPlanSegmentSet, TradingPartner, TransportOrder, TransportOrderStop, Trucker, TruckerInvoice. --format-validation-regex must be a valid regex if provided. value_should_be_globally_unique must be true or false.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Identification type name (required)",
+      "default": null,
+      "validation": "Required; must be unique."
+    },
+    {
+      "name": "--can-apply-to",
+      "aliases": null,
+      "required": true,
+      "type": "array",
+      "description": "Entity types this can apply to (required, comma-separated)",
+      "default": null,
+      "validation": "Required; must include at least one entity type. Allowed values: Broker, BrokerInvoice, Customer, CustomerCommitment, CustomerTender, Developer, Equipment, Job, JobProductionPlan, JobProductionPlanMaterialType, JobSite, Laborer, MaterialPurchaseOrder, MaterialPurchaseOrderRelease, MaterialSite, MaterialSupplier, MaterialType, Project, ProjectCostClassification, ProjectRevenueClassification, ProjectRevenueItem, ProjectTransportLocation, ProjectTransportOrganization, ProjectTransportPlanEvent, ProjectTransportPlanSegment, ProjectTransportPlanSegmentSet, TradingPartner, TransportOrder, TransportOrderStop, Trucker, TruckerInvoice."
+    },
+    {
+      "name": "--format-validation-regex",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Regex pattern for validating values",
+      "default": null,
+      "validation": "Must be a valid regex if provided."
+    },
+    {
+      "name": "--value-should-be-globally-unique",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether values must be globally unique",
+      "default": null,
+      "validation": "Boolean."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_external_identification_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/external_identification_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/external_identification_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/external_identification_type.rb"
+    }
+  ]
+}

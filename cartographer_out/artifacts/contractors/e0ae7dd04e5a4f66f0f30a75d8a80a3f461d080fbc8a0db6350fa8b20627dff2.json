@@ -1,0 +1,37 @@
+{
+  "id": "e0ae7dd04e5a4f66f0f30a75d8a80a3f461d080fbc8a0db6350fa8b20627dff2",
+  "full_path": "do contractors update",
+  "description": "Update a contractor.",
+  "permissions": "Allowed for admins, members of the broker, or managers of a customer whose broker matches the contractor broker.",
+  "side_effects": "Updates contractor fields; changing the name triggers job production plan facts summary updates.",
+  "validation_notes": "A contractor ID argument is required. At least one updatable attribute must be provided. Only name is updatable; broker relationships cannot be changed. Name cannot be blank and must be unique per broker.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contractor name",
+      "default": null,
+      "validation": "If provided, must be non-blank. Example: Acme Contractors"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_contractors_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/contractor.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/contractor_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/contractor_policy.rb"
+    }
+  ]
+}

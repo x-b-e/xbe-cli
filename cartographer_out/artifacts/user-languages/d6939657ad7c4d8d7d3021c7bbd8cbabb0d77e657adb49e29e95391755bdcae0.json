@@ -1,0 +1,37 @@
+{
+  "id": "d6939657ad7c4d8d7d3021c7bbd8cbabb0d77e657adb49e29e95391755bdcae0",
+  "full_path": "do user-languages update",
+  "description": "Update a user language preference.",
+  "permissions": "Allowed for admins or users with update permission on the target user.",
+  "side_effects": "Updates the user language; if is-default is set to true, other user languages for the same user are updated to is_default=false by a database trigger.",
+  "validation_notes": "Argument <id> is required. At least one attribute must be provided (currently --is-default). --is-default expects true/false and is interpreted as true only when set to \"true\" (any other non-empty value is treated as false).",
+  "flags": [
+    {
+      "name": "--is-default",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default language flag (true/false)",
+      "default": null,
+      "validation": "true/false; interpreted as true only when set to \"true\""
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_languages_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_language_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_language.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.user_languages.sql"
+    }
+  ]
+}

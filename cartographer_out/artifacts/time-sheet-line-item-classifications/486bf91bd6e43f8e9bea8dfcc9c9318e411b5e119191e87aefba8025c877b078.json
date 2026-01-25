@@ -1,0 +1,23 @@
+{
+  "description": "List time sheet line item classifications",
+  "flags": [],
+  "full_path": "view time-sheet-line-item-classifications list",
+  "id": "486bf91bd6e43f8e9bea8dfcc9c9318e411b5e119191e87aefba8025c877b078",
+  "permissions": "Any authenticated user can list time sheet line item classifications (policy scope resolves all records for non-admins).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/time_sheet_line_item_classifications_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/time_sheet_line_item_classifications.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_sheet_line_item_classification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

@@ -1,0 +1,27 @@
+{
+  "id": "a98b950d219d0c7d10ff67817357daddc18cc5825b061edb01e6041a49b7686a",
+  "full_path": "view gauge-vehicles show",
+  "description": "Show gauge vehicle details",
+  "permissions": "User must be an admin or a member of a broker organization associated with the gauge vehicle, as determined by the policy scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required (example: 123).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/gauge_vehicles_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/gauge_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    }
+  ]
+}

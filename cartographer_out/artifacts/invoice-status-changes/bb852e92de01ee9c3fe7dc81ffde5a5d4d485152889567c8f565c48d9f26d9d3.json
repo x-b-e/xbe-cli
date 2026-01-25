@@ -1,0 +1,23 @@
+{
+  "id": "bb852e92de01ee9c3fe7dc81ffde5a5d4d485152889567c8f565c48d9f26d9d3",
+  "full_path": "view invoice-status-changes show",
+  "description": "Show invoice status change details",
+  "permissions": "Requires authentication. Admins can view invoice status changes. Non-admins can view status changes only for invoices within their Invoice policy scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_status_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_status_change_policy.rb"
+    }
+  ]
+}

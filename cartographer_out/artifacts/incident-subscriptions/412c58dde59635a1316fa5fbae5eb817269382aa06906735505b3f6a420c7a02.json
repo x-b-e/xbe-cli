@@ -1,0 +1,114 @@
+{
+  "id": "412c58dde59635a1316fa5fbae5eb817269382aa06906735505b3f6a420c7a02",
+  "full_path": "view incident-subscriptions list",
+  "description": "List incident subscriptions with filtering and pagination.",
+  "permissions": "Admin users can list all incident subscriptions. Non-admin users can list subscriptions where they are the user or where they belong to associated customer or broker organizations (including broker customer memberships).",
+  "side_effects": null,
+  "validation_notes": "contact-method must be one of email_address or mobile_number. kind must be a valid incident kind enum. incident-start-on, incident-start-on-min, and incident-start-on-max expect dates in YYYY-MM-DD format.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident kind",
+      "default": null,
+      "validation": "Must be a valid incident kind enum value."
+    },
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by contact method (email_address, mobile_number)",
+      "default": null,
+      "validation": "Allowed values: email_address, mobile_number."
+    },
+    {
+      "name": "--incident",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--incident-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD."
+    },
+    {
+      "name": "--incident-start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum incident start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD."
+    },
+    {
+      "name": "--incident-start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum incident start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_subscriptions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_subscription_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_subscription_policy.rb"
+    }
+  ]
+}

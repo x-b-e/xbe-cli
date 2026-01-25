@@ -1,0 +1,29 @@
+{
+  "id": "fdbb09307b795eed2722347539579b8c5c9cc481ab3d7346fe8e5f5d0bdba995",
+  "full_path": "do project-transport-plan-tractors delete",
+  "description": "Delete a project transport plan tractor",
+  "permissions": "User must be authorized to delete project transport plan tractors through the related project transport plan; permissions are delegated to the project transport plan policy via ProjectTransportPlanTractorPolicy.",
+  "side_effects": "Deletes a project transport plan tractor assignment.",
+  "validation_notes": "Requires a project transport plan tractor ID argument and --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_tractors_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_tractor_policy.rb"
+    }
+  ]
+}

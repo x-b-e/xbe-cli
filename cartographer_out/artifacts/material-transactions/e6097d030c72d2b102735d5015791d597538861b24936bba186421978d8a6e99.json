@@ -1,0 +1,150 @@
+{
+  "id": "e6097d030c72d2b102735d5015791d597538861b24936bba186421978d8a6e99",
+  "full_path": "do material-transactions create",
+  "description": "Create a new material transaction",
+  "permissions": "Allowed for admins, users who are members of the broker for the material site, users who are members of the material supplier, or users who can update the associated trip.",
+  "side_effects": "Creates a material transaction. On create, the server sets the source to the current user if missing and defaults status to editing when not provided.",
+  "validation_notes": "--transaction-at must be ISO 8601 when provided.",
+  "flags": [
+    {
+      "name": "--cost-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cost code ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--gross-weight-lbs",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Gross weight in pounds",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-mix-design",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material mix design ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--max-gvm-weight-lbs",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum GVM weight in pounds",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--net-weight-lbs",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Net weight in pounds",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--sales-customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Sales customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tare-weight-lbs",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tare weight in pounds",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ticket-bol-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Bill of lading number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ticket-item-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Ticket item number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ticket-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Ticket number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--transaction-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Transaction datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--trip",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trip ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transactions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    }
+  ]
+}

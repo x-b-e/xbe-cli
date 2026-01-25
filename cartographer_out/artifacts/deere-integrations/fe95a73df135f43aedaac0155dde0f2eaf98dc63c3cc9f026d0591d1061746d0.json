@@ -1,0 +1,50 @@
+{
+  "id": "fe95a73df135f43aedaac0155dde0f2eaf98dc63c3cc9f026d0591d1061746d0",
+  "full_path": "do deere-integrations update",
+  "description": "Update an existing Deere integration.",
+  "permissions": "Only admin users can update Deere integrations.",
+  "side_effects": "Updates a Deere integration.",
+  "validation_notes": "The <id> argument is required. At least one of --integration-identifier or --friendly-name must be provided. If provided, integration identifier must be present and unique; friendly name must be present.",
+  "flags": [
+    {
+      "name": "--integration-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Integration identifier from Deere",
+      "default": null,
+      "validation": "If provided, must be present and unique."
+    },
+    {
+      "name": "--friendly-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Friendly name for the integration",
+      "default": null,
+      "validation": "If provided, must be present."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_deere_integrations_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_deere_integrations.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/deere_integration.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/deere_integration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/deere_integrations_spec.rb"
+    }
+  ]
+}

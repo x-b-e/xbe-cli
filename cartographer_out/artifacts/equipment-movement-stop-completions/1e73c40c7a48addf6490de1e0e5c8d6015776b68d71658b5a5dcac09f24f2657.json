@@ -1,0 +1,64 @@
+{
+  "id": "1e73c40c7a48addf6490de1e0e5c8d6015776b68d71658b5a5dcac09f24f2657",
+  "full_path": "do equipment-movement-stop-completions update",
+  "description": "Update an equipment movement stop completion",
+  "permissions": "Allowed for admins, broker members of the completion's broker, the driver of the associated shift, or managers of the shift's trucker.",
+  "side_effects": "Updates the equipment movement stop completion record.",
+  "validation_notes": "The stop completion ID argument is required. At least one updatable field must be provided. If --completed-at is provided it cannot be empty and must be ISO 8601. Latitude and longitude must be provided together and pass CoordinatesValidator. Stop relationship is create-only (cannot be updated).",
+  "flags": [
+    {
+      "name": "--completed-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Completion timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2026-01-23T13:00:00Z)."
+    },
+    {
+      "name": "--latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Completion latitude",
+      "default": null,
+      "validation": "Must be provided with --longitude."
+    },
+    {
+      "name": "--longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Completion longitude",
+      "default": null,
+      "validation": "Must be provided with --latitude."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Completion note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_stop_completions_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_completion_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_stop_completion.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_stop_completion_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "6a9c198984723f130037db25e0a867ec12fffba9f060c2cdaed800771467591e",
+  "full_path": "do job-sites create",
+  "description": "Create a new job site.",
+  "permissions": "Requires authentication. User must be authorized to update the associated customer (via Customer policy).",
+  "side_effects": "Creates a job site. Address may be geocoded unless skip-geocoding is set; server may update related summaries asynchronously.",
+  "validation_notes": "--name and --customer are required. is_active must be true/false. Address is required unless skip-geocoding is true. default-time-card-approval-process must be admin or field. name must be present and is validated for uniqueness among active job sites for the same customer. phone-number is validated by server-side phone validation.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job site name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes about the job site",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contact phone number",
+      "default": null,
+      "validation": "Validated as a phone number by the server."
+    },
+    {
+      "name": "--contact-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contact person name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Set as active",
+      "default": "true",
+      "validation": "Boolean value required."
+    },
+    {
+      "name": "--default-time-card-approval-process",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Default time card approval process (admin, field)",
+      "default": null,
+      "validation": "Enum values: admin, field."
+    },
+    {
+      "name": "--address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full address (will be geocoded)",
+      "default": null,
+      "validation": "Required unless --skip-geocoding is set."
+    },
+    {
+      "name": "--address-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address latitude",
+      "default": null,
+      "validation": "Used with --skip-geocoding."
+    },
+    {
+      "name": "--address-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address longitude",
+      "default": null,
+      "validation": "Used with --skip-geocoding."
+    },
+    {
+      "name": "--skip-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip geocoding the address",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_sites_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_site_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_site_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_site.rb"
+    }
+  ]
+}

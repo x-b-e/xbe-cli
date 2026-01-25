@@ -1,0 +1,27 @@
+{
+  "description": "Delete a certification requirement.",
+  "flags": [
+    {
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do certification-requirements delete",
+  "id": "dc5fdb15945820119100ce759ad04a67acd5b03d61247f86ad2362f53fb0d004",
+  "permissions": "Allowed for admins or users who can update the required_by entity.",
+  "side_effects": "Deletes the certification requirement.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_certification_requirements_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/certification_requirement_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required to delete."
+}

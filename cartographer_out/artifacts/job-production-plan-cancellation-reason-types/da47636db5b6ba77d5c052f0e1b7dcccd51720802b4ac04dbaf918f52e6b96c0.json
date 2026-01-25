@@ -1,0 +1,33 @@
+{
+  "id": "da47636db5b6ba77d5c052f0e1b7dcccd51720802b4ac04dbaf918f52e6b96c0",
+  "full_path": "view job-production-plan-cancellation-reason-types list",
+  "description": "List job production plan cancellation reason types with pagination.",
+  "permissions": "Authenticated users with at least one membership can list cancellation reason types. Admin users are allowed.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "Supports filtering by slug.",
+  "flags": [
+    {
+      "name": "--slug",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by slug (e.g., \"weather\").",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_cancellation_reason_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_cancellation_reason_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_cancellation_reason_type_policy.rb"
+    }
+  ]
+}

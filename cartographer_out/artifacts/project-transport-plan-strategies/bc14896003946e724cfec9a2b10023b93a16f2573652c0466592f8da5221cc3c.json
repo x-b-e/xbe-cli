@@ -1,0 +1,50 @@
+{
+  "description": "List strategies with filtering and pagination",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by strategy name. Example: --name \"Default\".",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by step pattern. Example: --step-pattern \"pickup-dropoff\".",
+      "name": "--step-pattern",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-transport-plan-strategies list",
+  "id": "bc14896003946e724cfec9a2b10023b93a16f2573652c0466592f8da5221cc3c",
+  "permissions": "Policy scope allows anonymous and non-admin users to access all project transport plan strategies; index? is permitted by default policy.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_strategies_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/project_transport_plan_strategies.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_strategy_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_strategy_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "No arguments allowed. Supported filters: name, step_pattern."
+}

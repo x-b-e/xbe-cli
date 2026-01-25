@@ -1,0 +1,342 @@
+{
+  "id": "c38e2909f5ce5ca127db4daa238e366d223e5b1663121b197147aee8a042c826",
+  "full_path": "do job-production-plan-duplications create",
+  "description": "Duplicate a job production plan template into a new plan (or template).",
+  "permissions": "User must be authorized to view the job production plan template (same permission as JobProductionPlan show).",
+  "side_effects": "Creates a job production plan duplication; may create or update a derived job production plan and copy related records. If --is-async is set, creates a JobProductionPlanDuplicationWork item and schedules a background job to perform the duplication.",
+  "validation_notes": "--job-production-plan-template is required. --start-on must be a YYYY-MM-DD date and is required when the template has job schedule shifts; for async duplications it is required unless --derived-job-production-plan-template-name is set. --start-on must be within the template start-on min/max when those bounds are defined. --derived-job-production-plan must reference a plan whose template matches --job-production-plan-template. --skipped-labor-requirements-overlapping-resource-ids and --skipped-labor-requirements-not-valid-to-assign-ids must be JSON arrays of [labor_requirement_id, resource_id] pairs. Unless --skip-template-duplication-validation is set, the template must be valid for duplication (invalid template relations cause validation errors).",
+  "flags": [
+    {
+      "name": "--job-production-plan-template",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Template job production plan ID (required). Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--derived-job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Derived job production plan ID (optional).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--new-customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New customer ID (optional). Example: 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--derived-job-production-plan-template-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Derived plan template name (optional).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start date (YYYY-MM-DD) (optional). Example: 2026-01-23.",
+      "default": null,
+      "validation": "Must be YYYY-MM-DD; required when the template has job schedule shifts and for async duplications unless --derived-job-production-plan-template-name is set."
+    },
+    {
+      "name": "--skip-template-duplication-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip template duplication validation checks.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--disable-overlapping-crew-requirement-is-validating-overlapping",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Relax overlapping crew requirement validation.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--is-async",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Create a duplication work item asynchronously.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-alarms",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan alarms.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-locations",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan locations.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-safety-risks",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan safety risks.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-material-sites",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan material sites.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-equipment-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying equipment requirements.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-labor-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying labor requirements.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-material-types",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan material types.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-service-type-unit-of-measures",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan service type unit of measures.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-display-unit-of-measures",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan display unit of measures.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-service-type-unit-of-measure-cohorts",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan service type unit of measure cohorts.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-trailer-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan trailer classifications.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-segment-sets",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan segment sets.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-segments",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan segments.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-subscriptions",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan subscriptions.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-time-card-approvers",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan time card approvers.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-schedule-shifts",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job schedule shifts.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-developer-references",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying developer references.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-inspectors",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan inspectors.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-production-plan-project-phase-revenue-items",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job production plan project phase revenue items.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-equipment-requirements-resource",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying equipment requirement resources.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-labor-requirements-resource",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying labor requirement resources.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-labor-requirements-craft-class",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying labor requirement craft class.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-job-schedule-shifts-driver-assignment-rule-text-cached",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip copying job schedule shift driver assignment rules.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-labor-requirements-overlapping-resource",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip labor requirements with overlapping resources.",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skipped-labor-requirements-overlapping-resource-ids",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "JSON array of [labor_requirement_id, resource_id] pairs.",
+      "default": null,
+      "validation": "Must be a JSON array."
+    },
+    {
+      "name": "--skipped-labor-requirements-not-valid-to-assign-ids",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "JSON array of [labor_requirement_id, resource_id] pairs.",
+      "default": null,
+      "validation": "Must be a JSON array."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_duplications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_duplication_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_duplication_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_duplication.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_duplication_work.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/workers/job_production_plan_duplication_worker.rb"
+    }
+  ]
+}

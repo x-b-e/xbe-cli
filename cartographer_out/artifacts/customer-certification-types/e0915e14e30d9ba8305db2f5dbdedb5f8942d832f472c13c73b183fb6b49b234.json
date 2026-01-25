@@ -1,0 +1,42 @@
+{
+  "id": "e0915e14e30d9ba8305db2f5dbdedb5f8942d832f472c13c73b183fb6b49b234",
+  "full_path": "do customer-certification-types update",
+  "description": "Update a customer certification type",
+  "permissions": "Allowed for admins or users authorized to update the related customer.",
+  "side_effects": "Updates a customer certification type.",
+  "validation_notes": "Requires a customer certification type ID argument. At least one of --customer or --certification-type must be provided; provided values cannot be empty. The certification type must belong to the customer's broker.",
+  "flags": [
+    {
+      "name": "--certification-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Certification type ID",
+      "default": null,
+      "validation": "When set, must be a non-empty certification type ID"
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": "When set, must be a non-empty customer ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_certification_types_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_certification_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/customer_certification_type.rb"
+    }
+  ]
+}

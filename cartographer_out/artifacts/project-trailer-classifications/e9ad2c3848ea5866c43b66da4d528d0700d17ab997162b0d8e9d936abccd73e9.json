@@ -1,0 +1,29 @@
+{
+  "description": "Delete a project trailer classification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion (required).",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Required to perform deletion."
+    }
+  ],
+  "full_path": "do project-trailer-classifications delete",
+  "id": "e9ad2c3848ea5866c43b66da4d528d0700d17ab997162b0d8e9d936abccd73e9",
+  "permissions": null,
+  "side_effects": "Deletes a project trailer classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_trailer_classifications_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/project_trailer_classifications_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The project trailer classification ID argument is required. --confirm is required to perform deletion."
+}

@@ -1,0 +1,82 @@
+{
+  "id": "590ece3739d39043f1ab7692b2173a15ce6488e42f4c8c43bdb95d9887e0f86e",
+  "full_path": "do maintenance-requirement-rules create",
+  "description": "Create a maintenance requirement rule",
+  "permissions": "Admins can create maintenance requirement rules. Managers who are members of a broker can create rules for their brokers. Operations members with manager business unit membership can create rules only when a business unit is specified and they belong to it. Operations members can create rules only when a business unit is specified and they belong to it.",
+  "side_effects": "Creates a maintenance requirement rule and associates it to the broker plus any provided scope relationships.",
+  "validation_notes": "--rule and --broker are required. At least one of --equipment, --equipment-classification, or --business-unit is required. When provided, --rule must be non-empty. The server enforces that at least one scope (equipment, equipment classification, or business unit) is present. --is-active is only applied when the flag is set.",
+  "flags": [
+    {
+      "name": "--rule",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Rule text (required)",
+      "default": null,
+      "validation": "Must be non-empty."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "Must be non-empty."
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Business unit ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether the rule is active",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_rules_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/maintenance_requirement_rule_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_rule.rb"
+    }
+  ]
+}

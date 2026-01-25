@@ -1,0 +1,23 @@
+{
+  "id": "ee67cfa8f7da1ee8cf512d989630fc40fcfa707c5c3426dad1ca5cfc58105296",
+  "full_path": "view time-sheet-unsubmissions list",
+  "description": "List time sheet unsubmissions",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheet_unsubmissions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_unsubmission_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

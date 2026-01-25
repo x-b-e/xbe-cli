@@ -1,0 +1,29 @@
+{
+  "id": "bd6e373b4d5812aa64290b8d233962db1bff3c43d818233fbdbfe41a4b638359",
+  "full_path": "do production-measurements delete",
+  "description": "Delete a production measurement.",
+  "permissions": "User must be authorized to delete the production measurement via the associated job_production_plan_segment relationship (delegated policy).",
+  "side_effects": "Deletes a production measurement.",
+  "validation_notes": "Requires <id> argument (production measurement ID). The --confirm flag must be set.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_production_measurements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/production_measurement_policy.rb"
+    }
+  ]
+}

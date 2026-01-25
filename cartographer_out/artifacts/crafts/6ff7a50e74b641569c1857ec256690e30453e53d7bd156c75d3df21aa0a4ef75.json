@@ -1,0 +1,42 @@
+{
+  "id": "6ff7a50e74b641569c1857ec256690e30453e53d7bd156c75d3df21aa0a4ef75",
+  "full_path": "do crafts update",
+  "description": "Update an existing craft",
+  "permissions": "Admins can update crafts; non-admin users can update crafts for brokers they are manager members of.",
+  "side_effects": "Updates a craft.",
+  "validation_notes": "Requires craft ID argument. Must specify at least one of --name or --code. name and code must be unique per broker (case-insensitive).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Craft name",
+      "default": null,
+      "validation": "Must be unique per broker (case-insensitive)."
+    },
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Short code",
+      "default": null,
+      "validation": "Must be unique per broker (case-insensitive)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_crafts_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/craft_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/craft.rb"
+    }
+  ]
+}

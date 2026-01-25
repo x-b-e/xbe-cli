@@ -1,0 +1,104 @@
+{
+  "id": "35ac72a257172869cfb9d9ee1674da4768d26fd63fca982b6571f2b29e33baa6",
+  "full_path": "view customer-retainers list",
+  "description": "List customer retainers",
+  "permissions": "Admin users can view all customer retainers. Non-admin users can view retainers where they have customer membership matching buyer_id or broker membership matching seller_id (policy scope also allows broker buyers and trucker-manager sellers in general retainer scope).",
+  "side_effects": null,
+  "validation_notes": "status must be one of editing, active, terminated, expired, closed; created-at-min/created-at-max/updated-at-min/updated-at-max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (editing, active, terminated, expired, closed)",
+      "default": null,
+      "validation": "editing, active, terminated, expired, closed"
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--not-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude by retainer ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_retainers_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_retainers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/retainer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer.rb"
+    }
+  ]
+}

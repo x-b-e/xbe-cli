@@ -1,0 +1,37 @@
+{
+  "id": "c9fe66f624824ad93119aaeef8d4a2f401ae9ad96a99a7283de67dba8b106ebb",
+  "full_path": "do action-item-line-items delete",
+  "description": "Delete an action item line item.",
+  "permissions": "User must be authorized to delete action items via the delegated ActionItemLineItemPolicy (delegated to action_item); action item destroy permission allows admins or users with appropriate org membership per ActionItemPolicy.",
+  "side_effects": "Deletes the action item line item and triggers an asynchronous action item summary update.",
+  "validation_notes": "The action item line item ID argument is required. --confirm must be true to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_line_items_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_line_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_line_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/action_item_line_item.rb"
+    }
+  ]
+}

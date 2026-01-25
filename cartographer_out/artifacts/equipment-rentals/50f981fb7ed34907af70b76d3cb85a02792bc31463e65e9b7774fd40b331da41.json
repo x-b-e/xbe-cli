@@ -1,0 +1,33 @@
+{
+  "id": "50f981fb7ed34907af70b76d3cb85a02792bc31463e65e9b7774fd40b331da41",
+  "full_path": "do equipment-rentals delete",
+  "description": "Delete an equipment rental.",
+  "permissions": "Allowed for admins or users who are manager members of the broker associated with the equipment rental.",
+  "side_effects": "Deletes the equipment rental record.",
+  "validation_notes": "ID argument is required. --confirm is required to perform deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_rentals_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_rental_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_rental.rb"
+    }
+  ]
+}

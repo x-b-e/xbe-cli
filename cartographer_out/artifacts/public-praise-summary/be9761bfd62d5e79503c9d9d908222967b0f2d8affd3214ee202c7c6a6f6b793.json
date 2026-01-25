@@ -1,0 +1,86 @@
+{
+  "id": "be9761bfd62d5e79503c9d9d908222967b0f2d8affd3214ee202c7c6a6f6b793",
+  "full_path": "summarize public-praise-summary create",
+  "description": "Create a public praise summary.",
+  "permissions": "Authenticated users (persisted accounts) can create a public praise summary.",
+  "side_effects": "Reads public praise data to generate a summary; no records are created or modified.",
+  "validation_notes": "If --group-by is not set, the summary defaults to grouping by recipient. If no metrics are specified and --all-metrics is false, the default metric is public_praise_count. Group-by values must be valid summary attributes (broker, culture_value, customer, given_by, organization_broker, recipient, trucker); invalid group-by values are rejected. Filters must use valid keys (broker, customer, trucker, organization_broker, given_by, recipient, culture_value, created_at_min, created_at_max) and cannot be blank; unknown filter keys are rejected. created_at_min and created_at_max expect dates in YYYY-MM-DD format. Included metrics must be valid metric names (public_praise_count); invalid metrics are rejected. Sort fields (when provided) must reference a valid summary attribute or metric name; invalid sort values are rejected.",
+  "flags": [
+    {
+      "name": "--all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all metrics returned by the API",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable)",
+      "default": null,
+      "validation": "Each entry must be in key=value format; key cannot be blank."
+    },
+    {
+      "name": "--filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. {\"broker\":\"123\"})",
+      "default": null,
+      "validation": "Must be a valid JSON object string."
+    },
+    {
+      "name": "--group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to recipient unless set.",
+      "default": "recipient",
+      "validation": "Comma-separated list of group-by attributes; values must be valid summary attributes."
+    },
+    {
+      "name": "--metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable)",
+      "default": null,
+      "validation": "Each metric must be a valid metric name (public_praise_count)."
+    },
+    {
+      "name": "--metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list of valid metric names (public_praise_count)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_public_praise_summary_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/public_praise_summary.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/abstract_summary_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/abstract_summary_resource.rb"
+    }
+  ]
+}

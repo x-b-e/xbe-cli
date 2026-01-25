@@ -1,0 +1,109 @@
+{
+  "id": "dc0f2e851d30c1225a354bc3f70b0a3949a22932162f5365a56713bdc9f2eece",
+  "full_path": "view key-result-changes list",
+  "description": "List key result changes with filtering and pagination.",
+  "permissions": "Read-only access is delegated to the related key result; the user must be authorized to view the linked key result (via the key result policy scope, which is scoped through its objective).",
+  "side_effects": "None (read-only request).",
+  "validation_notes": "Filters key-result, objective, broker, and changed-by accept comma-separated IDs. organization must be in the format Type|ID (e.g., Broker|123). created-at-min/created-at-max and updated-at-min/updated-at-max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--key-result",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by key result ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of key result IDs."
+    },
+    {
+      "name": "--objective",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by objective ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of objective IDs."
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (format: Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Format Type|ID (e.g., Broker|123)."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of broker IDs."
+    },
+    {
+      "name": "--changed-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by changed by user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of user IDs."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/key_result_changes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "c22a5539938f9b94cd6e4f39b353067cea0a464c73945a47f444b36a5eabdd73",
+  "full_path": "view prediction-knowledge-base-answers show",
+  "description": "Show the full details of a prediction knowledge base answer.",
+  "permissions": "User must be authorized to view the related prediction knowledge base question; access to an answer inherits the question visibility.",
+  "side_effects": null,
+  "validation_notes": "Requires exactly 1 argument: prediction knowledge base answer ID; ID must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prediction_knowledge_base_answers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/prediction_knowledge_base_answers_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_knowledge_base_answer_policy.rb"
+    }
+  ]
+}

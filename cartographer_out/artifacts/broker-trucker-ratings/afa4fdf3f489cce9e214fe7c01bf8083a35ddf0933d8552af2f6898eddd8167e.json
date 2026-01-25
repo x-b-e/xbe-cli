@@ -1,0 +1,37 @@
+{
+  "id": "afa4fdf3f489cce9e214fe7c01bf8083a35ddf0933d8552af2f6898eddd8167e",
+  "full_path": "do broker-trucker-ratings update",
+  "description": "Update a broker trucker rating.",
+  "permissions": "Admins can update broker trucker ratings. Non-admin users can update ratings only for brokers tied to their broker memberships.",
+  "side_effects": "Updates a broker trucker rating.",
+  "validation_notes": "The broker trucker rating ID argument is required. At least one attribute must be provided; only rating is updatable. rating must be an integer between 1 and 5 when provided.",
+  "flags": [
+    {
+      "name": "--rating",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Rating (1-5)",
+      "default": null,
+      "validation": "1-5 integer"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_trucker_ratings_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_trucker_rating_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_trucker_rating_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/broker_trucker_rating.rb"
+    }
+  ]
+}

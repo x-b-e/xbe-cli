@@ -1,0 +1,46 @@
+{
+  "description": "Redeem a login code to obtain an auth token.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Login code to redeem (required)",
+      "name": "--code",
+      "required": true,
+      "type": "string",
+      "validation": "Required; trimmed of whitespace before submission."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Device identifier to bind to the login code",
+      "name": "--device-id",
+      "required": false,
+      "type": "string",
+      "validation": "Trimmed of whitespace before submission; if provided, must match the login code device_id or the login code must have no device_id."
+    }
+  ],
+  "full_path": "do login-code-redemptions create",
+  "id": "0af67afe01c5f4e84ff52f56d0c55ef494e606199fe022191c87a9100d9b204c",
+  "permissions": "No authentication required; any user with a valid, unexpired login code can redeem it.",
+  "side_effects": "Marks the matching login code as redeemed, records device details, and returns an auth token if the code is valid.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_login_code_redemptions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/login_code_redemption_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/login_code_redemption.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/controllers/v1/login_code_redemptions_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--code is required. The code cannot be the XBE phone number. The code must match an existing, unexpired login code and the device ID must match the stored device_id or the stored device_id must be blank."
+}

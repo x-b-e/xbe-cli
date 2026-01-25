@@ -1,0 +1,55 @@
+{
+  "id": "3ac276d3d367fd1c0d1e82d09b888e27c2dd3cdc8437ffc4880e49f51e90b278",
+  "full_path": "do answer-related-contents create",
+  "description": "Create an answer related content link.",
+  "permissions": "Only admin users can create answer related content links (user.is_admin?).",
+  "side_effects": "Creates an answer_related_content link between an answer and a related content item.",
+  "validation_notes": "--answer, --related-content-type, and --related-content-id are required. related-content-type accepts newsletters, glossary-terms, release-notes, press-releases, objectives, features, questions, or class names like GlossaryTerm (CLI normalizes singular/plural and class-name variants). The related content must be a Newsletter, GlossaryTerm, ReleaseNote, PressRelease, Objective, Feature, or Question.",
+  "flags": [
+    {
+      "name": "--answer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Answer ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--related-content-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Related content type (required)",
+      "default": null,
+      "validation": "Accepts newsletters, glossary-terms, release-notes, press-releases, objectives, features, questions; also accepts class names like GlossaryTerm."
+    },
+    {
+      "name": "--related-content-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Related content ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_answer_related_contents_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/answer_related_contents_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/answer_related_content_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/answer_related_content.rb"
+    }
+  ]
+}

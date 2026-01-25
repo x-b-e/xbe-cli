@@ -1,0 +1,87 @@
+{
+  "id": "83c45c9003ff9608a17613a17aaa73611f30b47dacb4ac4cfa3249f7b4329899",
+  "full_path": "do key-results update",
+  "description": "Update a key result.",
+  "permissions": "Users can update a key result when they are authorized to create the related objective; policy defers to objective permissions.",
+  "side_effects": "Updates the key result, may sync objective dates, may enqueue background jobs for title summary updates and completion posts, updates objective family status, triggers objective OpenAI file updates, and records key result changes.",
+  "validation_notes": "Requires a key result ID argument. At least one field must be provided for update. title must be unique within the same objective. completion-percentage must be between 0 and 1. end-on must be on or after start-on when both are set. owner must belong to the objective organization or its broker unless the owner is an admin. customer-success-responsible-person must be an admin. If the objective is a template, owner and customer-success-responsible-person must be blank and template titles must be unique. start-on and end-on use YYYY-MM-DD. completion-percentage of 1 sets status to completed.",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New title",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--title-summary-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New explicit title summary",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New end date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "--completion-percentage",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New completion percentage (0-1)",
+      "default": null,
+      "validation": "Numeric value between 0 and 1."
+    },
+    {
+      "name": "--owner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New owner user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer-success-responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New customer success responsible person user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_key_results_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/key_result.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    }
+  ]
+}

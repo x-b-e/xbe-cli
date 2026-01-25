@@ -1,0 +1,33 @@
+{
+  "id": "a96c62cb4ca283f18d9f3c7dca5f377628deff5a3a6c1b4ce6c24ca7712693df",
+  "full_path": "do developer-trucker-certification-classifications delete",
+  "description": "Delete a developer trucker certification classification",
+  "permissions": "User must be authorized to delete developer trucker certification classifications; access is delegated through the related developer.",
+  "side_effects": "Deletes the specified developer trucker certification classification.",
+  "validation_notes": "<id> argument is required. --confirm is required. Classifications with existing certifications cannot be deleted.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_trucker_certification_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_trucker_certification_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_trucker_certification_classification_policy.rb"
+    }
+  ]
+}

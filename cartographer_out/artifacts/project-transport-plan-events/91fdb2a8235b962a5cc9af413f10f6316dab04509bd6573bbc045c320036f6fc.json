@@ -1,0 +1,86 @@
+{
+  "id": "91fdb2a8235b962a5cc9af413f10f6316dab04509bd6573bbc045c320036f6fc",
+  "full_path": "do project-transport-plan-events update",
+  "description": "Update a project transport plan event",
+  "permissions": "User must be authorized for the related project transport plan (delegated via the project transport plan; access is based on project access or being an active driver on the plan).",
+  "side_effects": "Updates a project transport plan event; may create a project transport location event type for the location/event type pair; may enqueue a location prediction autopsy when the location changes.",
+  "validation_notes": "Requires <id> argument (project transport plan event ID). At least one updatable field must be provided. --project-transport-event-type cannot be empty. --project-transport-location, --project-material-type, and --project-transport-plan-stop accept empty values to clear. Project transport plan cannot be changed after creation. project_transport_location must belong to the same broker as the plan. project_material_type must belong to the same project as the plan. If project_transport_plan_stop is set with project_transport_location, the location must match the stop location. If a plan stop is linked and the event type is updated, the event type role must match linked transport order stop roles.",
+  "flags": [
+    {
+      "name": "--external-tms-event-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External TMS event identifier.",
+      "default": null,
+      "validation": "Can be set to an empty string to clear."
+    },
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Event position (0-based index).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-transport-event-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport event type ID.",
+      "default": null,
+      "validation": "Cannot be empty when provided."
+    },
+    {
+      "name": "--project-transport-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport location ID.",
+      "default": null,
+      "validation": "Can be set to an empty string to clear."
+    },
+    {
+      "name": "--project-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project material type ID.",
+      "default": null,
+      "validation": "Can be set to an empty string to clear."
+    },
+    {
+      "name": "--project-transport-plan-stop",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport plan stop ID.",
+      "default": null,
+      "validation": "Can be set to an empty string to clear."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_events_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_event.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

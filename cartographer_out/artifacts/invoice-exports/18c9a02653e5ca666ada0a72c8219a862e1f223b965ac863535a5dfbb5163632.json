@@ -1,0 +1,50 @@
+{
+  "id": "18c9a02653e5ca666ada0a72c8219a862e1f223b965ac863535a5dfbb5163632",
+  "full_path": "do invoice-exports create",
+  "description": "Export an invoice.",
+  "permissions": "User must be authorized to update the referenced invoice (InvoiceExportPolicy#create? delegates to InvoicePolicy#update?).",
+  "side_effects": "Creates an invoice export action, changes the invoice status to exported, and creates an invoice revision (synchronously or via a delayed async job).",
+  "validation_notes": "--invoice is required and must be a non-empty value. Invoice ID must be an integer and refer to an existing invoice. Invoice must be in an approved or batched status to export. Invoice must be valid for the status change; model validation errors cause the action to fail. Comment is optional.",
+  "flags": [
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Invoice ID (required)",
+      "default": null,
+      "validation": "Required; must be non-empty."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Export comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_invoice_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice_actions/invoice_export.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

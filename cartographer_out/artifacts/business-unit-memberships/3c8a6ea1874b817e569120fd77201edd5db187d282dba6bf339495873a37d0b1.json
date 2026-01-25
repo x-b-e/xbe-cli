@@ -1,0 +1,37 @@
+{
+  "id": "3c8a6ea1874b817e569120fd77201edd5db187d282dba6bf339495873a37d0b1",
+  "full_path": "do business-unit-memberships update",
+  "description": "Update a business unit membership",
+  "permissions": "Admins and broker org admins can update business unit memberships. Business unit managers can update memberships only when setting kind to technician or general.",
+  "side_effects": "Updates the business unit membership record.",
+  "validation_notes": "The business unit membership ID argument is required. --kind must be provided and cannot be empty. kind must be one of: manager, technician, general. business-unit and membership relationships are create-only and cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Role (manager/technician/general)",
+      "default": null,
+      "validation": "Required for update; one of: manager, technician, general."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_memberships_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/business_unit_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/business_unit_membership.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_membership_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "description": "Delete a project phase.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion.",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-phases delete",
+  "id": "5fe3f3a80410e36db2997cc7efdc3e5112eb07acce5c45d7ced4e2734030991b",
+  "permissions": "Allowed for users authorized on the related project via ProjectPhasePolicy (delegated to project).",
+  "side_effects": "Deletes the project phase and destroys associated project phase date estimates.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phases_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/project_phase.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --confirm. Deletion is blocked when the project phase has project phase revenue items."
+}

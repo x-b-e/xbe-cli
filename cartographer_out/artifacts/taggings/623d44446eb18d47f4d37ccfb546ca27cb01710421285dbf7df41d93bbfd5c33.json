@@ -1,0 +1,55 @@
+{
+  "id": "623d44446eb18d47f4d37ccfb546ca27cb01710421285dbf7df41d93bbfd5c33",
+  "full_path": "do taggings create",
+  "description": "Create a tagging that links a tag to a taggable resource.",
+  "permissions": "Admin users, or users who can view the taggable object.",
+  "side_effects": "Creates a tagging linking a tag to a taggable resource.",
+  "validation_notes": "--tag, --taggable-type, and --taggable-id are required. Taggings are immutable after creation. Tag ID plus taggable type and taggable ID must be unique. The tag category must allow the specified taggable type.",
+  "flags": [
+    {
+      "name": "--tag",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tag ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--taggable-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Taggable resource type (required).",
+      "default": null,
+      "validation": "JSON API type such as prediction-subjects."
+    },
+    {
+      "name": "--taggable-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Taggable resource ID (required).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_taggings_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tagging_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tagging.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.taggings.sql"
+    }
+  ]
+}

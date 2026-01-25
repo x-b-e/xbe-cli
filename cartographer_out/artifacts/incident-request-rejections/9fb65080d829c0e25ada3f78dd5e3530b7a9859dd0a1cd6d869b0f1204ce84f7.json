@@ -1,0 +1,19 @@
+{
+  "id": "9fb65080d829c0e25ada3f78dd5e3530b7a9859dd0a1cd6d869b0f1204ce84f7",
+  "full_path": "view incident-request-rejections show",
+  "description": "Show full details of an incident request rejection.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires incident request rejection ID argument; must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_request_rejections_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_request_rejection_resource.rb"
+    }
+  ]
+}

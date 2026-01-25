@@ -1,0 +1,82 @@
+{
+  "id": "438ac08de42a98292bb7e691b77c8a3264c37602ccabe55b4124b8458135892a",
+  "full_path": "do certifications create",
+  "description": "Create a new certification.",
+  "permissions": "Allowed for admins or users who have update permission on the certifies record (per the certifies policy).",
+  "side_effects": "Creates a certification record and schedules expiration handling; if expires_at is in the past, the certification may be set to expired immediately.",
+  "validation_notes": "Required flags: --certification-type, --certifies-type, --certifies-id. effective_at must be before expires_at when both are provided. certification_type must be compatible with certifies type; for Trucker/Customer certifies, the certification type broker must match certifies broker; for User certifies, the user must have trucker memberships that include the certification type broker. expires_at is required when the certification type requires expiration. status must be one of: editing, submitted, approved, declined, expired, archived.",
+  "flags": [
+    {
+      "name": "--certification-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Certification type ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--certifies-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "ID of entity to certify (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--certifies-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Type of entity to certify (e.g., truckers) (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--effective-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Effective date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD date format."
+    },
+    {
+      "name": "--expires-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expiration date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD date format; required when certification type requires expiration."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Certification status",
+      "default": null,
+      "validation": "One of: editing, submitted, approved, declined, expired, archived."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_certifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/certification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/certification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/certification_resource.rb"
+    }
+  ]
+}

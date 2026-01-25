@@ -1,0 +1,37 @@
+{
+  "description": "Delete a ticket report dispatch",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true."
+    }
+  ],
+  "full_path": "do ticket-report-dispatches delete",
+  "id": "c25b3ad42d467c6483bed358eef6d3fda3e8bf0728683622ef608984a2a23091",
+  "permissions": "Allowed for users who can delete the related ticket report (delegated to TicketReportPolicy#destroy?; admins or broker members for the ticket report).",
+  "side_effects": "Deletes the ticket report dispatch.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_ticket_report_dispatches_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/ticket_report_dispatch_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/delegated_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/ticket_report_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires ticket report dispatch ID argument. --confirm is required."
+}

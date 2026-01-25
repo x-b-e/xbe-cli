@@ -1,0 +1,77 @@
+{
+  "id": "e9befbb8d120cfa57b4bb04c82a2c63045edc9a3517db8cfd4ed7e4313958195",
+  "full_path": "do project-revenue-item-quantity-estimates create",
+  "description": "Create a project revenue item quantity estimate.",
+  "permissions": "Allowed for users who can create the related project revenue item: admin users or manager members of the broker for the related project revenue item (delegated via ProjectRevenueItemQuantityEstimatePolicy -> ProjectRevenueItemPolicy).",
+  "side_effects": "Creates a project revenue item quantity estimate.",
+  "validation_notes": "--project-revenue-item and --project-estimate-set are required and must be non-empty. If --estimate is provided, it must be valid JSON; it must be a JSON object or JSON null. Estimate payloads should include class_name and distribution parameters (examples: NormalDistribution {class_name, mean, standard_deviation}; TriangularDistribution {class_name, minimum, mode, maximum}).",
+  "flags": [
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimate description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--estimate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimate JSON payload",
+      "default": null,
+      "validation": "Must be valid JSON; must be a JSON object or JSON null."
+    },
+    {
+      "name": "--project-estimate-set",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project estimate set ID (required)",
+      "default": null,
+      "validation": "Required; must be non-empty."
+    },
+    {
+      "name": "--project-revenue-item",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project revenue item ID (required)",
+      "default": null,
+      "validation": "Required; must be non-empty."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_revenue_item_quantity_estimates_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_cost_item_quantity_estimates_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_revenue_item_quantity_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_quantity_estimate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_policy.rb"
+    }
+  ]
+}

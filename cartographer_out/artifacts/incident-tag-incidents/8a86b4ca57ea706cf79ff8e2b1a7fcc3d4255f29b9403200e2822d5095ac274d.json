@@ -1,0 +1,23 @@
+{
+  "id": "8a86b4ca57ea706cf79ff8e2b1a7fcc3d4255f29b9403200e2822d5095ac274d",
+  "full_path": "view incident-tag-incidents show",
+  "description": "Show incident tag incident details",
+  "permissions": "User must be authorized to view the linked incident via the incident tag incident policy scope.",
+  "side_effects": null,
+  "validation_notes": "The incident tag incident ID argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_tag_incidents_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_tag_incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_tag_incident_resource.rb"
+    }
+  ]
+}

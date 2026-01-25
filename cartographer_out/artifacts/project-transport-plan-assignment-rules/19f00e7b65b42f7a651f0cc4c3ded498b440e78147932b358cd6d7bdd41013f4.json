@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a project transport plan assignment rule.",
+  "flags": [],
+  "full_path": "view project-transport-plan-assignment-rules show",
+  "id": "19f00e7b65b42f7a651f0cc4c3ded498b440e78147932b358cd6d7bdd41013f4",
+  "permissions": "Readable within the policy scope for ProjectTransportPlanAssignmentRule; for non-admins, rules are scoped to levels returned by policy scope on valid level types.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_assignment_rules_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_assignment_rule_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_assignment_rule_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument."
+}

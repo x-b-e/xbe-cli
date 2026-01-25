@@ -219,14 +219,3 @@ func renderJobProductionPlanScheduleChangeWorkDetails(cmd *cobra.Command, detail
 
 	return nil
 }
-
-func anyAttr(attrs map[string]any, key string) any {
-	if attrs == nil {
-		return nil
-	}
-	value, ok := attrs[key]
-	if !ok {
-		return nil
-	}
-	return value
-}

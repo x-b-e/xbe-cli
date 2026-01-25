@@ -1,0 +1,82 @@
+{
+  "description": "Create a new tractor/trailer credential classification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Classification name (required)",
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization type (required)",
+      "name": "--organization-type",
+      "required": true,
+      "type": "string",
+      "validation": "Must be a valid organization type; server currently allows only Trucker."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization ID (required)",
+      "name": "--organization-id",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Classification description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Issuing authority name",
+      "name": "--issuer-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "External identifier",
+      "name": "--external-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do tractor-trailer-credential-classifications create",
+  "id": "06d890afd4fe28d580300420563c7d16d04c951ace20be4afc57edf5773849de",
+  "permissions": "Admins can create classifications. Non-admins can create classifications only if they are practically a member of the target organization (trucker).",
+  "side_effects": "Creates a tractor/trailer credential classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tractor_trailer_credential_classifications_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/tractor_trailer_credential_classification.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tractor_trailer_credential_classification_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/tractor_trailer_credential_classification_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--name, --organization-type, and --organization-id are required. Organization type must be valid; the server allows only Trucker. Name must be unique per organization (organization_type + organization_id). External ID must be unique per organization when provided."
+}

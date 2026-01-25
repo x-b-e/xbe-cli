@@ -1,0 +1,77 @@
+{
+  "id": "866a68076479cdb72f785cbf9500746218bb65a6ddf3e0be76fbd6c02daecb7a",
+  "full_path": "do job-production-plan-driver-movements create",
+  "description": "Generate driver movement details for a job production plan.",
+  "permissions": "User must be authorized to access the referenced job production plan (policy scope for JobProductionPlan must include it).",
+  "side_effects": "Creates/refreshes job production plan driver movement data; may delete cached movement data when --bust-cache is set and may update tender job schedule shift tracked percent.",
+  "validation_notes": "--job-production-plan is required. --driver or --tender-job-schedule-shift is required. If a tender job schedule shift is provided, it must belong to the job production plan; if a driver is also provided, it must match the shift. If no shift is provided, the driver must be related to the job production plan (via available tender job schedule shifts). explicit_location_event_sources must be valid location event sources (user_device, vehicle_location_event).",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Driver (user) ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-location-event-sources",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Location event sources (comma-separated or repeated)",
+      "default": null,
+      "validation": "Allowed values: user_device, vehicle_location_event."
+    },
+    {
+      "name": "--bust-cache",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Bust cached movement data",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_driver_movements.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_driver_movements_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_driver_movement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_driver_movement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_driver_movement.rb"
+    }
+  ]
+}

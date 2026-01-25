@@ -1,0 +1,58 @@
+{
+  "id": "f87b3f9d0358336c91274c3306d23434dc00490ea40f86db415dc80aa71b47fe",
+  "full_path": "do organization-project-actuals-exports create",
+  "description": "Export organization project actuals.",
+  "permissions": "User must be an admin or authorized to create the related project actuals export. Authorization is delegated to the project actuals export policy, which requires create permission on every related job production plan (e.g., customer manager, broker member, assigned planner/project manager, time card approver, or customer member).",
+  "side_effects": "Creates an organization project actuals export and triggers the export process; may send a formatted project actuals export file through partner integrations unless dry run is enabled. May notify partners about export or formatting errors.",
+  "validation_notes": "--project-actuals-export is required. project_actuals_export must be present. The export must be for a valid organization in the brox group. Exporter connectivity is required; if the exporter cannot be initialized, the request fails. The project actuals export must be a project revenue items export file (file name includes \"project_revenue_item_quantities\" or organization formatter description is \"Project Revenue Items Quantities Export\"). For project revenue items export files, status must be \"processed\"; if status is \"failed\" or any other status, export is rejected.",
+  "flags": [
+    {
+      "name": "--project-actuals-export",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project actuals export ID (required)",
+      "default": null,
+      "validation": "Must be a non-empty project actuals export ID."
+    },
+    {
+      "name": "--dry-run",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate export without sending",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_project_actuals_exports.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_project_actuals_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_project_actuals_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_project_actuals_export.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_project_actuals_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_actuals_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

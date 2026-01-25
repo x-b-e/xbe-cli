@@ -1,0 +1,23 @@
+{
+  "id": "accc7dfba24a1a964bbe371839841d6a2dd79f22f197e84add5259cfefbfce08",
+  "full_path": "view service-type-unit-of-measure-cohorts show",
+  "description": "Show the full details of a service type unit of measure cohort.",
+  "permissions": "User must be able to view customers in scope; cohorts are limited to customers visible via the customer policy scope.",
+  "side_effects": null,
+  "validation_notes": "The cohort ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_type_unit_of_measure_cohorts_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_type_unit_of_measure_cohort_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_type_unit_of_measure_cohort_resource.rb"
+    }
+  ]
+}

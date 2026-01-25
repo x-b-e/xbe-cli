@@ -1,0 +1,33 @@
+{
+  "description": "List project phases.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project ID. Example: 123.",
+      "name": "--project",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-phases list",
+  "id": "95e77a2f3a80d2e98c5e975a371e1bc0c700d26a4d4ef15b770041e3e3ef4988",
+  "permissions": "Allowed for users authorized on the related project via ProjectPhasePolicy (delegated to project).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_phases_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

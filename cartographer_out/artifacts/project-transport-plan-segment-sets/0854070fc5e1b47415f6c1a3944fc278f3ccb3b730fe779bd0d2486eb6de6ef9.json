@@ -1,0 +1,64 @@
+{
+  "id": "0854070fc5e1b47415f6c1a3944fc278f3ccb3b730fe779bd0d2486eb6de6ef9",
+  "full_path": "do project-transport-plan-segment-sets create",
+  "description": "Create a project transport plan segment set",
+  "permissions": "Authorized via ProjectTransportPlanSegmentSetPolicy, delegated to the related project transport plan; user must have access to that project transport plan.",
+  "side_effects": "Creates a project transport plan segment set and refreshes assignments for the related project transport plan after commit.",
+  "validation_notes": "--project-transport-plan is required. project_transport_plan relationship is create-only. segment_miles_sum is read-only. Trucker must belong to the same broker as the project transport plan.",
+  "flags": [
+    {
+      "name": "--project-transport-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-tms-leg-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External TMS leg number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Sequence position within the plan",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_segment_sets_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_segment_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_segment_set.rb"
+    }
+  ]
+}

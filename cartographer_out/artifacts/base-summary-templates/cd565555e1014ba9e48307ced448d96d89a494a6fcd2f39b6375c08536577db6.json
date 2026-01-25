@@ -1,0 +1,23 @@
+{
+  "description": "Show base summary template details",
+  "flags": [],
+  "full_path": "view base-summary-templates show",
+  "id": "cd565555e1014ba9e48307ced448d96d89a494a6fcd2f39b6375c08536577db6",
+  "permissions": "Admins can view all base summary templates. Non-admin users can view templates that are global (no broker), templates they created, or templates scoped to brokers they can access as broker members or customer members.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/base_summary_templates_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/base_summary_template_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/base_summary_template_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The base summary template ID argument is required."
+}

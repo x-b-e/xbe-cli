@@ -1,0 +1,208 @@
+{
+  "description": "List project transport plan driver assignments",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan ID",
+      "name": "--project-transport-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan status",
+      "name": "--project-transport-plan-status",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by driver (user) ID",
+      "name": "--driver",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of driver (true/false)",
+      "name": "--has-driver",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by segment start ID",
+      "name": "--segment-start",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by segment end ID",
+      "name": "--segment-end",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by assignment status (editing/pending/active)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing|pending|active"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by window start date (YYYY-MM-DD)",
+      "name": "--window-start-at-cached",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum window start date (YYYY-MM-DD)",
+      "name": "--window-start-at-cached-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum window start date (YYYY-MM-DD)",
+      "name": "--window-start-at-cached-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of window start date (true/false)",
+      "name": "--has-window-start-at-cached",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by window end date (YYYY-MM-DD)",
+      "name": "--window-end-at-cached",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum window end date (YYYY-MM-DD)",
+      "name": "--window-end-at-cached-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum window end date (YYYY-MM-DD)",
+      "name": "--window-end-at-cached-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of window end date (true/false)",
+      "name": "--has-window-end-at-cached",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trucker ID (segment range)",
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by inbound project office ID",
+      "name": "--inbound-project-office",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter to most recent assignment per driver (true/false)",
+      "name": "--most-recent",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by managed transport orders or none (true/false)",
+      "name": "--has-managed-transport-order-or-no-transport-order",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-transport-plan-drivers list",
+  "id": "b05ee7451bb921693d968cdbc1defb742db3df725e11bdabbef0c1f855eaa815",
+  "permissions": "Access is delegated to the related project transport plan; users can list records within the ProjectTransportPlanPolicy scope (project access or active driver assignment to a plan).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_drivers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_driver_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_driver_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "status must be one of editing, pending, active. Date filters use YYYY-MM-DD. Boolean filters accept true/false."
+}

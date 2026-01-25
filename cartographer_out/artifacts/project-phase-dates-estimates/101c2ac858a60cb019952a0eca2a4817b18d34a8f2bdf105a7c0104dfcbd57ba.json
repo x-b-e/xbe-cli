@@ -1,0 +1,60 @@
+{
+  "description": "List project phase date estimates.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project phase ID",
+      "name": "--project-phase",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project estimate set ID",
+      "name": "--project-estimate-set",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project ID",
+      "name": "--project",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-phase-dates-estimates list",
+  "id": "101c2ac858a60cb019952a0eca2a4817b18d34a8f2bdf105a7c0104dfcbd57ba",
+  "permissions": "Authorized via ProjectPhaseDatesEstimatePolicy; access is delegated to the related project phase (same permissions as project phase).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_phase_dates_estimates_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_dates_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_dates_estimate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

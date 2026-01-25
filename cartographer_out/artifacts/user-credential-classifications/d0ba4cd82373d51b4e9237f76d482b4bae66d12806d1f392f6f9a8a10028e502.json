@@ -1,0 +1,33 @@
+{
+  "id": "d0ba4cd82373d51b4e9237f76d482b4bae66d12806d1f392f6f9a8a10028e502",
+  "full_path": "do user-credential-classifications delete",
+  "description": "Delete a user credential classification",
+  "permissions": "Admins can delete user credential classifications; non-admins can delete classifications for organizations they are members of.",
+  "side_effects": "Deletes a user credential classification.",
+  "validation_notes": "An ID argument is required. --confirm is required. Classification cannot be deleted if it has user credentials assigned.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true to confirm deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_credential_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_credential_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_credential_classification.rb"
+    }
+  ]
+}

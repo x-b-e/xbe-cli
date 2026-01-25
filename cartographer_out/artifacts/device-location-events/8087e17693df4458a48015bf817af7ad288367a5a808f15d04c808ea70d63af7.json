@@ -1,0 +1,95 @@
+{
+  "id": "8087e17693df4458a48015bf817af7ad288367a5a808f15d04c808ea70d63af7",
+  "full_path": "do device-location-events create",
+  "description": "Create a device location event.",
+  "permissions": "Authenticated users can create device location events (policy create? returns true). The controller attempts to set the current user from the provided device identifier when unauthenticated.",
+  "side_effects": "Creates a device location event; associates or creates a device for the given device identifier; may update device/user last native app/OTA/version metadata; may enqueue the event to the batch queue when feature-flagged; persisted events upsert daily summary counts.",
+  "validation_notes": "--device-identifier is required. --payload must be valid JSON if provided. --event-at expects an ISO 8601 timestamp when provided. --event-id is expected to be a UUID when provided.",
+  "flags": [
+    {
+      "name": "--device-identifier",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Device identifier (hardware/app identifier)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--payload",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event payload (JSON string)",
+      "default": null,
+      "validation": "Must be valid JSON."
+    },
+    {
+      "name": "--event-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event UUID",
+      "default": null,
+      "validation": "UUID."
+    },
+    {
+      "name": "--event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--event-description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event description or activity type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event longitude",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_device_location_events_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/device_location_events_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/device_location_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/device_location_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/device_location_event.rb"
+    }
+  ]
+}

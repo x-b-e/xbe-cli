@@ -1,0 +1,46 @@
+{
+  "id": "7300608c438b5e4903f02c9778e720d2ac1c736778ba00aae50f1371585ae7ec",
+  "full_path": "do project-customers create",
+  "description": "Create a project customer.",
+  "permissions": "User must be authorized via the related project (project-customer policy delegates to project).",
+  "side_effects": "Creates a project-customer relationship between the specified project and customer.",
+  "validation_notes": "--project and --customer are required.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_customers_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_customers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_customer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_customer_policy.rb"
+    }
+  ]
+}

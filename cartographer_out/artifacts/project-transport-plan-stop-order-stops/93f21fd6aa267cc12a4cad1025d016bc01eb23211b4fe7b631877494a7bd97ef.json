@@ -1,0 +1,30 @@
+{
+  "id": "93f21fd6aa267cc12a4cad1025d016bc01eb23211b4fe7b631877494a7bd97ef",
+  "full_path": "do project-transport-plan-stop-order-stops delete",
+  "description": "Delete a project transport plan stop order stop.",
+  "permissions": "User must be authorized to delete the project transport plan stop order stop via the related project transport plan stop; authorization is delegated through the project transport plan stop to the project transport plan.",
+  "side_effects": "Deletes the link between the project transport plan stop and the transport order stop.",
+  "validation_notes": "The <id> argument is required. --confirm is required to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion. Example: --confirm"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_stop_order_stops_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_order_stop_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_policy.rb"
+    }
+  ]
+}

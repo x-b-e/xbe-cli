@@ -1,0 +1,77 @@
+{
+  "description": "List equipment movement requirement locations with filtering.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name (exact match)",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by proximity (lat|lng|miles)",
+      "name": "--near",
+      "required": false,
+      "type": "string",
+      "validation": "Format: lat|lng|miles"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by last use time (ISO 8601)",
+      "name": "--used-after",
+      "required": false,
+      "type": "string",
+      "validation": "Time.parse-compatible timestamp (ISO 8601 recommended)"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Full-text search",
+      "name": "--q",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view equipment-movement-requirement-locations list",
+  "id": "d36711b784436a1410ec4669fba8645753a32a082c16657c9f0cebd1f3b95e63",
+  "permissions": "Admins can list all equipment movement requirement locations. Non-admin users can only see locations for brokers they are members of.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/equipment_movement_requirement_locations_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/equipment_movement_requirement_location_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/active_record_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/equipment_movement_requirement_location.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_movement_requirement_location_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--near expects a pipe-delimited \"lat|lng|miles\" string; values are parsed as decimals and invalid/blank values result in no matches. --used-after must be parseable as a date/time (Time.parse) and is evaluated in UTC. Locations are filtered by broker, name, proximity, last use time, and full-text query when provided."
+}

@@ -1,0 +1,84 @@
+{
+  "id": "442a49d2513635d39da5e18a21158d37130ab234f25c764087f9b809e5a0c030",
+  "full_path": "do job-production-plan-scrappages create",
+  "description": "Scrap a job production plan.",
+  "permissions": "Allowed for admins, or users authorized to destroy the job production plan (JobProductionPlanScrappagePolicy via JobProductionPlanCancellationPolicy).",
+  "side_effects": "Sets the job production plan status to scrapped; creates scrapped shift notifications; clears equipment_movement_trip_id on the job production plan; schedules recap generation.",
+  "validation_notes": "Requires --job-production-plan; the job production plan must exist and be valid. The job production plan status must be approved. Status changes are blocked when the plan is related to invoices. Template plans can only change status to abandoned or editing, so scrappage is invalid for templates.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": "--job-production-plan is required."
+    },
+    {
+      "name": "--job-production-plan-cancellation-reason-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cancellation reason type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Scrappage comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--suppress-status-change-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Suppress status change notifications",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_scrappages_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/job_production_plan_scrappages_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_scrappage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_cancellation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_scrappage_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_actions/job_production_plan_scrappage.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_actions/job_production_plan_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/has_job_production_plan_cancellation_reason.rb"
+    }
+  ]
+}

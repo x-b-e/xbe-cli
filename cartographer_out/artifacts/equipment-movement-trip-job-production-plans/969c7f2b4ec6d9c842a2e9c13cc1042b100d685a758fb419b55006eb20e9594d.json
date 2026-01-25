@@ -1,0 +1,41 @@
+{
+  "id": "969c7f2b4ec6d9c842a2e9c13cc1042b100d685a758fb419b55006eb20e9594d",
+  "full_path": "do equipment-movement-trip-job-production-plans create",
+  "description": "Create an equipment movement trip job production plan link.",
+  "permissions": "Requires permission to create on the related equipment movement trip. Admins and members of the trip broker can create the link.",
+  "side_effects": "Creates an equipment movement trip job production plan link; the server creates or assigns a job production plan for the trip and may create related customer, job site, material supplier, material site, and job schedule shift records.",
+  "validation_notes": "--equipment-movement-trip is required. The equipment movement trip must be valid for dispatch.",
+  "flags": [
+    {
+      "name": "--equipment-movement-trip",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment movement trip ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_trip_job_production_plans_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_job_production_plan_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_trip_job_production_plan.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_policy.rb"
+    }
+  ]
+}

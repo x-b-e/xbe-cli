@@ -1,0 +1,172 @@
+{
+  "description": "List material sites with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Show only active material sites",
+      "name": "active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by active around datetime (ISO 8601)",
+      "name": "active-around",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime; server requires a single value"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by proximity to address (lat,lng,radius_miles)",
+      "name": "address-near",
+      "required": false,
+      "type": "string",
+      "validation": "Format: lat,lng,radius_miles"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "name": "broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by activity as of datetime (ISO 8601)",
+      "name": "has-activity-as-of",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime; server requires a single value"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by availability at datetime (ISO 8601)",
+      "name": "is-available-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 datetime; server requires a single value"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker active status (true/false)",
+      "name": "is-broker-active",
+      "required": false,
+      "type": "string",
+      "validation": "Must be true or false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by equipment movement only status (true/false)",
+      "name": "is-only-for-equipment-movement",
+      "required": false,
+      "type": "string",
+      "validation": "Must be true or false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by ticket maker status (true/false)",
+      "name": "is-ticket-maker",
+      "required": false,
+      "type": "string",
+      "validation": "Must be true or false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material supplier ID (comma-separated for multiple)",
+      "name": "material-supplier",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material transaction integration (true/false)",
+      "name": "material-transaction-integration",
+      "required": false,
+      "type": "string",
+      "validation": "Must be true or false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material type IDs (comma-separated)",
+      "name": "material-types",
+      "required": false,
+      "type": "string",
+      "validation": "IDs must refer to existing material types"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name (partial match)",
+      "name": "name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by operating status",
+      "name": "operating-status",
+      "required": false,
+      "type": "string",
+      "validation": "Valid values: active, inactive"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by parent material site ID (comma-separated for multiple)",
+      "name": "parent",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Full-text search",
+      "name": "q",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view material-sites list",
+  "id": "925b830d826be2434e1b388950cc3e708f3948b17cc6248ed0d78f9172941d10",
+  "permissions": "Material sites are scoped by MaterialSitePolicy. For non-admin users, the scope joins to material suppliers authorized by MaterialSupplierPolicy (policy_scope_for! on MaterialSupplier); admins may see broader scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_sites_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_site_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/material_site_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_site.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters with boolean semantics require strict true/false values (is-ticket-maker, is-broker-active, is-only-for-equipment-movement, material-transaction-integration). active-around, has-activity-as-of, and is-available-at accept a single ISO 8601 datetime value each. address-near expects lat,lng,radius_miles. operating-status must be a valid operating status enum value (active/inactive). material-types filter values must correspond to existing material type IDs."
+}

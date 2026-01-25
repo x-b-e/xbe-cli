@@ -1,0 +1,47 @@
+{
+  "id": "478d2b8d17bc07eff7f58b9fec5d2111755c0a721664120b1e9a57c551b3cca4",
+  "full_path": "do job-production-plan-safety-risk-communication-suggestions create",
+  "description": "Generate a safety risk communication suggestion for a job production plan.",
+  "permissions": null,
+  "side_effects": "Creates a job production plan safety risk communication suggestion; when --is-async is true, generation is asynchronous.",
+  "validation_notes": "--job-production-plan is required. --options must be valid JSON.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-async",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Generate asynchronously",
+      "default": "true",
+      "validation": null
+    },
+    {
+      "name": "--options",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Options JSON object passed to the generator",
+      "default": null,
+      "validation": "Must be valid JSON."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_safety_risk_communication_suggestions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_safety_risk_communication_suggestion_policy.rb"
+    }
+  ]
+}

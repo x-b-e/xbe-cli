@@ -1,0 +1,212 @@
+{
+  "id": "d30d76b4377d52daf69621692e29c1470d114f103cee3df5130cdea8be4f1187",
+  "full_path": "do job-production-plan-segments create",
+  "description": "Create a job production plan segment.",
+  "permissions": "User must be allowed to create segments on the related job production plan; JobProductionPlanSegmentPolicy delegates to JobProductionPlanPolicy#create? (admin, broker members, customer managers, assigned planner/project manager, time card approver, or customer member of the plan's customer).",
+  "side_effects": "Creates a job production plan segment; may touch the job production plan and enqueue background updates for calculated miles, alarms, supply/demand balance, and plan goals.",
+  "validation_notes": "--job-production-plan is required. explicit-start-site-kind must be one of material_site or job_site. is-expecting-weighed-transactions and lock-observed-possible-cycle-minutes must be \"true\" or \"false\". selected-google-route must be valid JSON and, when provided, a list of 1 or 2 routes each containing summary and legs. non-production-minutes and quantity must be >= 0. planned-unproductive-minutes-per-hour must be >= 0 and < 60. quantity-per-hour must be > 0 when quantity > 0. material-site is required when quantity > 0. material-type is required when quantity > 0 and strict material type enforcement applies. cost-code is required when the job production plan requires cost code allocation. material-site, material-type, and cost-code must belong to the job production plan. job-production-plan-segment-set must belong to the same job production plan. non-production-minutes must be zero when quantity > 0. If a production measurement exists, quantity and quantity-per-hour must match it.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--non-production-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Non production minutes",
+      "default": null,
+      "validation": "Must be a number >= 0; must be 0 when quantity > 0."
+    },
+    {
+      "name": "--is-expecting-weighed-transactions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expect weighed transactions (true/false)",
+      "default": null,
+      "validation": "Must be \"true\" or \"false\"."
+    },
+    {
+      "name": "--explicit-start-site-kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Explicit start site kind (material_site, job_site)",
+      "default": null,
+      "validation": "Allowed values: material_site, job_site."
+    },
+    {
+      "name": "--observed-possible-cycle-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Observed possible cycle minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lock-observed-possible-cycle-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Lock observed possible cycle minutes (true/false)",
+      "default": null,
+      "validation": "Must be \"true\" or \"false\"."
+    },
+    {
+      "name": "--quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned quantity",
+      "default": null,
+      "validation": "Must be a number >= 0."
+    },
+    {
+      "name": "--quantity-per-hour",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned quantity per hour",
+      "default": null,
+      "validation": "Must be > 0 when quantity > 0; may need to match production measurement if present."
+    },
+    {
+      "name": "--selected-google-route",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Selected google route (JSON)",
+      "default": null,
+      "validation": "Must be valid JSON; when provided must be a list of 1 or 2 routes with summary and legs."
+    },
+    {
+      "name": "--sequence-position",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Sequence position",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--planned-unproductive-minutes-per-hour",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned unproductive minutes per hour",
+      "default": null,
+      "validation": "Must be >= 0 and < 60."
+    },
+    {
+      "name": "--driving-minutes-per-cycle",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Driving minutes per cycle",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-site-minutes-per-cycle",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material site minutes per cycle",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tons-per-cycle",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tons per cycle",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan-segment-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Segment set ID",
+      "default": null,
+      "validation": "Must belong to the same job production plan."
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material site ID",
+      "default": null,
+      "validation": "Must belong to the job production plan; required when quantity > 0."
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material type ID",
+      "default": null,
+      "validation": "Must belong to the job production plan; required when quantity > 0 and strict material type enforcement applies."
+    },
+    {
+      "name": "--cost-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cost code ID",
+      "default": null,
+      "validation": "Must belong to the job production plan; required when the plan requires cost code allocation."
+    },
+    {
+      "name": "--explicit-material-type-material-site-inventory-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit inventory location ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_segments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_segment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_segment.rb"
+    }
+  ]
+}

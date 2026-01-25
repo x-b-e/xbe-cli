@@ -1,0 +1,60 @@
+{
+  "description": "Create a new tag category.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tag category name (required)",
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "validation": "Must be present and unique (case-insensitive)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "URL-friendly identifier (required)",
+      "name": "--slug",
+      "required": true,
+      "type": "string",
+      "validation": "Must be present and unique (case-insensitive)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Description of the tag category",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Entity types this can apply to (required, comma-separated)",
+      "name": "--can-apply-to",
+      "required": true,
+      "type": "array",
+      "validation": "Comma-separated types; each must be one of: PredictionSubject, Comment, FileAttachment, PredictionKnowledgeBaseQuestion."
+    }
+  ],
+  "full_path": "do tag-categories create",
+  "id": "a6e1f4315fe215bc396472936af53325a9243cdabcbc6acd3b20f1f195652d33",
+  "permissions": "Only admin users can create tag categories.",
+  "side_effects": "Creates a tag category.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tag_categories_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/tag_category.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tag_category_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --name, --slug, and --can-apply-to. name and slug must be unique (case-insensitive). can-apply-to must include only allowed types: PredictionSubject, Comment, FileAttachment, PredictionKnowledgeBaseQuestion."
+}

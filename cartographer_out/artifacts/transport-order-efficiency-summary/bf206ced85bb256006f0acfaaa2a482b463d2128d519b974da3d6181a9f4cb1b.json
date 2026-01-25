@@ -1,0 +1,82 @@
+{
+  "id": "bf206ced85bb256006f0acfaaa2a482b463d2128d519b974da3d6181a9f4cb1b",
+  "full_path": "summarize transport-order-efficiency-summary create",
+  "description": "Create a transport order efficiency summary.",
+  "permissions": "Requires an authenticated (persisted) user. Results are scoped to transport orders the user is authorized to access unless the user is an admin.",
+  "side_effects": null,
+  "validation_notes": "--filters must be a valid JSON object; --filter entries must be in key=value form with a non-empty key. When both are provided, key=value pairs override any duplicate keys from --filters. group-by defaults to customer when not set. If no metric/metrics are provided and --all-metrics is not set, the default metrics are transport_order_count, ordered_miles_sum, routed_miles_sum, deviated_miles_sum. Date filters ordered_date, ordered_date_min, ordered_date_max, pickup_date, pickup_date_min, pickup_date_max require YYYY-MM-DD; is_managed and was_unmanaged accept true/false. Filters broker, customer, project_division, project_office, project_category, driver, transport_order expect integer IDs. transport_order_status must be a valid transport_order_status enum value.",
+  "flags": [
+    {
+      "name": "--group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to customer unless set.",
+      "default": "customer",
+      "validation": "Comma-separated list. Supported values: broker, customer, driver, is_managed, ordered_date, pickup_date, project_category, project_division, project_office, transport_order, transport_order_status, was_unmanaged."
+    },
+    {
+      "name": "--all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all metrics returned by the API",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable)",
+      "default": null,
+      "validation": "Repeatable. Supported values: transport_order_count, ordered_minutes_sum, ordered_minutes_avg, ordered_miles_sum, ordered_miles_avg, routed_minutes_sum, routed_minutes_avg, routed_miles_sum, routed_miles_avg, deviated_minutes_sum, deviated_minutes_avg, deviated_miles_sum, deviated_miles_avg, routed_minutes_over_ordered_pct, routed_miles_over_ordered_pct, deviated_minutes_over_routed_pct, deviated_miles_over_routed_pct, routed_minutes_minus_ordered, routed_miles_minus_ordered, deviated_minutes_minus_routed, deviated_miles_minus_routed, project_transport_plan_driver_count, project_transport_plan_driver_confirmation_count."
+    },
+    {
+      "name": "--metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list. Supported values: transport_order_count, ordered_minutes_sum, ordered_minutes_avg, ordered_miles_sum, ordered_miles_avg, routed_minutes_sum, routed_minutes_avg, routed_miles_sum, routed_miles_avg, deviated_minutes_sum, deviated_minutes_avg, deviated_miles_sum, deviated_miles_avg, routed_minutes_over_ordered_pct, routed_miles_over_ordered_pct, deviated_minutes_over_routed_pct, deviated_miles_over_routed_pct, routed_minutes_minus_ordered, routed_miles_minus_ordered, deviated_minutes_minus_routed, deviated_miles_minus_routed, project_transport_plan_driver_count, project_transport_plan_driver_confirmation_count."
+    },
+    {
+      "name": "--filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable)",
+      "default": null,
+      "validation": "Must be key=value with a non-empty key. Supported keys: broker, customer, driver, is_managed, was_unmanaged, ordered_date, ordered_date_min, ordered_date_max, pickup_date, pickup_date_min, pickup_date_max, project_division, project_office, project_category, transport_order, transport_order_status."
+    },
+    {
+      "name": "--filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. '{\"broker\":\"123\"}')",
+      "default": null,
+      "validation": "Must be a JSON object. Supported keys: broker, customer, driver, is_managed, was_unmanaged, ordered_date, ordered_date_min, ordered_date_max, pickup_date, pickup_date_min, pickup_date_max, project_division, project_office, project_category, transport_order, transport_order_status."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_order_efficiency_summary_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_efficiency_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_order_efficiency_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/transport_order_efficiency_summary.rb"
+    }
+  ]
+}

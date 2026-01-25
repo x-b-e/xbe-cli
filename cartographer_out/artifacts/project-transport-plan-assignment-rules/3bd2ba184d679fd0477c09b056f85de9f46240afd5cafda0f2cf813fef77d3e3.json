@@ -1,0 +1,55 @@
+{
+  "description": "Update an existing project transport plan assignment rule.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Rule text",
+      "name": "--rule",
+      "required": false,
+      "type": "string",
+      "validation": "Must be non-empty when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Asset type (driver/tractor/trailer)",
+      "name": "--asset-type",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: driver, tractor, trailer."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Whether the rule is active",
+      "name": "--is-active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-assignment-rules update",
+  "id": "3bd2ba184d679fd0477c09b056f85de9f46240afd5cafda0f2cf813fef77d3e3",
+  "permissions": "Allowed for users who are broker managers for the rule broker or who can update the related level via that level policy.",
+  "side_effects": "Updates fields on the project transport plan assignment rule record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_assignment_rules_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_assignment_rule_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_assignment_rule.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_assignment_rule_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. At least one of --rule, --asset-type, or --is-active must be provided. asset-type must be one of driver, tractor, trailer."
+}

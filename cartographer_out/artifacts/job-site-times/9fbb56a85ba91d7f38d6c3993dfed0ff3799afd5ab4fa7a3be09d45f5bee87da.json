@@ -1,0 +1,33 @@
+{
+  "id": "9fbb56a85ba91d7f38d6c3993dfed0ff3799afd5ab4fa7a3be09d45f5bee87da",
+  "full_path": "do job-site-times delete",
+  "description": "Delete a job site time.",
+  "permissions": "Admin users can delete job site times. Non-admin users can delete when they are the same user as the job site time and are related to the job production plan, or when they can update the related job production plan.",
+  "side_effects": "Deletes a job site time and touches related time cards and time sheets.",
+  "validation_notes": "Requires a job site time ID argument. --confirm is required. Job site times cannot be deleted if the related time card is confirmed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_site_times_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_site_time_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_site_time.rb"
+    }
+  ]
+}

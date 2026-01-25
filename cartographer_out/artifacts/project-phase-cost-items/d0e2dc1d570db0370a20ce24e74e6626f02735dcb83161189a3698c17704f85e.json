@@ -1,0 +1,19 @@
+{
+  "id": "d0e2dc1d570db0370a20ce24e74e6626f02735dcb83161189a3698c17704f85e",
+  "full_path": "view project-phase-cost-items show",
+  "description": "Show project phase cost item details",
+  "permissions": "Allowed when the user is in the ProjectPhaseCostItemPolicy scope, which is delegated to the related ProjectPhaseRevenueItem policy.",
+  "side_effects": null,
+  "validation_notes": "The id argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_phase_cost_items_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_cost_item_resource.rb"
+    }
+  ]
+}

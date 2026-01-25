@@ -1,0 +1,42 @@
+{
+  "id": "f2d26a5fbd7198bcebd072577bfad21325669dd79afd473e116375500f745596",
+  "full_path": "do project-revenue-classifications update",
+  "description": "Update an existing project revenue classification.",
+  "permissions": "Allowed for admin users or users who are manager members of the broker.",
+  "side_effects": "Updates fields on a project revenue classification record.",
+  "validation_notes": "Requires <id> argument. At least one of --name or --parent must be provided. Name is required if provided and must be unique within the same broker and parent; whitespace is stripped. If a parent is set, the classification must have a broker and the broker must match the parent classification's broker.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Classification name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent classification ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_revenue_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/project_money_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/project_money_classification.rb"
+    }
+  ]
+}

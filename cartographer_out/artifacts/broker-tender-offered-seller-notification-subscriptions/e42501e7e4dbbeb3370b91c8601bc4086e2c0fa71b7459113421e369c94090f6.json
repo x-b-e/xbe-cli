@@ -1,0 +1,33 @@
+{
+  "id": "e42501e7e4dbbeb3370b91c8601bc4086e2c0fa71b7459113421e369c94090f6",
+  "full_path": "view broker-tender-offered-seller-notification-subscriptions list",
+  "description": "List broker tender offered seller notification subscriptions.",
+  "permissions": "User can view subscriptions for truckers they are a member of or truckers belonging to brokers they are a member of.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_tender_offered_seller_notification_subscriptions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_tender_offered_seller_notification_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_tender_offered_seller_notification_subscription_resource.rb"
+    }
+  ]
+}

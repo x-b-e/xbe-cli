@@ -1,0 +1,19 @@
+{
+  "id": "00dccab967a462c963e8b36b9ce73c6a24c3a7a6a68aa7c7cafa7a52802cb0d4",
+  "full_path": "view native-app-releases show",
+  "description": "Show the full details of a native app release.",
+  "permissions": "Any authenticated user can view native app releases; policy scope for non-admin users resolves to all records.",
+  "side_effects": null,
+  "validation_notes": "Requires a native app release <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/native_app_releases_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/native_app_release_policy.rb"
+    }
+  ]
+}

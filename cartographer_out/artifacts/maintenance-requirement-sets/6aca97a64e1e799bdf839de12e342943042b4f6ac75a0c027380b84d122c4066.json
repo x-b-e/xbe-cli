@@ -1,0 +1,96 @@
+{
+  "description": "Update a maintenance requirement set",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maintenance type (inspection or maintenance)",
+      "name": "--maintenance-type",
+      "required": false,
+      "type": "enum",
+      "validation": "inspection or maintenance"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Status (editing, ready_for_work, on_hold, in_progress, completed)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing, ready_for_work, on_hold, in_progress, completed"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Whether the set is a template",
+      "name": "--is-template",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Template name",
+      "name": "--template-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Archive status",
+      "name": "--is-archived",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Equipment classification ID (set empty to clear)",
+      "name": "--equipment-classification",
+      "required": false,
+      "type": "string",
+      "validation": "Can be cleared by setting empty value"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Work order ID (set empty to clear)",
+      "name": "--work-order",
+      "required": false,
+      "type": "string",
+      "validation": "Can be cleared by setting empty value"
+    }
+  ],
+  "full_path": "do maintenance-requirement-sets update",
+  "id": "6aca97a64e1e799bdf839de12e342943042b4f6ac75a0c027380b84d122c4066",
+  "permissions": "Admin users can update sets. Managers can update sets for their brokers. Operations users with manager business unit membership can update template and non-template sets if they have at least one business unit. Operations users without manager business unit membership can update non-template sets only if they have at least one business unit. Technician business unit members can update only the status and only when they have at least one assigned maintenance requirement in the set. General business unit members cannot update sets.",
+  "side_effects": "Updates maintenance requirement set attributes and relationships.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_maintenance_requirement_sets_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/maintenance_requirement_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/maintenance_requirement_set_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one flag must be provided. maintenance-type must be inspection or maintenance. status must be editing, ready_for_work, on_hold, in_progress, or completed. template-name is required when is-template is true. equipment-classification cannot be changed when status is in_progress or completed. work-order cannot be set on a template. work-order must belong to the same broker. Setting status to completed requires all required maintenance requirements to be completed. completed_at is set when status changes to completed and cleared when status changes away from completed. equipment-classification and work-order can be cleared by setting an empty value."
+}

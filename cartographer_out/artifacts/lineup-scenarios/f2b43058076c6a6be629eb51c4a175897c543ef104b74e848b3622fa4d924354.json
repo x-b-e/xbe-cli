@@ -1,0 +1,23 @@
+{
+  "id": "f2b43058076c6a6be629eb51c4a175897c543ef104b74e848b3622fa4d924354",
+  "full_path": "view lineup-scenarios show",
+  "description": "Show lineup scenario details",
+  "permissions": "Admins can view all lineup scenarios; non-admins can view scenarios whose broker is in their broker memberships.",
+  "side_effects": null,
+  "validation_notes": "Requires lineup scenario ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_scenarios_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

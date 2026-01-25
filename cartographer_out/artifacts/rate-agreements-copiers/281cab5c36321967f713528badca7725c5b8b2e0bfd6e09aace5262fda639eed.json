@@ -1,0 +1,64 @@
+{
+  "description": "Copy a rate agreement template",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Template rate agreement ID (example: 123)",
+      "name": "--rate-agreement-template",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Target customer IDs (comma-separated or repeated; example: 456,789)",
+      "name": "--target-customers",
+      "required": true,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Target trucker IDs (comma-separated or repeated; example: 555,666)",
+      "name": "--target-truckers",
+      "required": true,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Copier note (example: Annual renewal)",
+      "name": "--note",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do rate-agreements-copiers create",
+  "id": "281cab5c36321967f713528badca7725c5b8b2e0bfd6e09aace5262fda639eed",
+  "permissions": "User must be authorized to update the template rate agreement (RateAgreementPolicy#update?) via RateAgreementsCopierPolicy#create?.",
+  "side_effects": "Creates a rate agreements copier and associated rate agreement copier works for the target organizations; scheduled_at and broker are set from the template at creation.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_rate_agreements_copiers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/rate_agreements_copier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreements_copier_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/rate_agreements_copier.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--rate-agreement-template is required. Provide exactly one of --target-customers or --target-truckers (one required; both cannot be set). Target organizations must be all customers or all truckers, and all targets must be in the same branch as the template rate agreement."
+}

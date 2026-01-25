@@ -1,0 +1,86 @@
+{
+  "id": "5b693966c7f6f6fd202d2bdc9e802d7d53bd6e9913d21d7068d2d22179d4a9d2",
+  "full_path": "view objective-changes list",
+  "description": "List objective changes",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "--organization must use Type|ID format (e.g., Broker|123). --organization-id requires --organization-type or --organization Type|ID.",
+  "flags": [
+    {
+      "name": "objective",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by objective ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (format: Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Broker|123)."
+    },
+    {
+      "name": "organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type or Type|ID)",
+      "default": null,
+      "validation": "Requires --organization-type or --organization Type|ID."
+    },
+    {
+      "name": "organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker, Customer, Trucker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "changed-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by changed-by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/objective_changes_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/objective_changes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/objective_changes_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/objective_change_resource.rb"
+    }
+  ]
+}

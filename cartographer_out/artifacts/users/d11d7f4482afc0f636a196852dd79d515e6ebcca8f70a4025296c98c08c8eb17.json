@@ -1,0 +1,244 @@
+{
+  "id": "d11d7f4482afc0f636a196852dd79d515e6ebcca8f70a4025296c98c08c8eb17",
+  "full_path": "do users update",
+  "description": "Update an existing user.",
+  "permissions": "Admins can update users unless their admin status was just changed; non-admins can update themselves and users in organizations where they have broker membership for all of the user's member organizations or manager membership for all member organizations when all are operations. Non-admins cannot update admin users or remove admin status.",
+  "side_effects": "Updates a user record.",
+  "validation_notes": "The <id> argument is required and at least one field must be provided. Email addresses must be valid and unique (case-insensitive). Mobile numbers must be valid and unique when provided. When contact method is not required, email and mobile must be blank and default_contact_method must be absent; when required, either email or mobile must be present and default_contact_method must match an available contact method. default_contact_method is validated against available contact methods (email_address/mobile_number). is_available_for_question_assignment must be false unless the user is an admin. is_sales and is_customer_success must be false unless the user is an admin. reference_data must be a JSON object with scalar values; nested arrays/objects are rejected.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--email",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New email address",
+      "default": null,
+      "validation": "Must be a valid email address."
+    },
+    {
+      "name": "--mobile",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New mobile phone number",
+      "default": null,
+      "validation": "Must be a valid phone number."
+    },
+    {
+      "name": "--default-contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New default contact method (email, sms, push)",
+      "default": null,
+      "validation": "email, sms, or push (per CLI help)."
+    },
+    {
+      "name": "--is-suspended-from-driving",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update driving suspension (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--dark-mode",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New dark mode preference",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-available-for-question",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update question assignment availability (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--slack-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New Slack user ID (admin only)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-admin",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update admin status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-potential-trucker-referrer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update potential trucker referrer (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--opt-out-of-check-in-request-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update check-in notification opt-out (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--opt-out-of-shift-starting-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update shift starting notification opt-out (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--opt-out-of-pre-approval-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update pre-approval notification opt-out (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-contact-method-required",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update contact method required (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--notify-when-gps-not-available",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update GPS notification (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--opt-out-of-time-card-approver-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update time card approver notification opt-out (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--notification-preferences-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update explicit notification preferences",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-time-zone-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update explicit time zone ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-generating-notification-posts-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update notification posts generation (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--reference-data",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update reference data (JSON string)",
+      "default": null,
+      "validation": "Must be valid JSON object."
+    },
+    {
+      "name": "--is-read-only-mode-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update read-only mode (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-notifiable",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update notifiable status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-sales",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update sales role (true/false, admin only)",
+      "default": null,
+      "validation": "true/false; admin only"
+    },
+    {
+      "name": "--is-customer-success",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update customer success role (true/false, admin only)",
+      "default": null,
+      "validation": "true/false; admin only"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_users_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_resource.rb"
+    }
+  ]
+}

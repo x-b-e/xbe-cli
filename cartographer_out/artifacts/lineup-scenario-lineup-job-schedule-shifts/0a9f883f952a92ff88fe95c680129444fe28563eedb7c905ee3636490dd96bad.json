@@ -1,0 +1,42 @@
+{
+  "id": "0a9f883f952a92ff88fe95c680129444fe28563eedb7c905ee3636490dd96bad",
+  "full_path": "do lineup-scenario-lineup-job-schedule-shifts create",
+  "description": "Create a lineup scenario lineup job schedule shift.",
+  "permissions": "Requires permission to create a lineup scenario lineup job schedule shift via the associated lineup scenario (LineupScenarioLineupJobScheduleShiftPolicy delegates create? to LineupScenario).",
+  "side_effects": "Creates a lineup scenario lineup job schedule shift.",
+  "validation_notes": "Requires --lineup-scenario and --lineup-job-schedule-shift.",
+  "flags": [
+    {
+      "name": "lineup-scenario",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup scenario ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "lineup-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup job schedule shift ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenario_lineup_job_schedule_shifts_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_lineup_job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_lineup_job_schedule_shift_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "description": "Download all completed PDFs as a ZIP archive",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Output file path (optional)",
+      "name": "--output",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Overwrite output file if it exists",
+      "name": "--overwrite",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "view organization-invoices-batch-pdf-generations download-all",
+  "id": "63c907f915433d2d264c4536d850e8c436553d3ace53201707409d154ef85760",
+  "permissions": "Allowed when show? is permitted for the PDF generation (delegated to the related organization invoices batch policy).",
+  "side_effects": "Writes a ZIP file to the local filesystem.",
+  "sources": [
+    {
+      "file_path": "internal/cli/organization_invoices_batch_pdf_generations_download_all.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/organization_invoices_batch_pdf_generations_controller.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_invoices_batch_pdf_generation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/delegated_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. If no PDFs are completed, the API responds with 404. When --overwrite is not set, the command fails if the output file already exists."
+}

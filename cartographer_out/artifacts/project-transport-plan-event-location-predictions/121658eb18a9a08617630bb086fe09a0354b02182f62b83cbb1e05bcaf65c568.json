@@ -1,0 +1,29 @@
+{
+  "id": "121658eb18a9a08617630bb086fe09a0354b02182f62b83cbb1e05bcaf65c568",
+  "full_path": "do project-transport-plan-event-location-predictions delete",
+  "description": "Delete a project transport plan event location prediction.",
+  "permissions": "Admin users can delete predictions. Non-admin users must be members of the effective broker (broker on the project transport plan event, or explicit broker context when no event is provided).",
+  "side_effects": "Deletes the prediction record.",
+  "validation_notes": "Requires prediction ID argument and the --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_event_location_predictions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_event_location_prediction_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "f09935f275d7c350acce56208c9403f51670b485a8530ea744e6b6089b2679a5",
+  "full_path": "do project-truckers update",
+  "description": "Update a project trucker",
+  "permissions": "User must be an admin or a manager member of the broker that owns the project.",
+  "side_effects": "Updates the exclusion flag on a project trucker.",
+  "validation_notes": "The project trucker ID argument is required. The exclusion flag is boolean. At least one field must be specified; only the exclusion flag can be updated.",
+  "flags": [
+    {
+      "name": "--is-excluded-from-time-card-payroll-certification-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Exclude from payroll certification requirements (true/false)",
+      "default": "false",
+      "validation": "Boolean."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_truckers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_trucker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_trucker_policy.rb"
+    }
+  ]
+}

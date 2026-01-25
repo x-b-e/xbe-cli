@@ -209,7 +209,7 @@ func runDoShiftSetTimeCardConstraintsUpdate(cmd *cobra.Command, args []string) e
 		} else {
 			ids := splitCommaSeparatedIDs(opts.ServiceTypeUnitOfMeasures)
 			relationships["service-type-unit-of-measures"] = map[string]any{
-				"data": buildRelationshipDataList("service-type-unit-of-measures", ids),
+				"data": buildRelationshipDataList(ids, "service-type-unit-of-measures"),
 			}
 		}
 		hasChanges = true
@@ -220,7 +220,7 @@ func runDoShiftSetTimeCardConstraintsUpdate(cmd *cobra.Command, args []string) e
 		} else {
 			ids := splitCommaSeparatedIDs(opts.TrailerClassifications)
 			relationships["trailer-classifications"] = map[string]any{
-				"data": buildRelationshipDataList("trailer-classifications", ids),
+				"data": buildRelationshipDataList(ids, "trailer-classifications"),
 			}
 		}
 		hasChanges = true
@@ -231,7 +231,7 @@ func runDoShiftSetTimeCardConstraintsUpdate(cmd *cobra.Command, args []string) e
 		} else {
 			ids := splitCommaSeparatedIDs(opts.MaterialTypes)
 			relationships["material-types"] = map[string]any{
-				"data": buildRelationshipDataList("material-types", ids),
+				"data": buildRelationshipDataList(ids, "material-types"),
 			}
 		}
 		hasChanges = true

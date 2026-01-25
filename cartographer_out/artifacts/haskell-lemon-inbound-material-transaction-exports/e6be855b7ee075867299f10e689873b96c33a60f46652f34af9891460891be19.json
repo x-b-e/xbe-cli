@@ -1,0 +1,23 @@
+{
+  "id": "e6be855b7ee075867299f10e689873b96c33a60f46652f34af9891460891be19",
+  "full_path": "view haskell-lemon-inbound-material-transaction-exports show",
+  "description": "Show the full details of a Haskell Lemon inbound material transaction export.",
+  "permissions": "Admin users can show any export; non-admin users can show only exports for the Haskell Lemon broker when they are members of that broker organization (policy scope).",
+  "side_effects": null,
+  "validation_notes": "<id> argument is required and must be a valid export ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/haskell_lemon_inbound_material_transaction_exports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/haskell_lemon_material_transaction_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/haskell_lemon_inbound_material_transaction_exports_controller.rb"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "description": "List tractor/trailer credential classifications",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization (Type|ID, e.g., Trucker|123)",
+      "name": "--organization",
+      "required": false,
+      "type": "string",
+      "validation": "Format: Type|ID (e.g., Trucker|123)."
+    }
+  ],
+  "full_path": "view tractor-trailer-credential-classifications list",
+  "id": "b09d500168475e0e212a2fd5fea94c5da246b1b9d9122d384bb3d330d2e09a5a",
+  "permissions": "Admins can list all tractor/trailer credential classifications. Non-admins are limited to classifications tied to organizations they are practically a member of (trucker) or classifications referenced by tractor/trailer credentials on tractors/trailers they can access.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/tractor_trailer_credential_classifications_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/tractor_trailer_credential_classification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tractor_trailer_credential_classification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--organization filter must use the Type|ID format (e.g., Trucker|123)."
+}

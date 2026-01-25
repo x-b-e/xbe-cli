@@ -1,0 +1,29 @@
+{
+  "id": "8b8c8cca7aba513b2211ab44848bef2a23b9be417b3a0bc1216235ecbf1ea473",
+  "full_path": "do incident-headline-suggestions delete",
+  "description": "Delete an incident headline suggestion",
+  "permissions": "Access is delegated to the related incident; the user must be authorized to delete for the incident per IncidentHeadlineSuggestionPolicy.",
+  "side_effects": "Deletes the incident headline suggestion.",
+  "validation_notes": "Requires <id> argument (incident headline suggestion ID). --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_headline_suggestions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_headline_suggestion_policy.rb"
+    }
+  ]
+}

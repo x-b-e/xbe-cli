@@ -1,0 +1,42 @@
+{
+  "id": "38214cdc26a835cf573d03345f171d265628718afcdd986920e01a7ba772a628",
+  "full_path": "view incident-tag-incidents list",
+  "description": "List incident tag incident links",
+  "permissions": "User must be authorized to view incidents returned by the incident tag incident scope (policy scope restricts incident_tag_incidents to incidents visible to the user).",
+  "side_effects": null,
+  "validation_notes": "Filters incident-tag-incidents by incident ID or incident tag ID when provided.",
+  "flags": [
+    {
+      "name": "--incident",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident ID (example: --incident 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--incident-tag",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident tag ID (example: --incident-tag 456).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_tag_incidents_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_tag_incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_tag_incident_policy.rb"
+    }
+  ]
+}

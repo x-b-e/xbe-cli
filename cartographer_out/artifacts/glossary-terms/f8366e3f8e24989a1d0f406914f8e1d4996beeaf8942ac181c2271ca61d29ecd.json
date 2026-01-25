@@ -1,0 +1,37 @@
+{
+  "description": "List glossary terms with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by source",
+      "name": "--source",
+      "required": false,
+      "type": "string",
+      "validation": "Must be one of: xbe, expert, giant_anchor (e.g., --source xbe)."
+    }
+  ],
+  "full_path": "view glossary-terms list",
+  "id": "f8366e3f8e24989a1d0f406914f8e1d4996beeaf8942ac181c2271ca61d29ecd",
+  "permissions": "Read-only; accessible to anonymous and non-admin users. Policy scope for anonymous/non-admin only includes terms with non-empty definitions.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/glossary_terms_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/glossary_term_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/glossary_term_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/glossary_term.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "When provided, source must be one of: xbe, expert, giant_anchor."
+}

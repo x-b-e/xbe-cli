@@ -1,0 +1,55 @@
+{
+  "id": "5b371c6e97f209c179cdfef7404e749a320e47d274bfabd58decf5c8d134919d",
+  "full_path": "do culture-values create",
+  "description": "Create a new culture value.",
+  "permissions": "Authenticated admins can create culture values. Non-admins must be a practical manager of the target organization.",
+  "side_effects": "Creates a culture value record and associates it with the specified organization.",
+  "validation_notes": "--name is required. --organization is required and must be in Type|ID format (e.g., Broker|123); organization type must be Broker, Customer, or Trucker.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Culture value name (required)",
+      "default": null,
+      "validation": "Required"
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization in Type|ID format (required, e.g. Broker|123)",
+      "default": null,
+      "validation": "Required; format: Type|ID (e.g., Broker|123)"
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description text",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_culture_values_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/culture_value_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/culture_value_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/culture_value.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "70f87fe10efcc9ec25811e8914671f5dda5ce9d8ec6b16d89f2340da63221f60",
+  "full_path": "view tender-job-schedule-shifts show",
+  "description": "Show the full details of a tender job schedule shift.",
+  "permissions": "Requires authentication. Admins can view any tender job schedule shift. Non-admins can view shifts within TenderJobScheduleShiftPolicy scope (driver/shift driver, foreman, customer member/manager, broker member, or trucker member/manager for related shifts).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_job_schedule_shifts_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_policy.rb"
+    }
+  ]
+}

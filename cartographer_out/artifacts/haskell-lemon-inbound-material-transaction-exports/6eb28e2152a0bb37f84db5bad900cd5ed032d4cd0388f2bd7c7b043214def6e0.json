@@ -1,0 +1,123 @@
+{
+  "id": "6eb28e2152a0bb37f84db5bad900cd5ed032d4cd0388f2bd7c7b043214def6e0",
+  "full_path": "view haskell-lemon-inbound-material-transaction-exports list",
+  "description": "List Haskell Lemon inbound material transaction exports with filtering and pagination.",
+  "permissions": "Admin users can list all exports; non-admin users only see exports for the Haskell Lemon broker when they are members of that broker organization (policy scope).",
+  "side_effects": null,
+  "validation_notes": "transaction-date, transaction-date-min, and transaction-date-max expect YYYY-MM-DD; created-at-min/max and updated-at-min/max expect ISO 8601 timestamps; has-transaction-date, is-created-at, and is-updated-at expect true/false strings.",
+  "flags": [
+    {
+      "name": "--transaction-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by transaction date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--transaction-date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum transaction date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--transaction-date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum transaction date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-transaction-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of transaction date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/haskell_lemon_inbound_material_transaction_exports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/haskell_lemon_material_transaction_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/haskell_lemon_material_transaction_export_policy.rb"
+    }
+  ]
+}

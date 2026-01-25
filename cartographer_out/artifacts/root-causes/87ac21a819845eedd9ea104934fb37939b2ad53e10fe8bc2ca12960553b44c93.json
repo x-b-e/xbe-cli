@@ -1,0 +1,37 @@
+{
+  "id": "87ac21a819845eedd9ea104934fb37939b2ad53e10fe8bc2ca12960553b44c93",
+  "full_path": "do root-causes delete",
+  "description": "Delete a root cause",
+  "permissions": "Admin user (RootCausePolicy delegates destroy to incident policy; policy spec permits admin users).",
+  "side_effects": "Deletes a root cause.",
+  "validation_notes": "<id> argument is required; --confirm flag is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": "false",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_root_causes_delete.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_root_causes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/root_cause_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/root_cause_policy_spec.rb"
+    }
+  ]
+}

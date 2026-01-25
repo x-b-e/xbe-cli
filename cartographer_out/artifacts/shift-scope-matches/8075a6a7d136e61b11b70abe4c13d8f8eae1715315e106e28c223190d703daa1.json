@@ -1,0 +1,90 @@
+{
+  "id": "8075a6a7d136e61b11b70abe4c13d8f8eae1715315e106e28c223190d703daa1",
+  "full_path": "do shift-scope-matches create",
+  "description": "Match shift scopes against a tender.",
+  "permissions": "Requires permission to create the related tender (delegated policy). For broker tenders: admin or broker member of the buyer broker. For customer tenders: admin, buyer customer member, or seller broker member.",
+  "side_effects": null,
+  "validation_notes": "--tender is required. Exactly one of --rate or --shift-set-time-card-constraint is required; they cannot both be set. Server requires tender and shift_scope; if --shift-scope is omitted it is derived from the selected rate or shift set time card constraint. If the selected rate/constraint has a parent, the parent is used. If --shift-scope is provided and does not match the rate's effective shift scope or the constraint's shift scope, the mismatched rate/constraint is cleared. Match SQL is only returned when --show-matching-shift-sql is true and the user is an admin.",
+  "flags": [
+    {
+      "name": "--rate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Rate ID",
+      "default": null,
+      "validation": "Required if --shift-set-time-card-constraint is not set; cannot be set together with --shift-set-time-card-constraint."
+    },
+    {
+      "name": "--shift-set-time-card-constraint",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift set time card constraint ID",
+      "default": null,
+      "validation": "Required if --rate is not set; cannot be set together with --rate."
+    },
+    {
+      "name": "--shift-scope",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift scope ID (defaults from rate/constraint)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--show-matching-shift-sql",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include match SQL (admins only)",
+      "default": null,
+      "validation": "Match SQL is only returned for admin users when this flag is true."
+    },
+    {
+      "name": "--tender",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_scope_matches_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/shift_scope_match_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_scope_match_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_tender_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_scope_match.rb"
+    }
+  ]
+}

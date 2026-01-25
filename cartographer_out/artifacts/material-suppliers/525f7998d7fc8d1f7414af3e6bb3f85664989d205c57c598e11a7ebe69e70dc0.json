@@ -1,0 +1,33 @@
+{
+  "id": "525f7998d7fc8d1f7414af3e6bb3f85664989d205c57c598e11a7ebe69e70dc0",
+  "full_path": "do material-suppliers delete",
+  "description": "Delete a material supplier.",
+  "permissions": "Admins can delete material suppliers. Non-admins can delete if they are members of the supplier's broker or are manager members of the material supplier.",
+  "side_effects": "Deletes the material supplier record.",
+  "validation_notes": "--confirm is required. Deletion is blocked when the material supplier is associated with material sites.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_suppliers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_supplier_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_supplier.rb"
+    }
+  ]
+}

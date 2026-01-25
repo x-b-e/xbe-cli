@@ -1,0 +1,42 @@
+{
+  "description": "List inventory capacities with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material site ID",
+      "name": "--material-site",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by material type ID",
+      "name": "--material-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view inventory-capacities list",
+  "id": "02a03e56b3730e3d81f595cfa906c3a32f9a406b073d80b56c72b1a1bade5fd3",
+  "permissions": "Admins can list all inventory capacities. Non-admin users can list inventory capacities for material sites whose material suppliers belong to a broker the user can see or whose material suppliers are directly visible to the user.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/inventory_capacities_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/inventory_capacity_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/inventory_capacity_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

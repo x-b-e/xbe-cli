@@ -1,0 +1,54 @@
+{
+  "id": "aa5d72852cffa1a3251eb1658d1065d16778ee076b08bec151dcdb0a97e0d653",
+  "full_path": "do invoice-rejections create",
+  "description": "Reject a sent invoice.",
+  "permissions": "Allowed if the user can update the buyer organization for the invoice.",
+  "side_effects": "Creates an invoice rejection action and transitions the invoice status from sent to rejected.",
+  "validation_notes": "Invoice is required and must reference an existing invoice ID (parsed as an integer). Only invoices currently in sent status can be rejected.",
+  "flags": [
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Invoice ID (required)",
+      "default": null,
+      "validation": "Must be provided; must reference an existing invoice; only sent invoices are eligible."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment for the rejection action",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_invoice_rejections_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_rejection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice_actions/invoice_rejection.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_rejection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

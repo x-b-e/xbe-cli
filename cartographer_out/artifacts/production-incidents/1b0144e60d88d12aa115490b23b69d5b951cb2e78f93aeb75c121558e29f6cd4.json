@@ -1,0 +1,242 @@
+{
+  "id": "1b0144e60d88d12aa115490b23b69d5b951cb2e78f93aeb75c121558e29f6cd4",
+  "full_path": "do production-incidents update",
+  "description": "Update a production incident",
+  "permissions": "Admins can update production incidents. Non-admins can update if authorized for the incident subject under the same rules as create; if the subject changes, the user must also be authorized for the previous subject.",
+  "side_effects": "Updates the production incident and may create or update incident unit-of-measure quantities for net impact; net impact minutes may be auto-calculated after save.",
+  "validation_notes": "Provide at least one field or relationship to update. --subject-type and --subject-id must be set together. If setting a parent relationship, --parent-id is required (parent type defaults to production-incidents when omitted). --status must be one of open, closed, abandoned, processing, parked; --kind must be one of equipment, plant, trucking, crew, safety, quality, weather, traffic, capacity, job_site_condition, planning, subcontractor_delay, mobilization. --severity must be one of low, medium, high, catastrophic; --time-value-type must be one of deducted_time, credited_time. --end-at, if provided, must be after --start-at and is required when closing an incident. --net-impact-minutes and --net-impact-dollars must be numeric. --natures and --did-stop-work are not valid for production incidents. --new-type must be a valid Incident subclass name. If --equipment is set, --job-production-plan must be set and the equipment must belong to that plan. If --tender-job-schedule-shift is set along with --job-production-plan, the shift must belong to the same plan and be a broker shift. If --assignee is set, the assignee must have a relationship with the customer and subject.",
+  "flags": [
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; must be after --start-at"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status",
+      "default": null,
+      "validation": "one of: open, closed, abandoned, processing, parked"
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Incident kind",
+      "default": null,
+      "validation": "one of: equipment, plant, trucking, crew, safety, quality, weather, traffic, capacity, job_site_condition, planning, subcontractor_delay, mobilization"
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--natures",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Incident natures (comma-separated, not valid for production incidents)",
+      "default": null,
+      "validation": "not valid for production incidents"
+    },
+    {
+      "name": "--severity",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Severity (low, medium, high, catastrophic)",
+      "default": null,
+      "validation": "one of: low, medium, high, catastrophic"
+    },
+    {
+      "name": "--time-value-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Time value type (deducted_time, credited_time)",
+      "default": null,
+      "validation": "one of: deducted_time, credited_time"
+    },
+    {
+      "name": "--headline",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Headline",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--net-impact-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Net impact minutes",
+      "default": null,
+      "validation": "numeric"
+    },
+    {
+      "name": "--net-impact-dollars",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Net impact dollars",
+      "default": null,
+      "validation": "numeric"
+    },
+    {
+      "name": "--is-down-time",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Down time flag",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--did-stop-work",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Did stop work (not valid for production incidents)",
+      "default": null,
+      "validation": "not valid for production incidents"
+    },
+    {
+      "name": "--new-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Change incident type (e.g., ProductionIncident)",
+      "default": null,
+      "validation": "must be a valid Incident subclass name"
+    },
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject type (use with --subject-id)",
+      "default": null,
+      "validation": "must be set with --subject-id; one of: JobProductionPlan, TenderJobScheduleShift, Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, ProjectTransportPlan"
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject ID (use with --subject-type)",
+      "default": null,
+      "validation": "must be set with --subject-type"
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": "requires --job-production-plan; equipment must be related to that job production plan"
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID",
+      "default": null,
+      "validation": "if --job-production-plan is set, shift must belong to same job production plan and be a broker shift"
+    },
+    {
+      "name": "--assignee",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Assignee user ID",
+      "default": null,
+      "validation": "assignee must be related to the customer and subject"
+    },
+    {
+      "name": "--parent-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent incident ID",
+      "default": null,
+      "validation": "required if setting --parent-type"
+    },
+    {
+      "name": "--parent-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent incident type (e.g., production-incidents)",
+      "default": null,
+      "validation": "requires --parent-id"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_production_incidents_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/liability_incidents_common.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/production_incidents_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/incidents_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/production_incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/production_incident.rb"
+    }
+  ]
+}

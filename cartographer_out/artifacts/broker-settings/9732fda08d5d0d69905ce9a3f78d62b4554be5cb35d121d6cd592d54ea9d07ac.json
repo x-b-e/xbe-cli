@@ -1,0 +1,23 @@
+{
+  "id": "9732fda08d5d0d69905ce9a3f78d62b4554be5cb35d121d6cd592d54ea9d07ac",
+  "full_path": "view broker-settings list",
+  "description": "List broker settings",
+  "permissions": "Admin users or users who are members of the broker can list broker settings scoped to their broker organizations.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_settings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_setting_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_setting_resource.rb"
+    }
+  ]
+}

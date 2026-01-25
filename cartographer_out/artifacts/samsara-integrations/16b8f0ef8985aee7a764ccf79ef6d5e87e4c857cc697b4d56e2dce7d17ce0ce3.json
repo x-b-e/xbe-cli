@@ -1,0 +1,46 @@
+{
+  "description": "Update a Samsara integration",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Integration identifier from Samsara",
+      "name": "--integration-identifier",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Friendly name for the integration",
+      "name": "--friendly-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do samsara-integrations update",
+  "id": "16b8f0ef8985aee7a764ccf79ef6d5e87e4c857cc697b4d56e2dce7d17ce0ce3",
+  "permissions": "Only admin users can update Samsara integrations.",
+  "side_effects": "Updates the specified Samsara integration.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_samsara_integrations_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/samsara_integration_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/samsara_integration.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/samsara_integration_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument (Samsara integration ID) is required. At least one of --integration-identifier or --friendly-name must be provided. integration_identifier must be present and unique. friendly_name must be present."
+}

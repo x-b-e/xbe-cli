@@ -1,0 +1,59 @@
+{
+  "id": "f23b4006aaaab9b9c9b540b27af9fbcf44ff4dcf3dbc9ed8d2dda3a5b62e2a7b",
+  "full_path": "do invoice-revisionizings create",
+  "description": "Revise an invoice.",
+  "permissions": "User must be practically an admin of the invoice's broker organization.",
+  "side_effects": "Transitions the invoice status to revised, records the status change comment/changed_by, and may update related invoices' statuses.",
+  "validation_notes": "Invoice must exist. Invoice status must be revisionable, exported, or non_exportable. Comment is required. in-bulk must be true (bulk revisionizing required).",
+  "flags": [
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Invoice ID",
+      "default": null,
+      "validation": "Must reference an existing invoice."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Comment for the revision action",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--in-bulk",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm bulk revisionizing",
+      "default": null,
+      "validation": "Must be true; invoices may only be revised in bulk."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_invoice_revisionizings_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_revisionizing_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice_actions/invoice_revisionizing.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice_actions/invoice_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

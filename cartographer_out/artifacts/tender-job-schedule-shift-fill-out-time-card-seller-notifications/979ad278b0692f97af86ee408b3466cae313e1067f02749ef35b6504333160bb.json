@@ -1,0 +1,23 @@
+{
+  "id": "979ad278b0692f97af86ee408b3466cae313e1067f02749ef35b6504333160bb",
+  "full_path": "view tender-job-schedule-shift-fill-out-time-card-seller-notifications show",
+  "description": "Show the full details of a tender job schedule shift fill out time card seller notification.",
+  "permissions": "Authenticated users can view notifications; non-admins are scoped to notifications where user_id matches the current user.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (notification ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_job_schedule_shift_fill_out_time_card_seller_notifications_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_fill_out_time_card_seller_notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    }
+  ]
+}

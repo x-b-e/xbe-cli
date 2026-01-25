@@ -1,0 +1,33 @@
+{
+  "description": "Delete a base summary template",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do base-summary-templates delete",
+  "id": "b73e5bb328a003017ff1963000ce87f0abd5a94a0c15f8cfa8fbc9103d809462",
+  "permissions": "Allowed for admins or the user who created the template.",
+  "side_effects": "Deletes a base summary template. This action is irreversible.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_base_summary_templates_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/base_summary_template_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/base_summary_template.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The base summary template ID argument is required. --confirm is required for deletion."
+}

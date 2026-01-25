@@ -1,0 +1,58 @@
+{
+  "id": "95b659fa3c4e744a5bec2d946e562019b00742eb50e984c68c82f302b8dcc483",
+  "full_path": "do invoice-approvals create",
+  "description": "Approve an invoice.",
+  "permissions": "User must be authorized to update the invoice's buyer (buyer policy update permission).",
+  "side_effects": "Creates an invoice approval, sets the invoice status to approved, and triggers invoice export (may be asynchronous).",
+  "validation_notes": "--invoice is required. Invoice must exist. Invoice status must be sent or batched.",
+  "flags": [
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Invoice ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Approval comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_invoice_approvals_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_invoice_approvals.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice_actions/invoice_approval.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_approval_resource.rb"
+    }
+  ]
+}

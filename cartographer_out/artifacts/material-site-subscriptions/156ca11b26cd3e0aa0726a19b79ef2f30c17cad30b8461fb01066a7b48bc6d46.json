@@ -1,0 +1,29 @@
+{
+  "id": "156ca11b26cd3e0aa0726a19b79ef2f30c17cad30b8461fb01066a7b48bc6d46",
+  "full_path": "do material-site-subscriptions delete",
+  "description": "Delete a material site subscription.",
+  "permissions": "Allowed for admins. Allowed for material supplier managers (including broker members acting as managers) for the material supplier tied to the material site. Material supplier members can delete only their own subscriptions.",
+  "side_effects": "Deletes the material site subscription.",
+  "validation_notes": "Requires a material site subscription ID argument. --confirm is required and must be true to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "must be true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_subscriptions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_subscription_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "description": "Update an equipment movement requirement location.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Location name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Must be unique per broker when provided"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Latitude coordinate",
+      "name": "--latitude",
+      "required": false,
+      "type": "string",
+      "validation": "Must be between -90 and 90"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Longitude coordinate",
+      "name": "--longitude",
+      "required": false,
+      "type": "string",
+      "validation": "Must be between -180 and 180"
+    }
+  ],
+  "full_path": "do equipment-movement-requirement-locations update",
+  "id": "4559fd3e0b878f6275b84f650d8a1cd1c9e4b709b1962783e405097df1f6d3ad",
+  "permissions": "Admins can update locations. Non-admin users can update locations only for brokers they are members of.",
+  "side_effects": "Updates an equipment movement requirement location.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_equipment_movement_requirement_locations_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/equipment_movement_requirement_location_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/equipment_movement_requirement_location.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/three_musketeers_validation.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/validators/coordinates_validator.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/equipment_movement_requirement_location_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one of --name, --latitude, or --longitude must be provided. If either latitude or longitude is present, the other must also be present. Latitude must be between -90 and 90; longitude must be between -180 and 180. Name must be unique per broker when provided. Broker cannot be changed after creation. Broker ID, latitude, and longitude cannot be changed when the location is related to a confirmed job production plan."
+}

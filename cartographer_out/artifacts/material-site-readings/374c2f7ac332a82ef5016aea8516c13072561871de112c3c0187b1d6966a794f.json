@@ -1,0 +1,23 @@
+{
+  "description": "Show material site reading details",
+  "flags": [],
+  "full_path": "view material-site-readings show",
+  "id": "374c2f7ac332a82ef5016aea8516c13072561871de112c3c0187b1d6966a794f",
+  "permissions": "Admins can view all material site readings. Non-admins can view readings where the material site material supplier is in the user material supplier memberships or the material supplier broker is in the user broker memberships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_site_readings_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_site_reading_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_site_reading_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument."
+}

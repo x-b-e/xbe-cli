@@ -1,0 +1,64 @@
+{
+  "id": "090f8ff13a92460f2d84859165ec939b04898930ff9780050733d3f90bf6144c",
+  "full_path": "view certification-types list",
+  "description": "List certification types.",
+  "permissions": "Any user, including unauthenticated users, can list certification types.",
+  "side_effects": null,
+  "validation_notes": "Filters for can-apply-to and can-be-requirement-of must use allowed values. Allowed can-apply-to values: Trucker, User, Customer. Allowed can-be-requirement-of values: Job, CustomerTender, BrokerTender, JobProductionPlan, Project, Developer, Broker.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match, case-insensitive).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--can-apply-to",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by what it applies to.",
+      "default": null,
+      "validation": "Must be one of: Trucker, User, Customer."
+    },
+    {
+      "name": "--can-be-requirement-of",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by what it can be a requirement of.",
+      "default": null,
+      "validation": "Must be one of: Job, CustomerTender, BrokerTender, JobProductionPlan, Project, Developer, Broker."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/certification_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/certification_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/certification_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/certification_type_policy.rb"
+    }
+  ]
+}

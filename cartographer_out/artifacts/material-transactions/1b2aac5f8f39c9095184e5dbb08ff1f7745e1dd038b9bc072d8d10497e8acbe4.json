@@ -1,0 +1,23 @@
+{
+  "id": "1b2aac5f8f39c9095184e5dbb08ff1f7745e1dd038b9bc072d8d10497e8acbe4",
+  "full_path": "view material-transactions show",
+  "description": "View the full details of a specific transaction",
+  "permissions": "User must be in MaterialTransactionPolicy scope for the record: admins are allowed; non-admins must be the source user or have access via material supplier, trip, likely job production plan, or sales customer membership.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (transaction ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transactions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    }
+  ]
+}

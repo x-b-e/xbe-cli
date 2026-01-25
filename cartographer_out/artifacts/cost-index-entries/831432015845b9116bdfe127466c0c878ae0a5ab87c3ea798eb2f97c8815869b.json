@@ -1,0 +1,64 @@
+{
+  "id": "831432015845b9116bdfe127466c0c878ae0a5ab87c3ea798eb2f97c8815869b",
+  "full_path": "view cost-index-entries list",
+  "description": "List cost index entries with filtering and pagination.",
+  "permissions": "Visible to admins or users with broker memberships matching the cost index broker; cost indexes with no broker are also visible. Authorization is delegated to the parent cost index policy.",
+  "side_effects": null,
+  "validation_notes": "Server supports filters for cost_index, start_on (date), end_on (date), and value.",
+  "flags": [
+    {
+      "name": "--cost-index",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by cost index ID",
+      "default": null,
+      "validation": "Required for most queries. Example: 123."
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by start date",
+      "default": null,
+      "validation": "Example: 2024-01-01."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by end date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by value",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/cost_index_entries_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_index_entry_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_entry_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_index_policy.rb"
+    }
+  ]
+}

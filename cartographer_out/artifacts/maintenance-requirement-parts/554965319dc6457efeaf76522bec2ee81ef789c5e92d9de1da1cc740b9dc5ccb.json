@@ -1,0 +1,33 @@
+{
+  "id": "554965319dc6457efeaf76522bec2ee81ef789c5e92d9de1da1cc740b9dc5ccb",
+  "full_path": "do maintenance-requirement-parts delete",
+  "description": "Delete a maintenance requirement part",
+  "permissions": "Admins can delete maintenance requirement parts. For template parts, the user must be a manager member of the broker; operations users with manager business unit membership cannot delete template parts. For non-template parts, deletion requires associated maintenance requirements; broker managers can delete, technicians can delete only for assigned requirements, operations members can delete only when the requirement equipment is in their accessible business units, and general business unit members cannot delete.",
+  "side_effects": "Deletes the maintenance requirement part and its maintenance requirement association records.",
+  "validation_notes": "--confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_parts_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_part.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_part_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "id": "b2442b65501524e9f9ef562f90abc9112bfe95aa2e5753131690b73961e60bea",
+  "full_path": "do key-results create",
+  "description": "Create a key result.",
+  "permissions": "Users can create a key result when they are authorized to create the related objective; if the objective is not present, policy defers to validation.",
+  "side_effects": "Creates a key result, syncs objective dates when start/end dates are provided, may enqueue background jobs for title summary updates and completion posts, updates objective family status, triggers objective OpenAI file updates, and records key result changes.",
+  "validation_notes": "--title and --objective are required. title must be present and unique within the same objective. completion-percentage must be between 0 and 1. end-on must be on or after start-on when both are set. owner must belong to the objective organization or its broker unless the owner is an admin. customer-success-responsible-person must be an admin. If the objective is a template, owner and customer-success-responsible-person must be blank and template titles must be unique. start-on and end-on use YYYY-MM-DD. completion-percentage of 1 sets status to completed.",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Key result title (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--objective",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Objective ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--title-summary-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit title summary",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "--completion-percentage",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Completion percentage (0-1)",
+      "default": null,
+      "validation": "Numeric value between 0 and 1."
+    },
+    {
+      "name": "--owner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Owner user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer-success-responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer success responsible person user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_key_results_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/key_result.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_resource.rb"
+    }
+  ]
+}

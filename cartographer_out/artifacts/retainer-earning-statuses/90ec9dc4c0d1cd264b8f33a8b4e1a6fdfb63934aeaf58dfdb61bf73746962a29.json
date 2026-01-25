@@ -1,0 +1,23 @@
+{
+  "description": "Show full details of a retainer earning status",
+  "flags": [],
+  "full_path": "view retainer-earning-statuses show",
+  "id": "90ec9dc4c0d1cd264b8f33a8b4e1a6fdfb63934aeaf58dfdb61bf73746962a29",
+  "permissions": "Access is scoped by RetainerEarningStatusPolicy; non-admin users only see statuses whose retainer_id is in their Retainer policy scope.",
+  "side_effects": "None; read-only API request.",
+  "sources": [
+    {
+      "file_path": "internal/cli/retainer_earning_statuses_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/retainer_earning_status_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_earning_status_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "id argument is required."
+}

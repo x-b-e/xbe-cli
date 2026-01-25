@@ -1,0 +1,33 @@
+{
+  "id": "0686a5b61224c524ee2cd48aaa6adcc28c17e00c5584e2df0ffba21c196ef048",
+  "full_path": "do objectives delete",
+  "description": "Delete an objective.",
+  "permissions": "Admins can delete any objective. Non-admins can delete non-template objectives only if they are practically a manager of the objective organization. Deleting templates requires admin privileges.",
+  "side_effects": "Deletes the objective and its dependent records, including child objectives, key results, objective stakeholder classifications, and objective changes; also deletes posts where the objective is the creator. Deletion is blocked when dependent templated objectives exist.",
+  "validation_notes": "Requires an objective ID argument. --confirm is required. Deletion fails if the objective has dependent templated objectives (restrict_with_error).",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": "Required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_objectives_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/objective.rb"
+    }
+  ]
+}

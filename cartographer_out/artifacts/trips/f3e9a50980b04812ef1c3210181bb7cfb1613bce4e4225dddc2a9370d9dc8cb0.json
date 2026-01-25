@@ -1,0 +1,81 @@
+{
+  "id": "f3e9a50980b04812ef1c3210181bb7cfb1613bce4e4225dddc2a9370d9dc8cb0",
+  "full_path": "view trips list",
+  "description": "List trips.",
+  "permissions": "Admin users can list all trips. Non-admin users can list trips within TripPolicy scope, including trips they created (source=user) or trips associated with customers, brokers, or truckers they are permitted to access via job sites, material sites, or tender job schedule shifts.",
+  "side_effects": null,
+  "validation_notes": "Page size for users is capped at 100. The unloaded subject filter is only applied when both --unloaded-subject-type and --unloaded-subject-id are provided; otherwise it is ignored. material-sites/job-sites/parking-sites expect comma-separated IDs.",
+  "flags": [
+    {
+      "name": "tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender ID"
+    },
+    {
+      "name": "tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID"
+    },
+    {
+      "name": "driver-day",
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day ID"
+    },
+    {
+      "name": "unloaded-subject-type",
+      "required": false,
+      "type": "string",
+      "description": "Filter by unloaded subject type",
+      "validation": "Must be provided with --unloaded-subject-id"
+    },
+    {
+      "name": "unloaded-subject-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by unloaded subject ID",
+      "validation": "Must be provided with --unloaded-subject-type"
+    },
+    {
+      "name": "material-sites",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site IDs (comma-separated)",
+      "validation": "Comma-separated IDs (e.g., 789,101)"
+    },
+    {
+      "name": "job-sites",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job site IDs (comma-separated)",
+      "validation": "Comma-separated IDs (e.g., 789,101)"
+    },
+    {
+      "name": "parking-sites",
+      "required": false,
+      "type": "string",
+      "description": "Filter by parking site IDs (comma-separated)",
+      "validation": "Comma-separated IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trips_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/trips_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trip_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trip_policy.rb"
+    }
+  ]
+}

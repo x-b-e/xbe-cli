@@ -1,0 +1,469 @@
+{
+  "id": "c682968542425b78090d0c289774a89c4b4aeadb11b4ae7442b8c38cb36e0a27",
+  "full_path": "view tender-job-schedule-shifts list",
+  "description": "List tender job schedule shifts.",
+  "permissions": "Requires authentication. Admins can list all tender job schedule shifts. Non-admins can list shifts within TenderJobScheduleShiftPolicy scope, including as driver/shift driver, foreman, customer member/manager, broker member, or trucker member/manager for related shifts.",
+  "side_effects": null,
+  "validation_notes": "Boolean-style filters accept true/false; --with-seller-operations-contact-assigned-or-drafted and --is-managed-or-alive require strict true/false. --default-time-card-approval-process must be one of admin or field. --start-date must be YYYY-MM-DD. --matches-material-purchase-order-release must reference an existing material purchase order release. Timestamp filters (shift-ends-before, shift-starts-after, shift-starts-before, end-at-min, end-at-max, active-as-of) are parsed server-side and reject invalid values.",
+  "flags": [
+    {
+      "name": "--with-driver-assignment-refusals",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts with driver assignment refusals (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-managed",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by managed flag (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--tender",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--matches-material-purchase-order-release",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material purchase order release ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--developer-trucker-certification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer trucker certification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--developer-trucker-certification-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by certification classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--seller-operations-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by seller operations contact (driver) ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-day-sequence-index",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day sequence index",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID (via shift schedule)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID (via shift schedule)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--without-seller-operations-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts without seller operations contact (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--with-seller-operations-contact-assigned-or-drafted",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts with assigned or drafted driver (true/false)",
+      "default": null,
+      "validation": "Strict boolean: true or false."
+    },
+    {
+      "name": "--with-trailer-assigned-or-drafted",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts with assigned or drafted trailer (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--missing-assignment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts missing assignment (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--with-job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts with job production plan (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--on-time-card",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts on time card (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-managed-or-alive",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter managed or alive (true/false)",
+      "default": null,
+      "validation": "Strict boolean: true or false."
+    },
+    {
+      "name": "--expects-time-cards",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by expects time cards (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--time-card-ticket-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ticket number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-ends-before",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts ending before timestamp",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-starts-after",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts starting after timestamp",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--shift-starts-before",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts starting before timestamp",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--end-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts ending after timestamp",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--end-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts ending before timestamp",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by shift start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date in YYYY-MM-DD format."
+    },
+    {
+      "name": "--related-tender-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by related tender status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--time-card-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--active-as-of",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter active shifts as of timestamp",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--cancelled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by cancelled flag (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--sourced-with-trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by sourced-with trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--allows-new-trip",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by allows new trip (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--job-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--retained",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by retained flag (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--tracked-pct-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum tracked percent",
+      "default": null,
+      "validation": "numeric"
+    },
+    {
+      "name": "--retainer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by retainer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--without-ready-to-work-service-event",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter shifts without ready-to-work service event (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--missing-driver-assignment-acknowledgement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter missing driver assignment acknowledgement (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--trucker-shift-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker shift set (driver day) ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-time-card-approval-process",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by default time card approval process (admin/field)",
+      "default": null,
+      "validation": "Enum values: admin, field."
+    },
+    {
+      "name": "--drivers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver IDs",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_job_schedule_shifts_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/has_default_time_card_approval_process.rb"
+    }
+  ]
+}

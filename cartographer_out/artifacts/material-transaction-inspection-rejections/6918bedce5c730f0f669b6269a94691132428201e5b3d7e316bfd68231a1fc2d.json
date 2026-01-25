@@ -1,0 +1,33 @@
+{
+  "id": "6918bedce5c730f0f669b6269a94691132428201e5b3d7e316bfd68231a1fc2d",
+  "full_path": "do material-transaction-inspection-rejections delete",
+  "description": "Delete a material transaction inspection rejection",
+  "permissions": "Allowed for users permitted to delete related material transaction inspections per MaterialTransactionInspectionPolicy (delegated).",
+  "side_effects": "Deletes a material transaction inspection rejection record.",
+  "validation_notes": "<id> argument is required. --confirm must be provided to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_inspection_rejections_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_rejection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "cdb05bf029898889718363e2f88a34502fa372521602ec23507a71599db4a1df",
+  "full_path": "view material-transaction-inspections show",
+  "description": "Show the full details of a material transaction inspection.",
+  "permissions": "Admins can view inspections. Non-admins can view inspections tied to material transactions that belong to job production plans in their JobProductionPlanInspectableSummary policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (inspection ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_inspections_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_inspection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_policy.rb"
+    }
+  ]
+}

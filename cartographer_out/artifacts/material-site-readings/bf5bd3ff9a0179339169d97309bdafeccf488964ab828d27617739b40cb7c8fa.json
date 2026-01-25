@@ -1,0 +1,105 @@
+{
+  "description": "Create a material site reading",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site ID",
+      "name": "--material-site",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site measure ID",
+      "name": "--material-site-measure",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site reading material type ID",
+      "name": "--material-site-reading-material-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site reading raw material type ID",
+      "name": "--material-site-reading-raw-material-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Reading timestamp (ISO 8601)",
+      "name": "--reading-at",
+      "required": true,
+      "type": "string",
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Reading value",
+      "name": "--value",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Raw material kind (agg, rap, additive, filler)",
+      "name": "--raw-material-kind",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: agg, rap, additive, filler."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Raw material description",
+      "name": "--raw-material-description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Raw material feeder number",
+      "name": "--raw-material-feeder-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do material-site-readings create",
+  "id": "bf5bd3ff9a0179339169d97309bdafeccf488964ab828d27617739b40cb7c8fa",
+  "permissions": "Admin users only.",
+  "side_effects": "Creates a material site reading.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_site_readings_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_site_reading_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_site_reading_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --material-site, --material-site-measure, --reading-at, and --value. reading-at must be an ISO 8601 timestamp. raw-material-kind must be one of: agg, rap, additive, filler."
+}

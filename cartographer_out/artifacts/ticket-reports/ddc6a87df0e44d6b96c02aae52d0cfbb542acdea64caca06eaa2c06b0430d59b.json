@@ -1,0 +1,23 @@
+{
+  "id": "ddc6a87df0e44d6b96c02aae52d0cfbb542acdea64caca06eaa2c06b0430d59b",
+  "full_path": "view ticket-reports show",
+  "description": "Show ticket report details.",
+  "permissions": "Admins can show any ticket report. Non-admin users can show ticket reports for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "The ticket report ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/ticket_reports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ticket_report_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ticket_report_resource.rb"
+    }
+  ]
+}

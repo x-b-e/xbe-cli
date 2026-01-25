@@ -1,0 +1,23 @@
+{
+  "id": "96dd41ba985d20f27c9fcdd0a52e0df644e24eda948069175f18c36622b81192",
+  "full_path": "view customer-truckers show",
+  "description": "Show the full details of a customer trucker link.",
+  "permissions": "Admins can view any customer trucker link. Non-admins can view links where the customer belongs to a broker the user is a member of or where the user has a membership in the customer organization.",
+  "side_effects": null,
+  "validation_notes": "Requires customer trucker ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_truckers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_trucker_resource.rb"
+    }
+  ]
+}

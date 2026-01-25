@@ -1,0 +1,29 @@
+{
+  "id": "87778aa6747aa19860d492f6b16ec999e5c357c51ee85a8293361e34b3056eec",
+  "full_path": "do tractor-fuel-consumption-readings delete",
+  "description": "Delete a tractor fuel consumption reading.",
+  "permissions": "Allowed for admins. Non-admins may delete if the reading is associated with a broker they are a member of, or if they are the driver on the driver day, or if they are a manager member of the trucker.",
+  "side_effects": "Deletes a tractor fuel consumption reading.",
+  "validation_notes": "The reading id argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tractor_fuel_consumption_readings_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_fuel_consumption_reading_policy.rb"
+    }
+  ]
+}

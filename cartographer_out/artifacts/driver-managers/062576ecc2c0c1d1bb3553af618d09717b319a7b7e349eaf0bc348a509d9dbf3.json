@@ -1,0 +1,51 @@
+{
+  "id": "062576ecc2c0c1d1bb3553af618d09717b319a7b7e349eaf0bc348a509d9dbf3",
+  "full_path": "do driver-managers create",
+  "description": "Create a driver manager.",
+  "permissions": "Admin users can create driver managers. Non-admin users can create driver managers only when they are broker members for the driver manager broker.",
+  "side_effects": "Creates a driver manager record.",
+  "validation_notes": "--trucker, --manager-membership, and --managed-membership are required.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--manager-membership",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Manager membership ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--managed-membership",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Managed membership ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_driver_managers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_manager_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_manager_policy.rb"
+    }
+  ]
+}

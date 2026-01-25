@@ -1,0 +1,19 @@
+{
+  "id": "43385c3e8f3356dd0db4be349310576ebbe80ff5c921c875b4ea255653e252ae",
+  "full_path": "view mechanic-user-associations show",
+  "description": "Show mechanic user association details.",
+  "permissions": "Admin users can view mechanic user associations. Broker members can view associations for their broker. Business unit managers can view associations for equipment in their business units.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/mechanic_user_associations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/mechanic_user_association_policy.rb"
+    }
+  ]
+}

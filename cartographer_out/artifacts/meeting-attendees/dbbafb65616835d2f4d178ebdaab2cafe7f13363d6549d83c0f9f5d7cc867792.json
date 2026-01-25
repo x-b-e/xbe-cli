@@ -1,0 +1,27 @@
+{
+  "id": "dbbafb65616835d2f4d178ebdaab2cafe7f13363d6549d83c0f9f5d7cc867792",
+  "full_path": "view meeting-attendees show",
+  "description": "Show the full details of a meeting attendee.",
+  "permissions": "Allowed for admins, users who can update the meeting, or the attendee user when they can view the meeting.",
+  "side_effects": null,
+  "validation_notes": "Meeting attendee ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/meeting_attendees_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/meeting_attendee_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/meeting_attendee_policy_spec.rb"
+    }
+  ]
+}

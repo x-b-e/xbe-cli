@@ -1,0 +1,42 @@
+{
+  "id": "fc44d8f18d60ecf6d20596b479c6a4ade2d1744bdae7fe7395d8b2ee27362e86",
+  "full_path": "view job-schedule-shift-splits list",
+  "description": "List job schedule shift splits.",
+  "permissions": "Admin users or users whose broker or trucker-manager memberships grant access to the referenced job schedule shifts.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--new-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by new job schedule shift ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_schedule_shift_splits_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_schedule_shift_split_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_split_policy.rb"
+    }
+  ]
+}

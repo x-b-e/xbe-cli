@@ -1,0 +1,31 @@
+{
+  "id": "a8725356e41501b71c2ee5e201c90a6615beb88be4c28040a9622dfe2d7673ff",
+  "full_path": "view invoice-sends list",
+  "description": "List invoice sends",
+  "permissions": "Listing invoice sends is allowed for admins; non-admin visibility depends on policy scope resolution (ApplicationPolicy::Scope).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_sends_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/invoice_sends.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_send_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "a4b7e14bcb3c0d28d0f0fd4800e9418da2752077aab59089b3acea89558b9aa8",
+  "full_path": "view key-results show",
+  "description": "Show key result details.",
+  "permissions": "Users can view a key result if it is included in the KeyResultPolicy scope, which is limited to objectives they are authorized to access.",
+  "side_effects": null,
+  "validation_notes": "Requires a key result ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/key_results_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    }
+  ]
+}

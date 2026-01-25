@@ -1,0 +1,73 @@
+{
+  "id": "2907cce897a96fed24b6415970d88d7ae2ed031da94920f5b5735704286854ff",
+  "full_path": "do user-location-events create",
+  "description": "Create a user location event.",
+  "permissions": "Allowed for admins or when creating a location event for the same user as the authenticated user.",
+  "side_effects": "Creates a user location event record.",
+  "validation_notes": "user is required. provenance is required and must be gps or map. event-at must be an ISO 8601 datetime when provided; if omitted, the server sets event-at to the current time before validation.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": "Required relationship."
+    },
+    {
+      "name": "--provenance",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Event provenance (gps,map)",
+      "default": null,
+      "validation": "gps|map"
+    },
+    {
+      "name": "--event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--event-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Event longitude",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_location_events_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_location_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_location_event.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/location_event.rb"
+    }
+  ]
+}

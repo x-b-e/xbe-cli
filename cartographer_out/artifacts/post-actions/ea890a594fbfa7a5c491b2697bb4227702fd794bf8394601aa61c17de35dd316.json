@@ -1,0 +1,23 @@
+{
+  "id": "ea890a594fbfa7a5c491b2697bb4227702fd794bf8394601aa61c17de35dd316",
+  "full_path": "view post-actions show",
+  "description": "Show post action details",
+  "permissions": "Any user can view post action details; the policy allows show for all users.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument; it must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/post_actions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_action_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_action_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "3f3f67322ad9ca837daf1f2da02b59b5499e81cc020ea91222e68a8ad4dbea0a",
+  "full_path": "view equipment-location-events show",
+  "description": "Show the full details of a specific equipment location event.",
+  "permissions": "Admins can view any equipment location event. Non-admin users can only view events for equipment they are authorized to view via the equipment policy scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_location_events_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_location_event_policy.rb"
+    }
+  ]
+}

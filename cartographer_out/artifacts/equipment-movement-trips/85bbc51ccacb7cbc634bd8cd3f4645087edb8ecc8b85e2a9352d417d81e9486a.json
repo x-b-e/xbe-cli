@@ -1,0 +1,23 @@
+{
+  "id": "85bbc51ccacb7cbc634bd8cd3f4645087edb8ecc8b85e2a9352d417d81e9486a",
+  "full_path": "view equipment-movement-trips show",
+  "description": "Show equipment movement trip details.",
+  "permissions": "Admins can view any equipment movement trip. Non-admins can view trips where they are a member of the broker, a manager of a related trucker via broker tenders, or the seller operations contact on a related job schedule shift.",
+  "side_effects": null,
+  "validation_notes": "The trip ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_trips_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_policy.rb"
+    }
+  ]
+}

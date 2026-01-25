@@ -1,0 +1,23 @@
+{
+  "description": "Show customer tender details",
+  "flags": [],
+  "full_path": "view customer-tenders show",
+  "id": "eb43456ef9836ed2c4a3ff7bfd4b98f2e48ad16e508ef25059d7fb5af5a9d9d9",
+  "permissions": "Admin users, or users who are members of the buyer customer or seller broker associated with the tender.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/customer_tenders_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/customer_tender_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Customer tender ID argument is required."
+}

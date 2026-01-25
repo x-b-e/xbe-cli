@@ -1,0 +1,33 @@
+{
+  "description": "Update a raw material transaction.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Ticket job number",
+      "name": "ticket-job-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do raw-material-transactions update",
+  "id": "6194f2eb53bd5265cace7a6d1d83841ac1903034cec7b48cc9199bd5591dd329",
+  "permissions": "Only admins can update raw material transactions.",
+  "side_effects": "Updates specified fields on a raw material transaction.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_raw_material_transactions_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/raw_material_transaction_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/raw_material_transaction_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The raw material transaction ID argument is required. At least one field must be specified; otherwise the command errors with no attributes to update. Only ticket_job_number is updatable."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ae9117d61cf54fef6dd260e6ff04fe7982b847473bf5294444df79feb3b538f4",
+  "full_path": "do tractors delete",
+  "description": "Delete a tractor.",
+  "permissions": "Admins can delete tractors. Non-admins can delete tractors when they are authorized to update the tractor trucker via TruckerPolicy.",
+  "side_effects": "Deletes the tractor record if allowed.",
+  "validation_notes": "--confirm is required. Deletion is blocked when the tractor is related to shifts (TruckerShiftSet or TenderJobScheduleShift) or trailers; deletion fails if can_delete? is false.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tractors_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tractor.rb"
+    }
+  ]
+}

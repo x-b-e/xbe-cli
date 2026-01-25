@@ -1,0 +1,199 @@
+{
+  "description": "Create a new project transport location.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Geocoding method (required)",
+      "name": "--geocoding-method",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: forward, reverse, explicit, detected, none"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Location name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "External TMS company ID",
+      "name": "--external-tms-company-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport organization ID",
+      "name": "--project-transport-organization",
+      "required": false,
+      "type": "string",
+      "validation": "Must belong to the same broker"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address latitude",
+      "name": "--address-latitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address longitude",
+      "name": "--address-longitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Full address string",
+      "name": "--address-full",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address line 1",
+      "name": "--address-street-one",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address line 2",
+      "name": "--address-street-two",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "City",
+      "name": "--address-city",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "State/region code",
+      "name": "--address-state-code",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Country code (US/CA/MX)",
+      "name": "--address-country-code",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: US, CA, MX"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Postal code",
+      "name": "--address-postal-code",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Time zone identifier",
+      "name": "--address-time-zone-id",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid time zone identifier"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "SPLC (9-digit)",
+      "name": "--address-splc",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a 9-digit number"
+    },
+    {
+      "aliases": null,
+      "default": "true",
+      "description": "Whether the location is active",
+      "name": "--is-active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "true",
+      "description": "Whether the location is valid for stops",
+      "name": "--is-valid-for-stop",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip managed location detection",
+      "name": "--skip-detection",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-locations create",
+  "id": "a6e38033b44ff7215837a368bc9794619b816c3e48f3b3292b383509e577496f",
+  "permissions": "Admins can create project transport locations. Non-admin users can create locations only if they are manager members of the broker associated with the location.",
+  "side_effects": "If geocoding_method is forward and address fields are provided, the server may call an external geocoding service to populate coordinates. Creating a location persists a new record and may set managed tracking fields.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_locations_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_location_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_location.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_location_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--geocoding-method and --broker are required. geocoding_method must be one of forward, reverse, explicit, detected, none. address_country_code must be one of US, CA, MX when provided. address_splc must be a 9-digit number when provided. address_time_zone_id must be a valid time zone identifier when provided. name must be unique per broker when project_transport_organization is empty, and unique per broker and project_transport_organization when set. project_transport_organization must belong to the same broker."
+}

@@ -1,0 +1,54 @@
+{
+  "id": "831ebe880dce34b7ff8356b61ec62b3a2e11b1cbf50e234eabfce7cdd017f5f1",
+  "full_path": "do project-transport-plan-segment-drivers create",
+  "description": "Create a project transport plan segment driver.",
+  "permissions": "User must be authorized for the related project transport plan segment (policy delegates to the associated project transport plan and project).",
+  "side_effects": "Creates a project transport plan segment driver association between a segment and a driver.",
+  "validation_notes": "--project-transport-plan-segment and --driver are required. Driver must have a membership with the segment trucker.",
+  "flags": [
+    {
+      "name": "--project-transport-plan-segment",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport plan segment ID.",
+      "default": null,
+      "validation": "Required. Example: 123."
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Driver (user) ID.",
+      "default": null,
+      "validation": "Required. Example: 456."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_segment_drivers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_segment_driver_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_segment_driver.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

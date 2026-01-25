@@ -1,0 +1,64 @@
+{
+  "description": "List material transaction ticket generators.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization (e.g., Broker|123)",
+      "name": "--organization",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization ID (requires --organization-type)",
+      "name": "--organization-id",
+      "required": false,
+      "type": "string",
+      "validation": "Requires --organization-type when --organization-id is set unless --organization is provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization type (Broker, MaterialSupplier)",
+      "name": "--organization-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view material-transaction-ticket-generators list",
+  "id": "3935ff05de08a330d20d81f3dfc4d9d37410fb67dec7b980fa2a925dc7d76032",
+  "permissions": "Admins can view all ticket generators. Non-admins can view generators whose organization is within their policy scope for Brokers or MaterialSuppliers.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_transaction_ticket_generators_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/material_transaction_ticket_generators_common.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_transaction_ticket_generator_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_transaction_ticket_generator_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--organization-id requires --organization-type unless --organization is provided."
+}

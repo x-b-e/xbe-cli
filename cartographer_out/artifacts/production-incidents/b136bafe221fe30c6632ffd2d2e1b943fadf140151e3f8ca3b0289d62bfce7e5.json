@@ -1,0 +1,37 @@
+{
+  "id": "b136bafe221fe30c6632ffd2d2e1b943fadf140151e3f8ca3b0289d62bfce7e5",
+  "full_path": "do production-incidents delete",
+  "description": "Delete a production incident",
+  "permissions": "Admins can delete production incidents. Non-admins can delete if authorized for the incident subject under the same rules as create (IncidentPolicy#create?).",
+  "side_effects": "Deletes the production incident, dependent incident records (incident unit-of-measure quantities, root causes, action items, participants, incident tag incidents), and related incident assignment notifications; child incidents are disassociated (parent_id cleared).",
+  "validation_notes": "Requires a production incident ID argument and --confirm to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_production_incidents_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/production_incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "8fcc03d6a5c23cdc6b24b7e66c2fb6ad006da8cefb35bfc6f20096ca96bc58dd",
+  "full_path": "do lineups delete",
+  "description": "Delete a lineup",
+  "permissions": "Admins can delete lineups. Non-admins can delete lineups for a customer if they are a customer manager for that customer (considering broker context) or if they manage laborers on job production plans tied to the lineup.",
+  "side_effects": "Deletes the lineup and may also delete associated lineup dispatches that have no dispatch shifts.",
+  "validation_notes": "The lineup ID argument is required. --confirm is required to delete. Deletion is blocked if the lineup is associated with lineup dispatch shifts, job production plans, or job schedule shifts.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineups_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

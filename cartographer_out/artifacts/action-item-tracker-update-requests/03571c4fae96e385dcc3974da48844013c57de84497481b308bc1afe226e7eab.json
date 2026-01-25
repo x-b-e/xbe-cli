@@ -1,0 +1,33 @@
+{
+  "id": "03571c4fae96e385dcc3974da48844013c57de84497481b308bc1afe226e7eab",
+  "full_path": "do action-item-tracker-update-requests delete",
+  "description": "Delete an action item tracker update request.",
+  "permissions": "User must be authorized to delete action item tracker update requests via the delegated action_item_tracker policy (ActionItemTrackerUpdateRequestPolicy).",
+  "side_effects": "Deletes the action item tracker update request.",
+  "validation_notes": "Argument <id> is required. --confirm is required to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_tracker_update_requests_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_tracker_update_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_tracker_update_request_resource.rb"
+    }
+  ]
+}

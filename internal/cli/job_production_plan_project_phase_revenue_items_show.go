@@ -187,18 +187,3 @@ func renderJobProductionPlanProjectPhaseRevenueItemDetails(cmd *cobra.Command, d
 
 	return nil
 }
-
-func relationshipIDStrings(rel jsonAPIRelationship) []string {
-	if rel.raw == nil {
-		return nil
-	}
-	var refs []jsonAPIResourceIdentifier
-	if err := json.Unmarshal(rel.raw, &refs); err != nil {
-		return nil
-	}
-	ids := make([]string, 0, len(refs))
-	for _, ref := range refs {
-		ids = append(ids, ref.ID)
-	}
-	return ids
-}

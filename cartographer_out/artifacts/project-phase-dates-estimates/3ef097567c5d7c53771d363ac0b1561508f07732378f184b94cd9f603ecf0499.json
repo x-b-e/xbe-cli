@@ -1,0 +1,33 @@
+{
+  "description": "Delete a project phase dates estimate.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-phase-dates-estimates delete",
+  "id": "3ef097567c5d7c53771d363ac0b1561508f07732378f184b94cd9f603ecf0499",
+  "permissions": "Authorized via ProjectPhaseDatesEstimatePolicy; access is delegated to the related project phase (same permissions as project phase).",
+  "side_effects": "Deletes a project phase dates estimate record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phase_dates_estimates_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_phase_dates_estimate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_phase_dates_estimate.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Project phase dates estimate id argument is required. Deletion requires --confirm."
+}

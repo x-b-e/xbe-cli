@@ -1,0 +1,55 @@
+{
+  "description": "Create an OpenAI realtime session.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Client feature enum (required)",
+      "name": "--client-feature",
+      "required": true,
+      "type": "enum",
+      "validation": "Valid values: giant_anchor_prediction_creation, giant_anchor_prediction_comment, expert_broadcast_message_creation, expert_job_production_plan_dispatch_instruction_creation, development, super_power_post_creation, slack_realtime_chat."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "OpenAI realtime model (optional)",
+      "name": "--model",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID to associate with the session",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do open-ai-realtime-sessions create",
+  "id": "c24acb8052861b66ea83e83c132a482d6ca236b23d161a0c748d2614d1fa7e8a",
+  "permissions": "Any authenticated user can create a session; admin is not required.",
+  "side_effects": "Creates an OpenAI realtime session record and requests a short-lived client secret from OpenAI before validation.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_open_ai_realtime_sessions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/open_ai_realtime_session.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/open_ai_realtime_session_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/open_ai_realtime_session_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--client-feature is required and must be a valid client feature enum. If --model is omitted, the server sets a default model of gpt-4o-realtime-preview. Server validates presence of client_secret_value and client_secret_expires_at; creation fails if the OpenAI token fetch fails."
+}

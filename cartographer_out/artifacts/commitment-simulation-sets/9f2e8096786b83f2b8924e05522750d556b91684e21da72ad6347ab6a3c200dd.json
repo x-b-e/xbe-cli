@@ -1,0 +1,73 @@
+{
+  "id": "9f2e8096786b83f2b8924e05522750d556b91684e21da72ad6347ab6a3c200dd",
+  "full_path": "view commitment-simulation-sets list",
+  "description": "List commitment simulation sets.",
+  "permissions": "Admin users or users who are broker members, or manager members of customer/trucker organizations, can list commitment simulation sets within their organization scope (including broker-linked customers/truckers).",
+  "side_effects": null,
+  "validation_notes": "--organization-id requires --organization-type unless provided as Type|ID via --organization or --organization-id. --status must be enqueued or processed. Organization type filters accept Broker, Customer, or Trucker.",
+  "flags": [
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (format: Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Format: Type|ID (example: Broker|123)."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type or Type|ID)",
+      "default": null,
+      "validation": "Requires --organization-type unless provided as Type|ID."
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g., Broker, Customer, Trucker)",
+      "default": null,
+      "validation": "Accepted values are Broker, Customer, or Trucker."
+    },
+    {
+      "name": "--not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude organization type (e.g., Customer)",
+      "default": null,
+      "validation": "Accepted values align with organization type names (e.g., Customer)."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status (enqueued or processed)",
+      "default": null,
+      "validation": "Must be enqueued or processed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_simulation_sets_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_simulation_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_simulation_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/commitment_simulation_like.rb"
+    }
+  ]
+}

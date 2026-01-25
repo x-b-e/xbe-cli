@@ -1,0 +1,91 @@
+{
+  "id": "e4daf3609a51394f3a4b3b39f1ab7b1906a2df1017bd1839716d36da97946c35",
+  "full_path": "do transport-order-stops update",
+  "description": "Update a transport order stop.",
+  "permissions": "User must be authorized to update the stop via the related transport order; access is delegated through TransportOrderStopPolicy to the associated transport order.",
+  "side_effects": "Updating location or position can enqueue a direct-distance refresh for the related transport order.",
+  "validation_notes": "Requires <id> argument (transport order stop ID) and at least one editable flag. Role must be pickup or delivery when provided. Status must be planned, started, finished, or cancelled when provided. at-min/at-max must be valid ISO 8601 date-times when provided, and at-min must be less than or equal to at-max if both are set. Location must belong to the same broker as the transport order and be valid for stops when changed.",
+  "flags": [
+    {
+      "name": "--location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Transport location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--role",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Stop role (pickup, delivery)",
+      "default": null,
+      "validation": "pickup or delivery"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Stop status (planned, started, finished, cancelled)",
+      "default": null,
+      "validation": "planned, started, finished, or cancelled"
+    },
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Stop position in the order",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Earliest scheduled time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latest scheduled time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--external-tms-stop-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External TMS stop number",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_order_stops_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/transport_order_stop.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_order_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_stop_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "0d9e85753812408d2e4387dceddb13d010ad81574c6f618905f17f72f17bd942",
+  "full_path": "auth login",
+  "description": "Store an access token",
+  "permissions": null,
+  "side_effects": "Validates the token with the API and stores it for the selected base URL; may open a browser in interactive mode.",
+  "validation_notes": "Token is required; --token and --token-stdin are mutually exclusive; token is validated via /v1/users/me and invalid tokens error.",
+  "flags": [
+    {
+      "name": "no-web",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip opening browser (for scripted/headless use)",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "token-stdin",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Read token from stdin",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/auth.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/concerns/abstract_oauth2_authorizations_controller.rb"
+    }
+  ]
+}

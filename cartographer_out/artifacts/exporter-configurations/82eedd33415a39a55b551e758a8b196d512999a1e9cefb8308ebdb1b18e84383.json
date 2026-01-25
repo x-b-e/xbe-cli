@@ -1,0 +1,99 @@
+{
+  "id": "82eedd33415a39a55b551e758a8b196d512999a1e9cefb8308ebdb1b18e84383",
+  "full_path": "do exporter-configurations create",
+  "description": "Create an exporter configuration for free ticketing exports.",
+  "permissions": "Admin users only.",
+  "side_effects": "Creates a new exporter configuration.",
+  "validation_notes": "Requires --name, --api-url, --ticket-identifier-field, and --integration-config. --exporter-headers and --additional-configurations must be valid JSON if provided. Server requires name, api_url, ticket_identifier_field, and integration_config.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Configuration name (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--api-url",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Export destination URL (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--ticket-identifier-field",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Ticket identifier field name (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--integration-config",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Integration config ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template name.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--exporter-headers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "JSON object of HTTP headers.",
+      "default": null,
+      "validation": "Must be valid JSON when provided."
+    },
+    {
+      "name": "--additional-configurations",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "JSON object of additional settings.",
+      "default": null,
+      "validation": "Must be valid JSON when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_exporter_configurations_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_exporter_configurations.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/free_ticketing/exporter_configuration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/free_ticketing/exporter_configuration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/free_ticketing/exporter_configuration.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/free_ticketing/exporter_configurations_spec.rb"
+    }
+  ]
+}

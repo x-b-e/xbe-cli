@@ -1,0 +1,196 @@
+{
+  "id": "36452809d0b03e3933fd6d261b4322b24903ce76e42ea295737ce05c973eee9c",
+  "full_path": "view teletrac-navman-vehicles list",
+  "description": "List Teletrac Navman vehicles with filtering and pagination.",
+  "permissions": "Admin users can list all Teletrac Navman vehicles; non-admin users can list only vehicles for brokers where they are members (scope limited to broker membership).",
+  "side_effects": null,
+  "validation_notes": "Date-time filters require non-empty ISO 8601 timestamps; boolean filters require strict true/false values.",
+  "flags": [
+    {
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID. Example: --broker 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-tractor",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by tractor assignment (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--has-trailer",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by trailer assignment (true/false). Example: --has-trailer true.",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--assigned-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by assigned-at timestamp (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--integration-identifier",
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration identifier.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-set-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum trailer set timestamp (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--trailer-set-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum trailer set timestamp (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-trailer-set-at",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has trailer set timestamp (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--tractor-set-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum tractor set timestamp (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--tractor-set-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum tractor set timestamp (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-tractor-set-at",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has tractor set timestamp (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-created-at",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has created-at (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be a non-empty ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by has updated-at (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/teletrac_navman_vehicles_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/teletrac_navman_vehicle_policy.rb"
+    }
+  ]
+}

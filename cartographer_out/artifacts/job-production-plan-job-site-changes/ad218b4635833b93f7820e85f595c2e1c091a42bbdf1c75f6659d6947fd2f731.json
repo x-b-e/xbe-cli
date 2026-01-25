@@ -1,0 +1,59 @@
+{
+  "id": "ad218b4635833b93f7820e85f595c2e1c091a42bbdf1c75f6659d6947fd2f731",
+  "full_path": "do job-production-plan-job-site-changes create",
+  "description": "Create a job production plan job site change.",
+  "permissions": "User must be authorized to update the related job production plan (JobProductionPlanJobSiteChangePolicy#create? delegates to the plan update permission).",
+  "side_effects": "Updates the job production plan job site/start site when it matches the old job site, updates associated jobs and their start/job sites, and creates job schedule shift start site change records for shifts that used the old start site.",
+  "validation_notes": "--job-production-plan, --old-job-site, and --new-job-site are required. Old and new job sites must be different. Old job site must be the current job site on the job production plan. Job sites must belong to the plan's customer.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--old-job-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Current job site ID on the plan (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--new-job-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "New job site ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_job_site_changes_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_job_site_changes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_job_site_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_job_site_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_job_site_change.rb"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "559b152a5fcb23ae24710b238badfa9bcdf8a550ca9d49f37683ed526f5a2706",
+  "full_path": "do open-door-issues create",
+  "description": "Create a new open door issue.",
+  "permissions": "Allowed for admins, members of the organization, or users with a membership on the organization's broker.",
+  "side_effects": "Creates an open door issue. If status is set to reported, creates open door issue reported notifications for the organization's team memberships.",
+  "validation_notes": "--description, --status, --organization, and --reported-by are required. --status must be one of: editing, reported, resolved. --organization must be Type|ID format (e.g. Broker|123). Organization type must be Broker, Customer, or Trucker. Reported-by must have a membership with the organization's broker. Organization must be accepting open door issues.",
+  "flags": [
+    {
+      "name": "--description",
+      "required": true,
+      "type": "string",
+      "description": "Issue description (required)",
+      "validation": "Must be non-empty."
+    },
+    {
+      "name": "--status",
+      "required": true,
+      "type": "enum",
+      "description": "Issue status (required: editing, reported, resolved)",
+      "validation": "Allowed values: editing, reported, resolved."
+    },
+    {
+      "name": "--organization",
+      "required": true,
+      "type": "string",
+      "description": "Organization in Type|ID format (required, e.g. Broker|123)",
+      "validation": "Type|ID format (e.g. Broker|123)."
+    },
+    {
+      "name": "--reported-by",
+      "required": true,
+      "type": "string",
+      "description": "Reporting user ID (required)",
+      "validation": "User must have a membership with the organization's broker."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_open_door_issues_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/open_door_issue_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/open_door_issue.rb"
+    }
+  ]
+}

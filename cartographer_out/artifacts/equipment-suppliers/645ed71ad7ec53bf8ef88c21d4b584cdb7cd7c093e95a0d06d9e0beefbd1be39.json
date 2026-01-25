@@ -1,0 +1,33 @@
+{
+  "description": "Delete an equipment supplier.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Example: --confirm"
+    }
+  ],
+  "full_path": "do equipment-suppliers delete",
+  "id": "645ed71ad7ec53bf8ef88c21d4b584cdb7cd7c093e95a0d06d9e0beefbd1be39",
+  "permissions": "Allowed for admin users or users who are members of the broker for the equipment supplier.",
+  "side_effects": "Deletes the equipment supplier.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_equipment_suppliers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/equipment_supplier_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/equipment_supplier.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The --confirm flag is required. Deletion is blocked if the equipment supplier has related equipment rentals."
+}

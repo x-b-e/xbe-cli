@@ -1,0 +1,37 @@
+{
+  "description": "Delete a time sheet line item classification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true."
+    }
+  ],
+  "full_path": "do time-sheet-line-item-classifications delete",
+  "id": "e43593d4525ac21cbd0a05647e85478b6a712ca2b2e9cff76cf9df1771d8e3cf",
+  "permissions": "Only admin users can delete time sheet line item classifications.",
+  "side_effects": "Deletes a time sheet line item classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_time_sheet_line_item_classifications_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_time_sheet_line_item_classifications.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_sheet_line_item_classification_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/time_sheet_line_item_classification.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Provide the classification ID as an argument. --confirm is required. Deletion is blocked if the classification has time sheet line items."
+}

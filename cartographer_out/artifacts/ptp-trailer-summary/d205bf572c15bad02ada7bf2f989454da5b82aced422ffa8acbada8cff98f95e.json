@@ -1,0 +1,86 @@
+{
+  "id": "d205bf572c15bad02ada7bf2f989454da5b82aced422ffa8acbada8cff98f95e",
+  "full_path": "summarize ptp-trailer-summary create",
+  "description": "Create a project transport plan trailer summary.",
+  "permissions": "Authenticated user with a persisted account (policy allows create for signed-in users).",
+  "side_effects": null,
+  "validation_notes": "Defaults to grouping by trailer when --group-by is not set. If no metrics are specified via --metrics/--metric and --all-metrics is false, metrics default to count and trailer_assignment_prediction_correct_pct. --filters must be valid JSON object; --filter entries must be key=value with a non-empty key. Available group-by attributes: broker, customer, has_trailer_prediction_position, is_managed, ordered_date, pickup_date, project_category, project_division, project_office, trailer, transport_order_status, was_unmanaged. Available filters: broker, customer, trailer, is_managed, was_unmanaged, has_trailer_prediction_position, ordered_date, ordered_date_min, ordered_date_max, pickup_date, pickup_date_min, pickup_date_max, project_division, project_office, project_category, transport_order_status, transport_order. Server parses ordered_date/pickup_date and *_min/_max as date inputs; trailer and transport_order as integers; is_managed/was_unmanaged/has_trailer_prediction_position as booleans; transport_order_status as string input.",
+  "flags": [
+    {
+      "name": "--all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all metrics returned by the API",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable)",
+      "default": null,
+      "validation": "Each entry must be key=value with a non-empty key (e.g., broker=123)."
+    },
+    {
+      "name": "--filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. {\"broker\":\"123\"})",
+      "default": null,
+      "validation": "Must be valid JSON object."
+    },
+    {
+      "name": "--group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to trailer unless set.",
+      "default": "trailer",
+      "validation": "Comma-separated list of group-by attributes; available values listed in help."
+    },
+    {
+      "name": "--metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable)",
+      "default": null,
+      "validation": "Must be one of the available metric names (see help for list)."
+    },
+    {
+      "name": "--metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list of metric names (see help for list)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ptp_trailer_summary_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ptp_trailer_summary.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_trailer_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_trailer_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_trailer_summary.rb"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "0d293eed93519d8e55f8e7299bbecce8d6f120b03bee64bcf3f4d0328d0b4bd3",
+  "full_path": "do lineup-dispatches update",
+  "description": "Update a lineup dispatch.",
+  "permissions": "Allowed when the user is authorized for the related lineup via LineupDispatchPolicy, which delegates to LineupPolicy. LineupPolicy allows admins, customer managers or broker members for the lineup customer, and manager laborers on job production plans tied to the lineup; scope limits listing/showing to lineups visible under that policy.",
+  "side_effects": null,
+  "validation_notes": "The lineup dispatch ID argument is required. At least one attribute flag must be provided to update.",
+  "flags": [
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Dispatch comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--auto-offer-customer-tenders",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Auto-offer customer tenders",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--auto-offer-trucker-tenders",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Auto-offer trucker tenders",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--auto-accept-trucker-tenders",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Auto-accept trucker tenders",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_dispatches_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_dispatches.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_dispatch_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_dispatch.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    }
+  ]
+}

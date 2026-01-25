@@ -1,0 +1,23 @@
+{
+  "description": "Show project transport plan details",
+  "flags": [],
+  "full_path": "view project-transport-plans show",
+  "id": "ccbae667e9053555d80a4587550223eacc5f0b2168bc87e6e130ed9bb818791a",
+  "permissions": "Authorized via ProjectTransportPlanPolicy; list scope includes plans tied to projects the user can access and plans where the user is an active driver on a plan.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plans_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (project transport plan ID)."
+}

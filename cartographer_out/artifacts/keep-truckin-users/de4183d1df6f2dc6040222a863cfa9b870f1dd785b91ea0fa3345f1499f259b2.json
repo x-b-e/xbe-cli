@@ -1,0 +1,23 @@
+{
+  "id": "de4183d1df6f2dc6040222a863cfa9b870f1dd785b91ea0fa3345f1499f259b2",
+  "full_path": "view keep-truckin-users show",
+  "description": "Show the full details of a KeepTruckin user.",
+  "permissions": "Authenticated admin users can view all KeepTruckin users; non-admin users can view KeepTruckin users for brokers they are members of via policy scope.",
+  "side_effects": null,
+  "validation_notes": "Authentication is required. The keep-truckin user ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/keep_truckin_users_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/keep_truckin_user_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/keep_truckin_user_policy.rb"
+    }
+  ]
+}

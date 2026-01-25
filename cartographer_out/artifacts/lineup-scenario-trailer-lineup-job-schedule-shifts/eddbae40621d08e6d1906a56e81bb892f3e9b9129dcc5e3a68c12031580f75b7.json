@@ -1,0 +1,33 @@
+{
+  "description": "Delete a lineup scenario trailer lineup job schedule shift.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do lineup-scenario-trailer-lineup-job-schedule-shifts delete",
+  "id": "eddbae40621d08e6d1906a56e81bb892f3e9b9129dcc5e3a68c12031580f75b7",
+  "permissions": "User must be an admin or a manager member of the broker that owns the related lineup scenario (delete is delegated through the lineup scenario).",
+  "side_effects": "Deletes a lineup scenario trailer lineup job schedule shift record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_scenario_trailer_lineup_job_schedule_shifts_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trailer_lineup_job_schedule_shift_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. --confirm is required to delete."
+}

@@ -1,0 +1,1144 @@
+{
+  "id": "248925e8959f1e065f22d0c188b2904b50154b3560fcd662d9cc410b682b374e",
+  "full_path": "do job-production-plans create",
+  "description": "Create a new job production plan",
+  "permissions": "Allowed for admins; customer managers; broker members for the plan broker; assigned planner or project manager; or users who are time card approvers on the plan.",
+  "side_effects": "Creates a new job production plan.",
+  "validation_notes": "Date/time fields use formats shown in flag descriptions (e.g., YYYY-MM-DD, HH:MM). --default-time-card-approval-process accepts admin or field. --reference-data expects a JSON object. Tri-state flags accept true, false, or null where noted. Comma-separated values are required where indicated.",
+  "flags": [
+    {
+      "name": "--job-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job number identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job name/description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--phase-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Phase name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--raw-job-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Raw job number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--start-time",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start time (HH:MM)",
+      "default": null,
+      "validation": "HH:MM"
+    },
+    {
+      "name": "--end-time",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End time (HH:MM)",
+      "default": null,
+      "validation": "HH:MM"
+    },
+    {
+      "name": "--material-site-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material site start date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-site-start-time",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material site start time",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-job-site-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit job site start date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-job-site-start-time",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit job site start time (HH:MM)",
+      "default": null,
+      "validation": "HH:MM"
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes about the plan",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--goal-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Goal hours",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--goal-quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Goal quantity (e.g., tons)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--remaining-quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Remaining quantity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--dispatch-instructions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Instructions for dispatch",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--template-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template name (for templates)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--template-start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template start on minimum date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--template-start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template start on maximum date",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--explicit-loaded-miles",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit loaded miles",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-plan-valid-material-transaction-unit-of-measures",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit plan valid material transaction unit of measures",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-material-transaction-tons-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default material transaction tons max",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--cost-per-truck-hour",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cost per truck hour",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--cost-per-crew-hour",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cost per crew hour",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-time-card-approval-process",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Default time card approval process (admin/field)",
+      "default": null,
+      "validation": "admin|field"
+    },
+    {
+      "name": "--parallel-production-count",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parallel production count",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--planned-non-production-truck-count",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planned non-production truck count",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-time-zone-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit time zone ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-color-hex",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit color hex code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-job-site-proximity-meters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit job site proximity in meters",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-material-site-proximity-meters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit material site proximity in meters",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-crew-requirement-start-at-offset-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default crew requirement start offset in minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--observed-possible-cycle-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Observed possible cycle minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-driver-day-mobilization-before-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit driver day mobilization before minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-excessive-job-site-wait-time-threshold-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit excessive job site wait time threshold minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-excessive-material-site-wait-time-threshold-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit excessive material site wait time threshold minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reference-data",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference data (JSON object)",
+      "default": null,
+      "validation": "JSON object"
+    },
+    {
+      "name": "--explicit-crew-requirement-inbound-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit crew requirement inbound latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-crew-requirement-inbound-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit crew requirement inbound longitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-crew-requirement-outbound-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit crew requirement outbound latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-crew-requirement-outbound-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit crew requirement outbound longitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--benchmark-tons-per-truck-hour",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Benchmark tons per truck hour",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-transactions-start-before-seconds",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default transactions start before seconds",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-transactions-end-after-seconds",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default transactions end after seconds",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-job-site-phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit job site phone number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--on-hold-comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment for hold status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-template",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as template",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-on-hold",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Put plan on hold",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-schedule-locked",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Lock the schedule",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-raw-job-number-locked",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Lock raw job number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-cost-code-required-per-segment",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Require cost code per segment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-cost-code-allocation-required-per-time-card",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Require cost code allocation per time card",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-cost-code-allocation-required-per-time-sheet",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Require cost code allocation per time sheet",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--enable-recap-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable recap notifications",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--create-detected-production-incidents",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Create detected production incidents",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--approval-requires-job-number",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Approval requires job number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-maintaining-service-type-unit-of-measure-cohort",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Maintain service type unit of measure cohort",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-managing-crew-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Manage crew requirements",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-material-transaction-inspection-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable material transaction inspection",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-notifying-crew",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Notify crew",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-trucking",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires trucking",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-materials",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires materials",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lock-observed-possible-cycle-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Lock observed possible cycle minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--auto-check-in-driver-on-arrival-at-start-site",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Auto check-in driver on arrival at start site",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-driving-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires driving minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-material-site-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires material site minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-notify-job-production-plan-time-card-approver",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit notify JPP time card approver",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-estimates-cost-codes-via",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit estimates cost codes via",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-is-driver-expecting-material-transaction-inspection",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit is driver expecting material transaction inspection",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-requires-business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit requires business unit",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-notify-driver-when-gps-not-available",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit notify driver when GPS not available",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-notify-when-all-plan-time-sheets-submitted",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit notify when all plan time sheets submitted",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-notify-when-all-plan-time-sheets-approved",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit notify when all plan time sheets approved",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-notify-when-plan-schedule-changes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit notify when plan schedule changes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-notify-on-excessive-site-wait-time",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit notify on excessive site wait time",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-auto-approve-auto-time-cards-with-non-material-quantities",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit auto approve auto time cards with non-material quantities",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-require-admin-approval-time-card-attachments",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit require admin approval time card attachments",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-is-time-card-expecting-mtxns-accepted-before-approval",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit is time card expecting mtxns accepted before approval",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-is-updating-checksum-range-from-segments",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit is updating checksum range from segments",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--enable-implicit-time-card-approval",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable implicit time card approval",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-using-volumetric-measurements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Use volumetric measurements",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-is-auditing-time-card-approvals",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit is auditing time card approvals",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-submission-requires-different-job-site",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit submission requires different job site",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-prevailing-wage-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Is prevailing wage explicit (true/false/null)",
+      "default": null,
+      "validation": "true|false|null"
+    },
+    {
+      "name": "--is-certification-required-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Is certification required explicit (true/false/null)",
+      "default": null,
+      "validation": "true|false|null"
+    },
+    {
+      "name": "--is-managing-material-site-start-timing-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Is managing material site start timing explicit (true/false/null)",
+      "default": null,
+      "validation": "true|false|null"
+    },
+    {
+      "name": "--is-time-card-payroll-certification-required-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Is time card payroll certification required explicit (true/false/null)",
+      "default": null,
+      "validation": "true|false|null"
+    },
+    {
+      "name": "--is-one-way-job-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Is one way job explicit (true/false/null)",
+      "default": null,
+      "validation": "true|false|null"
+    },
+    {
+      "name": "--is-expecting-safety-meeting",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Expecting safety meeting",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--allows-unmanaged-shift",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Allow unmanaged shift",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-job-site-material-site-material-transaction-source",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Job site is material site material transaction source",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--show-loadout-position-to-drivers",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Show loadout position to drivers",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-expecting-driver-field-approval-time-card",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Expecting driver field approval time card",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--are-shifts-expecting-time-cards",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Shifts expecting time cards",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-requires-inspector",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit requires inspector",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-requires-certified-weigher",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit requires certified weigher",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-requires-project",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit requires project",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-is-material-type-default-cost-code-required",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit is material type default cost code required",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-is-validating-project-cost-codes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit is validating project cost codes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-automatically-create-project-phase-cost-items",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit automatically create project phase cost items",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-plan-disallows-mtxns-implicit-mix-design-match",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit plan disallows mtxns implicit mix design match",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--are-goals-synced-from-segments",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Goals synced from segments",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-validating-project-material-types",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validating project material types",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-managing-job-site-times-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is managing job site times explicit",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-job-site-times-creation-automated-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is job site times creation automated explicit",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-trucker-incident-creation-automated-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is trucker incident creation automated explicit",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-lord",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is lord (create only)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Business unit ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--planner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Planner user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-manager",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project manager user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--contractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Developer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--template",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Template job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-dispatch-user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit dispatch user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--certified-weigher",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Certified weigher ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--safety-meeting",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Safety meeting ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-movement-trip",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment movement trip ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer classification IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--cost-codes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cost code IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plans_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/job_production_plans_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

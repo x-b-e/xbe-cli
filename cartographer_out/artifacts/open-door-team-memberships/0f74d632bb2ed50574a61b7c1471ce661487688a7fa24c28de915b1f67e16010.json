@@ -1,0 +1,51 @@
+{
+  "description": "Update an existing open door team membership.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Membership ID",
+      "name": "--membership",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, cannot be empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization type (brokers|truckers|customers)",
+      "name": "--organization-type",
+      "required": false,
+      "type": "enum",
+      "validation": "Must be provided together with --organization-id. Allowed values: brokers, truckers, customers. Server validates organization_type as Broker, Trucker, or Customer."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization ID",
+      "name": "--organization-id",
+      "required": false,
+      "type": "string",
+      "validation": "Must be provided together with --organization-type."
+    }
+  ],
+  "full_path": "do open-door-team-memberships update",
+  "id": "0f74d632bb2ed50574a61b7c1471ce661487688a7fa24c28de915b1f67e16010",
+  "permissions": "Admins can update open door team memberships. Non-admins can update if they could create the membership or they are the membership user.",
+  "side_effects": "Updates an open door team membership.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_open_door_team_memberships_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/open_door_team_membership_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/open_door_team_membership.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. At least one updatable relationship flag is required. If --membership is set, it cannot be empty. If either --organization-type or --organization-id is set, both are required together. Server validation enforces organization_type as Broker, Trucker, or Customer; membership must be related to the organization or its broker; and membership/organization cannot be changed once persisted."
+}

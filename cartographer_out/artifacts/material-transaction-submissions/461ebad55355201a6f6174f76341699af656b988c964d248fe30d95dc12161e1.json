@@ -1,0 +1,54 @@
+{
+  "id": "461ebad55355201a6f6174f76341699af656b988c964d248fe30d95dc12161e1",
+  "full_path": "do material-transaction-submissions create",
+  "description": "Submit a material transaction.",
+  "permissions": "Allowed when the user can create the related material transaction. The material transaction policy permits create for admins, broker members of the material site\u2019s broker, members of the material supplier, or users who can update the associated trip.",
+  "side_effects": "Creates a material transaction submission that changes the material transaction status to submitted and may automatically accept user-entered tickets; may create a status change comment if automatic acceptance is not possible; updates unmanaged shift alive status.",
+  "validation_notes": "--material-transaction is required. Material transactions must be in one of these statuses before submission: editing, rejected, unmatched. The related material transaction must exist. The material transaction cannot be invoiced. The material transaction must have a material type and the material type must be in scope for the job/material site. User-sourced material transactions must have a quantity. User-entered tickets printed/made by the material site require an attachment unless ALLOW_MATERIAL_TRANSACTIONS_WITHOUT_ATTACHMENTS is set or AWS credentials are missing.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material transaction ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Submission comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_submissions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_submission_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_submission.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_action.rb"
+    }
+  ]
+}

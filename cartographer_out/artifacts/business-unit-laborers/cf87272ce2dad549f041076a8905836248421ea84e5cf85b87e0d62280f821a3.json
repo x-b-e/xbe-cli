@@ -1,0 +1,46 @@
+{
+  "id": "cf87272ce2dad549f041076a8905836248421ea84e5cf85b87e0d62280f821a3",
+  "full_path": "do business-unit-laborers create",
+  "description": "Create a business unit laborer link.",
+  "permissions": "User must be authorized to create links for the related business unit; create permission is delegated to the business unit policy, which requires practical admin access to the broker that owns the business unit.",
+  "side_effects": "Creates a business unit laborer link record.",
+  "validation_notes": "--business-unit and --laborer are required. Business unit and laborer must belong to the same broker. A laborer can only be linked once per business unit.",
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Business unit ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--laborer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Laborer ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_laborers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_laborer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/business_unit_laborer.rb"
+    }
+  ]
+}

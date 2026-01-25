@@ -1,0 +1,60 @@
+{
+  "id": "759c7b9f5e2682274c5cf71d917f297c1a39ad9d65bfa98ac459fe2ea44cafeb",
+  "full_path": "do developer-references create",
+  "description": "Create a developer reference.",
+  "permissions": "Admin users can create developer references. Non-admin users can create a developer reference only if they are authorized to update the referenced subject (subject policy update? must allow).",
+  "side_effects": "Creates a developer reference record.",
+  "validation_notes": "Server validations require developer_reference_type and subject to be present; value is required (presence validation). Subject type must be allowed by the developer reference type, and the subject must share broker with the developer reference type.",
+  "flags": [
+    {
+      "name": "--developer-reference-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Developer reference type ID.",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Subject type (e.g., projects, customers).",
+      "default": null,
+      "validation": "Example: projects."
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Subject ID.",
+      "default": null,
+      "validation": "Example: 456."
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference value.",
+      "default": null,
+      "validation": "Server requires value to be present. Example: EXT-12345."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_references_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_reference.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_reference_policy.rb"
+    }
+  ]
+}

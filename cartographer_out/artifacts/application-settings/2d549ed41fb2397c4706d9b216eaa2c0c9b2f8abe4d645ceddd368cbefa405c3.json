@@ -1,0 +1,19 @@
+{
+  "description": "List application settings.",
+  "flags": [],
+  "full_path": "view application-settings list",
+  "id": "2d549ed41fb2397c4706d9b216eaa2c0c9b2f8abe4d645ceddd368cbefa405c3",
+  "permissions": "Admin users only; non-admin scope resolves no application settings.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/application_settings_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/application_setting_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Access restricted to admin users."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "7f65c01622fb0ff10f94039895cbe259b37b18d3e24543f8fbe5608cb179ad20",
+  "full_path": "do project-project-cost-classifications delete",
+  "description": "Delete a project project cost classification.",
+  "permissions": "User must be authorized for the related project; permissions are delegated to the Project policy.",
+  "side_effects": "Deletes the project project cost classification and touches related project phase cost items.",
+  "validation_notes": "Requires <id> argument (project project cost classification ID). --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_project_cost_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_project_cost_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_project_cost_classification_policy.rb"
+    }
+  ]
+}

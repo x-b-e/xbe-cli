@@ -1,0 +1,38 @@
+{
+  "id": "18a91a69b4512540975fe7cb6c9840eb8bad66e477cbe0a737672765f5fa7ecd",
+  "full_path": "do efficiency-incidents delete",
+  "description": "Delete an efficiency incident",
+  "permissions": "Admins can delete efficiency incidents. Non-admins can delete only when authorized for the incident subject (same as create permission).",
+  "side_effects": "Deletes the efficiency incident; destroys dependent records (incident headline suggestions, incident unit-of-measure quantities, root causes, action items, incident participants, incident tag incidents) and removes related notifications; child incidents are retained with parent cleared.",
+  "validation_notes": "An efficiency incident ID argument is required. --confirm is required to delete an efficiency incident.",
+  "flags": [
+    {
+      "name": "confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_efficiency_incidents_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/efficiency_incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/efficiency_incident_policy.rb"
+    }
+  ]
+}

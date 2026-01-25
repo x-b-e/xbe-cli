@@ -1,0 +1,82 @@
+{
+  "description": "Update a geofence.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Geofence name",
+      "name": "name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Geofence description",
+      "name": "description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "JSON array of coordinate pairs",
+      "name": "polygon-coordinates",
+      "required": false,
+      "type": "array",
+      "validation": "Must be valid JSON array of [longitude, latitude] pairs."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Geofence status",
+      "name": "status",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: active, inactive."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Restriction mode",
+      "name": "restriction-mode",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: all_truckers, custom_truckers."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Explicit notification message for restriction violations",
+      "name": "notification-message",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do geofences update",
+  "id": "7aa131b2e43d0791554a6e8350e41e09cde48ad118c4955f81be453bebfb4c7c",
+  "permissions": "Admins can update geofences. Non-admin users can update geofences only for brokers they are members of.",
+  "side_effects": "Updates geofence attributes.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_geofences_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/geofence_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/geofence_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/geofence.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one attribute flag must be provided. Polygon coordinates must be a JSON array of [longitude, latitude] pairs; coordinates must be numeric, longitude between -180 and 180, latitude between -90 and 90, contain at least 4 points, and be closed (first and last points identical). Name must be unique within a broker when provided. Status must be one of: active, inactive. Restriction mode must be one of: all_truckers, custom_truckers."
+}

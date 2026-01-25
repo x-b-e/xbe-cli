@@ -1,0 +1,33 @@
+{
+  "id": "5aeec67a8434791b3a7879e2251410c922aa9f38691e03a8052d61ef606663ec",
+  "full_path": "view work-order-service-codes list",
+  "description": "List work order service codes",
+  "permissions": "Admins can list all work order service codes; non-admins can list only codes for brokers they are a member of.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/work_order_service_codes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/work_order_service_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/work_order_service_code_policy.rb"
+    }
+  ]
+}

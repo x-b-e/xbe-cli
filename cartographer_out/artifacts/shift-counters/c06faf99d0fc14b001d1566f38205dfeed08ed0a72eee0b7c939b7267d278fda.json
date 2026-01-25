@@ -1,0 +1,45 @@
+{
+  "id": "c06faf99d0fc14b001d1566f38205dfeed08ed0a72eee0b7c939b7267d278fda",
+  "full_path": "do shift-counters create",
+  "description": "Create a shift counter.",
+  "permissions": "No authorization required; ShiftCounterPolicy#create returns true and ShiftCountersController skips auth enforcement.",
+  "side_effects": "Runs a count query of accepted, not-cancelled tender job schedule shifts starting after start_at_min; does not persist shift counters.",
+  "validation_notes": "If provided, start-at-min must be a valid datetime; invalid dates raise validation errors. When omitted, start_at_min defaults to 2017-01-01 00:00 in the app default time zone.",
+  "flags": [
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Minimum shift start timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_counters_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_counters.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/shift_counters_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_counter_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_counter.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/plain_old_resource.rb"
+    }
+  ]
+}

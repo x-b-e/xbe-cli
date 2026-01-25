@@ -1,0 +1,46 @@
+{
+  "description": "List action item key result links",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by action item ID",
+      "name": "--action-item",
+      "required": false,
+      "type": "string",
+      "validation": "Example: 123."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by key result ID",
+      "name": "--key-result",
+      "required": false,
+      "type": "string",
+      "validation": "Example: 456."
+    }
+  ],
+  "full_path": "view action-item-key-results list",
+  "id": "9729d155899f562503d6b31c9ba2e08ca2dde9d614d1e9c21e15b23e5abf1473",
+  "permissions": "User must be authorized to access related key results via the ActionItemKeyResultPolicy delegated to KeyResultPolicy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/action_item_key_results_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/action_item_key_result_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/action_item_key_result_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/key_result_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

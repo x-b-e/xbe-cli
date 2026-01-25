@@ -1,0 +1,46 @@
+{
+  "id": "c87adc4a70e3455f49c9ff5505bb3819f1919db02576c7e76e66d1f0f8531511",
+  "full_path": "do material-site-mergers create",
+  "description": "Merge an orphan material site into a surviving material site.",
+  "permissions": "User must be an admin to create a material site merger.",
+  "side_effects": "Reassigns references from the orphan material site to the survivor in jobs, job start sites, job schedule shift start sites, and trips; merges the orphan's supply and dump material types into the survivor; destroys the orphan material site.",
+  "validation_notes": "--orphan and --survivor are required. Orphan and survivor material sites must belong to the same broker.",
+  "flags": [
+    {
+      "name": "--orphan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Orphan material site ID (required)",
+      "default": null,
+      "validation": "Required. Must be a material site ID."
+    },
+    {
+      "name": "--survivor",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Surviving material site ID (required)",
+      "default": null,
+      "validation": "Required. Must be a material site ID."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_mergers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_merger_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_merger.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_merger_resource.rb"
+    }
+  ]
+}

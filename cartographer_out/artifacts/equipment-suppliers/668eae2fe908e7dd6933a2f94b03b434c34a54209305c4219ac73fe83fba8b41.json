@@ -1,0 +1,42 @@
+{
+  "description": "List equipment suppliers with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by supplier name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --name \"Acme\""
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --broker 123"
+    }
+  ],
+  "full_path": "view equipment-suppliers list",
+  "id": "668eae2fe908e7dd6933a2f94b03b434c34a54209305c4219ac73fe83fba8b41",
+  "permissions": "Admin users can list all equipment suppliers. Non-admin users can only see equipment suppliers whose broker is in their visible member broker IDs or brokers controlled by visible member customers, truckers, or material suppliers.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/equipment_suppliers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/equipment_supplier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_supplier_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

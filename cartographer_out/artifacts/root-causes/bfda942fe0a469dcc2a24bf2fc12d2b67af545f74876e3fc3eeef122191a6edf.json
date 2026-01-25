@@ -1,0 +1,98 @@
+{
+  "id": "bfda942fe0a469dcc2a24bf2fc12d2b67af545f74876e3fc3eeef122191a6edf",
+  "full_path": "do root-causes create",
+  "description": "Create a new root cause",
+  "permissions": "Admin user (RootCausePolicy delegates create to incident policy; policy spec permits admin users).",
+  "side_effects": "Creates a root cause.",
+  "validation_notes": "--incident-type is required; --incident-id is required; incident relationship is required; root-cause relationship is optional; is-triaged is only sent when the flag is provided; incident and root-cause relationships are create-only (not updateable).",
+  "flags": [
+    {
+      "name": "--incident-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Incident type (required, e.g., production-incidents).",
+      "default": "",
+      "validation": "Required."
+    },
+    {
+      "name": "--incident-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Incident ID (required).",
+      "default": "",
+      "validation": "Required (example: 123)."
+    },
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Root cause title.",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Root cause description.",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--is-triaged",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as triaged.",
+      "default": "false",
+      "validation": "Optional; include to set triage status."
+    },
+    {
+      "name": "--root-cause",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent root cause ID.",
+      "default": "",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_root_causes_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_root_causes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/root_cause_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/root_cause_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/root_cause_policy_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/resources/v1/root_cause_resource_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/root_cause.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/models/root_cause_spec.rb"
+    }
+  ]
+}

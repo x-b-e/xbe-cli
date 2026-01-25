@@ -1,0 +1,31 @@
+{
+  "id": "5b1f075ee87b87af850042133b46ad2960e0db0e9959241354e327796ae33533",
+  "full_path": "view organization-invoices-batch-status-changes show",
+  "description": "Show organization invoices batch status change details.",
+  "permissions": "Allowed for users authorized by OrganizationInvoicesBatchStatusChangePolicy. Non-admins can only access status changes for organization invoices batches within their OrganizationInvoicesBatch policy scope (manager membership or broker membership).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument: organization invoices batch status change ID (non-empty).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_status_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_status_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/status_changes_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_status_change_resource.rb"
+    }
+  ]
+}

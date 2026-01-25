@@ -1,0 +1,33 @@
+{
+  "id": "474c3cfc3b4d6010dc3199311ff3726027f7f6f17041c3cf57188b1ab08cc956",
+  "full_path": "do customer-vendors update",
+  "description": "Update a customer-vendor relationship",
+  "permissions": "User must be able to see the organization and partner via their policies and must be an admin, a broker-branch member, or an organization manager (TradingPartnerPolicy).",
+  "side_effects": "Updates fields on a customer-vendor relationship record.",
+  "validation_notes": "Requires an <id> argument. At least one field is required. Only external accounting customer vendor ID is updatable.",
+  "flags": [
+    {
+      "name": "--external-accounting-customer-vendor-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External accounting customer vendor ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_vendors_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trading_partner.rb"
+    }
+  ]
+}

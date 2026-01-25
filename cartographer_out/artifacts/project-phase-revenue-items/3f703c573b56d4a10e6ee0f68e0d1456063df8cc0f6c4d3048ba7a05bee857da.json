@@ -1,0 +1,64 @@
+{
+  "id": "3f703c573b56d4a10e6ee0f68e0d1456063df8cc0f6c4d3048ba7a05bee857da",
+  "full_path": "do project-phase-revenue-items update",
+  "description": "Update a project phase revenue item.",
+  "permissions": "Authorization is delegated to the related project phase (project_phase).",
+  "side_effects": "Updates specified fields of a project phase revenue item.",
+  "validation_notes": "At least one update flag must be provided. --quantity-strategy must be one of: direct, indirect. --project-revenue-classification and --quantity-estimate accept an empty string to clear the relationship; --note accepts an empty string to clear the note. project_revenue_classification must be a child of the revenue classification of the revenue item. project_revenue_classification must belong to the same broker as the project. quantity_estimate must be related to the project phase revenue item.",
+  "flags": [
+    {
+      "name": "--project-revenue-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update project revenue classification ID (empty to clear)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity-strategy",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Update quantity strategy (direct/indirect)",
+      "default": null,
+      "validation": "Must be one of: direct, indirect."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update note (empty to clear)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity-estimate",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Update quantity estimate ID (empty to clear)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_revenue_items_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_revenue_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_revenue_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_phase_revenue_item.rb"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "fbb38fd15dbaf0082812922f79903965ca2dc1b587efcd495901dfa7256d90f7",
+  "full_path": "do lineup-summary-requests create",
+  "description": "Create a lineup summary request",
+  "permissions": "Admins can create lineup summary requests. Non-admin users can create requests if they are managers of the level (Broker or Customer) or managers of the level's broker.",
+  "side_effects": "Creates a lineup summary request and triggers building a lineup summary; if send_if_no_shifts is true or the summary has shifts, the server performs the summary (which sends lineup summary emails).",
+  "validation_notes": "--level-type must be Broker or Customer; --level-id, --start-at-min, and --start-at-max are required. start_at_max must be greater than start_at_min. email_to must not be empty; if omitted and the level provides send_lineup_summaries_to, the server uses those defaults before validation. start-at-min and start-at-max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--level-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Level type (Broker or Customer)",
+      "default": null,
+      "validation": "Broker or Customer"
+    },
+    {
+      "name": "--level-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Level ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Minimum shift start time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--start-at-max",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Maximum shift start time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--email-to",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Email recipients (comma-separated or repeated)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--send-if-no-shifts",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Send the summary even if no shifts are found",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Optional note for the summary",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_summary_requests_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_summary_requests_common.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_summary_request.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_summary_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_summary_request_resource.rb"
+    }
+  ]
+}

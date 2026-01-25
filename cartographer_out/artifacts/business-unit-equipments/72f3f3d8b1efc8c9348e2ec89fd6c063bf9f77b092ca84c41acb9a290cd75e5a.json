@@ -1,0 +1,29 @@
+{
+  "id": "72f3f3d8b1efc8c9348e2ec89fd6c063bf9f77b092ca84c41acb9a290cd75e5a",
+  "full_path": "do business-unit-equipments delete",
+  "description": "Delete a business unit equipment link.",
+  "permissions": "Admins, org admins of the broker that owns the business unit, or managers of the business unit can delete business unit equipment links.",
+  "side_effects": "Deletes the business unit equipment link record.",
+  "validation_notes": "The business unit equipment ID argument is required. --confirm must be true.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true to proceed"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_equipments_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_equipment_policy.rb"
+    }
+  ]
+}

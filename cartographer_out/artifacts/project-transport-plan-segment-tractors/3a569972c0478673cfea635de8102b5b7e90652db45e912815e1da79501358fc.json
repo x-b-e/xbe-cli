@@ -1,0 +1,46 @@
+{
+  "description": "List project transport plan segment tractors.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan segment ID (comma-separated for multiple)",
+      "name": "project-transport-plan-segment",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs supported (e.g., \"123,456\")."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tractor ID (comma-separated for multiple)",
+      "name": "tractor",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs supported (e.g., \"456,789\")."
+    }
+  ],
+  "full_path": "view project-transport-plan-segment-tractors list",
+  "id": "3a569972c0478673cfea635de8102b5b7e90652db45e912815e1da79501358fc",
+  "permissions": "Authorized via ProjectTransportPlanSegmentTractorPolicy, which delegates access to the related project transport plan segment (scoped through its project transport plan access).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_segment_tractors_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_segment_tractor_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_segment_tractor_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters accept comma-separated IDs."
+}

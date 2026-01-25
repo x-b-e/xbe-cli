@@ -1,0 +1,37 @@
+{
+  "description": "Generate a transport order strategy set prediction record.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Transport order ID (required)",
+      "name": "--transport-order",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do transport-order-project-transport-plan-strategy-set-predictions create",
+  "id": "61eb01f93600121fe7053514e268bebf6d467f1d497614e3b32ac603573df2ac",
+  "permissions": "Admins can create predictions for any transport order. Non-admins can create predictions only for transport orders tied to brokers they are members of.",
+  "side_effects": "Creates a prediction record and triggers server-side generation by calling an external prediction service.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_transport_order_project_transport_plan_strategy_set_predictions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/transport_order_project_transport_plan_strategy_set_prediction.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/transport_order_project_transport_plan_strategy_set_prediction_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/transport_order_project_transport_plan_strategy_set_prediction_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Flag --transport-order is required. predictions is read-only and generated server-side. Server requires a prediction service URL and token; if missing, creation fails. Generated predictions must be an array of hashes with keys probability and strategy_set_id, each entry must include a strategy_set_id, any provided probability must be numeric, and all strategy_set_id values must exist."
+}

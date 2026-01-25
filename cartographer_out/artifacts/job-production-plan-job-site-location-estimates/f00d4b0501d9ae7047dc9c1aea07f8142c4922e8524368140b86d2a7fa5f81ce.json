@@ -1,0 +1,33 @@
+{
+  "description": "List job production plan job site location estimates",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan ID (example: 123).",
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view job-production-plan-job-site-location-estimates list",
+  "id": "f00d4b0501d9ae7047dc9c1aea07f8142c4922e8524368140b86d2a7fa5f81ce",
+  "permissions": "Read access is limited by policy scope to job production plans the user is authorized to view; non-admin scope restricts records to job_production_plan_id values from the JobProductionPlan policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_job_site_location_estimates_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_job_site_location_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_job_site_location_estimate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

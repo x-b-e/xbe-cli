@@ -1,0 +1,29 @@
+{
+  "description": "Delete a time card payroll certification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "must be true"
+    }
+  ],
+  "full_path": "do time-card-payroll-certifications delete",
+  "id": "c850e397b35f05db45df792b869ae779d676d12ee63eb44b444e555f32a85cfc",
+  "permissions": null,
+  "side_effects": "Deletes a time card payroll certification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_time_card_payroll_certifications_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_card_payroll_certification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (time card payroll certification ID). --confirm is required to delete."
+}

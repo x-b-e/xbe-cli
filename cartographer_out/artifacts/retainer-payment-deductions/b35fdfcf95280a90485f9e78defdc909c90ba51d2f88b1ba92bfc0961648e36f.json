@@ -1,0 +1,60 @@
+{
+  "id": "b35fdfcf95280a90485f9e78defdc909c90ba51d2f88b1ba92bfc0961648e36f",
+  "full_path": "view retainer-payment-deductions list",
+  "description": "List retainer payment deductions.",
+  "permissions": "Users may list retainer payment deductions that fall within RetainerPaymentDeductionPolicy scope. For non-admin users, the scope is limited to deductions whose retainer_deduction retainer_id is in the user Retainer policy scope (retainers where the user is a member/manager of the associated customer, broker, or trucker organizations).",
+  "side_effects": null,
+  "validation_notes": "created-at-min/max and updated-at-min/max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp (e.g., 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/retainer_payment_deductions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_payment_deduction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "5e9b666be256e9b555133c482075fa80332b540876f8a4ef069bc100c5d56cd0",
+  "full_path": "do developer-trucker-certifications create",
+  "description": "Create a developer trucker certification.",
+  "permissions": "User must be authorized to create for the related developer via DeveloperPolicy (admin, broker member, or customer manager for the broker).",
+  "side_effects": "Creates a developer trucker certification.",
+  "validation_notes": "Requires --developer, --trucker, and --classification. If both dates are provided, end-on must be on or after start-on. Developer and trucker must belong to the same broker. Classification must belong to the same developer.",
+  "flags": [
+    {
+      "name": "--classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Classification ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--default-multiplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default multiplier (numeric)",
+      "default": null,
+      "validation": "Numeric value."
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Developer ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD."
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date format: YYYY-MM-DD."
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_trucker_certifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_trucker_certification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_trucker_certification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_trucker_certification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_policy.rb"
+    }
+  ]
+}

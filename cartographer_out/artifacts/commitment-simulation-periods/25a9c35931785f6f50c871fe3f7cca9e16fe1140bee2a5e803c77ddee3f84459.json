@@ -1,0 +1,33 @@
+{
+  "id": "25a9c35931785f6f50c871fe3f7cca9e16fe1140bee2a5e803c77ddee3f84459",
+  "full_path": "view commitment-simulation-periods list",
+  "description": "List commitment simulation periods",
+  "permissions": "Read access is scoped via the CommitmentSimulation policy; users must be authorized to access related commitment simulations.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--commitment-simulation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by commitment simulation ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_simulation_periods_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_simulation_period_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_simulation_period_policy.rb"
+    }
+  ]
+}

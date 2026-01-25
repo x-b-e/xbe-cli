@@ -1,0 +1,33 @@
+{
+  "id": "3400d2966ad95f6aa276ba220e6832937085a6179b6f0ee8e9d4b03ffd1ba795",
+  "full_path": "do contractors delete",
+  "description": "Delete a contractor.",
+  "permissions": "Allowed for admins, members of the broker, or managers of a customer whose broker matches the contractor broker.",
+  "side_effects": "Deletes the contractor; related incidents are destroyed.",
+  "validation_notes": "A contractor ID argument is required. The --confirm flag must be set to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": "Must be true to delete. Example: --confirm"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_contractors_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/contractor.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/contractor_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "b2d0d1333c2a168f98f11afa38f2e121fec298c3d786a3c5664b71c2e644d5a5",
+  "full_path": "view time-card-scrappages list",
+  "description": "List time card scrappages.",
+  "permissions": "Index access is allowed by default policy (index? returns true); returned records are limited to the policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_scrappages_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

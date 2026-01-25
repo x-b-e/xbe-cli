@@ -1,0 +1,37 @@
+{
+  "id": "ce3386886dd8ad948f697810f3ef336bf3008bc544bbbbab1fc8556a2388a35a",
+  "full_path": "do job-production-plan-material-sites delete",
+  "description": "Delete a job production plan material site.",
+  "permissions": "Requires permission to destroy the related job production plan (JobProductionPlanMaterialSitePolicy delegates authorization to the job production plan).",
+  "side_effects": "On delete, triggers async updates of related calculated miles, manages job production plan subscriptions tied to material site subscriptions, and schedules material site subscriber notifications.",
+  "validation_notes": "Requires --confirm. Deletion is blocked if the related job production plan has invoiced time cards that prevent changes, if the material site is the plan start site, or if trips exist at the material site.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_material_sites_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_material_site.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/belongs_to_job_production_plan.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_site_policy.rb"
+    }
+  ]
+}

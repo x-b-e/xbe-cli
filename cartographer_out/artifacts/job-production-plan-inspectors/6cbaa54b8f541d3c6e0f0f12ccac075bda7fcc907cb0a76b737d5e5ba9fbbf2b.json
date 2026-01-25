@@ -1,0 +1,40 @@
+{
+  "id": "6cbaa54b8f541d3c6e0f0f12ccac075bda7fcc907cb0a76b737d5e5ba9fbbf2b",
+  "full_path": "do job-production-plan-inspectors create",
+  "description": "Create a job production plan inspector",
+  "permissions": "Allowed for admins, broker members of the job production plan's broker, or developer managers of the job production plan's developer.",
+  "side_effects": "Creates a job production plan inspector.",
+  "validation_notes": "--job-production-plan-id and --user are required. job_production_plan_id and user relationship are create-only. The user must have a membership with the job production plan's developer. user_id must be unique within a job production plan.",
+  "flags": [
+    {
+      "name": "--job-production-plan-id",
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID"
+    },
+    {
+      "name": "--user",
+      "required": true,
+      "type": "string",
+      "description": "User ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_inspectors_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_inspector_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_inspector_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_inspector.rb"
+    }
+  ]
+}

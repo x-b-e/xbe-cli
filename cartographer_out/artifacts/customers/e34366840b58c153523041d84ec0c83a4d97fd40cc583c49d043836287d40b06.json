@@ -1,0 +1,109 @@
+{
+  "id": "e34366840b58c153523041d84ec0c83a4d97fd40cc583c49d043836287d40b06",
+  "full_path": "view customers list",
+  "description": "List customers with filtering and pagination.",
+  "permissions": "Admin users can list all customers; non-admin users are limited to customers they belong to, customers of brokers they belong to, or customers tied to their trucker jobs.",
+  "side_effects": null,
+  "validation_notes": "Filters use AND logic. Using --broker-customer-id requires broker membership for non-admin users.",
+  "flags": [
+    {
+      "name": "--active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter to only active customers",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated broker IDs"
+    },
+    {
+      "name": "--broker-customer-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker-assigned customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--favorite",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by favorite status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-controlled-by-broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker control status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-only-for-equipment-movement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment movement only status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by company name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer classification",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/customer_like_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_policy.rb"
+    }
+  ]
+}

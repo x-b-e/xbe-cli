@@ -1,0 +1,33 @@
+{
+  "id": "101dd675f10a6a8c4048f2d3600c087912abf2fdb291fe4a6e5aecaeb15c5916",
+  "full_path": "do material-site-reading-material-types delete",
+  "description": "Delete a material site reading material type.",
+  "permissions": "User must be practically a member of the broker for the material site or be a manager member of the material supplier for the material site.",
+  "side_effects": "Deletes a material site reading material type mapping.",
+  "validation_notes": "Requires the material site reading material type ID argument.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_reading_material_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_reading_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_reading_material_type.rb"
+    }
+  ]
+}

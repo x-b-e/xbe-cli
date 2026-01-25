@@ -1,0 +1,73 @@
+{
+  "id": "3bcf65575b0008949b4e5268e3aa06130d57257e4918b46b6b6eccd2bd08a352",
+  "full_path": "do cost-codes create",
+  "description": "Create a new cost code.",
+  "permissions": "Admins can create cost codes. Non-admins can create when they are a member of the specified customer or a manager of the specified trucker.",
+  "side_effects": "Creates a cost code and associates it to either a customer or a trucker.",
+  "validation_notes": "--code is required. At least one association is required: --customer or --trucker. Code must be unique within the organization (customer or trucker). Customer/trucker relationships are create-only and cannot be changed later.",
+  "flags": [
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Cost code value (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description of the cost code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Set as active (default true)",
+      "default": "true",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_codes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_code.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cost_code_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "description": "Delete a project office",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-offices delete",
+  "id": "6356d88a12ba8ba951cb045a88d2cc280d294d2df4df653fc6d8b93f126fb70e",
+  "permissions": "Admins can delete project offices. Broker admins can delete project offices for their broker.",
+  "side_effects": "Deletes the project office and nullifies associated memberships, projects, and transport orders.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_offices_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_office_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_office.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Provide the project office ID argument. --confirm is required to proceed."
+}

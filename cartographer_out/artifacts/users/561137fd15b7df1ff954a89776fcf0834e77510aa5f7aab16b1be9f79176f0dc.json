@@ -1,0 +1,163 @@
+{
+  "id": "561137fd15b7df1ff954a89776fcf0834e77510aa5f7aab16b1be9f79176f0dc",
+  "full_path": "view users list",
+  "description": "List users with filtering and pagination.",
+  "permissions": "Admins can view all users. Non-admin authenticated users are limited to users within their policy scope (self and users tied to their broker/trucker/customer/material supplier/developer memberships).",
+  "side_effects": null,
+  "validation_notes": "Filters are combined with AND logic. Boolean filters require true/false values. dark_mode filter accepts enum values: off, on, os. having_customer_membership_with must be valid customer IDs; having_trucker_membership_with and having_manager_trucker_membership_with must be valid trucker IDs.",
+  "flags": [
+    {
+      "name": "--can-manage-projects-for",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by can manage projects for (customer ID, comma-separated)",
+      "default": null,
+      "validation": "Comma-separated customer IDs."
+    },
+    {
+      "name": "--dark-mode",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by dark mode setting",
+      "default": null,
+      "validation": "Enum values: off, on, os."
+    },
+    {
+      "name": "--email-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by email address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--email-address-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by email address (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-notifai-text",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by having NotifAI text (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--having-customer-membership-with",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer membership (customer ID, comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated customer IDs; must refer to existing customers."
+    },
+    {
+      "name": "--having-manager-trucker-membership-with",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by manager trucker membership (trucker ID, comma-separated)",
+      "default": null,
+      "validation": "Comma-separated trucker IDs; must refer to existing truckers."
+    },
+    {
+      "name": "--having-trucker-membership-with",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker membership (trucker ID, comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated trucker IDs; must refer to existing truckers."
+    },
+    {
+      "name": "--is-admin",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter to only admins",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--is-available-for-question-assignment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by question assignment availability (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-suspended-from-driving",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driving suspension status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--mobile-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by mobile number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--slack-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by Slack ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/users_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user.rb"
+    }
+  ]
+}

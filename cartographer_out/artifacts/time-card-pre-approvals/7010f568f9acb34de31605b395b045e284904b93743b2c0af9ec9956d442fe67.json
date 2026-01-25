@@ -1,0 +1,118 @@
+{
+  "id": "7010f568f9acb34de31605b395b045e284904b93743b2c0af9ec9956d442fe67",
+  "full_path": "do time-card-pre-approvals create",
+  "description": "Create a time card pre-approval.",
+  "permissions": "Allowed when a time card approval can be built for the pre-approval and the user is authorized to create that time card approval.",
+  "side_effects": "Creates a time card pre-approval. May create or update a pre-approved time card when auto-submit is enabled, sends notifications unless skipped, caches driver movement, creates driver movement observation asynchronously, and touches the tender job schedule shift.",
+  "validation_notes": "--tender-job-schedule-shift is required. --automatic-submission-delay-minutes is required when --should-automatically-create-and-submit is set. --maximum-quantities-attributes must be valid JSON when provided. tender_job_schedule_shift_id must be unique. explicit_down_minutes must be >= 0. explicit_end_at must be later than explicit_start_at when both are set. automatic_submission_delay_minutes must be > 0 when auto-submit is enabled. explicit_start_at must be reasonably close to the shift scheduled start (server validation). maximum quantities are validated for presence, positivity, and coverage of quantified service type/unit of measures; quantity-likelihood checks are skipped when skip_quantity_validation is true.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maximum-quantities-attributes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum quantities (JSON array)",
+      "default": null,
+      "validation": "Must be valid JSON when provided."
+    },
+    {
+      "name": "--explicit-start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit start time (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit end time (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-down-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Explicit down minutes",
+      "default": null,
+      "validation": "Must be >= 0."
+    },
+    {
+      "name": "--should-automatically-create-and-submit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable automatic submission",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--automatic-submission-delay-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Auto-submit delay (minutes)",
+      "default": null,
+      "validation": "Required and must be > 0 when --should-automatically-create-and-submit is set."
+    },
+    {
+      "name": "--delay-automatic-submission-after-hours",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Delay auto-submit after hours",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-quantity-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip quantity validation",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_pre_approvals_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_pre_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_pre_approval.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_pre_approval_resource.rb"
+    }
+  ]
+}

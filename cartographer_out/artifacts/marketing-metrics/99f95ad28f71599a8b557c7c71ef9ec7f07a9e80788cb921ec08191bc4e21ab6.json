@@ -1,0 +1,31 @@
+{
+  "id": "99f95ad28f71599a8b557c7c71ef9ec7f07a9e80788cb921ec08191bc4e21ab6",
+  "full_path": "view marketing-metrics show",
+  "description": "Show the full marketing metrics snapshot.",
+  "permissions": "No authentication required; the controller skips auth and the marketing metrics policy allows create for all requests.",
+  "side_effects": "Refreshes the cached marketing metrics snapshot on the server.",
+  "validation_notes": "No positional arguments.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/marketing_metrics_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/marketing_metrics_common.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/marketing_metrics_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/marketing_metrics_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/marketing_metrics_resource.rb"
+    }
+  ]
+}

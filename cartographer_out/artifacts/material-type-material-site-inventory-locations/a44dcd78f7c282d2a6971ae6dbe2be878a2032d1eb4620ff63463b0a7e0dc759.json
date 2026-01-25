@@ -1,0 +1,38 @@
+{
+  "id": "a44dcd78f7c282d2a6971ae6dbe2be878a2032d1eb4620ff63463b0a7e0dc759",
+  "full_path": "view material-type-material-site-inventory-locations list",
+  "description": "List material type material site inventory locations with filtering and pagination.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-site-inventory-location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site inventory location ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_type_material_site_inventory_locations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_type_material_site_inventory_location_resource.rb"
+    }
+  ]
+}

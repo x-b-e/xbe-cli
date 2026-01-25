@@ -1,0 +1,109 @@
+{
+  "id": "fdcd5ba042259c45eb2a680e5cc842757c4d4a641e34cb1c4fb42c08c2915992",
+  "full_path": "view devices list",
+  "description": "List devices (mobile app instances).",
+  "permissions": null,
+  "side_effects": "Read-only: fetches devices from the API.",
+  "validation_notes": "Filter flags accept string values; is-pushable and has-push-token expect true/false; first/last device location event date filters expect ISO8601 strings. Pushable-status must be a valid server-defined enum value (not enumerated in CLI).",
+  "flags": [
+    {
+      "name": "user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by device identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "is-pushable",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by pushable status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "has-push-token",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of push token (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "pushable-status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by pushable status enum",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "first-device-location-event-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum first location event date (ISO8601)",
+      "default": null,
+      "validation": "ISO8601"
+    },
+    {
+      "name": "first-device-location-event-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum first location event date (ISO8601)",
+      "default": null,
+      "validation": "ISO8601"
+    },
+    {
+      "name": "last-device-location-event-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum last location event date (ISO8601)",
+      "default": null,
+      "validation": "ISO8601"
+    },
+    {
+      "name": "last-device-location-event-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum last location event date (ISO8601)",
+      "default": null,
+      "validation": "ISO8601"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/devices.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/devices_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/devices_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/device_policy.rb"
+    }
+  ]
+}

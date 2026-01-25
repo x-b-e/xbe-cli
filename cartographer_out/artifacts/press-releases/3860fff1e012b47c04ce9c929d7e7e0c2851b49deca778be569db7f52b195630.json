@@ -1,0 +1,60 @@
+{
+  "id": "3860fff1e012b47c04ce9c929d7e7e0c2851b49deca778be569db7f52b195630",
+  "full_path": "view press-releases list",
+  "description": "List press releases.",
+  "permissions": "Anyone can list press releases, but anonymous and non-admin users only see press releases that are published and have released_at on or before the current time; admins can see all.",
+  "side_effects": null,
+  "validation_notes": "Filters use AND logic. published expects true/false. released-at-min and released-at-max use YYYY-MM-DD.",
+  "flags": [
+    {
+      "name": "published",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by published status (true/false)",
+      "default": null,
+      "validation": "Expected values: true or false. Example: true."
+    },
+    {
+      "name": "released-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to press releases released on or before this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2024-06-30."
+    },
+    {
+      "name": "released-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to press releases released on or after this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD. Example: 2024-01-01."
+    },
+    {
+      "name": "slug",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by slug",
+      "default": null,
+      "validation": "Example: company-announcement."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/press_releases_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/press_release_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/press_release_policy.rb"
+    }
+  ]
+}

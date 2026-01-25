@@ -1,0 +1,29 @@
+{
+  "id": "1f7b9839ca1f63e2aa14b3b433271d564d009dfb8c01d2726f69c90ffad8d3a9",
+  "full_path": "do lineup-scenario-lineup-job-schedule-shifts delete",
+  "description": "Delete a lineup scenario lineup job schedule shift.",
+  "permissions": "Requires permission to delete a lineup scenario lineup job schedule shift via the associated lineup scenario (LineupScenarioLineupJobScheduleShiftPolicy delegates destroy? to LineupScenario).",
+  "side_effects": "Deletes a lineup scenario lineup job schedule shift.",
+  "validation_notes": "Requires <id> argument (lineup scenario lineup job schedule shift ID). Requires --confirm to proceed.",
+  "flags": [
+    {
+      "name": "confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to confirm deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenario_lineup_job_schedule_shifts_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_lineup_job_schedule_shift_policy.rb"
+    }
+  ]
+}

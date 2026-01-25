@@ -1,0 +1,33 @@
+{
+  "description": "List customer tender offered buyer notification subscriptions with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID (e.g., 456).",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view customer-tender-offered-buyer-notification-subscriptions list",
+  "id": "16b33e639be962108905608877078f8798a76d1735a620710f49559892510ec3",
+  "permissions": "Non-admin users can only list subscriptions where the broker is one of their broker memberships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/customer_tender_offered_buyer_notification_subscriptions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_offered_buyer_notification_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/notification_subscription_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

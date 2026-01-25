@@ -1,0 +1,33 @@
+{
+  "id": "a387250d0dfacabc6da49ed09035b730ced48f2ccc44fcf6e4b67e3f59a41e86",
+  "full_path": "do key-results delete",
+  "description": "Delete a key result.",
+  "permissions": "Users can delete a key result when they are authorized to create the related objective; policy defers to objective permissions.",
+  "side_effects": "Deletes the key result, destroys associated action item key results, deletes key result change records, updates objective family status, and triggers objective OpenAI file updates.",
+  "validation_notes": "Requires a key result ID argument. --confirm must be set. Deletion is blocked if the key result has child objectives.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_key_results_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/key_result.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    }
+  ]
+}

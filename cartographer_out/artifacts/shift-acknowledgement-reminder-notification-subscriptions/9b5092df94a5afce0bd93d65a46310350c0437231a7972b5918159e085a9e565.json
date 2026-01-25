@@ -1,0 +1,23 @@
+{
+  "description": "Show shift acknowledgement reminder notification subscription details.",
+  "flags": [],
+  "full_path": "view shift-acknowledgement-reminder-notification-subscriptions show",
+  "id": "9b5092df94a5afce0bd93d65a46310350c0437231a7972b5918159e085a9e565",
+  "permissions": "Visible to admins. Non-admins can view subscriptions for truckers where they are a trucker manager or a member of the trucker's broker; scope is limited to those truckers.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/shift_acknowledgement_reminder_notification_subscriptions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/shift_acknowledgement_reminder_notification_subscription_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/shift_acknowledgement_reminder_notification_subscription_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument."
+}

@@ -167,18 +167,3 @@ func renderEquipmentMovementTripCustomerCostAllocationDetails(cmd *cobra.Command
 
 	return nil
 }
-
-func relationshipIDStrings(rel jsonAPIRelationship) []string {
-	ids := relationshipIDs(rel)
-	if len(ids) == 0 {
-		return nil
-	}
-	values := make([]string, 0, len(ids))
-	for _, id := range ids {
-		if id.ID == "" {
-			continue
-		}
-		values = append(values, id.ID)
-	}
-	return values
-}

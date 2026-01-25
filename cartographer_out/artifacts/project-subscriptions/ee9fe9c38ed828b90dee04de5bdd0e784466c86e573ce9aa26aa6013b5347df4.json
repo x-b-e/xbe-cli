@@ -1,0 +1,37 @@
+{
+  "id": "ee9fe9c38ed828b90dee04de5bdd0e784466c86e573ce9aa26aa6013b5347df4",
+  "full_path": "do project-subscriptions update",
+  "description": "Update a project subscription.",
+  "permissions": "Allowed for admins or members of the broker associated with the project.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (project subscription ID). At least one attribute must be provided; otherwise the update fails. Only contact-method can be updated; project and user are not updatable. contact-method must be one of: email_address, mobile_number.",
+  "flags": [
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Contact method.",
+      "default": null,
+      "validation": "one of: email_address, mobile_number"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_subscriptions_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_subscription.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_subscription_resource.rb"
+    }
+  ]
+}

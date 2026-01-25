@@ -1,0 +1,37 @@
+{
+  "id": "0ff0bddd5019244bb85698fd6eaf2173cff2d63a66870d60a473ada10a82be37",
+  "full_path": "do lowest-losing-bid-prediction-subject-details delete",
+  "description": "Delete a lowest losing bid prediction subject detail.",
+  "permissions": "Allowed for admins and broker admins for the related prediction subject (policy delegates to prediction_subject).",
+  "side_effects": "Deletes the detail record and dependent prediction_subject_bids.",
+  "validation_notes": "Requires the <id> argument and the --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lowest_losing_bid_prediction_subject_details_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lowest_losing_bid_prediction_subject_detail_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/lowest_losing_bid_prediction_subject_detail_policy_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lowest_losing_bid_prediction_subject_detail.rb"
+    }
+  ]
+}

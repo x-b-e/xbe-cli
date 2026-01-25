@@ -1,0 +1,60 @@
+{
+  "id": "8c4355c9298f0bd3803b32f8ae9a1e8931fada892b2e1f6cae52c91f7d750c94",
+  "full_path": "view project-transport-organizations list",
+  "description": "List project transport organizations with filtering and pagination.",
+  "permissions": "Admin users can list all project transport organizations. Non-admin users can list organizations for brokers they are members of (visible member broker IDs).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID. Example: --broker 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search by name (partial match). Example: --q \"Acme\".",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-tms-master-company-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external TMS master company ID. Example: --external-tms-master-company-id \"TMS-001\".",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by any external identification value. Example: --external-identification-value \"TMS-001\".",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_organizations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_organization_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_organization_policy.rb"
+    }
+  ]
+}

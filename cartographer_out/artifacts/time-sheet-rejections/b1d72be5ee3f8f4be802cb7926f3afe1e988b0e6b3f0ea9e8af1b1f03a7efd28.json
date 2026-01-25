@@ -1,0 +1,23 @@
+{
+  "id": "b1d72be5ee3f8f4be802cb7926f3afe1e988b0e6b3f0ea9e8af1b1f03a7efd28",
+  "full_path": "view time-sheet-rejections list",
+  "description": "List time sheet rejections.",
+  "permissions": "Not specified for listing in TimeSheetRejectionPolicy; CLI treats time sheet rejections as write-only (list may be unavailable).",
+  "side_effects": null,
+  "validation_notes": "CLI reports list unavailable if the API returns 404 (write-only endpoint).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheet_rejections_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_rejection_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_rejection_resource.rb"
+    }
+  ]
+}

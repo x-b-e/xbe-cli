@@ -1,0 +1,29 @@
+{
+  "id": "763c576ab015ef037cdfa6242191c3779c74cd1da234e292d392bd2a210e46ea",
+  "full_path": "do transport-references delete",
+  "description": "Delete a transport reference.",
+  "permissions": "User must be authorized to delete the transport reference via the subject policy; permissions delegate to the subject.",
+  "side_effects": "Deletes the specified transport reference.",
+  "validation_notes": "Transport reference ID argument is required. Deletion requires the --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_references_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_reference_policy.rb"
+    }
+  ]
+}

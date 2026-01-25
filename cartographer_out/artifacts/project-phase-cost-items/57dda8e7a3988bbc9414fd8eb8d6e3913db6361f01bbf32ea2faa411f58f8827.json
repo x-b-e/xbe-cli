@@ -1,0 +1,83 @@
+{
+  "id": "57dda8e7a3988bbc9414fd8eb8d6e3913db6361f01bbf32ea2faa411f58f8827",
+  "full_path": "view project-phase-cost-items list",
+  "description": "List project phase cost items",
+  "permissions": "Allowed when the user is in the ProjectPhaseCostItemPolicy scope, which is delegated to the related ProjectPhaseRevenueItem policy.",
+  "side_effects": null,
+  "validation_notes": "Filter is-revenue-quantity-driver accepts true or false.",
+  "flags": [
+    {
+      "name": "--project-phase-revenue-item",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project phase revenue item ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-cost-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project cost classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-resource-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project resource classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by unit of measure ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-phase",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project phase ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-revenue-quantity-driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by revenue quantity driver (true/false)",
+      "default": null,
+      "validation": "true or false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_phase_cost_items_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_cost_item_resource.rb"
+    }
+  ]
+}

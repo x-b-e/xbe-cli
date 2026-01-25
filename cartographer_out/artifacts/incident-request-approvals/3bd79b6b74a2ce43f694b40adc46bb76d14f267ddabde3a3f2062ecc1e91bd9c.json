@@ -1,0 +1,19 @@
+{
+  "id": "3bd79b6b74a2ce43f694b40adc46bb76d14f267ddabde3a3f2062ecc1e91bd9c",
+  "full_path": "view incident-request-approvals show",
+  "description": "Show incident request approval details",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Argument <id> is required. Example: 123.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_request_approvals_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "description": "List job production plan inspectable summaries.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by developer ID",
+      "name": "--developer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project ID",
+      "name": "--project",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job number",
+      "name": "--job-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by start date (YYYY-MM-DD)",
+      "name": "--start-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum start date (YYYY-MM-DD)",
+      "name": "--start-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum start date (YYYY-MM-DD)",
+      "name": "--start-on-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "full_path": "view job-production-plan-inspectable-summaries list",
+  "id": "cfdb1fc00be9a908d9e137616b97d9a7ef25c255316d9c73499d82cdfaa9ed20",
+  "permissions": "Available for users authorized by the JobProductionPlanInspectableSummaryPolicy scope: job production plans must be in approved or complete status, and access is granted to admins, or to non-admins when the plan is within their JobProductionPlan policy scope, when they are a manager member of the plan developer organization, or when they are an inspector on the plan and a member of that developer organization.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_inspectable_summaries_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_inspectable_summary_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_inspectable_summary_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters --start-on, --start-on-min, and --start-on-max expect dates in YYYY-MM-DD format."
+}

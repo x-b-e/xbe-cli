@@ -1,0 +1,82 @@
+{
+  "id": "61477745f2b970903b1a3a1af90bb8892384d981aea27f1c6767df4fd51743e0",
+  "full_path": "do tender-job-schedule-shift-cancellations create",
+  "description": "Cancel a tender job schedule shift.",
+  "permissions": "Allowed for admins. For customer tenders, the user must be a practical member of the customer (customer member or broker member). For broker tenders, the user must be a broker member, or a customer manager member, or a customer member who is the job production plan planner.",
+  "side_effects": "Creates a tender job schedule shift cancellation, cancels the tender job schedule shift, may send trucker cancellation notifications unless skipped or not applicable, may cancel related broker tender shifts, may cancel the tender if all shifts are cancelled, and may unset related material purchase order releases.",
+  "validation_notes": "--tender-job-schedule-shift is required. --is-returned and --skip-trucker-notifications must be true or false. The tender job schedule shift cannot already be cancelled. For customer shifts, the tender must be in sourced, accepted, or cancelled status. The shift cannot be cancelled if there are alive material transactions or any time cards. For customer shifts, all related broker shifts must also be cancellable.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status-change-comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status change comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status-changed-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "User ID for status change",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-returned",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Return the tender (true/false)",
+      "default": null,
+      "validation": "must be true or false (example: true)"
+    },
+    {
+      "name": "--job-production-plan-cancellation-comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan cancellation comment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-trucker-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip trucker notifications (true/false)",
+      "default": null,
+      "validation": "must be true or false (example: true)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_job_schedule_shift_cancellations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_cancellation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_cancellation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_job_schedule_shift_actions/tender_job_schedule_shift_cancellation.rb"
+    }
+  ]
+}

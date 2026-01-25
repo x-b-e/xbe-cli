@@ -1,0 +1,72 @@
+{
+  "description": "Update a prediction subject gap portion.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Portion name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Portion amount",
+      "name": "--amount",
+      "required": false,
+      "type": "string",
+      "validation": "numeric(15,2)"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Portion status (draft/approved)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "draft|approved"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Portion description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do prediction-subject-gap-portions update",
+  "id": "4fda67a5de219c26e6777a41e1af5215a352834a0d9b4ee9273689e735f757ad",
+  "permissions": "Allowed for admins and prediction subject members with can_manage_gaps. Creators may update only non-status fields; status updates require can_manage_gaps or admin.",
+  "side_effects": "Updates a prediction subject gap portion; changes to name, amount, or status trigger prediction subject recap generation and refresh the gap explained amount cache for approved portions.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_subject_gap_portions_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_gap_portion_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/policies/prediction_subject_gap_portion_policy_spec.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject_gap_portion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/prediction_subject_gap_portion_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "db/structure_split/tables/public.prediction_subject_gap_portions.sql",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one of name, amount, status, or description must be provided. Status must be draft or approved when set. Amount is stored as numeric(15,2). prediction-subject-gap and created-by are create-only and cannot be updated."
+}

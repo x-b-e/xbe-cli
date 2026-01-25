@@ -1,0 +1,37 @@
+{
+  "id": "c948a052fbcb3b98e0a2b430ec989bc634a92093ca694d151f7a1b7652fd2384",
+  "full_path": "do tender-job-schedule-shift-drivers delete",
+  "description": "Delete a tender job schedule shift driver.",
+  "permissions": "Allowed when TenderJobScheduleShiftPolicy#destroy? permits the related tender job schedule shift (same rules as create).",
+  "side_effects": "Deletes the tender job schedule shift driver record.",
+  "validation_notes": "Requires <id> argument (shift driver ID) and --confirm. Deletion is blocked when the driver is primary and set as the shift seller operations contact.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion. Example: --confirm.",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_job_schedule_shift_drivers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_job_schedule_shift_driver.rb"
+    }
+  ]
+}

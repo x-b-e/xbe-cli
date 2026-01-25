@@ -1,0 +1,33 @@
+{
+  "description": "Generate a prediction subject recap.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction subject ID.",
+      "name": "prediction-subject",
+      "required": true,
+      "type": "string",
+      "validation": "Required. Example: 123."
+    }
+  ],
+  "full_path": "do prediction-subject-recap-generations create",
+  "id": "8a14cc672ccb912325fcb96fe2f25f5c378bb230162418b966d1ca53c0de7db6",
+  "permissions": "User must be authorized to show the referenced prediction subject.",
+  "side_effects": "Schedules recap generation for the prediction subject (invokes prediction_subject.generate_recap_async).",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_subject_recap_generations_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_recap_generation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject_recap_generation.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "prediction_subject is required (CLI flag --prediction-subject; model validates presence of prediction_subject relationship)."
+}

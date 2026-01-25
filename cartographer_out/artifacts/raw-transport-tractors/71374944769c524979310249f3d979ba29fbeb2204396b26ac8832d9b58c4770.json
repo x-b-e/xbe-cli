@@ -1,0 +1,33 @@
+{
+  "description": "Delete a raw transport tractor",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do raw-transport-tractors delete",
+  "id": "71374944769c524979310249f3d979ba29fbeb2204396b26ac8832d9b58c4770",
+  "permissions": "Admins can delete raw transport tractors. Broker admins can delete tractors for brokers they admin.",
+  "side_effects": "Deletes the raw transport tractor record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_raw_transport_tractors_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/raw_transport_tractor_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/raw_transport_tractor_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. --confirm is required."
+}

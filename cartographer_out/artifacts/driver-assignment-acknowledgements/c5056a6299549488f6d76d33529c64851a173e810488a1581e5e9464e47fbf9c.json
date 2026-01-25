@@ -1,0 +1,46 @@
+{
+  "id": "c5056a6299549488f6d76d33529c64851a173e810488a1581e5e9464e47fbf9c",
+  "full_path": "do driver-assignment-acknowledgements create",
+  "description": "Create a driver assignment acknowledgement.",
+  "permissions": "Admins can create acknowledgements. Non-admin users can create acknowledgements when they are the driver, a broker member for the shift broker, or a trucker manager for the shift trucker.",
+  "side_effects": "Creates a driver assignment acknowledgement tied to the specified tender job schedule shift and driver.",
+  "validation_notes": "--tender-job-schedule-shift is required. --driver is required. The driver must match the tender job schedule shift driver.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID (example: --tender-job-schedule-shift 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Driver user ID (example: --driver 456).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_driver_assignment_acknowledgements_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_assignment_acknowledgement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_assignment_acknowledgement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/driver_assignment_acknowledgement.rb"
+    }
+  ]
+}

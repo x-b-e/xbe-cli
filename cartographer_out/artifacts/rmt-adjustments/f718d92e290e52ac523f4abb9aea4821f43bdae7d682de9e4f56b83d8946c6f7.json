@@ -1,0 +1,68 @@
+{
+  "id": "f718d92e290e52ac523f4abb9aea4821f43bdae7d682de9e4f56b83d8946c6f7",
+  "full_path": "do rmt-adjustments create",
+  "description": "Create an RMT adjustment.",
+  "permissions": "User must be an admin to create RMT adjustments.",
+  "side_effects": "Creates RMT adjustments for the specified raw material transactions; may update invoiced RMTs when update_if_invoiced is true.",
+  "validation_notes": "--rmt-ids, --note, and --raw-data-adjustments are required. --rmt-ids cannot be empty and must reference existing raw material transaction IDs. --raw-data-adjustments must be a JSON object; only allowed adjustment fields are is_voided, gross_weight, net_weight, tare_weight, tonnage, units_sold, ticket_at, and gross_rate. For each provided adjustment field, a corresponding reason field <field>_by_xbe_reason is required.",
+  "flags": [
+    {
+      "name": "--rmt-ids",
+      "aliases": null,
+      "required": true,
+      "type": "array",
+      "description": "Raw material transaction IDs (required, comma-separated or repeated)",
+      "default": null,
+      "validation": "Required; comma-separated or repeated; blank entries are rejected; IDs must exist."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Adjustment note (required)",
+      "default": null,
+      "validation": "Required; cannot be blank."
+    },
+    {
+      "name": "--raw-data-adjustments",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Adjustment data as JSON (required)",
+      "default": null,
+      "validation": "Required; must be valid JSON object with only allowed fields; each adjustment field requires a corresponding <field>_by_xbe_reason."
+    },
+    {
+      "name": "--update-if-invoiced",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Update invoiced RMTs when true",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_rmt_adjustments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/sombreros/rmt_adjustment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/sombreros/rmt_adjustment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/sombreros/rmt_adjustment.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/sombreros/rmt_adjustment_policy_spec.rb"
+    }
+  ]
+}

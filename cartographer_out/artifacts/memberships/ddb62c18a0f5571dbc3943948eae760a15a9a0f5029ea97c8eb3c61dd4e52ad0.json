@@ -1,0 +1,34 @@
+{
+  "description": "Delete a membership.",
+  "flags": [
+    {
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean"
+    }
+  ],
+  "full_path": "do memberships delete",
+  "id": "ddb62c18a0f5571dbc3943948eae760a15a9a0f5029ea97c8eb3c61dd4e52ad0",
+  "permissions": "Authorization is enforced by membership-type policies; BrokerMembershipPolicy aliases destroy? to create?.",
+  "side_effects": "Deletes the membership record; nullifies associated default contacts; destroys invalid notification subscriptions; deactivates related laborers; nullifies invalid objective and key result ownership; notifies audit log; clears the user memberships cache and touches the user record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_memberships_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/membership.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/membership_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/broker_membership_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Validation: Requires a membership ID argument; --confirm is required."
+}

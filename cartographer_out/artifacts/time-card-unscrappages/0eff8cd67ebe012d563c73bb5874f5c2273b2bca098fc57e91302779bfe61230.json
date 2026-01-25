@@ -1,0 +1,19 @@
+{
+  "id": "0eff8cd67ebe012d563c73bb5874f5c2273b2bca098fc57e91302779bfe61230",
+  "full_path": "view time-card-unscrappages list",
+  "description": "List time card unscrappages",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_unscrappages_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_unscrappage_resource.rb"
+    }
+  ]
+}

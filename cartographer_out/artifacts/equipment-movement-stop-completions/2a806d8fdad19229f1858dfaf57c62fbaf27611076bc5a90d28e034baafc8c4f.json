@@ -1,0 +1,29 @@
+{
+  "id": "2a806d8fdad19229f1858dfaf57c62fbaf27611076bc5a90d28e034baafc8c4f",
+  "full_path": "do equipment-movement-stop-completions delete",
+  "description": "Delete an equipment movement stop completion",
+  "permissions": "Allowed for admins, broker members of the completion's broker, the driver of the associated shift, or managers of the shift's trucker.",
+  "side_effects": "Permanently deletes the equipment movement stop completion record.",
+  "validation_notes": "The stop completion ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_stop_completions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_completion_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "d3bf20302aa34f938555577bf4e4a3e0ab0bcf4f59ed98bc01443f5650b3f426",
+  "full_path": "do material-transaction-inspections update",
+  "description": "Update a material transaction inspection.",
+  "permissions": "Admins can update inspections. Non-admins can update inspections if they are the inspection creator on a persisted record, a member of the broker tied to the inspection, a member of the customer tied to the inspection with permission to view the job production plan, a manager member of the job production plan developer, a job production plan inspector, or the driver on the tender job schedule shift when the job production plan expects an inspection.",
+  "side_effects": "Updates a material transaction inspection.",
+  "validation_notes": "Requires <id> argument (inspection ID). At least one of --status, --strategy, or --note must be provided; otherwise the command errors. Status accepts: open, closed. Strategy accepts: delivery_site_personnel. The model requires status to be present. Delivery site must be a JobSite or MaterialSite and must match the trip destination.",
+  "flags": [
+    {
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "description": "Inspection status (open,closed)",
+      "validation": "Allowed values: open, closed."
+    },
+    {
+      "name": "--strategy",
+      "required": false,
+      "type": "enum",
+      "description": "Inspection strategy (delivery_site_personnel)",
+      "validation": "Allowed values: delivery_site_personnel."
+    },
+    {
+      "name": "--note",
+      "required": false,
+      "type": "string",
+      "description": "Inspection note"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_inspections_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_inspection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_inspection.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_policy.rb"
+    }
+  ]
+}

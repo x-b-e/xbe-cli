@@ -1,0 +1,50 @@
+{
+  "id": "65bc11af580eaf99dfb659e4d79e6c456c400c356a2416faa699f35651d836f8",
+  "full_path": "do invoice-pdf-emails create",
+  "description": "Email an invoice PDF.",
+  "permissions": "User must be authorized to view the referenced invoice (invoice policy show? permission).",
+  "side_effects": "Queues an asynchronous invoice PDF email delivery.",
+  "validation_notes": "--invoice is required and must reference an existing invoice. --email-address is required and must be a valid email address (strict validation with FQDN required).",
+  "flags": [
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Invoice ID",
+      "default": null,
+      "validation": "Required; must be non-empty."
+    },
+    {
+      "name": "--email-address",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Recipient email address",
+      "default": null,
+      "validation": "Required; must be a valid email address (strict, FQDN required). Example: ap@example.com."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_invoice_pdf_emails_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_pdf_email_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice_pdf_email.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_pdf_email_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_email_address.rb"
+    }
+  ]
+}

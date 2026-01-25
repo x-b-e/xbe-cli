@@ -1,0 +1,55 @@
+{
+  "id": "dfeecf2b8f5698c1c23ed483a7eec97186663df5783c4b8b31f79343f405b5bd",
+  "full_path": "do job-site-times update",
+  "description": "Update a job site time.",
+  "permissions": "Admin users can update job site times. Non-admin users can update when they are the same user as the job site time and are related to the job production plan, or when they can update the related job production plan; relationships cannot change.",
+  "side_effects": "Updates a job site time and touches related time cards and time sheets.",
+  "validation_notes": "Requires a job site time ID argument. At least one of --start-at, --end-at, or --description must be provided. start-at/end-at must be RFC3339 when provided. end-at must be greater than start-at when both are set. Times must not overlap another job site time for the same user and job production plan. start-at must be within 24 hours of the job site start at. Job site times cannot be changed if the related time card is confirmed. Job production plan and user relationships cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_site_times_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_site_time_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_site_time.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_site_time_resource.rb"
+    }
+  ]
+}

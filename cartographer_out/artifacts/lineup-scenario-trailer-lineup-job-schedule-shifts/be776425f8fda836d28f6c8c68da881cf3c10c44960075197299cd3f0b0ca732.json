@@ -1,0 +1,50 @@
+{
+  "description": "Update a lineup scenario trailer lineup job schedule shift.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Start site distance minutes (non-negative integer)",
+      "name": "--start-site-distance-minutes",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be a non-negative integer."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "End site distance minutes (non-negative integer)",
+      "name": "--end-site-distance-minutes",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be a non-negative integer."
+    }
+  ],
+  "full_path": "do lineup-scenario-trailer-lineup-job-schedule-shifts update",
+  "id": "be776425f8fda836d28f6c8c68da881cf3c10c44960075197299cd3f0b0ca732",
+  "permissions": "User must be an admin or a manager member of the broker that owns the related lineup scenario (update is delegated through the lineup scenario).",
+  "side_effects": "Updates attributes on a lineup scenario trailer lineup job schedule shift record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_scenario_trailer_lineup_job_schedule_shifts_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_trailer_lineup_job_schedule_shift_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/lineup_scenario_trailer_lineup_job_schedule_shift.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trailer_lineup_job_schedule_shift_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. At least one field must be specified for update. start-site-distance-minutes and end-site-distance-minutes must be non-negative integers when provided."
+}

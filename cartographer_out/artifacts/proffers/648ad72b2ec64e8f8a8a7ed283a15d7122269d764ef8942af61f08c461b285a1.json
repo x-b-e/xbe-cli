@@ -1,0 +1,23 @@
+{
+  "id": "648ad72b2ec64e8f8a8a7ed283a15d7122269d764ef8942af61f08c461b285a1",
+  "full_path": "view proffers show",
+  "description": "Show proffer details",
+  "permissions": "Proffers returned are limited by policy scope: records created by the current user or with moderation_status acceptable.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/proffers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/proffer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/proffer_resource.rb"
+    }
+  ]
+}

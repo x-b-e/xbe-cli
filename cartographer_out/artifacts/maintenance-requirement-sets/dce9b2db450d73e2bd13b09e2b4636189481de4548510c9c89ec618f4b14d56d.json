@@ -1,0 +1,96 @@
+{
+  "description": "Create a maintenance requirement set",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maintenance type (inspection or maintenance)",
+      "name": "--maintenance-type",
+      "required": true,
+      "type": "enum",
+      "validation": "inspection or maintenance"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Status (editing, ready_for_work, on_hold, in_progress, completed)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing, ready_for_work, on_hold, in_progress, completed"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Whether the set is a template (defaults to true)",
+      "name": "--is-template",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Template name (required for templates)",
+      "name": "--template-name",
+      "required": false,
+      "type": "string",
+      "validation": "Required when is-template is true"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Archive the set",
+      "name": "--is-archived",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Equipment classification ID",
+      "name": "--equipment-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Work order ID (cannot be used with templates)",
+      "name": "--work-order",
+      "required": false,
+      "type": "string",
+      "validation": "Cannot be set when is-template is true"
+    }
+  ],
+  "full_path": "do maintenance-requirement-sets create",
+  "id": "dce9b2db450d73e2bd13b09e2b4636189481de4548510c9c89ec618f4b14d56d",
+  "permissions": "Admin users can create sets. Managers can create sets for their brokers. Operations users with manager business unit membership can create template and non-template sets if they have at least one business unit. Operations users without manager business unit membership can create non-template sets only if they have at least one business unit. General and technician business unit members cannot create sets.",
+  "side_effects": "Creates a maintenance requirement set record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_maintenance_requirement_sets_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/maintenance_requirement_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/maintenance_requirement_set_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--maintenance-type and --broker are required. --template-name is required unless --is-template=false is set; --template-name is required when --is-template is true. maintenance-type must be inspection or maintenance. status must be editing, ready_for_work, on_hold, in_progress, or completed. If status is completed, completed_at must be set and all required maintenance requirements must be completed. work-order cannot be set on a template. work-order must belong to the same broker."
+}

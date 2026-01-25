@@ -1,0 +1,19 @@
+{
+  "id": "c0b7f9e584d34268bfe87b7acff723c8ec1e66fa087c552abcb67bd86cb78c42",
+  "full_path": "auth logout",
+  "description": "Remove stored token",
+  "permissions": null,
+  "side_effects": "Deletes the stored token for the selected base URL from secure storage.",
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/auth.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/concerns/abstract_oauth2_authorizations_controller.rb"
+    }
+  ]
+}

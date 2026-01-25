@@ -1,0 +1,181 @@
+{
+  "description": "Create a customer tender",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job ID (required)",
+      "name": "--job",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Customer ID (required)",
+      "name": "--customer",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Expiration time (RFC3339)",
+      "name": "--expires-at",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Note for the tender",
+      "name": "--note",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Allow trucker shift rejection (true/false)",
+      "name": "--is-trucker-shift-rejection-permitted",
+      "required": false,
+      "type": "string",
+      "validation": "Boolean value (true/false)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Payment terms (integer)",
+      "name": "--payment-terms",
+      "required": false,
+      "type": "string",
+      "validation": "Integer value."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Payment terms and conditions",
+      "name": "--payment-terms-and-conditions",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Restrict to customer truckers (true/false)",
+      "name": "--restrict-to-customer-truckers",
+      "required": false,
+      "type": "string",
+      "validation": "Boolean value (true/false)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum travel minutes",
+      "name": "--maximum-travel-minutes",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Billable travel minutes per travel mile",
+      "name": "--billable-travel-minutes-per-travel-mile",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Display trips (true/false)",
+      "name": "--displays-trips",
+      "required": false,
+      "type": "string",
+      "validation": "Boolean value (true/false)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Seller financial contact user ID",
+      "name": "--seller-financial-contact",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Seller operations contact user ID",
+      "name": "--seller-operations-contact",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Buyer operations contact user ID",
+      "name": "--buyer-operations-contact",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Buyer financial contact user ID",
+      "name": "--buyer-financial-contact",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Certification requirement IDs (comma-separated)",
+      "name": "--certification-requirements",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated IDs."
+    }
+  ],
+  "full_path": "do customer-tenders create",
+  "id": "7ad2f654e2bfcb3c8daaa06356e75230cfad9a6d32079b72c1d318bc2b1bd77a",
+  "permissions": "Admin users, or users who are members of the buyer customer or seller broker associated with the tender.",
+  "side_effects": "Creates a customer tender.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_customer_tenders_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/customer_tender_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/tender_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--job, --customer, and --broker are required. expires-at must be RFC3339. payment-terms expects an integer. is-trucker-shift-rejection-permitted, restrict-to-customer-truckers, and displays-trips expect true/false. certification-requirements accepts comma-separated IDs."
+}

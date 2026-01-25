@@ -1,0 +1,109 @@
+{
+  "id": "00a95ff367f54aaff4d99f9fc271292350fab69f194dffbd689f061bffc7acf7",
+  "full_path": "do equipment-movement-requirements update",
+  "description": "Update an equipment movement requirement.",
+  "permissions": "Admins can update equipment movement requirements. Non-admin users can update requirements only for brokers they are members of.",
+  "side_effects": "Updates the equipment movement requirement and updates related trip customer cost allocations after commit.",
+  "validation_notes": "At least one attribute or relationship flag must be provided. origin-at-min and destination-at-max must be ISO 8601 timestamps. destination-at-max must be greater than origin-at-min when both are set. origin and destination must be different if both are set. inbound-requirement and outbound-requirement must reference the same equipment as the requirement. inbound_requirement_id and outbound_requirement_id must be unique if set. customer-explicit must be related to the broker. equipment, origin, and destination must be related to the broker. When related to a confirmed job production plan, equipment_id, broker_id, origin_id, destination_id, origin_at_min, destination_at_max, inbound_requirement_id, and outbound_requirement_id cannot be changed. --customer-explicit, --inbound-requirement, --outbound-requirement, --origin, and --destination can be cleared by passing an empty value.",
+  "flags": [
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID (explicit override, empty to clear)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--inbound-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Inbound equipment requirement ID (empty to clear)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--outbound-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Outbound equipment requirement ID (empty to clear)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--origin",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Origin location ID (empty to clear)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--destination",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Destination location ID (empty to clear)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--origin-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Earliest origin time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--destination-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latest destination time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_requirements_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_requirement_policy.rb"
+    }
+  ]
+}

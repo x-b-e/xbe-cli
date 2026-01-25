@@ -1,0 +1,29 @@
+{
+  "id": "81e5d1d76269616373d05b61d6f8d7725b9e3b95f8b9b22aa48c360db6dbf029",
+  "full_path": "do equipment-location-events delete",
+  "description": "Delete an equipment location event.",
+  "permissions": "Admins can delete equipment location events. Non-admin users can delete events only if they are authorized to view the related equipment via the equipment policy.",
+  "side_effects": "Deletes the specified equipment location event.",
+  "validation_notes": "The <id> argument is required. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_location_events_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_location_event_policy.rb"
+    }
+  ]
+}

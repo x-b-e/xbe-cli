@@ -1,0 +1,115 @@
+{
+  "description": "List crew rates",
+  "flags": [
+    {
+      "description": "Filter by resource type (Laborer, Equipment).",
+      "name": "--resource-type",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: Laborer, Equipment."
+    },
+    {
+      "description": "Filter by resource ID (example: 789).",
+      "name": "--resource-id",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by resource classification type (LaborClassification, EquipmentClassification).",
+      "name": "--resource-classification-type",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: LaborClassification, EquipmentClassification."
+    },
+    {
+      "description": "Filter by resource classification ID (example: 456).",
+      "name": "--resource-classification-id",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by start date.",
+      "name": "--start-on",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by minimum start date (example: 2025-01-01).",
+      "name": "--start-on-min",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by maximum start date (example: 2025-12-31).",
+      "name": "--start-on-max",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by end date.",
+      "name": "--end-on",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by minimum end date.",
+      "name": "--end-on-min",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by maximum end date (example: 2025-12-31).",
+      "name": "--end-on-max",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by active status (true/false).",
+      "name": "--is-active",
+      "required": false,
+      "type": "string",
+      "validation": "Must be true or false."
+    },
+    {
+      "description": "Filter by broker ID (example: 123).",
+      "name": "--broker",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by craft class ID.",
+      "name": "--craft-class",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Search crew rates by description (example: \"night shift\").",
+      "name": "--search",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "full_path": "view crew-rates list",
+  "id": "7f77675ed3b0ded358cdeb98549ad0311537a668d91cbfe6d9009fd81b05ed35",
+  "permissions": "Admin users can list all crew rates. Non-admin users can list crew rates only for brokers they are a member of.",
+  "side_effects": "None (read-only).",
+  "sources": [
+    {
+      "file_path": "internal/cli/crew_rates_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/crew_rate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/crew_rate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/crew_rate.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--is-active must be true or false when provided. --resource-type expects Laborer or Equipment when used. --resource-classification-type expects LaborClassification or EquipmentClassification when used. start/end date filters are validated as dates by the API."
+}

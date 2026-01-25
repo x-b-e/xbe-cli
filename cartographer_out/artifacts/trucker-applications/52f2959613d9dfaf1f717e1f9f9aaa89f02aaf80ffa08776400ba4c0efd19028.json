@@ -1,0 +1,33 @@
+{
+  "id": "52f2959613d9dfaf1f717e1f9f9aaa89f02aaf80ffa08776400ba4c0efd19028",
+  "full_path": "do trucker-applications delete",
+  "description": "Delete a trucker application.",
+  "permissions": "Allowed for admins. Non-admins may delete only pending applications they are allowed to update (same rules as create).",
+  "side_effects": "Deletes the trucker application record.",
+  "validation_notes": "The trucker application ID argument is required. --confirm is required. Only pending applications can be deleted.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_applications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_application.rb"
+    }
+  ]
+}

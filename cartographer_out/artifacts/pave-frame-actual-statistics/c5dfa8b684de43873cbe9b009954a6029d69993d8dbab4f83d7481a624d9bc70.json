@@ -1,0 +1,29 @@
+{
+  "description": "Delete a pave frame actual statistic",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be true"
+    }
+  ],
+  "full_path": "do pave-frame-actual-statistics delete",
+  "id": "c5dfa8b684de43873cbe9b009954a6029d69993d8dbab4f83d7481a624d9bc70",
+  "permissions": "User must be an admin or a broker membership manager.",
+  "side_effects": "Deletes the pave frame actual statistic.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_pave_frame_actual_statistics_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/pave_frame_actual_statistic_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (statistic ID). Requires --confirm flag set to true."
+}

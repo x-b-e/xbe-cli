@@ -1,0 +1,29 @@
+{
+  "id": "7938541a83f4d3da8c323810ef82943fcc59974ae9c1271c35c987bb6aed8aed",
+  "full_path": "do driver-day-adjustment-plans delete",
+  "description": "Delete a driver day adjustment plan",
+  "permissions": "User must be an admin or a practical manager of the plan trucker.",
+  "side_effects": "Deletes a driver day adjustment plan.",
+  "validation_notes": "An <id> argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_driver_day_adjustment_plans_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_day_adjustment_plan_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "bbed88432db3050da1244b2c01b0e07a88a896988af5f8f95c6570c2ad05c39f",
+  "full_path": "do developer-trucker-certification-classifications create",
+  "description": "Create a new developer trucker certification classification",
+  "permissions": "User must be authorized to create developer trucker certification classifications; access is delegated through the related developer.",
+  "side_effects": "Creates a developer trucker certification classification linked to the specified developer.",
+  "validation_notes": "--name and --developer are required. name must be present and unique per developer.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Classification name (required)",
+      "default": null,
+      "validation": "Required; must be unique within the developer."
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Developer ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_trucker_certification_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_trucker_certification_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_trucker_certification_classification_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "79ac08d2103e71369c50386314c46f7b179c585a21efcee98a0ef3e04b068024",
+  "full_path": "view job-production-plan-time-card-approvers show",
+  "description": "Show job production plan time card approver details",
+  "permissions": "Admin users can view any job production plan time card approver. Non-admin users can view approvers only for job production plans they can access via the JobProductionPlan policy scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_time_card_approvers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_time_card_approver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_time_card_approver_resource.rb"
+    }
+  ]
+}

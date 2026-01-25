@@ -1,0 +1,51 @@
+{
+  "description": "Update an inventory capacity.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum capacity in tons",
+      "name": "--max-capacity-tons",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Minimum capacity in tons",
+      "name": "--min-capacity-tons",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Alert threshold in tons",
+      "name": "--threshold-tons",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    }
+  ],
+  "full_path": "do inventory-capacities update",
+  "id": "cd3b18c4d69d521b21f86dcd1feff26971516b7e56634f7010d02b3c6a31a51f",
+  "permissions": "Admins can update inventory capacities. Non-admin users can update inventory capacities for material sites whose material suppliers belong to a broker the user can see or whose material suppliers are directly visible to the user.",
+  "side_effects": "Updates the inventory capacity record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_inventory_capacities_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/inventory_capacity.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/inventory_capacity_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires the <id> argument. At least one of max_capacity_tons, min_capacity_tons, or threshold_tons must be provided. Values must be numbers greater than or equal to 0 when provided."
+}

@@ -1,0 +1,73 @@
+{
+  "id": "9f6e47dfc5892ab891175ddf81f5e4085941cd8795ec6a649f06f294a6754cb6",
+  "full_path": "do developers create",
+  "description": "Create a new developer.",
+  "permissions": "Allowed for admins, broker members for the specified broker, or customer managers whose broker matches the developer's broker.",
+  "side_effects": "Creates a developer record associated to the specified broker.",
+  "validation_notes": "Name is required and must be unique per broker. Broker is required and must exist.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-certification-required-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicitly set certification requirement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-prevailing-wage-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicitly set prevailing wage requirement",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Developer name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--weigher-seal-label",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Weigher seal label",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer.rb"
+    }
+  ]
+}

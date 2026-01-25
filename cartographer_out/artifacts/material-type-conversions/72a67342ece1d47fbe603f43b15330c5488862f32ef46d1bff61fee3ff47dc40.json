@@ -1,0 +1,78 @@
+{
+  "id": "72a67342ece1d47fbe603f43b15330c5488862f32ef46d1bff61fee3ff47dc40",
+  "full_path": "do material-type-conversions create",
+  "description": "Create a material type conversion.",
+  "permissions": "Admins can create material type conversions. Non-admin users can create conversions if they are manager members of the conversion's broker or manager members of the conversion's material supplier.",
+  "side_effects": "Creates a material type conversion.",
+  "validation_notes": "Required flags: --material-supplier, --material-type, --foreign-material-supplier, --foreign-material-type. material_site must be related to the material supplier when provided. material_type must be generic or related to the material supplier. foreign_material_site must be related to the foreign material supplier when provided. foreign_material_type must be generic or related to the foreign material supplier.",
+  "flags": [
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Local material supplier ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Local material site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Local material type ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--foreign-material-supplier",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Foreign material supplier ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--foreign-material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Foreign material site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--foreign-material-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Foreign material type ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_type_conversions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_type_conversion.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_conversion_policy.rb"
+    }
+  ]
+}

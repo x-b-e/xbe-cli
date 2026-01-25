@@ -1,0 +1,33 @@
+{
+  "id": "0b487a51b87c7e40fa18cb9e693e6dccbdc4399562feae68860a6becb77dc6d9",
+  "full_path": "do project-phase-cost-item-price-estimates delete",
+  "description": "Delete a project phase cost item price estimate",
+  "permissions": "User must be authorized to delete the related project phase cost item price estimate (delegated via ProjectPhaseCostItemPolicy).",
+  "side_effects": "Deletes a project phase cost item price estimate record.",
+  "validation_notes": "Requires <id> argument and --confirm=true.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_cost_item_price_estimates_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_cost_item_price_estimate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_cost_item_price_estimate_policy.rb"
+    }
+  ]
+}

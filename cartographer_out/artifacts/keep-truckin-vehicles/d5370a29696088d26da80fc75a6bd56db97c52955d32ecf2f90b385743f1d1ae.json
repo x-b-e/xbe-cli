@@ -1,0 +1,42 @@
+{
+  "id": "d5370a29696088d26da80fc75a6bd56db97c52955d32ecf2f90b385743f1d1ae",
+  "full_path": "do keep-truckin-vehicles update",
+  "description": "Update KeepTruckin vehicle trailer or tractor assignments.",
+  "permissions": "Admin users can update any KeepTruckin vehicle. Non-admin users can update vehicles only when they are members of the vehicle broker organization.",
+  "side_effects": "Updates tractor and/or trailer assignments; may clear relationships when empty strings are provided. If this is the first assignment from nil, it can enqueue vehicle location event creation jobs.",
+  "validation_notes": "Requires <id> argument (KeepTruckin vehicle ID). At least one of --tractor or --trailer must be provided. Passing an empty string clears the assignment. If a tractor or trailer is set, it must belong to the same trucker as the KeepTruckin company, and assignments are blocked if the KeepTruckin company has no trucker assigned.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_keep_truckin_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/keep_truckin_vehicle.rb"
+    }
+  ]
+}

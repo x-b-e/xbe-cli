@@ -1,0 +1,33 @@
+{
+  "description": "List time card reviews",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Filter by tender job schedule shift ID",
+      "name": "tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view tender-job-schedule-shift-time-card-reviews list",
+  "id": "d04e8ed5af45ebff93174817396a20e6c84df682116e82b1750e009db885c5bb",
+  "permissions": "Admin users can list all time card reviews. Non-admin users can list reviews only for tender job schedule shifts within their TenderJobScheduleShift policy scope (typically shifts associated with their broker membership).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/tender_job_schedule_shift_time_card_reviews_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/tender_job_schedule_shift_time_card_review_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tender_job_schedule_shift_time_card_review_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

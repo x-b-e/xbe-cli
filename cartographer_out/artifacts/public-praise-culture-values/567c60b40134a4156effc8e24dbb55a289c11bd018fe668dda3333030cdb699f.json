@@ -1,0 +1,46 @@
+{
+  "id": "567c60b40134a4156effc8e24dbb55a289c11bd018fe668dda3333030cdb699f",
+  "full_path": "do public-praise-culture-values create",
+  "description": "Create a public praise culture value",
+  "permissions": "Allowed if the user is permitted to create the related public praise (delegated to PublicPraisePolicy#create?, which allows managers/admins or the user who gave the praise).",
+  "side_effects": "Creates a public praise culture value link between a public praise and a culture value.",
+  "validation_notes": "--public-praise and --culture-value are required. The public praise and culture value must belong to the same organization.",
+  "flags": [
+    {
+      "name": "--public-praise",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Public praise ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--culture-value",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Culture value ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_public_praise_culture_values_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_culture_value_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/public_praise_culture_value.rb"
+    }
+  ]
+}

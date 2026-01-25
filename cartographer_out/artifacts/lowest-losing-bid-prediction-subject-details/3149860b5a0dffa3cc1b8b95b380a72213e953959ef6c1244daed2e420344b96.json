@@ -1,0 +1,27 @@
+{
+  "id": "3149860b5a0dffa3cc1b8b95b380a72213e953959ef6c1244daed2e420344b96",
+  "full_path": "view lowest-losing-bid-prediction-subject-details show",
+  "description": "Show the full details of a lowest losing bid prediction subject detail.",
+  "permissions": "Access is delegated to the related prediction subject. Admins can view all details; broker admins can view details tied to prediction subjects in their broker; other users are denied.",
+  "side_effects": null,
+  "validation_notes": "Requires the <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lowest_losing_bid_prediction_subject_details_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lowest_losing_bid_prediction_subject_detail_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/lowest_losing_bid_prediction_subject_detail_policy_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lowest_losing_bid_prediction_subject_detail_resource.rb"
+    }
+  ]
+}

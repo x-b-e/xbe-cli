@@ -1,0 +1,46 @@
+{
+  "id": "ecd8868805cea522495f0c36542729abcf1fe5753e52cf38810447a54d416a36",
+  "full_path": "do public-praise-culture-values update",
+  "description": "Update a public praise culture value",
+  "permissions": "Allowed if the user is permitted to update the related public praise (delegated to PublicPraisePolicy#update?).",
+  "side_effects": "Updates the public praise culture value link relationships.",
+  "validation_notes": "The public praise culture value ID argument is required. At least one of --public-praise or --culture-value must be provided. Provided relationship IDs cannot be empty. The public praise and culture value must belong to the same organization.",
+  "flags": [
+    {
+      "name": "--public-praise",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Public praise ID",
+      "default": null,
+      "validation": "Cannot be empty if provided"
+    },
+    {
+      "name": "--culture-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Culture value ID",
+      "default": null,
+      "validation": "Cannot be empty if provided"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_public_praise_culture_values_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_culture_value_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/public_praise_culture_value.rb"
+    }
+  ]
+}

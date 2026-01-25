@@ -1,0 +1,41 @@
+{
+  "id": "29e3354bb37665c4768307a12c4c7ca729fe31211055108d45d07cce10d40528",
+  "full_path": "do time-sheets delete",
+  "description": "Delete a time sheet.",
+  "permissions": "Admins can delete time sheets. Non-admin users can delete time sheets under the same subject-based rules as creation in TimeSheetPolicy.",
+  "side_effects": "Deletes a time sheet record.",
+  "validation_notes": "Time sheet ID argument is required. --confirm must be provided to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheets_delete.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheets.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

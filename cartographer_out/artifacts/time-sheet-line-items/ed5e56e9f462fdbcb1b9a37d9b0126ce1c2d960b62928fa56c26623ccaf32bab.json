@@ -1,0 +1,38 @@
+{
+  "id": "ed5e56e9f462fdbcb1b9a37d9b0126ce1c2d960b62928fa56c26623ccaf32bab",
+  "full_path": "do time-sheet-line-items delete",
+  "description": "Delete a time sheet line item.",
+  "permissions": "Delegated to the related time sheet. Allowed if the user is an admin or passes TimeSheetPolicy create?/update?/destroy? for the associated time sheet (e.g., driver/shift driver, trucker manager, broker member, customer manager, time-card approver, laborer on a crew requirement, or work-order roles such as manager/operations/technician assigned).",
+  "side_effects": "Deletes the time sheet line item; dependent equipment requirement joins are destroyed; updates time sheet time columns.",
+  "validation_notes": "Requires <id> argument and --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_line_items_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_line_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_line_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_line_item.rb"
+    }
+  ]
+}

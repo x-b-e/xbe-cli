@@ -1,0 +1,35 @@
+{
+  "id": "9e227774bf886fa9f063f90c9efece1a05bff4094ce239bdfee589a2b6b7f6b3",
+  "full_path": "view trucker-settings list",
+  "description": "List trucker settings.",
+  "permissions": "Admins can view all. Non-admins can list trucker settings only for truckers in their Trucker policy scope (e.g., broker members or permitted trucker members).",
+  "side_effects": null,
+  "validation_notes": "If a trucker filter is provided, it must reference existing trucker IDs; empty or unknown IDs result in a bad request.",
+  "flags": [
+    {
+      "name": "trucker",
+      "aliases": [
+        "trucker-id"
+      ],
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (e.g., 123).",
+      "default": null,
+      "validation": "Must be a valid trucker ID when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_settings_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_setting_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_setting_policy.rb"
+    }
+  ]
+}

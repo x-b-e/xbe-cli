@@ -1,0 +1,19 @@
+{
+  "id": "0c73d5bb0fb9d6d207cfde52465b7db8c5335a497e70c6dab6221579bb8df48d",
+  "full_path": "view tender-acceptances list",
+  "description": "List tender acceptances",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_acceptances_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_acceptance_resource.rb"
+    }
+  ]
+}

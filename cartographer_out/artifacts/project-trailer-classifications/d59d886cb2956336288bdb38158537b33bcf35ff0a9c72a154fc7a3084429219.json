@@ -1,0 +1,47 @@
+{
+  "description": "Create a project trailer classification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project ID (required).",
+      "name": "--project",
+      "required": true,
+      "type": "string",
+      "validation": "Required. Example: --project 123."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer classification ID (required).",
+      "name": "--trailer-classification",
+      "required": true,
+      "type": "string",
+      "validation": "Required. Example: --trailer-classification 456."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project labor classification ID.",
+      "name": "--project-labor-classification",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --project-labor-classification 789."
+    }
+  ],
+  "full_path": "do project-trailer-classifications create",
+  "id": "d59d886cb2956336288bdb38158537b33bcf35ff0a9c72a154fc7a3084429219",
+  "permissions": null,
+  "side_effects": "Creates a project trailer classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_trailer_classifications_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/project_trailer_classifications_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--project and --trailer-classification are required."
+}

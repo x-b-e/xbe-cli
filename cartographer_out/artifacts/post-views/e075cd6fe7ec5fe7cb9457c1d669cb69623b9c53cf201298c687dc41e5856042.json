@@ -1,0 +1,51 @@
+{
+  "id": "e075cd6fe7ec5fe7cb9457c1d669cb69623b9c53cf201298c687dc41e5856042",
+  "full_path": "do post-views create",
+  "description": "Record a post view",
+  "permissions": "Viewer must be the authenticated user and the user must be allowed to view the post.",
+  "side_effects": "Creates a post view record, increments the post view_count, and marks related user post feed posts as viewed for the viewer.",
+  "validation_notes": "--post, --viewer, and --viewed-at are required. viewed-at must be an ISO 8601 timestamp. viewed_at is required by the model. Viewer must match the authenticated user and must be permitted to view the post.",
+  "flags": [
+    {
+      "name": "--post",
+      "required": true,
+      "type": "string",
+      "description": "Post ID (required)"
+    },
+    {
+      "name": "--viewer",
+      "required": true,
+      "type": "string",
+      "description": "Viewer user ID (required)"
+    },
+    {
+      "name": "--viewed-at",
+      "required": true,
+      "type": "string",
+      "description": "View timestamp (ISO 8601, required)",
+      "validation": "ISO 8601"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_post_views_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_view_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_view_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/post_view.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "config/routes.rb"
+    }
+  ]
+}

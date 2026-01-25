@@ -1,0 +1,23 @@
+{
+  "id": "4ced1501886aa45031a34aed902e586603a9ef7f40c75b3d8ad41a51b58ebf90",
+  "full_path": "view open-door-issues show",
+  "description": "Show the full details of a specific open door issue.",
+  "permissions": "Admins can view all open door issues. Non-admins can view issues for organizations where they are on an open door team membership or issues they reported.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument for the open door issue.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/open_door_issues_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/open_door_issue_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/open_door_issue_resource.rb"
+    }
+  ]
+}

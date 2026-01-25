@@ -1,0 +1,27 @@
+{
+  "id": "71dfb7518790d8237bb722dadb14cc32789447fffcf29e31c3ddc51eaee51cd3",
+  "full_path": "view gps-insight-vehicles show",
+  "description": "Show the full details of a GPS Insight vehicle.",
+  "permissions": "Admins can view any GPS Insight vehicle. Non-admins can view vehicles only for brokers where they are members; access is limited to vehicles within the user's visible member brokers.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/gps_insight_vehicles_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    }
+  ]
+}

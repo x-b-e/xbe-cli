@@ -1,0 +1,78 @@
+{
+  "id": "770258d6022a1c483dcc38dbb4a98936b0342a87456d008df3c5021042f2fb81",
+  "full_path": "view material-type-conversions list",
+  "description": "List material type conversions with filtering and pagination.",
+  "permissions": "Admins can list all material type conversions. Non-admin users can list conversions where they are members of the conversion's broker or the conversion's material supplier.",
+  "side_effects": null,
+  "validation_notes": "Filter flags accept comma-separated IDs.",
+  "flags": [
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated IDs are allowed."
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated IDs are allowed."
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated IDs are allowed."
+    },
+    {
+      "name": "--foreign-material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by foreign material supplier ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated IDs are allowed."
+    },
+    {
+      "name": "--foreign-material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by foreign material site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated IDs are allowed."
+    },
+    {
+      "name": "--foreign-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by foreign material type ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated IDs are allowed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_type_conversions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_type_conversion_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_conversion_policy.rb"
+    }
+  ]
+}

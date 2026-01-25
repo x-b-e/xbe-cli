@@ -1,0 +1,30 @@
+{
+  "id": "8c42cd10eb8eda1d1b4b5c706ae486fd9d4d321f9468695501010f7a2d1016c5",
+  "full_path": "do trucker-invoices delete",
+  "description": "Delete a trucker invoice.",
+  "permissions": "Allowed for admin users, manager members of the trucker seller, or members of the broker buyer.",
+  "side_effects": "Deletes a trucker invoice record.",
+  "validation_notes": "The trucker invoice ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_invoices_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_invoice_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoices/trucker_invoice.rb"
+    }
+  ]
+}

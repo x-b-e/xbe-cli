@@ -1,0 +1,42 @@
+{
+  "id": "719f75fcd54d5874515da43a37f840940cabf361fe6b022042354117448b5231",
+  "full_path": "do gps-insight-vehicles update",
+  "description": "Update GPS Insight vehicle assignments.",
+  "permissions": "Admins can update any GPS Insight vehicle. Non-admins can update vehicles only for brokers where they are members (the vehicle's broker must be in the user's member organizations).",
+  "side_effects": "Updates the trailer and/or tractor assignments for a GPS Insight vehicle.",
+  "validation_notes": "The <id> argument is required. At least one of --trailer or --tractor must be specified. If a specified relationship flag is provided with an empty value, the relationship is cleared.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_gps_insight_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

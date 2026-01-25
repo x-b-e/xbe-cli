@@ -1,0 +1,19 @@
+{
+  "id": "fea8153f28f48f2c32a65d66651ee82ee4b01b910e7ef5baa8713deeced5c2a5",
+  "full_path": "view project-transport-plan-tractors show",
+  "description": "Show project transport plan tractor details",
+  "permissions": "User must be authorized to access the related project transport plan; permissions are delegated to the project transport plan policy via ProjectTransportPlanTractorPolicy.",
+  "side_effects": null,
+  "validation_notes": "Requires a project transport plan tractor ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_tractors_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_tractor_policy.rb"
+    }
+  ]
+}

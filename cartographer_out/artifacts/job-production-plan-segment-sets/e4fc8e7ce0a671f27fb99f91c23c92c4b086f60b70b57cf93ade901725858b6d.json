@@ -1,0 +1,64 @@
+{
+  "id": "e4fc8e7ce0a671f27fb99f91c23c92c4b086f60b70b57cf93ade901725858b6d",
+  "full_path": "do job-production-plan-segment-sets create",
+  "description": "Create a job production plan segment set",
+  "permissions": "User must be authorized to create segment sets for the specified job production plan (delegated through the job_production_plan relationship).",
+  "side_effects": "May enqueue a background job to update the job production plan checksum range when start_offset_minutes changes and the plan is configured to update checksum range from segments.",
+  "validation_notes": "--job-production-plan is required. If --is-default is true, there can be only one default segment set per job production plan.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Segment set name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-default",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark the set as default",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-offset-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Start offset in minutes",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_segment_sets_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_segment_set.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_segment_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_segment_set_resource.rb"
+    }
+  ]
+}

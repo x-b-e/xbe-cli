@@ -1,0 +1,23 @@
+{
+  "id": "73f6591bc9f6f4d58e1e2e5888707451d3132ded2e71efcfc18d334cd97237d4",
+  "full_path": "view file-imports show",
+  "description": "Show file import details",
+  "permissions": "Admins can view any file import. Non-admins can view a file import if they created it or are a member of the broker associated with it.",
+  "side_effects": null,
+  "validation_notes": "The file import id argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/file_imports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/file_import_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/file_import_policy.rb"
+    }
+  ]
+}

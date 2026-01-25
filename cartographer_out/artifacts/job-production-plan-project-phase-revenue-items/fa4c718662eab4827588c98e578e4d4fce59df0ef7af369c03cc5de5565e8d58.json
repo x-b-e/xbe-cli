@@ -1,0 +1,33 @@
+{
+  "id": "fa4c718662eab4827588c98e578e4d4fce59df0ef7af369c03cc5de5565e8d58",
+  "full_path": "do job-production-plan-project-phase-revenue-items delete",
+  "description": "Delete a job production plan project phase revenue item.",
+  "permissions": "Requires permission to delete job production plan project phase revenue items for the related job production plan; access is delegated to the associated job production plan policy.",
+  "side_effects": "Deletes the job production plan project phase revenue item and triggers post-commit work that updates related project phase cost item actuals, caches cost-code matches, and generates a job production plan recap asynchronously.",
+  "validation_notes": "Requires <id> argument. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_project_phase_revenue_items_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_project_phase_revenue_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_project_phase_revenue_item.rb"
+    }
+  ]
+}

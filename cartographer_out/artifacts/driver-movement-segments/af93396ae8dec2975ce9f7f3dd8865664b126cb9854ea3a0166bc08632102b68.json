@@ -1,0 +1,23 @@
+{
+  "id": "af93396ae8dec2975ce9f7f3dd8865664b126cb9854ea3a0166bc08632102b68",
+  "full_path": "view driver-movement-segments show",
+  "description": "Show the full details of a driver movement segment.",
+  "permissions": "Read-only; access is delegated to the related driver_movement_segment_set policy scope (user must be authorized to read those segment sets).",
+  "side_effects": "None (read-only).",
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_movement_segments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_movement_segment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_movement_segment_policy.rb"
+    }
+  ]
+}

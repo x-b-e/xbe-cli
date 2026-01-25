@@ -1,0 +1,33 @@
+{
+  "description": "Delete a project transport plan segment trailer",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-segment-trailers delete",
+  "id": "b33eb48250d622e5a700cd1dc94ad85255df79defbae9a1e0cfe1444a8979169",
+  "permissions": "Allowed for users authorized to delete resources via the related project transport plan segment (policy delegates to the project_transport_plan_segment relationship).",
+  "side_effects": "Deletes the specified project transport plan segment trailer record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_segment_trailers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_segment_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_segment_trailer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. --confirm is required to delete."
+}

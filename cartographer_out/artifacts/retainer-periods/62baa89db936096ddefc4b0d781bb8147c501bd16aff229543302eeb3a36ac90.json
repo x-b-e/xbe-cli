@@ -1,0 +1,33 @@
+{
+  "id": "62baa89db936096ddefc4b0d781bb8147c501bd16aff229543302eeb3a36ac90",
+  "full_path": "view retainer-periods list",
+  "description": "List retainer periods with filtering and pagination.",
+  "permissions": "Visible for users who can view the parent retainer; scope is limited to retainer periods whose retainer is in the Retainer policy scope (customer/broker membership for buyer/seller organizations, or trucker manager membership for seller trucker organizations).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--retainer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by retainer ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/retainer_periods_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    }
+  ]
+}

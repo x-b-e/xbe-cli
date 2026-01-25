@@ -1,0 +1,41 @@
+{
+  "id": "12077283ba174800e4b1894097384579bd7ca590649999fae871c2e08959be15",
+  "full_path": "view project-import-file-verifications list",
+  "description": "List project import file verifications",
+  "permissions": "User must be authorized to access project import file verifications via ProjectImportFileVerificationPolicy (delegated to the related project policy). Results are also limited to ProjectsFileImport records visible under ProjectsFileImportPolicy scope (admins or members of the file import's broker).",
+  "side_effects": null,
+  "validation_notes": "The project filter is required; missing it triggers a bad request.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID (required). Example: 123.",
+      "default": null,
+      "validation": "Required; server rejects requests without a project filter."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_import_file_verifications_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_import_file_verifications.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_import_file_verification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_import_file_verification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/projects_file_import_policy.rb"
+    }
+  ]
+}

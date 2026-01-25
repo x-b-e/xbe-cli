@@ -1,0 +1,51 @@
+{
+  "id": "2867529bb8124ea151009df672e09f922f45a857f28d09d1a0410c1b23f17847",
+  "full_path": "do shift-feedbacks update",
+  "description": "Update a shift feedback.",
+  "permissions": "Admin users; otherwise broker members or the user who created the feedback.",
+  "side_effects": "Updates the shift feedback.",
+  "validation_notes": "At least one of --rating, --note, or --reason must be provided; rating must be between 1 and 5 when set; shift feedback requires a reason (cannot be null).",
+  "flags": [
+    {
+      "name": "--rating",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Rating",
+      "default": null,
+      "validation": "Must be between 1 and 5 when set."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Feedback note",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reason",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift feedback reason ID",
+      "default": null,
+      "validation": "Cannot be null; shift feedback requires a reason."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_feedbacks_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_feedback.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_feedback_policy.rb"
+    }
+  ]
+}

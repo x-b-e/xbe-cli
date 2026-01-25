@@ -1,0 +1,94 @@
+{
+  "id": "0afe2f06d17f6d1da5150b03f10f5f68fc77f6a38aaee09a3217b81f1a1a891e",
+  "full_path": "do prompt-prescriptions create",
+  "description": "Create a prompt prescription request and generate tailored prompts.",
+  "permissions": "Allowed for any user, including anonymous; controller skips auth and policy allows create.",
+  "side_effects": "Creates a prompt prescription record and queues asynchronous prompt generation via OpenAI Responses API (web_search_preview tool). On success it updates prompts, sends an email notification, posts a Slack notification, and may create a user record for the email address.",
+  "validation_notes": "Required: --email-address, --name, --organization-name, --location-name, --role. Email address must be valid format; blank required fields are rejected.",
+  "flags": [
+    {
+      "name": "--email-address",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Contact email address (required)",
+      "default": null,
+      "validation": "Must be a valid email address."
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Contact name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--location-name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Location name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--role",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Role or job title (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--symptoms",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Challenges to incorporate into prompts",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prompt_prescriptions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/prompt_prescriptions_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/concerns/secure_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prompt_prescription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prompt_prescription.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/notifications/prompt_prescription_notification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/mailers/prompt_prescription_notification_mailer.rb"
+    }
+  ]
+}

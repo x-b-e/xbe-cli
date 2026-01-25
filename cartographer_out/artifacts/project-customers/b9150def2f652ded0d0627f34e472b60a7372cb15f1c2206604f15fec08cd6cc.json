@@ -1,0 +1,82 @@
+{
+  "id": "b9150def2f652ded0d0627f34e472b60a7372cb15f1c2206604f15fec08cd6cc",
+  "full_path": "view project-customers list",
+  "description": "List project customers with filtering and pagination.",
+  "permissions": "User must be authorized via the related project (project-customer policy delegates to project).",
+  "side_effects": null,
+  "validation_notes": "No positional arguments are allowed. created-at-min/created-at-max/updated-at-min/updated-at-max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_customers_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_customers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_customer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_customer_policy.rb"
+    }
+  ]
+}

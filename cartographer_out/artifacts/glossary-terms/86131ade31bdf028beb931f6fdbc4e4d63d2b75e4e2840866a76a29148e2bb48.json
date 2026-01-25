@@ -1,0 +1,55 @@
+{
+  "description": "Create a new glossary term.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Term name (required)",
+      "name": "--term",
+      "required": true,
+      "type": "string",
+      "validation": "Must be non-empty and unique (case-insensitive)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Definition (required)",
+      "name": "--definition",
+      "required": true,
+      "type": "string",
+      "validation": "Must be non-empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Source of the definition",
+      "name": "--source",
+      "required": false,
+      "type": "string",
+      "validation": "Must be one of: xbe, expert, giant_anchor (e.g., --source expert)."
+    }
+  ],
+  "full_path": "do glossary-terms create",
+  "id": "86131ade31bdf028beb931f6fdbc4e4d63d2b75e4e2840866a76a29148e2bb48",
+  "permissions": "Requires an authenticated admin user (is_admin true).",
+  "side_effects": "Creates a glossary term record; after save, enqueues asynchronous definition suggestion updates when the term changes (including on create).",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_glossary_terms_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/glossary_term_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/glossary_term.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/models/glossary_term_spec.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--term and --definition are required. term must be unique case-insensitively. source, if provided, must be one of: xbe, expert, giant_anchor; if omitted it defaults to expert."
+}

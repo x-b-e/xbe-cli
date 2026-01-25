@@ -1,0 +1,109 @@
+{
+  "description": "Create a new laborer",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Labor classification ID (required)",
+      "name": "--labor-classification",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID (required)",
+      "name": "--user",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization type (e.g., brokers, customers) (required)",
+      "name": "--organization-type",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization ID (required)",
+      "name": "--organization-id",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "true",
+      "description": "Whether laborer is active",
+      "name": "--is-active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Mobilization method",
+      "name": "--mobilization-method",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Group name",
+      "name": "--group-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Color hex code",
+      "name": "--color-hex",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid color hex and allowed by labor classification."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Craft class ID",
+      "name": "--craft-class",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, craft class must belong to the same broker as the laborer."
+    }
+  ],
+  "full_path": "do laborers create",
+  "id": "385461d3c2f436ceee1cb69c0d90f950de3c983cab8f9a41bf87f5e57f5e0894",
+  "permissions": "User must be an admin, an organization manager for the target organization, or a broker member.",
+  "side_effects": "Creates a laborer and links it to the specified labor classification, user, and organization.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_laborers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/laborer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/laborer.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/laborer_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--labor-classification, --user, --organization-type, and --organization-id are required. color-hex must be a valid color hex and the labor classification must allow colors. User must have a membership with the organization; a laborer cannot be activated if the user lacks membership. When a craft class is provided, it must share the same broker as the laborer."
+}

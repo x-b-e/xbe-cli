@@ -1,0 +1,42 @@
+{
+  "description": "Process an organization invoices batch.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization invoices batch ID (required)",
+      "name": "--organization-invoices-batch",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Comment explaining the change",
+      "name": "--comment",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do organization-invoices-batch-processes create",
+  "id": "2684ffc12e2acdfa5c15712ee47f2220f08a4273052af9ab32da2b25bf651247",
+  "permissions": "Allowed for admin users or users who can update the related organization invoices batch.",
+  "side_effects": "Creates an organization invoices batch process that marks the batch as processed.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_organization_invoices_batch_processes_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/organization_invoices_batch_process_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/organization_invoices_batch_actions/organization_invoices_batch_process.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--organization-invoices-batch is required. Only batches in not_processed status can be processed (transitions to processed)."
+}

@@ -1,0 +1,55 @@
+{
+  "id": "daa8fbafffd6bbc5a70c01c3ece66ac31aaa59dcd0009bb3a02a09cae164db77",
+  "full_path": "do business-unit-memberships create",
+  "description": "Create a business unit membership",
+  "permissions": "Admins and broker org admins can create business unit memberships. Business unit managers can create memberships only when the kind is technician or general.",
+  "side_effects": "Creates a business unit membership record.",
+  "validation_notes": "--business-unit and --membership are required. kind defaults to general if omitted. kind must be one of: manager, technician, general. Each membership can be associated to a business unit only once. membership must be a broker membership. business-unit and membership relationships are create-only and cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Business unit ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--membership",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Membership ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Role (manager/technician/general)",
+      "default": null,
+      "validation": "One of: manager, technician, general."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_memberships_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/business_unit_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/business_unit_membership.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_membership_policy.rb"
+    }
+  ]
+}

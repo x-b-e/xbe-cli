@@ -1,0 +1,69 @@
+{
+  "id": "5ef7136c98043c6876121a83e7d2b9bb3ac3a78faf24c84d6d85c6497383d992",
+  "full_path": "view equipment-movement-trips list",
+  "description": "List equipment movement trips.",
+  "permissions": "Admins can list all equipment movement trips. Non-admins can list trips where they are a member of the broker, a manager of a related trucker via broker tenders, or the seller operations contact on a related job schedule shift.",
+  "side_effects": null,
+  "validation_notes": "Filters max-origin-at-min-min and max-origin-at-min-max must be parseable timestamps; the server parses them as UTC.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID.",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--max-origin-at-min-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by max origin-at-min on/after (ISO 8601).",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp parseable by the server (example: 2025-01-01T00:00:00Z)."
+    },
+    {
+      "name": "--max-origin-at-min-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by max origin-at-min on/before (ISO 8601).",
+      "default": null,
+      "validation": "Must be an ISO 8601 timestamp parseable by the server."
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID.",
+      "default": null,
+      "validation": "Example: 456."
+    },
+    {
+      "name": "--job-production-plan-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID (alias filter).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_trips_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_policy.rb"
+    }
+  ]
+}

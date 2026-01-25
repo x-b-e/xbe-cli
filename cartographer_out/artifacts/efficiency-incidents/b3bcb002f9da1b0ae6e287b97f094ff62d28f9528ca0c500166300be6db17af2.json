@@ -1,0 +1,152 @@
+{
+  "id": "b3bcb002f9da1b0ae6e287b97f094ff62d28f9528ca0c500166300be6db17af2",
+  "full_path": "do efficiency-incidents update",
+  "description": "Update an existing efficiency incident",
+  "permissions": "Admins can update efficiency incidents. Non-admins can update when authorized for the subject; if the subject changes, the user must also be authorized for the previous subject.",
+  "side_effects": "Updates an efficiency incident; may change incident subclass when --new-type is provided; may create/update the dollar incident unit-of-measure quantity when net impact dollars are provided; when end-at is set, the server propagates the end time to child incidents that have no end-at.",
+  "validation_notes": "An efficiency incident ID argument is required. At least one field or relationship must be provided to update. If --subject, --parent, --equipment, --job-production-plan, --assignee, or --tender-job-schedule-shift is specified, it cannot be empty. --subject must use Type|ID with allowed types: Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, JobProductionPlan, TenderJobScheduleShift, ProjectTransportPlan. --start-at and --end-at must be ISO 8601 timestamps; when provided, --end-at must be later than --start-at. --end-at is required when status is set to closed. --status values must be valid incident statuses: open, closed, abandoned, processing, parked. --kind values must be valid incident kinds: over_trucking. --severity values must be valid incident severities: low, medium, high, catastrophic. --natures values must be valid incident natures (personal, property) and are validated for uniqueness. --net-impact-dollars must be a number greater than or equal to 0. Efficiency incidents do not allow did-stop-work to be set (must be nil). --new-type must be a valid Incident subclass name. Subject type must be one of the valid subject types; the server rejects other subject types. Broker cannot be changed on update. If --equipment is provided, a job production plan must also be set and the equipment must be related to that job production plan. If --tender-job-schedule-shift is provided alongside a job production plan, it must belong to the same job production plan and must be a broker shift. If --assignee is provided, the assignee must have a relationship with the customer/subject.",
+  "flags": [
+    {
+      "name": "subject",
+      "required": false,
+      "type": "string",
+      "description": "Subject in Type|ID format",
+      "validation": "Format: Type|ID. Allowed types: Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, JobProductionPlan, TenderJobScheduleShift, ProjectTransportPlan."
+    },
+    {
+      "name": "start-at",
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "end-at",
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "status",
+      "required": false,
+      "type": "string",
+      "description": "Status (open, closed, abandoned, processing, parked)",
+      "validation": "Allowed values: open, closed, abandoned, processing, parked."
+    },
+    {
+      "name": "kind",
+      "required": false,
+      "type": "string",
+      "description": "Kind (over_trucking)",
+      "validation": "Allowed values: over_trucking."
+    },
+    {
+      "name": "severity",
+      "required": false,
+      "type": "string",
+      "description": "Severity (low, medium, high, catastrophic)",
+      "validation": "Allowed values: low, medium, high, catastrophic."
+    },
+    {
+      "name": "description",
+      "required": false,
+      "type": "string",
+      "description": "Description text"
+    },
+    {
+      "name": "headline",
+      "required": false,
+      "type": "string",
+      "description": "Headline text"
+    },
+    {
+      "name": "natures",
+      "required": false,
+      "type": "string",
+      "description": "Natures (comma-separated: personal,property)",
+      "validation": "Values must be valid incident natures: personal, property."
+    },
+    {
+      "name": "did-stop-work",
+      "required": false,
+      "type": "string",
+      "description": "Did stop work (true/false)",
+      "validation": "Value must be true or false."
+    },
+    {
+      "name": "net-impact-dollars",
+      "required": false,
+      "type": "string",
+      "description": "Net impact dollars",
+      "validation": "Must be a number greater than or equal to 0."
+    },
+    {
+      "name": "new-type",
+      "required": false,
+      "type": "string",
+      "description": "Incident subclass type name",
+      "validation": "Must be a valid Incident subclass name."
+    },
+    {
+      "name": "assignee",
+      "required": false,
+      "type": "string",
+      "description": "Assignee user ID"
+    },
+    {
+      "name": "job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID"
+    },
+    {
+      "name": "equipment",
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID"
+    },
+    {
+      "name": "parent",
+      "required": false,
+      "type": "string",
+      "description": "Parent incident ID"
+    },
+    {
+      "name": "tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_efficiency_incidents_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/administrative_incidents_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/efficiency_incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/efficiency_incident_policy.rb"
+    }
+  ]
+}

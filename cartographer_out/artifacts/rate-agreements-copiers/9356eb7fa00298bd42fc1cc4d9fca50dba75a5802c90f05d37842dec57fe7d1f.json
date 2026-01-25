@@ -1,0 +1,23 @@
+{
+  "description": "Show rate agreements copier details",
+  "flags": [],
+  "full_path": "view rate-agreements-copiers show",
+  "id": "9356eb7fa00298bd42fc1cc4d9fca50dba75a5802c90f05d37842dec57fe7d1f",
+  "permissions": "User must be authorized to view rate agreements copiers within the RateAgreementsCopierPolicy scope, which is limited to rate agreement templates in the users RateAgreement policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/rate_agreements_copiers_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/rate_agreements_copier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreements_copier_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (rate agreements copier ID). Example ID: 123."
+}

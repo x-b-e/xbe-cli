@@ -1,0 +1,81 @@
+{
+  "id": "3add151ee76271de9630838711263e2254e35272f51a593c5d055885af04bd8c",
+  "full_path": "do commitment-simulations create",
+  "description": "Create a commitment simulation",
+  "permissions": "User must be authorized to create a commitment simulation via the related commitment's CommitmentPolicy (admin or membership as the commitment buyer/seller organization: customer manager, broker member, or trucker manager).",
+  "side_effects": "Creates a commitment simulation record and enqueues CommitmentSimulationWorker after commit to process it.",
+  "validation_notes": "commitment-type and commitment-id are required. start-on and end-on are required (YYYY-MM-DD). end-on must be on or after start-on. iteration-count is required and must be between 1 and 1000 inclusive.",
+  "flags": [
+    {
+      "name": "--commitment-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Commitment type (required). Example values: commitments, customer-commitments.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--commitment-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Commitment ID (required). Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Simulation start date (YYYY-MM-DD) (required).",
+      "default": null,
+      "validation": "Expected format YYYY-MM-DD (e.g., 2026-01-23)."
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Simulation end date (YYYY-MM-DD) (required).",
+      "default": null,
+      "validation": "Expected format YYYY-MM-DD (e.g., 2026-01-23) and must be on or after --start-on."
+    },
+    {
+      "name": "--iteration-count",
+      "aliases": null,
+      "required": true,
+      "type": "integer",
+      "description": "Iteration count (1-1000) (required). Example: 100.",
+      "default": null,
+      "validation": "Must be an integer between 1 and 1000 inclusive."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_commitment_simulations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_simulation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/commitment_simulation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/commitment_simulation_like.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_simulation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_policy.rb"
+    }
+  ]
+}

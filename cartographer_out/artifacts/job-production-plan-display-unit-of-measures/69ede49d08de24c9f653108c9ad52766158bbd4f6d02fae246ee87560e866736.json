@@ -1,0 +1,59 @@
+{
+  "id": "69ede49d08de24c9f653108c9ad52766158bbd4f6d02fae246ee87560e866736",
+  "full_path": "do job-production-plan-display-unit-of-measures create",
+  "description": "Add a display unit of measure to a job production plan",
+  "permissions": "Allowed when the user is authorized to create/update the related job production plan via JobProductionPlanDisplayUnitOfMeasurePolicy (delegated to JobProductionPlanPolicy).",
+  "side_effects": "Creates a job production plan display unit of measure record.",
+  "validation_notes": "--job-production-plan and --unit-of-measure are required. Unit of measure must be unique per job production plan and must have a metric of area, mass, or volume. Importance position is a 0-based index when provided.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID. Example: --job-production-plan 123.",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Unit of measure ID. Example: --unit-of-measure 456.",
+      "default": null,
+      "validation": "Required. Must be unique per job production plan; unit of measure metric must be area, mass, or volume."
+    },
+    {
+      "name": "--importance-position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Importance position (0-based index). Example: --importance-position 0.",
+      "default": null,
+      "validation": "0-based index."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_display_unit_of_measures_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_display_unit_of_measure_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_display_unit_of_measure.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/unit_of_measure.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_display_unit_of_measure_policy.rb"
+    }
+  ]
+}

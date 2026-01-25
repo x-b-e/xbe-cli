@@ -1,0 +1,82 @@
+{
+  "id": "b6c21a65d1d2e0b9e02beae89bc24d5e1b8d2828d3212fc20e0c89ed7c777d92",
+  "full_path": "view user-location-events list",
+  "description": "List user location events.",
+  "permissions": "Admins can list all user location events. Non-admin users are scoped to events where the user is themselves.",
+  "side_effects": null,
+  "validation_notes": "event-at-min and event-at-max must be ISO 8601 datetimes when provided. is-event-at must be true or false. provenance must be gps or map when provided.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--updated-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by event-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--event-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by event-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--is-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by whether event-at is set (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--provenance",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by provenance (gps,map)",
+      "default": null,
+      "validation": "gps|map"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_location_events_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_location_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/location_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_location_event_policy.rb"
+    }
+  ]
+}

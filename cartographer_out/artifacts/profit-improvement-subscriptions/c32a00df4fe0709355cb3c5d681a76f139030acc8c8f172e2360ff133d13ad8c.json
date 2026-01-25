@@ -1,0 +1,55 @@
+{
+  "id": "c32a00df4fe0709355cb3c5d681a76f139030acc8c8f172e2360ff133d13ad8c",
+  "full_path": "do profit-improvement-subscriptions create",
+  "description": "Create a profit improvement subscription.",
+  "permissions": "Admin users can create subscriptions. Non-admin users can create a subscription if they can update the profit improvement, or if they can view the profit improvement and the subscription user is themselves.",
+  "side_effects": "Creates a profit improvement subscription record.",
+  "validation_notes": "user and profit-improvement are required. contact-method must be one of email_address or mobile_number. If contact-method is omitted, it defaults to email_address. A user can have only one subscription per profit improvement. The subscription user must have access to the profit improvement.",
+  "flags": [
+    {
+      "name": "user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "profit-improvement",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Profit improvement ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contact method (email_address, mobile_number)",
+      "default": "email_address",
+      "validation": "One of: email_address, mobile_number."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_profit_improvement_subscriptions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement_subscription.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/profit_improvement_subscription_resource.rb"
+    }
+  ]
+}

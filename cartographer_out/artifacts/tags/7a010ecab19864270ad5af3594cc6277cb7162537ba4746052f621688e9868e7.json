@@ -1,0 +1,46 @@
+{
+  "id": "7a010ecab19864270ad5af3594cc6277cb7162537ba4746052f621688e9868e7",
+  "full_path": "do tags create",
+  "description": "Create a new tag",
+  "permissions": "User must be an admin to create tags.",
+  "side_effects": "Creates a tag and associates it to a tag category.",
+  "validation_notes": "Flags --name and --tag-category are required. Tag name must be present and is unique per tag category (case-insensitive). Tag category is create-only and cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tag name (required). Example: \"Urgent\".",
+      "default": null,
+      "validation": "Must be present; uniqueness enforced within tag category (case-insensitive)."
+    },
+    {
+      "name": "--tag-category",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tag category ID (required). Example: 123.",
+      "default": null,
+      "validation": "Tag category relationship is create-only."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tags_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tag_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tag_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tag.rb"
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "description": "Update a job production plan change set.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job production plan IDs (comma-separated).",
+      "name": "--scope-job-production-plan-ids",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project IDs (comma-separated).",
+      "name": "--scope-project-ids",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Planner user IDs (comma-separated).",
+      "name": "--scope-planner-ids",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site IDs (comma-separated).",
+      "name": "--scope-material-site-ids",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job production plan statuses (comma-separated).",
+      "name": "--scope-statuses",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Minimum start-on date (YYYY-MM-DD).",
+      "name": "--scope-start-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum start-on date (YYYY-MM-DD).",
+      "name": "--scope-start-on-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Ultimate material type names (comma-separated).",
+      "name": "--scope-ultimate-material-types",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material type IDs (comma-separated).",
+      "name": "--scope-material-type-ids",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Foreman laborer IDs (comma-separated).",
+      "name": "--scope-foreman-ids",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New job number.",
+      "name": "--change-job-number-new",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New raw job number.",
+      "name": "--change-raw-job-number-new",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Nullify planner.",
+      "name": "--change-new-planner-nullify",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Nullify project manager.",
+      "name": "--change-new-project-manager-nullify",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New job production plan status.",
+      "name": "--change-new-status",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old schedule locked value (true/false).",
+      "name": "--change-old-is-schedule-locked",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New schedule locked value (true/false).",
+      "name": "--change-new-is-schedule-locked",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Offset start-on date by days.",
+      "name": "--change-new-days-offset",
+      "required": false,
+      "type": "string",
+      "validation": "integer"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip Saturdays when offsetting.",
+      "name": "--change-new-offset-skip-saturdays",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip Sundays when offsetting.",
+      "name": "--change-new-offset-skip-sundays",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Persist changes.",
+      "name": "--should-persist",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip invalid plans when persisting.",
+      "name": "--skip-invalid-plans",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID.",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Customer ID.",
+      "name": "--customer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old material type ID.",
+      "name": "--change-old-material-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New material type ID.",
+      "name": "--change-new-material-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old material site ID.",
+      "name": "--change-old-material-site",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New material site ID.",
+      "name": "--change-new-material-site",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old cost code ID.",
+      "name": "--change-old-cost-code",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New cost code ID.",
+      "name": "--change-new-cost-code",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old inspector user ID.",
+      "name": "--change-old-inspector",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New inspector user ID.",
+      "name": "--change-new-inspector",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New planner user ID.",
+      "name": "--change-new-planner",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New project manager user ID.",
+      "name": "--change-new-project-manager",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old QC classification ID.",
+      "name": "--change-old-jpp-material-type-quality-control-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New QC classification ID.",
+      "name": "--change-new-jpp-material-type-quality-control-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old material mix design ID.",
+      "name": "--change-old-jpp-material-type-explicit-material-mix-design",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New material mix design ID.",
+      "name": "--change-new-jpp-material-type-explicit-material-mix-design",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old laborer ID.",
+      "name": "--change-old-laborer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New laborer ID.",
+      "name": "--change-new-laborer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Old job site ID.",
+      "name": "--change-old-job-site",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "New job site ID.",
+      "name": "--change-new-job-site",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do job-production-plan-change-sets update",
+  "id": "faa304147299ba7e042716123ffd4c7336d33145eee784480c44975cc626b23d",
+  "permissions": "Admin users can request updates. Non-admins can request updates for customers they manage or brokers they manage (broker members with manager role).",
+  "side_effects": "None. The API rejects updates because change sets are immutable.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_change_sets_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_change_set_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/job_production_plan_change_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_change_set_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one update flag must be provided. If both scope-start-on-min and scope-start-on-max are set, max must be greater than or equal to min. If change-old-material-type is set, change-new-material-type is required and vice versa. If change-old-material-site is set, change-new-material-site is required and vice versa. If change-old-job-site is set, change-new-job-site is required and vice versa. If change-old-cost-code is set, change-new-cost-code is required and vice versa. If change-old-is-schedule-locked is set, change-new-is-schedule-locked is required. If change-old-inspector is set, change-new-inspector is required. If change-old-laborer is set, change-new-laborer is required and vice versa. If change-new-planner-nullify is true, change-new-planner must be blank. If change-new-project-manager-nullify is true, change-new-project-manager must be blank. change-new-status must map to a job production plan action. When a broker is set, change-old/new material type and material site must be valid for that broker. When a customer is set, the broker must match the customer broker (broker is derived from customer). API rejects updates because change sets are immutable."
+}

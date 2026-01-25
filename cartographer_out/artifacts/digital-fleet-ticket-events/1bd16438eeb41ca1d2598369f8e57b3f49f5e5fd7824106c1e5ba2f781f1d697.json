@@ -1,0 +1,64 @@
+{
+  "id": "1bd16438eeb41ca1d2598369f8e57b3f49f5e5fd7824106c1e5ba2f781f1d697",
+  "full_path": "view digital-fleet-ticket-events list",
+  "description": "List digital fleet ticket events with filtering and pagination.",
+  "permissions": "User can view digital fleet ticket events that are within their policy scope: events tied to brokers in the user's visible member broker IDs or events whose site event is within the user's SiteEvent policy scope.",
+  "side_effects": null,
+  "validation_notes": "event-at-min and event-at-max must be ISO 8601 timestamps. is-event-at expects true or false.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by event-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--event-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by event-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of event-at (true/false)",
+      "default": null,
+      "validation": "Boolean string: true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/digital_fleet_ticket_events.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/digital_fleet_ticket_events_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/digital_fleet_ticket_event_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/digital_fleet_ticket_event_resource.rb"
+    }
+  ]
+}

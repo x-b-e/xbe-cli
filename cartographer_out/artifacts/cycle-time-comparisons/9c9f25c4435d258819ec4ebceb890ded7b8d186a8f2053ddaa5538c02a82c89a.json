@@ -1,0 +1,86 @@
+{
+  "id": "9c9f25c4435d258819ec4ebceb890ded7b8d186a8f2053ddaa5538c02a82c89a",
+  "full_path": "do cycle-time-comparisons create",
+  "description": "Create a cycle time comparison.",
+  "permissions": "Any authenticated user; policy allows create for all users.",
+  "side_effects": "Computes cycle time comparison metrics from material transactions and caches results for up to 1 day.",
+  "validation_notes": "coordinates-one and coordinates-two must be JSON arrays of two numbers [lat,lon] with latitude between -90 and 90 and longitude between -180 and 180. proximity-meters is required and must be a number greater than 0. cycle-count, if provided, must be a positive integer (empty or non-positive values are rejected). transaction-at-min and transaction-at-max should be ISO8601 timestamps; server parses them before query execution.",
+  "flags": [
+    {
+      "name": "--coordinates-one",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "JSON array [lat,lon] for the first point (required). Example: [37.7749,-122.4194].",
+      "default": null,
+      "validation": "Must be valid JSON array [lat,lon] with latitude between -90 and 90 and longitude between -180 and 180."
+    },
+    {
+      "name": "--coordinates-two",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "JSON array [lat,lon] for the second point (required). Example: [37.8044,-122.2712].",
+      "default": null,
+      "validation": "Must be valid JSON array [lat,lon] with latitude between -90 and 90 and longitude between -180 and 180."
+    },
+    {
+      "name": "--proximity-meters",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Radius in meters for nearby sites (required). Example: 5000.",
+      "default": null,
+      "validation": "Must be a number greater than 0."
+    },
+    {
+      "name": "--transaction-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Minimum transaction timestamp (ISO8601). Example: 2024-01-01T00:00:00Z.",
+      "default": null,
+      "validation": "Must be an ISO8601 timestamp if provided."
+    },
+    {
+      "name": "--transaction-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum transaction timestamp (ISO8601). Example: 2024-12-31T23:59:59Z.",
+      "default": null,
+      "validation": "Must be an ISO8601 timestamp if provided."
+    },
+    {
+      "name": "--cycle-count",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Limit number of cycles sampled (integer). Example: 250.",
+      "default": null,
+      "validation": "Must be a positive integer when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cycle_time_comparisons_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/cycle_time_comparisons_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cycle_time_comparison_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cycle_time_comparison_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cycle_time_comparison.rb"
+    }
+  ]
+}

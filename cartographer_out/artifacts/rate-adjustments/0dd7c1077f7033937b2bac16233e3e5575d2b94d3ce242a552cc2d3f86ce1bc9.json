@@ -1,0 +1,56 @@
+{
+  "description": "List rate adjustments.",
+  "flags": [
+    {
+      "default": null,
+      "description": "Filter by rate ID (example: 123).",
+      "name": "--rate",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "default": null,
+      "description": "Filter by cost index ID (example: 456).",
+      "name": "--cost-index",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "default": null,
+      "description": "Filter by parent rate adjustment ID.",
+      "name": "--parent-rate-adjustment",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "default": null,
+      "description": "Filter by parent status (true/false).",
+      "name": "--is-parent-rate-adjustment",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a strict boolean: true or false."
+    }
+  ],
+  "full_path": "view rate-adjustments list",
+  "id": "0dd7c1077f7033937b2bac16233e3e5575d2b94d3ce242a552cc2d3f86ce1bc9",
+  "permissions": "Requires authorization via RateAdjustmentPolicy, which delegates access to the associated rate (RatePolicy).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/rate_adjustments_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/rate_adjustment_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_adjustment_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter is-parent-rate-adjustment must be a strict boolean (true/false)."
+}

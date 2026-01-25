@@ -1,0 +1,37 @@
+{
+  "id": "7c4d63351f2515cad29916ce9da228f945f3b6289ee65b187121bfa8e99f6adb",
+  "full_path": "do objective-stakeholder-classifications update",
+  "description": "Update an objective stakeholder classification",
+  "permissions": "Admin users only (policy requires is_user_admin? for update).",
+  "side_effects": "Updates the objective stakeholder classification; when interest degree changes, quotes are regenerated asynchronously and the related objective is prompted to update OpenAI files.",
+  "validation_notes": "Requires <id> argument. At least one field must be provided; currently only --interest-degree is updatable. --interest-degree must be greater than 0 and less than or equal to 1. Objective and stakeholder classification cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--interest-degree",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Interest degree between 0 and 1 (example: 0.85)",
+      "default": null,
+      "validation": "Value must be greater than 0 and less than or equal to 1."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_objective_stakeholder_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/objective_stakeholder_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/objective_stakeholder_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_stakeholder_classification_policy.rb"
+    }
+  ]
+}

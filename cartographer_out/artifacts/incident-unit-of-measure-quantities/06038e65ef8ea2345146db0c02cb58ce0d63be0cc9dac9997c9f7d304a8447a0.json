@@ -1,0 +1,56 @@
+{
+  "id": "06038e65ef8ea2345146db0c02cb58ce0d63be0cc9dac9997c9f7d304a8447a0",
+  "full_path": "do incident-unit-of-measure-quantities update",
+  "description": "Update an incident unit of measure quantity",
+  "permissions": "User must be authorized to create the related incident per IncidentPolicy (or be an admin), as IncidentUnitOfMeasureQuantity permissions defer to the incident policy.",
+  "side_effects": "Updates an incident unit of measure quantity and touches the associated tender_job_schedule_shift and job_production_plan after commit.",
+  "validation_notes": "Requires <id> argument. At least one field must be updated. --incident-type and --incident-id must be provided together; providing both empty clears the incident relationship. --quantity and --unit-of-measure accept empty values to clear. quantity must be numeric. incident and unit_of_measure relationships are required.",
+  "flags": [
+    {
+      "name": "--quantity",
+      "required": false,
+      "type": "string",
+      "description": "Quantity value",
+      "validation": "Empty value clears the quantity."
+    },
+    {
+      "name": "--unit-of-measure",
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "validation": "Empty value clears the unit of measure relationship."
+    },
+    {
+      "name": "--incident-type",
+      "required": false,
+      "type": "string",
+      "description": "Incident type",
+      "validation": "Use with --incident-id."
+    },
+    {
+      "name": "--incident-id",
+      "required": false,
+      "type": "string",
+      "description": "Incident ID",
+      "validation": "Use with --incident-type."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_unit_of_measure_quantities_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_unit_of_measure_quantity.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_unit_of_measure_quantity_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_unit_of_measure_quantity_resource.rb"
+    }
+  ]
+}

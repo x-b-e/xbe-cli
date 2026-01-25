@@ -1,0 +1,43 @@
+{
+  "id": "4a402a28bff925475517eb44627d34edc3b2958098447178bd4db0aebc670d5c",
+  "full_path": "view incident-unit-of-measure-quantities list",
+  "description": "List incident unit of measure quantities",
+  "permissions": "User must be authorized to view the related incidents per IncidentPolicy scope; non-admins only see quantities for incidents within their incident scope.",
+  "side_effects": null,
+  "validation_notes": "--incident-id requires --incident-type.",
+  "flags": [
+    {
+      "name": "--incident-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident ID (requires --incident-type)",
+      "validation": "Requires --incident-type."
+    },
+    {
+      "name": "--incident-type",
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident type"
+    },
+    {
+      "name": "--unit-of-measure",
+      "required": false,
+      "type": "string",
+      "description": "Filter by unit of measure ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_unit_of_measure_quantities_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_unit_of_measure_quantity_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_unit_of_measure_quantity_policy.rb"
+    }
+  ]
+}

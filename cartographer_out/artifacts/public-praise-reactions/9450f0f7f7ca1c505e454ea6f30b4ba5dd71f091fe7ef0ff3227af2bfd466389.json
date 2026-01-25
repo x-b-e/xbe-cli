@@ -1,0 +1,29 @@
+{
+  "id": "9450f0f7f7ca1c505e454ea6f30b4ba5dd71f091fe7ef0ff3227af2bfd466389",
+  "full_path": "do public-praise-reactions delete",
+  "description": "Delete a public praise reaction.",
+  "permissions": "Only the user who created the reaction can delete it.",
+  "side_effects": "Deletes a public praise reaction.",
+  "validation_notes": "The <id> argument is required. --confirm is required for deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_public_praise_reactions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_reaction_policy.rb"
+    }
+  ]
+}

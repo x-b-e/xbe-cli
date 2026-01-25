@@ -1,0 +1,60 @@
+{
+  "id": "f58699ef393354ffe57e110fc4b0a95fd1cdc337b982d1703f261ed4454dd978",
+  "full_path": "do file-attachments create",
+  "description": "Create a new file attachment.",
+  "permissions": "Any authenticated user can create a file attachment.",
+  "side_effects": "Creates a file attachment and may trigger attached-to side effects, such as action item notifications, prediction knowledge base generation, and touching certain attached records.",
+  "validation_notes": "--file-name and --object-key are required. --attached-to-type and --attached-to-id must be set together. The attached_to resource must be attachable. file_name must be present.",
+  "flags": [
+    {
+      "name": "--file-name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "File name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--object-key",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "S3 object key (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--attached-to-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Attached resource type (e.g., projects)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--attached-to-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Attached resource ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_file_attachments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/file_attachment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/file_attachment.rb"
+    }
+  ]
+}

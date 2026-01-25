@@ -1,0 +1,64 @@
+{
+  "id": "5b59c3b656e5f609e01eee380c0fe4eb9a4607582c4dadde4cd2e2c3498031ec",
+  "full_path": "view project-bid-locations list",
+  "description": "List project bid locations with filtering and pagination.",
+  "permissions": "Visible if allowed by ProjectBidLocationPolicy scope. Non-admin users can see locations for projects that have prediction subjects visible to them or projects whose broker they administer.",
+  "side_effects": null,
+  "validation_notes": "If --near is provided, it must be in the form 'lat|lng|miles'; values with missing parts or blanks are treated as invalid and return no results.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--near",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by proximity (lat|lng|miles)",
+      "default": null,
+      "validation": "Format: lat|lng|miles; if invalid, the filter yields no results."
+    },
+    {
+      "name": "--state-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by state code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--county",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by county name",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_bid_locations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_bid_location_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_bid_location_policy.rb"
+    }
+  ]
+}

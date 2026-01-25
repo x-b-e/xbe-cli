@@ -1,0 +1,31 @@
+{
+  "id": "6ea323675f6eda52d4b2c239b10500515be0707ea006c862f3c4609e8ca259d5",
+  "full_path": "view lineup-dispatch-shifts show",
+  "description": "Show lineup dispatch shift details.",
+  "permissions": "User must be authorized to access the related lineup dispatch lineup via LineupPolicy (admin, customer manager for the lineup customer, broker member for the lineup broker, or manager laborer on a job production plan associated with the lineup).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and must be a non-empty lineup dispatch shift ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_dispatch_shifts_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_dispatch_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

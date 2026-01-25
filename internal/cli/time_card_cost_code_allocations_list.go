@@ -169,7 +169,7 @@ func buildTimeCardCostCodeAllocationRows(resp jsonAPIResponse) []timeCardCostCod
 
 func buildTimeCardCostCodeAllocationRow(resource jsonAPIResource) timeCardCostCodeAllocationRow {
 	details := allocationDetailsValue(resource.Attributes)
-	allocationCount := allocationDetailsCount(details)
+	allocationCount := timeCardAllocationDetailsCount(details)
 	costCodeIDs := costCodeIDsFromResource(resource, details)
 	if allocationCount == 0 && len(costCodeIDs) > 0 {
 		allocationCount = len(costCodeIDs)

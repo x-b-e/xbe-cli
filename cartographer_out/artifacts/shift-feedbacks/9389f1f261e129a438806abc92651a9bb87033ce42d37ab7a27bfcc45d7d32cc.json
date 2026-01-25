@@ -1,0 +1,60 @@
+{
+  "id": "9389f1f261e129a438806abc92651a9bb87033ce42d37ab7a27bfcc45d7d32cc",
+  "full_path": "do shift-feedbacks create",
+  "description": "Create a new shift feedback.",
+  "permissions": "Admin users; otherwise customer or broker members associated with the shift's job, or material supplier members tied to the job production plan.",
+  "side_effects": "Creates a shift feedback and may schedule shift feedback notifications after commit (unless suppressed by reason or broker/shift settings).",
+  "validation_notes": "--tender-job-schedule-shift, --reason, and --rating are required; rating must be between 1 and 5; tender-job-schedule-shift must be related to a broker tender.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reason",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Shift feedback reason ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--rating",
+      "aliases": null,
+      "required": true,
+      "type": "integer",
+      "description": "Rating (required)",
+      "default": null,
+      "validation": "Must be between 1 and 5."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Feedback note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_shift_feedbacks_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/shift_feedback.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/shift_feedback_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "60205be2925286330c599e271324bff88028cf47f56eaae0abf27c332ddfa041",
+  "full_path": "do service-sites update",
+  "description": "Update a service site.",
+  "permissions": "Admins can update service sites. Non-admin users must be manager members of the service site broker.",
+  "side_effects": "Updates service site attributes and may geocode the address unless --skip-geocoding is set.",
+  "validation_notes": "Requires <id> argument (service site ID). At least one of --name, --address, --address-latitude, --address-longitude, or --skip-geocoding must be provided.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Service site name. Example: \"New Name\".",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full address. Example: \"200 Main St, Chicago, IL\".",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address latitude.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--address-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Address longitude.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip geocoding the address.",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_service_sites_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_site_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_site_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/service_site.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/geocoded_attributes.rb"
+    }
+  ]
+}

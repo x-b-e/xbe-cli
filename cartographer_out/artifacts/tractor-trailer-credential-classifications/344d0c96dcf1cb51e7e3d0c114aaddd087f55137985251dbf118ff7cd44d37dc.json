@@ -1,0 +1,33 @@
+{
+  "description": "Delete a tractor/trailer credential classification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do tractor-trailer-credential-classifications delete",
+  "id": "344d0c96dcf1cb51e7e3d0c114aaddd087f55137985251dbf118ff7cd44d37dc",
+  "permissions": "Admins can delete classifications. Non-admins can delete classifications only if they are practically a member of the organization (trucker) that owns the classification.",
+  "side_effects": "Deletes a tractor/trailer credential classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tractor_trailer_credential_classifications_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/tractor_trailer_credential_classification.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tractor_trailer_credential_classification_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required. Classifications with tractor or trailer credentials assigned cannot be deleted."
+}

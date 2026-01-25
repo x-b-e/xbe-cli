@@ -1,0 +1,19 @@
+{
+  "id": "48423aa36ede9ee370e796de7dc3ef5021e05c1bf1211c1222a784d85babd08e",
+  "full_path": "view material-transaction-field-scopes list",
+  "description": "List material transaction field scopes.",
+  "permissions": "Admin users only. Listing material transaction field scopes requires current_user.is_admin? on the server.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_field_scopes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_field_scope_resource.rb"
+    }
+  ]
+}

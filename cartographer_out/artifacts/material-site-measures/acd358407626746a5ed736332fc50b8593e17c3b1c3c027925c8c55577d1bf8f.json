@@ -1,0 +1,33 @@
+{
+  "id": "acd358407626746a5ed736332fc50b8593e17c3b1c3c027925c8c55577d1bf8f",
+  "full_path": "view material-site-measures list",
+  "description": "List material site measures with filtering and pagination.",
+  "permissions": "Authorized by MaterialSiteMeasurePolicy; index is allowed and the non-admin scope resolves to all material site measures.",
+  "side_effects": null,
+  "validation_notes": "Slug filter is an exact match; example: mixing-temperature.",
+  "flags": [
+    {
+      "name": "slug",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by slug (exact match)",
+      "default": "",
+      "validation": "Exact match; example: mixing-temperature."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_site_measures_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_measure_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_measure_policy.rb"
+    }
+  ]
+}

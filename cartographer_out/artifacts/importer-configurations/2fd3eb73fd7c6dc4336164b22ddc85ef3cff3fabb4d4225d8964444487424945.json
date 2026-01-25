@@ -1,0 +1,35 @@
+{
+  "id": "2fd3eb73fd7c6dc4336164b22ddc85ef3cff3fabb4d4225d8964444487424945",
+  "full_path": "view importer-configurations show",
+  "description": "Show the full details of an importer configuration.",
+  "permissions": "Admin users only.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "Requires importer configuration ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/importer_configurations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/free_ticketing/importer_configuration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/free_ticketing/importer_configuration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/free_ticketing/importer_configuration.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/free_ticketing/importer_configurations_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/free_ticketing/importer_configuration_policy_spec.rb"
+    }
+  ]
+}

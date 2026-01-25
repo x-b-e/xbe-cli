@@ -1,0 +1,64 @@
+{
+  "id": "34434e38c9aee2b21f54289bf8b5bdb8603e65794775c511e1019660e9c4f786",
+  "full_path": "do invoice-generations create",
+  "description": "Create an invoice generation",
+  "permissions": "Admins can create invoice generations. Non-admin users must be manager members of the broker associated with the organization; policy also permits creation when the organization is nil (though the CLI requires an organization).",
+  "side_effects": "Creates an invoice generation record and enqueues asynchronous processing via InvoiceGenerationWorker; may also warm related database caches.",
+  "validation_notes": "--organization-type and --organization-id are required. organization_type must be Broker, Customer, or Trucker. time-card-ids must relate to the specified organization. New invoice generations are rejected if time card IDs overlap with an existing generation (unless overlapping validation is disabled by feature flag).",
+  "flags": [
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization type (brokers, customers, truckers) (required)",
+      "default": null,
+      "validation": "Required. Expected values: brokers, customers, truckers."
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--time-card-ids",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Time card IDs (comma-separated or repeated)",
+      "default": null,
+      "validation": "Comma-separated or repeated values."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Generation note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_invoice_generations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_generation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_generation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice_generation.rb"
+    }
+  ]
+}

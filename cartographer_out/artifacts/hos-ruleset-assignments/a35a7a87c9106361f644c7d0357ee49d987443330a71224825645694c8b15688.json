@@ -1,0 +1,91 @@
+{
+  "id": "a35a7a87c9106361f644c7d0357ee49d987443330a71224825645694c8b15688",
+  "full_path": "view hos-ruleset-assignments list",
+  "description": "List HOS ruleset assignments.",
+  "permissions": "Admins can list all HOS ruleset assignments; non-admin users can list assignments for brokers where they are members (same branch), based on policy scope.",
+  "side_effects": null,
+  "validation_notes": "effective-at-min and effective-at-max must be ISO 8601 date-time strings when provided. is-effective-at expects true/false.",
+  "flags": [
+    {
+      "name": "broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "hos-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by HOS day ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user (driver) ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver ID (alias for --user)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "effective-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by effective-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "effective-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by effective-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "is-effective-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of effective-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_ruleset_assignments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_ruleset_assignment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_ruleset_assignment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/hos_ruleset_assignment_policy_spec.rb"
+    }
+  ]
+}

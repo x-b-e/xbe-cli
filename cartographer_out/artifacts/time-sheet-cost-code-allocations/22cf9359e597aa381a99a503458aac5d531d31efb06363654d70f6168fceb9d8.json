@@ -1,0 +1,42 @@
+{
+  "id": "22cf9359e597aa381a99a503458aac5d531d31efb06363654d70f6168fceb9d8",
+  "full_path": "do time-sheet-cost-code-allocations create",
+  "description": "Create a time sheet cost code allocation.",
+  "permissions": "User must be an admin or a member of the customer associated with the time sheet customer.",
+  "side_effects": "After commit, updates related project_phase_cost_item_actuals for the allocation.",
+  "validation_notes": "The --time-sheet and --details flags are required. --details must be a JSON array of objects and include at least one allocation; each allocation may only include cost_code_id, percentage, and optional project_cost_classification_id; percentage must be between 0 and 1; total allocation percentage must equal 1.0 (100%); cost_code_id values must belong to the customer; duplicate cost_code_id values are not allowed.",
+  "flags": [
+    {
+      "name": "--time-sheet",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time sheet ID (required)",
+      "default": null,
+      "validation": "non-empty"
+    },
+    {
+      "name": "--details",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Allocation details JSON array (required)",
+      "default": null,
+      "validation": "JSON array of objects; must include at least one allocation"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_cost_code_allocations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/cost_code_allocation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/cost_code_allocation_policy.rb"
+    }
+  ]
+}

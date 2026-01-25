@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a question.",
+  "flags": [],
+  "full_path": "view questions show",
+  "id": "11001daef43eff20e94912f641ba5f4707859a070a4ea78cae1c2ce48c73891a",
+  "permissions": "Requires authentication. Admins can view any question; non-admins can view questions they asked and public questions visible to their organization scope (including org-children when enabled).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/questions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/question_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/question_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required and cannot be empty."
+}

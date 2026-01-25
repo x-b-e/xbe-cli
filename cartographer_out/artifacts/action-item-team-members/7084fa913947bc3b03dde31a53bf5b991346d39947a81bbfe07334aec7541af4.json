@@ -1,0 +1,55 @@
+{
+  "id": "7084fa913947bc3b03dde31a53bf5b991346d39947a81bbfe07334aec7541af4",
+  "full_path": "view action-item-team-members list",
+  "description": "List action item team members with filtering and pagination",
+  "permissions": "Allowed for users who can access the related action items under ActionItemTeamMemberPolicy scope (delegated to ActionItem policy scope), including admins and users with qualifying memberships or who are team members on the action item.",
+  "side_effects": null,
+  "validation_notes": "Filter is-responsible-person must be a strict boolean (true/false).",
+  "flags": [
+    {
+      "name": "--action-item",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by action item ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of action item IDs."
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of user IDs."
+    },
+    {
+      "name": "--is-responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by responsible person status (true/false)",
+      "default": null,
+      "validation": "Strict boolean: true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/action_item_team_members_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_team_member_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_team_member_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "992bb6d73a2a215555523d40f73454021b6de5e4a8eba4f062ff27db220a71ae",
+  "full_path": "do prediction-subject-gaps create",
+  "description": "Create a prediction subject gap",
+  "permissions": "Admins can create prediction subject gaps. Non-admins can create gaps when they are members of the prediction subject.",
+  "side_effects": "Creates a prediction subject gap.",
+  "validation_notes": "--prediction-subject is required. --gap-type is required and must be one of: actual_vs_walk_away, actual_vs_consensus, walk_away_vs_consensus. --status, if provided, must be one of: pending, approved. prediction_subject_id must be unique per gap_type. Creation validates prediction subject prerequisites based on gap_type: actual_vs_walk_away requires subject kind lowest_losing_bid, actual value, and walk away amount; actual_vs_consensus requires actual value and consensus prediction; walk_away_vs_consensus requires subject kind lowest_losing_bid, walk away amount, and consensus prediction.",
+  "flags": [
+    {
+      "name": "--prediction-subject",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Prediction subject ID. Example: --prediction-subject 123",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--gap-type",
+      "aliases": null,
+      "required": true,
+      "type": "enum",
+      "description": "Gap type (actual_vs_walk_away, actual_vs_consensus, walk_away_vs_consensus). Example: --gap-type actual_vs_consensus",
+      "default": null,
+      "validation": "one of: actual_vs_walk_away, actual_vs_consensus, walk_away_vs_consensus"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Status (pending, approved). Example: --status pending",
+      "default": null,
+      "validation": "one of: pending, approved"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_subject_gaps_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_gap_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_subject_gap.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_subject_gap_resource.rb"
+    }
+  ]
+}

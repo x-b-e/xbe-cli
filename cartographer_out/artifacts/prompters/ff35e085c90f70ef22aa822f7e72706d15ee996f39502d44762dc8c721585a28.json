@@ -1,0 +1,19 @@
+{
+  "id": "ff35e085c90f70ef22aa822f7e72706d15ee996f39502d44762dc8c721585a28",
+  "full_path": "view prompters show",
+  "description": "Show the full details of a specific prompter.",
+  "permissions": "User must be an admin to access prompters; non-admin scope resolves to no records.",
+  "side_effects": null,
+  "validation_notes": "Prompter id argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prompters_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prompter_policy.rb"
+    }
+  ]
+}

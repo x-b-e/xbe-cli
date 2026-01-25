@@ -1,0 +1,19 @@
+{
+  "description": "Show the full details of a specific ingest raw record.",
+  "flags": [],
+  "full_path": "view raw-records show",
+  "id": "c043d8d2526a4573dfb3b7f2571df7b062cd8a323b2312c4355c2bdaf3e32b01",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/raw_records_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/ingest/raw_record_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required (example: 123)."
+}

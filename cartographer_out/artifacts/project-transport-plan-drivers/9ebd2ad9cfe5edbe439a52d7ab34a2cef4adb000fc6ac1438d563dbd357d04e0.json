@@ -1,0 +1,126 @@
+{
+  "description": "Create a new project transport plan driver assignment",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport plan ID (required)",
+      "name": "--project-transport-plan",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Segment start ID (required)",
+      "name": "--segment-start",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Segment end ID (required)",
+      "name": "--segment-end",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Driver (user) ID",
+      "name": "--driver",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Assignment status (editing/pending/active)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing|pending|active"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirmation note",
+      "name": "--confirm-note",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Max confirmation time (RFC3339)",
+      "name": "--confirm-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339"
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Skip assignment rules validation",
+      "name": "--skip-assignment-rules-validation",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Reason for assignment rule override",
+      "name": "--assignment-rule-override-reason",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Explicit inbound project office ID",
+      "name": "--inbound-project-office-explicit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-drivers create",
+  "id": "9ebd2ad9cfe5edbe439a52d7ab34a2cef4adb000fc6ac1438d563dbd357d04e0",
+  "permissions": "Creation is delegated to the related project transport plan; allowed only if ProjectTransportPlanPolicy permits create on the referenced plan.",
+  "side_effects": "Sets last_updated_by to the current user; may create or supersede pending driver confirmations when status is pending; may set inbound_project_office_implicit_cached based on segment end; may mark related transport orders managed when created by user.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_drivers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_driver_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/project_transport_plan_assignable_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_driver.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_driver_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--project-transport-plan, --segment-start, and --segment-end are required. status must be one of editing, pending, active and is required server-side. confirm-at-max must be RFC3339 when provided. If status is active, a driver must be assigned. segment-start and segment-end must belong to the same project transport plan, and segment-start position must be <= segment-end position. When a driver is present, all segments in range must have a trucker, the driver must have membership with each trucker in the range, and the driver cannot overlap existing assignments for the same plan. Inbound project offices must belong to the same broker as the project."
+}

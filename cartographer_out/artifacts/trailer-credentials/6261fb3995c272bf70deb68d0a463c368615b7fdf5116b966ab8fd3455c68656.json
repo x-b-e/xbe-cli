@@ -1,0 +1,42 @@
+{
+  "id": "6261fb3995c272bf70deb68d0a463c368615b7fdf5116b966ab8fd3455c68656",
+  "full_path": "do trailer-credentials update",
+  "description": "Update a trailer credential",
+  "permissions": "Admin users can update trailer credentials. Non-admin users can update when they are a manager of the trailer's trucker or broker and the tractor-trailer credential classification is within their policy scope.",
+  "side_effects": "Updates issue and/or expiration dates for the specified trailer credential.",
+  "validation_notes": "At least one of --issued-on or --expires-on must be provided. issued-on and expires-on must be in YYYY-MM-DD format when provided. expires-on must be on or after issued-on when both are set. Credentials cannot overlap existing credentials for the same trailer and classification.",
+  "flags": [
+    {
+      "name": "--issued-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Issue date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    },
+    {
+      "name": "--expires-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expiration date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trailer_credentials_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trailer_credential_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trailer_credential.rb"
+    }
+  ]
+}

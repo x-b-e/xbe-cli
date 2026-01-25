@@ -1,0 +1,23 @@
+{
+  "id": "ac4527d206d9fdc60843d2e603e44bab003806cd0a196d2f333ff1e0396496e1",
+  "full_path": "view user-languages show",
+  "description": "Show the full details of a user language preference.",
+  "permissions": "Admins can view any user language; non-admins can view user languages whose users are within the calling user permitted User policy scope.",
+  "side_effects": null,
+  "validation_notes": "Argument <id> is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_languages_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_language_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_language_resource.rb"
+    }
+  ]
+}

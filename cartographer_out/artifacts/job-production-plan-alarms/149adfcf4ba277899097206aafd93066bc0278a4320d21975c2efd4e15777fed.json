@@ -1,0 +1,60 @@
+{
+  "description": "Update a job production plan alarm",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tonnage trigger",
+      "name": "--tons",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than 0 if provided and not empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Base material type fully qualified name",
+      "name": "--base-material-type-fully-qualified-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Max latency in minutes",
+      "name": "--max-latency-minutes",
+      "required": false,
+      "type": "string",
+      "validation": "Must be an integer greater than 0 if provided and not empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Alarm note",
+      "name": "--note",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do job-production-plan-alarms update",
+  "id": "149adfcf4ba277899097206aafd93066bc0278a4320d21975c2efd4e15777fed",
+  "permissions": null,
+  "side_effects": "Updates a job production plan alarm.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_alarms.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_job_production_plan_alarms_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_alarm_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires an alarm ID argument. At least one updatable field must be provided. If provided, --tons must be a number greater than 0 and cannot be empty. If provided, --max-latency-minutes must be an integer greater than 0 and cannot be empty."
+}

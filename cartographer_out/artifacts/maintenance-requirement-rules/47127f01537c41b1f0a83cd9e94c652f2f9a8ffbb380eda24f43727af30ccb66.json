@@ -1,0 +1,23 @@
+{
+  "id": "47127f01537c41b1f0a83cd9e94c652f2f9a8ffbb380eda24f43727af30ccb66",
+  "full_path": "view maintenance-requirement-rules show",
+  "description": "Show full details of a maintenance requirement rule",
+  "permissions": "Admins can view all maintenance requirement rules. Managers who are members of a broker can view all rules for their brokers. Operations members with manager business unit membership can view broker-level rules and rules for business units they belong to. Operations members can view rules only for their business units. Technician business unit members can view rules for their business units.",
+  "side_effects": null,
+  "validation_notes": "Requires a maintenance requirement rule ID argument; blank IDs are rejected.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/maintenance_requirement_rules_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/maintenance_requirement_rule_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_policy.rb"
+    }
+  ]
+}

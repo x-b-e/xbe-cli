@@ -1,0 +1,117 @@
+{
+  "description": "Update an existing project transport plan driver assignment",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Assignment status (editing/pending/active)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing|pending|active"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirmation note",
+      "name": "--confirm-note",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Max confirmation time (RFC3339)",
+      "name": "--confirm-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339"
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Skip assignment rules validation",
+      "name": "--skip-assignment-rules-validation",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Reason for assignment rule override",
+      "name": "--assignment-rule-override-reason",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Segment start ID",
+      "name": "--segment-start",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Segment end ID",
+      "name": "--segment-end",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Driver (user) ID",
+      "name": "--driver",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Explicit inbound project office ID",
+      "name": "--inbound-project-office-explicit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-drivers update",
+  "id": "f9de625134825d03d91ebd5a031e350e4c3fdd3d8ef628b1bcb961868fcc857b",
+  "permissions": "Updates are delegated to the related project transport plan; allowed only if ProjectTransportPlanPolicy permits update on the referenced plan.",
+  "side_effects": "Sets last_updated_by to the current user; may create or supersede pending driver confirmations when status is pending or driver/segment changes; removing a driver resets status to editing; may set inbound_project_office_implicit_cached based on segment end; may mark related transport orders managed when updated by user.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_drivers_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_driver_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/project_transport_plan_assignable_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_driver.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_driver_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one field must be specified to update. --segment-start and --segment-end cannot be empty when provided. --driver and --inbound-project-office-explicit accept empty values to clear. status must be one of editing, pending, active. confirm-at-max must be RFC3339 when provided. If status is active, a driver must be assigned. segment-start and segment-end must belong to the same project transport plan, and segment-start position must be <= segment-end position. When a driver is present, all segments in range must have a trucker, the driver must have membership with each trucker in the range, and the driver cannot overlap existing assignments for the same plan. Inbound project offices must belong to the same broker as the project."
+}

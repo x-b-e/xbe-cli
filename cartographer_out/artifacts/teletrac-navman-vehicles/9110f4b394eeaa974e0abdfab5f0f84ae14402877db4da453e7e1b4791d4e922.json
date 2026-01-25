@@ -1,0 +1,44 @@
+{
+  "id": "9110f4b394eeaa974e0abdfab5f0f84ae14402877db4da453e7e1b4791d4e922",
+  "full_path": "do teletrac-navman-vehicles update",
+  "description": "Update Teletrac Navman vehicle trailer or tractor assignments.",
+  "permissions": "Admin users can update Teletrac Navman vehicle assignments; non-admin users can update vehicles for brokers where they are members (scope limited to broker membership).",
+  "side_effects": "Updates Teletrac Navman vehicle tractor and/or trailer relationships, including clearing assignments when provided an empty string.",
+  "validation_notes": "Requires <id> argument (Teletrac Navman vehicle ID). At least one of --tractor or --trailer must be provided; empty string clears the corresponding assignment.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID (use empty string to clear). Example: --tractor 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID (use empty string to clear). Example: --trailer 789 or --trailer \"\".",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_teletrac_navman_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/teletrac_navman_vehicle_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "description": "List lineup job production plans with filtering and pagination",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by lineup ID (example: 123)",
+      "name": "--lineup",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan ID (example: 456)",
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view lineup-job-production-plans list",
+  "id": "bb8383f3b4e4fdbce82572b34b2c804aa905fddd2d5db8371457ec41999c00d5",
+  "permissions": "User must be authorized for the related lineup; LineupJobProductionPlanPolicy delegates access to the lineup relationship.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/lineup_job_production_plans_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_job_production_plan_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_job_production_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

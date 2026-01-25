@@ -1,0 +1,23 @@
+{
+  "id": "0bf7d5f4b06e616349dadb93d3f7852099e138cd2d1dab8a162ef9456533e1ef",
+  "full_path": "view efficiency-incidents show",
+  "description": "Show efficiency incident details",
+  "permissions": "Admins can view any efficiency incident. Non-admins can view an incident if the subject is in scope for them (subject policy show) or if they created the incident.",
+  "side_effects": null,
+  "validation_notes": "The efficiency incident ID argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/efficiency_incidents_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/efficiency_incident_policy.rb"
+    }
+  ]
+}

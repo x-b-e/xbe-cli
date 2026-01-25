@@ -1,0 +1,76 @@
+{
+  "description": "List retainer payments with filtering and pagination.",
+  "flags": [
+    {
+      "default": null,
+      "description": "Filter by retainer period ID.",
+      "name": "--retainer-period",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "default": null,
+      "description": "Filter by status.",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: editing, approved, batched, exported. Example: approved."
+    },
+    {
+      "default": null,
+      "description": "Filter by retainer type.",
+      "name": "--retainer-type",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: BrokerRetainer, CustomerRetainer. Example: CustomerRetainer."
+    },
+    {
+      "default": null,
+      "description": "Filter by buyer organization ID.",
+      "name": "--buyer",
+      "required": false,
+      "type": "string",
+      "validation": "Example: 456."
+    },
+    {
+      "default": null,
+      "description": "Filter by seller organization ID.",
+      "name": "--seller",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "default": null,
+      "description": "Filter by minimum pay-on date.",
+      "name": "--pay-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD. Example: 2025-01-15."
+    }
+  ],
+  "full_path": "view retainer-payments list",
+  "id": "45d7823153930bd71b90f819c82897d04b1c591c8c9e2de1dc332844d9375eb2",
+  "permissions": "Read access is limited to retainer payments within RetainerPaymentPolicy scope: retainer_id must be in the Retainer policy scope, which includes retainers where the user is a member/manager of the buyer or seller organization (customer, broker, or trucker) per RetainerPolicy scope rules.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/retainer_payments_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/retainer_payment_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_payment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters are applied server-side. status filter is an enum (editing, approved, batched, exported). retainer-type filter expects retainer STI types (BrokerRetainer, CustomerRetainer). pay-on-min expects YYYY-MM-DD; server applies it as created_on >= (max pay_on_min) - 7 days (PAYMENT_TERMS)."
+}

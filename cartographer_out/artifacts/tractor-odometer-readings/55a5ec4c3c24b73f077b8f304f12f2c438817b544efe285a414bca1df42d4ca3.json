@@ -1,0 +1,100 @@
+{
+  "id": "55a5ec4c3c24b73f077b8f304f12f2c438817b544efe285a414bca1df42d4ca3",
+  "full_path": "do tractor-odometer-readings create",
+  "description": "Create a tractor odometer reading.",
+  "permissions": "Admins can create. Non-admins can create if the reading has no tractor yet, if they are a member of the broker for the reading, if they are the driver for the driver day, or if they are a manager member of the trucker for the reading.",
+  "side_effects": "After commit, updates driver day odometer calculations when value or driver day changes.",
+  "validation_notes": "--tractor, --unit-of-measure, --value, and --state-code are required. reading-on must be YYYY-MM-DD when provided. reading-time must be HH:MM or HH:MM:SS when provided. date-sequence must be an integer when provided. value must be numeric and between 0 and 1,000,000. state-code must be a US state abbreviation. unit-of-measure must be one of linear_meter or mile. If driver-day is set, tractor must be on that driver day.",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tractor ID (required). Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Unit of measure ID (required). Example: 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reading value (required). Example: 120345.6.",
+      "default": null,
+      "validation": "numeric"
+    },
+    {
+      "name": "--state-code",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "State code (2-letter, required unless derived from tractor). Example: IL.",
+      "default": null,
+      "validation": "2-letter US state abbreviation"
+    },
+    {
+      "name": "--driver-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Driver day ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reading-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reading date (YYYY-MM-DD). Example: 2025-01-15.",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--reading-time",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reading time (HH:MM or HH:MM:SS). Example: 08:30.",
+      "default": null,
+      "validation": "HH:MM or HH:MM:SS"
+    },
+    {
+      "name": "--date-sequence",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Date sequence (integer).",
+      "default": null,
+      "validation": "integer"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tractor_odometer_readings_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_odometer_reading_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tractor_odometer_reading.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/tractor_reading.rb"
+    }
+  ]
+}

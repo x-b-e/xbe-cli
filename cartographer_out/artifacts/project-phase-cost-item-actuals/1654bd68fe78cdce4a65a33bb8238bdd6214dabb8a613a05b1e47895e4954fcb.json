@@ -1,0 +1,72 @@
+{
+  "description": "Update a project phase cost item actual.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Actual quantity. Example: --quantity 12.",
+      "name": "--quantity",
+      "required": false,
+      "type": "string",
+      "validation": "Must be numeric when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Explicit price per unit. Example: --price-per-unit-explicit 30.5.",
+      "name": "--price-per-unit-explicit",
+      "required": false,
+      "type": "string",
+      "validation": "Must be numeric when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project phase revenue item actual ID.",
+      "name": "--project-phase-revenue-item-actual",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Created-by user ID (admin only).",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, the created-by user must be permitted to update this record."
+    }
+  ],
+  "full_path": "do project-phase-cost-item-actuals update",
+  "id": "1654bd68fe78cdce4a65a33bb8238bdd6214dabb8a613a05b1e47895e4954fcb",
+  "permissions": "Allowed for admins. Non-admins are allowed if they can update the related project phase cost item, or if they are a manager member of the job production plan customer, a manager laborer, a laborer who can manage projects, or the job production plan planner/project manager.",
+  "side_effects": "Updates the project phase cost item actual record; after commit it triggers job production plan recap generation and touches the project actual estimate set.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phase_cost_item_actuals_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_project_phase_cost_item_actuals.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_cost_item_actual_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_cost_item_actual_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_phase_cost_item_actual.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/validate_created_by_permitted_to_update.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one attribute or relationship must be provided to update. Project phase revenue item actual must be related to the same project phase as the project phase cost item. Quantity must be numeric if provided. Price per unit explicit must be numeric if provided. Cost code allocation must be nil if there is no cost code; if present it must include the cost code and match the project resource classification. Created-by can only be set to a user permitted to update the record."
+}

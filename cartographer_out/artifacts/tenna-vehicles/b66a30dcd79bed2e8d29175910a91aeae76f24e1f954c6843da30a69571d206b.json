@@ -1,0 +1,274 @@
+{
+  "id": "b66a30dcd79bed2e8d29175910a91aeae76f24e1f954c6843da30a69571d206b",
+  "full_path": "view tenna-vehicles list",
+  "description": "List Tenna vehicles with filtering and pagination.",
+  "permissions": "Admin users can list Tenna vehicles. Non-admin users only see vehicles scoped to brokers they are a member of (via broker membership visibility).",
+  "side_effects": null,
+  "validation_notes": "Boolean filter flags (has-*, is-*) require strict true/false values; other values are rejected. Date-time filters require non-empty, parseable date-time values (ISO 8601 per help text).",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor assignment (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--has-trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer assignment (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--has-equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment assignment (true/false)",
+      "default": null,
+      "validation": "Must be true or false. Example: true."
+    },
+    {
+      "name": "--assigned-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by assigned-at timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--equipment-assigned-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment assigned-at timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--integration-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration identifier",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum trailer set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--trailer-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum trailer set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--is-trailer-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has trailer set timestamp (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--tractor-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum tractor set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--tractor-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum tractor set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--is-tractor-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has tractor set timestamp (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--equipment-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum equipment set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--equipment-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum equipment set timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--is-equipment-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has equipment set timestamp (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "Must be a non-empty, parseable date-time."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tenna_vehicles_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tenna_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/equipment_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    }
+  ]
+}

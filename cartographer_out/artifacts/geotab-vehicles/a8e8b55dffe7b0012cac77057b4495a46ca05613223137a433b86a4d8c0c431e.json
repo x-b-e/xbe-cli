@@ -1,0 +1,19 @@
+{
+  "id": "a8e8b55dffe7b0012cac77057b4495a46ca05613223137a433b86a4d8c0c431e",
+  "full_path": "view geotab-vehicles show",
+  "description": "Show geotab vehicle details",
+  "permissions": "Admins can view any geotab vehicle; non-admins can view vehicles for brokers where they have membership (policy scope).",
+  "side_effects": null,
+  "validation_notes": "The geotab vehicle ID argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/geotab_vehicles_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Show full details of a communication.",
+  "flags": [],
+  "full_path": "view communications show",
+  "id": "8172ee74ffa8d852fcc52c4d2d9d7e35801209a8a8540a8466663160197be040",
+  "permissions": "Any authenticated admin can view any communication. Non-admin users can view communications that are within their scope (their own or users they can access via active broker memberships).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/communications_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/communication_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "spec/policies/communication_policy_spec.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "id argument is required and cannot be blank."
+}

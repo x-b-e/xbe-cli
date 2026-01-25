@@ -1,0 +1,69 @@
+{
+  "id": "c4b157fa340ab5b1c6b45c357229cf40e6f26efa81b870485f6f0f6fecf877fc",
+  "full_path": "do certification-types create",
+  "description": "Create a new certification type.",
+  "permissions": "User must be an admin or a manager who is a member of the broker specified on the certification type.",
+  "side_effects": "Creates a certification type.",
+  "validation_notes": "Requires --name, --can-apply-to, and --broker. Name must be unique per broker. can-apply-to must be one of: Trucker, User, Customer. can-be-requirement-of values must be among: Job, CustomerTender, BrokerTender, JobProductionPlan, Project, Developer, Broker. requires-expiration must be boolean if provided.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Certification type name (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--can-apply-to",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Entity type this applies to (required, e.g., Trucker, User).",
+      "default": null,
+      "validation": "Must be one of: Trucker, User, Customer."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-expiration",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether certifications require an expiration date.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--can-be-requirement-of",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Entity types this can be a requirement of (comma-separated).",
+      "default": null,
+      "validation": "Values must be among: Job, CustomerTender, BrokerTender, JobProductionPlan, Project, Developer, Broker."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_certification_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/certification_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/certification_type_policy.rb"
+    }
+  ]
+}

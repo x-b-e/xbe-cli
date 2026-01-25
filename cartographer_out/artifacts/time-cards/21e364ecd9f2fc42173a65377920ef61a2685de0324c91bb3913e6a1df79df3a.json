@@ -1,0 +1,140 @@
+{
+  "id": "21e364ecd9f2fc42173a65377920ef61a2685de0324c91bb3913e6a1df79df3a",
+  "full_path": "do time-cards create",
+  "description": "Create a time card.",
+  "permissions": "Allowed if user is admin; or a broker member; or a customer manager on a cost-plus customer; or a trucker manager; or a trucker member who is the tender job schedule shift driver or shift driver. Changing explicit_enforce_ticket_number_uniqueness also requires admin or broker manager.",
+  "side_effects": "Creates a time card record.",
+  "validation_notes": "--broker-tender and --tender-job-schedule-shift are required; --start-at and --end-at expect ISO 8601; Boolean flags require true/false where specified; approval-process is only applied if the user is a broker member or admin; generate-broker-invoice, generate-trucker-invoice, and submitted-customer-travel-minutes are only creatable by admins or users with a managed broker.",
+  "flags": [
+    {
+      "name": "--broker-tender",
+      "required": true,
+      "type": "string",
+      "description": "Broker tender ID (required)"
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID (required)"
+    },
+    {
+      "name": "--ticket-number",
+      "required": false,
+      "type": "string",
+      "description": "Ticket number"
+    },
+    {
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "description": "Start time (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "description": "End time (ISO 8601)",
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--down-minutes",
+      "required": false,
+      "type": "string",
+      "description": "Down minutes"
+    },
+    {
+      "name": "--submitted-travel-minutes",
+      "required": false,
+      "type": "string",
+      "description": "Submitted travel minutes"
+    },
+    {
+      "name": "--submitted-customer-travel-minutes",
+      "required": false,
+      "type": "string",
+      "description": "Submitted customer travel minutes"
+    },
+    {
+      "name": "--skip-auto-submission-upon-material-transaction-acceptance",
+      "required": false,
+      "type": "string",
+      "description": "Skip auto submission upon material transaction acceptance (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--explicit-is-trailer-required-for-approval",
+      "required": false,
+      "type": "string",
+      "description": "Explicit trailer required (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--explicit-enforce-ticket-number-uniqueness",
+      "required": false,
+      "type": "string",
+      "description": "Explicit ticket number uniqueness (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--enforce-ticket-number-uniqueness",
+      "required": false,
+      "type": "string",
+      "description": "Enforce ticket number uniqueness (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-time-card-creating-time-sheet-line-item-explicit",
+      "required": false,
+      "type": "string",
+      "description": "Create time sheet line item (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--explicit-is-invoiceable-when-approved",
+      "required": false,
+      "type": "string",
+      "description": "Explicit invoiceable when approved (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--approval-process",
+      "required": false,
+      "type": "string",
+      "description": "Approval process"
+    },
+    {
+      "name": "--generate-broker-invoice",
+      "required": false,
+      "type": "string",
+      "description": "Generate broker invoice (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--generate-trucker-invoice",
+      "required": false,
+      "type": "string",
+      "description": "Generate trucker invoice (true/false)",
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_cards_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_cards_controller.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "3eb4c8981fbf526e3f443f009d46c55a27c1729feb3ab33f6863ecbd28a539e0",
+  "full_path": "do job-sites delete",
+  "description": "Delete a job site.",
+  "permissions": "Requires authentication. User must be authorized to update the associated customer (via Customer policy).",
+  "side_effects": "Deletes the job site if allowed; deletion is blocked when related jobs or job production plans exist.",
+  "validation_notes": "The <id> argument is required. --confirm must be set to delete. Deletion is prevented if the job site is associated with jobs or job production plans.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_sites_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_site_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_site.rb"
+    }
+  ]
+}

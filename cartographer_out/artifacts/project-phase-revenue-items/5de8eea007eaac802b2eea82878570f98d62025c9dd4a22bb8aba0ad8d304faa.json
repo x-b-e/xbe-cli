@@ -1,0 +1,23 @@
+{
+  "id": "5de8eea007eaac802b2eea82878570f98d62025c9dd4a22bb8aba0ad8d304faa",
+  "full_path": "view project-phase-revenue-items show",
+  "description": "Show project phase revenue item details.",
+  "permissions": "Authorization is delegated to the related project phase (project_phase).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_phase_revenue_items_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_revenue_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_revenue_item_resource.rb"
+    }
+  ]
+}

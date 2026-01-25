@@ -1,0 +1,19 @@
+{
+  "id": "3a89bd4c3c318fa043e30325885b303a0db97aa04139663ba7befd9aa611a61f",
+  "full_path": "view time-card-scrappages show",
+  "description": "Show time card scrappage details.",
+  "permissions": "Show access is allowed when the record is within the policy scope (ApplicationPolicy#show? checks scope membership).",
+  "side_effects": null,
+  "validation_notes": "Requires a non-empty <id> argument identifying the scrappage.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_scrappages_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

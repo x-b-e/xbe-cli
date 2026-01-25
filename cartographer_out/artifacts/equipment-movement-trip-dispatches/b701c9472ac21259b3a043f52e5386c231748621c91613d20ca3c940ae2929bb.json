@@ -1,0 +1,23 @@
+{
+  "id": "b701c9472ac21259b3a043f52e5386c231748621c91613d20ca3c940ae2929bb",
+  "full_path": "view equipment-movement-trip-dispatches show",
+  "description": "Show the full details of an equipment movement trip dispatch.",
+  "permissions": "Admin users only; policy scope for non-admins resolves to none.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (trip dispatch ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_trip_dispatches_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_dispatch_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_dispatch_resource.rb"
+    }
+  ]
+}

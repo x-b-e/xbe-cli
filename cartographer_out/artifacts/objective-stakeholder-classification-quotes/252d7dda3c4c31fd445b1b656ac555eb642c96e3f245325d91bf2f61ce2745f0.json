@@ -1,0 +1,51 @@
+{
+  "id": "252d7dda3c4c31fd445b1b656ac555eb642c96e3f245325d91bf2f61ce2745f0",
+  "full_path": "do objective-stakeholder-classification-quotes create",
+  "description": "Create an objective stakeholder classification quote",
+  "permissions": "Requires an admin user (ObjectiveStakeholderClassificationQuotePolicy#create?).",
+  "side_effects": "Creates an objective stakeholder classification quote.",
+  "validation_notes": "--objective-stakeholder-classification and --content are required. --is-generated can only be set on create.",
+  "flags": [
+    {
+      "name": "--objective-stakeholder-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Objective stakeholder classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--content",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Quote content",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-generated",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark the quote as generated",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_objective_stakeholder_classification_quotes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/objective_stakeholder_classification_quote_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_stakeholder_classification_quote_policy.rb"
+    }
+  ]
+}

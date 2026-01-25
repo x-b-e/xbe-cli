@@ -1,0 +1,41 @@
+{
+  "id": "47c04d0e978e8d5100fc4c68001dfa27ec8dc8ef658be19b401c6bea0602ddbf",
+  "full_path": "do time-sheet-no-shows update",
+  "description": "Update a time sheet no-show.",
+  "permissions": "User must be authorized to update no-shows for the related time sheet; permission is delegated to the time sheet policy via DelegatedPolicy.",
+  "side_effects": "Updates fields on the specified time sheet no-show record.",
+  "validation_notes": "The <id> argument is required. At least one updatable field must be provided; only --no-show-reason is updatable. no_show_reason must be present when set.",
+  "flags": [
+    {
+      "name": "--no-show-reason",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reason for the no-show",
+      "default": "",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_no_shows_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_no_show_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_sheet_no_show.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_no_show_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    }
+  ]
+}

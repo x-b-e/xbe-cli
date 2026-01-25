@@ -1,0 +1,42 @@
+{
+  "id": "3f0d7b2a35708dfee2a24425a2bc2e31a200d45389bd964693da3071c17764bc",
+  "full_path": "view raw-material-transaction-sales-customers list",
+  "description": "List raw material transaction sales customers with filtering",
+  "permissions": "Admins can list all raw material transaction sales customers. Non-admin users can list records scoped to brokers they are a member of or customers they manage.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/raw_material_transaction_sales_customers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_material_transaction_sales_customer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_material_transaction_sales_customer_policy.rb"
+    }
+  ]
+}

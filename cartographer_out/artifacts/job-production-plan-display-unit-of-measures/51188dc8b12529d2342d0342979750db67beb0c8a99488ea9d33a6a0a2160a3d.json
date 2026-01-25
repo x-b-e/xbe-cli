@@ -1,0 +1,33 @@
+{
+  "id": "51188dc8b12529d2342d0342979750db67beb0c8a99488ea9d33a6a0a2160a3d",
+  "full_path": "do job-production-plan-display-unit-of-measures update",
+  "description": "Update a job production plan display unit of measure",
+  "permissions": "Allowed when the user is authorized to update the related job production plan via JobProductionPlanDisplayUnitOfMeasurePolicy (delegated to JobProductionPlanPolicy).",
+  "side_effects": "Updates the job production plan display unit of measure record.",
+  "validation_notes": "Requires <id> argument. At least one field to update is required; only importance position is supported. Importance position is a 0-based index.",
+  "flags": [
+    {
+      "name": "--importance-position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Update the importance position (0-based index). Example: --importance-position 1.",
+      "default": null,
+      "validation": "0-based index. At least one field must be provided for update."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_display_unit_of_measures_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_display_unit_of_measure_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_display_unit_of_measure_policy.rb"
+    }
+  ]
+}

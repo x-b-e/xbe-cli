@@ -1,0 +1,33 @@
+{
+  "id": "6221ba488ed6a33b1ecf6fae920e42dc1e29f2c70bc915ab97d0eff34a980ab6",
+  "full_path": "do time-sheet-no-shows delete",
+  "description": "Delete a time sheet no-show.",
+  "permissions": "User must be authorized to delete no-shows for the related time sheet; permission is delegated to the time sheet policy via DelegatedPolicy.",
+  "side_effects": "Deletes the specified time sheet no-show record.",
+  "validation_notes": "The <id> argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": "Must be true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_sheet_no_shows_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheet_no_show_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    }
+  ]
+}

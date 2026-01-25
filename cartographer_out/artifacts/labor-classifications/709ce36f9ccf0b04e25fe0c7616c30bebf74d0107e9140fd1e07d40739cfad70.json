@@ -1,0 +1,42 @@
+{
+  "id": "709ce36f9ccf0b04e25fe0c7616c30bebf74d0107e9140fd1e07d40739cfad70",
+  "full_path": "view labor-classifications list",
+  "description": "List labor classifications with filtering and pagination.",
+  "permissions": "Readable by non-admin users; policy scope resolves all records for non-admins.",
+  "side_effects": null,
+  "validation_notes": "Filters support partial, case-insensitive matching for name and abbreviation.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": "Partial match, case-insensitive."
+    },
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by abbreviation (partial match)",
+      "default": null,
+      "validation": "Partial match, case-insensitive."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/labor_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/labor_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/labor_classification_policy.rb"
+    }
+  ]
+}

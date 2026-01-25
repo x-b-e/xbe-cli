@@ -1,0 +1,33 @@
+{
+  "description": "List project transport plan driver assignment recommendations.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport plan driver ID",
+      "name": "--project-transport-plan-driver",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-transport-plan-driver-assignment-recommendations list",
+  "id": "ba1b86a1c09b2709c9fc3f48be1c059cab51691bb0b23e9124157097b685a959",
+  "permissions": "User must be authorized to list project transport plan driver assignment recommendations. For non-admin users, results are limited to recommendations whose project_transport_plan_driver is within the ProjectTransportPlanDriver policy scope (delegated to the related project transport plan).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_driver_assignment_recommendations_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_driver_assignment_recommendation_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_driver_assignment_recommendation_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

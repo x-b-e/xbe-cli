@@ -1,0 +1,104 @@
+{
+  "id": "d896327363dbd10035dc1e13154879ef3877ad7ef1983fda11d5a851d7c7dd4c",
+  "full_path": "view project-transport-plan-segments list",
+  "description": "List segments with filtering and pagination",
+  "permissions": "Requires access to the related project transport plan via ProjectTransportPlanSegmentPolicy (delegated to ProjectTransportPlanPolicy). Non-admin access is granted through project access or being an active driver on the plan.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--project-transport-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--origin",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by origin stop ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--destination",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by destination stop ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-transport-plan-segment-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by segment set ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-tms-order-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external TMS order number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-tms-movement-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external TMS movement number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_segments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_segment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/externally_identifiable_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

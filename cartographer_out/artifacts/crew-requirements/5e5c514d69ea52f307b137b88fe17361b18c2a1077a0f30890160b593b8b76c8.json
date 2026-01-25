@@ -1,0 +1,23 @@
+{
+  "id": "5e5c514d69ea52f307b137b88fe17361b18c2a1077a0f30890160b593b8b76c8",
+  "full_path": "view crew-requirements show",
+  "description": "Show crew requirement details",
+  "permissions": "Allowed if the user can access the crew requirement within their policy scope for job production plans (CrewRequirementPolicy scope).",
+  "side_effects": null,
+  "validation_notes": "Requires a crew requirement ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/crew_requirements_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/crew_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_policy.rb"
+    }
+  ]
+}

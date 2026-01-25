@@ -1,0 +1,95 @@
+{
+  "id": "0d5f99594fac12944c801e42c5e8bf61e18e65938a5394d9963298ef574b2f59",
+  "full_path": "do retainers create",
+  "description": "Create a new retainer.",
+  "permissions": "Broker retainers: admin users or broker members of the buyer broker. Customer retainers: admin users or broker members of the seller broker, or customer members of the buyer customer.",
+  "side_effects": "Creates a broker retainer or customer retainer record. If the retainer is created with status active and a term end date is computed, an expiration update is scheduled for after the term end.",
+  "validation_notes": "buyer and seller are required and must be in Type|ID format; supported types are Broker, Customer, or Trucker. buyer/seller combinations must be Broker->Trucker or Customer->Broker. status must be one of editing, active, terminated, expired, or closed when provided. terminated-on is required when status is terminated and must be before the last retainer period end date when periods exist. maximum-travel-minutes and billable-travel-minutes-per-travel-mile must be numeric values >= 0 when provided. status can only be expired if the computed term end is in the past.",
+  "flags": [
+    {
+      "name": "--buyer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Buyer organization in Type|ID format (required)",
+      "default": null,
+      "validation": "Type|ID format; type must be Broker, Customer, or Trucker"
+    },
+    {
+      "name": "--seller",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Seller organization in Type|ID format (required)",
+      "default": null,
+      "validation": "Type|ID format; type must be Broker, Customer, or Trucker"
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Retainer status",
+      "default": null,
+      "validation": "editing|active|terminated|expired|closed"
+    },
+    {
+      "name": "--terminated-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Termination date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD; required when status=terminated"
+    },
+    {
+      "name": "--maximum-expected-daily-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum expected daily hours",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maximum-travel-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum travel minutes",
+      "default": null,
+      "validation": "numeric value >= 0"
+    },
+    {
+      "name": "--billable-travel-minutes-per-travel-mile",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billable travel minutes per travel mile",
+      "default": null,
+      "validation": "numeric value >= 0"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_retainers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/travel_minute_settings.rb"
+    }
+  ]
+}

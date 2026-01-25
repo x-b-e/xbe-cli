@@ -1,0 +1,51 @@
+{
+  "description": "List job production plan subscriptions",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan ID",
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by contact method (email_address, mobile_number)",
+      "name": "--contact-method",
+      "required": false,
+      "type": "enum",
+      "validation": "One of: email_address, mobile_number. Example: email_address."
+    }
+  ],
+  "full_path": "view job-production-plan-subscriptions list",
+  "id": "b8f965fcb9ad949d5d51837e009426c81fc375eda797880cc217407b622ee6e4",
+  "permissions": "Available to users visible in policy scope: admins; customer members (or broker members for the customer) see subscriptions for their customer job production plans; material supplier members see only their own subscriptions tied to job production plans that use their material sites.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_subscriptions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_subscription_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters are optional. contact-method filter must be one of email_address or mobile_number when provided."
+}

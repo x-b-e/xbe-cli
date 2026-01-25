@@ -1,0 +1,33 @@
+{
+  "id": "98cb8bc06054529e79055d91dd35fa7e3b01ef95049f9a0d0cc83251403a2921",
+  "full_path": "do profit-improvement-categories create",
+  "description": "Create a new profit improvement category.",
+  "permissions": "No users can create profit improvement categories; policy denies create and categories are read-only via the API.",
+  "side_effects": "Creates a profit improvement category record.",
+  "validation_notes": "Name is required and must be unique.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Category name (required)",
+      "default": null,
+      "validation": "Must be unique."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_profit_improvement_categories_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/profit_improvement_category_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/profit_improvement_category.rb"
+    }
+  ]
+}

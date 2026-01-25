@@ -1,0 +1,27 @@
+{
+  "id": "cc859691028a99710430ae4f4bc6c9633380ac079c92db57c76d2ac3c741db4b",
+  "full_path": "view key-result-changes show",
+  "description": "Show the full details of a key result change.",
+  "permissions": "Read-only access is delegated to the related key result; the user must be authorized to view the linked key result (via the key result policy scope, which is scoped through its objective).",
+  "side_effects": "None (read-only request).",
+  "validation_notes": "The <id> argument is required and must be a non-empty key result change ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/key_result_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    }
+  ]
+}

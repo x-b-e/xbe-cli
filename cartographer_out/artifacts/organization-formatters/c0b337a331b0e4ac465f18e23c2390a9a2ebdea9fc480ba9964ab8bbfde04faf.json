@@ -1,0 +1,51 @@
+{
+  "description": "List organization formatters with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by formatter type.",
+      "name": "--formatter-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization (Type|ID).",
+      "name": "--organization",
+      "required": false,
+      "type": "string",
+      "validation": "Type|ID format (e.g., Broker|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status (active/inactive).",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "active|inactive"
+    }
+  ],
+  "full_path": "view organization-formatters list",
+  "id": "c0b337a331b0e4ac465f18e23c2390a9a2ebdea9fc480ba9964ab8bbfde04faf",
+  "permissions": "Any authenticated user can list organization formatters. Non-admin users only see formatters tied to organizations where they are members (manager for non-broker orgs) or members of the broker organization; admins can see all.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/organization_formatters_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/organization_formatter_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_formatter_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Status filter accepts active or inactive; API defaults to excluding inactive when no status filter is provided. Organization filter must be Type|ID (e.g., Broker|123)."
+}

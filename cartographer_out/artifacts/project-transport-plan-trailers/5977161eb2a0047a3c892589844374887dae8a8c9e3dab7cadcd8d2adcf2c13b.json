@@ -1,0 +1,64 @@
+{
+  "description": "Update a project transport plan trailer assignment",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Assignment status (editing, active)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "allowed values: editing, active"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Segment start ID",
+      "name": "--segment-start",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Segment end ID",
+      "name": "--segment-end",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-trailers update",
+  "id": "5977161eb2a0047a3c892589844374887dae8a8c9e3dab7cadcd8d2adcf2c13b",
+  "permissions": "Authorized via ProjectTransportPlanTrailerPolicy, which delegates access to the related project transport plan.",
+  "side_effects": "Updates a project transport plan trailer assignment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_trailers_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_trailer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_trailer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one of --status, --segment-start, --segment-end, or --trailer must be provided. Status must be present on the record and accepts 'editing' or 'active'; status 'active' requires a trailer assignment. Segment start and end must belong to the same project transport plan and the start segment position must be <= the end segment position. When a trailer is assigned, all segments in the range must have truckers, the trailer must belong to the same trucker as every segment in the range, and the trailer cannot overlap an existing assignment within the same transport plan. If the trailer is removed and status is not editing, the status is reset to editing."
+}

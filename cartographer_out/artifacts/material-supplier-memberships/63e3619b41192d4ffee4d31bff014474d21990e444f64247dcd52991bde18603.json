@@ -1,0 +1,150 @@
+{
+  "id": "63e3619b41192d4ffee4d31bff014474d21990e444f64247dcd52991bde18603",
+  "full_path": "view material-supplier-memberships list",
+  "description": "List material supplier memberships with filtering and pagination.",
+  "permissions": "Admins can list all material supplier memberships. Non-admin users are limited to memberships where the material supplier broker is in their broker memberships or where the material supplier is in their own material supplier memberships.",
+  "side_effects": null,
+  "validation_notes": "drives-shift-type must be one of any, day, or night when provided. kind must be operations or manager when provided. Boolean filters accept true/false.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--drives-shift-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by drives shift type (any/day/night)",
+      "default": null,
+      "validation": "any/day/night"
+    },
+    {
+      "name": "--external-employee-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external employee ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by default job production plan subscriber (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-equipment-rental-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by equipment rental team member (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by geofence violation team member (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-rate-editor",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by rate editor status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-time-card-auditor",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by time card auditor status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by unapproved time card subscriber (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by kind (operations/manager)",
+      "default": null,
+      "validation": "operations/manager"
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project office ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search by user name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_supplier_memberships_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_supplier_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/membership_resource.rb"
+    }
+  ]
+}

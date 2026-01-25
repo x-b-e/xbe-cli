@@ -1,0 +1,187 @@
+{
+  "description": "Create a new membership.",
+  "flags": [
+    {
+      "description": "User ID (required)",
+      "name": "--user",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Organization in Type|ID format, e.g. Broker|123 (required)",
+      "name": "--organization",
+      "required": true,
+      "type": "string",
+      "validation": "Type|ID format; Types: Broker, Customer, Trucker, MaterialSupplier, Developer"
+    },
+    {
+      "default": "operations",
+      "description": "Role: operations or manager",
+      "name": "--kind",
+      "required": false,
+      "type": "enum",
+      "validation": "operations, manager"
+    },
+    {
+      "description": "Admin status (true/false)",
+      "name": "--is-admin",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Title within the organization",
+      "name": "--title",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Display color (e.g. #FF0000)",
+      "name": "--color-hex",
+      "required": false,
+      "type": "string",
+      "validation": "hex color"
+    },
+    {
+      "description": "External system employee ID",
+      "name": "--external-employee-id",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Manual sort order",
+      "name": "--explicit-sort-order",
+      "required": false,
+      "type": "integer",
+      "validation": "integer"
+    },
+    {
+      "description": "Membership start date (ISO 8601)",
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601"
+    },
+    {
+      "description": "Membership end date (ISO 8601)",
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601"
+    },
+    {
+      "default": "any",
+      "description": "Shift type: any, day, or night",
+      "name": "--drives-shift-type",
+      "required": false,
+      "type": "enum",
+      "validation": "any, day, night"
+    },
+    {
+      "description": "Project office ID",
+      "name": "--project-office",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Can see rates as driver (true/false)",
+      "name": "--can-see-rates-as-driver",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Can see rates as manager (true/false)",
+      "name": "--can-see-rates-as-manager",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Can validate profit improvements (true/false)",
+      "name": "--can-validate-profit-improvements",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is rate editor (true/false)",
+      "name": "--is-rate-editor",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is time card auditor (true/false)",
+      "name": "--is-time-card-auditor",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is equipment rental team member (true/false)",
+      "name": "--is-equipment-rental-team-member",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is geofence violation team member (true/false)",
+      "name": "--is-geofence-violation-team-member",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is unapproved time card subscriber (true/false)",
+      "name": "--is-unapproved-time-card-subscriber",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is default job production plan subscriber (true/false)",
+      "name": "--is-default-job-production-plan-subscriber",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Enable recap notifications (true/false)",
+      "name": "--enable-recap-notifications",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Enable inventory capacity notifications (true/false)",
+      "name": "--enable-inventory-capacity-notifications",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "do memberships create",
+  "id": "71b849f0ddaf6546233ed180640cb101f9a04a0f28f8708ed836193bf00408ff",
+  "permissions": "Authorization is enforced by membership-type policies. MembershipPolicy requires the actor to be practically admin of the organization when creating an admin membership; other cases defer to the membership-type policy (e.g., BrokerMembershipPolicy permits org admins or managers when admin-only attributes are not set).",
+  "side_effects": "Creates a membership record; clears the user memberships cache and touches the user record; queues a NewMembershipPost worker for valid creator organization types.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_memberships_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/membership.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/membership_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/broker_membership_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Validation: --user is required; --organization is required in Type|ID format (Broker, Customer, Trucker, MaterialSupplier, Developer). --kind is operations or manager (default operations) and must be present; --drives-shift-type is any/day/night (default any) and must be present; --start-at/--end-at must be ISO 8601 and end-at must be after start-at when both are set; --color-hex must be a valid hex color; --explicit-sort-order must be an integer; --external-employee-id must be unique per organization; membership must be unique for the same user+organization+organization_type within overlapping effective dates; --project-office must belong to the same broker as the membership; --can-see-rates-as-manager is restricted to allowed membership types and managers (broker memberships exempt); --can-validate-profit-improvements can only be set for broker managers; boolean flags accept true/false."
+}

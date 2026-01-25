@@ -1,0 +1,50 @@
+{
+  "description": "Create a job production plan alarm subscriber.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job production plan alarm ID (required)",
+      "name": "job-production-plan-alarm",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Subscriber user ID (required)",
+      "name": "subscriber",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    }
+  ],
+  "full_path": "do job-production-plan-alarm-subscribers create",
+  "id": "79071da2069d3a8bb5d99400b98152a676c04355b1ad005adf4e9b171492c386",
+  "permissions": "Allowed via JobProductionPlanAlarmSubscriberPolicy and delegated to the related job production plan alarm; the alarm policy allows create/destroy/update when the user has update permission on the related job production plan.",
+  "side_effects": "Creates a job production plan alarm subscriber record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_alarm_subscribers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_alarm_subscriber_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/job_production_plan_alarm_subscriber.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_alarm_subscriber_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_alarm_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "No arguments allowed. --job-production-plan-alarm and --subscriber are required."
+}

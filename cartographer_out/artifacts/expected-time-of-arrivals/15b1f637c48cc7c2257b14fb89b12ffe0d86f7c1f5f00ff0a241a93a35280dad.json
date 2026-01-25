@@ -1,0 +1,83 @@
+{
+  "description": "List expected time of arrivals with filtering",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tender job schedule shift ID",
+      "name": "--tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job schedule shift ID",
+      "name": "--job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum expected arrival time (ISO 8601)",
+      "name": "--expected-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum expected arrival time (ISO 8601)",
+      "name": "--expected-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by has expected arrival time (true/false)",
+      "name": "--is-expected-at",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by unsure status (true/false)",
+      "name": "--unsure",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-by user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view expected-time-of-arrivals list",
+  "id": "15b1f637c48cc7c2257b14fb89b12ffe0d86f7c1f5f00ff0a241a93a35280dad",
+  "permissions": null,
+  "side_effects": "Reads expected time of arrival updates.",
+  "sources": [
+    {
+      "file_path": "internal/cli/expected_time_of_arrivals_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/expected_time_of_arrival_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters accept ISO 8601 timestamps for expected-at min/max; boolean filters expect true/false."
+}

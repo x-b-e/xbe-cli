@@ -1,0 +1,29 @@
+{
+  "id": "584305105d8a941d9ffeaa9dc44ca87db899bfa0abf32dcf9eef0d845cbee59a",
+  "full_path": "do predictions delete",
+  "description": "Delete a prediction.",
+  "permissions": "Allowed for admins. Non-admins can delete their own predictions; they can delete consensus predictions only if they have can_update_prediction_consensus on the prediction subject, and can delete others non-consensus predictions only if they have can_update_or_destroy_others_predictions.",
+  "side_effects": "Deletes the prediction record.",
+  "validation_notes": "The <id> argument is required. --confirm is required to delete a prediction.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_predictions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_policy.rb"
+    }
+  ]
+}

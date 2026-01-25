@@ -1,0 +1,33 @@
+{
+  "id": "ff6454e9d26e1c6a1a2eca1082d36230d843c29b26b86b83193ba422597c438c",
+  "full_path": "do customer-vendors delete",
+  "description": "Delete a customer-vendor relationship",
+  "permissions": "User must be able to see the organization and partner via their policies and must be an admin, a broker-branch member, or an organization manager (TradingPartnerPolicy).",
+  "side_effects": "Deletes a customer-vendor relationship record.",
+  "validation_notes": "Requires an <id> argument. --confirm must be true to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be true to proceed with deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_vendors_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trading_partner.rb"
+    }
+  ]
+}

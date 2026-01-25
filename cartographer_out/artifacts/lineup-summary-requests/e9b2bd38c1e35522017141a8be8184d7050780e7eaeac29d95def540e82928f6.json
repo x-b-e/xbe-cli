@@ -1,0 +1,60 @@
+{
+  "id": "e9b2bd38c1e35522017141a8be8184d7050780e7eaeac29d95def540e82928f6",
+  "full_path": "view lineup-summary-requests list",
+  "description": "List lineup summary requests",
+  "permissions": "Admins can list lineup summary requests. Non-admin users only see requests whose level is within their Broker/Customer policy scopes (policy scope limits results to accessible levels, such as managers of the level or its broker).",
+  "side_effects": null,
+  "validation_notes": "Filter timestamps must be ISO 8601 when provided.",
+  "flags": [
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_summary_requests_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_summary_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

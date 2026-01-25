@@ -1,0 +1,86 @@
+{
+  "id": "d89a1970ade546ad9765b791e24de04ab4733f0f59a9a5be85cb3e61db7331c5",
+  "full_path": "do trucker-referrals update",
+  "description": "Update a trucker referral.",
+  "permissions": "Admins can update trucker referrals. Non-admins can update referrals only if they are managers who are members of the broker that owns the trucker.",
+  "side_effects": "Updates the trucker referral.",
+  "validation_notes": "The trucker referral ID argument is required. At least one field must be provided to update. trucker_first_shift_bonus_amount and truck_first_shift_bonus_amount must be numeric and greater than or equal to 0; the database requires both amounts to be non-null. Trucker referrals are unique per trucker (trucker_id must be unique). referred-on must be a date in YYYY-MM-DD format.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Referring user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Referral notes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--referred-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Referral date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD (e.g., 2025-01-15)"
+    },
+    {
+      "name": "--trucker-first-shift-bonus-amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker first shift bonus amount",
+      "default": null,
+      "validation": "Numeric value greater than or equal to 0"
+    },
+    {
+      "name": "--truck-first-shift-bonus-amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Truck first shift bonus amount",
+      "default": null,
+      "validation": "Numeric value greater than or equal to 0"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_trucker_referrals_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_referral_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_referral.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.trucker_referrals.sql"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/models/trucker_referral_spec.rb"
+    }
+  ]
+}

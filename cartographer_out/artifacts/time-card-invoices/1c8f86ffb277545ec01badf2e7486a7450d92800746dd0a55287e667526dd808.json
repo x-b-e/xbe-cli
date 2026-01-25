@@ -1,0 +1,72 @@
+{
+  "description": "List time card invoices with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by shift start on/after (ISO 8601)",
+      "name": "--shift-starts-after",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp, e.g., 2025-01-01T00:00:00Z."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by invoice type (comma-separated for multiple)",
+      "name": "--invoice-type",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated invoice types; multiple values supported."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by invoice status (comma-separated for multiple)",
+      "name": "--invoice-status",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated statuses, e.g., approved. Valid values map to Invoice.statuses: editing, approved, sent, exported, rejected, batched, addressed, non_exportable, revisionable, revised."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by invoice seller ID (comma-separated for multiple)",
+      "name": "--seller",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated seller IDs; multiple values supported."
+    }
+  ],
+  "full_path": "view time-card-invoices list",
+  "id": "1c8f86ffb277545ec01badf2e7486a7450d92800746dd0a55287e667526dd808",
+  "permissions": "Requires an authenticated user with access to the related invoices via InvoicePolicy scope. Admins can view all; non-admins are limited to invoices where they are a member of the buyer customer (including management-service-type customer visibility), a manager member of the seller trucker, or a member of the broker.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/time_card_invoices_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/time_card_invoice_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/time_card_invoice_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/invoice_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/invoice.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "shift-starts-after expects an ISO 8601 timestamp; it filters time-card invoices whose related tender job schedule shift start_at_cached is on/after the value. invoice-type, invoice-status, and seller accept comma-separated lists. invoice-status values must map to Invoice.statuses (editing, approved, sent, exported, rejected, batched, addressed, non_exportable, revisionable, revised); unknown statuses are ignored and may result in no matches if none are valid."
+}

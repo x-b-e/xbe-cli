@@ -1,0 +1,258 @@
+{
+  "id": "9c85f31778b35709b54eeedadb5c9e4165cc16427a1bda1e788cf0fb57d4fad4",
+  "full_path": "view projects list",
+  "description": "List projects with filtering and pagination.",
+  "permissions": "Admin users can list all projects. Non-admin users can list projects visible via memberships (developer, broker, customer, or material supplier) per project policy scope.",
+  "side_effects": null,
+  "validation_notes": "Date filters use ISO 8601 (YYYY-MM-DD). Boolean filters require true/false; server enforces strict boolean for has-material-transaction-orders, is-active, is-managed, and is-project-manager. Multiple filters are combined with AND logic. Server defaults has-material-transaction-orders to false when omitted.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated for multiple"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum created date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum created date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated for multiple"
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated for multiple"
+    },
+    {
+      "name": "--due-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by due date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--due-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum due date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--due-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum due date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--estimator",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by estimator user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated for multiple"
+    },
+    {
+      "name": "--has-material-transaction-orders",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by having material transaction orders (true/false)",
+      "default": null,
+      "validation": "true/false (strict boolean)"
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by active status (true/false)",
+      "default": null,
+      "validation": "true/false (strict boolean)"
+    },
+    {
+      "name": "--is-managed",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by managed status (true/false)",
+      "default": null,
+      "validation": "true/false (strict boolean)"
+    },
+    {
+      "name": "--is-project-manager",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by having project manager (true/false)",
+      "default": null,
+      "validation": "true/false (strict boolean)"
+    },
+    {
+      "name": "--is-transport-only",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by transport only status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--job-production-plan-planner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan planner ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated for multiple"
+    },
+    {
+      "name": "--job-start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--job-start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum job start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--job-start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum job start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-manager",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project manager user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated for multiple"
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project office ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated for multiple"
+    },
+    {
+      "name": "--project-transport-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project transport plan ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated for multiple"
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full-text search",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project status",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/projects_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

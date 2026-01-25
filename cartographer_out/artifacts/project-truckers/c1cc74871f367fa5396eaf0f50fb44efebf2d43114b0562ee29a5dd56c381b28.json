@@ -1,0 +1,55 @@
+{
+  "id": "c1cc74871f367fa5396eaf0f50fb44efebf2d43114b0562ee29a5dd56c381b28",
+  "full_path": "do project-truckers create",
+  "description": "Create a project trucker",
+  "permissions": "User must be an admin or a manager member of the broker that owns the project.",
+  "side_effects": "Creates a project trucker linking a project and a trucker, optionally setting the exclusion flag.",
+  "validation_notes": "--project and --trucker are required. The exclusion flag is boolean. The trucker must belong to the same broker as the project. A trucker can only be linked once per project (unique trucker_id scoped to project_id).",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-excluded-from-time-card-payroll-certification-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Exclude from payroll certification requirements (true/false)",
+      "default": "false",
+      "validation": "Boolean."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_truckers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_trucker_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_trucker.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "1610d6af20063d34bb41a3f7858634c93fc45536ea2a46a6ed8d2ec71f702e50",
+  "full_path": "view production-incidents show",
+  "description": "Show production incident details",
+  "permissions": "Admins can show any production incident. Non-admins can show incidents if the subject is in scope for show or if they created the incident, as enforced by IncidentPolicy::Scope.",
+  "side_effects": null,
+  "validation_notes": "Requires a production incident ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/production_incidents_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/production_incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    }
+  ]
+}

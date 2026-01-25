@@ -1,0 +1,27 @@
+{
+  "description": "Show job production plan supply/demand balance details",
+  "flags": [],
+  "full_path": "view job-production-plan-supply-demand-balances show",
+  "id": "1c608d75f84b9f084db70bcc6dd32e15f143224a981d61f52aac6fb9150128f9",
+  "permissions": "Allowed for users authorized by JobProductionPlanSupplyDemandBalancePolicy scope; access is limited to balances whose job_production_plan_id is within the users JobProductionPlan policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_supply_demand_balances_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/job_production_plan_supply_demand_balances.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_supply_demand_balance_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_supply_demand_balance_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The supply/demand balance ID argument is required."
+}

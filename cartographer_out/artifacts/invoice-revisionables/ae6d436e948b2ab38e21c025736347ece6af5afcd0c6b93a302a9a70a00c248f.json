@@ -1,0 +1,46 @@
+{
+  "description": "Mark an invoice as revisionable.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Invoice ID (required)",
+      "name": "--invoice",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Comment for the revisionable action (required)",
+      "name": "--comment",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do invoice-revisionables create",
+  "id": "ae6d436e948b2ab38e21c025736347ece6af5afcd0c6b93a302a9a70a00c248f",
+  "permissions": "User must be practically admin of the broker organization that owns the invoice.",
+  "side_effects": "Transitions the invoice status to revisionable and may update related invoices to revisionable.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_invoice_revisionables_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/invoice_actions/invoice_revisionable.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/invoice_revisionable_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/action_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires invoice and comment. Invoice must exist and be in exported, non-exportable, or revised status before it can be marked revisionable."
+}

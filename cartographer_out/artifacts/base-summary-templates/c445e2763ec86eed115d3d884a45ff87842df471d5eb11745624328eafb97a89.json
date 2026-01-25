@@ -1,0 +1,51 @@
+{
+  "description": "List base summary templates",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by label",
+      "name": "--label",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view base-summary-templates list",
+  "id": "c445e2763ec86eed115d3d884a45ff87842df471d5eb11745624328eafb97a89",
+  "permissions": "Admins can list all base summary templates. Non-admin users can list templates that are global (no broker), templates they created, or templates scoped to brokers they can access as broker members or customer members.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/base_summary_templates_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/base_summary_template_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/base_summary_template_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters supported: label, broker, created-by."
+}

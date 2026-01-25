@@ -1,0 +1,46 @@
+{
+  "id": "5d199ee335f7e82db16cf87518e467193c7c258b41a4aa05de1f19031628e122",
+  "full_path": "do incident-tag-incidents create",
+  "description": "Create an incident tag incident link",
+  "permissions": "User must be authorized to update the incident being tagged (incident policy update? used by IncidentTagIncidentPolicy).",
+  "side_effects": "Creates an incident tag incident link between an incident and an incident tag.",
+  "validation_notes": "--incident and --incident-tag are required. The incident tag must be compatible with the incident kind, and the incident/tag pair must be unique.",
+  "flags": [
+    {
+      "name": "--incident",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Incident ID (required). Example: --incident 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--incident-tag",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Incident tag ID (required). Example: --incident-tag 456.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_tag_incidents_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_tag_incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_tag_incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_tag_incident_resource.rb"
+    }
+  ]
+}

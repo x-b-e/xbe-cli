@@ -1,0 +1,226 @@
+{
+  "description": "List customer tenders with filtering",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by buyer ID (polymorphic)",
+      "name": "--buyer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by seller ID (polymorphic)",
+      "name": "--seller",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job ID",
+      "name": "--job",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status (editing, offered, accepted, rejected, expired, cancelled, returned, sourced)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: editing, offered, accepted, rejected, expired, cancelled, returned, sourced."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by earliest job shift start time (RFC3339)",
+      "name": "--start-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by latest job shift start time (RFC3339)",
+      "name": "--start-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by latest job shift end time (RFC3339)",
+      "name": "--end-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job site ID",
+      "name": "--job-site",
+      "required": false,
+      "type": "string",
+      "validation": "Must be valid JobSite IDs."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job number",
+      "name": "--job-number",
+      "required": false,
+      "type": "string",
+      "validation": "Must include at least one job number."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tenders with alive shifts (true/false)",
+      "name": "--with-alive-shifts",
+      "required": false,
+      "type": "string",
+      "validation": "Boolean value (true/false)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by flexible shifts (true/false)",
+      "name": "--has-flexible-shifts",
+      "required": false,
+      "type": "string",
+      "validation": "Boolean value (true/false)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan name or number (fuzzy)",
+      "name": "--job-production-plan-name-or-number-like",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by business unit ID(s)",
+      "name": "--business-unit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer classification ID(s)",
+      "name": "--job-production-plan-trailer-classification-or-equivalent",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan material site ID(s)",
+      "name": "--job-production-plan-material-sites",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan material type ID(s)",
+      "name": "--job-production-plan-material-types",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by external identification value",
+      "name": "--external-identification-value",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (RFC3339)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (RFC3339)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (RFC3339)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (RFC3339)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp."
+    }
+  ],
+  "full_path": "view customer-tenders list",
+  "id": "4cd9b35b9be8ddd0210e58d4e15bc1ec2e07f9a13594a628bb6a7c352d7540f5",
+  "permissions": "Admin users, or users who are members of the buyer customer or seller broker associated with the tender.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/customer_tenders_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/tender_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/externally_identifiable_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "status must be one of: editing, offered, accepted, rejected, expired, cancelled, returned, sourced. start-at-min, start-at-max, end-at-max, created-at-min, created-at-max, updated-at-min, and updated-at-max must be RFC3339 timestamps. with-alive-shifts and has-flexible-shifts expect boolean values (true/false). job-number filter values are normalized (trimmed, lowercased, whitespace removed) and must not be empty. job-site filter values must be valid JobSite IDs."
+}

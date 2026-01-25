@@ -1,0 +1,109 @@
+{
+  "id": "4e3975d99f04b803f3c20c1ed6f4a177688ac92e233f4d1d720aa1a3e5c6a995",
+  "full_path": "do action-items create",
+  "description": "Create a new action item.",
+  "permissions": "Requires authentication. Admins can create action items. Non-admins can create action items only if they are a member of the responsible organization or its broker.",
+  "side_effects": "Creates an action item record. The server may create an associated tracker asynchronously and touch the linked incident after create.",
+  "validation_notes": "--title is required. due-on must be ISO 8601 date (YYYY-MM-DD). status and kind must use allowed enum values. requires-xbe-feature must be true/false. responsible-organization must be Type|ID (e.g., Broker|123) and is required by the server; the type must be one of Broker, Customer, Trucker, MaterialSupplier. expected-cost-amount and expected-benefit-amount must be numeric and >= 0; if either is set, currency_code must be present. status=complete requires completed_on to be set, and completed_on cannot be set unless status is complete.",
+  "flags": [
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description text",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--due-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Due date (ISO 8601, e.g. 2024-12-31)",
+      "default": null,
+      "validation": "Date in ISO 8601 format (YYYY-MM-DD)."
+    },
+    {
+      "name": "--expected-benefit-amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expected benefit amount",
+      "default": null,
+      "validation": "Numeric value; must be >= 0."
+    },
+    {
+      "name": "--expected-cost-amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expected cost amount",
+      "default": null,
+      "validation": "Numeric value; must be >= 0."
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Kind: feature, integration, sombrero, bug_fix, change_management, data_seeding, training",
+      "default": null,
+      "validation": "Enum values: feature, integration, sombrero, bug_fix, change_management, data_seeding, training."
+    },
+    {
+      "name": "--requires-xbe-feature",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requires XBE feature (true/false)",
+      "default": null,
+      "validation": "Strict boolean: true or false."
+    },
+    {
+      "name": "--responsible-organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Responsible organization in Type|ID format (e.g. Broker|123)",
+      "default": null,
+      "validation": "Type|ID format, e.g. Broker|123. Type must be Broker, Customer, Trucker, or MaterialSupplier."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status: editing, ready_for_work, in_progress, in_verification, complete, on_hold",
+      "default": null,
+      "validation": "Enum values: editing, ready_for_work, in_progress, in_verification, complete, on_hold."
+    },
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Action item title (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_items_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/action_item.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_policy.rb"
+    }
+  ]
+}

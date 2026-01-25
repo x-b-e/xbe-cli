@@ -1,0 +1,114 @@
+{
+  "id": "473cb82bbb50fdf7b2659d1eb41207febd1046f15e8519cd430697bc9827b505",
+  "full_path": "view keep-truckin-users list",
+  "description": "List KeepTruckin users with filtering and pagination.",
+  "permissions": "Authenticated admin users can view all KeepTruckin users; non-admin users can view KeepTruckin users for brokers they are members of via policy scope.",
+  "side_effects": null,
+  "validation_notes": "Authentication is required. user-set-at-min/user-set-at-max and assigned-at-min/assigned-at-max expect ISO 8601 timestamps. is-user-set-at, active, and has-user expect true/false.",
+  "flags": [
+    {
+      "name": "--user-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user-set-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--user-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user-set-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-user-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of user-set-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--assigned-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Alias for --user-set-at-min (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--assigned-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Alias for --user-set-at-max (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--role",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by role",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by active status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of user (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/keep_truckin_users_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/keep_truckin_user_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/keep_truckin_user_policy.rb"
+    }
+  ]
+}

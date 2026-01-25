@@ -1,0 +1,33 @@
+{
+  "description": "Delete a job production plan service type unit of measure cohort link",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to delete the cohort link."
+    }
+  ],
+  "full_path": "do job-production-plan-service-type-unit-of-measure-cohorts delete",
+  "id": "d753949a3e2194e39230f7c535b0c9f3c69f9b77684e2538c541fabf0aa95a92",
+  "permissions": "Requires access to the associated job production plan via delegated authorization.",
+  "side_effects": "Deletes a job production plan service type unit of measure cohort link.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_service_type_unit_of_measure_cohorts_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_service_type_unit_of_measure_cohort_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_service_type_unit_of_measure_cohort_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument for the job production plan service type unit of measure cohort. --confirm must be set to proceed."
+}

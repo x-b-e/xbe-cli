@@ -1,0 +1,56 @@
+{
+  "id": "8a98ee0406bee0635245c39fe524c821184bf3b27506979d586b0ca678d11ea0",
+  "full_path": "do incident-participants update",
+  "description": "Update an incident participant",
+  "permissions": null,
+  "side_effects": "Updates an incident participant record.",
+  "validation_notes": "Argument <id> is required. At least one of --name, --email-address, --mobile-number, or --involvement is required.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Participant name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--email-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Email address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--mobile-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Mobile number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--involvement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Involvement summary",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_participants_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_participant_policy.rb"
+    }
+  ]
+}

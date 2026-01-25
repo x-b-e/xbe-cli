@@ -1,0 +1,33 @@
+{
+  "id": "9097baff12db7b915ac44aae2737b1266d58af82dfbd7fba0bb11431cc11b2e5",
+  "full_path": "do objective-stakeholder-classifications delete",
+  "description": "Delete an objective stakeholder classification",
+  "permissions": "Admin users only (policy requires is_user_admin? for destroy).",
+  "side_effects": "Deletes the objective stakeholder classification, destroys dependent quotes, and triggers the related objective to update OpenAI files.",
+  "validation_notes": "Requires <id> argument. --confirm must be set to true to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_objective_stakeholder_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/objective_stakeholder_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_stakeholder_classification_policy.rb"
+    }
+  ]
+}

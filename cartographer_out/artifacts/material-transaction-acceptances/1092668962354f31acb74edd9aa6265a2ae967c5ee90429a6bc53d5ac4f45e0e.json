@@ -1,0 +1,63 @@
+{
+  "id": "1092668962354f31acb74edd9aa6265a2ae967c5ee90429a6bc53d5ac4f45e0e",
+  "full_path": "do material-transaction-acceptances create",
+  "description": "Accept a material transaction.",
+  "permissions": "User must be an admin, a member of the material transaction likely customer (with broker context), or a member of the material transaction material supplier.",
+  "side_effects": "Creates a material transaction acceptance action and transitions the material transaction to accepted; may update related trip/material transaction data and enqueue background jobs (e.g., timing posts, cost code allocation).",
+  "validation_notes": "Material transaction ID is required and must refer to an existing material transaction. Only material transactions in submitted, editing, rejected, or unmatched status can be accepted. Material transaction must have at least one unit of measure quantity and a material type. Material transaction must have a trip; for user- or ticket-report-sourced transactions, the trip must have an origin and destination and the material site must be present. For machine-sourced transactions, the material site must be present; if a tender job schedule shift exists, the trip must have origin and destination. If the transaction is user- or ticket-report-sourced and skip_not_overlapping_validation is not set, the ticket must not overlap other material transactions with the same ticket number on the same date.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material transaction ID (example: 123).",
+      "default": "",
+      "validation": "Required; must reference an existing material transaction."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Acceptance comment (example: Reviewed).",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--skip-not-overlapping-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip ticket overlap validation.",
+      "default": "false",
+      "validation": "When true, bypasses overlap validation for user- or ticket-report-sourced transactions."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_acceptances.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_acceptances_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_acceptance_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_acceptance_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_acceptance.rb"
+    }
+  ]
+}

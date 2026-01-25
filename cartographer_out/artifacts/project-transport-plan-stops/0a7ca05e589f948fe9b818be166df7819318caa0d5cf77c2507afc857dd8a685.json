@@ -1,0 +1,31 @@
+{
+  "id": "0a7ca05e589f948fe9b818be166df7819318caa0d5cf77c2507afc857dd8a685",
+  "full_path": "view project-transport-plan-stops show",
+  "description": "Show project transport plan stop details.",
+  "permissions": "Access is delegated to the related project transport plan. Users can show a stop if the plan is in their policy scope, which includes plans tied to projects they can access or plans where they are an active driver.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (project transport plan stop ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_stops_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_stop_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

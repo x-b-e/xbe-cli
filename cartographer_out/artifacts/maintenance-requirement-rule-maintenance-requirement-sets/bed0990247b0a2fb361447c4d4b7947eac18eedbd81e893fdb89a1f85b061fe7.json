@@ -1,0 +1,46 @@
+{
+  "id": "bed0990247b0a2fb361447c4d4b7947eac18eedbd81e893fdb89a1f85b061fe7",
+  "full_path": "do maintenance-requirement-rule-maintenance-requirement-sets create",
+  "description": "Create a maintenance requirement rule maintenance requirement set",
+  "permissions": "User must be authorized to create the related maintenance requirement rule. Access follows MaintenanceRequirementRulePolicy#create?: admins; broker managers; operations users with appropriate business unit membership.",
+  "side_effects": "Creates a maintenance requirement rule maintenance requirement set linking a rule to a template set.",
+  "validation_notes": "--maintenance-requirement-rule and --maintenance-requirement-set are required. maintenance requirement set must be a template. maintenance requirement rule and set pair must be unique.",
+  "flags": [
+    {
+      "name": "--maintenance-requirement-rule",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Maintenance requirement rule ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maintenance-requirement-set",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Maintenance requirement set ID (must be a template)",
+      "default": null,
+      "validation": "Must reference a template maintenance requirement set."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_rule_maintenance_requirement_sets_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_rule_maintenance_requirement_set.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_maintenance_requirement_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "da94ea8dfe3e611425c4e4f0ce354f016c10ce48a4a79c2878d605372deb937c",
+  "full_path": "do prediction-subject-bids create",
+  "description": "Create a prediction subject bid.",
+  "permissions": "Requires authorization to create prediction subject bids via the delegated LowestLosingBidPredictionSubjectDetail policy.",
+  "side_effects": "Creates a prediction subject bid record and links it to a bidder and lowest losing bid prediction subject detail.",
+  "validation_notes": "--bidder is required. --lowest-losing-bid-prediction-subject-detail is required. Amount must be greater than 0 when provided. Bidder must be unique per lowest losing bid prediction subject detail.",
+  "flags": [
+    {
+      "name": "--amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Bid amount",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    },
+    {
+      "name": "--bidder",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Bidder ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lowest-losing-bid-prediction-subject-detail",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lowest losing bid detail ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_subject_bids_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_subject_bid.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_bid_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_subject_bid_resource.rb"
+    }
+  ]
+}

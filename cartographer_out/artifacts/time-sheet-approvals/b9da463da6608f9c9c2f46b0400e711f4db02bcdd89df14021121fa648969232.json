@@ -1,0 +1,19 @@
+{
+  "id": "b9da463da6608f9c9c2f46b0400e711f4db02bcdd89df14021121fa648969232",
+  "full_path": "view time-sheet-approvals list",
+  "description": "List time sheet approvals",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheet_approvals_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_sheet_approval_resource.rb"
+    }
+  ]
+}

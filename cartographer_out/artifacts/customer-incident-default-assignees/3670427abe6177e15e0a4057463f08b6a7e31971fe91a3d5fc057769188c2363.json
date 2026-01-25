@@ -1,0 +1,55 @@
+{
+  "id": "3670427abe6177e15e0a4057463f08b6a7e31971fe91a3d5fc057769188c2363",
+  "full_path": "view customer-incident-default-assignees list",
+  "description": "List customer incident default assignees",
+  "permissions": "User must have access to the customer via Customer policy scope; non-admin users are limited to customers within their policy scope.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "Filters accept comma-separated IDs for customer and default-assignee. kind filter must be a valid incident kind.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of customer IDs."
+    },
+    {
+      "name": "--default-assignee",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by default assignee user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of user IDs."
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by incident kind",
+      "default": null,
+      "validation": "One of: equipment, plant, trucking, crew, safety, quality, weather, traffic, capacity, job_site_condition, planning, near_miss, property_damage, personal_injury, over_trucking, good_catch, damage, overloading, subcontractor_delay, mobilization, accident_notification_and_assistance, theft, vandalism, vehicle_incident, work_zone_intrusion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_incident_default_assignees_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_incident_default_assignee_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_incident_default_assignee_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "41f1df8583a5ca428df8650f666880abcdcd7191e6172cbe3b2fe609d6be7dfe",
+  "full_path": "view project-categories list",
+  "description": "List project categories",
+  "permissions": "Allowed for users who can access project categories in scope; non-admins only see categories for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "Filters: name and abbreviation use case-insensitive partial match; q searches name and abbreviation with case-insensitive partial match. Broker filter matches broker id.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (e.g., 123).",
+      "default": null,
+      "validation": "Matches broker id."
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match, case-insensitive; e.g., \"Paving\").",
+      "default": null,
+      "validation": "Case-insensitive partial match."
+    },
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by abbreviation (partial match, case-insensitive).",
+      "default": null,
+      "validation": "Case-insensitive partial match."
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "General search across name and abbreviation (e.g., \"concrete\").",
+      "default": null,
+      "validation": "Case-insensitive partial match across name and abbreviation."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_categories_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_category_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_category_policy.rb"
+    }
+  ]
+}

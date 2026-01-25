@@ -1,0 +1,23 @@
+{
+  "id": "187e9b6f1d26a1735f4120841768b97f9fbaf86d2d7ae9a07689081f3d24db05",
+  "full_path": "view truck-scopes list",
+  "description": "List truck scopes with pagination.",
+  "permissions": "Admin users can list all truck scopes. Non-admin users can list truck scopes only for organizations they can manage or access via broker/customer/trucker memberships per OrganizationOwnedPolicy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/truck_scopes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/truck_scope_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/organization_owned_policy.rb"
+    }
+  ]
+}

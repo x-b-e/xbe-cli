@@ -1,0 +1,69 @@
+{
+  "id": "d5c51f5cbee578cded4946d5496be93a3bfbeae0325e577860c74f9a6cf776fb",
+  "full_path": "do external-identifications create",
+  "description": "Create a new external identification.",
+  "permissions": "User must be able to update the identified record (authorization is delegated to the identifies policy).",
+  "side_effects": "Creates an external identification and touches the identified record after commit when value changes.",
+  "validation_notes": "--external-identification-type, --identifies-type, --identifies-id, and --value are required. value must be present. external_identification_type must be applicable to the identifies class. If the type has a format_validation_regex, value must match it unless skip-value-validation is set. If the type requires global uniqueness, value must be unique unless skip-value-validation is set. skip-value-validation must be true or false. Changes are rejected when the feature flag deny_user_changes_to_external_identifications_<identifies_type> is enabled for the current user.",
+  "flags": [
+    {
+      "name": "--external-identification-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "External identification type ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--identifies-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Type of entity to identify (e.g., truckers) (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--identifies-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "ID of entity to identify (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "The external identification value (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-value-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip format and uniqueness validation",
+      "default": null,
+      "validation": "When true, skips format and global uniqueness checks."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_external_identifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/external_identification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/external_identification_policy.rb"
+    }
+  ]
+}

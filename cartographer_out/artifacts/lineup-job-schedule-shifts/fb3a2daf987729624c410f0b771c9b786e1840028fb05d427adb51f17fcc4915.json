@@ -1,0 +1,37 @@
+{
+  "id": "fb3a2daf987729624c410f0b771c9b786e1840028fb05d427adb51f17fcc4915",
+  "full_path": "do lineup-job-schedule-shifts delete",
+  "description": "Delete a lineup job schedule shift",
+  "permissions": "Authorized via LineupJobScheduleShiftPolicy (delegated to lineup). User must be admin or permitted by LineupPolicy.destroy? (customer manager or manager laborer on a lineup job production plan).",
+  "side_effects": "Deletes the lineup job schedule shift record.",
+  "validation_notes": "Requires lineup job schedule shift ID argument and --confirm. Deletion is blocked when the shift is associated with non-cancelled shifts.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_job_schedule_shifts_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_job_schedule_shift.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_policy.rb"
+    }
+  ]
+}

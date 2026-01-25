@@ -1,0 +1,27 @@
+{
+  "id": "cce98bec5ac55065e12fce076ea2643aa47001cb631e76417d30eb1f0af63105",
+  "full_path": "view tender-job-schedule-shift-drivers show",
+  "description": "Show the full details of a tender job schedule shift driver.",
+  "permissions": "Access is delegated to the related tender job schedule shift; users must be authorized under TenderJobScheduleShiftPolicy scope for that shift (for example, admin or users with broker/customer/trucker roles, foreman, driver, or shift driver access).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (shift driver ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_job_schedule_shift_drivers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_driver_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_policy.rb"
+    }
+  ]
+}

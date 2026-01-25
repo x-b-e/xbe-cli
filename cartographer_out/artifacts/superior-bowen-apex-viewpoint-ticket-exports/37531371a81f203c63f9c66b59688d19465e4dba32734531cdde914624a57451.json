@@ -1,0 +1,55 @@
+{
+  "id": "37531371a81f203c63f9c66b59688d19465e4dba32734531cdde914624a57451",
+  "full_path": "do superior-bowen-apex-viewpoint-ticket-exports create",
+  "description": "Create a Superior Bowen Apex Viewpoint ticket export.",
+  "permissions": "Allowed for admins, or users who are managers of a related material supplier or the related broker.",
+  "side_effects": "Generates a CSV export by querying Apex/JWS during creation; errors can surface if Apex/JWS is unavailable.",
+  "validation_notes": "--sale-date-min and --sale-date-max are required and must parse as dates in YYYY-MM-DD format. sale-date-max must be greater than or equal to sale-date-min. If provided, location-ids must be valid Apex location IDs.",
+  "flags": [
+    {
+      "name": "--sale-date-min",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Earliest sale date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Required. Must be a date in YYYY-MM-DD format."
+    },
+    {
+      "name": "--sale-date-max",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Latest sale date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Required. Must be a date in YYYY-MM-DD format and on or after sale-date-min."
+    },
+    {
+      "name": "--location-ids",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Location IDs to include (comma-separated or repeated)",
+      "default": null,
+      "validation": "Optional. Comma-separated or repeated values are accepted (e.g., 001,004). Must be valid Apex location IDs."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_superior_bowen_apex_viewpoint_ticket_exports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/superior_bowen_apex_viewpoint_ticket_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/policies/superior_bowen_apex_viewpoint_ticket_export_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "/Users/seandevine/Code/server/app/models/superior_bowen_apex_viewpoint_ticket_export.rb"
+    }
+  ]
+}

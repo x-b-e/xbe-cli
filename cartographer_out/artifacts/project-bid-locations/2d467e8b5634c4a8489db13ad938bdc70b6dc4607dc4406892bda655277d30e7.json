@@ -1,0 +1,29 @@
+{
+  "id": "2d467e8b5634c4a8489db13ad938bdc70b6dc4607dc4406892bda655277d30e7",
+  "full_path": "do project-bid-locations delete",
+  "description": "Delete a project bid location.",
+  "permissions": "Allowed if the user can update any prediction subject for the project or can create a prediction subject for the project (including broker admins).",
+  "side_effects": "Deletes a project bid location.",
+  "validation_notes": "Requires a project bid location ID argument and --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_bid_locations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_bid_location_policy.rb"
+    }
+  ]
+}

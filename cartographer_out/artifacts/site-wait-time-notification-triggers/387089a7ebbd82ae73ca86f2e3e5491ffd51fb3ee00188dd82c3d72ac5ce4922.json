@@ -1,0 +1,153 @@
+{
+  "id": "387089a7ebbd82ae73ca86f2e3e5491ffd51fb3ee00188dd82c3d72ac5ce4922",
+  "full_path": "view site-wait-time-notification-triggers list",
+  "description": "List site wait time notification triggers with filtering and pagination.",
+  "permissions": "Admin users can view all triggers. Non-admin users can view triggers tied to job production plans for customers of their broker memberships or for their own customer memberships; access is scoped by SiteWaitTimeNotificationTriggerPolicy.",
+  "side_effects": null,
+  "validation_notes": "No positional arguments allowed. event-at-min/event-at-max, created-at-min/created-at-max, and updated-at-min/updated-at-max must be non-empty ISO 8601 timestamps. is-event-at, is-created-at, and is-updated-at must be true or false. site-type must be job_site or material_site.",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--site-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by site type (job_site/material_site)",
+      "default": null,
+      "validation": "One of: job_site, material_site."
+    },
+    {
+      "name": "--site-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--event-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by event-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--event-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by event-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-event-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of event-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of created-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of updated-at (true/false)",
+      "default": null,
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/site_wait_time_notification_triggers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/site_wait_time_notification_trigger_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/site_wait_time_notification_trigger_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

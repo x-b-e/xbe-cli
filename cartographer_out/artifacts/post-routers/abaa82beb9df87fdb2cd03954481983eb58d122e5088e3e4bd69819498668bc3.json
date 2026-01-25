@@ -1,0 +1,46 @@
+{
+  "id": "abaa82beb9df87fdb2cd03954481983eb58d122e5088e3e4bd69819498668bc3",
+  "full_path": "view post-routers list",
+  "description": "List post routers with filtering and pagination.",
+  "permissions": "Admins can list all post routers; non-admins are limited to post routers whose posts are within the Post policy scope (e.g., posts they created or published posts in their feed).",
+  "side_effects": null,
+  "validation_notes": "Status filter must be one of queueing, analyzing, routed.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status (queueing/analyzing/routed). Example: --status analyzing.",
+      "default": null,
+      "validation": "one of: queueing, analyzing, routed"
+    },
+    {
+      "name": "--post",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by post ID. Example: --post 123.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/post_routers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/post_router_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_router_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/post_policy.rb"
+    }
+  ]
+}

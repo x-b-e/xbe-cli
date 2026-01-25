@@ -1,0 +1,19 @@
+{
+  "id": "9cbc3027b4457b59084cb5a2c1234bc998af92baa4be345fdcbe01b636c57d46",
+  "full_path": "do raw-transport-exports update",
+  "description": "Update a raw transport export (not supported)",
+  "permissions": "Updates are not permitted for any user; the policy denies update on raw transport exports.",
+  "side_effects": "None. This command returns an error because updates are not supported.",
+  "validation_notes": "The raw transport export ID argument is required. Raw transport exports are immutable and cannot be updated.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_transport_exports_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_export_policy.rb"
+    }
+  ]
+}

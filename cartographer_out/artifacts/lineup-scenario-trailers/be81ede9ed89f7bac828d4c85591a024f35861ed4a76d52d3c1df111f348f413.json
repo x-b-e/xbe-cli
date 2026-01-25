@@ -1,0 +1,122 @@
+{
+  "id": "be81ede9ed89f7bac828d4c85591a024f35861ed4a76d52d3c1df111f348f413",
+  "full_path": "view lineup-scenario-trailers list",
+  "description": "List lineup scenario trailers.",
+  "permissions": "Access is delegated via lineup scenario truckers to the associated lineup scenario. Users must be allowed by the lineup scenario policy (admin or broker manager for the scenario's broker organization) to list records.",
+  "side_effects": null,
+  "validation_notes": "Date filters must be valid dates; has-last-assigned-on requires a strict boolean (true/false).",
+  "flags": [
+    {
+      "name": "--lineup-scenario-trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup scenario trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lineup-scenario",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup scenario ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lineup-scenario-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup scenario ID (via trucker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID (via trucker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--last-assigned-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by last assigned date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--last-assigned-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum last assigned date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--last-assigned-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum last assigned date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-last-assigned-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of last assigned date (true/false)",
+      "default": null,
+      "validation": "true/false (strict boolean)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_scenario_trailers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_scenario_trailer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_trailer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

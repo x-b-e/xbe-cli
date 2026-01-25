@@ -1,0 +1,42 @@
+{
+  "id": "85bbecc49e6057ab019a10906a758e4a694053355735572dff07a420626bacc2",
+  "full_path": "view driver-movement-segment-sets list",
+  "description": "List driver movement segment sets with filtering and pagination",
+  "permissions": "Allowed for authenticated users based on policy scope: admins can list all driver movement segment sets; non-admins are limited to records whose driver_day_id is within the TruckerShiftSet policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--driver-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day ID",
+      "default": null,
+      "validation": "Example: --driver-day 123"
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver ID",
+      "default": null,
+      "validation": "Example: --driver 456"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_movement_segment_sets_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_movement_segment_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_movement_segment_set_policy.rb"
+    }
+  ]
+}

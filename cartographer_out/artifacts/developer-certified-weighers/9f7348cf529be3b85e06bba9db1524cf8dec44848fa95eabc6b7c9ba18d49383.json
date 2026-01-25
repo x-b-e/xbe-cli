@@ -1,0 +1,33 @@
+{
+  "id": "9f7348cf529be3b85e06bba9db1524cf8dec44848fa95eabc6b7c9ba18d49383",
+  "full_path": "do developer-certified-weighers delete",
+  "description": "Delete a developer certified weigher",
+  "permissions": "User must be able to update the associated developer (developer update permission).",
+  "side_effects": "Deletes a developer certified weigher record. This action is irreversible.",
+  "validation_notes": "The <id> argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_certified_weighers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_certified_weigher_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_certified_weigher.rb"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "description": "Create a project estimate set",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project ID",
+      "name": "--project",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimate set name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Must be unique per project (case-insensitive) when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Created-by user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Backup estimate set ID",
+      "name": "--backup-estimate-set",
+      "required": false,
+      "type": "string",
+      "validation": "If provided, backup estimate set must belong to the same project and cannot create a backup cycle."
+    }
+  ],
+  "full_path": "do project-estimate-sets create",
+  "id": "1e4d4f7dd882dd442ff4114193a44992da28f2edd1f6709e2d250d126d5c1452",
+  "permissions": "Allowed for users who can create/update the related project (ProjectPolicy create?/update? via delegated policy).",
+  "side_effects": "Creates a project estimate set.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_estimate_sets_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/project_estimate_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_estimate_set_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--project is required. Name must be unique per project (case-insensitive). If provided, backup estimate set must belong to the same project and cannot create a backup chain that points back to this estimate set."
+}

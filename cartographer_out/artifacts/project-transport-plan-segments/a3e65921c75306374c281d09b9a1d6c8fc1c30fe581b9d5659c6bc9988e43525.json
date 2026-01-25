@@ -1,0 +1,95 @@
+{
+  "id": "a3e65921c75306374c281d09b9a1d6c8fc1c30fe581b9d5659c6bc9988e43525",
+  "full_path": "do project-transport-plan-segments update",
+  "description": "Update a project transport plan segment",
+  "permissions": "Requires access to the related project transport plan via ProjectTransportPlanSegmentPolicy (delegated to ProjectTransportPlanPolicy).",
+  "side_effects": "Updates a project transport plan segment. If the destination changes, the server refreshes inbound office caches for drivers; saves may also update transport route and miles based on closest matches.",
+  "validation_notes": "Segment ID argument is required. At least one attribute or relationship must be provided. project-transport-plan, origin, and destination relationships are create-only and cannot be updated. miles must be a non-negative number when provided. miles_source must be one of unknown or transport_route when set. project-transport-plan-segment-set must belong to the same plan. trucker must match the segment set trucker and belong to the same broker as the plan. external-tms-order-number and external-tms-movement-number can only be set when the project is transport-only.",
+  "flags": [
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Segment position within the plan",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--miles",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Segment miles",
+      "default": null,
+      "validation": "Must be a non-negative number."
+    },
+    {
+      "name": "--miles-source",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Miles source (unknown, transport_route)",
+      "default": null,
+      "validation": "One of: unknown, transport_route."
+    },
+    {
+      "name": "--project-transport-plan-segment-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Segment set ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-tms-order-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External TMS order number (transport-only projects)",
+      "default": null,
+      "validation": "Only allowed when the project is transport-only."
+    },
+    {
+      "name": "--external-tms-movement-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External TMS movement number (transport-only projects)",
+      "default": null,
+      "validation": "Only allowed when the project is transport-only."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_segments_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_segment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_segment.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

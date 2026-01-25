@@ -1,0 +1,114 @@
+{
+  "description": "List parking sites.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trucker ID",
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tractor ID",
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by parked type",
+      "name": "--parked-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by parked ID",
+      "name": "--parked-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum active start time",
+      "name": "--active-start-min",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid date-time value."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum active start time",
+      "name": "--active-start-max",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid date-time value."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum active end time",
+      "name": "--active-end-min",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid date-time value."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum active end time",
+      "name": "--active-end-max",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid date-time value."
+    }
+  ],
+  "full_path": "view parking-sites list",
+  "id": "5441ed2672e56b62026c8d39de271c62c468952ea88e8b3b0da5bb41333110cc",
+  "permissions": "Non-admin users are limited to parking sites where trucker_id is in their Trucker policy scope; admins follow the default ApplicationPolicy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/parking_sites_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/parking_site_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/parking_site_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Date/time filters must be valid date-time values when provided."
+}

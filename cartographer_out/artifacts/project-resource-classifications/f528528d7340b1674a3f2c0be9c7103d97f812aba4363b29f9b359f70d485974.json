@@ -1,0 +1,42 @@
+{
+  "id": "f528528d7340b1674a3f2c0be9c7103d97f812aba4363b29f9b359f70d485974",
+  "full_path": "do project-resource-classifications update",
+  "description": "Update an existing project resource classification",
+  "permissions": "Allowed for admins or users who are manager members of the classification's broker.",
+  "side_effects": "Updates a project resource classification.",
+  "validation_notes": "Requires classification ID argument. Must specify at least one of --name or --parent. Name must be unique within the broker. Reserved names cannot be changed or have their parent changed. If parent has a broker, the classification broker must be present and match the parent broker.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Classification name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent classification ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_resource_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/project_money_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_resource_classification.rb"
+    }
+  ]
+}

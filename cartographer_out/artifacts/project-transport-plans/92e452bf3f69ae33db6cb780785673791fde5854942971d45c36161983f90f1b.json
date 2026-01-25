@@ -1,0 +1,294 @@
+{
+  "description": "List project transport plans",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project ID",
+      "name": "--project",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project transport organization ID",
+      "name": "--project-transport-organization",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID via project developer",
+      "name": "--broker-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Search query",
+      "name": "--q",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum segment miles",
+      "name": "--segment-miles-min",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum segment miles",
+      "name": "--segment-miles-max",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum earliest event time (RFC3339)",
+      "name": "--event-times-at-min-min",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum earliest event time (RFC3339)",
+      "name": "--event-times-at-min-max",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of earliest event time (true/false)",
+      "name": "--is-event-times-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum latest event time (RFC3339)",
+      "name": "--event-times-at-max-min",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum latest event time (RFC3339)",
+      "name": "--event-times-at-max-max",
+      "required": false,
+      "type": "string",
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of latest event time (true/false)",
+      "name": "--is-event-times-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by earliest event date (YYYY-MM-DD)",
+      "name": "--event-times-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum earliest event date (YYYY-MM-DD)",
+      "name": "--event-times-on-min-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum earliest event date (YYYY-MM-DD)",
+      "name": "--event-times-on-min-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of earliest event date (true/false)",
+      "name": "--has-event-times-on-min",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by latest event date (YYYY-MM-DD)",
+      "name": "--event-times-on-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum latest event date (YYYY-MM-DD)",
+      "name": "--event-times-on-max-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum latest event date (YYYY-MM-DD)",
+      "name": "--event-times-on-max-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of latest event date (true/false)",
+      "name": "--has-event-times-on-max",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maybe active status (true/false)",
+      "name": "--maybe-active",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project office ID(s)",
+      "name": "--project-office",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project category ID(s)",
+      "name": "--project-category",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by managed status (true/false)",
+      "name": "--is-managed",
+      "required": false,
+      "type": "string",
+      "validation": "true/false (strict)"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by nearest project office ID(s)",
+      "name": "--nearest-project-office-ids",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by transport order external order number",
+      "name": "--external-order-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project office ID(s)",
+      "name": "--transport-order-project-office-or-nearest-project-offices",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by pickup state code(s)",
+      "name": "--pickup-address-state-codes",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by delivery state code(s)",
+      "name": "--delivery-address-state-codes",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-transport-plans list",
+  "id": "92e452bf3f69ae33db6cb780785673791fde5854942971d45c36161983f90f1b",
+  "permissions": "Authorized via ProjectTransportPlanPolicy; list scope includes plans tied to projects the user can access and plans where the user is an active driver on a plan.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plans_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Event time filters require RFC3339 timestamps (event-times-at-*) and event date filters require YYYY-MM-DD (event-times-on-*). Boolean-style filters expect true/false; is-managed uses strict boolean validation. The federated search filter --q accepts a string or list of strings. Sort supports custom fields: transport_order.customer, project_transport_plan_drivers.driver, transport_order.pickup_stop.at_min, transport_order.delivery_stop.at_min, transport_order.ordered_at, completed_stop.actual_start_time."
+}

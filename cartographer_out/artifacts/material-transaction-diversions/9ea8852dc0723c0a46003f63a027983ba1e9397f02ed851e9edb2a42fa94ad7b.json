@@ -1,0 +1,100 @@
+{
+  "id": "9ea8852dc0723c0a46003f63a027983ba1e9397f02ed851e9edb2a42fa94ad7b",
+  "full_path": "view material-transaction-diversions list",
+  "description": "List material transaction diversions with filtering",
+  "permissions": "Admin users; non-admin users can list diversions tied to material transactions they are authorized to view via the MaterialTransaction policy scope.",
+  "side_effects": null,
+  "validation_notes": "new-delivery-date, new-delivery-date-min, and new-delivery-date-max must be in YYYY-MM-DD format. has-new-delivery-date expects true/false.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (joined)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--new-delivery-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by new delivery date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--new-delivery-date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum new delivery date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--new-delivery-date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum new delivery date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-new-delivery-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of new delivery date (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_diversions_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_diversions.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_diversion_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_diversion_policy.rb"
+    }
+  ]
+}

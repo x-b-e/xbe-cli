@@ -1,0 +1,33 @@
+{
+  "description": "Delete a lineup job production plan",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do lineup-job-production-plans delete",
+  "id": "92758e2b27f8b1bba2a85a5ba546ad08b0ede1aa6079ac2ab0d172a78996d487",
+  "permissions": "User must be authorized for the related lineup; LineupJobProductionPlanPolicy delegates access to the lineup relationship.",
+  "side_effects": "Deletes a lineup job production plan.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_job_production_plans_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/lineup_job_production_plan.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_job_production_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (lineup job production plan ID) and --confirm. Deletion is blocked unless the plan is deletable (otherwise validation error: cannot be deleted)."
+}

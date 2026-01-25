@@ -1,0 +1,33 @@
+{
+  "id": "a345c1054d28afafeb99aefcf5c25fe73933e311509f47d0eb2b8f4c3675f101",
+  "full_path": "do transport-order-materials delete",
+  "description": "Delete a transport order material.",
+  "permissions": "User must be authorized to delete materials on the related transport order; authorization delegates to the transport_order relationship.",
+  "side_effects": "Deletes the transport order material and dependent transport_order_stop_materials and transport_references.",
+  "validation_notes": "Requires <id> argument. Requires --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required). Example: --confirm",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_order_materials_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/transport_order_material.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_material_policy.rb"
+    }
+  ]
+}

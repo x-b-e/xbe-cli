@@ -1,0 +1,33 @@
+{
+  "id": "9891d4b291bb511f29aeff2dbd01f8cef27870fc6f85c5d52f01a146b6297d66",
+  "full_path": "do equipment-movement-trips delete",
+  "description": "Delete an equipment movement trip.",
+  "permissions": "Admins can delete equipment movement trips. Non-admins can delete trips for brokers they are a member of.",
+  "side_effects": "Deletes the equipment movement trip if allowed.",
+  "validation_notes": "The trip ID argument is required. --confirm must be provided. Deletion is blocked when the trip is related to a live job production plan.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": "Must be set to true to perform deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_trips_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_trip.rb"
+    }
+  ]
+}

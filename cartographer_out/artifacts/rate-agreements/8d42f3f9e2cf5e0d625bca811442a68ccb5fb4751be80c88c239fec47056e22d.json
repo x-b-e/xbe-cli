@@ -1,0 +1,73 @@
+{
+  "description": "List rate agreements",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status (active/inactive)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: active, inactive."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by buyer (Type|ID, e.g. Customer|123)",
+      "name": "--buyer",
+      "required": false,
+      "type": "string",
+      "validation": "Format: Type|ID (e.g., Customer|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by seller (Type|ID, e.g. Broker|456)",
+      "name": "--seller",
+      "required": false,
+      "type": "string",
+      "validation": "Format: Type|ID (e.g., Broker|456)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Search rate agreements by name",
+      "name": "--search",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view rate-agreements list",
+  "id": "8d42f3f9e2cf5e0d625bca811442a68ccb5fb4751be80c88c239fec47056e22d",
+  "permissions": "Authentication required unless --no-auth is used (global flag).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/rate_agreements_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/rate_agreements_controller.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/rate_agreement_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreement_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters: --status must be active or inactive; --buyer and --seller require Type|ID format (e.g., Customer|123 or Broker|456)."
+}

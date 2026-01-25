@@ -1,0 +1,33 @@
+{
+  "id": "a43b2499007a4fec0eea62e28635cba046f2815b0be91ae3b3e61e53df5d6a0e",
+  "full_path": "do cost-code-trucking-cost-summaries delete",
+  "description": "Delete a cost code trucking cost summary.",
+  "permissions": "Admins can delete summaries. Managers who are members of the broker can delete summaries for that broker.",
+  "side_effects": "Permanently deletes the summary and its computed results.",
+  "validation_notes": "Summary ID argument is required. Deletion requires --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_cost_code_trucking_cost_summaries_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cost_code_trucking_cost_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/cost_code_trucking_cost_summary.rb"
+    }
+  ]
+}

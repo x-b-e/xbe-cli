@@ -1,0 +1,33 @@
+{
+  "id": "0e3db0082d57bbcda0dfe07d7dc5a46df1c6d07b187b3e0efbde65d87bd990d8",
+  "full_path": "do lineup-scenario-lineups delete",
+  "description": "Delete a lineup scenario lineup.",
+  "permissions": "User must be an admin or a broker manager for the lineup scenario broker; authorization is delegated to the lineup scenario.",
+  "side_effects": "Deletes a lineup scenario lineup.",
+  "validation_notes": "Requires <id> argument and --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_scenario_lineups_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_lineup_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

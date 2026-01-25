@@ -1,0 +1,51 @@
+{
+  "id": "7853ebf21f74e79dedfe4b7cd913977deaf378c6da0f01b2f229581553afe7d3",
+  "full_path": "view material-site-reading-material-types list",
+  "description": "List material site reading material types.",
+  "permissions": "User must be a member of the material supplier associated with the material site or a member of the broker that owns that material supplier.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID (e.g., 456).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identifier (e.g., \"EXT-100\").",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_site_reading_material_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_reading_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_reading_material_type_policy.rb"
+    }
+  ]
+}

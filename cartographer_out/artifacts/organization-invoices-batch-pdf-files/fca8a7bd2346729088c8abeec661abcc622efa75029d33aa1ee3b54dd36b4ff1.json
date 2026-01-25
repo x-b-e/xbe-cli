@@ -1,0 +1,42 @@
+{
+  "id": "fca8a7bd2346729088c8abeec661abcc622efa75029d33aa1ee3b54dd36b4ff1",
+  "full_path": "do organization-invoices-batch-pdf-files download",
+  "description": "Download an organization invoices batch PDF file",
+  "permissions": "Requires access to the related organization invoices batch via the PDF generation relationship; non-admin users must be in the policy scope for that batch (broker members or manager members of the batch organization), while admins are allowed.",
+  "side_effects": "Downloads a PDF to disk or writes to stdout when --output is - .",
+  "validation_notes": "The <id> argument is required. If --output is omitted, the filename comes from Content-Disposition or defaults to organization-invoices-batch-pdf-file-<id>.pdf. When --overwrite is false, the command fails if the output file already exists.",
+  "flags": [
+    {
+      "name": "--output",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Output file path (default: use server filename)",
+      "default": null,
+      "validation": "Use - to stream to stdout; e.g. ./invoice.pdf"
+    },
+    {
+      "name": "--overwrite",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Overwrite existing file",
+      "default": null,
+      "validation": "If false, the command errors when the output path already exists."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_invoices_batch_pdf_files_download.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/organization_invoices_batch_pdf_files_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_pdf_file_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "description": "List project offices",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name (partial match)",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Partial match, case-insensitive."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by abbreviation (partial match)",
+      "name": "--abbreviation",
+      "required": false,
+      "type": "string",
+      "validation": "Partial match, case-insensitive."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by active status (true/false)",
+      "name": "--is-active",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "General search (name or abbreviation)",
+      "name": "--q",
+      "required": false,
+      "type": "string",
+      "validation": "Matches name or abbreviation."
+    }
+  ],
+  "full_path": "view project-offices list",
+  "id": "c160409044e3571a489e05793f93bd493610c1d3e04a525c837b34f26e6c36d7",
+  "permissions": "Admins can list all project offices. Non-admin users can list project offices for brokers they are a member of, based on policy scope visibility.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_offices_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_office_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_office_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters name and abbreviation perform partial, case-insensitive matching; q searches across name and abbreviation. is-active expects true/false."
+}

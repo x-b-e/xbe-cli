@@ -1,0 +1,72 @@
+{
+  "description": "Create a new rate agreement",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Status (active/inactive) (required)",
+      "name": "--status",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: active, inactive."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Seller in Type|ID format (Broker or Trucker) (required)",
+      "name": "--seller",
+      "required": true,
+      "type": "string",
+      "validation": "Format: Type|ID; allowed types: Broker or Trucker (e.g., Broker|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Buyer in Type|ID format (Customer or Broker) (required)",
+      "name": "--buyer",
+      "required": true,
+      "type": "string",
+      "validation": "Format: Type|ID; allowed types: Customer or Broker (e.g., Customer|456)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Rate agreement name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do rate-agreements create",
+  "id": "d58854acc7f0202e4d30762bbcc720c37aaa32cb99c76364342b190bbbfda2b0",
+  "permissions": "Authentication required (API token) and authorization per rate agreement policy.",
+  "side_effects": "Creates a rate agreement record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_rate_agreements_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/rate_agreements_helpers.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_memberships_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/rate_agreements_controller.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/rate_agreement_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreement_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--status is required and must be active or inactive. --seller is required in Type|ID format and must be Broker|ID or Trucker|ID. --buyer is required in Type|ID format and must be Customer|ID or Broker|ID."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "1519523633a41294510b9e3a20767f2f4ec5636d0281a7b3e6bce65f90cad1c7",
+  "full_path": "do reaction-classifications create",
+  "description": "Create a new reaction classification.",
+  "permissions": "No users, including admins, can create reaction classifications; policy denies create.",
+  "side_effects": "None; API denies creation for all users.",
+  "validation_notes": "label, utf8, and external_reference are read-only attributes.",
+  "flags": [
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "User ID of the creator",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_reaction_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/reaction_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/reaction_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/reaction_classification_policy_spec.rb"
+    }
+  ]
+}

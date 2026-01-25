@@ -1,0 +1,189 @@
+{
+  "id": "0e592a1f69fa8b492955c42a50f30ce9f68fe234a7e6ddf7023e74e4dc43d318",
+  "full_path": "view transport-order-stops list",
+  "description": "List transport order stops.",
+  "permissions": "User must be authorized to view the related transport order; access is delegated through TransportOrderStopPolicy to the associated transport order.",
+  "side_effects": null,
+  "validation_notes": "Date-time filters (at-min/at-max/created-at/updated-at) require valid ISO 8601 values and cannot be empty. is-* date-time filters require strict true/false values. Role filter expects one of: pickup, delivery.",
+  "flags": [
+    {
+      "name": "--transport-order",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by transport order ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by transport location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--role",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by role (pickup, delivery)",
+      "default": null,
+      "validation": "pickup or delivery"
+    },
+    {
+      "name": "--at-min-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by at-min on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--at-min-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by at-min on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of at-min (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--at-max-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by at-max on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--at-max-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by at-max on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of at-max (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--external-tms-stop-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external TMS stop number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of created-at (true/false)",
+      "default": null,
+      "validation": "true or false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date-time"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by presence of updated-at (true/false)",
+      "default": null,
+      "validation": "true or false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/transport_order_stops_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_order_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/externally_identifiable_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_stop_policy.rb"
+    }
+  ]
+}

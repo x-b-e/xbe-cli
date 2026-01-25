@@ -1,0 +1,33 @@
+{
+  "id": "f8313143e18cd9c3ccd3cb6feeb659b70a125c2b71416e0d546bde4bb4ae055d",
+  "full_path": "do maintenance-requirement-rules delete",
+  "description": "Delete a maintenance requirement rule",
+  "permissions": "Admins can delete maintenance requirement rules. Managers who are members of a broker can delete rules for their brokers. Operations members with manager business unit membership can delete rules only when a business unit is specified and they belong to it. Operations members can delete rules only when a business unit is specified and they belong to it.",
+  "side_effects": "Deletes the maintenance requirement rule and its maintenance requirement rule evaluations.",
+  "validation_notes": "Requires a maintenance requirement rule ID argument. --confirm is required. Deletion is blocked if the rule is associated to maintenance requirement sets (restricted association).",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_maintenance_requirement_rules_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/maintenance_requirement_rule_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/maintenance_requirement_rule.rb"
+    }
+  ]
+}

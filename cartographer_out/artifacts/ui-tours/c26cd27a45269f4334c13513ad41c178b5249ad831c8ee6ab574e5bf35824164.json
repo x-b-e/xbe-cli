@@ -1,0 +1,33 @@
+{
+  "id": "c26cd27a45269f4334c13513ad41c178b5249ad831c8ee6ab574e5bf35824164",
+  "full_path": "view ui-tours list",
+  "description": "List UI tours with filtering and pagination.",
+  "permissions": "Read access is available to non-admin users via policy scope (scope resolves all UI tours); admins are also allowed.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by abbreviation",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/ui_tours_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ui_tour_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ui_tour_policy.rb"
+    }
+  ]
+}

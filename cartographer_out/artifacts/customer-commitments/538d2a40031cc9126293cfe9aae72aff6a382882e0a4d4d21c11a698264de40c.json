@@ -1,0 +1,29 @@
+{
+  "description": "Delete a customer commitment.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do customer-commitments delete",
+  "id": "538d2a40031cc9126293cfe9aae72aff6a382882e0a4d4d21c11a698264de40c",
+  "permissions": null,
+  "side_effects": "Deletes a customer commitment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_customer_commitments_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/customer_commitments_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "confirm is required to delete a customer commitment."
+}

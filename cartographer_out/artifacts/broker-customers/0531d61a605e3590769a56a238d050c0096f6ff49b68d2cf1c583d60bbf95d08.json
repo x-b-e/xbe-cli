@@ -1,0 +1,180 @@
+{
+  "id": "0531d61a605e3590769a56a238d050c0096f6ff49b68d2cf1c583d60bbf95d08",
+  "full_path": "view broker-customers list",
+  "description": "List broker customers with filtering and pagination.",
+  "permissions": "Access is limited by TradingPartnerPolicy::Scope; broker-customer records are returned only when the user can see both the broker and customer via their policy scopes (non-admins see broker/customer pairs within scope).",
+  "side_effects": null,
+  "validation_notes": "--organization-id requires --organization-type or --organization. --partner-id requires --partner-type or --partner. Polymorphic filters (organization/partner and their *_id forms) require non-empty Type|ID values; types must map to known record classes and IDs must be digits (optionally + separated), otherwise the API returns a bad request.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g. Broker|123)",
+      "default": null,
+      "validation": "Value must be Type|ID; Type must be a known record class and ID must be digits."
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (use with --organization-type)",
+      "default": null,
+      "validation": "Requires --organization-type or --organization."
+    },
+    {
+      "name": "--not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude by organization type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--partner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner (Type|ID, e.g. Customer|456)",
+      "default": null,
+      "validation": "Value must be Type|ID; Type must be a known record class and ID must be digits."
+    },
+    {
+      "name": "--partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--partner-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by partner ID (use with --partner-type)",
+      "default": null,
+      "validation": "Requires --partner-type or --partner."
+    },
+    {
+      "name": "--not-partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude by partner type",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trading-partner-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trading partner type (e.g. BrokerCustomer)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-accounting-broker-customer-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external accounting broker customer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_customers_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_customer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trading_partner_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/externally_identifiable_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "928bfa891b8a5e590c016e3bec14514b863e3a4298c3269baf42aefaf32d4472",
+  "full_path": "do root-causes update",
+  "description": "Update an existing root cause",
+  "permissions": "Admin user (RootCausePolicy delegates update to incident policy; policy spec permits admin users).",
+  "side_effects": "Updates a root cause with specified fields.",
+  "validation_notes": "<id> argument is required; at least one of --title, --description, or --is-triaged must be provided; only specified fields are modified; incident and root-cause relationships are create-only (not updateable).",
+  "flags": [
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Root cause title.",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Root cause description.",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--is-triaged",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as triaged (true/false).",
+      "default": "false",
+      "validation": "Optional; include to set triage status."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_root_causes_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_root_causes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/root_cause_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/resources/v1/root_cause_resource_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/root_cause_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/root_cause_policy_spec.rb"
+    }
+  ]
+}

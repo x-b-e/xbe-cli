@@ -1,0 +1,29 @@
+{
+  "id": "2937013f2181810606b2a799b05bda2849f3e369a20982a4138f0e0a55984ce4",
+  "full_path": "update",
+  "description": "Show update instructions.",
+  "permissions": null,
+  "side_effects": "Prints update instructions; does not modify local or remote state.",
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "tag",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Pin to a specific release tag (e.g., v0.1.0)",
+      "default": "",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_tracker_update_request_policy.rb"
+    }
+  ]
+}

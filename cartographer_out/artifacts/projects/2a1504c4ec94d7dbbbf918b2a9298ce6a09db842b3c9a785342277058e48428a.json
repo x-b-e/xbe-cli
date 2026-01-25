@@ -1,0 +1,204 @@
+{
+  "id": "2a1504c4ec94d7dbbbf918b2a9298ce6a09db842b3c9a785342277058e48428a",
+  "full_path": "do projects update",
+  "description": "Update an existing project.",
+  "permissions": "Requires authentication. Admin users or users who are practically managers of the developer organization can update projects.",
+  "side_effects": "Updates project attributes and relationships.",
+  "validation_notes": "Requires <id> argument. At least one field must be provided to update. Date fields use ISO 8601 (YYYY-MM-DD). Boolean fields require true/false.",
+  "flags": [
+    {
+      "name": "--actual-estimate-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Actual estimate set ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--bid-estimate-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Bid estimate set ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--due-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New due date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    {
+      "name": "--enforce-number-uniqueness",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enforce number uniqueness (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--estimator",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New estimator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-certification-required-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Certification required (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-inactive",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Update inactive status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-managed",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Update managed status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-one-way-job-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "One-way job (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-opportunity",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Update opportunity status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-prevailing-wage-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Prevailing wage (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-time-card-payroll-certification-required-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Time card payroll certification required (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-transport-only",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Transport only (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New project number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--possible-estimate-set",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Possible estimate set ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-manager",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New project manager user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New project office ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-transport-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project transport plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New start date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_projects_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

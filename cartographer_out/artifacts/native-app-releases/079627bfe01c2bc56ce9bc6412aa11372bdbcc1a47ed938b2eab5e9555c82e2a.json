@@ -1,0 +1,46 @@
+{
+  "id": "079627bfe01c2bc56ce9bc6412aa11372bdbcc1a47ed938b2eab5e9555c82e2a",
+  "full_path": "do native-app-releases update",
+  "description": "Update an existing native app release.",
+  "permissions": "Only admin users can update native app releases (policy requires is_admin?).",
+  "side_effects": "Updates a native app release record release channel details and notes.",
+  "validation_notes": "Requires a native app release <id> argument. At least one writable attribute must be provided or the request fails. If --release-channel-details is provided, it must be a non-empty JSON array and each object channel and status must be in the server defined enums.",
+  "flags": [
+    {
+      "name": "--notes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notes about the release",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--release-channel-details",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Release channel details JSON array",
+      "default": null,
+      "validation": "If provided, must be a non-empty JSON array of objects; each object channel and status must be valid server enums."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_native_app_releases_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/native_app_release_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/native_app_release.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/native_app_release_policy.rb"
+    }
+  ]
+}

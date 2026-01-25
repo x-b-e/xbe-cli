@@ -1,0 +1,19 @@
+{
+  "id": "d23fff8812b99ca7bd5200df25ba4c2bb8a6451fb8728c3d95faf0d635390b40",
+  "full_path": "view incident-request-rejections list",
+  "description": "List incident request rejections.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_request_rejections_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_request_rejection_resource.rb"
+    }
+  ]
+}

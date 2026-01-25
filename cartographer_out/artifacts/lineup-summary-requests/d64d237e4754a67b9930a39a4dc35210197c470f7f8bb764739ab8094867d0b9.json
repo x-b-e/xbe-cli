@@ -1,0 +1,23 @@
+{
+  "id": "d64d237e4754a67b9930a39a4dc35210197c470f7f8bb764739ab8094867d0b9",
+  "full_path": "view lineup-summary-requests show",
+  "description": "Show lineup summary request details",
+  "permissions": "Admins can view lineup summary requests. Non-admin users can view a request only if its level is within their Broker/Customer policy scopes (e.g., managers of the level or its broker).",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_summary_requests_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_summary_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

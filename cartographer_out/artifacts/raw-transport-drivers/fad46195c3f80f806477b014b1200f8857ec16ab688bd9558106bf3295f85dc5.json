@@ -1,0 +1,27 @@
+{
+  "id": "fad46195c3f80f806477b014b1200f8857ec16ab688bd9558106bf3295f85dc5",
+  "full_path": "view raw-transport-drivers show",
+  "description": "Show the full details of a raw transport driver.",
+  "permissions": "User must be an admin or have admin membership in the broker; non-admins can only access drivers for brokers where they are admin members.",
+  "side_effects": null,
+  "validation_notes": "id argument is required and must be a non-empty raw transport driver ID.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/raw_transport_drivers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_driver_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_driver_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

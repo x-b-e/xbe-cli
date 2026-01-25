@@ -1,0 +1,55 @@
+{
+  "id": "2c7ccd048e7f4f0f3258473f16aed76a29b07543162b3543ccf0005a02defca2",
+  "full_path": "do equipment-movement-stops update",
+  "description": "Update an equipment movement stop.",
+  "permissions": "Allowed for users authorized to manage the related equipment movement trip; access is delegated to the trip relationship.",
+  "side_effects": "May schedule equipment movement stop change notifications for the related trip after commit when the trip has a confirmed job production plan and the stop has notifiable changes.",
+  "validation_notes": "At least one of --location, --sequence-position, or --scheduled-arrival-at must be provided; scheduled-arrival-at must be an ISO 8601 timestamp; trip and location must belong to the same broker.",
+  "flags": [
+    {
+      "name": "--location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requirement location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--sequence-position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Position in trip sequence",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--scheduled-arrival-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Scheduled arrival time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_stops_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_stop.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_policy.rb"
+    }
+  ]
+}

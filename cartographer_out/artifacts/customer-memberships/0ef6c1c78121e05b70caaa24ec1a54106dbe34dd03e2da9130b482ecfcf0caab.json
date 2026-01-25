@@ -1,0 +1,159 @@
+{
+  "id": "0ef6c1c78121e05b70caaa24ec1a54106dbe34dd03e2da9130b482ecfcf0caab",
+  "full_path": "view customer-memberships list",
+  "description": "List customer memberships with filtering and pagination.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Filters combine with AND logic. --customer and --organization cannot be used together; when --customer is set, it is converted to organization filter Customer|<id>. kind must be operations or manager. drives-shift-type must be any, day, or night. Boolean filters accept true or false.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--drives-shift-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by drives shift type (any/day/night).",
+      "default": null,
+      "validation": "Allowed values: any, day, night."
+    },
+    {
+      "name": "--external-employee-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external employee ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by default job production plan subscriber (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-equipment-rental-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by equipment rental team member (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by geofence violation team member (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-rate-editor",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by rate editor status (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-time-card-auditor",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by time card auditor status (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by unapproved time card subscriber (true/false).",
+      "default": null,
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by kind (operations/manager).",
+      "default": null,
+      "validation": "Allowed values: operations, manager."
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g. Customer|123).",
+      "default": null,
+      "validation": "Format: Type|ID (example: Customer|123)."
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project office ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search by user name.",
+      "default": null,
+      "validation": "Example: Jordan."
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_memberships_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_membership_policy.rb"
+    }
+  ]
+}

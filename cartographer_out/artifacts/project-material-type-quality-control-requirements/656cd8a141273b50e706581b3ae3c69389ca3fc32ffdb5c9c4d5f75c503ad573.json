@@ -1,0 +1,46 @@
+{
+  "id": "656cd8a141273b50e706581b3ae3c69389ca3fc32ffdb5c9c4d5f75c503ad573",
+  "full_path": "do project-material-type-quality-control-requirements update",
+  "description": "Update a project material type quality control requirement.",
+  "permissions": "User must be authorized to update requirements for the related project material type; access is delegated to the ProjectMaterialType policy via the project_material_type relationship.",
+  "side_effects": "Updates a project material type quality control requirement record.",
+  "validation_notes": "Requires <id> argument. At least one field must be specified for update. If provided, --quality-control-classification cannot be empty. Project material type relationship is create-only and cannot be changed after creation. Quality control classification must be unique per project material type and must have the same broker as the project material type.",
+  "flags": [
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Optional note (empty to clear)",
+      "default": null,
+      "validation": "Empty value clears the note."
+    },
+    {
+      "name": "--quality-control-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Quality control classification ID",
+      "default": null,
+      "validation": "Cannot be empty when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_material_type_quality_control_requirements_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_material_type_quality_control_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_material_type_quality_control_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_material_type_quality_control_requirement_resource.rb"
+    }
+  ]
+}

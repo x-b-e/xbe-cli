@@ -1,0 +1,33 @@
+{
+  "id": "e12f7a76729cfea7c127edac11a2b8df2a82c02141ed33d5c743ea7d1499b19b",
+  "full_path": "do commitment-simulation-sets delete",
+  "description": "Delete a commitment simulation set.",
+  "permissions": "Admin users or manager members of broker, customer, or trucker organizations can delete commitment simulation sets.",
+  "side_effects": "Deletes the commitment simulation set.",
+  "validation_notes": "--confirm is required. Commitment simulation set ID argument is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_commitment_simulation_sets_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_simulation_set_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_simulation_set_resource.rb"
+    }
+  ]
+}

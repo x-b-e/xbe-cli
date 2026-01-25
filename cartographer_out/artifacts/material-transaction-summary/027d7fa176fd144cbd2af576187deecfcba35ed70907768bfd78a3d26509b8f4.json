@@ -1,0 +1,99 @@
+{
+  "id": "027d7fa176fd144cbd2af576187deecfcba35ed70907768bfd78a3d26509b8f4",
+  "full_path": "summarize material-transaction-summary create",
+  "description": "Create a material transaction summary.",
+  "permissions": "Authenticated user with a persisted account (user record exists) can create a material transaction summary.",
+  "side_effects": "Read-only summary query; no persistent changes.",
+  "validation_notes": "Group-by values must match supported summary attributes; invalid values are rejected. Filter keys must be supported summary attributes (or metric filters) and cannot be blank; unknown keys are rejected. Included metrics must be one of material_transaction_count, tons_sum, tons_avg; invalid values are rejected. Integer-typed filters (month, year, day_of_year, day_of_week, week_of_year, hour) are parsed as integers and invalid values raise errors. material_type_fully_qualified_name_base filters are validated against the allowed base names and invalid values are rejected. --filters must be valid JSON. --filter entries must be key=value with a non-empty key.",
+  "flags": [
+    {
+      "name": "group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to material_site unless set.",
+      "default": "material_site",
+      "validation": "Values must be one or more supported group-by attributes."
+    },
+    {
+      "name": "metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated).",
+      "default": null,
+      "validation": "Values must be valid metric names: material_transaction_count, tons_sum, tons_avg."
+    },
+    {
+      "name": "metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable).",
+      "default": null,
+      "validation": "Values must be valid metric names: material_transaction_count, tons_sum, tons_avg."
+    },
+    {
+      "name": "all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all available metrics",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "min-transactions",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Drop rows with fewer than this many transactions",
+      "default": "0",
+      "validation": null
+    },
+    {
+      "name": "filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. {\"broker\":\"123\"})",
+      "default": null,
+      "validation": "Must be valid JSON object."
+    },
+    {
+      "name": "filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable)",
+      "default": null,
+      "validation": "Each entry must be key=value with a non-empty key."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_summary_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_summary_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_summary.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/abstract_summary_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/abstract_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_summary_resource.rb"
+    }
+  ]
+}

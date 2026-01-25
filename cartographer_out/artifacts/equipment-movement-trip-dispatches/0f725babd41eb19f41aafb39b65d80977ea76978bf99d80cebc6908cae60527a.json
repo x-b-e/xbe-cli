@@ -1,0 +1,123 @@
+{
+  "id": "0f725babd41eb19f41aafb39b65d80977ea76978bf99d80cebc6908cae60527a",
+  "full_path": "view equipment-movement-trip-dispatches list",
+  "description": "List equipment movement trip dispatches with filtering and pagination.",
+  "permissions": "Admin users only; policy scope for non-admins resolves to none.",
+  "side_effects": null,
+  "validation_notes": "Filters correspond to server-side filters for status, created_by, equipment_movement_trip, equipment_movement_requirement, inbound_equipment_requirement, outbound_equipment_requirement, trucker, driver, lineup_dispatch, and created_at range.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-movement-trip",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment movement trip ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-movement-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment movement requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--inbound-equipment-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by inbound equipment requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--outbound-equipment-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by outbound equipment requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--lineup-dispatch",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by lineup dispatch ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_trip_dispatches_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_dispatch_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_dispatch_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "83da7e26eae89969c1bba33b18e7d613c5ffc750aa975c92497fd3927c01d131",
+  "full_path": "view notification-subscriptions list",
+  "description": "List notification subscriptions with filtering and pagination.",
+  "permissions": "Admins can list all notification subscriptions. Non-admin users can list notification subscriptions only if the subscription ID is within the policy scopes for CustomerTenderOfferedBuyerNotificationSubscription or BrokerTenderOfferedSellerNotificationSubscription. Anonymous users have no access.",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max/updated-at-min/updated-at-max require ISO 8601 timestamps. is-created-at and is-updated-at expect true/false values.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/notification_subscriptions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_subscription_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

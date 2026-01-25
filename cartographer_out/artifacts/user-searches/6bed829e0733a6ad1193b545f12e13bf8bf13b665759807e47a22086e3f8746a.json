@@ -1,0 +1,59 @@
+{
+  "id": "6bed829e0733a6ad1193b545f12e13bf8bf13b665759807e47a22086e3f8746a",
+  "full_path": "do user-searches create",
+  "description": "Run a user search",
+  "permissions": "User must be present (authenticated) to create a user search (UserSearchPolicy#create?).",
+  "side_effects": "Performs a user lookup by contact method/value and returns a matching user when found.",
+  "validation_notes": "--contact-method is required and must be email_address or mobile_number. --contact-value is required. When contact-method is mobile_number, the server validates contact-value as a phone number.",
+  "flags": [
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Contact method (email_address or mobile_number)",
+      "default": null,
+      "validation": "One of: email_address, mobile_number."
+    },
+    {
+      "name": "--contact-value",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Contact value to search",
+      "default": null,
+      "validation": "Required; if contact-method is mobile_number, server validates phone number format."
+    },
+    {
+      "name": "--only-admin-or-member",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Restrict matches to admins or members (true/false)",
+      "default": null,
+      "validation": "Expected true or false when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_searches_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_searches.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_search_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_search.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_search_resource.rb"
+    }
+  ]
+}

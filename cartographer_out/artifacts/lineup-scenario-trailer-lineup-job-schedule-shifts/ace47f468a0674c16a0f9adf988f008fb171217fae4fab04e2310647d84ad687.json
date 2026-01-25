@@ -1,0 +1,46 @@
+{
+  "description": "List lineup scenario trailer lineup job schedule shifts with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by lineup scenario trailer ID",
+      "name": "--lineup-scenario-trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by lineup scenario lineup job schedule shift ID",
+      "name": "--lineup-scenario-lineup-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view lineup-scenario-trailer-lineup-job-schedule-shifts list",
+  "id": "ace47f468a0674c16a0f9adf988f008fb171217fae4fab04e2310647d84ad687",
+  "permissions": "User must be an admin or a member of the broker that owns the related lineup scenario (access is scoped via the lineup scenario associated to the trailer and shift).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/lineup_scenario_trailer_lineup_job_schedule_shifts_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_trailer_lineup_job_schedule_shift_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trailer_lineup_job_schedule_shift_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

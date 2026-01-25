@@ -1,0 +1,73 @@
+{
+  "id": "b4934f04b3907333c62cef4572ff9c598a17f7e5c06068b7fa760a45fc23ab5e",
+  "full_path": "view ui-tour-steps list",
+  "description": "List UI tour steps with filtering and pagination.",
+  "permissions": "Authorized via UiTourStepPolicy; access is delegated to the related UI tour (policy scope delegates to UiTour).",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max must be ISO 8601 timestamps; is-created-at/is-updated-at accept true/false; not-id expects a comma-separated list of IDs.",
+  "flags": [
+    {
+      "name": "--not-id",
+      "required": false,
+      "type": "string",
+      "description": "Exclude UI tour step IDs (comma-separated)",
+      "validation": "Comma-separated IDs, e.g. 1,2,3"
+    },
+    {
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "validation": "ISO 8601 timestamp, e.g. 2025-01-01T00:00:00Z"
+    },
+    {
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "validation": "ISO 8601 timestamp, e.g. 2025-12-31T23:59:59Z"
+    },
+    {
+      "name": "--is-created-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "validation": "ISO 8601 timestamp, e.g. 2025-01-01T00:00:00Z"
+    },
+    {
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "validation": "ISO 8601 timestamp, e.g. 2025-12-31T23:59:59Z"
+    },
+    {
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/ui_tour_steps_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ui_tour_step_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ui_tour_step_policy.rb"
+    }
+  ]
+}

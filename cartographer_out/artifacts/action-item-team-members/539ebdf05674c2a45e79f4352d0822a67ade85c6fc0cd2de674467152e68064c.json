@@ -1,0 +1,63 @@
+{
+  "id": "539ebdf05674c2a45e79f4352d0822a67ade85c6fc0cd2de674467152e68064c",
+  "full_path": "do action-item-team-members create",
+  "description": "Create an action item team member",
+  "permissions": "Allowed for admins or users who are members of the responsible organization (or its broker) for the action item (delegated from ActionItemPolicy create?).",
+  "side_effects": "Creates an action item team member; setting is_responsible_person to true will unset any existing responsible person for the same action item. Also triggers action item team member change notifications after commit.",
+  "validation_notes": "--action-item and --user are required. user_id must be unique per action_item_id. user must have a membership related to the responsible organization unless the user is an admin. Only one responsible person can be true per action item; if set true, existing responsible person is cleared. action_item and user relationships are create-only.",
+  "flags": [
+    {
+      "name": "--action-item",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Action item ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--is-responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether the user is the responsible person",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_team_members_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_team_member_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_team_member_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/action_item_team_member.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.action_item_team_members.sql"
+    }
+  ]
+}

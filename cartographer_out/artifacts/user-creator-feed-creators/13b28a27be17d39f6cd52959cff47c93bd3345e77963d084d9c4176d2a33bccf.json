@@ -1,0 +1,74 @@
+{
+  "id": "13b28a27be17d39f6cd52959cff47c93bd3345e77963d084d9c4176d2a33bccf",
+  "full_path": "view user-creator-feed-creators list",
+  "description": "List user creator feed creators with filtering and pagination.",
+  "permissions": "Authenticated users can list user creator feed creators; non-admin users are limited to records where the user_creator_feed belongs to the current user (policy scope).",
+  "side_effects": "None (read-only).",
+  "validation_notes": "The creator filter expects Type|ID format (e.g. User|123). --creator-id requires --creator-type or --creator.",
+  "flags": [
+    {
+      "name": "--user-creator-feed",
+      "required": false,
+      "type": "string",
+      "description": "Filter by user creator feed ID"
+    },
+    {
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID"
+    },
+    {
+      "name": "--user-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID (via feed)"
+    },
+    {
+      "name": "--creator",
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator (Type|ID, e.g. User|123)",
+      "validation": "Format: Type|ID (e.g. User|123)."
+    },
+    {
+      "name": "--creator-type",
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator type (e.g. User, Broker)"
+    },
+    {
+      "name": "--creator-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by creator ID (use with --creator-type)",
+      "validation": "Requires --creator-type or --creator."
+    },
+    {
+      "name": "--not-creator-type",
+      "required": false,
+      "type": "string",
+      "description": "Exclude by creator type"
+    },
+    {
+      "name": "--follow",
+      "required": false,
+      "type": "string",
+      "description": "Filter by follow ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_creator_feed_creators_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_creator_feed_creator_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_creator_feed_creator_policy.rb"
+    }
+  ]
+}

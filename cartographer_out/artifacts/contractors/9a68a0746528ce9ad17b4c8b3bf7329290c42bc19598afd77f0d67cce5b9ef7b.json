@@ -1,0 +1,46 @@
+{
+  "id": "9a68a0746528ce9ad17b4c8b3bf7329290c42bc19598afd77f0d67cce5b9ef7b",
+  "full_path": "do contractors create",
+  "description": "Create a new contractor.",
+  "permissions": "Allowed for admins, members of the broker, or managers of a customer whose broker matches the contractor broker.",
+  "side_effects": "Creates a contractor and associates it with the specified broker.",
+  "validation_notes": "Name and broker are required. Name must be unique per broker and cannot be blank.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required)",
+      "default": null,
+      "validation": "Required. Example: 123"
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Contractor name (required)",
+      "default": null,
+      "validation": "Required. Example: Acme Subcontracting"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_contractors_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/contractor.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/contractor_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/contractor_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+{
+  "id": "4b1cf65943ef6112a61a2ad95d44a258e8245ebd3e63822417021ae43866da8e",
+  "full_path": "do tender-job-schedule-shifts update",
+  "description": "Update a tender job schedule shift.",
+  "permissions": "Requires authentication. Allowed for admins, customer managers for the job customer/broker branch, broker-shift trucker managers, drivers/shift drivers on the shift, or foremen per TenderJobScheduleShiftPolicy#update?; member trucker ops users may update only seller_operations_contact, trailer, and tractor fields.",
+  "side_effects": "Updates tender job schedule shift attributes and/or relationships.",
+  "validation_notes": "The <id> argument is required. At least one attribute or relationship must be provided or the command fails. If --tender-type or --tender-id is provided, both are required to update the tender relationship. --is-time-card-payroll-certification-required-explicit and --is-time-card-creating-time-sheet-line-item-explicit accept true/false/null. Server does not allow updating job-schedule-shift via the resource updatable fields.",
+  "flags": [
+    {
+      "name": "--all-trips-entered",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "All trips entered",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--auto-check-in-driver-on-arrival-at-start-site",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Auto check-in driver on arrival at start site",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--billable-travel-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billable travel minutes",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--disable-pre-start-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Disable pre-start notifications",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--driver-assignment-rule-override-reason",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Driver assignment rule override reason",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--expected-time-of-arrivals",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expected time of arrival IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--expecting-material-transactions-message",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Expecting material transactions message",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-is-expecting-time-card",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicit is expecting time card",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-material-transaction-tons-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit material transaction tons max",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-notify-driver-when-gps-not-available",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Explicitly notify driver when GPS not available",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--gross-weight-legal-limit-lbs-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Gross weight legal limit lbs explicit",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--hours-after-which-overtime-applies",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Hours after which overtime applies",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-automated-job-site-time-creation-disabled",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Disable automated job site time creation",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-expecting-material-transactions",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is expecting material transactions",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-time-card-creating-time-sheet-line-item-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is time card creating time sheet line item explicit (true/false/null)",
+      "default": null,
+      "validation": "true/false/null"
+    },
+    {
+      "name": "--is-time-card-payroll-certification-required-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Is time card payroll certification required explicit (true/false/null)",
+      "default": null,
+      "validation": "true/false/null"
+    },
+    {
+      "name": "--job-production-plan-broadcast-messages",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan broadcast message IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--loaded-tons-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Loaded tons max",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-transaction-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material transaction status",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notify-after-shift-ends-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notify driver after shift ends (hours)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notify-before-shift-starts-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notify driver before shift starts (hours)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notify-driver-on-late-shift-assignment",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Notify driver on late shift assignment",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--notify-driver-when-gps-not-available",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Notify driver when GPS not available (legacy)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--production-incidents",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Production incident IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--reset-hours-after-which-overtime-applies",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Reset hours after which overtime applies",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--retainer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Retainer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--seller-operations-contact",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Seller operations contact (driver) ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--seller-operations-contact-draft",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Seller operations contact draft ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-events",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Service event IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--shift-feedbacks",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift feedback IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--skip-validate-driver-assignment-rule-evaluation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip driver assignment rule evaluation",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Shift start time (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp"
+    },
+    {
+      "name": "--tender-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tender ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tender resource type (e.g., broker-tenders)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--time-cards",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Time card IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-draft",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer draft ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--travel-miles",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Travel miles",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trips",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trip IDs (comma-separated)",
+      "default": null,
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--truck-count",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Truck count override",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker-can-create-material-transactions",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Trucker can create material transactions",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_job_schedule_shifts_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_job_schedule_shift_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Show job production plan service type unit of measure cohort details",
+  "flags": [],
+  "full_path": "view job-production-plan-service-type-unit-of-measure-cohorts show",
+  "id": "124c4268a330ce85b3a836f06300e159adcd2f251524be000c6f53e6087f4f87",
+  "permissions": "Requires access to the associated job production plan via delegated authorization.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_service_type_unit_of_measure_cohorts_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_service_type_unit_of_measure_cohort_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_service_type_unit_of_measure_cohort_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument for the job production plan service type unit of measure cohort."
+}

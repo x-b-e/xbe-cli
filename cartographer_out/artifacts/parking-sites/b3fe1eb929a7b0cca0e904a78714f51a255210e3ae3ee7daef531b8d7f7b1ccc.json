@@ -1,0 +1,109 @@
+{
+  "description": "Create a parking site.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Type of parked item (e.g., trailers, tractors)",
+      "name": "--parked-type",
+      "required": true,
+      "type": "string",
+      "validation": "Must refer to a Trailer or Tractor parked type."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "ID of parked item",
+      "name": "--parked-id",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Whether the site is active",
+      "name": "--is-active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Active start time (ISO 8601)",
+      "name": "--active-start",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 date-time."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Active end time (ISO 8601)",
+      "name": "--active-end",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 date-time; must be after active-start when both are set."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address of the parking site",
+      "name": "--address",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Latitude coordinate",
+      "name": "--latitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Longitude coordinate",
+      "name": "--longitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip geocoding the address",
+      "name": "--skip-geocoding",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do parking-sites create",
+  "id": "b3fe1eb929a7b0cca0e904a78714f51a255210e3ae3ee7daef531b8d7f7b1ccc",
+  "permissions": "Allowed if the user can create the parked resource (per its policy); if parked is nil, create is allowed by policy.",
+  "side_effects": "Creates a parking site; may trigger address geocoding unless skip-geocoding is set.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_parking_sites_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/parking_site_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/parking_site_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/parking_site.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Required flags: --parked-type and --parked-id. parked_type must be one of Trailer or Tractor and must match the parked record type. address must be present (may be derived from the parked record). If active_start is set, active_end must be greater than active_start when provided. Active parking sites enforce uniqueness of parked_id scoped to parked_type."
+}

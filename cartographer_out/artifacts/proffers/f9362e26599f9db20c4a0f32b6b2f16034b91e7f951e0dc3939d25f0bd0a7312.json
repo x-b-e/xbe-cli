@@ -1,0 +1,29 @@
+{
+  "id": "f9362e26599f9db20c4a0f32b6b2f16034b91e7f951e0dc3939d25f0bd0a7312",
+  "full_path": "do proffers delete",
+  "description": "Delete a proffer",
+  "permissions": "Allowed for admins or the proffer creator (policy destroy? uses update? which allows admins or created_by).",
+  "side_effects": "Deletes the proffer.",
+  "validation_notes": "The <id> argument is required. --confirm must be set to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_proffers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/proffer_policy.rb"
+    }
+  ]
+}

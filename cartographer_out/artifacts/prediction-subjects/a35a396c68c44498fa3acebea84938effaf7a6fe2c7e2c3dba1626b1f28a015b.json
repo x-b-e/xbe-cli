@@ -1,0 +1,33 @@
+{
+  "description": "Delete a prediction subject.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do prediction-subjects delete",
+  "id": "a35a396c68c44498fa3acebea84938effaf7a6fe2c7e2c3dba1626b1f28a015b",
+  "permissions": "Admins can delete prediction subjects. Non-admin users can delete prediction subjects only when they are admin members of the associated broker.",
+  "side_effects": "Deletes the prediction subject and dependent records (memberships, gaps, agents, recaps, and lowest losing bid details) when allowed. Deletion is blocked if the subject has predictions.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_subjects_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The prediction subject ID argument is required. --confirm is required. The prediction subject cannot be deleted when it has predictions."
+}

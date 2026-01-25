@@ -1,0 +1,37 @@
+{
+  "id": "851e6a7f3e0b0749310ce7f7f166cb57f9dbae4c4ff743383cd80e48c6a3a9f2",
+  "full_path": "do project-cost-codes delete",
+  "description": "Delete a project cost code.",
+  "permissions": "Delete permission is delegated to the related project_customer and ultimately the project; allowed for users who can update the project under ProjectPolicy (admins or users who are practically managers of the project developer).",
+  "side_effects": "Deletes a project cost code record.",
+  "validation_notes": "Requires <id> argument. Requires --confirm and it must be true; command errors if omitted or false.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (example: --confirm).",
+      "default": null,
+      "validation": "Must be true; command errors if omitted or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_cost_codes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_cost_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

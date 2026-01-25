@@ -1,0 +1,33 @@
+{
+  "id": "b8b6698a1fb257601604167cf6b8d35f1435aedff23940e1f0623658dce4e92a",
+  "full_path": "do time-card-time-changes delete",
+  "description": "Delete a time card time change.",
+  "permissions": "Admins may delete time card time changes; non-admins may delete them only if they are allowed to create a time card approval for the related time card (per TimeCardApprovalPolicy#create?), and only while the change is unprocessed.",
+  "side_effects": "Deletes a time card time change record.",
+  "validation_notes": "Requires a time card time change ID argument. --confirm is required. Only unprocessed time card time changes can be deleted.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_time_changes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_time_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_time_change.rb"
+    }
+  ]
+}

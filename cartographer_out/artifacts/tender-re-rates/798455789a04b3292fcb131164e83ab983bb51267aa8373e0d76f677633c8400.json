@@ -1,0 +1,82 @@
+{
+  "id": "798455789a04b3292fcb131164e83ab983bb51267aa8373e0d76f677633c8400",
+  "full_path": "do tender-re-rates create",
+  "description": "Re-rate tenders and optionally re-constrain rates.",
+  "permissions": "User must be an admin and have TenderRater create permission for each referenced tender.",
+  "side_effects": "Re-rates and/or re-constrains tenders, may update time card quantities and invoices, and triggers summary updates; may schedule an async retry on failure.",
+  "validation_notes": "--tender-ids is required and must refer to existing tenders. At least one of --re-rate or --re-constrain must be true. If --update-time-card-quantities is omitted, the server defaults update_time_card_quantities to true.",
+  "flags": [
+    {
+      "name": "--tender-ids",
+      "aliases": null,
+      "required": true,
+      "type": "array",
+      "description": "Tender IDs (comma-separated or repeated)",
+      "default": null,
+      "validation": "Required; must refer to existing tenders."
+    },
+    {
+      "name": "--re-rate",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Re-rate tenders",
+      "default": "false",
+      "validation": "At least one of --re-rate or --re-constrain must be true."
+    },
+    {
+      "name": "--re-constrain",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Re-constrain tenders",
+      "default": "false",
+      "validation": "At least one of --re-rate or --re-constrain must be true."
+    },
+    {
+      "name": "--update-time-card-quantities",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Update time card quantities",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-update-travel-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip updating travel minutes (deprecated)",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--skip-validate-customer-tender-hourly-rates",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip validation of customer tender hourly rates",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_re_rates_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/sombreros/tender_re_rate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/sombreros/tender_re_rate_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/sombreros/tender_re_rate.rb"
+    }
+  ]
+}

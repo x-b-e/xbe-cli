@@ -1,0 +1,29 @@
+{
+  "id": "8a0f41705c688c9fc200a071ba55be826ac4e7d7b4a01f65a9468ed4caed959e",
+  "full_path": "do business-unit-memberships delete",
+  "description": "Delete a business unit membership",
+  "permissions": "Admins and broker org admins can delete business unit memberships. Business unit managers can delete memberships only when the kind is technician or general.",
+  "side_effects": "Deletes the business unit membership record.",
+  "validation_notes": "The business unit membership ID argument is required. --confirm is required to perform deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_memberships_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_membership_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "021034280279cf8c4ffefdbb2f6b7406214129aff527cb69b3b88780cd8bfd97",
+  "full_path": "view trucker-applications list",
+  "description": "List trucker applications with filtering and pagination.",
+  "permissions": "Admins can list all trucker applications. Non-admins are limited to applications they created with no trucker assigned, applications for brokers they belong to, or applications for truckers they belong to.",
+  "side_effects": null,
+  "validation_notes": "--status must be one of pending, reviewing, denied, approved. --company-address-within must be formatted as lat,lng:miles with miles as an integer.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (pending, reviewing, denied, approved)",
+      "default": null,
+      "validation": "pending, reviewing, denied, approved"
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search applications",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--phone-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by phone number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--company-address-within",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by company address proximity (lat,lng:miles)",
+      "default": null,
+      "validation": "lat,lng:miles (miles is integer)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_applications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_application_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/trucker_like_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker_application.rb"
+    }
+  ]
+}

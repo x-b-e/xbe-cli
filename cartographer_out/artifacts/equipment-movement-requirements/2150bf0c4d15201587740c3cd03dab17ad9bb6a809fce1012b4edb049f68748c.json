@@ -1,0 +1,118 @@
+{
+  "id": "2150bf0c4d15201587740c3cd03dab17ad9bb6a809fce1012b4edb049f68748c",
+  "full_path": "do equipment-movement-requirements create",
+  "description": "Create an equipment movement requirement.",
+  "permissions": "Admins can create equipment movement requirements. Non-admin users can create requirements only for brokers they are members of.",
+  "side_effects": "Creates an equipment movement requirement and updates related trip customer cost allocations after commit.",
+  "validation_notes": "--broker and --equipment are required unless inbound/outbound requirements are provided. origin-at-min and destination-at-max must be ISO 8601 timestamps. destination-at-max must be greater than origin-at-min when both are set. origin and destination must be different if both are set. inbound-requirement and outbound-requirement must reference the same equipment as the requirement. inbound_requirement_id and outbound_requirement_id must be unique if set. customer-explicit must be related to the broker. equipment, origin, and destination must be related to the broker.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID (explicit override)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--inbound-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Inbound equipment requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--outbound-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Outbound equipment requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--origin",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Origin location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--destination",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Destination location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--origin-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Earliest origin time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--destination-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latest destination time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_requirements_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_requirement_policy.rb"
+    }
+  ]
+}

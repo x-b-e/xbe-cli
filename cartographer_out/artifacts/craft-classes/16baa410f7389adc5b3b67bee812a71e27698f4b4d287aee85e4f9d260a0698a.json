@@ -1,0 +1,59 @@
+{
+  "id": "16baa410f7389adc5b3b67bee812a71e27698f4b4d287aee85e4f9d260a0698a",
+  "full_path": "do craft-classes update",
+  "description": "Update an existing craft class.",
+  "permissions": "Requires permission to update the craft class via its parent craft; authorization is delegated to the related craft (CraftPolicy).",
+  "side_effects": "Updates the specified craft class fields.",
+  "validation_notes": "Provide the craft class ID as an argument. At least one of --name, --code, or --is-valid-for-drivers must be specified. name must be unique within the craft (case-insensitive). code must be unique within the craft (case-insensitive).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Craft class name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Craft class code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-valid-for-drivers",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether valid for drivers",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_craft_classes_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/craft_class_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/craft_class.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/craft_class_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/models/craft_class_spec.rb"
+    }
+  ]
+}

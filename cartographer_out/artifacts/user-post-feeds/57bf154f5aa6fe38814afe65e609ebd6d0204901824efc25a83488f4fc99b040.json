@@ -1,0 +1,19 @@
+{
+  "id": "57bf154f5aa6fe38814afe65e609ebd6d0204901824efc25a83488f4fc99b040",
+  "full_path": "view user-post-feeds show",
+  "description": "Show user post feed details",
+  "permissions": "Authenticated users can view user post feeds; non-admin users are limited to feeds where the feed user is themselves.",
+  "side_effects": null,
+  "validation_notes": "id argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_post_feeds_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_post_feed_policy.rb"
+    }
+  ]
+}

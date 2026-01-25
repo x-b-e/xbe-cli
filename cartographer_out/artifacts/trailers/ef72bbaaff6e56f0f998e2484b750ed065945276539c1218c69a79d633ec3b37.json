@@ -1,0 +1,114 @@
+{
+  "description": "List trailers.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trucker ID",
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tractor ID",
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer classification ID",
+      "name": "--trailer-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by in-service status (true/false)",
+      "name": "--in-service",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer number (exact match)",
+      "name": "--number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer number (fuzzy match)",
+      "name": "--number-like",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Search query",
+      "name": "--q",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum last shift start time",
+      "name": "--last-shift-start-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a parseable datetime."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum last shift start time",
+      "name": "--last-shift-start-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a parseable datetime."
+    }
+  ],
+  "full_path": "view trailers list",
+  "id": "ef72bbaaff6e56f0f998e2484b750ed065945276539c1218c69a79d633ec3b37",
+  "permissions": "Admins can list all trailers; non-admins can list trailers scoped to truckers they are authorized to access via the Trucker policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/trailers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/trailer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter values are passed as strings; last-shift-start-at-min and last-shift-start-at-max must be parseable datetimes. The in-service filter expects a true/false value."
+}

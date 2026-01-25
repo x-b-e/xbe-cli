@@ -1,0 +1,23 @@
+{
+  "id": "71af4bbc5d92c77bdd8f59b74b0f0611cf062372d1aba9b18b75d6e0400ef488",
+  "full_path": "view job-production-plan-schedule-change-works show",
+  "description": "Show the full details of a job production plan schedule change work item.",
+  "permissions": "Read access is scoped through JobProductionPlan; users must be authorized to view the related job production plan record via the delegated policy scope.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_schedule_change_works_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_schedule_change_work_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_schedule_change_work_policy.rb"
+    }
+  ]
+}

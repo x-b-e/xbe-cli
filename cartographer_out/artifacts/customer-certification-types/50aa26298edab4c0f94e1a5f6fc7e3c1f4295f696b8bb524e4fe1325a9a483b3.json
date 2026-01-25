@@ -1,0 +1,74 @@
+{
+  "id": "50aa26298edab4c0f94e1a5f6fc7e3c1f4295f696b8bb524e4fe1325a9a483b3",
+  "full_path": "view customer-certification-types list",
+  "description": "List customer certification types",
+  "permissions": "User can view customer certification types for customers within their policy scope; admins can access all.",
+  "side_effects": null,
+  "validation_notes": "created-at and updated-at filters expect ISO 8601 timestamps. is-created-at/is-updated-at expect true/false.",
+  "flags": [
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp, e.g., 2024-12-31T23:59:59Z"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp, e.g., 2024-01-01T00:00:00Z"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_certification_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_certification_type_policy.rb"
+    }
+  ]
+}

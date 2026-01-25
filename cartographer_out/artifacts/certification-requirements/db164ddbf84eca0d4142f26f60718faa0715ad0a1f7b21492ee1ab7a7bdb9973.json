@@ -1,0 +1,38 @@
+{
+  "description": "List certification requirements.",
+  "flags": [
+    {
+      "description": "Filter by certification type ID",
+      "name": "--certification-type",
+      "required": false,
+      "type": "string",
+      "validation": "Certification type ID."
+    },
+    {
+      "description": "Filter by requiring entity (Type|ID, e.g., Project|123)",
+      "name": "--required-by",
+      "required": false,
+      "type": "string",
+      "validation": "Format Type|ID (e.g., Project|123)."
+    }
+  ],
+  "full_path": "view certification-requirements list",
+  "id": "db164ddbf84eca0d4142f26f60718faa0715ad0a1f7b21492ee1ab7a7bdb9973",
+  "permissions": "Allowed for admins or users with access to the required_by records via policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/certification_requirements_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/certification_requirement_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/certification_requirement_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters: --required-by must be in Type|ID format (e.g., Project|123)."
+}

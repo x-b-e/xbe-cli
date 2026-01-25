@@ -1,0 +1,72 @@
+{
+  "description": "Create a retainer payment.",
+  "flags": [
+    {
+      "default": null,
+      "description": "Retainer period ID.",
+      "name": "--retainer-period",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "default": null,
+      "description": "Payment status.",
+      "name": "--status",
+      "required": true,
+      "type": "enum",
+      "validation": "Allowed values: editing, approved, batched, exported. Example: editing."
+    },
+    {
+      "default": null,
+      "description": "Payment amount.",
+      "name": "--amount",
+      "required": true,
+      "type": "string",
+      "validation": "Required. Numeric >= 0. Example: 1500.00."
+    },
+    {
+      "default": null,
+      "description": "Payment creation date.",
+      "name": "--created-on",
+      "required": true,
+      "type": "string",
+      "validation": "Required. YYYY-MM-DD. Example: 2025-01-17."
+    }
+  ],
+  "full_path": "do retainer-payments create",
+  "id": "18ba8be93cd0357336107bc95d76d27c59cd9ca714f9645803dc6265aa204fff",
+  "permissions": "Authorization is checked by RetainerPaymentPolicy, which delegates create? to RetainerPeriodPolicy/RetainerPolicy. RetainerPolicy only defines scope rules (buyer/seller org membership) and does not define explicit create? rules.",
+  "side_effects": "Creates a retainer payment record tied to the specified retainer period.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_retainer_payments_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/retainer_payment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_period_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/retainer_child_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/retainer_payment.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/retainer_payment_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Required flags: --retainer-period, --status, --amount, --created-on. Server validations: status is required and must be one of editing/approved/batched/exported; kind is required and is enum pre/closing; amount must be numeric and >= 0; created_on is required. If kind is pre: retainer_period must be present; created_on must be between retainer_period start_on and end_on; amount must equal retainer_period weekly_payment_amount minus retainer deductions; created_on must be the only payment in its week for the retainer period; retainer must match the retainer period; retainer_period must remain valid. If kind is closing: retainer_period must be absent."
+}

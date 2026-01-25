@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a transport order stop material.",
+  "flags": [],
+  "full_path": "view transport-order-stop-materials show",
+  "id": "17a56fe61705389bad4de2088942aa02c77d70dc40a863f6a960079e85f20d48",
+  "permissions": "Requires authorization via TransportOrderStopPolicy for the related transport_order_stop (delegated policy).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/transport_order_stop_materials_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/transport_order_stop_material_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/transport_order_stop_material_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required."
+}

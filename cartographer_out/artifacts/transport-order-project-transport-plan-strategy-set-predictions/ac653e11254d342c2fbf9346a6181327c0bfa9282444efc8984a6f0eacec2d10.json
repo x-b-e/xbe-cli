@@ -1,0 +1,33 @@
+{
+  "description": "List transport order strategy set predictions.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "",
+      "description": "Filter by transport order ID",
+      "name": "--transport-order",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view transport-order-project-transport-plan-strategy-set-predictions list",
+  "id": "ac653e11254d342c2fbf9346a6181327c0bfa9282444efc8984a6f0eacec2d10",
+  "permissions": "Admins can list any prediction. Non-admins can list predictions only for transport orders tied to brokers they are members of.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/transport_order_project_transport_plan_strategy_set_predictions_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/transport_order_project_transport_plan_strategy_set_prediction_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/transport_order_project_transport_plan_strategy_set_prediction_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter transport-order expects a transport order ID."
+}

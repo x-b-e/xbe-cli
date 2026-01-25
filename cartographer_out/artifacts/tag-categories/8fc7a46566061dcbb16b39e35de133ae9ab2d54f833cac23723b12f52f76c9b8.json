@@ -1,0 +1,33 @@
+{
+  "description": "Delete a tag category.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "full_path": "do tag-categories delete",
+  "id": "8fc7a46566061dcbb16b39e35de133ae9ab2d54f833cac23723b12f52f76c9b8",
+  "permissions": "Only admin users can delete tag categories.",
+  "side_effects": "Permanently deletes the tag category.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tag_categories_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/tag_category.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tag_category_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument and --confirm flag. Deletion is blocked if the tag category has tags."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "16e55d4ae46483548448828bf1a45825028a1156eed3131b19a1fd19a2a5ef51",
+  "full_path": "view broker-invoices show",
+  "description": "Show the full details of a broker invoice.",
+  "permissions": "Admins can view all invoices. Non-admin access is limited to invoices where the user is a member of the buyer customer (including management-service-type invoices with customer_ids_cached overlap), a manager member of the seller trucker, or a member of the seller broker as scoped by InvoicePolicy.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_invoices_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_policy.rb"
+    }
+  ]
+}

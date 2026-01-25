@@ -1,0 +1,60 @@
+{
+  "id": "ac67a28f188e0530b3404845ae4bae74a2d61e55e13b074c37c4c39687522ce1",
+  "full_path": "view predictions list",
+  "description": "List predictions with filtering and pagination.",
+  "permissions": "Allowed for admins. Non-admins can list predictions they created (alive predictions), predictions for subjects where they have a membership allowing visibility without creating a prediction, and broker admins for their broker\"s subjects subject to scope restrictions.",
+  "side_effects": null,
+  "validation_notes": "Status filter accepts: draft, submitted, abandoned. If no status filter is provided, the API excludes status=abandoned by default. No positional arguments are accepted.",
+  "flags": [
+    {
+      "name": "--prediction-subject",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by prediction subject ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--predicted-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by predicted-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--prediction-agent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by prediction agent ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (draft, submitted, abandoned)",
+      "default": null,
+      "validation": "Allowed values: draft, submitted, abandoned."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/predictions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_policy.rb"
+    }
+  ]
+}

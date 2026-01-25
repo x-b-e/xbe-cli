@@ -1,0 +1,58 @@
+{
+  "id": "d29f0c97b6d108fe8e68d08138911ae8cec4c715a24a33fbd5fdd5310918dcf2",
+  "full_path": "do ui-tour-steps create",
+  "description": "Create a UI tour step.",
+  "permissions": "Authorized via UiTourStepPolicy; access is delegated to the related UI tour (policy scope delegates to UiTour).",
+  "side_effects": "Creates a UI tour step.",
+  "validation_notes": "--name, --content, --abbreviation, and --ui-tour are required. name/content/abbreviation must be present; abbreviation must be unique. sequence has no server-side validations.",
+  "flags": [
+    {
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "description": "Step name (required)"
+    },
+    {
+      "name": "--content",
+      "required": true,
+      "type": "string",
+      "description": "Step content (required)"
+    },
+    {
+      "name": "--abbreviation",
+      "required": true,
+      "type": "string",
+      "description": "Step abbreviation (required)"
+    },
+    {
+      "name": "--ui-tour",
+      "required": true,
+      "type": "string",
+      "description": "UI tour ID (required)"
+    },
+    {
+      "name": "--sequence",
+      "required": false,
+      "type": "integer",
+      "description": "Step sequence order"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ui_tour_steps_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ui_tour_step_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/ui_tour_step.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ui_tour_step_policy.rb"
+    }
+  ]
+}

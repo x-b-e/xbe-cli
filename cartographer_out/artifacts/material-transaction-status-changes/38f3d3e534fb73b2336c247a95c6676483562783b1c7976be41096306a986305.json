@@ -1,0 +1,27 @@
+{
+  "id": "38f3d3e534fb73b2336c247a95c6676483562783b1c7976be41096306a986305",
+  "full_path": "view material-transaction-status-changes show",
+  "description": "Show material transaction status change details",
+  "permissions": "User must be authorized to view MaterialTransaction records; policy scope limits status changes to those whose material_transaction_id is within the MaterialTransaction policy scope for the user.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument; error if empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_status_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/status_changes_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_status_change_policy.rb"
+    }
+  ]
+}

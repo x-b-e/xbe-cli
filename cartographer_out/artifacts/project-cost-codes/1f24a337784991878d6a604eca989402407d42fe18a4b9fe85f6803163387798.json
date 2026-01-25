@@ -1,0 +1,86 @@
+{
+  "id": "1f24a337784991878d6a604eca989402407d42fe18a4b9fe85f6803163387798",
+  "full_path": "view project-cost-codes list",
+  "description": "List project cost codes.",
+  "permissions": "Read access is delegated to the related project_customer and ultimately the project; users must be authorized by ProjectCostCodePolicy scope (delegated to ProjectCustomerPolicy and ProjectPolicy).",
+  "side_effects": "None (read-only).",
+  "validation_notes": "Filters map to server-side filters: project, customer, cost_code, code, q (query), and description.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID (example: --project 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (example: --customer 456).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--cost-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by cost code ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by code.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--query",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search query (example: --query \"labor\").",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by description.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_cost_codes_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_cost_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_cost_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    }
+  ]
+}

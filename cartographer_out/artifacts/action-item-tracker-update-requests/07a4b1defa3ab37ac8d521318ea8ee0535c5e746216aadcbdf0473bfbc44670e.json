@@ -1,0 +1,82 @@
+{
+  "id": "07a4b1defa3ab37ac8d521318ea8ee0535c5e746216aadcbdf0473bfbc44670e",
+  "full_path": "do action-item-tracker-update-requests create",
+  "description": "Create a new action item tracker update request.",
+  "permissions": "User must be authorized to create action item tracker update requests via the delegated action_item_tracker policy (ActionItemTrackerUpdateRequestPolicy).",
+  "side_effects": "Creates an action item tracker update request; if update_note is provided, an admin-only action item comment is created asynchronously on the related action item.",
+  "validation_notes": "--action-item-tracker, --requested-by, and --requested-from are required. --due-on expects an ISO 8601 date (e.g. 2024-12-31).",
+  "flags": [
+    {
+      "name": "--action-item-tracker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Action item tracker ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requested-by",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID requesting the update (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requested-from",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID expected to provide the update (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--request-note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Request note",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--due-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requested due date (ISO 8601, e.g. 2024-12-31)",
+      "default": null,
+      "validation": "ISO 8601 date"
+    },
+    {
+      "name": "--update-note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Fulfillment update note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_item_tracker_update_requests_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/action_item_tracker_update_request.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_tracker_update_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_tracker_update_request_resource.rb"
+    }
+  ]
+}

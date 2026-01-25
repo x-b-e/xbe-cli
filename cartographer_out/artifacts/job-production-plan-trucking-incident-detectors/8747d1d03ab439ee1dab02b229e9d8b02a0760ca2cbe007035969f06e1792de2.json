@@ -1,0 +1,23 @@
+{
+  "id": "8747d1d03ab439ee1dab02b229e9d8b02a0760ca2cbe007035969f06e1792de2",
+  "full_path": "view job-production-plan-trucking-incident-detectors show",
+  "description": "Show the full details of a job production plan trucking incident detector.",
+  "permissions": "User must be authorized for the associated job production plan; access is delegated to the job production plan policy.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument; must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_trucking_incident_detectors_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_trucking_incident_detector_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_trucking_incident_detector_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "13b7dce051458e95999d8687f2bd982826d12950667d553ffa0761e030e691f6",
+  "full_path": "do objective-stakeholder-classifications create",
+  "description": "Create an objective stakeholder classification",
+  "permissions": "Admin users only (policy requires is_user_admin? for create).",
+  "side_effects": "Creates an objective stakeholder classification, generates stakeholder quote(s) asynchronously, and triggers the related objective to update OpenAI files.",
+  "validation_notes": "--objective is required and must reference an objective template. --stakeholder-classification is required. --interest-degree is required and must be greater than 0 and less than or equal to 1.",
+  "flags": [
+    {
+      "name": "--objective",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Objective ID (required; must be a template) (example: 123)",
+      "default": null,
+      "validation": "Objective must be a template."
+    },
+    {
+      "name": "--stakeholder-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Stakeholder classification ID (required) (example: 456)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--interest-degree",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Interest degree between 0 and 1 (required) (example: 0.75)",
+      "default": null,
+      "validation": "Value must be greater than 0 and less than or equal to 1."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_objective_stakeholder_classifications_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/objective_stakeholder_classification.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_stakeholder_classification_policy.rb"
+    }
+  ]
+}

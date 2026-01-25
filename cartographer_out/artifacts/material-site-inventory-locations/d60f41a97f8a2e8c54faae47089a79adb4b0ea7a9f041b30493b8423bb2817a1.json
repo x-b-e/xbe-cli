@@ -1,0 +1,33 @@
+{
+  "id": "d60f41a97f8a2e8c54faae47089a79adb4b0ea7a9f041b30493b8423bb2817a1",
+  "full_path": "do material-site-inventory-locations delete",
+  "description": "Delete a material site inventory location.",
+  "permissions": "Allowed for admins, broker members of the material site's broker, or manager members of the material site's material supplier.",
+  "side_effects": "Deletes a material site inventory location record.",
+  "validation_notes": "The <id> argument is required. The --confirm flag must be set to true. Deletion is blocked if material type inventory location links exist (dependent records are restricted).",
+  "flags": [
+    {
+      "name": "confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_inventory_locations_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_inventory_location_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_inventory_location.rb"
+    }
+  ]
+}

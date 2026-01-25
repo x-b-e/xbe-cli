@@ -1,0 +1,46 @@
+{
+  "id": "9bfd6c4866ce56765b2706972f83bf621f8bfa559096d505bee65f4c9973f901",
+  "full_path": "view prediction-subject-memberships list",
+  "description": "List prediction subject memberships",
+  "permissions": "Admins can list prediction subject memberships. Non-admins can list memberships for prediction subjects they can access (members of the prediction subject or broker admins for the prediction subject broker).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--prediction-subject",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by prediction subject ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prediction_subject_memberships_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_subject_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_policy.rb"
+    }
+  ]
+}

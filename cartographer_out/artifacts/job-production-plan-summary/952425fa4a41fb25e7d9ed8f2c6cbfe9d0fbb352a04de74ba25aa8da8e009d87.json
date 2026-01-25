@@ -1,0 +1,108 @@
+{
+  "description": "Create a job production plan summary.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Start date (YYYY-MM-DD) [required]",
+      "name": "--start-on",
+      "required": true,
+      "type": "string",
+      "validation": "Must be a date in YYYY-MM-DD format."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "End date (YYYY-MM-DD) [required]",
+      "name": "--end-on",
+      "required": true,
+      "type": "string",
+      "validation": "Must be a date in YYYY-MM-DD format and on or after --start-on."
+    },
+    {
+      "aliases": null,
+      "default": "customer",
+      "description": "Group by attributes (comma-separated). Defaults to customer unless set.",
+      "name": "--group-by",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated list; values must be whitelisted group-by attributes."
+    },
+    {
+      "aliases": null,
+      "default": "plan_count,tons_sum,truck_hours_sum,cycle_count_sum (when no metrics flags and --all-metrics is false)",
+      "description": "Metric columns to include (comma-separated)",
+      "name": "--metrics",
+      "required": false,
+      "type": "string",
+      "validation": "Comma-separated metric names."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Metric column to include (repeatable)",
+      "name": "--metric",
+      "required": false,
+      "type": "array",
+      "validation": "Repeatable metric names."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Include all metrics returned by the API",
+      "name": "--all-metrics",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filters JSON object (e.g. {\broker\\:S\\})",
+      "name": "--filters",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid JSON object."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter in key=value format (repeatable)",
+      "name": "--filter",
+      "required": false,
+      "type": "array",
+      "validation": "Each entry must be key=value with a non-empty key."
+    }
+  ],
+  "full_path": "summarize job-production-plan-summary create",
+  "id": "952425fa4a41fb25e7d9ed8f2c6cbfe9d0fbb352a04de74ba25aa8da8e009d87",
+  "permissions": "Authenticated user (persisted account) required to create job production plan summaries.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_summary_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_job_production_plan_summary.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/job_production_plan_summaries_controller.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_summary_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/job_production_plan_summary.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_summary_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--start-on and --end-on are required; dates are parsed as YYYY-MM-DD and end-on must be on or after start-on. group-by may include only whitelisted attributes (see help list) and cannot be empty when set. If group-by includes \"after\", after_date must be provided in the API attributes. --filters must be a valid JSON object; each --filter entry must be key=value with a non-empty key. Available filters include broker, business_unit, contractor, customer, date, job_name_or_number_like, job_number, material_type_ultimate_parent_qualified_names, material_type_ultimate_parent_count, planner, project, project_manager, status, timely_scheduled, and all group-by attributes; metric min/max filters like goal_tons_min/goal_tons_max, production_hours_min/production_hours_max, tons_min/tons_max, truck_hours_min/truck_hours_max are supported."
+}

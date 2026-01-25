@@ -1,0 +1,91 @@
+{
+  "id": "43d18e8cd48b6dd9fe21886a86db1adbfec876d580eb4f95edf3a1ea5be09c08",
+  "full_path": "do features create",
+  "description": "Create a new feature.",
+  "permissions": "User must be an admin (is_user_admin?) to create features.",
+  "side_effects": "Creates a feature record and enqueues an embedding generation job that calls OpenAI when name or description fields change.",
+  "validation_notes": "name-generic is required and must be unique. name-branded must be unique when provided. pdca-stage must be one of plan, do, check, act. released-on must be on or after 2016-01-10. differentiation-degree must be between 1 and 5 when provided. scale must be between 1 and 100 when provided.",
+  "flags": [
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Feature description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--differentiation-degree",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Differentiation degree",
+      "default": null,
+      "validation": "1-5"
+    },
+    {
+      "name": "--name-branded",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Branded name",
+      "default": null,
+      "validation": "unique when provided"
+    },
+    {
+      "name": "--name-generic",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Generic name",
+      "default": null,
+      "validation": "required; unique"
+    },
+    {
+      "name": "--pdca-stage",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "PDCA stage (plan/do/check/act)",
+      "default": null,
+      "validation": "plan, do, check, act"
+    },
+    {
+      "name": "--released-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Release date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD; on or after 2016-01-10"
+    },
+    {
+      "name": "--scale",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Feature scale",
+      "default": null,
+      "validation": "1-100"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_features_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/feature_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/feature.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.features.sql"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "4e135c0c8975f7df94136ae19f0883a9ca8be885a13288ccc379296fc290d3a7",
+  "full_path": "view user-searches list",
+  "description": "List user searches",
+  "permissions": "No explicit permission restriction for listing user searches (inherits ApplicationPolicy#index?, which returns true).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_searches_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_searches.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_search_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

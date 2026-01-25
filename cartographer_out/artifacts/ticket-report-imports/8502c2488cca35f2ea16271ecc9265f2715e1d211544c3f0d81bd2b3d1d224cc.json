@@ -1,0 +1,23 @@
+{
+  "id": "8502c2488cca35f2ea16271ecc9265f2715e1d211544c3f0d81bd2b3d1d224cc",
+  "full_path": "view ticket-report-imports show",
+  "description": "Show ticket report import details",
+  "permissions": "User must be a member of the broker associated with the ticket report import (policy scope limits access to visible member broker IDs).",
+  "side_effects": null,
+  "validation_notes": "The ticket report import ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/ticket_report_imports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ticket_report_import_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ticket_report_import_resource.rb"
+    }
+  ]
+}

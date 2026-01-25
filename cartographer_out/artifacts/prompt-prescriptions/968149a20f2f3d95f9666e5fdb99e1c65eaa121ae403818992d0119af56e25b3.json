@@ -1,0 +1,27 @@
+{
+  "id": "968149a20f2f3d95f9666e5fdb99e1c65eaa121ae403818992d0119af56e25b3",
+  "full_path": "view prompt-prescriptions show",
+  "description": "Show the full details of a prompt prescription.",
+  "permissions": "Allowed for any user, including anonymous; controller skips auth and policy allows show.",
+  "side_effects": null,
+  "validation_notes": "The <id> argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prompt_prescriptions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/prompt_prescriptions_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/concerns/secure_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prompt_prescription_policy.rb"
+    }
+  ]
+}

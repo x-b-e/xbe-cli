@@ -1,0 +1,29 @@
+{
+  "description": "Delete a parking site.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do parking-sites delete",
+  "id": "79f73add3b25430a86855610bc272a8a415b8983bbd6a9700932e2a80a54dafc",
+  "permissions": "Allowed if the user can create the parked resource (per its policy); if parked is nil, destroy is allowed by policy.",
+  "side_effects": "Deletes a parking site.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_parking_sites_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/parking_site_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires an <id> argument. The --confirm flag is required to proceed."
+}

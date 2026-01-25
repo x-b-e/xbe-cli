@@ -1,0 +1,23 @@
+{
+  "id": "db9ff5de750fddbfe7c0e1bae82b8afa63548c57bfcde8f572b8ab6fb1a1c05e",
+  "full_path": "view objective-stakeholder-classification-quotes show",
+  "description": "Show objective stakeholder classification quote details",
+  "permissions": "No authentication required; policy scope allows anonymous and non-admin access.",
+  "side_effects": null,
+  "validation_notes": "<id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/objective_stakeholder_classification_quotes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/objective_stakeholder_classification_quotes_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_stakeholder_classification_quote_policy.rb"
+    }
+  ]
+}

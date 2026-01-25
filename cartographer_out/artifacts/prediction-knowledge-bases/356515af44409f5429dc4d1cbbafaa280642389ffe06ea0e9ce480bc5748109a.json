@@ -1,0 +1,33 @@
+{
+  "id": "356515af44409f5429dc4d1cbbafaa280642389ffe06ea0e9ce480bc5748109a",
+  "full_path": "view prediction-knowledge-bases list",
+  "description": "List prediction knowledge bases.",
+  "permissions": "Admin users can list all prediction knowledge bases; non-admin users can list only those whose broker is in their broker policy scope (broker membership).",
+  "side_effects": null,
+  "validation_notes": "Broker filter accepts a broker ID when provided.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID. Example: --broker 123.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prediction_knowledge_bases_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_knowledge_base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_knowledge_base_policy.rb"
+    }
+  ]
+}

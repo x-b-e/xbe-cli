@@ -1,0 +1,42 @@
+{
+  "id": "3812628c638d88895405203cbed6157ec9605898694ccc1fa0fe87099d115077",
+  "full_path": "view service-type-unit-of-measure-cohorts list",
+  "description": "List service type unit of measure cohorts with filtering and pagination.",
+  "permissions": "User must be able to view customers in scope; cohorts are limited to customers visible via the customer policy scope.",
+  "side_effects": null,
+  "validation_notes": "Filter --service-type-unit-of-measure-id values are coerced to integers by the API.",
+  "flags": [
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-type-unit-of-measure-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by service type unit of measure ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Values are coerced to integers by the API."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_type_unit_of_measure_cohorts_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_type_unit_of_measure_cohort_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_type_unit_of_measure_cohort_policy.rb"
+    }
+  ]
+}

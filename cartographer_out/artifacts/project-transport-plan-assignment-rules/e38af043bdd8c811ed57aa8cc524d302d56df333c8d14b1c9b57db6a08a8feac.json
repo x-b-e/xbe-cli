@@ -1,0 +1,73 @@
+{
+  "description": "Create a project transport plan assignment rule.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Rule text (required)",
+      "name": "--rule",
+      "required": true,
+      "type": "string",
+      "validation": "Must be non-empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Asset type (driver/tractor/trailer) (required)",
+      "name": "--asset-type",
+      "required": true,
+      "type": "string",
+      "validation": "Allowed values: driver, tractor, trailer."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Level type (JSON:API type, required)",
+      "name": "--level-type",
+      "required": true,
+      "type": "string",
+      "validation": "JSON:API type for the level relationship; server valid level types include Broker."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Level ID (required)",
+      "name": "--level-id",
+      "required": true,
+      "type": "string",
+      "validation": "Must reference an existing level of the given level-type."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Whether the rule is active",
+      "name": "--is-active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-assignment-rules create",
+  "id": "e38af043bdd8c811ed57aa8cc524d302d56df333c8d14b1c9b57db6a08a8feac",
+  "permissions": "Allowed for users who are broker managers for the rule broker or who can update the related level via that level policy.",
+  "side_effects": "Creates a project transport plan assignment rule record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_assignment_rules_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_assignment_rule_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_assignment_rule.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_assignment_rule_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--rule, --asset-type, --level-type, and --level-id are required. asset-type must be one of driver, tractor, trailer. level-type must be a valid level type (server restricts to Broker). Broker is derived from level; broker must match the level broker."
+}

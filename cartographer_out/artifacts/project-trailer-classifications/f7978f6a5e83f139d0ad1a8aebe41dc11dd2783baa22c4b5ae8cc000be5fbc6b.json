@@ -1,0 +1,47 @@
+{
+  "description": "List project trailer classifications",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project ID.",
+      "name": "--project",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --project 123."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer classification ID.",
+      "name": "--trailer-classification",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --trailer-classification 456."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by project labor classification ID.",
+      "name": "--project-labor-classification",
+      "required": false,
+      "type": "string",
+      "validation": "Example: --project-labor-classification 789."
+    }
+  ],
+  "full_path": "view project-trailer-classifications list",
+  "id": "f7978f6a5e83f139d0ad1a8aebe41dc11dd2783baa22c4b5ae8cc000be5fbc6b",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_trailer_classifications_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/project_trailer_classifications_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

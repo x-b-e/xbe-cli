@@ -1,0 +1,33 @@
+{
+  "description": "Delete a time card review",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion (required)",
+      "name": "confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Required."
+    }
+  ],
+  "full_path": "do tender-job-schedule-shift-time-card-reviews delete",
+  "id": "bcfc03bc7e27d6afacd0de4e97d3dfacf8b70ff2ca24bf78e14c9d8e38792119",
+  "permissions": "Admin users can delete time card reviews. Non-admin users can delete reviews only for tender job schedule shifts associated with their broker membership.",
+  "side_effects": "Deletes the specified time card review.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tender_job_schedule_shift_time_card_reviews_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/tender_job_schedule_shift_time_card_review_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/tender_job_schedule_shift_time_card_review.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. --confirm is required to delete a time card review."
+}

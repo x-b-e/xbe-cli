@@ -1,0 +1,55 @@
+{
+  "id": "7be26e0b848a97aefa97acca92c92f0409ca3630a4747b3ccea86d5afde948c5",
+  "full_path": "do lineup-dispatch-statuses create",
+  "description": "Create a lineup dispatch status.",
+  "permissions": "Allowed for admins, broker members for the specified broker, or trucker managers associated with the broker.",
+  "side_effects": "Computes the offered tender percentage for the specified broker, lineup window, and date.",
+  "validation_notes": "--broker, --window, and --date are required. --window must be one of: day, night. --date must be a valid date in YYYY-MM-DD format.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--window",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup window (day or night)",
+      "default": null,
+      "validation": "Must be one of: day, night."
+    },
+    {
+      "name": "--date",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Must be a valid date in YYYY-MM-DD format."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_dispatch_statuses_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_dispatch_status_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lineup_dispatch_status_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_dispatch_status.rb"
+    }
+  ]
+}

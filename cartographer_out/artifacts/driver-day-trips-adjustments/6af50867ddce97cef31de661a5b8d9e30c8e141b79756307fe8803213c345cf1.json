@@ -1,0 +1,82 @@
+{
+  "id": "6af50867ddce97cef31de661a5b8d9e30c8e141b79756307fe8803213c345cf1",
+  "full_path": "view driver-day-trips-adjustments list",
+  "description": "List driver day trips adjustments",
+  "permissions": "Requires authorization on the related tender job schedule shift; access is delegated via DriverDayTripsAdjustmentPolicy.",
+  "side_effects": null,
+  "validation_notes": "If provided, --status must be a valid status enum value (editing).",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status (e.g., editing)",
+      "default": null,
+      "validation": "Must be a valid status enum value (editing)."
+    },
+    {
+      "name": "--driver-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_day_trips_adjustments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_day_trips_adjustment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/driver_day_trips_adjustment.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_day_trips_adjustment_policy.rb"
+    }
+  ]
+}

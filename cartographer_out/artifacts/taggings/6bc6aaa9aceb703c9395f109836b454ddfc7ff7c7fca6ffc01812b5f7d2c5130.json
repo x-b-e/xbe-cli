@@ -1,0 +1,19 @@
+{
+  "id": "6bc6aaa9aceb703c9395f109836b454ddfc7ff7c7fca6ffc01812b5f7d2c5130",
+  "full_path": "view taggings show",
+  "description": "Show the full details of a tagging.",
+  "permissions": "Admin users only.",
+  "side_effects": null,
+  "validation_notes": "Tagging ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/taggings_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tagging_policy.rb"
+    }
+  ]
+}

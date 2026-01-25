@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a retainer payment.",
+  "flags": [],
+  "full_path": "view retainer-payments show",
+  "id": "3965e663eb332acd5a4d276b418706431efcbc721433a9302766c9c0e3b63989",
+  "permissions": "Read access is limited to retainer payments within RetainerPaymentPolicy scope: retainer_id must be in the Retainer policy scope, which includes retainers where the user is a member/manager of the buyer or seller organization (customer, broker, or trucker) per RetainerPolicy scope rules.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/retainer_payments_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/retainer_payment_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (retainer payment ID)."
+}

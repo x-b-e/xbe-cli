@@ -1,0 +1,216 @@
+{
+  "id": "309d3f4914582f7588d98bb45911ad8523da390c71512b981b1084a3058a03fa",
+  "full_path": "view gps-insight-vehicles list",
+  "description": "List GPS Insight vehicles with filtering and pagination.",
+  "permissions": "Admins can list all GPS Insight vehicles. Non-admins can list vehicles only for brokers where they are members; scope is limited to vehicles whose broker is in the user's visible member brokers.",
+  "side_effects": null,
+  "validation_notes": "Filter values cannot be empty. Date-time filters must be valid ISO 8601 date-times. Boolean presence filters require strict true/false values.",
+  "flags": [
+    {
+      "name": "--assigned-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum assignment time (ISO 8601) (e.g., 2024-01-01T00:00:00Z).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (e.g., 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    },
+    {
+      "name": "--has-tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of tractor (true/false).",
+      "default": null,
+      "validation": "Strict boolean string: true or false."
+    },
+    {
+      "name": "--has-trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of trailer (true/false).",
+      "default": null,
+      "validation": "Strict boolean string: true or false."
+    },
+    {
+      "name": "--integration-identifier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by integration identifier.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of created-at (true/false).",
+      "default": null,
+      "validation": "Strict boolean string: true or false."
+    },
+    {
+      "name": "--is-tractor-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of tractor-set-at (true/false).",
+      "default": null,
+      "validation": "Strict boolean string: true or false."
+    },
+    {
+      "name": "--is-trailer-set-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of trailer-set-at (true/false).",
+      "default": null,
+      "validation": "Strict boolean string: true or false."
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of updated-at (true/false).",
+      "default": null,
+      "validation": "Strict boolean string: true or false."
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor set on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    },
+    {
+      "name": "--tractor-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor set on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer-set-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer set on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    },
+    {
+      "name": "--trailer-set-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer set on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 date-time; non-empty."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/gps_insight_vehicles_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/vehicle_location_event_source_vehicle_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/base_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

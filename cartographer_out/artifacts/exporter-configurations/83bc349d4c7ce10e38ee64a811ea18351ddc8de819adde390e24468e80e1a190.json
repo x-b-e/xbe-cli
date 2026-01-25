@@ -1,0 +1,45 @@
+{
+  "id": "83bc349d4c7ce10e38ee64a811ea18351ddc8de819adde390e24468e80e1a190",
+  "full_path": "do exporter-configurations delete",
+  "description": "Delete an exporter configuration.",
+  "permissions": "Admin users only.",
+  "side_effects": "Deletes an exporter configuration.",
+  "validation_notes": "Requires exporter configuration ID argument and --confirm.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": "Must be set to delete the exporter configuration."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_exporter_configurations_delete.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_exporter_configurations.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/free_ticketing/exporter_configuration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/free_ticketing/exporter_configuration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/free_ticketing/exporter_configuration.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/free_ticketing/exporter_configurations_spec.rb"
+    }
+  ]
+}

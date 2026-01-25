@@ -1,0 +1,73 @@
+{
+  "id": "1dc96e4d274fadff09b13c9507bfc4c12cee2e5d8976862fec369d3c5a41a7cf",
+  "full_path": "do project-phase-revenue-items create",
+  "description": "Create a project phase revenue item.",
+  "permissions": "Authorization is delegated to the related project phase (project_phase).",
+  "side_effects": "Creates a project phase revenue item.",
+  "validation_notes": "--project-phase and --project-revenue-item are required. --quantity-strategy must be one of: direct, indirect. quantity_strategy defaults to direct when not provided. project_revenue_item must belong to the same project as the project_phase. project_revenue_item must be unique within a project_phase. project_revenue_classification must be a child of the revenue classification of the revenue item. project_revenue_classification must belong to the same broker as the project.",
+  "flags": [
+    {
+      "name": "--project-phase",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project phase ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-revenue-item",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project revenue item ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project-revenue-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project revenue classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity-strategy",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Quantity strategy (direct/indirect)",
+      "default": null,
+      "validation": "Must be one of: direct, indirect."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_phase_revenue_items_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_phase_revenue_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_phase_revenue_item_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_phase_revenue_item.rb"
+    }
+  ]
+}

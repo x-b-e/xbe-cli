@@ -1,0 +1,31 @@
+{
+  "id": "1d21d6232350faa9bb16ff612ecffc3bbca61eb784ea00751565370de22f9a9c",
+  "full_path": "view root-causes show",
+  "description": "Show root cause details",
+  "permissions": "Authenticated user; scope limited to incidents visible via IncidentPolicy scope.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "<id> argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/root_causes_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/root_causes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/root_cause_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/root_cause_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/root_cause_policy_spec.rb"
+    }
+  ]
+}

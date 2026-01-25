@@ -1,0 +1,19 @@
+{
+  "id": "81ee0d91fb5a7d1d6bb12b615174bf5dda394fc2341755874daff52657a639b1",
+  "full_path": "view time-sheets-exports show",
+  "description": "Show the full details of a time sheets export.",
+  "permissions": "Admins can view any time sheets export. Non-admins can view an export only if it is in their policy scope (broker memberships or manager-level organization memberships as defined by the time sheets export policy scope).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_sheets_exports_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_sheets_export_policy.rb"
+    }
+  ]
+}

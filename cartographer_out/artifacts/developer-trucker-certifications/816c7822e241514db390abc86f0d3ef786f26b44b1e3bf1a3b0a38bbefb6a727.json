@@ -1,0 +1,64 @@
+{
+  "id": "816c7822e241514db390abc86f0d3ef786f26b44b1e3bf1a3b0a38bbefb6a727",
+  "full_path": "view developer-trucker-certifications list",
+  "description": "List developer trucker certifications with filtering and pagination.",
+  "permissions": "Requires access to the related developer via DeveloperPolicy scope (admin, broker member, customer manager for the broker, or developer member).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--developer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/developer_trucker_certifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/developer_trucker_certification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_trucker_certification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_policy.rb"
+    }
+  ]
+}

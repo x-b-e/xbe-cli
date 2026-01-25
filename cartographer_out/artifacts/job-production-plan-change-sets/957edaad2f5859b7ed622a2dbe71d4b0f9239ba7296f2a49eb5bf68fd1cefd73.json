@@ -1,0 +1,114 @@
+{
+  "description": "List job production plan change sets with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID.",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by customer ID. Example: 123.",
+      "name": "--customer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by creator user ID.",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by old material type ID.",
+      "name": "--change-old-material-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by new material type ID.",
+      "name": "--change-new-material-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by new planner user ID. Example: 456.",
+      "name": "--change-new-planner",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by new planner nullify (true/false).",
+      "name": "--change-new-planner-nullify",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by new project manager user ID.",
+      "name": "--change-new-project-manager",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by new project manager nullify (true/false).",
+      "name": "--change-new-project-manager-nullify",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by should persist (true/false).",
+      "name": "--should-persist",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "view job-production-plan-change-sets list",
+  "id": "957edaad2f5859b7ed622a2dbe71d4b0f9239ba7296f2a49eb5bf68fd1cefd73",
+  "permissions": "Admin users can view all change sets. Non-admins can view change sets for brokers they manage, customers they manage, or customers of brokers they manage.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_change_sets_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_change_set_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_change_set_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filter flags that accept true/false values expect boolean-like input (true/false)."
+}

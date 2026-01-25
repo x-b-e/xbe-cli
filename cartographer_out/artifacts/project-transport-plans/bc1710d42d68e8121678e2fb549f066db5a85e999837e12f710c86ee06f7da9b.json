@@ -1,0 +1,64 @@
+{
+  "description": "Update a project transport plan",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Plan status",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing|approved|complete|cancelled"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip actualization logic",
+      "name": "--skip-actualization",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip assignment rules validation",
+      "name": "--skip-assignment-rules-validation",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Assignment rule override reason",
+      "name": "--assignment-rule-override-reason",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plans update",
+  "id": "bc1710d42d68e8121678e2fb549f066db5a85e999837e12f710c86ee06f7da9b",
+  "permissions": "Authorized via ProjectTransportPlanPolicy (delegates to project).",
+  "side_effects": "Updating status to approved or complete triggers strategy-set association; updating status to approved also triggers assignment creation after commit. Actualization and assignment-rules validation run unless explicitly skipped.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plans_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument. At least one field must be provided. --status must be one of editing, approved, complete, cancelled."
+}

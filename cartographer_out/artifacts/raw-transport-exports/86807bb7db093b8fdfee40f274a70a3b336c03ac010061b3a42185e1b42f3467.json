@@ -1,0 +1,204 @@
+{
+  "id": "86807bb7db093b8fdfee40f274a70a3b336c03ac010061b3a42185e1b42f3467",
+  "full_path": "view raw-transport-exports list",
+  "description": "List raw transport exports with filtering",
+  "permissions": "Admins can view all raw transport exports; non-admins can view only exports tied to brokers they are a member of (otherwise no access).",
+  "side_effects": null,
+  "validation_notes": "Date filters expect ISO 8601 timestamps. Boolean-like filters expect true/false strings. The recent filter uses the last N hours; non-positive values are ignored.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID. Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--transport-order",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by transport order ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-order-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external order number. Example: ORD-456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--export-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by export type.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--target-table",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by target table.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--issue-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by issue type.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-exportable",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by exportable flag (true/false). Example: true.",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-exported",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by exported flag (true/false). Example: false.",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--checksum",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by checksum.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--sequence",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by sequence.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false).",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--exported-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by exported-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--exported-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by exported-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-exported-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has exported-at (true/false).",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--first-seen-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by first-seen-at on/after (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--first-seen-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by first-seen-at on/before (ISO 8601).",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-first-seen-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has first-seen-at (true/false).",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--recent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by records created in the last N hours.",
+      "default": null,
+      "validation": "N hours"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/raw_transport_exports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_export_policy.rb"
+    }
+  ]
+}

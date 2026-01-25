@@ -1,0 +1,23 @@
+{
+  "description": "Show material transaction cost code allocation details",
+  "flags": [],
+  "full_path": "view material-transaction-cost-code-allocations show",
+  "id": "72b5ed83e3fb1ae6fd57761edb7c2a703c30ad45b264535b5f942c63a173287f",
+  "permissions": "Admins can view any material transaction cost code allocation. Non-admin users can view allocations only when the allocation's customer is in their customer membership list or the customer's broker is in their broker membership list.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_transaction_cost_code_allocations_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/concerns/cost_code_allocation_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/material_transaction_cost_code_allocation_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Argument <id> is required and must be a non-empty allocation ID."
+}

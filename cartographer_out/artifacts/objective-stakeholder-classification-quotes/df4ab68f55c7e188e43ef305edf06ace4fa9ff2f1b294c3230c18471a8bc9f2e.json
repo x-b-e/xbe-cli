@@ -1,0 +1,29 @@
+{
+  "id": "df4ab68f55c7e188e43ef305edf06ace4fa9ff2f1b294c3230c18471a8bc9f2e",
+  "full_path": "do objective-stakeholder-classification-quotes update",
+  "description": "Update an objective stakeholder classification quote",
+  "permissions": "Requires an admin user (ObjectiveStakeholderClassificationQuotePolicy#update?).",
+  "side_effects": "Updates an objective stakeholder classification quote.",
+  "validation_notes": "<id> argument is required. At least one field must be provided; otherwise the command errors with no fields to update.",
+  "flags": [
+    {
+      "name": "--content",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Quote content",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_objective_stakeholder_classification_quotes_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_stakeholder_classification_quote_policy.rb"
+    }
+  ]
+}

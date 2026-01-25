@@ -1,0 +1,33 @@
+{
+  "id": "75f774e9aed77b5febf6539490ba4c821063fc614bda33fb10498a2f6e1a2ac2",
+  "full_path": "do user-languages delete",
+  "description": "Delete a user language.",
+  "permissions": "Allowed for admins or users with update permission on the target user.",
+  "side_effects": "Deletes the user language.",
+  "validation_notes": "Argument <id> is required and cannot be blank. --confirm is required to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_user_languages_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_language_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user_language.rb"
+    }
+  ]
+}

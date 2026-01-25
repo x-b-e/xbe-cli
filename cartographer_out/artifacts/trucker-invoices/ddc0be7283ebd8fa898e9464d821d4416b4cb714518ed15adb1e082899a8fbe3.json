@@ -1,0 +1,203 @@
+{
+  "id": "ddc0be7283ebd8fa898e9464d821d4416b4cb714518ed15adb1e082899a8fbe3",
+  "full_path": "view trucker-invoices list",
+  "description": "List trucker invoices with filtering and pagination.",
+  "permissions": "Requires invoice visibility: admin users, or members of a customer buyer (including management-service invoices for their customer IDs), manager members of the trucker seller, or members of a broker associated with the invoice.",
+  "side_effects": null,
+  "validation_notes": "Filters accept comma-separated values where noted. Date filters use YYYY-MM-DD. Boolean filters require true/false (has-ticket-report is strict). Batch status filter format is org|id|status[,status]. Status filter defaults to excluding non_exportable invoices.",
+  "flags": [
+    {
+      "name": "--buyer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by buyer ID (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--seller",
+      "required": false,
+      "type": "string",
+      "description": "Filter by seller ID (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--status",
+      "required": false,
+      "type": "string",
+      "description": "Filter by status (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--invoice-date",
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--invoice-date-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum invoice date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--invoice-date-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum invoice date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-invoice-date",
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice date presence (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--due-on",
+      "required": false,
+      "type": "string",
+      "description": "Filter by due date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--due-on-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum due date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--due-on-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum due date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--has-due-on",
+      "required": false,
+      "type": "string",
+      "description": "Filter by due date presence (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--ticket-number",
+      "required": false,
+      "type": "string",
+      "description": "Filter by time card ticket number (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--material-transaction-ticket-numbers",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ticket numbers (comma-separated)",
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--tender",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender ID (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--is-management-service-type",
+      "required": false,
+      "type": "string",
+      "description": "Filter by management service type (true/false)",
+      "validation": "true/false"
+    },
+    {
+      "name": "--business-unit",
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--not-business-unit",
+      "required": false,
+      "type": "string",
+      "description": "Exclude business unit ID (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--customer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--material-transaction-cost-codes",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction cost codes (comma-separated)",
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--allocated-cost-codes",
+      "required": false,
+      "type": "string",
+      "description": "Filter by allocated cost codes (comma-separated)",
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    },
+    {
+      "name": "--has-ticket-report",
+      "required": false,
+      "type": "string",
+      "description": "Filter by ticket report presence (true/false)",
+      "validation": "true/false (strict)"
+    },
+    {
+      "name": "--batch-status",
+      "required": false,
+      "type": "string",
+      "description": "Filter by batch status (org|id|status[,status])",
+      "validation": "org|id|status[,status]"
+    },
+    {
+      "name": "--having-plans-with-job-number-like",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job number match (comma-separated)",
+      "validation": "comma-separated"
+    },
+    {
+      "name": "--quickbooks-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by QuickBooks ID (comma-separated for multiple)",
+      "validation": "comma-separated for multiple"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_invoices_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/invoice_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_invoice_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_policy.rb"
+    }
+  ]
+}

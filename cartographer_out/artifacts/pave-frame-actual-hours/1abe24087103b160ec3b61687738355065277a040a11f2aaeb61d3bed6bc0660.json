@@ -1,0 +1,91 @@
+{
+  "id": "1abe24087103b160ec3b61687738355065277a040a11f2aaeb61d3bed6bc0660",
+  "full_path": "do pave-frame-actual-hours update",
+  "description": "Update a pave frame actual hour.",
+  "permissions": "User must be an admin (per policy).",
+  "side_effects": "Updates a pave frame actual hour record.",
+  "validation_notes": "Requires <id> argument. Must specify at least one field to update. Date must be unique per latitude, longitude, hour, and window. Server validates latitude (-90..90), longitude (-180..180), temp_min_f (-100..150), precip_1hr_in (0..100), precip_3hr_in presence (0..100), hour (0..23), and window enum (day/night).",
+  "flags": [
+    {
+      "name": "--date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD format"
+    },
+    {
+      "name": "--hour",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Hour of day (0-23)",
+      "default": null,
+      "validation": "0-23"
+    },
+    {
+      "name": "--window",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Window (day/night)",
+      "default": null,
+      "validation": "day or night"
+    },
+    {
+      "name": "--latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Latitude",
+      "default": null,
+      "validation": "-90 to 90"
+    },
+    {
+      "name": "--longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Longitude",
+      "default": null,
+      "validation": "-180 to 180"
+    },
+    {
+      "name": "--temp-min-f",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Minimum temperature (F)",
+      "default": null,
+      "validation": "-100 to 150"
+    },
+    {
+      "name": "--precip-1hr-in",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Precipitation in last hour (inches)",
+      "default": null,
+      "validation": "0 to 100"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_pave_frame_actual_hours_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/pave_frame_actual_hour_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/pave_frame_actual_hour.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/pave_frame_actual_hour_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "5f2baf62c6ed6e05a2628ec64e0435bd0ed5363f72e8438653d69338e1b776b3",
+  "full_path": "do driver-assignment-rules delete",
+  "description": "Delete a driver assignment rule.",
+  "permissions": "User can delete when they are a manager of the broker for the rule or they have update permission on the level; admins are permitted.",
+  "side_effects": "Deletes the driver assignment rule.",
+  "validation_notes": "Requires a driver assignment rule ID argument and the --confirm flag.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion.",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_driver_assignment_rules_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_assignment_rule_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/driver_assignment_rule.rb"
+    }
+  ]
+}

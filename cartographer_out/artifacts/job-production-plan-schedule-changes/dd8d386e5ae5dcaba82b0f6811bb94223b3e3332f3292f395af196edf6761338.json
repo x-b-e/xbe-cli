@@ -1,0 +1,104 @@
+{
+  "id": "dd8d386e5ae5dcaba82b0f6811bb94223b3e3332f3292f395af196edf6761338",
+  "full_path": "do job-production-plan-schedule-changes create",
+  "description": "Apply a schedule change to a job production plan.",
+  "permissions": "User must be authorized to update the related job production plan (JobProductionPlanPolicy#update?).",
+  "side_effects": "Shifts job production plan times by the specified offset and may update shifts, crew requirements, and safety meeting times; may create or update a schedule change work record unless --skip-persistence is set.",
+  "validation_notes": "--job-production-plan is required. --offset-seconds is required. --time-kind must be one of: both, material_site, job_site when provided. offset_seconds must be an integer. Job production plan must not be schedule locked, must have no time cards, no time sheets, and no equipment movement trips. When updating material site times (time kind material_site, or both when the plan has calculated_start_at), the plan must be able to calculate start at. When updating job site times (time kind job_site, or both when the plan has job_site_start_at), the plan must be able to calculate job site start at. If --work is provided, it must reference the same job production plan.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": "Example: 123."
+    },
+    {
+      "name": "--offset-seconds",
+      "aliases": null,
+      "required": true,
+      "type": "integer",
+      "description": "Offset in seconds (positive or negative)",
+      "default": null,
+      "validation": "Example: 1800 or -900."
+    },
+    {
+      "name": "--time-kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Which times to shift (both, material_site, job_site)",
+      "default": null,
+      "validation": "One of: both, material_site, job_site. Example: job_site."
+    },
+    {
+      "name": "--skip-update-shifts",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip updating shifts",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-update-crew-requirements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip updating crew requirements",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-update-safety-meeting",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip updating safety meeting",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-persistence",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Run without persisting the work record",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--work",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Existing schedule change work ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_schedule_changes_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_schedule_changes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_schedule_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_schedule_change.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_schedule_change_policy.rb"
+    }
+  ]
+}

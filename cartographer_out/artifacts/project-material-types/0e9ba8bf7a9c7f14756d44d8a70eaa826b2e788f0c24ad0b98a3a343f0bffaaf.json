@@ -1,0 +1,29 @@
+{
+  "id": "0e9ba8bf7a9c7f14756d44d8a70eaa826b2e788f0c24ad0b98a3a343f0bffaaf",
+  "full_path": "do project-material-types delete",
+  "description": "Delete a project material type",
+  "permissions": "Requires access to delete project material types via delegated project authorization (ProjectMaterialTypePolicy delegates to the project relationship).",
+  "side_effects": "Deletes a project material type.",
+  "validation_notes": "The project material type ID argument is required and must be non-empty. --confirm must be provided to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be true to proceed"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_material_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_material_type_policy.rb"
+    }
+  ]
+}

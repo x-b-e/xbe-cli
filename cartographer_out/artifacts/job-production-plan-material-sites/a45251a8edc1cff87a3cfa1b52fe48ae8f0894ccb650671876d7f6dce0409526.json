@@ -1,0 +1,23 @@
+{
+  "id": "a45251a8edc1cff87a3cfa1b52fe48ae8f0894ccb650671876d7f6dce0409526",
+  "full_path": "view job-production-plan-material-sites show",
+  "description": "Show the full details of a job production plan material site.",
+  "permissions": "Requires permission to view the related job production plan (JobProductionPlanMaterialSitePolicy delegates authorization to the job production plan).",
+  "side_effects": null,
+  "validation_notes": "The job production plan material site ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_material_sites_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_site_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_site_policy.rb"
+    }
+  ]
+}

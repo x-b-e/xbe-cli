@@ -1,0 +1,29 @@
+{
+  "id": "12f4f6efe9706df8ec42220fb25e66edc5b362008b79427b2c4ebd384fac9625",
+  "full_path": "view api-tokens list",
+  "description": "List API tokens with filtering and pagination.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/api_tokens_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/api_tokens_controller.rb"
+    }
+  ]
+}

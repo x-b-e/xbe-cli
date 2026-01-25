@@ -1,0 +1,37 @@
+{
+  "id": "238681dea922015a5b6b792048d0a980b5872f902d6a48acc5e14a840a8b1458",
+  "full_path": "view deere-integrations list",
+  "description": "List Deere integrations with filtering and pagination.",
+  "permissions": "Admin users can list all Deere integrations. Non-admin users can list integrations for brokers they are members of.",
+  "side_effects": null,
+  "validation_notes": "The --broker filter accepts comma-separated broker IDs.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated broker IDs."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/deere_integrations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/deere_integration_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/deere_integration_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/acceptance/v1/deere_integrations_spec.rb"
+    }
+  ]
+}

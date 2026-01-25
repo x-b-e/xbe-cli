@@ -1,0 +1,109 @@
+{
+  "id": "1b7e370afe94c13284ade55e59b4802620757962c5cb30479431df8fc82603a0",
+  "full_path": "view equipment-rentals list",
+  "description": "List equipment rentals.",
+  "permissions": "Allowed for admins. Non-admin users can view equipment rentals tied to brokers they are members of or brokers controlled by visible customer, trucker, or material supplier records.",
+  "side_effects": null,
+  "validation_notes": "status filter must be one of: requested, rented, returned.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment supplier ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--end-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum end date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--end-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum end date",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by status",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_rentals_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_rental_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_rental_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_rental.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "92e53843aaf41cb38b572426fb39a899288d6b8b0e5d5996324b8a3d84fc0181",
+  "full_path": "do ticket-report-imports create",
+  "description": "Create a ticket report import",
+  "permissions": "User must be a member of the broker for the ticket report being imported (policy checks broker membership).",
+  "side_effects": "Creates a ticket report import and starts asynchronous import processing.",
+  "validation_notes": "--ticket-report is required; only one import can be pending or processing for the same ticket report.",
+  "flags": [
+    {
+      "name": "--ticket-report",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Ticket report ID to import (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ticket_report_imports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ticket_report_import_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/ticket_report_import.rb"
+    }
+  ]
+}

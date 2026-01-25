@@ -1,0 +1,33 @@
+{
+  "id": "2c0072d5573cb73144adf4ddeadefe8407d8f72c8ef0f7fdd85767d4ff80ce7a",
+  "full_path": "do truckers delete",
+  "description": "Delete a trucker",
+  "permissions": "User must be an admin or a member of the trucker\u2019s broker. Managers of a customer associated with the trucker can delete. Managers of the trucker can delete only if billing_requirement is not changed.",
+  "side_effects": "Deletes the trucker record.",
+  "validation_notes": "The <id> argument is required. --confirm is required to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_truckers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/trucker.rb"
+    }
+  ]
+}

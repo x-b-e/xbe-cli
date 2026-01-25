@@ -1,0 +1,46 @@
+{
+  "id": "d67be1b5d1c734a50f65e35cd14ee00dc83fb392bbf7d7e9823179f9a2ddebcf",
+  "full_path": "do temeda-vehicles update",
+  "description": "Update temeda vehicle assignments",
+  "permissions": "Admin users or members of the broker associated with the temeda vehicle can update assignments.",
+  "side_effects": "Updates temeda vehicle trailer and/or tractor relationships.",
+  "validation_notes": "Requires <id> argument. At least one of --trailer or --tractor must be provided. If a provided flag value is empty, the corresponding relationship is cleared (set to null).",
+  "flags": [
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_temeda_vehicles_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/temeda_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

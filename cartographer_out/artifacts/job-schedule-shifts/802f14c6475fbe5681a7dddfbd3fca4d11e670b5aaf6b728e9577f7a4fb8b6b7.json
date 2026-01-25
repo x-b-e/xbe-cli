@@ -1,0 +1,160 @@
+{
+  "id": "802f14c6475fbe5681a7dddfbd3fca4d11e670b5aaf6b728e9577f7a4fb8b6b7",
+  "full_path": "do job-schedule-shifts update",
+  "description": "Update an existing job schedule shift.",
+  "permissions": "Requires authentication and permission to update the associated job; job schedule shift create/update/delete are allowed only if the user can update the job linked to the shift.",
+  "side_effects": "Updates a job schedule shift. After commit it may update driver day data, update job production plan records, and trigger job production plan recap generation; it may also schedule trucker shift summary post updates.",
+  "validation_notes": "The <id> argument is required. At least one attribute or relationship must be provided to update. start-site and start-site-type must be set together; start-site must be the job site or one of the job material sites. expected-material-transaction-count and expected-material-transaction-tons must be numbers greater than 0 when provided. start-at-min/start-at-max require is-flexible true; start-at-max must be greater than start-at-min; start-at-min/max must be absent when is-flexible is false. trailer-classification must be in the job trailer classifications; if a lineup job schedule shift exists, trailer-classification must be changed through the lineup job schedule shift. project-labor-classification must match the project. start-at and end-at cannot be changed when there is an accepted broker tender except through a job schedule shift start-at change. start-site cannot be changed when there is an accepted broker tender except through a job schedule shift start-site change. If start-at changes on a shift with driver day messages, it cannot move more than 4 hours without support assistance. start-at must not be more than 14 hours after or 2 hours before the job start time when a job production plan is present. Boolean flags must be true or false: is-planned-productive, suppress-automated-shift-feedback, is-flexible, is-subsequent-shift-in-driver-day, is-trucker-incident-creation-automated-explicit.",
+  "flags": [
+    {
+      "name": "job",
+      "required": false,
+      "type": "string",
+      "description": "Job ID."
+    },
+    {
+      "name": "start-at",
+      "required": false,
+      "type": "string",
+      "description": "Shift start time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "end-at",
+      "required": false,
+      "type": "string",
+      "description": "Shift end time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "dispatch-instructions",
+      "required": false,
+      "type": "string",
+      "description": "Dispatch instructions."
+    },
+    {
+      "name": "is-planned-productive",
+      "required": false,
+      "type": "string",
+      "description": "Planned productive shift (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "cancelled-at",
+      "required": false,
+      "type": "string",
+      "description": "Cancelled at time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "suppress-automated-shift-feedback",
+      "required": false,
+      "type": "string",
+      "description": "Suppress automated shift feedback (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "expected-material-transaction-count",
+      "required": false,
+      "type": "string",
+      "description": "Expected material transaction count.",
+      "validation": "Must be a number greater than 0 when provided."
+    },
+    {
+      "name": "expected-material-transaction-tons",
+      "required": false,
+      "type": "string",
+      "description": "Expected material transaction tons.",
+      "validation": "Must be a number greater than 0 when provided."
+    },
+    {
+      "name": "is-flexible",
+      "required": false,
+      "type": "string",
+      "description": "Flexible shift (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "start-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Earliest flexible start time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp; requires is-flexible true."
+    },
+    {
+      "name": "start-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Latest flexible start time (ISO 8601).",
+      "validation": "Format: ISO 8601 timestamp; requires is-flexible true."
+    },
+    {
+      "name": "is-subsequent-shift-in-driver-day",
+      "required": false,
+      "type": "string",
+      "description": "Subsequent shift in driver day (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "is-trucker-incident-creation-automated-explicit",
+      "required": false,
+      "type": "string",
+      "description": "Explicit trucker incident automation override (true/false).",
+      "validation": "Must be true or false."
+    },
+    {
+      "name": "start-site-type",
+      "required": false,
+      "type": "enum",
+      "description": "Start site type (job-sites or material-sites).",
+      "validation": "One of: job-sites, material-sites."
+    },
+    {
+      "name": "start-site",
+      "required": false,
+      "type": "string",
+      "description": "Start site ID (requires --start-site-type).",
+      "validation": "Must be provided together with start-site-type."
+    },
+    {
+      "name": "start-location",
+      "required": false,
+      "type": "string",
+      "description": "Job production plan location ID."
+    },
+    {
+      "name": "trailer-classification",
+      "required": false,
+      "type": "string",
+      "description": "Trailer classification ID."
+    },
+    {
+      "name": "project-labor-classification",
+      "required": false,
+      "type": "string",
+      "description": "Project labor classification ID."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_schedule_shifts_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_schedule_shifts_common.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_schedule_shift.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_schedule_shift_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_schedule_shift_resource.rb"
+    }
+  ]
+}

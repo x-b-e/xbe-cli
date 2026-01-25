@@ -1,0 +1,176 @@
+{
+  "id": "f346c79d4632ae7476114837e0775867519c68bbae99c310ce4833279806d84d",
+  "full_path": "do objectives update",
+  "description": "Update an objective.",
+  "permissions": "Admins can update any objective. Non-admins can update non-template objectives only if they are practically a manager of the objective organization. Updating templates requires admin privileges.",
+  "side_effects": "Updates objective fields and may enqueue background jobs to update name summaries, sync parent dates, update child objective sales responsible person, queue objective family status posts, and track objective changes.",
+  "validation_notes": "Requires an objective ID argument. At least one field update flag is required. --parent must be in Objective|ID or KeyResult|ID format; if using --parent-type or --parent-id, both are required and parent type must be Objective or KeyResult. Parent must belong to the same organization or its broker, cannot be self, cannot create circular dependencies, and must have the same is_template value. --template-scope must be blank for non-templates and is required for templates. --organization is create-only and cannot be changed via update. --sales-responsible-person must be an admin and must match the parent sales responsible person when a parent is set. --owner must be a member of the organization or its broker unless the owner is an admin. --project must be blank unless the organization is a Broker; when provided, the project broker must match the objective organization. end-on must be after or equal to start-on when both are set. is-abandoned only sets status to abandoned when true and cannot be used to un-abandon.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New start date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--end-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New end date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--commitment",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "New commitment (committed, aspirational)",
+      "default": null,
+      "validation": "One of: committed, aspirational"
+    },
+    {
+      "name": "--name-summary-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New explicit name summary",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-template",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "New template flag (true/false)",
+      "default": null,
+      "validation": "One of: true, false"
+    },
+    {
+      "name": "--template-scope",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "New template scope",
+      "default": null,
+      "validation": "One of: match_all, organization, project"
+    },
+    {
+      "name": "--is-generating-objective-stakeholder-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Generate stakeholder classifications (true/false)",
+      "default": null,
+      "validation": "One of: true, false"
+    },
+    {
+      "name": "--is-abandoned",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Mark abandoned (true/false)",
+      "default": null,
+      "validation": "One of: true, false"
+    },
+    {
+      "name": "--owner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New owner user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent relationship (Objective|ID or KeyResult|ID)",
+      "default": null,
+      "validation": "Format: Objective|ID or KeyResult|ID"
+    },
+    {
+      "name": "--parent-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Parent type (Objective or KeyResult, requires --parent-id)",
+      "default": null,
+      "validation": "One of: Objective, KeyResult; requires --parent-id"
+    },
+    {
+      "name": "--parent-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parent ID (requires --parent-type)",
+      "default": null,
+      "validation": "Requires --parent-type"
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--sales-responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Sales responsible person user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_objectives_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/objectives_helpers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/objective_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/objective.rb"
+    }
+  ]
+}

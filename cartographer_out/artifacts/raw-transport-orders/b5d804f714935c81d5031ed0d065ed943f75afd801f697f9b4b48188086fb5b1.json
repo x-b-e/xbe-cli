@@ -1,0 +1,23 @@
+{
+  "id": "b5d804f714935c81d5031ed0d065ed943f75afd801f697f9b4b48188086fb5b1",
+  "full_path": "do raw-transport-orders update",
+  "description": "Update a raw transport order",
+  "permissions": "User must be an admin or an admin member of the target broker.",
+  "side_effects": null,
+  "validation_notes": "The raw transport order ID argument is required. Raw transport orders are create-only; no fields are writable and the command returns an error instead of updating.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_raw_transport_orders_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_order_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_order_policy.rb"
+    }
+  ]
+}

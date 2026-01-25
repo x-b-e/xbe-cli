@@ -1,0 +1,55 @@
+{
+  "id": "d6e7047baa4791cfc8da80ebc41b4e1c83967ca9f895029a337f225a2feb8a48",
+  "full_path": "do transport-references update",
+  "description": "Update a transport reference.",
+  "permissions": "User must be authorized to update the transport reference via the subject policy; permissions delegate to the subject.",
+  "side_effects": "Updates the specified transport reference attributes.",
+  "validation_notes": "Transport reference ID argument is required. At least one of key, value, or position must be provided. Subject cannot be changed after creation. Key and value must be present when provided (validated server-side).",
+  "flags": [
+    {
+      "name": "--key",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference key",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Reference position within the subject",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_references_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_reference_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/transport_reference.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_reference_policy.rb"
+    }
+  ]
+}

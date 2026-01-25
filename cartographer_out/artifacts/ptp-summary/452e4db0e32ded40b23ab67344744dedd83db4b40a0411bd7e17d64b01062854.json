@@ -1,0 +1,78 @@
+{
+  "id": "452e4db0e32ded40b23ab67344744dedd83db4b40a0411bd7e17d64b01062854",
+  "full_path": "summarize ptp-summary create",
+  "description": "Create a project transport plan summary.",
+  "permissions": "Requires authentication with a valid API token.",
+  "side_effects": "Creates a project transport plan summary via the API and triggers aggregation of project transport plan data.",
+  "validation_notes": "Group-by supports broker, created_date, project_transport_plan_created_by, strategy_set, transport_order_project_category, transport_order_project_office; defaults to broker when --group-by is omitted, and an empty string yields no grouping. Metrics must be from: count, strategy_set_prediction_missing_pct, strategy_set_prediction_correct_pct, strategy_set_prediction_incorrect_pct, strategy_set_prediction_top_2_pct, strategy_set_prediction_top_3_pct, strategy_set_prediction_top_5_pct, strategy_set_prediction_top_10_pct. If --all-metrics is set, metric selection flags are ignored. --filters must be a valid JSON object; --filter entries must be key=value with a non-empty key and override any same-named key in --filters. Filter keys include broker, created_date (YYYY-MM-DD), created_date_min (YYYY-MM-DD), created_date_max (YYYY-MM-DD), strategy_set, transport_order_is_managed (true/false), has_strategy_set_prediction_position (true/false).",
+  "flags": [
+    {
+      "name": "--all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all metrics returned by the API",
+      "default": "false",
+      "validation": "When true, metric selection flags are ignored and all metrics are returned."
+    },
+    {
+      "name": "--filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable)",
+      "default": null,
+      "validation": "Each entry must be key=value with a non-empty key. Examples: broker=123, created_date_min=2025-01-01."
+    },
+    {
+      "name": "--filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. {\"broker\":\"123\"})",
+      "default": null,
+      "validation": "Must be a valid JSON object. Example: {\"broker\":\"123\"}."
+    },
+    {
+      "name": "--group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to broker unless set.",
+      "default": "broker",
+      "validation": "Comma-separated list. Allowed values: broker, created_date, project_transport_plan_created_by, strategy_set, transport_order_project_category, transport_order_project_office. Use an empty string for no group-by."
+    },
+    {
+      "name": "--metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable)",
+      "default": null,
+      "validation": "Allowed values: count, strategy_set_prediction_missing_pct, strategy_set_prediction_correct_pct, strategy_set_prediction_incorrect_pct, strategy_set_prediction_top_2_pct, strategy_set_prediction_top_3_pct, strategy_set_prediction_top_5_pct, strategy_set_prediction_top_10_pct. Example: --metric count."
+    },
+    {
+      "name": "--metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list of metrics. Allowed values: count, strategy_set_prediction_missing_pct, strategy_set_prediction_correct_pct, strategy_set_prediction_incorrect_pct, strategy_set_prediction_top_2_pct, strategy_set_prediction_top_3_pct, strategy_set_prediction_top_5_pct, strategy_set_prediction_top_10_pct. Example: count,strategy_set_prediction_correct_pct."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ptp_summary_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ptp_summary.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/project_transport_plan_summaries_controller.rb"
+    }
+  ]
+}

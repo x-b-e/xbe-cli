@@ -1,0 +1,33 @@
+{
+  "id": "34594a26431b59fe3e48bf5e01dee4bb2c0cb6f1a8e0249a799fdc661b208a67",
+  "full_path": "do external-identification-types delete",
+  "description": "Delete an external identification type",
+  "permissions": "Requires an admin user; policy destroy? requires is_user_admin?.",
+  "side_effects": "Permanently deletes the external identification type record (if allowed).",
+  "validation_notes": "<id> argument is required. --confirm flag is required. Deletion is blocked if the type has related external identifications.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true to proceed."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_external_identification_types_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/external_identification_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/external_identification_type.rb"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "6438eb7a13649a6e5f5749627ff57eba3f542ca2f2ce9e34b13638b1477d0895",
+  "full_path": "do model-filter-infos create",
+  "description": "Fetch filter options for a resource.",
+  "permissions": "Requires authentication; policy allows any user to create model filter infos.",
+  "side_effects": "None; options are generated on demand and not persisted.",
+  "validation_notes": "--resource-type is required and must map to a valid resource type; --scope-filters must be a valid JSON object; --scope-filter entries must be key=value with a non-empty key; scope_filters must be a hash and only include filters supported by the resource; filter keys are normalized to underscore.",
+  "flags": [
+    {
+      "name": "resource-type",
+      "required": true,
+      "type": "string",
+      "description": "Resource type (required)",
+      "validation": "Must be a valid resource type (maps to a resource class)."
+    },
+    {
+      "name": "filter-keys",
+      "required": false,
+      "type": "string",
+      "description": "Filter keys to include (comma-separated)",
+      "validation": "Comma-separated list; values are normalized to underscore.",
+      "default": null
+    },
+    {
+      "name": "filter-key",
+      "required": false,
+      "type": "array",
+      "description": "Filter key to include (repeatable)",
+      "validation": "Repeatable; values are normalized to underscore.",
+      "default": null
+    },
+    {
+      "name": "scope-filters",
+      "required": false,
+      "type": "string",
+      "description": "Scope filters JSON object",
+      "validation": "Must be a valid JSON object.",
+      "default": null
+    },
+    {
+      "name": "scope-filter",
+      "required": false,
+      "type": "array",
+      "description": "Scope filter in key=value format (repeatable)",
+      "validation": "Each entry must be key=value with a non-empty key.",
+      "default": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_model_filter_infos_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_model_filter_infos.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/model_filter_info.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/model_filter_info_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/model_filter_info_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "39057683efe35d67a8efbc9174d2a97fdb103dc6147d9d8ce82ad1847202ab98",
+  "full_path": "do saml-code-redemptions create",
+  "description": "Redeem a SAML login code.",
+  "permissions": "No authentication required; a valid SAML login code that maps to an existing XBE user is required to receive an auth token.",
+  "side_effects": "Exchanges the SAML login code with the SSO provider to fetch a profile and returns an auth token for the matched user.",
+  "validation_notes": "The code attribute is required; server strips whitespace and validates presence. Redemption fails with a validation error if the SSO exchange does not yield an auth token (e.g., code invalid, unauthorized, or no matching user). The auth_token attribute is read-only.",
+  "flags": [
+    {
+      "name": "--code",
+      "required": true,
+      "type": "string",
+      "description": "SAML login code",
+      "validation": "Required; whitespace is stripped server-side; example: saml_code_value."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_saml_code_redemptions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/saml_code_redemptions_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/saml_code_redemption_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/saml_code_redemption.rb"
+    }
+  ]
+}

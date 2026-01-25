@@ -1,0 +1,56 @@
+{
+  "description": "List job schedule shift start site changes",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "full_path": "view job-schedule-shift-start-site-changes list",
+  "id": "43fb7c610e191a7e0a9c5e20421868c27a3051d67caae7f217706b069e2d1880",
+  "permissions": "Admin users can view all job schedule shift start site changes. Non-admin users can view changes tied to job schedule shifts whose job customer broker is in the user broker memberships.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_schedule_shift_start_site_changes_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/job_schedule_shift_start_site_change_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "created-at-min and created-at-max must be ISO 8601 timestamps when provided. updated-at-min and updated-at-max must be ISO 8601 timestamps when provided."
+}

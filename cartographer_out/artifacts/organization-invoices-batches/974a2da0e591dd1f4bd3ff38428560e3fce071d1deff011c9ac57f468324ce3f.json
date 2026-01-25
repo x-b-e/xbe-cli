@@ -1,0 +1,19 @@
+{
+  "id": "974a2da0e591dd1f4bd3ff38428560e3fce071d1deff011c9ac57f468324ce3f",
+  "full_path": "view organization-invoices-batches show",
+  "description": "Show the full details of an organization invoices batch.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (organization invoices batch ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batches_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_resource.rb"
+    }
+  ]
+}

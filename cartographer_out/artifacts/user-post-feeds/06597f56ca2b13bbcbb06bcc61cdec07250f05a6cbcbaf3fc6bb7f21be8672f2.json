@@ -1,0 +1,87 @@
+{
+  "id": "06597f56ca2b13bbcbb06bcc61cdec07250f05a6cbcbaf3fc6bb7f21be8672f2",
+  "full_path": "view user-post-feeds list",
+  "description": "List user post feeds",
+  "permissions": "Authenticated users can list user post feeds; non-admin users are limited to feeds where the feed user is themselves.",
+  "side_effects": null,
+  "validation_notes": "created-at-min/created-at-max/updated-at-min/updated-at-max expect ISO 8601 timestamps. is-created-at and is-updated-at expect true/false.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-created-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has created-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--is-updated-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by has updated-at (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_post_feeds_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_post_feed_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_post_feed_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "301dd9f050776a05a3eace8651db3e2476829e89e6b06f013ab691e8fb4ec684",
+  "full_path": "do tender-cancellations create",
+  "description": "Cancel a tender.",
+  "permissions": "Allowed if the user is authorized to create the associated tender per TenderPolicy (TenderCancellationPolicy -> TenderOfferPolicy#create? delegates to TenderPolicy#create? for the tender).",
+  "side_effects": "Creates a tender cancellation action that sets the tender status to cancelled. Cancels related tender job schedule shifts, may cascade cancellations to related broker/customer tenders, and may send cancellation notifications.",
+  "validation_notes": "--tender is required. Tender ID is parsed as an integer. Tender must be in an allowed status (offered, accepted, or editing; additional statuses may be allowed when internal flags permit). Tender cannot have associated time cards or material transactions.",
+  "flags": [
+    {
+      "name": "--tender",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender ID (required).",
+      "default": null,
+      "validation": "Required. Example: 123."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Cancellation comment.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_cancellations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/tender_cancel_like_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tender_actions/tender_cancellation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_cancellation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_offer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_policy.rb"
+    }
+  ]
+}

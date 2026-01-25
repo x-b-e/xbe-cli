@@ -1,0 +1,46 @@
+{
+  "id": "4f3ba1c2e4c35c752549d25a12553bc113e07c088134e1e4c88904ce3f4cfdb2",
+  "full_path": "view lowest-losing-bid-prediction-subject-details list",
+  "description": "List lowest losing bid prediction subject details with filtering and pagination.",
+  "permissions": "Access is delegated to the related prediction subject. Admins can list all details; broker admins can list details tied to prediction subjects in their broker; other users are denied.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--prediction-subject",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by prediction subject ID (example: 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--bidder",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by bidder ID (example: 456).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lowest_losing_bid_prediction_subject_details_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/lowest_losing_bid_prediction_subject_detail_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lowest_losing_bid_prediction_subject_detail_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/lowest_losing_bid_prediction_subject_detail_policy_spec.rb"
+    }
+  ]
+}

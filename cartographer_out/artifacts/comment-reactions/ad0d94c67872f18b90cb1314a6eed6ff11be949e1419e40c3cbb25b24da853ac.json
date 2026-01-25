@@ -1,0 +1,19 @@
+{
+  "id": "ad0d94c67872f18b90cb1314a6eed6ff11be949e1419e40c3cbb25b24da853ac",
+  "full_path": "view comment-reactions show",
+  "description": "Show the full details of a comment reaction.",
+  "permissions": "Admins can view all comment reactions; non-admins are limited to reactions on comments they are allowed to view (comment policy scope).",
+  "side_effects": null,
+  "validation_notes": "Requires a comment reaction ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/comment_reactions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/comment_reaction_policy.rb"
+    }
+  ]
+}

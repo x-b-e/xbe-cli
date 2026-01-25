@@ -1,0 +1,27 @@
+{
+  "id": "277e8614f539a3f1450b2d49f331e869f9eb15d550ecbc6fec8861e69843bcac",
+  "full_path": "view key-result-status-changes show",
+  "description": "Show key result status change details",
+  "permissions": "User must be authorized to view the related key result; scope is limited to key results in the user\u2019s Objective policy scope (non-admin).",
+  "side_effects": "None.",
+  "validation_notes": "Requires <id> argument (status change ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/key_result_status_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_status_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    }
+  ]
+}

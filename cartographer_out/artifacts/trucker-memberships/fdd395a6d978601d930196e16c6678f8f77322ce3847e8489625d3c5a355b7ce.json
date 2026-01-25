@@ -1,0 +1,154 @@
+{
+  "id": "fdd395a6d978601d930196e16c6678f8f77322ce3847e8489625d3c5a355b7ce",
+  "full_path": "view trucker-memberships list",
+  "description": "List trucker memberships with filtering and pagination.",
+  "permissions": "Admins can list all trucker memberships. Non-admin users can list memberships when they are the membership user, are a broker member for the trucker\"s broker, are a trucker manager member for the trucker, or are a customer manager for a customer linked to the trucker.",
+  "side_effects": null,
+  "validation_notes": "Multiple filters can be combined and use AND logic. When --trucker is provided without a type prefix, the CLI sends it as Trucker|<id>.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--drives-shift-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by drives shift type (any/day/night)",
+      "default": null,
+      "validation": "any|day|night"
+    },
+    {
+      "name": "--external-employee-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external employee ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by default job production plan subscriber (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-equipment-rental-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by equipment rental team member (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by geofence violation team member (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-rate-editor",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by rate editor status (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-time-card-auditor",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by time card auditor status (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Filter by unapproved time card subscriber (true/false)",
+      "default": null,
+      "validation": "true|false"
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by kind (operations/manager)",
+      "default": null,
+      "validation": "operations|manager"
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project office ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Search by user name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": "Accepts a trucker ID; the CLI prefixes it with Trucker| when missing."
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_memberships_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/membership_resource.rb"
+    }
+  ]
+}

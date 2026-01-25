@@ -1,0 +1,37 @@
+{
+  "id": "e2e1e4071d20893e20c5650cbbb43ddeae681f2a094efa4a68ecd59906ba24f5",
+  "full_path": "do job-production-plan-trailer-classifications delete",
+  "description": "Remove a trailer classification from a job production plan.",
+  "permissions": "User must be authorized to update/delete the related job production plan; access is delegated to job production plan permissions.",
+  "side_effects": "Deletes the job production plan trailer classification record and touches related broker tender job schedule shifts after commit.",
+  "validation_notes": "The <id> argument is required. --confirm is required. Deletion is blocked if the trailer classification is referenced by a lineup job schedule shift or if it is the only trailer classification on a confirmed job production plan that requires trucking.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Required to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_trailer_classifications_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_trailer_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_trailer_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_trailer_classification.rb"
+    }
+  ]
+}

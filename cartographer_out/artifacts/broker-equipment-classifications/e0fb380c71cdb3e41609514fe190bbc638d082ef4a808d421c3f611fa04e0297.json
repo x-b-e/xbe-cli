@@ -1,0 +1,19 @@
+{
+  "id": "e0fb380c71cdb3e41609514fe190bbc638d082ef4a808d421c3f611fa04e0297",
+  "full_path": "view broker-equipment-classifications show",
+  "description": "Show broker equipment classification details",
+  "permissions": "User must be authorized to view broker equipment classifications; non-admin users are limited to brokers in their policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires broker equipment classification ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_equipment_classifications_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_equipment_classification_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "1187eb51af4b1ff81b67245f609ea78b7916ddd587561255c2f8591dd322c63a",
+  "full_path": "do newsletters create",
+  "description": "Create a new newsletter.",
+  "permissions": "Authentication is required. Admins can create newsletters. When an organization is set, organization managers or members of the organization broker can create; if no organization is set, only admins can create.",
+  "side_effects": "Creates a newsletter record. Publishing may trigger Slack notifications and asynchronous notification jobs; creating/updating a newsletter rebuilds the marketing website.",
+  "validation_notes": "--body is required. --published-on expects a YYYY-MM-DD date when provided. If is_published is true, published_on and summary are required, and user_scopes must be non-empty and only include: admins, having_broker_membership, having_broker_manager_membership, having_customer_membership, having_customer_manager_membership, having_trucker_membership, having_trucker_manager_membership, having_dispatch_contact_responsibility, having_recent_driver_assignment, having_active_driver_day, having_trucker_financial_contact_assignment, having_prediction_subject_membership. is_public must be false when an organization is present.",
+  "flags": [
+    {
+      "name": "--body",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Newsletter body content",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--summary",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Newsletter summary",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--published-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Publication date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date value (YYYY-MM-DD)."
+    },
+    {
+      "name": "--is-published",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as published",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-public",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Make publicly accessible",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_newsletters_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/newsletter.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/newsletter_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/newsletter_resource.rb"
+    }
+  ]
+}

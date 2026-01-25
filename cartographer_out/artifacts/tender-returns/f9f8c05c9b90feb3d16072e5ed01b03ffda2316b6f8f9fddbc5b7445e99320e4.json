@@ -1,0 +1,23 @@
+{
+  "id": "f9f8c05c9b90feb3d16072e5ed01b03ffda2316b6f8f9fddbc5b7445e99320e4",
+  "full_path": "view tender-returns list",
+  "description": "List tender returns",
+  "permissions": "Policy index? defaults to allow; show/list access is controlled by TenderReturnPolicy scope (ApplicationPolicy#show? uses policy scope).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_returns_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tender_return_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_return_resource.rb"
+    }
+  ]
+}

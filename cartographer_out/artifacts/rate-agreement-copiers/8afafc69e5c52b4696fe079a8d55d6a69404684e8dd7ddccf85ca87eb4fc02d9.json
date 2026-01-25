@@ -1,0 +1,56 @@
+{
+  "id": "8afafc69e5c52b4696fe079a8d55d6a69404684e8dd7ddccf85ca87eb4fc02d9",
+  "full_path": "do rate-agreement-copiers create",
+  "description": "Copy a rate agreement to a target organization.",
+  "permissions": "User must be authorized to update the template rate agreement.",
+  "side_effects": "Creates a rate agreement copier and performs the copy; creates or updates the target rate agreement and related rates/time card constraints.",
+  "validation_notes": "--template-rate-agreement, --target-organization-type, and --target-organization-id are required. target-organization-type must be customers or truckers. The template rate agreement must match the target organization type (customer or trucker).",
+  "flags": [
+    {
+      "name": "--template-rate-agreement",
+      "required": true,
+      "type": "string",
+      "description": "Template rate agreement ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--target-organization-type",
+      "required": true,
+      "type": "enum",
+      "description": "Target organization type (customers, truckers) (required)",
+      "default": null,
+      "validation": "one of: customers, truckers"
+    },
+    {
+      "name": "--target-organization-id",
+      "required": true,
+      "type": "string",
+      "description": "Target organization ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_rate_agreement_copiers_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_rate_agreement_copiers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/rate_agreement_copier_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/rate_agreement_copier_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/rate_agreement_copier.rb"
+    }
+  ]
+}

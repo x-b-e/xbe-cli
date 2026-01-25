@@ -1,0 +1,27 @@
+{
+  "description": "Show the full details of a time card invoice.",
+  "flags": [],
+  "full_path": "view time-card-invoices show",
+  "id": "5a013b791fe3b0490fee58f488e4fa8c86171e77470175cc81562c4ed1984e17",
+  "permissions": "Requires an authenticated user with access to the related invoice via InvoicePolicy scope. Admins can view all; non-admins are limited to invoices where they are a member of the buyer customer (including management-service-type customer visibility), a manager member of the seller trucker, or a member of the broker.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/time_card_invoices_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_card_invoice_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/invoice_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/application_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "id argument is required and must be non-empty."
+}

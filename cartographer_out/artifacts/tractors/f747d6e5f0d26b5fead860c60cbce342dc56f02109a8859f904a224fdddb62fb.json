@@ -1,0 +1,87 @@
+{
+  "id": "f747d6e5f0d26b5fead860c60cbce342dc56f02109a8859f904a224fdddb62fb",
+  "full_path": "view tractors list",
+  "description": "List tractors with filtering and pagination.",
+  "permissions": "Admins can list all tractors. Non-admins can list tractors scoped to truckers they are authorized to update via TruckerPolicy.",
+  "side_effects": null,
+  "validation_notes": "--in-service expects a true/false string.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": "Example: 123"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--in-service",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by in-service status (true/false)",
+      "default": null,
+      "validation": "Allowed values: true or false. Example: true"
+    },
+    {
+      "name": "--number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor number (exact match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--number-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tractor number (fuzzy match)",
+      "default": null,
+      "validation": "Example: T100"
+    },
+    {
+      "name": "--last-shift-start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum last shift start time",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--last-shift-start-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum last shift start time",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tractors_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tractor_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_policy.rb"
+    }
+  ]
+}

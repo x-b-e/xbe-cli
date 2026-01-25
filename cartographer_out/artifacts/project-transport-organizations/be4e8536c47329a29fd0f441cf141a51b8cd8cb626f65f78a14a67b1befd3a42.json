@@ -1,0 +1,59 @@
+{
+  "id": "be4e8536c47329a29fd0f441cf141a51b8cd8cb626f65f78a14a67b1befd3a42",
+  "full_path": "do project-transport-organizations create",
+  "description": "Create a project transport organization.",
+  "permissions": "Admin users can create. Non-admin users must be manager members of the broker associated with the organization.",
+  "side_effects": "Creates a project transport organization and may create or update an external identification for the external TMS master company ID.",
+  "validation_notes": "--name and --broker are required. Name must be present and unique per broker.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization name (required). Example: --name \"Acme Transport\".",
+      "default": null,
+      "validation": "Must be present; unique per broker."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Broker ID (required). Example: --broker 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-tms-master-company-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External TMS master company identifier. Example: --external-tms-master-company-id \"TMS-001\".",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_organizations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_organization_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_organization_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_organization.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/externally_identifiable.rb"
+    }
+  ]
+}

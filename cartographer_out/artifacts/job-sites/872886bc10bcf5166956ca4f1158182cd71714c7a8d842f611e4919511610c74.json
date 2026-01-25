@@ -1,0 +1,154 @@
+{
+  "id": "872886bc10bcf5166956ca4f1158182cd71714c7a8d842f611e4919511610c74",
+  "full_path": "view job-sites list",
+  "description": "List job sites with filtering and pagination.",
+  "permissions": "Results are scoped by JobSitePolicy::Scope: users can see job sites for customers in their policy scope or job sites linked to jobs they can access.",
+  "side_effects": null,
+  "validation_notes": "address-near must be three pipe-separated values (lat|lng|miles) that parse as decimals; blank/null parts are invalid. has-material-site requires a strict boolean (true/false). is-stockpiling expects a boolean value. active-since must be a valid date.",
+  "flags": [
+    {
+      "name": "--active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Show only active job sites",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--active-since",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by activity since date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "Date in YYYY-MM-DD format."
+    },
+    {
+      "name": "--address-near",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by proximity to address (lat,lng,radius_miles)",
+      "default": null,
+      "validation": "Server expects format lat|lng|miles (pipe-separated) and numeric values."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (uses broker_id filter)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-job-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external job number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--has-material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by whether site has material site (true/false)",
+      "default": null,
+      "validation": "Strict boolean: true or false."
+    },
+    {
+      "name": "--is-stockpiling",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by stockpiling status (true/false)",
+      "default": null,
+      "validation": "Boolean value expected."
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated for multiple)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (exact match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial/fuzzy match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Full-text search",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_sites_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_site_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_site_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/active_record_resource.rb"
+    }
+  ]
+}

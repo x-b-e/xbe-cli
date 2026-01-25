@@ -1,0 +1,100 @@
+{
+  "id": "cda6014f20f2174f33e70d47f582f6c9f09e0b933057cfdaa978769cf0d14302",
+  "full_path": "do prediction-subject-memberships create",
+  "description": "Create a prediction subject membership",
+  "permissions": "Allowed for admins, users who can manage memberships on the prediction subject, or broker admins for the prediction subject broker.",
+  "side_effects": "Creates a prediction subject membership and schedules a membership change notification.",
+  "validation_notes": "--prediction-subject and --user are required. Permission flags expect true/false when provided. User must have access to the prediction subject (must be a broker member). user_id must be unique per prediction_subject_id.",
+  "flags": [
+    {
+      "name": "--prediction-subject",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Prediction subject ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Creator user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--can-manage-memberships",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can manage memberships (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-see-predictions-without-creating-prediction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can see predictions without creating one (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-update-prediction-consensus",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can update prediction consensus (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-update-or-destroy-others-predictions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can update or destroy others predictions (true/false)",
+      "default": null,
+      "validation": "true/false."
+    },
+    {
+      "name": "--can-manage-gaps",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Can manage gaps (true/false)",
+      "default": null,
+      "validation": "true/false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_subject_memberships_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_subject_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_subject_membership.rb"
+    }
+  ]
+}

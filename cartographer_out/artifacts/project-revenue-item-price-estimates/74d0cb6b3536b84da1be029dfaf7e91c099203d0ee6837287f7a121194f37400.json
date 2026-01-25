@@ -1,0 +1,33 @@
+{
+  "id": "74d0cb6b3536b84da1be029dfaf7e91c099203d0ee6837287f7a121194f37400",
+  "full_path": "do project-revenue-item-price-estimates delete",
+  "description": "Delete a project revenue item price estimate.",
+  "permissions": "User must be an admin or a manager member of the broker that owns the related project revenue item (delegated to project revenue item permissions).",
+  "side_effects": "Deletes a project revenue item price estimate.",
+  "validation_notes": "Requires <id> argument. --confirm is required and must be true.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_revenue_item_price_estimates_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_price_estimate_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_revenue_item_policy.rb"
+    }
+  ]
+}

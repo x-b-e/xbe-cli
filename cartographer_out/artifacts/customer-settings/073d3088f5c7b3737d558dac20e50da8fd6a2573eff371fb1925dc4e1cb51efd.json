@@ -1,0 +1,77 @@
+{
+  "id": "073d3088f5c7b3737d558dac20e50da8fd6a2573eff371fb1925dc4e1cb51efd",
+  "full_path": "do customer-settings update",
+  "description": "Update customer settings.",
+  "permissions": "Admin users can update customer settings. Non-admin users can update only if they are practically customer managers for the setting customer (member of the customer broker or manager member of the customer).",
+  "side_effects": "Updates customer settings; if plan-requires-project changes, schedules an async update of related plan settings.",
+  "validation_notes": "Requires <id> argument. At least one update flag must be provided; otherwise the CLI returns \"no attributes to update\". When auto-cancel-shifts-without-activity is set to false, auto_cancel_shifts_without_activity_threshold_seconds is cleared before validation.",
+  "flags": [
+    {
+      "name": "--is-auditing-time-card-approvals",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable time card approval auditing",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--enable-recap-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable recap notifications",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--plan-requires-project",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Require project for plans",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--plan-requires-business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Require business unit for plans",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--auto-cancel-shifts-without-activity",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Auto-cancel shifts without activity",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_settings_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_setting_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_settings/customer_setting.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_setting.rb"
+    }
+  ]
+}

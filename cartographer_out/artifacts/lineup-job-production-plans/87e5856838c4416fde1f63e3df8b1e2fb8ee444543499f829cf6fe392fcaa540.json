@@ -1,0 +1,23 @@
+{
+  "description": "Show lineup job production plan details",
+  "flags": [],
+  "full_path": "view lineup-job-production-plans show",
+  "id": "87e5856838c4416fde1f63e3df8b1e2fb8ee444543499f829cf6fe392fcaa540",
+  "permissions": "User must be authorized for the related lineup; LineupJobProductionPlanPolicy delegates access to the lineup relationship.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/lineup_job_production_plans_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_job_production_plan_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_job_production_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (lineup job production plan ID)."
+}

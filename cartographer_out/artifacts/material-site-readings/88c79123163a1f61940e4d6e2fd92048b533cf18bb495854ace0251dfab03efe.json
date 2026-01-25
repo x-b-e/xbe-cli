@@ -1,0 +1,33 @@
+{
+  "description": "Delete a material site reading",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": "Must be set to true to perform deletion."
+    }
+  ],
+  "full_path": "do material-site-readings delete",
+  "id": "88c79123163a1f61940e4d6e2fd92048b533cf18bb495854ace0251dfab03efe",
+  "permissions": "Admin users only.",
+  "side_effects": "Deletes a material site reading.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_site_readings_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_site_reading_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_site_reading_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument and --confirm."
+}

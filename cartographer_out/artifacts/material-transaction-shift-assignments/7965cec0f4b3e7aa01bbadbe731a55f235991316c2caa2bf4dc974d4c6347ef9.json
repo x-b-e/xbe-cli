@@ -1,0 +1,78 @@
+{
+  "id": "7965cec0f4b3e7aa01bbadbe731a55f235991316c2caa2bf4dc974d4c6347ef9",
+  "full_path": "view material-transaction-shift-assignments list",
+  "description": "List material transaction shift assignments.",
+  "permissions": "Access is scoped by MaterialTransactionShiftAssignmentPolicy (delegated to JobProductionPlan). Users must be authorized for the related job production plan to see assignments.",
+  "side_effects": null,
+  "validation_notes": "Filters: material-transaction verifies referenced material transaction IDs; invalid IDs are rejected by the server filter verification. is-processed is a strict boolean filter (true/false).",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": "Example: --tender-job-schedule-shift 123"
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated IDs. Example: --material-transaction 456"
+    },
+    {
+      "name": "--is-processed",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by processed status (true/false)",
+      "default": null,
+      "validation": "Accepts true/false. Example: --is-processed true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_shift_assignments_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_shift_assignment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_shift_assignment_policy.rb"
+    }
+  ]
+}

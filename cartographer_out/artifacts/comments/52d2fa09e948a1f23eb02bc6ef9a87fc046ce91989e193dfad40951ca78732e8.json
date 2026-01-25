@@ -1,0 +1,64 @@
+{
+  "id": "52d2fa09e948a1f23eb02bc6ef9a87fc046ce91989e193dfad40951ca78732e8",
+  "full_path": "do comments update",
+  "description": "Update a comment.",
+  "permissions": "Admins can update any comment and can set admin-only. Non-admins can update only comments they created, and cannot update admin-only comments.",
+  "side_effects": "May send equipment-rental notifications unless do-not-notify is set; may update ActionItem summaries; may generate prediction recaps and knowledge-base answers for prediction-related commentables.",
+  "validation_notes": "At least one of --body, --do-not-notify, --include-in-recap, or --is-admin-only must be provided. Body must be present if set. Non-admins cannot set is-admin-only.",
+  "flags": [
+    {
+      "name": "--body",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comment body text",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--do-not-notify",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Do not send notifications",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--include-in-recap",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include in recap",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-admin-only",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as admin-only comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_comments_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/comment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/comment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/comment.rb"
+    }
+  ]
+}

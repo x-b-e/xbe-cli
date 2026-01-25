@@ -1,0 +1,23 @@
+{
+  "id": "f1bf042e69e0ab3c1a15849e921c38626a8b3194d4f74f61da1a1ea65e059d6b",
+  "full_path": "view time-card-status-changes show",
+  "description": "Show time card status change details",
+  "permissions": "User must be authorized to view TimeCard records; policy scope limits status changes to those whose time_card_id is within the TimeCard policy scope for the user.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument; error if empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_status_changes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_status_change_policy.rb"
+    }
+  ]
+}

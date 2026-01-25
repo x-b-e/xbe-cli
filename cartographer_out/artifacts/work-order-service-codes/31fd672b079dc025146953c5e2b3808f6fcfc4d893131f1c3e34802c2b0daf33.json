@@ -1,0 +1,23 @@
+{
+  "id": "31fd672b079dc025146953c5e2b3808f6fcfc4d893131f1c3e34802c2b0daf33",
+  "full_path": "view work-order-service-codes show",
+  "description": "Show work order service code details",
+  "permissions": "Admins can view any work order service code; broker members can view codes for their broker.",
+  "side_effects": null,
+  "validation_notes": "The work order service code ID argument is required and cannot be blank.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/work_order_service_codes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/work_order_service_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/work_order_service_code_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "cb995382f8d0edb498a535437f27afc589b9e09ca7d13d2245b09337931faba7",
+  "full_path": "summarize lane-summary create",
+  "description": "Create a lane summary (cycle summary).",
+  "permissions": "Requires an authenticated user (persisted user) to create a cycle summary.",
+  "side_effects": null,
+  "validation_notes": "Filters must be provided as key=value pairs via --filter or as a JSON object via --filters; invalid JSON or filters without '=' or a key are rejected. origin and destination filters expect Type|ID values (e.g., MaterialSite|123 or JobSite|456). If --metrics/--metric are omitted and --all-metrics is not set, the default metrics are cycle_count, material_transaction_count, cycle_minutes_median, calculated_travel_minutes_median, tons_sum. --min-transactions adds material_transaction_count__min to filters. --group-by defaults to origin,destination unless the flag is set (set to empty string for no group-by).",
+  "flags": [
+    {
+      "name": "group-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group by attributes (comma-separated). Defaults to origin,destination unless set.",
+      "default": "origin,destination",
+      "validation": "Comma-separated list of group-by attributes (examples: material_transaction, material_type, broker, customer, trucker, driver, trailer, job_production_plan, job_site, material_supplier, material_site, business_unit, origin, destination, date, month, year, hour). Use empty string for no group-by."
+    },
+    {
+      "name": "metrics",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Metric columns to include (comma-separated).",
+      "default": null,
+      "validation": "Available metrics include: cycle_count, material_transaction_count, cycle_minutes_median, cycle_minutes_decile, cycle_minutes_min, job_site_wait_time_median, material_site_wait_time_median, other_site_wait_time_median, calculated_travel_miles_median, calculated_travel_miles_mean, calculated_travel_miles_min, calculated_travel_miles_max, calculated_travel_minutes_median, calculated_travel_minutes_mean, calculated_travel_minutes_min, calculated_travel_minutes_max, pickup_dwell_minutes_mean, pickup_dwell_minutes_min, pickup_dwell_minutes_max, pickup_dwell_minutes_median, pickup_dwell_minutes_p90, loaded_driving_minutes_mean, loaded_driving_minutes_min, loaded_driving_minutes_max, loaded_driving_minutes_median, loaded_driving_minutes_p90, loaded_driving_minutes_total, delivery_dwell_minutes_mean, delivery_dwell_minutes_min, delivery_dwell_minutes_max, delivery_dwell_minutes_median, delivery_dwell_minutes_p90, unloaded_driving_minutes_mean, unloaded_driving_minutes_min, unloaded_driving_minutes_max, unloaded_driving_minutes_median, unloaded_driving_minutes_p90, unloaded_driving_minutes_total, cycle_pct, tons_sum, tons_mean, cost_per_ton, effective_cost_per_hour_median, calculated_non_travel_minutes_median, calculated_non_travel_minutes_decile, dwell_and_drive_count. Example: --metrics cycle_minutes_median,tons_sum."
+    },
+    {
+      "name": "metric",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Metric column to include (repeatable).",
+      "default": null,
+      "validation": "Repeatable; each value must be one of the available metrics listed in --metrics help."
+    },
+    {
+      "name": "all-metrics",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include all metrics returned by the API.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "min-transactions",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Drop rows with fewer than this many transactions.",
+      "default": "0",
+      "validation": "When set to a positive integer, applies the material_transaction_count__min filter."
+    },
+    {
+      "name": "filters",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filters JSON object (e.g. '{\"broker\":\"123\"}').",
+      "default": null,
+      "validation": "Must be valid JSON object. Example: --filters '{\"broker\":\"123\",\"has_trip\":true}'."
+    },
+    {
+      "name": "filter",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Filter in key=value format (repeatable).",
+      "default": null,
+      "validation": "Repeatable key=value pairs. Available filters: material_transaction, material_type, broker, customer, trucker, driver, trailer, material_supplier, material_site, business_unit, job_production_plan, job_number, job_name, job_site, origin (Type|ID), destination (Type|ID), has_trip (true/false), is-managed (true/false), material_type_ultimate_parent_qualified_names, date, date_min, date_max, transaction_at_min, transaction_at_max, month, year, hour. Metric filters: material_transaction_count__min."
+    },
+    {
+      "name": "include-driver-movement-durations",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable driver movement durations (cycle_summary_include_dmd).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "use-driver-day-trip-lead-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable driver day trip lead minutes metrics.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "beta-driver-movement-segment-durations",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable beta driver movement segment durations.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "optional-feature",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Additional optional features (repeatable).",
+      "default": null,
+      "validation": "Repeatable. Known optional features: cycle_summary_include_dmd, cycle_summary_use_driver_day_trip_lead_minutes, cycle_summary_beta_driver_movement_segment_durations."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lane_summary_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/cycle_summary_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/cycle_summary_policy.rb"
+    }
+  ]
+}

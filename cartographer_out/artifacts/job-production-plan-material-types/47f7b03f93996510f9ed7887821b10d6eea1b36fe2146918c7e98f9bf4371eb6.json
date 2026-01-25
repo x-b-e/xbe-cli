@@ -1,0 +1,31 @@
+{
+  "id": "47f7b03f93996510f9ed7887821b10d6eea1b36fe2146918c7e98f9bf4371eb6",
+  "full_path": "view job-production-plan-material-types show",
+  "description": "Show job production plan material type details.",
+  "permissions": "Allowed when the user can access the material type record via JobProductionPlanMaterialTypePolicy scope (delegated to JobProductionPlanPolicy) or is the seller operations contact on tender job schedule shifts tied to the plan.",
+  "side_effects": null,
+  "validation_notes": "The job production plan material type ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_material_types.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plan_material_types_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

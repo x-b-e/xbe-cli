@@ -1,0 +1,72 @@
+{
+  "description": "Create a raw transport tractor",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "External tractor identifier (required)",
+      "name": "--external-tractor-id",
+      "required": true,
+      "type": "string",
+      "validation": "Non-empty string; leading/trailing whitespace is stripped."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": "Non-empty string."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Importer name (e.g., quantix_tmw)",
+      "name": "--importer",
+      "required": false,
+      "type": "string",
+      "validation": "One of: quantix_tmw."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Raw table payloads as JSON array",
+      "name": "--tables",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a JSON array."
+    }
+  ],
+  "full_path": "do raw-transport-tractors create",
+  "id": "b9880afd42ffea3bf512e9f5410b68a74d69ae5d6f6a5fa80958ed54e9b14dd6",
+  "permissions": "Admins can create raw transport tractors. Broker admins can create tractors for brokers they admin.",
+  "side_effects": "Creates a raw transport tractor and enqueues an async import job after creation.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_raw_transport_tractors_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/raw_transport_tractor_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/raw_transport_tractor.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/raw_transport/abstract_record.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/concerns/raw_transport/import_checksum_tracking.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_transport_tractor_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--external-tractor-id is required and is trimmed of surrounding whitespace. --broker is required. --tables must be a JSON array when provided. --importer accepts: quantix_tmw. If the import checksum duplicates an existing record for the broker, the server returns the existing record instead of creating a new one."
+}

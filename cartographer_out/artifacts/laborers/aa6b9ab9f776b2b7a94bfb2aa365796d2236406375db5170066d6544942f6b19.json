@@ -1,0 +1,105 @@
+{
+  "description": "List laborers",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by labor classification ID",
+      "name": "--labor-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization type (e.g., Broker, Customer)",
+      "name": "--organization-type",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization ID",
+      "name": "--organization-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by active status (true/false)",
+      "name": "--is-active",
+      "required": false,
+      "type": "string",
+      "validation": "true/false"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by user ID",
+      "name": "--user",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by craft class ID",
+      "name": "--craft-class",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by missing craft class (true/false)",
+      "name": "--missing-craft-class",
+      "required": false,
+      "type": "string",
+      "validation": "true/false (strict)"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by business unit ID",
+      "name": "--business-units",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Search laborers",
+      "name": "--search",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view laborers list",
+  "id": "aa6b9ab9f776b2b7a94bfb2aa365796d2236406375db5170066d6544942f6b19",
+  "permissions": "User must be authenticated. Access is limited by LaborerPolicy scope; non-admin users only see laborers tied to organizations where they are members/managers or broker members, while admins can access all.",
+  "side_effects": "Reads laborers from the API.",
+  "sources": [
+    {
+      "file_path": "internal/cli/laborers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/laborer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/laborer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "missing-craft-class filter requires a strict boolean true/false value."
+}

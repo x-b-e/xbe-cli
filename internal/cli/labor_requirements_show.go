@@ -284,18 +284,6 @@ func buildLaborRequirementDetails(resp jsonAPISingleResponse) laborRequirementDe
 	return details
 }
 
-func relationshipIDList(rel jsonAPIRelationship) []string {
-	ids := relationshipIDs(rel)
-	if len(ids) == 0 {
-		return nil
-	}
-	out := make([]string, 0, len(ids))
-	for _, id := range ids {
-		out = append(out, id.ID)
-	}
-	return out
-}
-
 func renderLaborRequirementDetails(cmd *cobra.Command, details laborRequirementDetails) error {
 	out := cmd.OutOrStdout()
 

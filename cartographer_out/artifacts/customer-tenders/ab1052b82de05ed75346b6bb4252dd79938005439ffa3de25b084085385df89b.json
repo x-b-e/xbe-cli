@@ -1,0 +1,33 @@
+{
+  "description": "Delete a customer tender",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do customer-tenders delete",
+  "id": "ab1052b82de05ed75346b6bb4252dd79938005439ffa3de25b084085385df89b",
+  "permissions": "Admin users, or users who are members of the buyer customer or seller broker associated with the tender.",
+  "side_effects": "Deletes a customer tender.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_customer_tenders_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/customer_tender_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Customer tender ID argument is required. --confirm is required to delete."
+}

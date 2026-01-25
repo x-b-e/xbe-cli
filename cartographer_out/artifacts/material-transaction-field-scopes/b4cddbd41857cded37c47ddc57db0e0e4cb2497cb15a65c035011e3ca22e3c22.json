@@ -1,0 +1,33 @@
+{
+  "id": "b4cddbd41857cded37c47ddc57db0e0e4cb2497cb15a65c035011e3ca22e3c22",
+  "full_path": "do material-transaction-field-scopes create",
+  "description": "Create a material transaction field scope.",
+  "permissions": "Allowed if the user is an admin, or if the field scope is populated from a tender job schedule shift and the user can create material transactions for that shift, or if the field scope is based on an existing material transaction the user can create under MaterialTransactionPolicy.",
+  "side_effects": "Creates a material transaction field scope derived from a tender job schedule shift (server builds it by populating a new MaterialTransactionFieldScope from the shift).",
+  "validation_notes": "tender-job-schedule-shift is required. Server expects relationships.tender-job-schedule-shifts to be present, include exactly one ID, and that ID must resolve to an existing TenderJobScheduleShift; otherwise it returns an unprocessable entity or not found error.",
+  "flags": [
+    {
+      "name": "tender-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tender job schedule shift ID",
+      "default": null,
+      "validation": "Required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_field_scopes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_field_scope_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_field_scope_resource.rb"
+    }
+  ]
+}

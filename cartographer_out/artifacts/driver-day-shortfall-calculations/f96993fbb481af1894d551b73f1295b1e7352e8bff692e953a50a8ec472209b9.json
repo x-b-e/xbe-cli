@@ -1,0 +1,51 @@
+{
+  "description": "Create a driver day shortfall calculation.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Time card IDs (comma-separated or repeated)",
+      "name": "--time-card-ids",
+      "required": true,
+      "type": "array",
+      "validation": "Required. Comma-separated or repeated values."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Driver day time card constraint IDs (comma-separated or repeated)",
+      "name": "--driver-day-time-card-constraint-ids",
+      "required": true,
+      "type": "array",
+      "validation": "Required. Comma-separated or repeated values."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Unallocatable time card IDs (comma-separated or repeated)",
+      "name": "--unallocatable-time-card-ids",
+      "required": false,
+      "type": "array",
+      "validation": "Comma-separated or repeated values."
+    }
+  ],
+  "full_path": "do driver-day-shortfall-calculations create",
+  "id": "f96993fbb481af1894d551b73f1295b1e7352e8bff692e953a50a8ec472209b9",
+  "permissions": "User must be an admin or be authorized for all referenced time cards and driver day time card constraints.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/do_driver_day_shortfall_calculations_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/driver_day_shortfall_calculation_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/driver_day_shortfall_calculation_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--time-card-ids is required and must reference existing time cards. --driver-day-time-card-constraint-ids is required and must reference existing driver day time card constraints. If provided, --unallocatable-time-card-ids must reference existing time cards."
+}

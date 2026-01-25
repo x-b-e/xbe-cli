@@ -289,10 +289,3 @@ func renderProjectTransportPlanSegmentsTable(cmd *cobra.Command, rows []projectT
 	}
 	return writer.Flush()
 }
-
-func formatOptionalInt(value int) string {
-	if value == 0 {
-		return ""
-	}
-	return strconv.Itoa(value)
-}

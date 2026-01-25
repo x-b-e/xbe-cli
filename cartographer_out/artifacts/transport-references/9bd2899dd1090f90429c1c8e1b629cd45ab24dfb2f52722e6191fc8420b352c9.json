@@ -1,0 +1,73 @@
+{
+  "id": "9bd2899dd1090f90429c1c8e1b629cd45ab24dfb2f52722e6191fc8420b352c9",
+  "full_path": "do transport-references create",
+  "description": "Create a transport reference.",
+  "permissions": "User must be authorized to create a transport reference via the subject policy; permissions delegate to the subject.",
+  "side_effects": "Creates a transport reference record associated with the specified subject.",
+  "validation_notes": "Subject, key, and value are required. The subject relationship is create-only and cannot be changed later. Key and value must be present (validated server-side).",
+  "flags": [
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Subject type (e.g., transport-orders)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Subject ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--key",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reference key",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reference value",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--position",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Reference position within the subject",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_references_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_reference_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/transport_reference.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_reference_policy.rb"
+    }
+  ]
+}

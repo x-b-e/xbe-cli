@@ -1,0 +1,91 @@
+{
+  "description": "Create a new geofence.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Geofence name (required)",
+      "name": "name",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "broker",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Geofence description",
+      "name": "description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "JSON array of coordinate pairs",
+      "name": "polygon-coordinates",
+      "required": false,
+      "type": "array",
+      "validation": "Must be valid JSON array of [longitude, latitude] pairs."
+    },
+    {
+      "aliases": null,
+      "default": "active",
+      "description": "Geofence status",
+      "name": "status",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: active, inactive."
+    },
+    {
+      "aliases": null,
+      "default": "all_truckers",
+      "description": "Restriction mode",
+      "name": "restriction-mode",
+      "required": false,
+      "type": "enum",
+      "validation": "Allowed values: all_truckers, custom_truckers."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Explicit notification message for restriction violations",
+      "name": "notification-message",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do geofences create",
+  "id": "d01fea136b908c3361d9f998b55acbfb281249169f08c815268aee8ce8547e7b",
+  "permissions": "Admins can create geofences. Non-admin users can create geofences only for brokers they are members of.",
+  "side_effects": "Creates a geofence record and its associated polygon geometry; requires a broker relationship.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_geofences_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/geofence_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/geofence_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/geofence.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--name is required. --broker is required. Name must be present and unique within a broker. Polygon coordinates must be a JSON array of [longitude, latitude] pairs; coordinates must be numeric, longitude between -180 and 180, latitude between -90 and 90, contain at least 4 points, and be closed (first and last points identical). Polygon geometry must be present and unique within a broker. Status is required and must be one of: active, inactive (default active). Restriction mode is required and must be one of: all_truckers, custom_truckers (default all_truckers)."
+}

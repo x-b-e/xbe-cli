@@ -1,0 +1,64 @@
+{
+  "description": "Create a raw transport trailer record.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required)",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "External trailer identifier (required)",
+      "name": "--external-trailer-id",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tables JSON array (required)",
+      "name": "--tables",
+      "required": true,
+      "type": "array",
+      "validation": "must be a JSON array"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Importer key (e.g., quantix_tmw)",
+      "name": "--importer",
+      "required": false,
+      "type": "string",
+      "validation": "must be a supported enum value"
+    }
+  ],
+  "full_path": "do raw-transport-trailers create",
+  "id": "302900ec597b0ba7b1802b5797e960282020900e0c52806e3fa49d6bf110b203",
+  "permissions": "Admin users or broker members with admin access to the broker can create raw transport trailers for that broker.",
+  "side_effects": "Creates a raw transport trailer record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_raw_transport_trailers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/raw_transport_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_transport_trailer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/raw_transport_trailer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--broker is required. --external-trailer-id is required. --tables is required and must be a JSON array. --importer must be a supported enum value when provided. external_trailer_id must be present."
+}

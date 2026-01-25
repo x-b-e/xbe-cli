@@ -1,0 +1,55 @@
+{
+  "description": "Update an existing time sheet line item classification",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Classification name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Must be non-empty when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Classification description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Subject types (comma-separated or repeated)",
+      "name": "--subject-types",
+      "required": false,
+      "type": "array",
+      "validation": "Each value must be one of DriverDay, LaborRequirement, EquipmentRequirement, or CrewRequirement."
+    }
+  ],
+  "full_path": "do time-sheet-line-item-classifications update",
+  "id": "37c679e545464fb813223e7f040246dfa3d7b11ad470624e9a9e1feb3594bd60",
+  "permissions": "Only admin users can update time sheet line item classifications.",
+  "side_effects": "Updates fields on a time sheet line item classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_time_sheet_line_item_classifications_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_time_sheet_line_item_classifications.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/time_sheet_line_item_classification_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/time_sheet_line_item_classification.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Provide the classification ID as an argument. At least one of --name, --description, or --subject-types is required. --name must be non-empty when provided. subject-types must be one of DriverDay, LaborRequirement, EquipmentRequirement, or CrewRequirement. subject-types cannot be changed if there are time sheet line items."
+}

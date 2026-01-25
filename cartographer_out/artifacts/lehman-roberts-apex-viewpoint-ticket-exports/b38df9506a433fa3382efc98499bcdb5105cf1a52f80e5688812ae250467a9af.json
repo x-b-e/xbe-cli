@@ -1,0 +1,73 @@
+{
+  "description": "Create a Lehman Roberts Apex Viewpoint ticket export",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Viewpoint template name (lrJWSCash, lrJWSCrdt, lrTicketsV)",
+      "name": "--template-name",
+      "required": true,
+      "type": "enum",
+      "validation": "Must be one of lrJWSCash, lrJWSCrdt, lrTicketsV."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Earliest sale date (YYYY-MM-DD)",
+      "name": "--sale-date-min",
+      "required": true,
+      "type": "string",
+      "validation": "Date in YYYY-MM-DD format."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Latest sale date (YYYY-MM-DD)",
+      "name": "--sale-date-max",
+      "required": true,
+      "type": "string",
+      "validation": "Date in YYYY-MM-DD format; must be greater than or equal to sale-date-min."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Location IDs to include (comma-separated or repeated)",
+      "name": "--location-ids",
+      "required": false,
+      "type": "array",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Omit the header row in the CSV",
+      "name": "--omit-header-row",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do lehman-roberts-apex-viewpoint-ticket-exports create",
+  "id": "b38df9506a433fa3382efc98499bcdb5105cf1a52f80e5688812ae250467a9af",
+  "permissions": "Allowed if the user is an admin; or if all material suppliers on the export are managed by the user; or if the user is a manager member of the broker.",
+  "side_effects": "Creates a ticket export and generates CSV output; generation executes a database query to build the export.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lehman_roberts_apex_viewpoint_ticket_exports_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lehman_roberts_apex_viewpoint_ticket_export_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lehman_roberts_apex_viewpoint_ticket_export_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/lehman_roberts_apex_viewpoint_ticket_export.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "template-name must be one of lrJWSCash, lrJWSCrdt, lrTicketsV; sale-date-min and sale-date-max are required and parsed as dates; sale-date-max must be greater than or equal to sale-date-min; location-ids defaults to an empty list when omitted; omit-header-row is an optional boolean."
+}

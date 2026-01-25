@@ -1,0 +1,172 @@
+{
+  "description": "Update an existing membership.",
+  "flags": [
+    {
+      "description": "Role: operations or manager",
+      "name": "--kind",
+      "required": false,
+      "type": "enum",
+      "validation": "operations, manager"
+    },
+    {
+      "description": "Admin status (true/false)",
+      "name": "--is-admin",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Title within the organization",
+      "name": "--title",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Display color (e.g. #FF0000)",
+      "name": "--color-hex",
+      "required": false,
+      "type": "string",
+      "validation": "hex color"
+    },
+    {
+      "description": "External system employee ID",
+      "name": "--external-employee-id",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Manual sort order",
+      "name": "--explicit-sort-order",
+      "required": false,
+      "type": "integer",
+      "validation": "integer"
+    },
+    {
+      "description": "Membership start date (ISO 8601)",
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601"
+    },
+    {
+      "description": "Membership end date (ISO 8601)",
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601"
+    },
+    {
+      "description": "Shift type: any, day, or night",
+      "name": "--drives-shift-type",
+      "required": false,
+      "type": "enum",
+      "validation": "any, day, night"
+    },
+    {
+      "description": "Project office ID",
+      "name": "--project-office",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Can see rates as driver (true/false)",
+      "name": "--can-see-rates-as-driver",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Can see rates as manager (true/false)",
+      "name": "--can-see-rates-as-manager",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Can validate profit improvements (true/false)",
+      "name": "--can-validate-profit-improvements",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is rate editor (true/false)",
+      "name": "--is-rate-editor",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is time card auditor (true/false)",
+      "name": "--is-time-card-auditor",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is equipment rental team member (true/false)",
+      "name": "--is-equipment-rental-team-member",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is geofence violation team member (true/false)",
+      "name": "--is-geofence-violation-team-member",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is unapproved time card subscriber (true/false)",
+      "name": "--is-unapproved-time-card-subscriber",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Is default job production plan subscriber (true/false)",
+      "name": "--is-default-job-production-plan-subscriber",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Enable recap notifications (true/false)",
+      "name": "--enable-recap-notifications",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    },
+    {
+      "description": "Enable inventory capacity notifications (true/false)",
+      "name": "--enable-inventory-capacity-notifications",
+      "required": false,
+      "type": "boolean",
+      "validation": "true/false"
+    }
+  ],
+  "full_path": "do memberships update",
+  "id": "def6bf5f59f25dc2f50b96d4e3049609deb374da1dcc3079ed654557699c4da5",
+  "permissions": "Authorization is enforced by membership-type policies. MembershipPolicy requires the actor to be practically admin of the organization and not updating their own membership when changing admin status; other updates defer to the membership-type policy (e.g., BrokerMembershipPolicy allows self-updates only for specific attributes).",
+  "side_effects": "Updates a membership record; clears the user memberships cache and touches the user record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_memberships_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/models/membership.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/membership_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/broker_membership_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Validation: Requires a membership ID argument; at least one update flag must be provided; user and organization cannot be changed after creation. --kind is operations or manager and must be present if set; --drives-shift-type is any/day/night and must be present if set; --start-at/--end-at must be ISO 8601 and end-at must be after start-at when both are set; --color-hex must be a valid hex color; --explicit-sort-order must be an integer; --external-employee-id must be unique per organization; membership must be unique for the same user+organization+organization_type within overlapping effective dates; --project-office must belong to the same broker as the membership; --can-see-rates-as-manager is restricted to allowed membership types and managers (broker memberships exempt); --can-validate-profit-improvements can only be set for broker managers; boolean flags accept true/false."
+}

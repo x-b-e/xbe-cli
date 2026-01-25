@@ -1,0 +1,27 @@
+{
+  "description": "Show the full details of a material purchase order release.",
+  "flags": [],
+  "full_path": "view material-purchase-order-releases show",
+  "id": "6d53bf2bcaa7b0d74020bb498ceadafcb940ad6b6f9a909d60369bbe60d642ae",
+  "permissions": "User must be authorized to access the related purchase order via the MaterialPurchaseOrderRelease policy (delegated to purchase orders), which allows access for admins or members of the purchase order broker, customer, or material supplier organizations.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_purchase_order_releases_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_purchase_order_release_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_release_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required."
+}

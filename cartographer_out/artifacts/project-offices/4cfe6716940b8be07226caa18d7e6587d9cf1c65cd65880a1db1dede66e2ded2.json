@@ -1,0 +1,51 @@
+{
+  "description": "Update an existing project office",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project office name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Short code",
+      "name": "--abbreviation",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "true",
+      "description": "Whether active",
+      "name": "--is-active",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-offices update",
+  "id": "4cfe6716940b8be07226caa18d7e6587d9cf1c65cd65880a1db1dede66e2ded2",
+  "permissions": "Admins can update project offices. Broker admins can update project offices for their broker.",
+  "side_effects": "Updates specified fields on the project office.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_offices_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_office_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_office.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Provide the project office ID argument. At least one of --name, --abbreviation, --is-active must be set. Server enforces name and abbreviation presence and uniqueness per broker (case-insensitive) when those fields are changed."
+}

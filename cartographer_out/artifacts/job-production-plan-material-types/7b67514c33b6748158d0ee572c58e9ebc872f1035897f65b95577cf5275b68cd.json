@@ -1,0 +1,113 @@
+{
+  "id": "7b67514c33b6748158d0ee572c58e9ebc872f1035897f65b95577cf5275b68cd",
+  "full_path": "do job-production-plan-material-types update",
+  "description": "Update a job production plan material type.",
+  "permissions": "Allowed when the user can update the associated job production plan per JobProductionPlanPolicy (delegated by JobProductionPlanMaterialTypePolicy).",
+  "side_effects": "Updates the job production plan material type. Changes to explicit material mix design may reassign related material transactions. Changes to material type, material site, unit of measure, explicit mix design, or quantity may schedule inventory change recalculations. If the plan is approved and material type or quantity changes, it can enqueue material type change notifications to plan subscribers.",
+  "validation_notes": "quantity, when provided, must be > 0 and < 2,147,483,648 unless is-quantity-unknown is true, in which case quantity must be 0. material-type must be unique per job production plan (and per material-site when provided). unit-of-measure must be valid for material units. material-site, when set, must belong to the job production plan and be active. If plan-requires-site-specific-material-types or plan-requires-supplier-specific-material-types is true, material-site is required and material-type must be specific to the site or supplier, respectively. material-type must be from the same broker as the plan and from a related material supplier for the material site or job site. default-cost-code must belong to the same customer and be among the plan cost codes. explicit-material-mix-design must match the material type and be in scope for the material site and plan time. material-type and material-site must be available at the plan material site start time when set. If the plan validates project material types, material-type must be one of them; if the plan is only for equipment movement, material-type must be equipment. quantity cannot change when matching job production plan segments exist. material-type cannot change when associated material transactions exist or when the change would make the plan start site unexpected for the material types.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID"
+    },
+    {
+      "name": "--material-type",
+      "required": false,
+      "type": "string",
+      "description": "Material type ID"
+    },
+    {
+      "name": "--unit-of-measure",
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID"
+    },
+    {
+      "name": "--material-site",
+      "required": false,
+      "type": "string",
+      "description": "Material site ID (empty to clear)"
+    },
+    {
+      "name": "--default-cost-code",
+      "required": false,
+      "type": "string",
+      "description": "Default cost code ID (empty to clear)"
+    },
+    {
+      "name": "--explicit-material-mix-design",
+      "required": false,
+      "type": "string",
+      "description": "Explicit material mix design ID (empty to clear)"
+    },
+    {
+      "name": "--explicit-material-type-material-site-inventory-location",
+      "required": false,
+      "type": "string",
+      "description": "Explicit inventory location ID (empty to clear)"
+    },
+    {
+      "name": "--quantity",
+      "required": false,
+      "type": "string",
+      "description": "Planned quantity",
+      "validation": "Must be numeric; use 0 when --is-quantity-unknown is true"
+    },
+    {
+      "name": "--is-quantity-unknown",
+      "required": false,
+      "type": "boolean",
+      "description": "Mark quantity as unknown"
+    },
+    {
+      "name": "--explicit-display-name",
+      "required": false,
+      "type": "string",
+      "description": "Display name override"
+    },
+    {
+      "name": "--plan-requires-site-specific-material-types",
+      "required": false,
+      "type": "boolean",
+      "description": "Override plan site-specific requirement"
+    },
+    {
+      "name": "--plan-requires-supplier-specific-material-types",
+      "required": false,
+      "type": "boolean",
+      "description": "Override plan supplier-specific requirement"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_material_types_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_material_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/plan_requires_material_types.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/plan_requires_material_types_resource.rb"
+    }
+  ]
+}

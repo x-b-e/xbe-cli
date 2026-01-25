@@ -1,0 +1,33 @@
+{
+  "id": "c81beefd40e9cdb477c75dc252bef94c557c76fe6871092bb7d306cfe5ecee78",
+  "full_path": "do equipment-movement-trip-job-production-plans delete",
+  "description": "Delete an equipment movement trip job production plan link.",
+  "permissions": "Requires permission to destroy on the related equipment movement trip. Admins and members of the trip broker can delete the link.",
+  "side_effects": "Deletes the equipment movement trip job production plan link.",
+  "validation_notes": "Requires <id> argument (link ID). --confirm must be provided to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_trip_job_production_plans_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_job_production_plan_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_policy.rb"
+    }
+  ]
+}

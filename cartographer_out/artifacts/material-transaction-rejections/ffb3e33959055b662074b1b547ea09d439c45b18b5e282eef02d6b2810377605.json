@@ -1,0 +1,23 @@
+{
+  "id": "ffb3e33959055b662074b1b547ea09d439c45b18b5e282eef02d6b2810377605",
+  "full_path": "view material-transaction-rejections list",
+  "description": "List material transaction rejections.",
+  "permissions": "Index is allowed by default policy (ApplicationPolicy#index? returns true); returned records are limited by the policy scope resolution.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_rejections_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

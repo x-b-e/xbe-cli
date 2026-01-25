@@ -1,0 +1,33 @@
+{
+  "id": "141b0c39bbbfdeed6ad12e01ee4bef396437557a0fcdeaa0be2a3784712ff71f",
+  "full_path": "do customer-memberships delete",
+  "description": "Delete a customer membership.",
+  "permissions": "Authentication required; an API token must be available.",
+  "side_effects": "Deletes a customer membership; this action is irreversible.",
+  "validation_notes": "Requires <id> argument. --confirm flag is required and must be true to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": "Must be true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_memberships_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_membership_policy.rb"
+    }
+  ]
+}

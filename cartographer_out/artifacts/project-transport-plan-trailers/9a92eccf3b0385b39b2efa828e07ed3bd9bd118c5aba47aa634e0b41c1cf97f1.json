@@ -1,0 +1,73 @@
+{
+  "description": "Create a project transport plan trailer assignment",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport plan ID (required)",
+      "name": "--project-transport-plan",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Segment start ID (required)",
+      "name": "--segment-start",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Segment end ID (required)",
+      "name": "--segment-end",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "editing",
+      "description": "Assignment status (editing, active)",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "allowed values: editing, active"
+    }
+  ],
+  "full_path": "do project-transport-plan-trailers create",
+  "id": "9a92eccf3b0385b39b2efa828e07ed3bd9bd118c5aba47aa634e0b41c1cf97f1",
+  "permissions": "Authorized via ProjectTransportPlanTrailerPolicy, which delegates access to the related project transport plan.",
+  "side_effects": "Creates a project transport plan trailer assignment.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_trailers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_trailer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_trailer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--project-transport-plan, --segment-start, and --segment-end are required. Status must be present and defaults to editing unless provided. Status 'active' requires a trailer assignment. Segment start and end must belong to the same project transport plan and the start segment position must be <= the end segment position. When a trailer is assigned, all segments in the range must have truckers, the trailer must belong to the same trucker as every segment in the range, and the trailer cannot overlap an existing assignment within the same transport plan."
+}

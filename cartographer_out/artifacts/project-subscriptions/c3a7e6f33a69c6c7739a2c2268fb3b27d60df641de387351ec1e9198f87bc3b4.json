@@ -1,0 +1,29 @@
+{
+  "id": "c3a7e6f33a69c6c7739a2c2268fb3b27d60df641de387351ec1e9198f87bc3b4",
+  "full_path": "do project-subscriptions delete",
+  "description": "Delete a project subscription.",
+  "permissions": "Allowed for admins or members of the broker associated with the project.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (project subscription ID). --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_subscriptions_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_subscription_policy.rb"
+    }
+  ]
+}

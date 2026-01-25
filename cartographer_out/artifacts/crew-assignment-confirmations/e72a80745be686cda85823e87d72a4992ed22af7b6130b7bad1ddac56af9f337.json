@@ -1,0 +1,100 @@
+{
+  "id": "e72a80745be686cda85823e87d72a4992ed22af7b6130b7bad1ddac56af9f337",
+  "full_path": "do crew-assignment-confirmations create",
+  "description": "Create a crew assignment confirmation.",
+  "permissions": "User can create confirmations if they can update the related job production plan or if the resource is a Laborer whose user is the current user.",
+  "side_effects": "Creates a crew assignment confirmation. The server sets confirmed_by to the current user and sets confirmed_at to now if blank. Crew requirement/resource/start_at may be derived from assignment_confirmation_uuid, or assignment_confirmation_uuid may be derived from crew_requirement/resource/start_at.",
+  "validation_notes": "Provide either --assignment-confirmation-uuid or the combination of --crew-requirement, --resource-type, --resource-id, and --start-at. --resource-type and --resource-id must be provided together. assignment_confirmation_uuid and start_at are required by the model; assignment_confirmation_uuid must be unique; resource must match the crew requirement's resource.",
+  "flags": [
+    {
+      "name": "--assignment-confirmation-uuid",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Assignment confirmation UUID",
+      "default": null,
+      "validation": "Required if --crew-requirement/--resource-type/--resource-id/--start-at not provided."
+    },
+    {
+      "name": "--crew-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Crew requirement ID",
+      "default": null,
+      "validation": "Required with --resource-type, --resource-id, and --start-at when --assignment-confirmation-uuid is not provided."
+    },
+    {
+      "name": "--resource-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Resource type (e.g., laborers)",
+      "default": null,
+      "validation": "Required with --resource-id when using crew requirement path."
+    },
+    {
+      "name": "--resource-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Resource ID",
+      "default": null,
+      "validation": "Required with --resource-type when using crew requirement path."
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Assignment start time (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp. Required with --crew-requirement/--resource-type/--resource-id when --assignment-confirmation-uuid not provided."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Confirmation note",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark confirmation as explicit",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--confirmed-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Confirmed-by user ID (optional)",
+      "default": null,
+      "validation": "Server sets confirmed_by to current user on create."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_crew_assignment_confirmations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/crew_assignment_confirmation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_assignment_confirmation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_assignment_confirmation.rb"
+    }
+  ]
+}

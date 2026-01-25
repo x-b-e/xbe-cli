@@ -1,0 +1,29 @@
+{
+  "id": "abf5d5d7ba03e79d1bb277c9f8d1a6ee22ea42fdd658ffa1604e63b9065b27fd",
+  "full_path": "do api-tokens update",
+  "description": "Update an API token.",
+  "permissions": null,
+  "side_effects": "Setting --revoked-at immediately revokes the token.",
+  "validation_notes": "Requires API token ID argument; only revocation is supported; --revoked-at must be RFC3339 if provided; at least one attribute must be provided (revoked-at).",
+  "flags": [
+    {
+      "name": "--revoked-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Revocation timestamp (RFC3339)",
+      "default": null,
+      "validation": "RFC3339 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_api_tokens_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/api_tokens_controller.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "2b4033e2fcb265f3bf1762f839d96dd6766bcf163d0252bd3cbbd773254daba3",
+  "full_path": "view prediction-subject-recaps list",
+  "description": "List prediction subject recaps with filtering and pagination",
+  "permissions": "Access is delegated to the related prediction subject; the user must be authorized to view the associated prediction subject (per PredictionSubjectPolicy scope, such as membership or broker admin access).",
+  "side_effects": "None (read-only).",
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--prediction-subject",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by prediction subject ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/prediction_subject_recaps_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/prediction_subject_recap_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_recap_policy.rb"
+    }
+  ]
+}

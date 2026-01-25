@@ -1,0 +1,30 @@
+{
+  "id": "6c8cd7cf1612f68523a4a57d07fa84894ac8deecaaf256065875ba9e3ddef6a1",
+  "full_path": "do ui-tour-steps delete",
+  "description": "Delete a UI tour step.",
+  "permissions": "Authorized via UiTourStepPolicy; access is delegated to the related UI tour (policy scope delegates to UiTour).",
+  "side_effects": "Deletes a UI tour step.",
+  "validation_notes": "The <id> argument is required. --confirm is required to delete a UI tour step.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_ui_tour_steps_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/ui_tour_step_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/ui_tour_step_resource.rb"
+    }
+  ]
+}

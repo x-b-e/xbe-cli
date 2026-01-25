@@ -1,0 +1,42 @@
+{
+  "description": "Approve a project.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project ID (required). Example: 12345.",
+      "name": "--project",
+      "required": true,
+      "type": "string",
+      "validation": "Required; must be a non-empty string."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Approval comment. Example: \"Approved\".",
+      "name": "--comment",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-approvals create",
+  "id": "1ee6395508ea821484366d36d3682ac3553c7acbe0bd6d8c20f03b4eee4d7d49",
+  "permissions": "User must be an admin or be authorized to update the related project (per project policy).",
+  "side_effects": "Creates a project approval action and transitions the project from submitted to approved.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_approvals_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_approval_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_actions/project_approval.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Project ID is required and must be a non-empty string. The project must currently be in submitted status to approve."
+}

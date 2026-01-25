@@ -196,8 +196,8 @@ func renderTransportRoutesTable(cmd *cobra.Command, rows []transportRouteRow) er
 	writer := tabwriter.NewWriter(cmd.OutOrStdout(), 2, 4, 2, ' ', 0)
 	fmt.Fprintln(writer, "ID\tORIGIN\tDESTINATION\tMILES\tMINUTES")
 	for _, row := range rows {
-		origin := formatCoordinatePair(row.OriginLatitude, row.OriginLongitude)
-		destination := formatCoordinatePair(row.DestinationLatitude, row.DestinationLongitude)
+		origin := formatTransportRouteCoordinatePair(row.OriginLatitude, row.OriginLongitude)
+		destination := formatTransportRouteCoordinatePair(row.DestinationLatitude, row.DestinationLongitude)
 		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\n",
 			row.ID,
 			origin,
@@ -209,7 +209,7 @@ func renderTransportRoutesTable(cmd *cobra.Command, rows []transportRouteRow) er
 	return writer.Flush()
 }
 
-func formatCoordinatePair(lat, lng string) string {
+func formatTransportRouteCoordinatePair(lat, lng string) string {
 	lat = strings.TrimSpace(lat)
 	lng = strings.TrimSpace(lng)
 	switch {

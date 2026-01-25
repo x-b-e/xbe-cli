@@ -1,0 +1,159 @@
+{
+  "id": "fe6e8d4030fe4c8734c4211bc57e97a0df943078abf6584a9b2899973e58f45c",
+  "full_path": "view material-purchase-orders list",
+  "description": "List material purchase orders with filtering and pagination.",
+  "permissions": "Admin users or users who are members of the broker, customer, or material supplier associated with the purchase order can list material purchase orders.",
+  "side_effects": null,
+  "validation_notes": "status must be one of editing, approved, or closed. transaction-at-min and transaction-at-max expect ISO 8601 datetimes. Filters that say comma-separated accept comma-separated IDs.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (editing,approved,closed)",
+      "default": null,
+      "validation": "editing,approved,closed"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (comma-separated)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (comma-separated)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID (comma-separated)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID (comma-separated)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--job-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job site ID (comma-separated)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by unit of measure ID (comma-separated)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--transaction-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum transaction datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--transaction-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum transaction datetime (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 datetime"
+    },
+    {
+      "name": "--quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by quantity",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--base-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by base material type ID (comma-separated)",
+      "default": null,
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--external-purchase-order-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external purchase order ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-sales-order-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external sales order ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-identification-value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by external identification value",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_purchase_orders_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_purchase_order_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_purchase_order_policy.rb"
+    }
+  ]
+}

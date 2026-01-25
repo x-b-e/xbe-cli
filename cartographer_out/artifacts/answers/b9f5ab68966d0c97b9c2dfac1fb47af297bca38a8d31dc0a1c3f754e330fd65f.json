@@ -1,0 +1,31 @@
+{
+  "id": "b9f5ab68966d0c97b9c2dfac1fb47af297bca38a8d31dc0a1c3f754e330fd65f",
+  "full_path": "view answers show",
+  "description": "Show the full details of an answer.",
+  "permissions": "Admins can view all answers. Non-admin users can view an answer only if it is within their Answer policy scope, which is limited to answers for questions in their Question policy scope.",
+  "side_effects": null,
+  "validation_notes": "Answer ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/answers_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/answers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/answer_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/answer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

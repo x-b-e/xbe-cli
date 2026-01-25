@@ -1,0 +1,86 @@
+{
+  "id": "b3bbe45e13890f0f62329cf674ffddc16d88050330053d9863798a2ec4e49cad",
+  "full_path": "view features list",
+  "description": "List features with filtering and pagination.",
+  "permissions": "No authentication required; feature listing is allowed for anonymous users.",
+  "side_effects": "If --similar-to-text is provided, the server performs an embedding lookup via OpenAI to compute similarity.",
+  "validation_notes": "pdca-stage must be one of plan, do, check, act. released-on-min and released-on-max expect dates in YYYY-MM-DD format. differentiation-degree values correspond to integers 1-5 in data. scale values correspond to integers 1-100 in data.",
+  "flags": [
+    {
+      "name": "--differentiation-degree",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Filter by differentiation degree",
+      "default": null,
+      "validation": "1-5"
+    },
+    {
+      "name": "--pdca-stage",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by PDCA stage (plan/do/check/act)",
+      "default": null,
+      "validation": "plan, do, check, act"
+    },
+    {
+      "name": "--released-on-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to features released on or before this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--released-on-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to features released on or after this date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--scale",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Filter by scale",
+      "default": null,
+      "validation": "1-100"
+    },
+    {
+      "name": "--similar-to-text",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by semantic similarity to text (uses AI embedding search)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/features_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/features_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/feature_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/feature.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.features.sql"
+    }
+  ]
+}

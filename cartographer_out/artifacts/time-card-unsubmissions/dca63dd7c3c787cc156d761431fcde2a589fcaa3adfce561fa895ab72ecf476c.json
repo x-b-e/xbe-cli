@@ -1,0 +1,82 @@
+{
+  "id": "dca63dd7c3c787cc156d761431fcde2a589fcaa3adfce561fa895ab72ecf476c",
+  "full_path": "do time-card-unsubmissions create",
+  "description": "Unsubmit a time card.",
+  "permissions": "User must be allowed to create a time card approval for the target time card (TimeCardApprovalPolicy#create?), which is true for admins; broker members or customer managers with cost-plus visibility via TimeCardPolicy#create_or_approve?; customer managers of the time card customer when the customer is a trucker; or job production plan time card approvers when the time card approval_process is \"field\".",
+  "side_effects": "Creates a time card unsubmission action and updates the associated time card status to editing, storing the optional comment as the status change comment.",
+  "validation_notes": "Time card is required and must exist. Time card must currently be in submitted status. Status change is blocked if the time card is already associated with an invoice. The time card must pass model validations for the status update.",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time card ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Status change comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_unsubmissions.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_unsubmissions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/time_card_unsubmissions_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_unsubmission_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/time_card_approval_delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_unsubmission_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_unsubmission.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

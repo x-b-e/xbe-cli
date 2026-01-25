@@ -1,0 +1,33 @@
+{
+  "id": "c9bb4ccbbed65a9b905d33876b55f724661a6ef0aecb9b1dd191205701176864",
+  "full_path": "do business-unit-laborers delete",
+  "description": "Delete a business unit laborer link.",
+  "permissions": "User must be authorized to delete links for the related business unit; destroy permission is delegated to the business unit policy, which requires practical admin access to the broker that owns the business unit.",
+  "side_effects": "Deletes a business unit laborer link record.",
+  "validation_notes": "Requires <id> argument. --confirm is required to delete a business unit laborer link.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_laborers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_laborer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    }
+  ]
+}

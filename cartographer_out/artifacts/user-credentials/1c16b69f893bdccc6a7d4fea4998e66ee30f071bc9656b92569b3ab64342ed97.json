@@ -1,0 +1,29 @@
+{
+  "description": "Delete a user credential",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do user-credentials delete",
+  "id": "1c16b69f893bdccc6a7d4fea4998e66ee30f071bc9656b92569b3ab64342ed97",
+  "permissions": "Allowed for admins. Non-admins must have a credentialed user and a user credential classification, be a manager of the credentialed user's organization or its broker via memberships, and the classification must be within the caller's UserCredentialClassification policy scope.",
+  "side_effects": "Deletes a user credential record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_user_credentials_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/user_credential_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "An ID argument is required. --confirm is required to delete a user credential."
+}

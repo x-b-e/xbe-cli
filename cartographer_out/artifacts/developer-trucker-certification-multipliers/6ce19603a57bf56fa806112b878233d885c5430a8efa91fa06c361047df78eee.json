@@ -1,0 +1,54 @@
+{
+  "description": "Update a developer trucker certification multiplier.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Multiplier value between 0 and 1",
+      "name": "--multiplier",
+      "required": false,
+      "type": "string",
+      "validation": "Numeric between 0 and 1 (inclusive). Example: 0.9"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": "Example: 456"
+    }
+  ],
+  "full_path": "do developer-trucker-certification-multipliers update",
+  "id": "6ce19603a57bf56fa806112b878233d885c5430a8efa91fa06c361047df78eee",
+  "permissions": "Allowed when the user can update the related developer trucker certification via delegated policy to the developer policy (admins, broker members, broker-customer managers, or manager members of the developer).",
+  "side_effects": "Updates fields on a developer trucker certification multiplier.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_developer_trucker_certification_multipliers_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/developer_trucker_certification_multiplier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/developer_trucker_certification_multiplier.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_trucker_certification_multiplier_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_trucker_certification_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument and at least one updatable field. If provided, multiplier must be numeric between 0 and 1 (inclusive). Trailer must belong to the same trucker as the certification, and trailer IDs must be unique per certification."
+}

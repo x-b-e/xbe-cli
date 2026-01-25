@@ -1,0 +1,114 @@
+{
+  "id": "fc75afd9fd429c9be2cd4e5830ed5d8c2d8bf5a1bd0659b6d7d22a4261356094",
+  "full_path": "view project-actuals-exports list",
+  "description": "List project actuals exports.",
+  "permissions": "Admin users can list all project actuals exports. Non-admin access is limited to exports tied to visible broker memberships or organization memberships (manager role required for non-broker organizations), as determined by ProjectActualsExportPolicy scope.",
+  "side_effects": null,
+  "validation_notes": "Status filter values are limited to processing, processed, or failed. --organization expects a polymorphic reference formatted as Type|ID (e.g., Broker|123). --organization-id requires --organization-type when not already provided as Type|ID. --job-production-plans is a comma-separated list of job production plan IDs.",
+  "flags": [
+    {
+      "name": "--organization-formatter",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization formatter ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (processing, processed, failed)",
+      "default": null,
+      "validation": "processing|processed|failed"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by project ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g. Broker|123)",
+      "default": null,
+      "validation": "Type|ID (e.g., Broker|123)"
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (requires --organization-type)",
+      "default": null,
+      "validation": "Requires --organization-type unless provided as Type|ID"
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type (e.g. Broker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--not-organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Exclude organization type (e.g. Broker)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--job-production-plans",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list of IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_actuals_exports_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_actuals_export_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_actuals_export_policy.rb"
+    }
+  ]
+}

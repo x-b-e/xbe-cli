@@ -1,0 +1,81 @@
+{
+  "id": "485aaa4ae9eb8e7148d1eda39e9d1985ce17d6e8852dc1a223b7ffe3745bc113",
+  "full_path": "do project-estimate-file-imports create",
+  "description": "Import a project estimate file.",
+  "permissions": "Allowed when the user is authorized to create the related project (ProjectEstimateFileImportPolicy delegates create? to the project's policy).",
+  "side_effects": "Creates a project estimate file import and triggers async processing; when not a dry run, it imports data and can update the related file import record (processed_at, note, raw_data), including PDF extraction data when enabled.",
+  "validation_notes": "Required flags: --project, --file-import, --file-import-type. file_import_type must be supported for the broker (case-insensitive and normalized to a supported type). file_import must be present and its attachment must be a supported file type; project must be present; broker must be present when file_import is set; import fails if the file attachment is empty.",
+  "flags": [
+    {
+      "name": "--project",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--file-import",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "File import ID (required)",
+      "default": null,
+      "validation": "Required."
+    },
+    {
+      "name": "--file-import-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "File import type (required). Example: Bid2Win.",
+      "default": null,
+      "validation": "Required; must be supported for the broker (case-insensitive, normalized)."
+    },
+    {
+      "name": "--is-dry-run",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate without importing",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--should-update-file-extraction",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Update PDF extraction data when importing",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_estimate_file_imports_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_estimate_file_import_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_estimate_file_import_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/delegated_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_estimate_file_import.rb"
+    }
+  ]
+}

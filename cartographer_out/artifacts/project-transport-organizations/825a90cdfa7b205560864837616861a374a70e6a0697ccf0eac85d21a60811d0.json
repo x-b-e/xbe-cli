@@ -1,0 +1,50 @@
+{
+  "id": "825a90cdfa7b205560864837616861a374a70e6a0697ccf0eac85d21a60811d0",
+  "full_path": "do project-transport-organizations update",
+  "description": "Update a project transport organization.",
+  "permissions": "Admin users can update. Non-admin users must be manager members of the broker associated with the organization.",
+  "side_effects": "Updates the project transport organization and may update the external TMS master company identification.",
+  "validation_notes": "Requires a project transport organization ID argument. Must specify at least one of --name or --external-tms-master-company-id. Name must be present and unique per broker when provided.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Organization name. Example: --name \"Acme Transport West\".",
+      "default": null,
+      "validation": "Must be present; unique per broker when provided."
+    },
+    {
+      "name": "--external-tms-master-company-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External TMS master company identifier. Example: --external-tms-master-company-id \"TMS-002\".",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_organizations_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_organization_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_organization_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_organization.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/externally_identifiable.rb"
+    }
+  ]
+}

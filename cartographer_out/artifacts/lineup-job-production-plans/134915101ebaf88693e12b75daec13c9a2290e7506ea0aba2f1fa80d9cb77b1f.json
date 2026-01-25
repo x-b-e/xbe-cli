@@ -1,0 +1,46 @@
+{
+  "description": "Create a lineup job production plan",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Lineup ID (example: 123)",
+      "name": "--lineup",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job production plan ID (example: 456)",
+      "name": "--job-production-plan",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do lineup-job-production-plans create",
+  "id": "134915101ebaf88693e12b75daec13c9a2290e7506ea0aba2f1fa80d9cb77b1f",
+  "permissions": "User must be authorized for the related lineup; LineupJobProductionPlanPolicy delegates access to the lineup relationship.",
+  "side_effects": "Creates a lineup job production plan linking a lineup and a job production plan.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_job_production_plans_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_job_production_plan_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/lineup_job_production_plan.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_job_production_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires --lineup and --job-production-plan. job_production_plan_id must be unique. Job production plan customer must match lineup customer. Job production plan calculated_start_at must fall within the lineup start_at_range."
+}

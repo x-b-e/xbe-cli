@@ -1,0 +1,41 @@
+{
+  "id": "7df785a3e599adfe7ceed3a233ef0f30e18b35d9ab2b06b79eb8572305fed941",
+  "full_path": "do labor-requirements delete",
+  "description": "Delete a labor requirement.",
+  "permissions": "User must be authorized to update the related job production plan; destroy permission is delegated via CrewRequirementPolicy to the job production plan policy.",
+  "side_effects": "Deletes a labor requirement record.",
+  "validation_notes": "Requires <id> argument. --confirm is required. Labor requirements can only be deleted when no laborer/resource is assigned.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_labor_requirements.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_labor_requirements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/labor_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_requirements/labor_requirement.rb"
+    }
+  ]
+}

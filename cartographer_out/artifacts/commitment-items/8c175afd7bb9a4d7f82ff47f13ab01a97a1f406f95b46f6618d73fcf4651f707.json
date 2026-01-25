@@ -1,0 +1,47 @@
+{
+  "id": "8c175afd7bb9a4d7f82ff47f13ab01a97a1f406f95b46f6618d73fcf4651f707",
+  "full_path": "view commitment-items list",
+  "description": "List commitment items with filtering and pagination",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "No positional arguments allowed. Filters --commitment-type and --commitment-id must be provided together. Status filter accepts: editing, active, inactive.",
+  "flags": [
+    {
+      "name": "--commitment-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by commitment type",
+      "default": null,
+      "validation": "Requires --commitment-id. Example: customer-commitments."
+    },
+    {
+      "name": "--commitment-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by commitment ID",
+      "default": null,
+      "validation": "Requires --commitment-type. Example: 123."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status",
+      "default": null,
+      "validation": "One of: editing, active, inactive. Example: active."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_items_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/commitment_items_controller.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "description": "List job production plan alarms with filtering and pagination",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by job production plan ID",
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view job-production-plan-alarms list",
+  "id": "b5f3c3f6f98cb66c0640b2ee0b6603ef66ded6c1dbf62c1f4056dba5a6d6285d",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_alarms.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/job_production_plan_alarms_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/controllers/v1/job_production_plan_alarms_controller.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "No positional arguments."
+}

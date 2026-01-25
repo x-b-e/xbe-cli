@@ -1,0 +1,23 @@
+{
+  "id": "cfa761d93e92df4d2c9c536e8e5aba986512dfb61408640e8ee9673a3c6f546d",
+  "full_path": "view business-unit-laborers show",
+  "description": "Show the full details of a business unit laborer link.",
+  "permissions": "User must be authorized to access the linked business unit; access is scoped via the delegated business unit policy to business units in the user's broker scope.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/business_unit_laborers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_laborer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    }
+  ]
+}

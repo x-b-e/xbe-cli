@@ -1,0 +1,23 @@
+{
+  "id": "c2f1a28b656f7a1407d770a7bb8b552078e07299e41f9d7357e77afd16b08bc8",
+  "full_path": "view transport-routes show",
+  "description": "Show transport route details",
+  "permissions": "Authenticated user with API access; TransportRoutePolicy allows show when the record is within the resolved scope, which is unrestricted for non-admin users.",
+  "side_effects": "None (read-only).",
+  "validation_notes": "The transport route ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/transport_routes_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_route_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_route_policy.rb"
+    }
+  ]
+}

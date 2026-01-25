@@ -1,0 +1,27 @@
+{
+  "id": "ab8136013dcaf6b15ae0795b75ef2402f6e9f6a8814d569707eea250b8893ccb",
+  "full_path": "view project-transport-plan-segments show",
+  "description": "Show full details of a segment",
+  "permissions": "Requires access to the related project transport plan via ProjectTransportPlanSegmentPolicy (delegated to ProjectTransportPlanPolicy). Non-admin access is granted through project access or being an active driver on the plan.",
+  "side_effects": null,
+  "validation_notes": "Segment ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_transport_plan_segments_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_plan_segment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_segment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_policy.rb"
+    }
+  ]
+}

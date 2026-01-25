@@ -1,0 +1,42 @@
+{
+  "description": "Create a job production plan service type unit of measure cohort link",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Job production plan ID (required)",
+      "name": "--job-production-plan",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Service type unit of measure cohort ID (required)",
+      "name": "--service-type-unit-of-measure-cohort",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    }
+  ],
+  "full_path": "do job-production-plan-service-type-unit-of-measure-cohorts create",
+  "id": "336b4036a1cc9cad23fb40c38389bc779f25c8328447c8b713c2a6a35148ca55",
+  "permissions": "Requires access to the associated job production plan via delegated authorization.",
+  "side_effects": "Creates a job production plan service type unit of measure cohort link.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_job_production_plan_service_type_unit_of_measure_cohorts_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_service_type_unit_of_measure_cohort_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_service_type_unit_of_measure_cohort_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--job-production-plan and --service-type-unit-of-measure-cohort are required. The relationship fields are create-only."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "d362d4defcc8fa8bd6a510319633e9d3b3be647ca4b41db9ebbcb29529c8213e",
+  "full_path": "view organization-invoices-batch-pdf-templates show",
+  "description": "Show organization invoices batch PDF template details.",
+  "permissions": "Admins can view any template. Non-admins can view global templates and templates for organizations where they are broker members or organization managers (non-broker memberships).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (template ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batch_pdf_templates_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_pdf_template_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_pdf_template_policy.rb"
+    }
+  ]
+}

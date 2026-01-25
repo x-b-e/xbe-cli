@@ -1,0 +1,41 @@
+{
+  "id": "75c0a6bd20dbffedc5b3ad86044c50c965c950436bb814b1a6b0cce7590fb9f8",
+  "full_path": "view retainer-deductions list",
+  "description": "List retainer deductions with filtering and pagination.",
+  "permissions": "Visible to users who can access the associated retainers via RetainerPolicy scope (admin sees all; non-admins limited to retainers tied to their customer/broker/trucker memberships).",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--retainer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by retainer ID. Example: 123.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/retainer_deductions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/retainer_deduction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_deduction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_policy.rb"
+    }
+  ]
+}

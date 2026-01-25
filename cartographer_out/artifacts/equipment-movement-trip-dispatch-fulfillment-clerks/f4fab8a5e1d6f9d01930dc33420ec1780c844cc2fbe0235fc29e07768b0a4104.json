@@ -1,0 +1,37 @@
+{
+  "id": "f4fab8a5e1d6f9d01930dc33420ec1780c844cc2fbe0235fc29e07768b0a4104",
+  "full_path": "do equipment-movement-trip-dispatch-fulfillment-clerks create",
+  "description": "Create an equipment movement trip dispatch fulfillment clerk.",
+  "permissions": "Admin users only (user must be is_admin).",
+  "side_effects": "Triggers the asynchronous fulfillment workflow for the specified equipment movement trip dispatch, enqueuing background work that updates dispatch status and may create related movement requirement, trip, and lineup/dispatch records; increments fulfillment_count on the dispatch.",
+  "validation_notes": "--equipment-movement-trip-dispatch is required.",
+  "flags": [
+    {
+      "name": "--equipment-movement-trip-dispatch",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Equipment movement trip dispatch ID (required)",
+      "default": null,
+      "validation": "Required."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_trip_dispatch_fulfillment_clerks_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_trip_dispatch_fulfillment_clerk_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_trip_dispatch_fulfillment_clerk_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_trip_dispatch_fulfillment_clerk.rb"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "d25e12d068eb46677710f8fd9cce2ebd3c2e547a566ed48986f72df56e940c86",
+  "full_path": "do job-production-plan-cost-codes delete",
+  "description": "Delete a job production plan cost code",
+  "permissions": "User must be authorized to delete the related job production plan (delegated policy via job production plan).",
+  "side_effects": "Deletes a job production plan cost code record.",
+  "validation_notes": "Requires <id> argument. --confirm is required and must be set to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Must be set to true to delete. Example: --confirm"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_cost_codes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_cost_code_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_cost_code_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "41d68ff01dca9077610e1498d4866d4226b67a38ae0a3931a6b60fa2809e9a6b",
+  "full_path": "do customers delete",
+  "description": "Delete a customer.",
+  "permissions": "Authenticated admin users or broker members of the broker for the customer; customer members are allowed when policy update rules permit.",
+  "side_effects": "Deletes the specified customer record.",
+  "validation_notes": "Authentication is required. The customer ID argument is required. --confirm is required to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "beafd9c616942fa3de62836ec0d422a8d75fad2a512ab83cfe553e805135173f",
+  "full_path": "do time-card-scrappages create",
+  "description": "Scrap a time card.",
+  "permissions": "Allowed when the time card exists and either TimeCardPolicy#create_or_approve? returns true, or the user is a manager member of the customer and the customer is associated with the time card trucker, or the time card approval_process is \"field\" and the job production plan identifies the user as a time card approver.",
+  "side_effects": "Creates a time card scrappage action and transitions the time card status to scrapped.",
+  "validation_notes": "--time-card is required. The referenced time card must exist; it must be in editing or submitted status, have zero customer and broker value, and its status cannot change if the time card is already associated with an invoice.",
+  "flags": [
+    {
+      "name": "--time-card",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Time card ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Scrappage comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_scrappages_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_scrappage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_scrappage.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_actions/time_card_action.rb"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "24c7a334d6f5d94197508d8953bdba21765b33c28befcbb44c6a88e9ec688449",
+  "full_path": "do job-production-plan-material-type-quality-control-requirements update",
+  "description": "Update a job production plan material type quality control requirement.",
+  "permissions": "User must be authorized to update the requirement via the related job production plan material type (delegated policy).",
+  "side_effects": "Triggers job production plan recap generation after commit.",
+  "validation_notes": "Requires <id> argument. At least one of --note or --quality-control-classification must be provided. quality-control-classification must be unique within a job production plan material type and must belong to the same broker as the job production plan material type. job-production-plan-material-type relationship is create-only and cannot be updated.",
+  "flags": [
+    {
+      "name": "--quality-control-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Quality control classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requirement note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_material_type_quality_control_requirements_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_material_type_quality_control_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_type_quality_control_requirement_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_type_quality_control_requirement_policy.rb"
+    }
+  ]
+}

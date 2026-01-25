@@ -1,0 +1,29 @@
+{
+  "id": "e1681e562ab85c8c4eef4e3a4df790e5811a716c72a9782aae6df1f738ac2388",
+  "full_path": "do prediction-subject-bids delete",
+  "description": "Delete a prediction subject bid.",
+  "permissions": "Requires authorization to delete prediction subject bids via the delegated LowestLosingBidPredictionSubjectDetail policy.",
+  "side_effects": "Deletes a prediction subject bid record.",
+  "validation_notes": "Requires a prediction subject bid ID argument. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_subject_bids_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_bid_policy.rb"
+    }
+  ]
+}

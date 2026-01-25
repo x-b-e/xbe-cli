@@ -1,0 +1,123 @@
+{
+  "id": "79660450e41fd2a4e086bd92346d236af5d42fe2db31282e9ce3da6407a4d16a",
+  "full_path": "do work-orders update",
+  "description": "Update a work order",
+  "permissions": "Admin users can update work orders. Operations members with manager business unit membership can update work orders for their business units (responsible party must be set and the user must be a member). Manager members of a broker can update work orders for their brokers. Technician business unit members can update only status on work orders they are assigned to. Operations members can update work orders only for their business units (responsible party must be set and the user must be a member). General business unit members cannot update work orders.",
+  "side_effects": "Updates a work order. Changing status may clear the custom work order status if its primary status no longer matches.",
+  "validation_notes": "Requires <id> positional argument. At least one attribute or relationship must be provided. priority must be one of: urgent, high, normal, low. status must be one of: editing, ready_for_work, in_progress, on_hold, completed. safety-tag-status must be one of: red, yellow. estimated-labor-hours and estimated-part-cost must be numeric values >= 0. due-date must be an ISO 8601 date (YYYY-MM-DD). custom-work-order-status must have a primary status matching status and belong to the same broker. responsible-party and service-site must belong to the same broker. service-code must exist when provided. Status transitions are restricted: editing -> ready_for_work; ready_for_work -> editing or in_progress; in_progress -> ready_for_work, on_hold, or completed; on_hold -> ready_for_work or in_progress; completed -> no transitions.",
+  "flags": [
+    {
+      "name": "--responsible-party",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Responsible party (business unit) ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Service site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--custom-work-order-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Custom work order status ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Service code ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--priority",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Priority level",
+      "default": null,
+      "validation": "One of: urgent, high, normal, low."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Status",
+      "default": null,
+      "validation": "One of: editing, ready_for_work, in_progress, on_hold, completed."
+    },
+    {
+      "name": "--estimated-labor-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated labor hours",
+      "default": null,
+      "validation": "Float value >= 0. Example: 8.5."
+    },
+    {
+      "name": "--estimated-part-cost",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Estimated part cost",
+      "default": null,
+      "validation": "Float value >= 0."
+    },
+    {
+      "name": "--due-date",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Due date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 date (YYYY-MM-DD)."
+    },
+    {
+      "name": "--safety-tag-status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Safety tag status",
+      "default": null,
+      "validation": "One of: red, yellow."
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Note",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_work_orders_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/work_order_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/work_order.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "dafb44ac71284f3abc008c9a6b19fa394442e82bed2fb2388159a232046a53df",
+  "full_path": "view tender-offers show",
+  "description": "Show tender offer details",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires tender offer ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tender_offers_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/tender_offers_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_offer_resource.rb"
+    }
+  ]
+}

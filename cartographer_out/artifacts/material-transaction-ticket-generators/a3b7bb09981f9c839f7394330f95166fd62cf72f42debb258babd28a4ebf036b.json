@@ -1,0 +1,55 @@
+{
+  "description": "Create a material transaction ticket generator.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Ticket number format rule (required)",
+      "name": "--format-rule",
+      "required": true,
+      "type": "string",
+      "validation": "Must be provided and non-empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization ID (required)",
+      "name": "--organization-id",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Organization type (required)",
+      "name": "--organization-type",
+      "required": true,
+      "type": "string",
+      "validation": "Must be one of Broker or MaterialSupplier."
+    }
+  ],
+  "full_path": "do material-transaction-ticket-generators create",
+  "id": "a3b7bb09981f9c839f7394330f95166fd62cf72f42debb258babd28a4ebf036b",
+  "permissions": "Admins can create ticket generators. For Broker organizations, the user must be a broker member with practical manager access to that broker. For MaterialSupplier organizations, the user must be a manager member of the supplier or a member of the associated broker.",
+  "side_effects": "Creates a material transaction ticket generator record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_transaction_ticket_generators_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_transaction_ticket_generator_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_transaction_ticket_generator.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/material_transaction_ticket_generator_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--format-rule, --organization-type, and --organization-id are required. format_rule must be present. organization_type must be one of Broker or MaterialSupplier. organization_id must be unique within an organization_type."
+}

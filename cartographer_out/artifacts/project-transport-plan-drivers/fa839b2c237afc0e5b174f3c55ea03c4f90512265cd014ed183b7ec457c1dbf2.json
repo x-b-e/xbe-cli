@@ -1,0 +1,27 @@
+{
+  "description": "Show project transport plan driver details",
+  "flags": [],
+  "full_path": "view project-transport-plan-drivers show",
+  "id": "fa839b2c237afc0e5b174f3c55ea03c4f90512265cd014ed183b7ec457c1dbf2",
+  "permissions": "Access is delegated to the related project transport plan; users can show records within the ProjectTransportPlanPolicy scope (project access or active driver assignment to a plan).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/project_transport_plan_drivers_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_driver_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_driver_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "<id> argument is required."
+}

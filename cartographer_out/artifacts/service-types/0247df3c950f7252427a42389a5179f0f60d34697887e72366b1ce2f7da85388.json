@@ -1,0 +1,42 @@
+{
+  "id": "0247df3c950f7252427a42389a5179f0f60d34697887e72366b1ce2f7da85388",
+  "full_path": "view service-types list",
+  "description": "List service types",
+  "permissions": "Any user, including anonymous users, can list service types.",
+  "side_effects": null,
+  "validation_notes": "Filters for name and abbreviation are partial match and case-insensitive. Example: --name \"haul\".",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": "Partial match, case-insensitive. Example: --name \"haul\"."
+    },
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by abbreviation (partial match)",
+      "default": null,
+      "validation": "Partial match, case-insensitive."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/service_types_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/service_type_resource.rb"
+    }
+  ]
+}

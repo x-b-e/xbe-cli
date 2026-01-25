@@ -1,0 +1,31 @@
+{
+  "id": "7f2abd3f4dfc0b3374039977acbbaadd1b2bf42cc8726fe97e4803181b41a4b1",
+  "full_path": "view material-transaction-submissions show",
+  "description": "Show the full details of a material transaction submission.",
+  "permissions": "Allowed when the MaterialTransactionSubmissionPolicy scope includes the record (no additional checks are defined beyond the base policy).",
+  "side_effects": null,
+  "validation_notes": "The submission ID argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_submissions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_submission_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_submission_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

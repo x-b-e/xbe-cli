@@ -1,0 +1,33 @@
+{
+  "description": "Delete a project transport plan trailer assignment",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-trailers delete",
+  "id": "2cb8de0c8aafef90c7933b574f0664f5e188bc7a17851b85e24f6ffeffe999ac",
+  "permissions": "Authorized via ProjectTransportPlanTrailerPolicy, which delegates access to the related project transport plan.",
+  "side_effects": "Deletes the trailer assignment and destroys dependent project transport plan segment trailers and trailer assignment recommendations.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_trailers_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_trailer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_trailer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--confirm is required to delete."
+}

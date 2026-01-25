@@ -1,0 +1,96 @@
+{
+  "id": "64c577bd7a127dae287388e424d301eed5262216000d000aad61e08eb250a886",
+  "full_path": "view equipment-movement-stops list",
+  "description": "List equipment movement stops.",
+  "permissions": "Allowed for users authorized to view the related equipment movement trips; access is delegated to the trip relationship.",
+  "side_effects": null,
+  "validation_notes": "scheduled-arrival-at-min/max, created-at-min/max, and updated-at-min/max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--trip",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trip ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--location",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by location ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--scheduled-arrival-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by scheduled arrival on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--scheduled-arrival-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by scheduled arrival on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_movement_stops_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_movement_stop_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_stop_policy.rb"
+    }
+  ]
+}

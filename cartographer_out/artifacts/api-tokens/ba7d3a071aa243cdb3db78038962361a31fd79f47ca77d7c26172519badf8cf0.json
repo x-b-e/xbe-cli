@@ -1,0 +1,19 @@
+{
+  "id": "ba7d3a071aa243cdb3db78038962361a31fd79f47ca77d7c26172519badf8cf0",
+  "full_path": "view api-tokens show",
+  "description": "Show the full details of a specific API token.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires API token ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/api_tokens_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/api_tokens_controller.rb"
+    }
+  ]
+}

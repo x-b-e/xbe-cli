@@ -1,0 +1,42 @@
+{
+  "id": "23d901d72c2ee42743e9032c295d033da0cc823992b3466749d6c9eb31d14739",
+  "full_path": "do developer-certified-weighers update",
+  "description": "Update a developer certified weigher",
+  "permissions": "User must be able to update the associated developer (developer update permission).",
+  "side_effects": "Updates fields on a developer certified weigher record.",
+  "validation_notes": "The <id> argument is required. At least one of --number or --is-active must be provided. --is-active must be \"true\" or \"false\" when provided. Developer and user cannot be changed after creation. The combination of developer, user, and number must be unique.",
+  "flags": [
+    {
+      "name": "--number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Certified weigher number (e.g., CW-002).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Active status.",
+      "default": null,
+      "validation": "Must be true or false (e.g., false)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_certified_weighers_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_certified_weigher_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_certified_weigher.rb"
+    }
+  ]
+}

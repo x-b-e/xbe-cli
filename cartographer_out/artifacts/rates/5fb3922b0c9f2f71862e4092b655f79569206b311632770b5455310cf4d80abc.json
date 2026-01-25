@@ -1,0 +1,109 @@
+{
+  "description": "Create a rate.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Rated type (e.g., broker-tenders, customer-tenders, rate-agreements)",
+      "name": "--rated-type",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Rated ID",
+      "name": "--rated-id",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Service type unit of measure ID",
+      "name": "--service-type-unit-of-measure",
+      "required": true,
+      "type": "string",
+      "validation": "Required."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Price per unit",
+      "name": "--price-per-unit",
+      "required": false,
+      "type": "string",
+      "validation": "Must be numeric and less than 1000000."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Currency code (e.g., USD)",
+      "name": "--currency-code",
+      "required": false,
+      "type": "string",
+      "validation": "Must be USD and is required by the server."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Status",
+      "name": "--status",
+      "required": false,
+      "type": "string",
+      "validation": "If rated is a Tender, status must be active."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Rate name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Importance level",
+      "name": "--importance",
+      "required": false,
+      "type": "string",
+      "validation": "Must be one of the server-defined importance enums (e.g., low, default, high, high_001)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum travel minutes",
+      "name": "--maximum-travel-minutes",
+      "required": false,
+      "type": "string",
+      "validation": "Must be >= 0; only allowed for transportation hour/exclusive hour service types."
+    }
+  ],
+  "full_path": "do rates create",
+  "id": "5fb3922b0c9f2f71862e4092b655f79569206b311632770b5455310cf4d80abc",
+  "permissions": "Allowed if the rated resource is permitted to be created by the user via its policy; if the broker requires explicit rate editing permission, user must be a rate editor member of the broker.",
+  "side_effects": "Creates a rate record and may touch related rated records (e.g., rate agreements) and time card data via callbacks.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_rates_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/rate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/rate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/rate.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Required flags: --rated-type, --rated-id, --service-type-unit-of-measure. Server validates rated_type is one of: Tender, CustomerTender, BrokerTender, Retainer, CustomerRetainer, BrokerRetainer, RateAgreement. currency_code is required and must be USD. price_per_unit must be numeric and < 1000000. maximum_travel_minutes must be >= 0; it must be absent unless the service type unit of measure is transportation hour or exclusive hour. If rated is a Tender, status must be active."
+}

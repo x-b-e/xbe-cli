@@ -1,0 +1,42 @@
+{
+  "description": "Create a project transport plan segment trailer",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project transport plan segment ID",
+      "name": "--project-transport-plan-segment",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer ID",
+      "name": "--trailer",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-transport-plan-segment-trailers create",
+  "id": "4a81163c1b5defe8b9012e181717e583d41b43acadc25fc98c42b356249a700a",
+  "permissions": "Allowed for users authorized to create resources via the related project transport plan segment (policy delegates to the project_transport_plan_segment relationship).",
+  "side_effects": "Creates a project transport plan segment trailer record linking a segment and a trailer.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_transport_plan_segment_trailers_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_transport_plan_segment_trailer_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_segment_trailer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--project-transport-plan-segment and --trailer are required. Relationships to project transport plan segment and trailer are create-only."
+}

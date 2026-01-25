@@ -1,0 +1,23 @@
+{
+  "id": "f3ada7224df1b4e484be9f75526d0e7d12f1901111803e7997a10862bce568a2",
+  "full_path": "view driver-movement-segment-sets show",
+  "description": "Show full details of a driver movement segment set",
+  "permissions": "Allowed for authenticated users based on policy scope: admins can view any driver movement segment set; non-admins can view a record only if it is within the TruckerShiftSet policy scope for its driver_day.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (driver movement segment set ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/driver_movement_segment_sets_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_movement_segment_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_movement_segment_set_policy.rb"
+    }
+  ]
+}

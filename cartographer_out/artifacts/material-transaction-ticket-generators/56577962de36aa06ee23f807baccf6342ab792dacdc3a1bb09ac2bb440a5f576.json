@@ -1,0 +1,27 @@
+{
+  "description": "Show the full details of a material transaction ticket generator.",
+  "flags": [],
+  "full_path": "view material-transaction-ticket-generators show",
+  "id": "56577962de36aa06ee23f807baccf6342ab792dacdc3a1bb09ac2bb440a5f576",
+  "permissions": "Admins can view all ticket generators. Non-admins can view generators whose organization is within their policy scope for Brokers or MaterialSuppliers.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_transaction_ticket_generators_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/material_transaction_ticket_generators_common.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_transaction_ticket_generator_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_transaction_ticket_generator_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required and must be non-empty."
+}

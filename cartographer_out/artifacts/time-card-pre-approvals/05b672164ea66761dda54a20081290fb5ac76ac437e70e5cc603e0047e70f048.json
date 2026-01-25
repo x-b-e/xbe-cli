@@ -1,0 +1,33 @@
+{
+  "id": "05b672164ea66761dda54a20081290fb5ac76ac437e70e5cc603e0047e70f048",
+  "full_path": "view time-card-pre-approvals list",
+  "description": "List time card pre-approvals.",
+  "permissions": "Visible for users whose policy scope includes the associated tender job schedule shift.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/time_card_pre_approvals_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/time_card_pre_approval_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_pre_approval_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "description": "Build a time card from a shift",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker tender job schedule shift ID",
+      "name": "--broker-tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "validation": "Provide this or --customer-tender-job-schedule-shift."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Customer tender job schedule shift ID",
+      "name": "--customer-tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "validation": "Provide this or --broker-tender-job-schedule-shift."
+    }
+  ],
+  "full_path": "do built-time-cards create",
+  "id": "7df1dd7221763a54aba45c99e869ab19d25db0b817b4114201988abe20eb3ede",
+  "permissions": "User must be an admin (BuiltTimeCardPolicy#create? requires is_user_admin?).",
+  "side_effects": "Creates a built time card from a broker or customer tender job schedule shift and may create or update the underlying time card.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_built_time_cards_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_built_time_cards.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/built_time_card_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/built_time_card_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Either --broker-tender-job-schedule-shift or --customer-tender-job-schedule-shift is required."
+}

@@ -1,0 +1,94 @@
+{
+  "id": "0f852d367b966f0ad2370c11e8af642eae109cd588cb6d5b5508c7f0b195a69a",
+  "full_path": "do organization-invoices-batch-files create",
+  "description": "Create an organization invoices batch file.",
+  "permissions": "User can create when they are authorized to create the related organization invoices batch: admins allowed; non-admins must be a broker member or a manager member for the batch organization.",
+  "side_effects": "Creates an organization invoices batch file and enqueues async formatting via OrganizationInvoicesBatchFileFormatInvoicesWorker; may refresh invoice revisions if refresh_invoice_revisions is true.",
+  "validation_notes": "Organization formatter must be active. Organization must be provided as Type|ID if supplied (e.g., Broker|123). Creation validates invoice revisions; invalid revisions or invoices without a final status add validation errors.",
+  "flags": [
+    {
+      "name": "--organization-invoices-batch",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization invoices batch ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-formatter",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization formatter ID.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Organization in Type|ID format (optional).",
+      "default": null,
+      "validation": "Type|ID format (e.g., Broker|123)."
+    },
+    {
+      "name": "--body",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "File body content.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--mime-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "File MIME type.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--refresh-invoice-revisions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Refresh invoice revisions before formatting (true/false).",
+      "default": null,
+      "validation": "Use true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_organization_invoices_batch_files_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_memberships_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_file_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/organization_invoices_batch_file.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/validates_organization_formatter_is_active.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_file_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/organization_invoices_batch_policy.rb"
+    }
+  ]
+}

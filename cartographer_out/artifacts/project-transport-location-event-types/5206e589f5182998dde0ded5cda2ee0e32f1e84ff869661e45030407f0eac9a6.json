@@ -1,0 +1,50 @@
+{
+  "id": "5206e589f5182998dde0ded5cda2ee0e32f1e84ff869661e45030407f0eac9a6",
+  "full_path": "do project-transport-location-event-types create",
+  "description": "Create a project transport location event type.",
+  "permissions": "Authorization is delegated to the related project transport event type. Creation requires an event type with a broker and the user must be an admin or a manager who is a member of that broker.",
+  "side_effects": "Creates a project transport location event type linking a project transport location to a project transport event type.",
+  "validation_notes": "--project-transport-location and --project-transport-event-type are required and must be non-empty. The combination of project_transport_location_id and project_transport_event_type_id must be unique.",
+  "flags": [
+    {
+      "name": "--project-transport-location",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport location ID (required). Example: 123.",
+      "default": null,
+      "validation": "required"
+    },
+    {
+      "name": "--project-transport-event-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Project transport event type ID (required). Example: 456.",
+      "default": null,
+      "validation": "required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_location_event_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_transport_location_event_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_location_event_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_location_event_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_event_type_policy.rb"
+    }
+  ]
+}

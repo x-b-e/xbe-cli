@@ -1,0 +1,72 @@
+{
+  "description": "Update a project phase revenue item quantity estimate.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimate JSON payload (use null to clear)",
+      "name": "--estimate",
+      "required": false,
+      "type": "string",
+      "validation": "When provided, cannot be empty and must be valid JSON for an object or null."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimate description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project estimate set ID",
+      "name": "--project-estimate-set",
+      "required": false,
+      "type": "string",
+      "validation": "When provided, cannot be empty."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": "When provided, cannot be empty."
+    }
+  ],
+  "full_path": "do project-phase-revenue-item-quantity-estimates update",
+  "id": "6241653afab92b07b198da8d86869bf7cb549612ddb9bce4458dec84841ecfb1",
+  "permissions": "Update is delegated to the related project. Allowed for admins or users who are practically managers of the project developer.",
+  "side_effects": "Updates the specified project phase revenue item quantity estimate.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phase_revenue_item_quantity_estimates_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "internal/cli/do_project_phase_cost_item_quantity_estimates_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/project_phase_revenue_item_quantity_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_phase_revenue_item_quantity_estimate_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/models/project_phase_revenue_item_quantity_estimate.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one field must be provided for update. If --estimate is set, it cannot be empty and must be valid JSON for an object or null (use null to clear). If --project-estimate-set or --created-by is set, the value cannot be empty."
+}

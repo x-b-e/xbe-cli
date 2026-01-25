@@ -223,7 +223,7 @@ func renderProjectPhaseCostItemQuantityEstimatesTable(cmd *cobra.Command, rows [
 	writer := tabwriter.NewWriter(cmd.OutOrStdout(), 2, 4, 2, ' ', 0)
 	fmt.Fprintln(writer, "ID\tCOST ITEM\tESTIMATE SET\tBASIS\tCREATED BY\tESTIMATE")
 	for _, row := range rows {
-		estimate := estimateSummary(row.Estimate)
+		estimate := quantityEstimateSummary(row.Estimate)
 		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\t%s\n",
 			row.ID,
 			truncateString(row.ProjectPhaseCostItemID, 20),
@@ -252,7 +252,7 @@ func estimateAttr(attrs map[string]any, key string) map[string]any {
 	}
 }
 
-func estimateSummary(estimate map[string]any) string {
+func quantityEstimateSummary(estimate map[string]any) string {
 	if len(estimate) == 0 {
 		return ""
 	}

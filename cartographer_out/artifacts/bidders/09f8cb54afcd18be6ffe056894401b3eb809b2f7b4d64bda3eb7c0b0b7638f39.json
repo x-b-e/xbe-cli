@@ -1,0 +1,60 @@
+{
+  "id": "09f8cb54afcd18be6ffe056894401b3eb809b2f7b4d64bda3eb7c0b0b7638f39",
+  "full_path": "view bidders list",
+  "description": "List bidders with filtering and pagination.",
+  "permissions": "Admins can list all bidders; broker members can list bidders for brokers they belong to.",
+  "side_effects": null,
+  "validation_notes": "Filters: --is-self-for-broker expects true/false; --name matches exact name; --name-like matches partial name; --broker filters by broker ID.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--name-like",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-self-for-broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by self bidder status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/bidders_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/bidder_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/bidder_policy.rb"
+    }
+  ]
+}

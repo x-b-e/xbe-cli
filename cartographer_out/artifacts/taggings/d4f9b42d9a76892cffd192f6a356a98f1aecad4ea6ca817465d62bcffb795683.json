@@ -1,0 +1,29 @@
+{
+  "id": "d4f9b42d9a76892cffd192f6a356a98f1aecad4ea6ca817465d62bcffb795683",
+  "full_path": "do taggings delete",
+  "description": "Delete a tagging.",
+  "permissions": "Admin users, or users who can view the taggable object.",
+  "side_effects": "Deletes the tagging.",
+  "validation_notes": "Tagging ID argument is required. --confirm is required to delete a tagging.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_taggings_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tagging_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "67b682c8001f1b22e4c5c9e7d53ffebd24e76ab21e99e1d7e6fdb9399e80ea8f",
+  "full_path": "view job-production-plans recap",
+  "description": "Show recap posts for a job production plan",
+  "permissions": "Access is granted according to JobProductionPlanRecapPolicy, which delegates to the associated job production plan policy (user must be authorized for the plan).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/job_production_plans_recap.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/job_production_plan_recaps_controller.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_recap_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_recap_policy.rb"
+    }
+  ]
+}

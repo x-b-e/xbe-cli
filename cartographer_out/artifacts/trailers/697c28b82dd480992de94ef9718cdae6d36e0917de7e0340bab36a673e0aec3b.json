@@ -1,0 +1,267 @@
+{
+  "description": "Update a trailer.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer number",
+      "name": "--number",
+      "required": false,
+      "type": "string",
+      "validation": "Must not change after shift assignment."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer composition",
+      "name": "--composition",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: steel, aluminum."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer kind",
+      "name": "--kind",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: end_dump, belly_dump, conveyor_dump, side_dump, tailgate_high_lift, tailgate_swing."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Frame kind",
+      "name": "--frame-kind",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: frame, frameless."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tarp kind",
+      "name": "--tarp-kind",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: sand, asphalt, mesh, vinyl, lumber, steel_tarp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Capacity in pounds",
+      "name": "--capacity-lbs",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be between 0 and 50000, inclusive."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Rear wheel offset in inches",
+      "name": "--rear-wheel-offset-inches",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be >= 0."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Hitch type",
+      "name": "--hitch",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Overweight permit status",
+      "name": "--has-overweight-permit-status",
+      "required": false,
+      "type": "string",
+      "validation": "Allowed values: unset, yes, no."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Has coal chute (true/false)",
+      "name": "--coal-chute",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Has insulated bed (true/false)",
+      "name": "--insulated-bed",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Has bed liner (true/false)",
+      "name": "--bed-liner",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Has sludge locks (true/false)",
+      "name": "--sludge-locks",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Has vibrator (true/false)",
+      "name": "--vibrator",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Intransit heat (true/false)",
+      "name": "--intransit-heat",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Can pave (true/false)",
+      "name": "--can-pave",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "In service status (true/false)",
+      "name": "--in-service",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Curb weight in pounds",
+      "name": "--curb-weight-lbs",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be > 0."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Height in inches",
+      "name": "--height-inches",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be > 0."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Parking address",
+      "name": "--parking-address",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Google Place ID",
+      "name": "--parking-address-place-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Plus code",
+      "name": "--parking-address-plus-code",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip geocoding (true/false)",
+      "name": "--skip-parking-address-geocoding",
+      "required": false,
+      "type": "string",
+      "validation": "Expected 'true' or 'false'."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trucker ID",
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tractor ID",
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer classification ID",
+      "name": "--trailer-classification",
+      "required": false,
+      "type": "string",
+      "validation": "Must not change after shift assignment."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Brokered trailer ID",
+      "name": "--brokered-trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do trailers update",
+  "id": "697c28b82dd480992de94ef9718cdae6d36e0917de7e0340bab36a673e0aec3b",
+  "permissions": "Admins can update trailers. Non-admins can update a trailer only if they can update the trailer's trucker via TruckerPolicy; if the trucker is changed, they must also be able to update the previous trucker.",
+  "side_effects": "Updates a trailer record. Setting in-service to false detaches an active in-service tractor. Changing the tractor updates active shifts to include the tractor. If the trailer is in service, geofence restriction entities may be created asynchronously after commit.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_trailers_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/trailer_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/trailer.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one attribute or relationship field must be provided for update. number must be unique per trucker and trailer classification among in-service trailers. capacity-lbs must be between 0 and 50000 (inclusive); rear-wheel-offset-inches must be >= 0; curb-weight-lbs and height-inches must be > 0 when provided. can-pave must be true or false when set. Trailer composition must be one of: steel, aluminum. Trailer kind must be one of: end_dump, belly_dump, conveyor_dump, side_dump, tailgate_high_lift, tailgate_swing. Frame kind must be one of: frame, frameless. Tarp kind must be one of: sand, asphalt, mesh, vinyl, lumber, steel_tarp. Overweight permit status must be one of: unset, yes, no. If a tractor is set, it must belong to the same trucker and must be in service. Managed truckers require a trailer classification. Trailer classification cannot change after shift assignment. Trailer number cannot change after shift assignment. If a brokered trailer is set, its trucker must be brokered by this trailer's trucker."
+}

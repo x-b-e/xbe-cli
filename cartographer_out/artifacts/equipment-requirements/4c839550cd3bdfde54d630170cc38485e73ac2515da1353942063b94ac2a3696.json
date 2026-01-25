@@ -1,0 +1,217 @@
+{
+  "id": "4c839550cd3bdfde54d630170cc38485e73ac2515da1353942063b94ac2a3696",
+  "full_path": "do equipment-requirements update",
+  "description": "Update an equipment requirement",
+  "permissions": "User must be authorized to update the associated job production plan.",
+  "side_effects": "When explicit inbound/outbound coordinates change, related inbound/outbound movement requirement destination/origin coordinates are updated after commit.",
+  "validation_notes": "At least one attribute or relationship must be specified. resource-classification-id requires resource-classification-type. resource-id requires resource-type. start-at and end-at must be set together. labor-requirement must belong to the same job production plan. craft-class must be absent. Resource classification and resource cannot be changed when the job production plan is only for equipment movement and is approved or complete.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-classification-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Resource classification type (JSON:API type, e.g., equipment-classifications)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-classification-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Resource classification ID (requires --resource-classification-type)",
+      "default": null,
+      "validation": "requires --resource-classification-type"
+    },
+    {
+      "name": "--resource-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Resource type (JSON:API type, e.g., equipment)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--resource-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Resource ID (requires --resource-type)",
+      "default": null,
+      "validation": "requires --resource-type"
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start time (ISO 8601; requires --end-at)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; requires --end-at"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End time (ISO 8601; requires --start-at)",
+      "default": null,
+      "validation": "ISO 8601 timestamp; requires --start-at"
+    },
+    {
+      "name": "--mobilization-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Mobilization method (crew, heavy_equipment_transport, lowboy, itself, trailer)",
+      "default": null,
+      "validation": "crew|heavy_equipment_transport|lowboy|itself|trailer"
+    },
+    {
+      "name": "--note",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Requirement note",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--requires-inbound-movement",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires inbound movement (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--requires-outbound-movement",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Requires outbound movement (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-validating-overlapping",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Validate overlapping assignments (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--origin-material-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Origin material site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--labor-requirement",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Labor requirement ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--craft-class",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Craft class ID",
+      "default": null,
+      "validation": "must be absent for equipment requirements"
+    },
+    {
+      "name": "--project-cost-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project cost classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--crew-requirement-credential-classifications",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Comma-separated credential classification link IDs (empty clears)",
+      "default": null,
+      "validation": "comma-separated list; empty clears"
+    },
+    {
+      "name": "--explicit-inbound-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit inbound latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-inbound-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit inbound longitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-outbound-latitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit outbound latitude",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-outbound-longitude",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit outbound longitude",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_requirements_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/crew_requirement_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/crew_requirements/equipment_requirement.rb"
+    }
+  ]
+}

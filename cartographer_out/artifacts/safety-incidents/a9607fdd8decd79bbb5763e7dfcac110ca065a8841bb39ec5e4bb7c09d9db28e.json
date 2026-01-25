@@ -1,0 +1,347 @@
+{
+  "id": "a9607fdd8decd79bbb5763e7dfcac110ca065a8841bb39ec5e4bb7c09d9db28e",
+  "full_path": "view safety-incidents list",
+  "description": "List safety incidents",
+  "permissions": "Admins can list all safety incidents. Non-admins only see incidents where the subject is within their authorized policy scope for mutation (per subject-specific policy scope with can_mutate: true).",
+  "side_effects": "None (read-only).",
+  "validation_notes": "Boolean filters (--has-parent, --has-equipment, --has-live-action-items, --zero-incident-tags, --did-stop-work) require true/false values. --start-on/--start-on-min/--start-on-max require YYYY-MM-DD dates. --natures accepts comma-separated values from: personal, property. --status must be one of: open, closed, abandoned, processing, parked. --kind must be one of: near_miss, good_catch, damage, overloading, work_zone_intrusion. --severity must be one of: low, medium, high, catastrophic. --subject-type must be one of: JobProductionPlan, TenderJobScheduleShift, Broker, Customer, Trucker, Developer, Contractor, MaterialSupplier, MaterialSite, ProjectTransportPlan. Net impact tons values are numeric and must be >= 0; net impact tons only applies to overloading incidents.",
+  "flags": [
+    {
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status",
+      "validation": "open|closed|abandoned|processing|parked"
+    },
+    {
+      "name": "--kind",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by kind",
+      "validation": "near_miss|good_catch|damage|overloading|work_zone_intrusion"
+    },
+    {
+      "name": "--severity",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by severity",
+      "validation": "low|medium|high|catastrophic"
+    },
+    {
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID"
+    },
+    {
+      "name": "--customer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID"
+    },
+    {
+      "name": "--developer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by developer ID"
+    },
+    {
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID"
+    },
+    {
+      "name": "--contractor",
+      "required": false,
+      "type": "string",
+      "description": "Filter by contractor ID"
+    },
+    {
+      "name": "--material-supplier",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID"
+    },
+    {
+      "name": "--material-site",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material site ID"
+    },
+    {
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID"
+    },
+    {
+      "name": "--job-production-plan-project",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan project ID"
+    },
+    {
+      "name": "--equipment",
+      "required": false,
+      "type": "string",
+      "description": "Filter by equipment ID"
+    },
+    {
+      "name": "--assignee",
+      "required": false,
+      "type": "string",
+      "description": "Filter by assignee user ID"
+    },
+    {
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-by user ID"
+    },
+    {
+      "name": "--start-on",
+      "required": false,
+      "type": "string",
+      "description": "Filter by start date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--start-on-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--start-on-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start date (YYYY-MM-DD)",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by start timestamp"
+    },
+    {
+      "name": "--start-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start timestamp"
+    },
+    {
+      "name": "--start-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start timestamp"
+    },
+    {
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "description": "Filter by end timestamp"
+    },
+    {
+      "name": "--end-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum end timestamp"
+    },
+    {
+      "name": "--end-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum end timestamp"
+    },
+    {
+      "name": "--subject",
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject (Type|ID, e.g., Broker|123)",
+      "validation": "Type|ID"
+    },
+    {
+      "name": "--subject-type",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by subject type (e.g., Broker, JobProductionPlan)",
+      "validation": "JobProductionPlan|TenderJobScheduleShift|Broker|Customer|Trucker|Developer|Contractor|MaterialSupplier|MaterialSite|ProjectTransportPlan"
+    },
+    {
+      "name": "--subject-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by subject (Type|ID, e.g., Broker|123)",
+      "validation": "Type|ID"
+    },
+    {
+      "name": "--parent",
+      "required": false,
+      "type": "string",
+      "description": "Filter by parent incident ID"
+    },
+    {
+      "name": "--has-parent",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of parent (true/false)",
+      "validation": "true|false"
+    },
+    {
+      "name": "--has-equipment",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of equipment (true/false)",
+      "validation": "true|false"
+    },
+    {
+      "name": "--has-live-action-items",
+      "required": false,
+      "type": "string",
+      "description": "Filter by presence of live action items (true/false)",
+      "validation": "true|false"
+    },
+    {
+      "name": "--incident-tag",
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident tag ID"
+    },
+    {
+      "name": "--incident-tag-slug",
+      "required": false,
+      "type": "string",
+      "description": "Filter by incident tag slug"
+    },
+    {
+      "name": "--zero-incident-tags",
+      "required": false,
+      "type": "string",
+      "description": "Filter by zero incident tags (true/false)",
+      "validation": "true|false"
+    },
+    {
+      "name": "--root-causes",
+      "required": false,
+      "type": "string",
+      "description": "Filter by root cause IDs (comma-separated)",
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--action-items",
+      "required": false,
+      "type": "string",
+      "description": "Filter by action item IDs (comma-separated)",
+      "validation": "comma-separated IDs"
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID"
+    },
+    {
+      "name": "--tender-job-schedule-shift-driver",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift driver ID"
+    },
+    {
+      "name": "--tender-job-schedule-shift-trucker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift trucker ID"
+    },
+    {
+      "name": "--job-number",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job number"
+    },
+    {
+      "name": "--notifiable-to",
+      "required": false,
+      "type": "string",
+      "description": "Filter by notifiable user ID"
+    },
+    {
+      "name": "--user-has-stake",
+      "required": false,
+      "type": "string",
+      "description": "Filter by user stake (user ID)"
+    },
+    {
+      "name": "--responsible-person",
+      "required": false,
+      "type": "string",
+      "description": "Filter by responsible person (user ID)"
+    },
+    {
+      "name": "--did-stop-work",
+      "required": false,
+      "type": "string",
+      "description": "Filter by did stop work (true/false)",
+      "validation": "true|false"
+    },
+    {
+      "name": "--natures",
+      "required": false,
+      "type": "string",
+      "description": "Filter by natures (comma-separated: personal,property)",
+      "validation": "personal|property"
+    },
+    {
+      "name": "--q",
+      "required": false,
+      "type": "string",
+      "description": "Search query"
+    },
+    {
+      "name": "--net-impact-tons",
+      "required": false,
+      "type": "string",
+      "description": "Filter by net impact tons"
+    },
+    {
+      "name": "--net-impact-tons-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum net impact tons"
+    },
+    {
+      "name": "--net-impact-tons-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum net impact tons"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/safety_incidents_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/safety_incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/safety_incident.rb"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "description": "Create a transport order stop material.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Explicit quantity for the stop",
+      "name": "--quantity-explicit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Transport order material ID (required)",
+      "name": "--transport-order-material",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Transport order stop ID (required)",
+      "name": "--transport-order-stop",
+      "required": true,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do transport-order-stop-materials create",
+  "id": "51dd99651d13436f3872087d9caf7fe4fcf1bb305344b9821e1e0eee914c70a3",
+  "permissions": "Requires authorization via TransportOrderStopPolicy for the related transport_order_stop (delegated policy).",
+  "side_effects": "Creates a transport order stop material record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_transport_order_stop_materials_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/transport_order_stop_material_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/transport_order_stop_material.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/transport_order_stop_material_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--transport-order-material and --transport-order-stop are required. transport_order_material and transport_order_stop must belong to the same transport_order."
+}

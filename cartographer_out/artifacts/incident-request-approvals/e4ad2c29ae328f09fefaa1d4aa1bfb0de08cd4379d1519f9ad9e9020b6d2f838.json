@@ -1,0 +1,19 @@
+{
+  "id": "e4ad2c29ae328f09fefaa1d4aa1bfb0de08cd4379d1519f9ad9e9020b6d2f838",
+  "full_path": "view incident-request-approvals list",
+  "description": "List incident request approvals",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_request_approvals_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

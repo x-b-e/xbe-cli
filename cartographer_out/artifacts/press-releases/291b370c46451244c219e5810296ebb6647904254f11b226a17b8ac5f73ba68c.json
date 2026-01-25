@@ -1,0 +1,91 @@
+{
+  "id": "291b370c46451244c219e5810296ebb6647904254f11b226a17b8ac5f73ba68c",
+  "full_path": "do press-releases create",
+  "description": "Create a new press release.",
+  "permissions": "Only admins can create press releases.",
+  "side_effects": "Creates a press release record; after commit it rebuilds the marketing website, may enqueue generated audio creation when press release text changes, and may upload OpenAI files when published and released_at is in the past or present.",
+  "validation_notes": "headline is required. When published is true, the server validates presence of headline, subheadline, body, released_at, released_at_time_zone_id, location_name, and slug. slug must be unique and downcased/dasherized. released_at_time_zone_id must be a valid time zone identifier.",
+  "flags": [
+    {
+      "name": "body",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Press release body",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "headline",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Press release headline",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "location-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Location name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "published",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as published",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "released-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Release datetime (ISO 8601)",
+      "default": null,
+      "validation": "Format: ISO 8601. Example: 2024-01-01T12:00:00Z."
+    },
+    {
+      "name": "slug",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "URL-friendly slug",
+      "default": null,
+      "validation": "Must be lowercase letters, numbers, and dashes only; must be unique. Example: company-announcement."
+    },
+    {
+      "name": "subheadline",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subheadline",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_press_releases_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/press_release.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/press_release_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/press_release_resource.rb"
+    }
+  ]
+}

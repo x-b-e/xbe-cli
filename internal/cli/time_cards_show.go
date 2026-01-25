@@ -658,18 +658,6 @@ func numberAttrAsString(attrs map[string]any, key string) string {
 	}
 }
 
-func relationshipIDsToStrings(rel jsonAPIRelationship) []string {
-	ids := relationshipIDs(rel)
-	if len(ids) == 0 {
-		return nil
-	}
-	entries := make([]string, 0, len(ids))
-	for _, id := range ids {
-		entries = append(entries, id.ID)
-	}
-	return entries
-}
-
 func relationshipIDsToTypedStrings(rel jsonAPIRelationship) []string {
 	ids := relationshipIDs(rel)
 	if len(ids) == 0 {

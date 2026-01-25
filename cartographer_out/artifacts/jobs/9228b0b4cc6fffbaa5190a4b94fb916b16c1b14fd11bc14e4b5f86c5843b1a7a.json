@@ -1,0 +1,33 @@
+{
+  "id": "9228b0b4cc6fffbaa5190a4b94fb916b16c1b14fd11bc14e4b5f86c5843b1a7a",
+  "full_path": "do jobs delete",
+  "description": "Delete a job.",
+  "permissions": "Admins can delete jobs. Non-admins can delete jobs when they are members of the job customer or the job customer broker.",
+  "side_effects": "Deletes the job and dependent records including job material types, job trailer classifications, job schedule shifts, job material sites, and job service type unit of measures.",
+  "validation_notes": "--confirm is required. Deletion is blocked if the job has customer tenders.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_jobs_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job.rb"
+    }
+  ]
+}

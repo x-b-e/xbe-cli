@@ -1,0 +1,60 @@
+{
+  "id": "44afd07ac914b894e3c0e506e9c917f75da9efdc8ca3399fe89874bb8f33eb0f",
+  "full_path": "do transport-order-materials create",
+  "description": "Create a transport order material.",
+  "permissions": "User must be authorized to create materials on the related transport order; authorization delegates to the transport_order relationship.",
+  "side_effects": "Creates a transport order material record linked to the specified transport order, material type, and unit of measure.",
+  "validation_notes": "Required flags: --transport-order, --material-type, --unit-of-measure.",
+  "flags": [
+    {
+      "name": "--transport-order",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Transport order ID. Example: --transport-order 123",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material type ID. Example: --material-type 456",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Unit of measure ID. Example: --unit-of-measure 789",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--quantity-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit quantity. Example: --quantity-explicit 10",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_transport_order_materials_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_order_material_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_order_material_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "a6f447cfa92250aca18de2b2d734773ef661a494e4adcd9acba288be1589f664",
+  "full_path": "view commitment-simulation-sets show",
+  "description": "Show the full details of a commitment simulation set.",
+  "permissions": "Admin users or users who are broker members, or manager members of customer/trucker organizations, can view commitment simulation sets within their organization scope (including broker-linked customers/truckers).",
+  "side_effects": null,
+  "validation_notes": "Commitment simulation set ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/commitment_simulation_sets_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/commitment_simulation_set_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/commitment_simulation_set_policy.rb"
+    }
+  ]
+}

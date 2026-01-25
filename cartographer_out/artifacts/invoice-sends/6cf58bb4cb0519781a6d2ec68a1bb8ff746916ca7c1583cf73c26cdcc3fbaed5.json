@@ -1,0 +1,50 @@
+{
+  "id": "6cf58bb4cb0519781a6d2ec68a1bb8ff746916ca7c1583cf73c26cdcc3fbaed5",
+  "full_path": "do invoice-sends create",
+  "description": "Send an invoice",
+  "permissions": "Allowed when the user is authorized to update the referenced invoice (InvoiceSendPolicy#create? delegates to InvoicePolicy#update?).",
+  "side_effects": "Updates the invoice status to sent and sets status_change_comment/changed_by based on the request.",
+  "validation_notes": "--invoice is required. The referenced invoice must exist and be in editing status; otherwise the action fails validation.",
+  "flags": [
+    {
+      "name": "--invoice",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Invoice ID",
+      "default": "",
+      "validation": "Required; must be non-empty."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Send comment",
+      "default": "",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_invoice_sends_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/invoice_send_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/invoice_actions/invoice_send.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    }
+  ]
+}

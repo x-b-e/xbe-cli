@@ -1,0 +1,42 @@
+{
+  "id": "dfd6e6dc9d903b4e990deaab5d691ac59400fb94e6c92c925b66359c0b8a6e1a",
+  "full_path": "view user-credential-classifications list",
+  "description": "List user credential classifications",
+  "permissions": "Admins can list all user credential classifications; non-admins can list classifications tied to their organization memberships or their own user credentials.",
+  "side_effects": null,
+  "validation_notes": "Filter --organization must use Type|ID format (e.g., Broker|123).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g., Broker|123)",
+      "default": null,
+      "validation": "Format: Type|ID (e.g., Broker|123)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/user_credential_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_credential_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_credential_classification_policy.rb"
+    }
+  ]
+}

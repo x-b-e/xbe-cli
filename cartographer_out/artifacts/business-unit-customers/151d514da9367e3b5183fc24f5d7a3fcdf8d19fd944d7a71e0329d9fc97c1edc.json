@@ -1,0 +1,54 @@
+{
+  "id": "151d514da9367e3b5183fc24f5d7a3fcdf8d19fd944d7a71e0329d9fc97c1edc",
+  "full_path": "do business-unit-customers create",
+  "description": "Create a business unit customer link.",
+  "permissions": "User must be authorized to create business units for the broker that owns the business unit (BusinessUnitPolicy#create?, delegated via BusinessUnitCustomerPolicy).",
+  "side_effects": "Creates a business unit customer link.",
+  "validation_notes": "--business-unit is required; --customer is required; business unit and customer must belong to the same broker; business_unit_id and customer_id pair must be unique.",
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Business unit ID (required)",
+      "default": null,
+      "validation": "Must be provided."
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required)",
+      "default": null,
+      "validation": "Must be provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_business_unit_customers_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/business_unit_customer.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "db/structure_split/tables/public.business_unit_customers.sql"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_customer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/business_unit_customer_resource.rb"
+    }
+  ]
+}

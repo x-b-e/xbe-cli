@@ -1,0 +1,59 @@
+{
+  "id": "29c79a97b7504659f2fe611a1116a155f8605f24a5626a7a798d4a6172774897",
+  "full_path": "do material-unit-of-measure-quantities update",
+  "description": "Update a material unit of measure quantity.",
+  "permissions": "Allowed when MaterialTransactionPolicy.update? passes for the referenced material transaction: admin users; members of the material transaction broker; members of the material supplier; or users who can update the related trip.",
+  "side_effects": "Touches the related tender_job_schedule_shift after commit. If quantity changes, may enqueue inventory change scheduling for related material sites when auto-create inventory changes is enabled. On update, associated material transaction inspections are destroyed.",
+  "validation_notes": "The <id> argument is required; at least one of --quantity, --material-transaction, or --unit-of-measure must be provided; if any of those flags are provided, their values cannot be empty; quantity must be between 0 and 200000 (server validates numeric >= 0 and < 200000 unless skip_quantity_validation).",
+  "flags": [
+    {
+      "name": "--quantity",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Quantity (0 to 200000)",
+      "default": null,
+      "validation": "0 to 200000"
+    },
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material transaction ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--unit-of-measure",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_unit_of_measure_quantities_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_unit_of_measure_quantity_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_unit_of_measure_quantity_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_unit_of_measure_quantity.rb"
+    }
+  ]
+}

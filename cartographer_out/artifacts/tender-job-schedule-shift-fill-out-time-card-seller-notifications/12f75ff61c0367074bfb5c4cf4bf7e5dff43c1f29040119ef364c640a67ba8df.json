@@ -1,0 +1,37 @@
+{
+  "id": "12f75ff61c0367074bfb5c4cf4bf7e5dff43c1f29040119ef364c640a67ba8df",
+  "full_path": "do tender-job-schedule-shift-fill-out-time-card-seller-notifications update",
+  "description": "Update an existing tender job schedule shift fill out time card seller notification.",
+  "permissions": "User can update only their own notification (user must equal notification recipient).",
+  "side_effects": "Updates notification read status; saving a notification may enqueue a notification post job when it is ready for delivery.",
+  "validation_notes": "Requires <id> argument (notification ID). Only the read field is updatable; at least one field flag must be provided.",
+  "flags": [
+    {
+      "name": "--read",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark the notification as read (true/false)",
+      "default": null,
+      "validation": "Must be true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_job_schedule_shift_fill_out_time_card_seller_notifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/notification.rb"
+    }
+  ]
+}

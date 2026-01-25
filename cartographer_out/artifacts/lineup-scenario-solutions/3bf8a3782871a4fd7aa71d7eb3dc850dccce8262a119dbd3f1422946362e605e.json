@@ -1,0 +1,23 @@
+{
+  "id": "3bf8a3782871a4fd7aa71d7eb3dc850dccce8262a119dbd3f1422946362e605e",
+  "full_path": "view lineup-scenario-solutions show",
+  "description": "Show the full details of a lineup scenario solution.",
+  "permissions": "User must be an admin or a broker manager for the lineup scenario broker; access is scoped to lineup scenarios belonging to brokers the user is a member of.",
+  "side_effects": null,
+  "validation_notes": "Lineup scenario solution id argument is required and must be non-empty.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/lineup_scenario_solutions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_solution_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_scenario_policy.rb"
+    }
+  ]
+}

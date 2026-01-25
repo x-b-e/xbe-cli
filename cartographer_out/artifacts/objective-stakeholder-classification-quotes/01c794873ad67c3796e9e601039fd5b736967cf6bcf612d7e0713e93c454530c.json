@@ -1,0 +1,29 @@
+{
+  "id": "01c794873ad67c3796e9e601039fd5b736967cf6bcf612d7e0713e93c454530c",
+  "full_path": "do objective-stakeholder-classification-quotes delete",
+  "description": "Delete an objective stakeholder classification quote",
+  "permissions": "Requires an admin user (ObjectiveStakeholderClassificationQuotePolicy#destroy?).",
+  "side_effects": "Deletes an objective stakeholder classification quote.",
+  "validation_notes": "<id> argument is required. --confirm is required to proceed with deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_objective_stakeholder_classification_quotes_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/objective_stakeholder_classification_quote_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "66bb0fb5af4d81df6ba0c31f90c1a4426be4dd9da19af07ce85b4b429e65f3e6",
+  "full_path": "do material-transaction-invalidations create",
+  "description": "Invalidate a material transaction.",
+  "permissions": "Allowed for admins or users authorized to update the related material transaction (per MaterialTransactionPolicy: member of the transaction's broker or material supplier, or able to update its trip).",
+  "side_effects": "Sets the material transaction status to invalidated (with status change comment), updates related time card quantities and unloaded trips, may toggle unmanaged shift alive status, and may export the transaction to Connex.",
+  "validation_notes": "--material-transaction is required and must reference an existing material transaction (example: 123). --comment is optional (example: \"Duplicate ticket\"). The material transaction must be in one of the allowed previous statuses: editing, submitted, rejected, denied, accepted, or unmatched. The transaction cannot be invalidated if it has invoices preventing changes or if it affects an approved time card (the time card must be unapproved first). Integration-sourced material transactions can only be invalidated by an admin or system user. The material transaction must be valid.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material transaction ID (required)",
+      "default": null,
+      "validation": "Required. Example: 123."
+    },
+    {
+      "name": "--comment",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Invalidation comment",
+      "default": null,
+      "validation": "Example: \"Duplicate ticket\"."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_invalidations_create.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_invalidations.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_invalidation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/action_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_invalidation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_invalidation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_action.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_rejection_like.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_actions/material_transaction_void_like.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/action_model.rb"
+    }
+  ]
+}

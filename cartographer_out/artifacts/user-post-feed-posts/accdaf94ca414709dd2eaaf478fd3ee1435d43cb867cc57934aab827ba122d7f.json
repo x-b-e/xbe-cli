@@ -1,0 +1,55 @@
+{
+  "description": "Update an existing user post feed post.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Whether the post is bookmarked.",
+      "name": "--is-bookmarked",
+      "required": false,
+      "type": "boolean",
+      "validation": "Use true/false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Subscription start timestamp (ISO 8601, empty to clear).",
+      "name": "--subscription-start-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp or empty to clear."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Subscription end timestamp (ISO 8601, empty to clear).",
+      "name": "--subscription-end-at",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp or empty to clear."
+    }
+  ],
+  "full_path": "do user-post-feed-posts update",
+  "id": "accdaf94ca414709dd2eaaf478fd3ee1435d43cb867cc57934aab827ba122d7f",
+  "permissions": "User must be an admin or the owner of the user_post_feed for the post.",
+  "side_effects": "Updates user creator feed data and associated user creator feed creator records after save.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_user_post_feed_posts_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/user_post_feed_post_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/user_post_feed_post_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/user_post_feed_post.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one updatable field must be provided; otherwise the command errors with \"no fields to update\". Subscription start/end timestamps accept ISO 8601 values or an empty string to clear."
+}

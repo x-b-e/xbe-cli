@@ -1,0 +1,199 @@
+{
+  "id": "507abd36224e93eb5f39a40835f89e4001b6df8736fee20c649be5179f92e937",
+  "full_path": "do tractors create",
+  "description": "Create a new tractor.",
+  "permissions": "Admins can create tractors. Non-admins can create tractors when they are authorized to update the specified trucker via TruckerPolicy; creation without a trucker is also allowed by policy.",
+  "side_effects": "Creates a tractor record; parking address may be geocoded unless --skip-parking-address-geocoding is true.",
+  "validation_notes": "--number and --trucker are required. --apportioned, --in-service, --intransit-heat, and --skip-parking-address-geocoding expect true/false strings. truck-model-year must be between Tractor::MINIMUM_TRUCK_MODEL_YEAR (1950) and Tractor.maximum_truck_model_year (current year + 2). color-name must be one of Tractor::COLOR_NAMES. plate-number length must be 10 characters or fewer. vin must be exactly 17 characters. plate-jurisdiction-code must be one of Tractor::PLATE_JURISDICTIONS. curb-weight-lbs and height-inches must be greater than 0 when provided. brokered-tractor requires its trucker be brokered by the tractor trucker. Tractor number must be present. For in-service tractors, the combination of trucker and number must be unique.",
+  "flags": [
+    {
+      "name": "--number",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Tractor number",
+      "default": null,
+      "validation": "Required"
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID",
+      "default": null,
+      "validation": "Required"
+    },
+    {
+      "name": "--truck-manufacturer-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Manufacturer name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--truck-model-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Model name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--truck-model-year",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Model year",
+      "default": null,
+      "validation": "Must be between Tractor::MINIMUM_TRUCK_MODEL_YEAR (1950) and Tractor.maximum_truck_model_year (current year + 2)"
+    },
+    {
+      "name": "--color-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Color name",
+      "default": null,
+      "validation": "Must be one of Tractor::COLOR_NAMES"
+    },
+    {
+      "name": "--plate-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "License plate number",
+      "default": null,
+      "validation": "Maximum length 10"
+    },
+    {
+      "name": "--plate-jurisdiction-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Plate jurisdiction code",
+      "default": null,
+      "validation": "Must be one of Tractor::PLATE_JURISDICTIONS"
+    },
+    {
+      "name": "--vin",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Vehicle identification number",
+      "default": null,
+      "validation": "Length must be 17"
+    },
+    {
+      "name": "--apportioned",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Apportioned status (true/false)",
+      "default": null,
+      "validation": "Allowed values: true or false"
+    },
+    {
+      "name": "--in-service",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "In service status (true/false)",
+      "default": null,
+      "validation": "Allowed values: true or false"
+    },
+    {
+      "name": "--intransit-heat",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Intransit heat (true/false)",
+      "default": null,
+      "validation": "Allowed values: true or false"
+    },
+    {
+      "name": "--curb-weight-lbs",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Curb weight in pounds",
+      "default": null,
+      "validation": "Must be greater than 0"
+    },
+    {
+      "name": "--height-inches",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Height in inches",
+      "default": null,
+      "validation": "Must be greater than 0"
+    },
+    {
+      "name": "--parking-address",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Parking address",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parking-address-place-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Google Place ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parking-address-plus-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Plus code",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--skip-parking-address-geocoding",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Skip geocoding (true/false)",
+      "default": null,
+      "validation": "Allowed values: true or false"
+    },
+    {
+      "name": "--brokered-tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Brokered tractor ID",
+      "default": null,
+      "validation": "Trucker brokerage must exist between the tractor trucker and the brokered tractor trucker"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tractors_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tractor_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/tractor.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tractor_resource.rb"
+    }
+  ]
+}

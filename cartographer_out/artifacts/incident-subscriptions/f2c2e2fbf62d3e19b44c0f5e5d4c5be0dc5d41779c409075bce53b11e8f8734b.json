@@ -1,0 +1,87 @@
+{
+  "id": "f2c2e2fbf62d3e19b44c0f5e5d4c5be0dc5d41779c409075bce53b11e8f8734b",
+  "full_path": "do incident-subscriptions update",
+  "description": "Update an incident subscription.",
+  "permissions": "Admin users can update any incident subscription. Non-admin users can update subscriptions where they are the user or where they are a practical member of the scoped organization; if an incident is scoped, membership in the incident organizations also permits update.",
+  "side_effects": null,
+  "validation_notes": "Requires the incident subscription ID argument. At least one field must be updated. --incident-type and --incident-id must be provided together. Only one of --broker, --customer, or --material-supplier may be specified. If an incident scope is provided, organization scope and kind must be omitted. User must be contactable when incident-scoped, must have the incident in scope, and cannot create duplicate scopes. Organization type must be Broker, Customer, or MaterialSupplier when organization is set.",
+  "flags": [
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Incident kind filter",
+      "default": null,
+      "validation": "Must be omitted when incident scope is provided."
+    },
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Contact method (email_address, mobile_number)",
+      "default": null,
+      "validation": "Allowed values: email_address, mobile_number."
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID",
+      "default": null,
+      "validation": "Only one of --broker, --customer, or --material-supplier may be specified."
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID",
+      "default": null,
+      "validation": "Only one of --broker, --customer, or --material-supplier may be specified."
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Material supplier ID",
+      "default": null,
+      "validation": "Only one of --broker, --customer, or --material-supplier may be specified."
+    },
+    {
+      "name": "--incident-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Incident type (e.g., safety-incidents)",
+      "default": null,
+      "validation": "Must be provided together with --incident-id."
+    },
+    {
+      "name": "--incident-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Incident ID",
+      "default": null,
+      "validation": "Must be provided together with --incident-type."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_subscriptions_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident_subscription.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_subscription_policy.rb"
+    }
+  ]
+}

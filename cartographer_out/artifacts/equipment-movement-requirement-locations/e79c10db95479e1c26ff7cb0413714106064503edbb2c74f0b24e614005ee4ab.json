@@ -1,0 +1,27 @@
+{
+  "description": "Show the full details of an equipment movement requirement location.",
+  "flags": [],
+  "full_path": "view equipment-movement-requirement-locations show",
+  "id": "e79c10db95479e1c26ff7cb0413714106064503edbb2c74f0b24e614005ee4ab",
+  "permissions": "Admins can view any location. Non-admin users can only view locations for brokers they are members of.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/equipment_movement_requirement_locations_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/equipment_movement_requirement_location_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/equipment_movement_requirement_location_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/equipment_movement_requirement_location.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The location ID argument is required."
+}

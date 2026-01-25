@@ -1,0 +1,33 @@
+{
+  "id": "99eb269c66b45966e7120b6fdbd60aa7aed7377657282fe7bdff231302670055",
+  "full_path": "do comments delete",
+  "description": "Delete a comment.",
+  "permissions": "Admins can delete any comment. Non-admins can delete only comments they created, and cannot delete admin-only comments.",
+  "side_effects": "Deletes the comment.",
+  "validation_notes": "--confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Required"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_comments_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/comment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/comment.rb"
+    }
+  ]
+}

@@ -197,20 +197,6 @@ func renderJobProductionPlanSafetyRisksSuggestionDetails(cmd *cobra.Command, det
 	return nil
 }
 
-func mapAttr(attrs map[string]any, key string) map[string]any {
-	if attrs == nil {
-		return nil
-	}
-	value, ok := attrs[key]
-	if !ok || value == nil {
-		return nil
-	}
-	if typed, ok := value.(map[string]any); ok {
-		return typed
-	}
-	return nil
-}
-
 func formatJSON(value any) string {
 	encoded, err := json.MarshalIndent(value, "", "  ")
 	if err != nil {

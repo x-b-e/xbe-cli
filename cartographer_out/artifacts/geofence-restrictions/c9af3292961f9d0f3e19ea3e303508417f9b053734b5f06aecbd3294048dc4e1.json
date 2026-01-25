@@ -1,0 +1,60 @@
+{
+  "id": "c9af3292961f9d0f3e19ea3e303508417f9b053734b5f06aecbd3294048dc4e1",
+  "full_path": "do geofence-restrictions create",
+  "description": "Create a geofence restriction.",
+  "permissions": "Admins can create geofence restrictions. Non-admins can create restrictions only for geofences owned by brokers they are members of.",
+  "side_effects": "Creates a geofence restriction and enqueues creation of restriction entities for the trucker trailers after commit.",
+  "validation_notes": "--geofence and --trucker are required. Geofence must have restriction_mode set to custom_truckers. Geofence and trucker must belong to the same broker. A restriction with the same geofence and trucker cannot already exist. Status is required by the model and defaults to active when omitted.",
+  "flags": [
+    {
+      "name": "--geofence",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Geofence ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Trucker ID (required).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Restriction status (active/inactive).",
+      "default": null,
+      "validation": "allowed values: active, inactive"
+    },
+    {
+      "name": "--max-seconds-between-notification",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Max seconds between notifications.",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_geofence_restrictions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/geofence_restriction.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/geofence_restriction_policy.rb"
+    }
+  ]
+}

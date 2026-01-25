@@ -1,0 +1,64 @@
+{
+  "description": "Update a project phase cost item quantity estimate.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Estimate JSON payload (use null to clear)",
+      "name": "--estimate",
+      "required": false,
+      "type": "string",
+      "validation": "Must be valid JSON and a JSON object; use null to clear."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Revenue item quantity basis",
+      "name": "--revenue-item-quantity-basis",
+      "required": false,
+      "type": "string",
+      "validation": "Must be greater than 0."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project estimate set ID",
+      "name": "--project-estimate-set",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-phase-cost-item-quantity-estimates update",
+  "id": "3fd93e03da83154680f3bc89dd9d936bdb68d53094982a2956b3f463fce8fd10",
+  "permissions": "User must be authorized to update the related project phase cost item (delegated to ProjectPhaseCostItem policy).",
+  "side_effects": "Updates attributes and/or relationships of a project phase cost item quantity estimate.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phase_cost_item_quantity_estimates_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_cost_item_quantity_estimate_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_phase_cost_item_quantity_estimate.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_cost_item_quantity_estimate_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one field must be specified for update. --revenue-item-quantity-basis must be greater than 0 when provided and cannot be empty. --estimate cannot be empty when provided; it must be valid JSON and a JSON object or null. --project-estimate-set cannot be empty when provided."
+}

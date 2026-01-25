@@ -1,0 +1,52 @@
+{
+  "id": "56600a4a2af2b8e9daca79bce7b9b1f3798edeb872012cc41d5346cee994bce0",
+  "full_path": "view material-transaction-preloads list",
+  "description": "List material transaction preloads with filtering and pagination.",
+  "permissions": "User can view preloads for material transactions they are authorized to access via the delegated MaterialTransaction policy scope.",
+  "side_effects": null,
+  "validation_notes": "Filters accept comma-separated IDs for --trailer and --material-transaction. Preload timestamp filters require ISO 8601 values.",
+  "flags": [
+    {
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trailer ID (comma-separated for multiple)",
+      "validation": "Comma-separated list accepted for multiple trailer IDs."
+    },
+    {
+      "name": "--material-transaction",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ID (comma-separated for multiple)",
+      "validation": "Comma-separated list accepted for multiple material transaction IDs."
+    },
+    {
+      "name": "--preloaded-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by preload timestamp on/after (ISO 8601)",
+      "validation": "Must be an ISO 8601 timestamp."
+    },
+    {
+      "name": "--preloaded-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by preload timestamp on/before (ISO 8601)",
+      "validation": "Must be an ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_preloads_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_preload_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_preload_policy.rb"
+    }
+  ]
+}

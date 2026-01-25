@@ -1,0 +1,29 @@
+{
+  "id": "ece2c1caf58d71fdf2435de560293f2644d77d22a1ad1ac4d64ce619a51f2201",
+  "full_path": "do pave-frame-actual-hours delete",
+  "description": "Delete a pave frame actual hour.",
+  "permissions": "User must be an admin (per policy).",
+  "side_effects": "Deletes a pave frame actual hour record.",
+  "validation_notes": "Requires <id> argument. --confirm flag is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_pave_frame_actual_hours_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/pave_frame_actual_hour_policy.rb"
+    }
+  ]
+}

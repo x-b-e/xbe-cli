@@ -1,0 +1,135 @@
+{
+  "id": "e8505756c556ec43406e58af8873e770f509d0512cdc4d2fd4a4edb17348ddc0",
+  "full_path": "view material-transaction-inspections list",
+  "description": "List material transaction inspections with filtering and pagination.",
+  "permissions": "Admins can list inspections. Non-admins can list inspections tied to material transactions that belong to job production plans in their JobProductionPlanInspectableSummary policy scope.",
+  "side_effects": null,
+  "validation_notes": "Status filter accepts: open, closed. Strategy filter accepts: delivery_site_personnel. Delivery site type accepts: JobSite, MaterialSite. Delivery site filter only applies when both --delivery-site-type and --delivery-site-id are provided.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ID"
+    },
+    {
+      "name": "--changed-by",
+      "required": false,
+      "type": "string",
+      "description": "Filter by changed-by user ID"
+    },
+    {
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (open,closed)",
+      "validation": "Allowed values: open, closed."
+    },
+    {
+      "name": "--strategy",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by strategy (delivery_site_personnel)",
+      "validation": "Allowed values: delivery_site_personnel."
+    },
+    {
+      "name": "--delivery-site-type",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by delivery site type (JobSite, MaterialSite)",
+      "validation": "Allowed values: JobSite, MaterialSite."
+    },
+    {
+      "name": "--delivery-site-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by delivery site ID"
+    },
+    {
+      "name": "--trip",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trip ID"
+    },
+    {
+      "name": "--trip-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by trip ID (join filter)"
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID"
+    },
+    {
+      "name": "--tender-job-schedule-shift-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID (join filter)"
+    },
+    {
+      "name": "--customer",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID"
+    },
+    {
+      "name": "--customer-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer ID (join filter)"
+    },
+    {
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID"
+    },
+    {
+      "name": "--broker-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (join filter)"
+    },
+    {
+      "name": "--material-supplier",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID"
+    },
+    {
+      "name": "--material-supplier-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by material supplier ID (join filter)"
+    },
+    {
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID"
+    },
+    {
+      "name": "--job-production-plan-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by job production plan ID (join filter)"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_transaction_inspections_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_inspection_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_inspection_policy.rb"
+    }
+  ]
+}

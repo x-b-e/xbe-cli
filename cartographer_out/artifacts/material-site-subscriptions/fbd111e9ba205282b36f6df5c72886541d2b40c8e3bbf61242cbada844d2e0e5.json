@@ -1,0 +1,37 @@
+{
+  "id": "fbd111e9ba205282b36f6df5c72886541d2b40c8e3bbf61242cbada844d2e0e5",
+  "full_path": "do material-site-subscriptions update",
+  "description": "Update a material site subscription.",
+  "permissions": "Allowed for admins. Allowed for material supplier managers (including broker members acting as managers) for the material supplier tied to the material site. Material supplier members can update only their own subscriptions.",
+  "side_effects": "Updates subscription attributes (contact method).",
+  "validation_notes": "Requires a material site subscription ID argument. At least one updatable attribute is required; the CLI errors if none are provided. contact-method, if provided, must be one of: email_address, mobile_number. contact-method must be available for the user or it will fall back to the user default. User and material-site relationships are create-only and cannot be changed after creation.",
+  "flags": [
+    {
+      "name": "--contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Contact method (email_address, mobile_number)",
+      "default": null,
+      "validation": "one of: email_address, mobile_number"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_site_subscriptions_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_subscription_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_subscription_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_site_subscription.rb"
+    }
+  ]
+}

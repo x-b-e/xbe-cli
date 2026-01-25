@@ -1,0 +1,78 @@
+{
+  "id": "46ca1ff6b9063bd3f85791f3a51f4202c5a3f42851e1d091eb30546d18f3e227",
+  "full_path": "view trucker-brokerages list",
+  "description": "List trucker brokerages",
+  "permissions": "Admins can list all trucker brokerages. Non-admins can list brokerages where they are members of the brokering trucker broker (trucker broker role) or where they are manager members of the brokering trucker.",
+  "side_effects": null,
+  "validation_notes": "When provided, --created-at-min, --created-at-max, --updated-at-min, and --updated-at-max must be ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by brokering trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--brokered-trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by brokered trucker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trucker_brokerages_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trucker_brokerage_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trucker_brokerage_resource.rb"
+    }
+  ]
+}

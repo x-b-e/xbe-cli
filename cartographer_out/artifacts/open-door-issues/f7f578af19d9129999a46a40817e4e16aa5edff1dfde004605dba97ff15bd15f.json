@@ -1,0 +1,80 @@
+{
+  "id": "f7f578af19d9129999a46a40817e4e16aa5edff1dfde004605dba97ff15bd15f",
+  "full_path": "view open-door-issues list",
+  "description": "List open door issues with filtering and pagination.",
+  "permissions": "Admins can view all open door issues. Non-admins can view issues for organizations where they are on an open door team membership or issues they reported.",
+  "side_effects": null,
+  "validation_notes": "--organization-id requires --organization-type or --organization. Organization filters use Type|ID format (e.g. Broker|123). created-at/updated-at filters expect ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--organization",
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g. Broker|123)",
+      "validation": "Type|ID format (e.g. Broker|123)."
+    },
+    {
+      "name": "--organization-type",
+      "required": false,
+      "type": "enum",
+      "description": "Filter by organization type (Broker, Customer, Trucker)",
+      "validation": "Allowed values: Broker, Customer, Trucker."
+    },
+    {
+      "name": "--organization-id",
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID (use with --organization-type)",
+      "validation": "Requires --organization-type or --organization."
+    },
+    {
+      "name": "--not-organization-type",
+      "required": false,
+      "type": "enum",
+      "description": "Exclude by organization type",
+      "validation": "Allowed values: Broker, Customer, Trucker."
+    },
+    {
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "validation": "ISO 8601 timestamp."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/open_door_issues_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/open_door_issue_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/open_door_issue_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "Show driver day shortfall calculation details.",
+  "flags": [],
+  "full_path": "view driver-day-shortfall-calculations show",
+  "id": "884320495d381ecc2f44907f1bbf26920bdeb02305e44c555b2ddea0ec54ce6d",
+  "permissions": null,
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/driver_day_shortfall_calculations_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/driver_day_shortfall_calculation_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Calculation ID argument is required and must be non-empty."
+}

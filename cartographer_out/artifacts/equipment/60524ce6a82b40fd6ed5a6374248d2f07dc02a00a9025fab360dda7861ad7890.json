@@ -1,0 +1,33 @@
+{
+  "id": "60524ce6a82b40fd6ed5a6374248d2f07dc02a00a9025fab360dda7861ad7890",
+  "full_path": "do equipment delete",
+  "description": "Delete equipment.",
+  "permissions": "User must be an admin, an organization manager, or a broker member for the equipment's organization/broker.",
+  "side_effects": "Deletes an equipment record.",
+  "validation_notes": "--confirm is required and must be set to true. Deletion is blocked if the equipment is associated with equipment movement stop requirements, equipment requirements, or equipment rentals.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "must be set to true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment.rb"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "01357b3df34cee070ad1ea890ab14b9ff70c5d566bc2e2c0a3d4286b9587ce1e",
+  "full_path": "do customer-certification-types create",
+  "description": "Create a customer certification type",
+  "permissions": "Allowed for admins or users authorized to update the related customer.",
+  "side_effects": "Creates a customer certification type.",
+  "validation_notes": "--customer and --certification-type are required and cannot be empty. The certification type must belong to the customer's broker.",
+  "flags": [
+    {
+      "name": "--certification-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Certification type ID (required)",
+      "default": null,
+      "validation": "Must be a non-empty certification type ID"
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Customer ID (required)",
+      "default": null,
+      "validation": "Must be a non-empty customer ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_certification_types_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_certification_type_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/customer_certification_type.rb"
+    }
+  ]
+}

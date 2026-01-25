@@ -1,0 +1,46 @@
+{
+  "id": "edc98a4b291fa3a162c2241387e45d3d1a85ce3da31107d66d31b1dee2e0b704",
+  "full_path": "do driver-day-adjustments create",
+  "description": "Create a driver day adjustment.",
+  "permissions": "Allowed when the adjustment has a trucker and the user is an admin or a practical manager for that trucker.",
+  "side_effects": "Creates a driver day adjustment and may enqueue a background job to refresh the generated expression and amount.",
+  "validation_notes": "--driver-day is required. Driver day must be managed and unique per adjustment. Driver must be present. If amount_explicit is not provided, plan_content and driver_day_description must be present. expression_generated must be a valid Dentaku expression when set.",
+  "flags": [
+    {
+      "name": "--driver-day",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Driver day ID (example: 123).",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--amount-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit adjustment amount (overrides generated amount; example: \"25.00\").",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_driver_day_adjustments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/driver_day_adjustment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/driver_day_adjustment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/driver_day_adjustment.rb"
+    }
+  ]
+}

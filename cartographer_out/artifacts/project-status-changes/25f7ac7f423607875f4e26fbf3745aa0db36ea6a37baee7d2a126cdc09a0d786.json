@@ -1,0 +1,35 @@
+{
+  "id": "25f7ac7f423607875f4e26fbf3745aa0db36ea6a37baee7d2a126cdc09a0d786",
+  "full_path": "view project-status-changes show",
+  "description": "Show the full details of a project status change.",
+  "permissions": "Admin users can view all project status changes. Non-admin users can only view status changes for projects within their Project policy scope.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (project status change ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_status_changes_show.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_status_changes.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_status_change_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/concerns/status_changes_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_status_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

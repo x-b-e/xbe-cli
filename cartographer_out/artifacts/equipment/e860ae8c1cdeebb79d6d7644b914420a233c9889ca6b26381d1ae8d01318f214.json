@@ -1,0 +1,168 @@
+{
+  "id": "e860ae8c1cdeebb79d6d7644b914420a233c9889ca6b26381d1ae8d01318f214",
+  "full_path": "do equipment update",
+  "description": "Update equipment.",
+  "permissions": "User must be an admin, an organization manager, or a broker member for the equipment's organization/broker.",
+  "side_effects": "Updates an existing equipment record.",
+  "validation_notes": "At least one attribute or relationship flag must be provided. year must be an integer between 1900 and 5 years in the future. weight-lbs must be greater than 0 if provided. color-hex must be a valid hex color. tractor and trailer IDs must be unique across equipment if set. Tractor and trailer must belong to the same broker as the equipment's organization.",
+  "flags": [
+    {
+      "name": "--nickname",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment nickname",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-active",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether equipment is active",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--mobilization-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Mobilization method",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--serial-number",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Serial number",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--manufacturer-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Manufacturer name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--model-description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Model description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--year",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Year of manufacture",
+      "default": null,
+      "validation": "integer between 1900 and 5 years in the future"
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-off-road",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether equipment is off-road",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--group-name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Group name",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--weight-lbs",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Weight in pounds",
+      "default": null,
+      "validation": "must be greater than 0"
+    },
+    {
+      "name": "--color-hex",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Color hex code",
+      "default": null,
+      "validation": "must be a valid hex color"
+    },
+    {
+      "name": "--is-available",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Whether equipment is available",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--equipment-classification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Equipment classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID to link",
+      "default": null,
+      "validation": "must be unique across equipment and belong to the same broker as the equipment's organization"
+    },
+    {
+      "name": "--trailer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Trailer ID to link",
+      "default": null,
+      "validation": "must be unique across equipment and belong to the same broker as the equipment's organization"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment.rb"
+    }
+  ]
+}

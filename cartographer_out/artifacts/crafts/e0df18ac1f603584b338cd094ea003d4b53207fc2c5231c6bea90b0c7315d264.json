@@ -1,0 +1,29 @@
+{
+  "id": "e0df18ac1f603584b338cd094ea003d4b53207fc2c5231c6bea90b0c7315d264",
+  "full_path": "do crafts delete",
+  "description": "Delete a craft",
+  "permissions": "Admins can delete crafts; non-admin users can delete crafts for brokers they are manager members of.",
+  "side_effects": "Deletes a craft.",
+  "validation_notes": "Requires craft ID argument. --confirm must be set to true to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": "Must be set to true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_crafts_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/craft_policy.rb"
+    }
+  ]
+}

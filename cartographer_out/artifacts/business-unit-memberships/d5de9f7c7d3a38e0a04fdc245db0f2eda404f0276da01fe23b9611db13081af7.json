@@ -1,0 +1,51 @@
+{
+  "id": "d5de9f7c7d3a38e0a04fdc245db0f2eda404f0276da01fe23b9611db13081af7",
+  "full_path": "view business-unit-memberships list",
+  "description": "List business unit memberships",
+  "permissions": "Admins can list all business unit memberships. Non-admins are limited to memberships for business units where they already have a membership.",
+  "side_effects": null,
+  "validation_notes": "Filters accept comma-separated IDs for business-unit and membership. kind filter must be one of: manager, technician, general.",
+  "flags": [
+    {
+      "name": "--business-unit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by business unit ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of business unit IDs."
+    },
+    {
+      "name": "--membership",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by membership ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated list of membership IDs."
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by kind (manager/technician/general)",
+      "default": null,
+      "validation": "One of: manager, technician, general."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/business_unit_memberships_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/business_unit_membership_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/business_unit_membership_policy.rb"
+    }
+  ]
+}

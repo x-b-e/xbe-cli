@@ -1,0 +1,81 @@
+{
+  "description": "Update a lineup scenario trucker",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Minimum assignments for the trucker.",
+      "name": "--minimum-assignment-count",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be an integer >= 0; when paired with --maximum-assignment-count, must be <= maximum-assignment-count."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum assignments for the trucker.",
+      "name": "--maximum-assignment-count",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be an integer >= 0; when paired with --minimum-assignment-count, must be >= minimum-assignment-count."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Maximum minutes to the start site.",
+      "name": "--maximum-minutes-to-start-site",
+      "required": false,
+      "type": "integer",
+      "validation": "Must be an integer >= 0."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "JSON array of material type constraints (snake_case keys).",
+      "name": "--material-type-constraints",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid JSON array. Example: [{\"material_type_base_qualified_name\":\"soil\",\"maximum_assignment_count\":2}]. Use [] to clear."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "JSON array of trailer classification constraints (snake_case keys).",
+      "name": "--trailer-classification-constraints",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid JSON array. Example: [{\"trailer_classification_id\":\"789\",\"minimum_assignment_count\":1,\"maximum_assignment_count\":2}]. Use [] to clear."
+    }
+  ],
+  "full_path": "do lineup-scenario-truckers update",
+  "id": "f0c582c0d1fd32b19fd6fa28aed77998da8bceee1786eb5118e8b067012e87d9",
+  "permissions": "Allowed if the user is an admin or a manager member of the lineup scenario's broker (LineupScenarioPolicy update?; delegated through LineupScenarioTruckerPolicy).",
+  "side_effects": "Updates a lineup scenario trucker record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_scenario_truckers_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_trucker_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/lineup_scenario_trucker.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trucker_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/delegated_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "At least one updatable attribute flag must be provided. minimum-assignment-count and maximum-assignment-count must be integers >= 0; when both are set, minimum-assignment-count must be <= maximum-assignment-count. maximum-minutes-to-start-site must be an integer >= 0. material-type-constraints and trailer-classification-constraints, when provided, must be valid JSON arrays (use [] to clear)."
+}

@@ -1,0 +1,96 @@
+{
+  "description": "List open door team memberships with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by organization (Type|ID, e.g. Broker|123)",
+      "name": "--organization",
+      "required": false,
+      "type": "string",
+      "validation": "Format Type|ID (e.g. Broker|123)."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by membership ID",
+      "name": "--membership",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "name": "--created-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "name": "--created-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "name": "--updated-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "name": "--updated-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of created-at (true/false)",
+      "name": "--is-created-at",
+      "required": false,
+      "type": "string",
+      "validation": "Value must be true or false."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of updated-at (true/false)",
+      "name": "--is-updated-at",
+      "required": false,
+      "type": "string",
+      "validation": "Value must be true or false."
+    }
+  ],
+  "full_path": "view open-door-team-memberships list",
+  "id": "b996ded9f9a99b3d9bd097aa79bd90b53ff1feb8203bf6017d6f03ded2b8a20f",
+  "permissions": "Admins can list all open door team memberships. Non-admins can list only memberships whose organization is a broker, trucker, or customer they can access via policy scope.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/open_door_team_memberships_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/open_door_team_membership_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/open_door_team_membership_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters follow API resource definitions; organization filter targets the polymorphic organization relationship and membership filter targets membership relationship."
+}

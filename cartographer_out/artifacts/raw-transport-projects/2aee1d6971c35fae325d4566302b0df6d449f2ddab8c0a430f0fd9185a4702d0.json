@@ -1,0 +1,23 @@
+{
+  "id": "2aee1d6971c35fae325d4566302b0df6d449f2ddab8c0a430f0fd9185a4702d0",
+  "full_path": "view raw-transport-projects show",
+  "description": "Show raw transport project details",
+  "permissions": "Admin users can view any raw transport project. Non-admin users can view only projects for brokers where they have an admin broker membership.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument (raw transport project ID).",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/raw_transport_projects_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/raw_transport_project_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/raw_transport_project_policy.rb"
+    }
+  ]
+}

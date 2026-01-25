@@ -1,0 +1,29 @@
+{
+  "id": "b912f8d055b7b15aa484f7bde98751302b9c1616efc9f1e9eb4f368d699e1314",
+  "full_path": "do incident-tag-incidents delete",
+  "description": "Delete an incident tag incident link",
+  "permissions": "User must be authorized to update the linked incident (incident policy update? used by IncidentTagIncidentPolicy).",
+  "side_effects": "Deletes the specified incident tag incident link.",
+  "validation_notes": "The incident tag incident ID argument is required. --confirm is required to delete.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required).",
+      "default": null,
+      "validation": "Must be set to true."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_incident_tag_incidents_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_tag_incident_policy.rb"
+    }
+  ]
+}

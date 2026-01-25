@@ -1,0 +1,116 @@
+{
+  "description": "List material purchase order releases with filtering and pagination.",
+  "flags": [
+    {
+      "description": "Filter by status (editing,approved,redeemed,closed)",
+      "name": "status",
+      "required": false,
+      "type": "enum",
+      "validation": "editing, approved, redeemed, closed"
+    },
+    {
+      "description": "Filter by release token",
+      "name": "release-token",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by purchase order ID (comma-separated for multiple)",
+      "name": "purchase-order",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by trucker ID (comma-separated for multiple)",
+      "name": "trucker",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by tender job schedule shift ID (comma-separated for multiple)",
+      "name": "tender-job-schedule-shift",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by job schedule shift ID (comma-separated for multiple)",
+      "name": "job-schedule-shift",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by quantity",
+      "name": "quantity",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "name": "broker",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by customer ID (comma-separated for multiple)",
+      "name": "customer",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by customer ID for eligibility",
+      "name": "valid-for-customer",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by assignment status (true/false)",
+      "name": "is-assigned",
+      "required": false,
+      "type": "string",
+      "validation": "boolean (true/false)"
+    },
+    {
+      "description": "Filter by material supplier ID (comma-separated for multiple)",
+      "name": "material-supplier",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "description": "Filter by active status (true/false)",
+      "name": "active",
+      "required": false,
+      "type": "string",
+      "validation": "strict boolean (true/false)"
+    },
+    {
+      "description": "Filter by not active status (true/false)",
+      "name": "not-active",
+      "required": false,
+      "type": "string",
+      "validation": "strict boolean (true/false)"
+    }
+  ],
+  "full_path": "view material-purchase-order-releases list",
+  "id": "ebdd99cb4b908f13d7284c83acd6fda07fde71e4dc1d734e697bf098bd3e480f",
+  "permissions": "User must be authorized to access related purchase orders via the MaterialPurchaseOrderRelease policy (delegated to purchase orders), which allows access for admins or members of the purchase order broker, customer, or material supplier organizations.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/material_purchase_order_releases_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/material_purchase_order_release_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_release_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Status filter must be one of editing, approved, redeemed, closed. is-assigned expects a boolean value (true/false). active and not-active require strict boolean values (true/false)."
+}

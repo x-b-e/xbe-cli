@@ -1,0 +1,33 @@
+{
+  "description": "Delete a customer tender offered buyer notification subscription.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion (required).",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do customer-tender-offered-buyer-notification-subscriptions delete",
+  "id": "57f2a9aaafc85b0a788c7931dcee6d714be075a1af55759f5b873ea7c9f1c211",
+  "permissions": "User must have a broker membership with the broker on the subscription.",
+  "side_effects": "Deletes the subscription and its associated detail record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_customer_tender_offered_buyer_notification_subscriptions_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_offered_buyer_notification_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/notification_subscriptions/customer_tender_offered_buyer_notification_subscription.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Subscription ID argument is required. --confirm is required to perform deletion."
+}

@@ -1,0 +1,195 @@
+{
+  "id": "2d08eabc4c689e8bf2951ed6de3016d6acfb4f066e5791ad3a06dc5a8d04f2b9",
+  "full_path": "do material-supplier-memberships create",
+  "description": "Create a new material supplier membership.",
+  "permissions": "Allowed for admins, broker members of the material supplier broker, or manager members of the material supplier. Creating an admin membership requires the requester to be practically admin of the organization.",
+  "side_effects": "Creates a material supplier membership linking a user to a material supplier.",
+  "validation_notes": "--user and --material-supplier are required. --can-see-rates-as-manager and --can-validate-profit-improvements must not be true for material supplier memberships. --is-default-job-production-plan-subscriber must be false. Server rejects can_see_rates_as_driver, is_time_card_auditor, is_equipment_rental_team_member, and is_rate_editor if provided via the API.",
+  "flags": [
+    {
+      "name": "--user",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--material-supplier",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Material supplier ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--kind",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Role: operations or manager",
+      "default": "operations",
+      "validation": "operations/manager"
+    },
+    {
+      "name": "--is-admin",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Admin status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--title",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Title within the organization",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--color-hex",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Display color (e.g. #FF0000)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--external-employee-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "External system employee ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-sort-order",
+      "aliases": null,
+      "required": false,
+      "type": "integer",
+      "description": "Manual sort order",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Membership start date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Membership end date (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601"
+    },
+    {
+      "name": "--drives-shift-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Shift type: any, day, or night",
+      "default": "any",
+      "validation": "any/day/night"
+    },
+    {
+      "name": "--project-office",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Project office ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--can-see-rates-as-manager",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can see rates as manager (true/false)",
+      "default": null,
+      "validation": "must be false"
+    },
+    {
+      "name": "--can-validate-profit-improvements",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Can validate profit improvements (true/false)",
+      "default": null,
+      "validation": "must be false"
+    },
+    {
+      "name": "--is-geofence-violation-team-member",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is geofence violation team member (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-unapproved-time-card-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is unapproved time card subscriber (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-default-job-production-plan-subscriber",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Is default job production plan subscriber (true/false; must be false)",
+      "default": null,
+      "validation": "must be false"
+    },
+    {
+      "name": "--enable-recap-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable recap notifications (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--enable-inventory-capacity-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Enable inventory capacity notifications (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_supplier_memberships_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_supplier_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/memberships/material_supplier_membership.rb"
+    }
+  ]
+}

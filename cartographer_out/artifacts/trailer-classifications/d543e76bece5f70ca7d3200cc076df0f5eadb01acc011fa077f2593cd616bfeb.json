@@ -1,0 +1,23 @@
+{
+  "id": "d543e76bece5f70ca7d3200cc076df0f5eadb01acc011fa077f2593cd616bfeb",
+  "full_path": "view trailer-classifications list",
+  "description": "List trailer classifications with pagination.",
+  "permissions": "Any user, including anonymous, can view trailer classifications; the policy allows show access and resolves scope for anonymous users to all records.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/trailer_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trailer_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/trailer_classification_resource.rb"
+    }
+  ]
+}

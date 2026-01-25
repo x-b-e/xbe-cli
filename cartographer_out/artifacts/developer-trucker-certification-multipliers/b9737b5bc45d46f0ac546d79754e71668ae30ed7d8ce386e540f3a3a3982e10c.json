@@ -1,0 +1,50 @@
+{
+  "description": "List developer trucker certification multipliers with filtering and pagination.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by developer trucker certification ID",
+      "name": "--developer-trucker-certification",
+      "required": false,
+      "type": "string",
+      "validation": "Example: 123"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": "Example: 456"
+    }
+  ],
+  "full_path": "view developer-trucker-certification-multipliers list",
+  "id": "b9737b5bc45d46f0ac546d79754e71668ae30ed7d8ce386e540f3a3a3982e10c",
+  "permissions": "Records are limited by DeveloperTruckerCertificationMultiplierPolicy scope, which delegates to the related developer trucker certification and its developer; admins and users with applicable broker/customer/developer memberships per DeveloperPolicy can view.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/developer_trucker_certification_multipliers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/developer_trucker_certification_multiplier_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_trucker_certification_multiplier_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_trucker_certification_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/developer_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

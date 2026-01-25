@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a job production plan inspectable summary.",
+  "flags": [],
+  "full_path": "view job-production-plan-inspectable-summaries show",
+  "id": "637fd43b80168943fdd3832d10863142f10df24ffa418df81e53af4fc154f7e5",
+  "permissions": "Available for users authorized by the JobProductionPlanInspectableSummaryPolicy scope: job production plans must be in approved or complete status, and access is granted to admins, or to non-admins when the plan is within their JobProductionPlan policy scope, when they are a manager member of the plan developer organization, or when they are an inspector on the plan and a member of that developer organization.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/job_production_plan_inspectable_summaries_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/job_production_plan_inspectable_summary_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_inspectable_summary_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The job production plan ID argument is required and cannot be blank."
+}

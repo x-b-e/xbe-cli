@@ -1,0 +1,19 @@
+{
+  "id": "387c7e764366744e3565f6b64f1b9e0f7bd4c5ba81a2e756294a0b14addce967",
+  "full_path": "view project-completions show",
+  "description": "Show the full details of a project completion.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires the project completion id argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/project_completions_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/project_completion_resource.rb"
+    }
+  ]
+}

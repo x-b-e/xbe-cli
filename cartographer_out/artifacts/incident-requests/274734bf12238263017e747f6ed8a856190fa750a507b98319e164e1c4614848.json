@@ -1,0 +1,23 @@
+{
+  "id": "274734bf12238263017e747f6ed8a856190fa750a507b98319e164e1c4614848",
+  "full_path": "view incident-requests show",
+  "description": "Show incident request details.",
+  "permissions": "Readable for users within the IncidentRequestPolicy scope, which is delegated to the TenderJobScheduleShift policy.",
+  "side_effects": null,
+  "validation_notes": "The incident request ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/incident_requests_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_request_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_request_resource.rb"
+    }
+  ]
+}

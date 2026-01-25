@@ -1,0 +1,29 @@
+{
+  "id": "b664347e9214c2de5cb2235b2afb5a6dfb8291495ba99e924838865c07b4025d",
+  "full_path": "do project-truckers delete",
+  "description": "Delete a project trucker",
+  "permissions": "User must be an admin or a manager member of the broker that owns the project.",
+  "side_effects": "Deletes the project trucker record.",
+  "validation_notes": "The project trucker ID argument is required. --confirm must be true to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": "false",
+      "validation": "Must be true to delete."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_truckers_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_trucker_policy.rb"
+    }
+  ]
+}

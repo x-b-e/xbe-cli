@@ -1,0 +1,51 @@
+{
+  "description": "List tag categories.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name (partial match)",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": "Partial match, case-insensitive."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by slug",
+      "name": "--slug",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by entity type (e.g., PredictionSubject)",
+      "name": "--can-apply-to",
+      "required": false,
+      "type": "string",
+      "validation": "May be a single type or a comma-separated list; matches categories that can apply to any specified type."
+    }
+  ],
+  "full_path": "view tag-categories list",
+  "id": "4f448b855c6558947f6abf06428c17b5565c87dda3c5a3b46370c5d1ff0c0d8d",
+  "permissions": "Authenticated users can list tag categories; non-admin users only see categories that include tags they can access.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/tag_categories_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/tag_category_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tag_category_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Filters: name uses partial, case-insensitive match. can-apply-to accepts a single type or a comma-separated list and returns categories that can apply to any of the specified types."
+}

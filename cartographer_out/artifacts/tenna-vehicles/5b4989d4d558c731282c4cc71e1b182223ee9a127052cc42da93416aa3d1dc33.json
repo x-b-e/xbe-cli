@@ -1,0 +1,23 @@
+{
+  "id": "5b4989d4d558c731282c4cc71e1b182223ee9a127052cc42da93416aa3d1dc33",
+  "full_path": "view tenna-vehicles show",
+  "description": "Show the full details of a Tenna vehicle.",
+  "permissions": "Admin users can view Tenna vehicles. Non-admin users can view vehicles only if they are in scope through broker membership visibility.",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument for the Tenna vehicle ID; it must be a non-empty value.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/tenna_vehicles_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/tenna_vehicle_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+    }
+  ]
+}

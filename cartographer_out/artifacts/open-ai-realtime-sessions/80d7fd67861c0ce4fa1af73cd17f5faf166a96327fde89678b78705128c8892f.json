@@ -1,0 +1,23 @@
+{
+  "description": "Show the full details of a specific OpenAI realtime session.",
+  "flags": [],
+  "full_path": "view open-ai-realtime-sessions show",
+  "id": "80d7fd67861c0ce4fa1af73cd17f5faf166a96327fde89678b78705128c8892f",
+  "permissions": "Admin users only.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/open_ai_realtime_sessions_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/open_ai_realtime_session_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/open_ai_realtime_session_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The session ID argument is required and must be non-empty."
+}

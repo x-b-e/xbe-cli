@@ -1,0 +1,82 @@
+{
+  "id": "7c6567ffec113d5272925d24cfc70c32af6bfe6e92d7f4d1231e414a117b0689",
+  "full_path": "do comments create",
+  "description": "Create a new comment on a resource.",
+  "permissions": "Admins can create comments and can set admin-only. Non-admins can create comments only if they can view the commentable resource and the comment is not admin-only.",
+  "side_effects": "May send notifications depending on commentable type unless do-not-notify is set; may update related records (e.g., touch some commentables) and generate recaps/knowledge-base answers for prediction-related commentables.",
+  "validation_notes": "--body, --commentable-type, and --commentable-id are required. Body must be present. Commentable must be a commentable model. When commenting on a driver day (TruckerShiftSet), the commentable must have a driver set. Non-admins cannot set is-admin-only.",
+  "flags": [
+    {
+      "name": "--body",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Comment body text (required)",
+      "default": null,
+      "validation": "Required"
+    },
+    {
+      "name": "--commentable-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Type of resource to comment on (required, e.g., projects, truckers)",
+      "default": null,
+      "validation": "Required"
+    },
+    {
+      "name": "--commentable-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "ID of resource to comment on (required)",
+      "default": null,
+      "validation": "Required"
+    },
+    {
+      "name": "--do-not-notify",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Do not send notifications",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--include-in-recap",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Include in recap",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-admin-only",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark as admin-only comment",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_comments_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/comment_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/comment_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/comment.rb"
+    }
+  ]
+}

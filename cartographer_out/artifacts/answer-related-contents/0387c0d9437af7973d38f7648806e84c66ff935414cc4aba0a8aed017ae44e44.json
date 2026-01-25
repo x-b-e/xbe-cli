@@ -1,0 +1,33 @@
+{
+  "id": "0387c0d9437af7973d38f7648806e84c66ff935414cc4aba0a8aed017ae44e44",
+  "full_path": "do answer-related-contents delete",
+  "description": "Delete an answer related content link.",
+  "permissions": "Only admin users can delete answer related content links (user.is_admin?).",
+  "side_effects": "Deletes an answer_related_content link.",
+  "validation_notes": "Requires an <id> argument. --confirm is required and must be true to proceed.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_answer_related_contents_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/answer_related_content_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

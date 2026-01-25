@@ -1,0 +1,33 @@
+{
+  "id": "d5380c79e0d10ad7697b0ab5f06b8ab593cc0c3bb49873d10d04e9a6bfab19a6",
+  "full_path": "do prediction-agents update",
+  "description": "Update a prediction agent",
+  "permissions": "Admins can update prediction agents; non-admins can update if they have membership on the prediction subject.",
+  "side_effects": "Updating custom instructions can enqueue analysis generation and may create or update an associated prediction.",
+  "validation_notes": "Prediction agent ID argument is required. At least one updatable field must be provided (currently --custom-instructions). Updating custom instructions is rejected if a previous custom instruction request is already in progress.",
+  "flags": [
+    {
+      "name": "--custom-instructions",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Custom instructions to guide the agent",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_agents_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_agent.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_agent_policy.rb"
+    }
+  ]
+}

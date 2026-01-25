@@ -1,0 +1,50 @@
+{
+  "description": "List lineup scenario truckers with filtering and pagination",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by lineup scenario ID. Example: --lineup-scenario 123.",
+      "name": "--lineup-scenario",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by trucker ID. Example: --trucker 456.",
+      "name": "--trucker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view lineup-scenario-truckers list",
+  "id": "b48c35416eaf694a5a3fe477094fc211c8c261220512a25c273d811597fc2126",
+  "permissions": "Allowed if the user can access lineup scenarios within the LineupScenario policy scope (admin users, or users who are members of the broker that owns the lineup scenario).",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/lineup_scenario_truckers_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/lineup_scenario_trucker_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_trucker_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/concerns/delegated_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": null
+}

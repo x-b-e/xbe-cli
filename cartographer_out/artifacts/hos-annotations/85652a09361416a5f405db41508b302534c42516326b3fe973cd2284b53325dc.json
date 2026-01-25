@@ -1,0 +1,91 @@
+{
+  "id": "85652a09361416a5f405db41508b302534c42516326b3fe973cd2284b53325dc",
+  "full_path": "view hos-annotations list",
+  "description": "List HOS annotations.",
+  "permissions": "Admins can list all HOS annotations; non-admin users can list annotations for brokers they are allowed to see (via membership visibility).",
+  "side_effects": null,
+  "validation_notes": "created-at-min, created-at-max, updated-at-min, and updated-at-max must be ISO 8601 timestamps when provided.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--hos-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by HOS day ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--hos-event",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by HOS event ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/hos_annotations_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/hos_annotation_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/hos_annotation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/controllers/v1/hos_annotations_controller.rb"
+    }
+  ]
+}

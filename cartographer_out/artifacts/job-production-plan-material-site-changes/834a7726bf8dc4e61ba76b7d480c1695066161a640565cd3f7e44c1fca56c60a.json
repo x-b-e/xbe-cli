@@ -1,0 +1,82 @@
+{
+  "id": "834a7726bf8dc4e61ba76b7d480c1695066161a640565cd3f7e44c1fca56c60a",
+  "full_path": "do job-production-plan-material-site-changes create",
+  "description": "Create a job production plan material site change.",
+  "permissions": "User must be authorized to update the associated job production plan.",
+  "side_effects": "Creates a material site change and updates related job production plan data: may change plan and job start sites, add the new material site to the plan, create job schedule shift start-site changes, move or merge job production plan material types (and related QC requirements), remove old plan material sites and types when safe, and update plan segments to the new material site or material type.",
+  "validation_notes": "--job-production-plan, --old-material-site, and --new-material-site are required. --new-material-mix-design requires --new-material-type. The old material site must be part of the job production plan. Old and new material sites must be different and belong to the plan broker. Material type swaps are optional but old and new material types must be different when both are set. When provided, old material type must already be on the job production plan. Old material site cannot be swapped if it is related to trips taken by tender job schedule shifts. Old material type cannot be swapped if related material transactions exist. Material types on the old material site must be valid for the new material site unless a new material type is supplied; when a new material type is supplied it must be valid for the new material site. New material mix design must be valid for the new material type.",
+  "flags": [
+    {
+      "name": "--job-production-plan",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Job production plan ID (required). Example: 123.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--old-material-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Old material site ID (required). Example: 456.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--new-material-site",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "New material site ID (required). Example: 789.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--old-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Old material type ID to swap (optional). Example: 111.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--new-material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New material type ID (optional). Example: 222.",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--new-material-mix-design",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "New material mix design ID (optional; requires --new-material-type).",
+      "default": null,
+      "validation": "Requires --new-material-type"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_job_production_plan_material_site_changes_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/job_production_plan_material_site_change.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/job_production_plan_material_site_change_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/job_production_plan_material_site_change_resource.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "7c59ea53403be6a915f31d981be730464c4ca2b8df7b25bca966f43b8c7c8fce",
+  "full_path": "do material-purchase-orders delete",
+  "description": "Delete a material purchase order.",
+  "permissions": "Admin users, users who are members of the broker on the purchase order, or customer managers for the associated customer can delete material purchase orders.",
+  "side_effects": "Deletes a material purchase order record.",
+  "validation_notes": "The material purchase order ID argument is required. --confirm is required. Only purchase orders in editing status can be deleted.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_purchase_orders_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_purchase_order.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_purchase_order_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "13e5436f9d6f80a9c703d5faf9a518782a20c1506134fcfe05a185ea2b585ab2",
+  "full_path": "do time-card-pre-approvals delete",
+  "description": "Delete a time card pre-approval.",
+  "permissions": "Allowed when a time card approval can be built for the pre-approval and the user is authorized to create that time card approval.",
+  "side_effects": "Deletes a time card pre-approval.",
+  "validation_notes": "Requires <id> argument. --confirm is required.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_time_card_pre_approvals_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/time_card_pre_approval_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/time_card_pre_approval.rb"
+    }
+  ]
+}

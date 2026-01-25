@@ -1,0 +1,45 @@
+{
+  "id": "5710c13e2ee857b34ae366b7f37c26c8abb318795a451c31ea13034b037593a1",
+  "full_path": "do retainer-periods delete",
+  "description": "Delete a retainer period.",
+  "permissions": "Allowed when the user can destroy the parent retainer. Retainer periods delegate destroy permission to the retainer policy: admins are allowed; broker retainers allow broker members of the buyer organization; customer retainers allow broker members of the seller organization or customer members of the buyer organization.",
+  "side_effects": "Deletes a retainer period.",
+  "validation_notes": "Requires the retainer period ID argument and the --confirm flag. Deletion is blocked unless the retainer is editing; otherwise it errors with a retainer status message.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_retainer_periods_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer_period.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/retainer_period_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/concerns/retainer_child_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/broker_retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_retainer_policy.rb"
+    }
+  ]
+}

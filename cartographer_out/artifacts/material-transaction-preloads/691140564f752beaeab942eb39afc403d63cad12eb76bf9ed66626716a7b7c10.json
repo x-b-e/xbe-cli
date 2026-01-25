@@ -1,0 +1,42 @@
+{
+  "id": "691140564f752beaeab942eb39afc403d63cad12eb76bf9ed66626716a7b7c10",
+  "full_path": "do material-transaction-preloads create",
+  "description": "Create a material transaction preload.",
+  "permissions": "User can create if they are an admin or are authorized to create the related material transaction via the delegated MaterialTransaction policy.",
+  "side_effects": "Preloaded timestamp is derived from the material transaction's transaction time; creation queues background work to estimate preload minutes and may enqueue a shift assignment worker for certain integrated transactions.",
+  "validation_notes": "--material-transaction and --trailer are required. material_transaction_id must be unique. preloaded_at and preload_minutes are server-derived and read-only. Relationships to material_transaction and trailer are create-only.",
+  "flags": [
+    {
+      "name": "--material-transaction",
+      "required": true,
+      "type": "string",
+      "description": "Material transaction ID (required)",
+      "validation": "Must be a valid material transaction ID."
+    },
+    {
+      "name": "--trailer",
+      "required": true,
+      "type": "string",
+      "description": "Trailer ID (required)",
+      "validation": "Must be a valid trailer ID."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_transaction_preloads_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_transaction_preload_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_transaction_preload_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_transaction_preload.rb"
+    }
+  ]
+}

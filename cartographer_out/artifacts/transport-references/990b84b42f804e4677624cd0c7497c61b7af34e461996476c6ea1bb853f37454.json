@@ -1,0 +1,23 @@
+{
+  "id": "990b84b42f804e4677624cd0c7497c61b7af34e461996476c6ea1bb853f37454",
+  "full_path": "view transport-references show",
+  "description": "Show transport reference details.",
+  "permissions": "User must be authorized to view the transport reference via the subject policy; access delegates to the referenced subject.",
+  "side_effects": null,
+  "validation_notes": "Transport reference ID argument is required.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/transport_references_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/transport_reference_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/transport_reference_resource.rb"
+    }
+  ]
+}

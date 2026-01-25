@@ -16,7 +16,7 @@ func allocationDetailsValue(attrs map[string]any) any {
 	return value
 }
 
-func allocationDetailsCount(details any) int {
+func timeCardAllocationDetailsCount(details any) int {
 	switch typed := details.(type) {
 	case []any:
 		return len(typed)

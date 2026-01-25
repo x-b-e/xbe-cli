@@ -1,0 +1,104 @@
+{
+  "id": "9d051acc7499ed4b0d32c496303016a1bbf6ecfdcd9b85761b0f530df7df4950",
+  "full_path": "do customer-retainers update",
+  "description": "Update a customer retainer",
+  "permissions": "Admin users can update customer retainers. Non-admin users can update when they have a broker membership matching seller_id or a customer membership matching buyer_id.",
+  "side_effects": "Updates a customer retainer record; when status becomes active, the server schedules an expiration update job.",
+  "validation_notes": "At least one field must be provided; --customer and --broker cannot be empty when provided; status must be one of editing, active, terminated, expired, closed; terminated-on must be YYYY-MM-DD and must be present when status is terminated; terminated-on must be before the last retainer period end date; maximum-travel-minutes and billable-travel-minutes-per-travel-mile must be >= 0; status cannot be changed to editing from another status; status can only be expired when term_end_on is in the past; buyer must be a Customer and seller must be a Broker.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Status (editing, active, terminated, expired, closed)",
+      "default": null,
+      "validation": "editing, active, terminated, expired, closed"
+    },
+    {
+      "name": "--terminated-on",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Termination date (YYYY-MM-DD)",
+      "default": null,
+      "validation": "YYYY-MM-DD; required when status is terminated"
+    },
+    {
+      "name": "--maximum-expected-daily-hours",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum expected daily hours",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--maximum-travel-minutes",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Maximum travel minutes",
+      "default": null,
+      "validation": "must be >= 0"
+    },
+    {
+      "name": "--billable-travel-minutes-per-travel-mile",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Billable travel minutes per travel mile",
+      "default": null,
+      "validation": "must be >= 0"
+    },
+    {
+      "name": "--customer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer ID (buyer)",
+      "default": null,
+      "validation": "cannot be empty when provided"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Broker ID (seller)",
+      "default": null,
+      "validation": "cannot be empty when provided"
+    },
+    {
+      "name": "--file-attachment-ids",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "File attachment IDs (comma-separated or repeated)",
+      "default": null,
+      "validation": "comma-separated or repeated"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_retainers_update.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_customer_retainers.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_retainer_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainers/customer_retainer.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/retainer.rb"
+    }
+  ]
+}

@@ -239,20 +239,6 @@ func parseTruckerInvoicePaymentLineItems(attrs map[string]any) []truckerInvoiceP
 	return results
 }
 
-func stringFromAny(value any) string {
-	if value == nil {
-		return ""
-	}
-	switch typed := value.(type) {
-	case string:
-		return typed
-	case fmt.Stringer:
-		return typed.String()
-	default:
-		return fmt.Sprintf("%v", typed)
-	}
-}
-
 func renderTruckerInvoicePaymentDetails(cmd *cobra.Command, details truckerInvoicePaymentDetails) error {
 	out := cmd.OutOrStdout()
 

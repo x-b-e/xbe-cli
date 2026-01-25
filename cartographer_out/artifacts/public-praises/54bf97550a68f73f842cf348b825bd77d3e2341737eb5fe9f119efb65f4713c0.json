@@ -1,0 +1,87 @@
+{
+  "id": "54bf97550a68f73f842cf348b825bd77d3e2341737eb5fe9f119efb65f4713c0",
+  "full_path": "do public-praises create",
+  "description": "Create a new public praise.",
+  "permissions": "User can create if they are a manager/admin of the organization or they are the given-by user.",
+  "side_effects": "Creates a public praise and enqueues a Slack notification; received-by is added to recipients.",
+  "validation_notes": "--description, --given-by, --received-by, --organization-type, and --organization-id are required. --recipient-ids and --culture-value-ids expect comma-separated lists of IDs. Organization type must be one of Broker, Customer, Trucker. The given-by user must practically have a membership with the organization. The broker must match the organization.",
+  "flags": [
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Description of the praise (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--given-by",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID who is giving the praise (required)",
+      "default": null,
+      "validation": "Must practically have a membership with the organization"
+    },
+    {
+      "name": "--received-by",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User ID who is receiving the praise (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization type (required)",
+      "default": null,
+      "validation": "Permitted types: Broker, Customer, Trucker"
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Organization ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--recipient-ids",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comma-separated list of additional recipient user IDs",
+      "default": null,
+      "validation": "Comma-separated list of IDs"
+    },
+    {
+      "name": "--culture-value-ids",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Comma-separated list of culture value IDs",
+      "default": null,
+      "validation": "Comma-separated list of IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_public_praises_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/public_praise.rb"
+    }
+  ]
+}

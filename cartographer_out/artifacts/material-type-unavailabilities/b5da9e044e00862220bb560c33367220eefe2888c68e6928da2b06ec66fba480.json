@@ -1,0 +1,73 @@
+{
+  "id": "b5da9e044e00862220bb560c33367220eefe2888c68e6928da2b06ec66fba480",
+  "full_path": "view material-type-unavailabilities list",
+  "description": "List material type unavailabilities.",
+  "permissions": "Allowed for users who can access the related material types under MaterialTypePolicy scope (delegated via material_type relationship).",
+  "side_effects": null,
+  "validation_notes": "Filters accept material type ID and start/end timestamp bounds. Timestamp filters use ISO 8601 date-time values (example: 2025-01-01T00:00:00Z).",
+  "flags": [
+    {
+      "name": "--material-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material type ID",
+      "default": null,
+      "validation": "Example: 123"
+    },
+    {
+      "name": "--start-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum start time",
+      "default": null,
+      "validation": "ISO 8601 timestamp. Example: 2025-01-01T00:00:00Z"
+    },
+    {
+      "name": "--start-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum start time",
+      "default": null,
+      "validation": "ISO 8601 timestamp. Example: 2025-02-01T00:00:00Z"
+    },
+    {
+      "name": "--end-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum end time",
+      "default": null,
+      "validation": "ISO 8601 timestamp. Example: 2025-01-01T00:00:00Z"
+    },
+    {
+      "name": "--end-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum end time",
+      "default": null,
+      "validation": "ISO 8601 timestamp. Example: 2025-02-01T00:00:00Z"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_type_unavailabilities_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_type_unavailability_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_unavailability_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_policy.rb"
+    }
+  ]
+}

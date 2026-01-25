@@ -1,0 +1,90 @@
+{
+  "description": "Create a prediction subject gap portion.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Prediction subject gap ID (required)",
+      "name": "--prediction-subject-gap",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Portion name (required)",
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Portion amount (required)",
+      "name": "--amount",
+      "required": true,
+      "type": "string",
+      "validation": "numeric(15,2)"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Portion status (draft/approved) (required)",
+      "name": "--status",
+      "required": true,
+      "type": "enum",
+      "validation": "draft|approved"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Portion description",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Creator user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do prediction-subject-gap-portions create",
+  "id": "ffec2885833f93bf1e5a115f9be183bf58f23923db29571a5c49ce85fb8f215f",
+  "permissions": "Allowed for admins and prediction subject members.",
+  "side_effects": "Creates a prediction subject gap portion, triggers prediction subject recap generation, and updates the prediction subject gap explained amount cache for approved portions.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_prediction_subject_gap_portions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_gap_portion_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject_gap_portion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/prediction_subject_gap_portion_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/concerns/common_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "db/structure_split/tables/public.prediction_subject_gap_portions.sql",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires prediction-subject-gap, name, amount, and status. Status must be draft or approved. Amount is stored as numeric(15,2). created-by is set to the current user when omitted."
+}

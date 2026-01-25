@@ -1,0 +1,244 @@
+{
+  "id": "6a4f6506f1e685a26009c12e09f273b27ae791ffb5a61b6141f159d26c7579a4",
+  "full_path": "do users create",
+  "description": "Create a new user.",
+  "permissions": "Creating a non-admin user without a Slack ID is allowed. Creating an admin user or setting a Slack ID requires an authenticated admin.",
+  "side_effects": "Creates a user record.",
+  "validation_notes": "--name and --email are required. Email addresses must be valid and unique (case-insensitive). Mobile numbers must be valid and unique when provided. When contact method is not required, email and mobile must be blank and default_contact_method must be absent; when required, either email or mobile must be present and default_contact_method must match an available contact method. default_contact_method is validated against available contact methods (email_address/mobile_number). is_available_for_question_assignment must be false unless the user is an admin. is_sales and is_customer_success must be false unless the user is an admin. reference_data must be a JSON object with scalar values; nested arrays/objects are rejected.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "User name (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--email",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Email address (required)",
+      "default": null,
+      "validation": "Must be a valid email address."
+    },
+    {
+      "name": "--mobile",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Mobile phone number",
+      "default": null,
+      "validation": "Must be a valid phone number."
+    },
+    {
+      "name": "--default-contact-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Default contact method (email, sms, push)",
+      "default": null,
+      "validation": "email, sms, or push (per CLI help)."
+    },
+    {
+      "name": "--is-suspended-from-driving",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Suspend from driving (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--dark-mode",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Dark mode preference",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-available-for-question",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Available for question assignment (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--slack-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Slack user ID (admin only)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-admin",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Admin status (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-potential-trucker-referrer",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Potential trucker referrer (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--opt-out-of-check-in-request-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Opt out of check-in notifications (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--opt-out-of-shift-starting-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Opt out of shift starting notifications (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--opt-out-of-pre-approval-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Opt out of pre-approval notifications (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-contact-method-required",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Contact method required (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--notify-when-gps-not-available",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notify when GPS not available (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--opt-out-of-time-card-approver-notifications",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Opt out of time card approver notifications (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--notification-preferences-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit notification preferences",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--explicit-time-zone-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Explicit time zone ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--is-generating-notification-posts-explicit",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Generating notification posts (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--reference-data",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference data (JSON string)",
+      "default": null,
+      "validation": "Must be valid JSON object."
+    },
+    {
+      "name": "--is-read-only-mode-enabled",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Read-only mode enabled (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-notifiable",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Notifiable (true/false)",
+      "default": null,
+      "validation": "true/false"
+    },
+    {
+      "name": "--is-sales",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Sales role (true/false, admin only)",
+      "default": null,
+      "validation": "true/false; admin only"
+    },
+    {
+      "name": "--is-customer-success",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Customer success role (true/false, admin only)",
+      "default": null,
+      "validation": "true/false; admin only"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_users_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/user_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/user.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/user_resource.rb"
+    }
+  ]
+}

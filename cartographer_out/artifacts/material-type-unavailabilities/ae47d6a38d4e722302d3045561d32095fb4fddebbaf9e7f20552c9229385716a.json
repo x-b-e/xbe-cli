@@ -1,0 +1,59 @@
+{
+  "id": "ae47d6a38d4e722302d3045561d32095fb4fddebbaf9e7f20552c9229385716a",
+  "full_path": "do material-type-unavailabilities update",
+  "description": "Update a material type unavailability.",
+  "permissions": "Allowed for admins, or users who are managers of the material supplier or members of the broker for the related material type (delegated via material_type relationship).",
+  "side_effects": "Updates a material type unavailability record.",
+  "validation_notes": "Requires material type unavailability ID argument. At least one attribute flag must be provided. start-at/end-at are ISO 8601 timestamps (example: 2025-01-02T00:00:00Z). If start-at is provided, end-at must be greater than start-at. Unavailability cannot overlap existing unavailabilities for the material type when time bounds change. Material type cannot have overlapping job production plans in the specified window. At least one of start-at or end-at must be present on the record.",
+  "flags": [
+    {
+      "name": "--start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp. Example: 2025-01-02T00:00:00Z"
+    },
+    {
+      "name": "--end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp. Example: 2025-01-03T00:00:00Z"
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": "Example: Updated description"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_material_type_unavailabilities_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_type_unavailability_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/material_type_unavailability.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_unavailability_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_type_policy.rb"
+    }
+  ]
+}

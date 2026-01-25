@@ -1,0 +1,33 @@
+{
+  "id": "e39df46f0408a417246459e256184eb03a900dedf49274eee40921383c2c7f0b",
+  "full_path": "do service-type-unit-of-measure-quantities delete",
+  "description": "Delete a service type unit of measure quantity.",
+  "permissions": "User must be an admin or have update permission on the quantified resource (Pundit policy for the quantifies record), and the quantity must be user_can_mutate.",
+  "side_effects": "Deletes the service type unit of measure quantity record.",
+  "validation_notes": "The <id> argument is required. --confirm is required. Deletion is only allowed when the quantified resource permits it.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": null,
+      "validation": "Required to perform deletion."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_service_type_unit_of_measure_quantities_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/service_type_unit_of_measure_quantity_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/service_type_unit_of_measure_quantity.rb"
+    }
+  ]
+}

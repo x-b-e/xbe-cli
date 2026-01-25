@@ -1,0 +1,19 @@
+{
+  "id": "62838336ce34a7ee54f002727ea256181503c7fa528c9cc0b8ed4f351260f849",
+  "full_path": "view external-identifications list",
+  "description": "List external identifications with pagination.",
+  "permissions": "Allowed for users who can update the identified record; scope is limited to external identifications whose identifies are within the user policy scope.",
+  "side_effects": null,
+  "validation_notes": null,
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/external_identifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/external_identification_policy.rb"
+    }
+  ]
+}

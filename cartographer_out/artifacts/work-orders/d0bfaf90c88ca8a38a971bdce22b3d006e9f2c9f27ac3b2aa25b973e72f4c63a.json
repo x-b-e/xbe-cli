@@ -1,0 +1,118 @@
+{
+  "id": "d0bfaf90c88ca8a38a971bdce22b3d006e9f2c9f27ac3b2aa25b973e72f4c63a",
+  "full_path": "view work-orders list",
+  "description": "List work orders",
+  "permissions": "Admin users can list all work orders. Operations members with manager business unit membership can list work orders for their business units; manager members of a broker can list all work orders for their brokers. General business unit members can list work orders only when they have assigned maintenance requirements on the work order. Technician business unit members can list work orders they are assigned to or that have assigned maintenance requirements for them. Operations members (non-manager) can list work orders for their business units and child business units.",
+  "side_effects": null,
+  "validation_notes": "priority must be one of: urgent, high, normal, low. status must be one of: editing, ready_for_work, in_progress, on_hold, completed. safety-tag-status must be one of: red, yellow. due-date-min and due-date-max must be YYYY-MM-DD dates.",
+  "flags": [
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--responsible-party",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by responsible party (business unit) ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-site",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by service site ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--custom-work-order-status",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by custom work order status ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--service-code",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by service code ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--priority",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by priority",
+      "default": null,
+      "validation": "One of: urgent, high, normal, low."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status",
+      "default": null,
+      "validation": "One of: editing, ready_for_work, in_progress, on_hold, completed."
+    },
+    {
+      "name": "--safety-tag-status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by safety tag status",
+      "default": null,
+      "validation": "One of: red, yellow."
+    },
+    {
+      "name": "--due-date-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by minimum due date",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    },
+    {
+      "name": "--due-date-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by maximum due date",
+      "default": null,
+      "validation": "Format: YYYY-MM-DD."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/work_orders_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/work_order_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/work_order_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/work_order.rb"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "3184a838cb0c925b75ab59abfe4d5d9af7dab7babe88424fa2dcbd47cb04802f",
+  "full_path": "view public-praises list",
+  "description": "List public praises (employee recognition).",
+  "permissions": "Authenticated users within the PublicPraise policy scope; non-admin users are limited to public praises for permitted organization types in their policy scope.",
+  "side_effects": null,
+  "validation_notes": "Organization filter requires both --organization-type and --organization-id. --culture-value-ids expects a comma-separated list of IDs. Organization type must be one of Broker, Customer, Trucker.",
+  "flags": [
+    {
+      "name": "--organization-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization type",
+      "default": null,
+      "validation": "Permitted types: Broker, Customer, Trucker"
+    },
+    {
+      "name": "--organization-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--given-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by user ID who gave the praise",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--recipient",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by recipient user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--received-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by received-by user ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--culture-value-ids",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by culture value IDs (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated list of IDs"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/public_praises_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/public_praise_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/public_praise.rb"
+    }
+  ]
+}

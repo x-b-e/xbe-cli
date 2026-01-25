@@ -1,0 +1,154 @@
+{
+  "id": "7a7e27ba5ead16fd169af19cdb0741a9621ee9c543fce3420b23aece5213487f",
+  "full_path": "do safety-incidents update",
+  "description": "Update a safety incident",
+  "permissions": "Admins can update. Non-admins can update only if authorized for the subject: JobProductionPlan (create?), TenderJobScheduleShift (create? on its job production plan), Customer/Trucker/Developer/Contractor/MaterialSupplier/MaterialSite (update?), Broker (practically a member), ProjectTransportPlan (update?). If changing subject, user must also be authorized for the previous subject.",
+  "side_effects": "Updates the safety incident and may update related unit-of-measure quantities. Can trigger assignment/status change notifications, subscription updates, headline/tag updates, and may propagate end_at to child incidents.",
+  "validation_notes": "Requires <id> argument and at least one update flag. --subject-type and --subject-id must be used together. --status must be one of: open, closed, abandoned, processing, parked. --kind must be one of: near_miss, good_catch, damage, overloading, work_zone_intrusion. --severity must be one of: low, medium, high, catastrophic. --natures accepts values from: personal, property (unique). --end-at must be greater than --start-at; when status is closed, end-at is required. --net-impact-tons must be numeric and >= 0 and only applies when kind is overloading. --new-type must be an Incident subclass name. Broker cannot be changed on update. Server validates relationship consistency (e.g., tender job schedule shift and equipment must align with job production plan; assignee must be valid for the customer; tender job schedule shift must be a broker shift; incidents may be blocked for unmanaged shifts).",
+  "flags": [
+    {
+      "name": "--subject-type",
+      "required": false,
+      "type": "string",
+      "description": "Subject type (JSON:API type, must be paired with --subject-id)",
+      "validation": "must be used with --subject-id"
+    },
+    {
+      "name": "--subject-id",
+      "required": false,
+      "type": "string",
+      "description": "Subject ID (must be paired with --subject-type)",
+      "validation": "must be used with --subject-type"
+    },
+    {
+      "name": "--start-at",
+      "required": false,
+      "type": "string",
+      "description": "Start timestamp (ISO 8601)",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--end-at",
+      "required": false,
+      "type": "string",
+      "description": "End timestamp (ISO 8601)",
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "description": "Status (open, closed, abandoned, processing, parked)",
+      "validation": "open|closed|abandoned|processing|parked"
+    },
+    {
+      "name": "--kind",
+      "required": false,
+      "type": "enum",
+      "description": "Kind (near_miss, good_catch, damage, overloading, work_zone_intrusion)",
+      "validation": "near_miss|good_catch|damage|overloading|work_zone_intrusion"
+    },
+    {
+      "name": "--severity",
+      "required": false,
+      "type": "enum",
+      "description": "Severity (low, medium, high, catastrophic)",
+      "validation": "low|medium|high|catastrophic"
+    },
+    {
+      "name": "--headline",
+      "required": false,
+      "type": "string",
+      "description": "Headline text"
+    },
+    {
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "description": "Description text"
+    },
+    {
+      "name": "--natures",
+      "required": false,
+      "type": "array",
+      "description": "Incident natures (comma-separated: personal,property)",
+      "validation": "personal|property"
+    },
+    {
+      "name": "--did-stop-work",
+      "required": false,
+      "type": "boolean",
+      "description": "Whether work stopped"
+    },
+    {
+      "name": "--net-impact-tons",
+      "required": false,
+      "type": "string",
+      "description": "Net impact tons (overloading only)",
+      "validation": "number >= 0"
+    },
+    {
+      "name": "--new-type",
+      "required": false,
+      "type": "string",
+      "description": "Change incident type (Incident subclass name, e.g., SafetyIncident)",
+      "validation": "Incident subclass name"
+    },
+    {
+      "name": "--parent",
+      "required": false,
+      "type": "string",
+      "description": "Parent incident ID"
+    },
+    {
+      "name": "--equipment",
+      "required": false,
+      "type": "string",
+      "description": "Equipment ID"
+    },
+    {
+      "name": "--job-production-plan",
+      "required": false,
+      "type": "string",
+      "description": "Job production plan ID"
+    },
+    {
+      "name": "--assignee",
+      "required": false,
+      "type": "string",
+      "description": "Assignee user ID"
+    },
+    {
+      "name": "--tender-job-schedule-shift",
+      "required": false,
+      "type": "string",
+      "description": "Tender job schedule shift ID"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_safety_incidents_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/incident_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/safety_incident_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incident.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/incidents/safety_incident.rb"
+    }
+  ]
+}

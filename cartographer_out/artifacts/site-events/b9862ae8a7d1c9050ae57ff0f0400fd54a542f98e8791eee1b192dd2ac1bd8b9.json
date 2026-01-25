@@ -1,0 +1,123 @@
+{
+  "id": "b9862ae8a7d1c9050ae57ff0f0400fd54a542f98e8791eee1b192dd2ac1bd8b9",
+  "full_path": "view site-events list",
+  "description": "List site events.",
+  "permissions": "User can list site events they are authorized to view per SiteEventPolicy scope: admins, developer members on the job production plan, job production plan inspectors, or users authorized via the related tender job schedule shift policy.",
+  "side_effects": null,
+  "validation_notes": "Filters `event-type` accept arrive_site,start_work,stop_work,depart_site,at_site. `event-at-min` and `event-at-max` expect ISO 8601 timestamps. Filters `has-shift`, `most-recent-by-shift`, and `most-recent-by-driver-day` require strict boolean values (true/false).",
+  "flags": [
+    {
+      "name": "--tender-job-schedule-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by tender job schedule shift ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--material-transaction",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by material transaction ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--trucker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by trucker ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--event-type",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by event type",
+      "default": "",
+      "validation": "One of: arrive_site, start_work, stop_work, depart_site, at_site."
+    },
+    {
+      "name": "--event-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by event-at on/after (ISO 8601)",
+      "default": "",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--event-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by event-at on/before (ISO 8601)",
+      "default": "",
+      "validation": "ISO 8601 timestamp."
+    },
+    {
+      "name": "--driver-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by driver day (trucker shift set) ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--has-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by whether event has a shift (true/false)",
+      "default": "",
+      "validation": "Strict boolean: true or false."
+    },
+    {
+      "name": "--most-recent-by-shift",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to most recent event per shift (true/false)",
+      "default": "",
+      "validation": "Strict boolean: true or false."
+    },
+    {
+      "name": "--most-recent-by-driver-day",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter to most recent event per driver day (true/false)",
+      "default": "",
+      "validation": "Strict boolean: true or false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/site_events_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/site_event_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/site_event_policy.rb"
+    }
+  ]
+}

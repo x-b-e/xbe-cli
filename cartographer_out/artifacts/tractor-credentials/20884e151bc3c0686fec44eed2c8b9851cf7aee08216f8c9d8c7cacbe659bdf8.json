@@ -1,0 +1,64 @@
+{
+  "description": "Create a new tractor credential",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tractor ID (required)",
+      "name": "--tractor",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Classification ID (required)",
+      "name": "--tractor-trailer-credential-classification",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Issue date (YYYY-MM-DD)",
+      "name": "--issued-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Expiration date (YYYY-MM-DD)",
+      "name": "--expires-on",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    }
+  ],
+  "full_path": "do tractor-credentials create",
+  "id": "20884e151bc3c0686fec44eed2c8b9851cf7aee08216f8c9d8c7cacbe659bdf8",
+  "permissions": "Admin users can create tractor credentials. Non-admin users can create a tractor credential only if they are a manager of the tractor's trucker or broker and the credential classification is within their policy scope.",
+  "side_effects": "Creates a tractor credential record linked to a tractor and a tractor trailer credential classification.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_tractor_credentials_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/tractor_credential_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/tractor_credential.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/tractor_credential_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Required flags: --tractor and --tractor-trailer-credential-classification. Date fields (--issued-on, --expires-on) expect YYYY-MM-DD. If both issued_on and expires_on are set, expires_on must be >= issued_on. Credential periods cannot overlap an existing credential for the same tractor and classification."
+}

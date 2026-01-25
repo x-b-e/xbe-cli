@@ -1,0 +1,91 @@
+{
+  "description": "Update a project revenue item.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Revenue item description (use empty to clear)",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "External developer revenue item ID (use empty to clear)",
+      "name": "--external-developer-revenue-item-id",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Developer quantity estimate (use empty to clear)",
+      "name": "--developer-quantity-estimate",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a number greater than or equal to 0 when provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Revenue classification ID",
+      "name": "--revenue-classification",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Unit of measure ID",
+      "name": "--unit-of-measure",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Quantity estimate ID (use empty to clear)",
+      "name": "--quantity-estimate",
+      "required": false,
+      "type": "string",
+      "validation": "When set, must reference a quantity estimate related to the project revenue item."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Price estimate ID (use empty to clear)",
+      "name": "--price-estimate",
+      "required": false,
+      "type": "string",
+      "validation": "When set, must reference a price estimate related to the project revenue item."
+    }
+  ],
+  "full_path": "do project-revenue-items update",
+  "id": "870c16a475e2c42fbfa5031ce07a5f685985833e3a7a80fe915b42962f552d58",
+  "permissions": "Update is allowed for admins or users who are manager members of the project broker.",
+  "side_effects": "Updates the specified project revenue item.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_revenue_items_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/resources/v1/project_revenue_item_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/policies/project_revenue_item_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "/Users/seandevine/Code/server/app/models/project_revenue_item.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The project revenue item ID argument is required. At least one updatable field must be provided. Project cannot be changed after creation. Developer quantity estimate must be a number greater than or equal to 0 when provided. Quantity estimate must reference a related quantity estimate, and price estimate must reference a related price estimate."
+}

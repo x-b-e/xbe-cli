@@ -1,0 +1,23 @@
+{
+  "description": "Show samsara vehicle details",
+  "flags": [],
+  "full_path": "view samsara-vehicles show",
+  "id": "d1e343e0d5a0234ab4a8c77eaca913a22db870f6b5fdc57cf4ba1d1cf0b0ea98",
+  "permissions": "Admins can view all samsara vehicles; non-admin users can view samsara vehicles for brokers they are members of.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/samsara_vehicles_show.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/samsara_vehicle_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required and must be a samsara vehicle ID."
+}

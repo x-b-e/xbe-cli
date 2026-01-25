@@ -1,0 +1,33 @@
+{
+  "description": "Delete a lineup scenario generator.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do lineup-scenario-generators delete",
+  "id": "78f8e8cf54ba6db99834d4d5d8c3b4117f34460e172e51c2727491bc2a6152ca",
+  "permissions": "User must be an admin or a member of the broker organization with manager role.",
+  "side_effects": "Deletes the lineup scenario generator and its dependent lineup scenarios.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_lineup_scenario_generators_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_generator_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/lineup_scenario_generator.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Requires <id> argument (lineup scenario generator ID). Requires --confirm flag."
+}

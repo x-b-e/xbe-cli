@@ -1,0 +1,33 @@
+{
+  "id": "84f2d2dfbfae3e8c57587589990d1492657d022dd4bf5e040b4828aeef93ec2f",
+  "full_path": "do equipment-movement-requirements delete",
+  "description": "Delete an equipment movement requirement.",
+  "permissions": "Admins can delete equipment movement requirements. Non-admin users can delete requirements only for brokers they are members of.",
+  "side_effects": "Deletes the equipment movement requirement.",
+  "validation_notes": "--confirm is required and must be true. Deletion is blocked when the requirement is related to a confirmed job production plan. Deletion is blocked when stop requirements exist for the requirement.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": "Must be true"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_equipment_movement_requirements_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/equipment_movement_requirement.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/equipment_movement_requirement_policy.rb"
+    }
+  ]
+}

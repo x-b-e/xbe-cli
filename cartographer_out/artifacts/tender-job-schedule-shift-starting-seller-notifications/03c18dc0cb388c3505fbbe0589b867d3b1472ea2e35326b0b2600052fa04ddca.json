@@ -1,0 +1,37 @@
+{
+  "id": "03c18dc0cb388c3505fbbe0589b867d3b1472ea2e35326b0b2600052fa04ddca",
+  "full_path": "do tender-job-schedule-shift-starting-seller-notifications update",
+  "description": "Update a tender job schedule shift starting seller notification.",
+  "permissions": "Update is permitted only when the current user matches the notification user (user == record.user).",
+  "side_effects": "Updates the notification read status.",
+  "validation_notes": "The notification ID argument is required; only the read field is updatable; at least one field must be provided; read must be true/false.",
+  "flags": [
+    {
+      "name": "--read",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark notification as read/unread (true/false). Examples: --read, --read=false",
+      "default": "false",
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_tender_job_schedule_shift_starting_seller_notifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_starting_seller_notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    }
+  ]
+}

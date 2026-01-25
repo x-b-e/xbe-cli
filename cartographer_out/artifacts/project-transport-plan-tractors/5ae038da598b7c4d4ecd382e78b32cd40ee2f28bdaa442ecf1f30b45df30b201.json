@@ -1,0 +1,105 @@
+{
+  "id": "5ae038da598b7c4d4ecd382e78b32cd40ee2f28bdaa442ecf1f30b45df30b201",
+  "full_path": "do project-transport-plan-tractors update",
+  "description": "Update a project transport plan tractor",
+  "permissions": "User must be authorized to update project transport plan tractors through the related project transport plan; permissions are delegated to the project transport plan policy via ProjectTransportPlanTractorPolicy.",
+  "side_effects": "Updates a project transport plan tractor assignment. Changing tractor assignments may trigger unassignment cleanup; changing actualizer window timestamps may purge app-generated event times and enqueue plan actualization.",
+  "validation_notes": "Requires a project transport plan tractor ID argument. At least one attribute or relationship flag must be provided. Status cannot be active without a tractor. Segment start and end must belong to the same project transport plan and start position must be <= end position. All segments in the range must have truckers, and the tractor (if provided) must belong to the same trucker as every segment in the range. Tractor assignments cannot overlap in the same plan. Actualizer window end must be >= start when both are set. A tractor can have only one open actualizer window and actualizer windows cannot overlap.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Assignment status (editing, active)",
+      "default": null,
+      "validation": "Allowed values: editing, active."
+    },
+    {
+      "name": "--automatically-adjust-overlapping-windows",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Auto-adjust overlapping windows",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--actualizer-window-start-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Actualizer window start timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "--actualizer-window-end-at",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Actualizer window end timestamp (ISO 8601)",
+      "default": null,
+      "validation": "Format: ISO 8601 timestamp."
+    },
+    {
+      "name": "--skip-assignment-rules-validation",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Skip assignment rules validation",
+      "default": "false",
+      "validation": null
+    },
+    {
+      "name": "--assignment-rule-override-reason",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reason for overriding assignment rules",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--segment-start",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Start segment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--segment-end",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "End segment ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--tractor",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Tractor ID",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_project_transport_plan_tractors_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/project_transport_plan_tractor.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/project_transport_plan_tractor_policy.rb"
+    }
+  ]
+}

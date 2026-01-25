@@ -1,0 +1,249 @@
+{
+  "description": "List prediction subjects.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by parent (e.g., Project|123)",
+      "name": "--parent",
+      "required": false,
+      "type": "string",
+      "validation": "Format: <Type>|<ID> (e.g., Project|123 or Broker|456)"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by business unit ID",
+      "name": "--business-unit",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by broker ID",
+      "name": "--broker",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by created-by user ID",
+      "name": "--created-by",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by actual due date (YYYY-MM-DD)",
+      "name": "--actual-due-at",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum actual due date (YYYY-MM-DD)",
+      "name": "--actual-due-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum actual due date (YYYY-MM-DD)",
+      "name": "--actual-due-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of actual due date (true/false)",
+      "name": "--has-actual-due-at",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by predictions due date (YYYY-MM-DD)",
+      "name": "--predictions-due-at",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum predictions due date (YYYY-MM-DD)",
+      "name": "--predictions-due-at-min",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum predictions due date (YYYY-MM-DD)",
+      "name": "--predictions-due-at-max",
+      "required": false,
+      "type": "string",
+      "validation": "YYYY-MM-DD"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by presence of predictions due date (true/false)",
+      "name": "--has-predictions-due-at",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by actual value (exact)",
+      "name": "--actual",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum actual value",
+      "name": "--actual-min",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum actual value",
+      "name": "--actual-max",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by status",
+      "name": "--status",
+      "required": false,
+      "type": "enum",
+      "validation": "active|complete|abandoned"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by name",
+      "name": "--name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by reference number",
+      "name": "--reference-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tag name (comma-separated)",
+      "name": "--tagged-with",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by any tag names (comma-separated)",
+      "name": "--tagged-with-any",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by all tag names (comma-separated)",
+      "name": "--tagged-with-all",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by tag category slug (comma-separated)",
+      "name": "--in-tag-category",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by bidder ID (comma-separated)",
+      "name": "--bidder",
+      "required": false,
+      "type": "string",
+      "validation": "comma-separated"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by minimum lowest bid amount",
+      "name": "--lowest-bid-amount-min",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Filter by maximum lowest bid amount",
+      "name": "--lowest-bid-amount-max",
+      "required": false,
+      "type": "string",
+      "validation": "number"
+    }
+  ],
+  "full_path": "view prediction-subjects list",
+  "id": "403b642f1528d193b49170a37833a9a0dd99f8936778f50d91dc98451b72de1c",
+  "permissions": "Admins can list all prediction subjects. Non-admin users can list prediction subjects where they are a prediction subject member or are an admin member of the subjects broker.",
+  "side_effects": null,
+  "sources": [
+    {
+      "file_path": "internal/cli/prediction_subjects_list.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/prediction_subject_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Status filter defaults to excluding abandoned records when not specified."
+}

@@ -1,0 +1,51 @@
+{
+  "id": "f797c44a6d0d668ac18da16f2435ef137f9c0f66316ce7985439b0d45b36584a",
+  "full_path": "do public-praise-reactions create",
+  "description": "Create a public praise reaction.",
+  "permissions": "Admin users can create reactions for any public praise. Non-admin users can create reactions only if they can view the referenced public praise; using --created-by requires admin privileges.",
+  "side_effects": "Creates a public praise reaction.",
+  "validation_notes": "--public-praise and --reaction-classification are required. --created-by is admin-only. A user can only have one reaction per public praise per reaction classification (created_by_id scoped uniqueness).",
+  "flags": [
+    {
+      "name": "--public-praise",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Public praise ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--reaction-classification",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Reaction classification ID (required)",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Created-by user ID (admin only)",
+      "default": null,
+      "validation": "Admin only"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_public_praise_reactions_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/public_praise_reaction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/public_praise_reaction.rb"
+    }
+  ]
+}

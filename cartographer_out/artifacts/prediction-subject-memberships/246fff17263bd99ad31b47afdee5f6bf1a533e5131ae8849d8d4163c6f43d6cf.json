@@ -1,0 +1,33 @@
+{
+  "id": "246fff17263bd99ad31b47afdee5f6bf1a533e5131ae8849d8d4163c6f43d6cf",
+  "full_path": "do prediction-subject-memberships delete",
+  "description": "Delete a prediction subject membership",
+  "permissions": "Allowed for admins, users who can manage memberships on the prediction subject, broker admins for the prediction subject broker, or the membership user deleting their own membership.",
+  "side_effects": "Deletes a prediction subject membership.",
+  "validation_notes": "<id> argument is required. --confirm is required. Deletion is blocked if the user has predictions on the prediction subject.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion",
+      "default": "false",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_subject_memberships_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_membership_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_subject_membership.rb"
+    }
+  ]
+}

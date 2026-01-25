@@ -1,0 +1,199 @@
+{
+  "description": "Create a new material site.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material site name (required)",
+      "name": "name",
+      "required": true,
+      "type": "string",
+      "validation": "Required"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Material supplier ID (required)",
+      "name": "material-supplier",
+      "required": true,
+      "type": "string",
+      "validation": "Required"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Parent material site ID",
+      "name": "parent",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Contact phone number",
+      "name": "phone-number",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "CB radio channel",
+      "name": "cb-channel",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Operating hours description",
+      "name": "hours-description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Notes about the site",
+      "name": "notes",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Display color (hex format)",
+      "name": "color-hex",
+      "required": false,
+      "type": "string",
+      "validation": "Must be a valid hex color"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Operating status (active, inactive)",
+      "name": "operating-status",
+      "required": false,
+      "type": "string",
+      "validation": "Valid values: active, inactive"
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site can create tickets",
+      "name": "is-ticket-maker",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site has a scale",
+      "name": "has-scale",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "true",
+      "description": "Can be used as job material site",
+      "name": "can-be-job-material-site",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "true",
+      "description": "Can be used as start site",
+      "name": "can-be-start-site",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Site is portable",
+      "name": "is-portable",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "true",
+      "description": "Site is productive",
+      "name": "is-productive",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Full address (will be geocoded)",
+      "name": "address",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address latitude",
+      "name": "address-latitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Address longitude",
+      "name": "address-longitude",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Skip geocoding the address",
+      "name": "skip-geocoding",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do material-sites create",
+  "id": "2cfc1cc144b59afbfd67daaf9c0343835a9d5236ae26811706887be066c80778",
+  "permissions": "User must be authorized to update the related material supplier. MaterialSitePolicy#create? requires a material_supplier and delegates to MaterialSupplierPolicy.update?.",
+  "side_effects": "Creates a material site record. Address may be geocoded unless --skip-geocoding is set. If is-ticket-maker is set true, the server sets has-scale true during validation.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_material_sites_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/material_site_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/material_site_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_site.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "name and material-supplier are required. operating-status must be active or inactive. color-hex must be a valid color hex value. address is required unless skip_address_geocoding is true (CLI provides --skip-geocoding). If parent is provided, the parent must be portable and must not itself have a parent; a site with a parent cannot be portable."
+}

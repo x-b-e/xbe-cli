@@ -1,0 +1,101 @@
+{
+  "id": "c6050da7da3ba9f769775ae5ddcb35c491d66c0b27f5d0af7f4f88e600c79801",
+  "full_path": "view organization-invoices-batches list",
+  "description": "List organization invoices batches with filtering and pagination.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Filters accept comma-separated ID lists where noted; processed expects true/false; organization expects Type|ID (e.g. Broker|123); created-at-min/max expect ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--processed",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by processed status (true/false)",
+      "default": null,
+      "validation": "true/false (e.g. true)"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated broker IDs"
+    },
+    {
+      "name": "--created-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created by user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated user IDs"
+    },
+    {
+      "name": "--changed-by",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by changed by user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated user IDs"
+    },
+    {
+      "name": "--organization",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by organization (Type|ID, e.g. Broker|123)",
+      "default": null,
+      "validation": "Type|ID format (e.g. Broker|123)"
+    },
+    {
+      "name": "--invoices",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice IDs (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated invoice IDs"
+    },
+    {
+      "name": "--invoices-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by invoice IDs using invoices_id filter (comma-separated)",
+      "default": null,
+      "validation": "Comma-separated invoice IDs"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/organization_invoices_batches_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/organization_invoices_batch_resource.rb"
+    }
+  ]
+}

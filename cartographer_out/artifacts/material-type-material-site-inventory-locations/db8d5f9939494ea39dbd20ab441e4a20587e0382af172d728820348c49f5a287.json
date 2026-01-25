@@ -1,0 +1,19 @@
+{
+  "id": "db8d5f9939494ea39dbd20ab441e4a20587e0382af172d728820348c49f5a287",
+  "full_path": "view material-type-material-site-inventory-locations show",
+  "description": "Show the full details of a material type material site inventory location.",
+  "permissions": null,
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument for the material type material site inventory location.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_type_material_site_inventory_locations_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_type_material_site_inventory_location_resource.rb"
+    }
+  ]
+}

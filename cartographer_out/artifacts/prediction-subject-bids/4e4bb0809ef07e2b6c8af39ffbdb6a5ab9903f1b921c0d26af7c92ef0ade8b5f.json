@@ -1,0 +1,33 @@
+{
+  "id": "4e4bb0809ef07e2b6c8af39ffbdb6a5ab9903f1b921c0d26af7c92ef0ade8b5f",
+  "full_path": "do prediction-subject-bids update",
+  "description": "Update a prediction subject bid.",
+  "permissions": "Requires authorization to update prediction subject bids via the delegated LowestLosingBidPredictionSubjectDetail policy.",
+  "side_effects": "Updates fields on an existing prediction subject bid.",
+  "validation_notes": "Requires a prediction subject bid ID argument. At least one updatable field must be provided; use --amount. Amount must be greater than 0 when provided.",
+  "flags": [
+    {
+      "name": "--amount",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Bid amount",
+      "default": null,
+      "validation": "Must be greater than 0 when provided."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_prediction_subject_bids_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/prediction_subject_bid.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/prediction_subject_bid_policy.rb"
+    }
+  ]
+}

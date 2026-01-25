@@ -1,0 +1,100 @@
+{
+  "id": "216bb1e83308ec4d26406820e3ffa9e55015f03b565b55b53bf86c75f1e5aede",
+  "full_path": "view equipment-classifications list",
+  "description": "List equipment classifications",
+  "permissions": "Authenticated users (admin or non-admin) can view equipment classifications; anonymous users are denied.",
+  "side_effects": null,
+  "validation_notes": "Filters for name and abbreviation use partial, case-insensitive matching. The mobilization-method filter must be one of: crew, heavy_equipment_transport, lowboy, itself, trailer. The is-root, with-children, and without-children filters require strict boolean values (true/false).",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by name (partial match, case-insensitive)",
+      "default": null,
+      "validation": "Partial, case-insensitive match."
+    },
+    {
+      "name": "--abbreviation",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by abbreviation (partial match, case-insensitive)",
+      "default": null,
+      "validation": "Partial, case-insensitive match."
+    },
+    {
+      "name": "--brokers",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--parent",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by parent classification ID",
+      "default": null,
+      "validation": null
+    },
+    {
+      "name": "--mobilization-method",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by mobilization method",
+      "default": null,
+      "validation": "Must be one of: crew, heavy_equipment_transport, lowboy, itself, trailer."
+    },
+    {
+      "name": "--is-root",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter root classifications only (true/false)",
+      "default": null,
+      "validation": "Strict boolean (true/false)."
+    },
+    {
+      "name": "--with-children",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter classifications with children (true/false)",
+      "default": null,
+      "validation": "Strict boolean (true/false)."
+    },
+    {
+      "name": "--without-children",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter classifications without children (true/false)",
+      "default": null,
+      "validation": "Strict boolean (true/false)."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/equipment_classifications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/equipment_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "spec/policies/equipment_classification_policy_spec.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/concerns/mobilizable.rb"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "description": "Delete a transport order strategy set prediction.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Confirm deletion (required)",
+      "name": "--confirm",
+      "required": true,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do transport-order-project-transport-plan-strategy-set-predictions delete",
+  "id": "3fc6848cdfc76348ff74a7fe3cf90cd93b7264f7a5d099fb51c3411e0817aafc",
+  "permissions": "Admins can delete any prediction. Non-admins can delete predictions only for transport orders tied to brokers they are members of.",
+  "side_effects": "Deletes a prediction record.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_transport_order_project_transport_plan_strategy_set_predictions_delete.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/transport_order_project_transport_plan_strategy_set_prediction_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/transport_order_project_transport_plan_strategy_set_prediction_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required. Flag --confirm is required to perform deletion."
+}

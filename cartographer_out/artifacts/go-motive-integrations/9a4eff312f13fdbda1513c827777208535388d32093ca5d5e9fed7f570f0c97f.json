@@ -1,0 +1,50 @@
+{
+  "description": "Update GoMotive integration attributes.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "GoMotive integration identifier",
+      "name": "--integration-identifier",
+      "required": false,
+      "type": "string",
+      "validation": "Must be unique if provided."
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Friendly name",
+      "name": "--friendly-name",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do go-motive-integrations update",
+  "id": "9a4eff312f13fdbda1513c827777208535388d32093ca5d5e9fed7f570f0c97f",
+  "permissions": "Only admin users can update GoMotive integrations.",
+  "side_effects": "Updates attributes on an existing GoMotive integration.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_go_motive_integrations_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/go_motive_integration_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/go_motive_integration.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/go_motive_integration_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "db/structure_split/tables/public.go_motive_integrations.sql",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Positional <id> is required. At least one of --integration-identifier or --friendly-name must be provided. integration_identifier must be unique. broker and integration_config are create-only and cannot be updated."
+}

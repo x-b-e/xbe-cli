@@ -1,0 +1,46 @@
+{
+  "id": "a61cac40eac9a91d9643827f390781e68485d6a92450dbb67171f024af7dd8b0",
+  "full_path": "do quality-control-classifications update",
+  "description": "Update an existing quality control classification.",
+  "permissions": "Allowed for admins or users who are manager members of the broker organization.",
+  "side_effects": "Updates the specified quality control classification fields.",
+  "validation_notes": "Classification ID argument is required. At least one of --name or --description must be provided. Broker cannot be changed after creation. Name must be present and unique per broker when provided.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Classification name",
+      "default": null,
+      "validation": "Must be present and unique per broker when provided"
+    },
+    {
+      "name": "--description",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Description",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_quality_control_classifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/quality_control_classification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/quality_control_classification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/quality_control_classification.rb"
+    }
+  ]
+}

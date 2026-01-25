@@ -1,0 +1,64 @@
+{
+  "description": "Create a project phase.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Project ID. Example: 123.",
+      "name": "--project",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Phase name.",
+      "name": "--name",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Phase description.",
+      "name": "--description",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Position in sequence.",
+      "name": "--sequence-position",
+      "required": false,
+      "type": "integer",
+      "validation": null
+    }
+  ],
+  "full_path": "do project-phases create",
+  "id": "f035732135085487aff4b5c9d490e01d43359a9119f2e3360a1d617013bf30f7",
+  "permissions": "Allowed for users authorized on the related project via ProjectPhasePolicy (delegated to project).",
+  "side_effects": "Creates a project phase.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_project_phases_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/project_phase_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_phase.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "Project relationship is required on create. Name is required and must be unique within the same project."
+}

@@ -1,0 +1,68 @@
+{
+  "description": "Create a customer tender offered buyer notification subscription.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Broker ID (required). Example: 123.",
+      "name": "--broker",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "User ID (required). Example: 456.",
+      "name": "--user",
+      "required": true,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Notify by text (true/false).",
+      "name": "--notify-by-txt",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": "false",
+      "description": "Notify by email (true/false).",
+      "name": "--notify-by-email",
+      "required": false,
+      "type": "boolean",
+      "validation": null
+    }
+  ],
+  "full_path": "do customer-tender-offered-buyer-notification-subscriptions create",
+  "id": "1324b3760ce504cfec7f91b268c0c55d005e9082f14c8df23f13d9514e3ebd90",
+  "permissions": "User must have a broker membership with the broker on the subscription.",
+  "side_effects": "Creates a customer tender offered buyer notification subscription (and its detail record).",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_customer_tender_offered_buyer_notification_subscriptions_create.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/policies/customer_tender_offered_buyer_notification_subscription_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/notification_subscriptions/customer_tender_offered_buyer_notification_subscription.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/notification_subscriptions/details/customer_tender_offered_buyer_notification_subscription_detail.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/resources/v1/customer_tender_offered_buyer_notification_subscription_resource.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "--broker and --user are required. The broker must be present. The user must have a broker membership with the broker."
+}

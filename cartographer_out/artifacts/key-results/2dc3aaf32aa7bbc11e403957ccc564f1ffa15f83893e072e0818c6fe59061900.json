@@ -1,0 +1,78 @@
+{
+  "id": "2dc3aaf32aa7bbc11e403957ccc564f1ffa15f83893e072e0818c6fe59061900",
+  "full_path": "view key-results list",
+  "description": "List key results.",
+  "permissions": "Users can list key results that fall within the KeyResultPolicy scope, which is limited to objectives they are authorized to access.",
+  "side_effects": null,
+  "validation_notes": "status must be one of: unknown, not_started, red, yellow, green, completed, scrapped. has-customer-success-responsible-person expects a strict boolean (true or false). is-template expects true or false. owner, objective, and customer-success-responsible-person accept comma-separated IDs.",
+  "flags": [
+    {
+      "name": "--owner",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by owner user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated user IDs."
+    },
+    {
+      "name": "--objective",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by objective ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated objective IDs."
+    },
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status",
+      "default": null,
+      "validation": "Allowed values: unknown, not_started, red, yellow, green, completed, scrapped."
+    },
+    {
+      "name": "--is-template",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by objective template status (true/false)",
+      "default": null,
+      "validation": "Allowed values: true, false."
+    },
+    {
+      "name": "--customer-success-responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by customer success responsible person user ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "Comma-separated user IDs."
+    },
+    {
+      "name": "--has-customer-success-responsible-person",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by whether customer success responsible person is set (true/false)",
+      "default": null,
+      "validation": "Strict boolean; allowed values: true, false."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/key_results_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/key_result_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/key_result_policy.rb"
+    }
+  ]
+}

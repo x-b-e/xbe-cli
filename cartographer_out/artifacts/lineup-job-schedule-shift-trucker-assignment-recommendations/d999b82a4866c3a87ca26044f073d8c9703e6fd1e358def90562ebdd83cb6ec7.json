@@ -1,0 +1,37 @@
+{
+  "id": "d999b82a4866c3a87ca26044f073d8c9703e6fd1e358def90562ebdd83cb6ec7",
+  "full_path": "do lineup-job-schedule-shift-trucker-assignment-recommendations create",
+  "description": "Generate recommendations for a lineup job schedule shift",
+  "permissions": "User must be allowed to update the referenced lineup job schedule shift (LineupJobScheduleShiftPolicy#update?); admins are permitted. The lineup job schedule shift relationship must be present.",
+  "side_effects": "Creates a lineup job schedule shift trucker assignment recommendation and computes ranked candidates.",
+  "validation_notes": "--lineup-job-schedule-shift is required. Candidates are generated server-side and must be present; creation fails if recommendation scoring cannot produce candidates (for example: missing lineup job schedule shift, no candidate truckers, no feature rows for candidates, model file missing, or score count mismatch).",
+  "flags": [
+    {
+      "name": "--lineup-job-schedule-shift",
+      "aliases": null,
+      "required": true,
+      "type": "string",
+      "description": "Lineup job schedule shift ID (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_lineup_job_schedule_shift_trucker_assignment_recommendations_create.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/lineup_job_schedule_shift_trucker_assignment_recommendation_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/lineup_job_schedule_shift_trucker_assignment_recommendation.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/services/lineup_job_schedule_shift_trucker_assignment_recommendation_scoring_service.rb"
+    }
+  ]
+}

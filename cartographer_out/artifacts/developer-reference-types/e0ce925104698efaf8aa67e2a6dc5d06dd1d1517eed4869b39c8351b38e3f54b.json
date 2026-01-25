@@ -1,0 +1,42 @@
+{
+  "id": "e0ce925104698efaf8aa67e2a6dc5d06dd1d1517eed4869b39c8351b38e3f54b",
+  "full_path": "do developer-reference-types update",
+  "description": "Update an existing developer reference type",
+  "permissions": "Allowed for admin users or users who are manager members of the broker associated with the developer.",
+  "side_effects": "Updates a developer reference type.",
+  "validation_notes": "Reference type ID argument is required; at least one of --name or --subject-types must be provided; if --subject-types is provided, it must include at least one value and each value must be one of: JobProductionPlan, MaterialType, Project; name must be unique per developer.",
+  "flags": [
+    {
+      "name": "--name",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference type name",
+      "default": null,
+      "validation": "Must be unique per developer if provided."
+    },
+    {
+      "name": "--subject-types",
+      "aliases": null,
+      "required": false,
+      "type": "array",
+      "description": "Subject types (comma-separated or repeated)",
+      "default": null,
+      "validation": "Must include at least one value and each value must be one of: JobProductionPlan, MaterialType, Project."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_reference_types_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_reference_type.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_reference_type_policy.rb"
+    }
+  ]
+}

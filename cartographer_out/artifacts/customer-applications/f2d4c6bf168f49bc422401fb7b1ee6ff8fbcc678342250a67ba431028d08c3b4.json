@@ -1,0 +1,82 @@
+{
+  "id": "f2d4c6bf168f49bc422401fb7b1ee6ff8fbcc678342250a67ba431028d08c3b4",
+  "full_path": "view customer-applications list",
+  "description": "List customer applications with filtering",
+  "permissions": "Authenticated users can list customer applications within their policy scope: records where they are the application user or are members of the broker; admins can see all.",
+  "side_effects": null,
+  "validation_notes": "status must be one of pending, reviewing, denied, approved; broker accepts a comma-separated list of broker IDs; created-at-min/max and updated-at-min/max expect ISO 8601 timestamps.",
+  "flags": [
+    {
+      "name": "--status",
+      "aliases": null,
+      "required": false,
+      "type": "enum",
+      "description": "Filter by status (pending, reviewing, denied, approved)",
+      "default": null,
+      "validation": "one of pending, reviewing, denied, approved"
+    },
+    {
+      "name": "--broker",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by broker ID (comma-separated for multiple)",
+      "default": null,
+      "validation": "comma-separated broker IDs"
+    },
+    {
+      "name": "--created-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--created-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by created-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-min",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/after (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    },
+    {
+      "name": "--updated-at-max",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by updated-at on/before (ISO 8601)",
+      "default": null,
+      "validation": "ISO 8601 timestamp"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/customer_applications_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/customer_application_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/customer_application_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/application_policy.rb"
+    }
+  ]
+}

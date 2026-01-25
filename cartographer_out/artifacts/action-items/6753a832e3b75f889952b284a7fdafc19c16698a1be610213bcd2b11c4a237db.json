@@ -1,0 +1,33 @@
+{
+  "id": "6753a832e3b75f889952b284a7fdafc19c16698a1be610213bcd2b11c4a237db",
+  "full_path": "do action-items delete",
+  "description": "Delete an action item (soft delete).",
+  "permissions": "Requires authentication. Admins can delete action items. Non-admins can delete action items only if they are a member of the responsible organization or its broker.",
+  "side_effects": "Soft deletes the action item by setting deleted_at; the record is hidden from normal listings but remains in the database.",
+  "validation_notes": "The <id> argument is required. --confirm is required to perform deletion.",
+  "flags": [
+    {
+      "name": "--confirm",
+      "aliases": null,
+      "required": true,
+      "type": "boolean",
+      "description": "Confirm deletion (required)",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_action_items_delete.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/action_item_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/action_item_policy.rb"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "5f9361a542a66aaa1d61adec13176d8b2053e7b7987168dbc77d0b345b3bec18",
+  "full_path": "view notification-delivery-decisions list",
+  "description": "List notification delivery decisions with filtering and pagination.",
+  "permissions": "Readable by users who have access to the related notifications; non-admin scope is limited to decisions whose notification is in the user Notification policy scope (admins typically see all).",
+  "side_effects": "None (read-only).",
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--notification",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by notification ID",
+      "default": "",
+      "validation": null
+    },
+    {
+      "name": "--notification-user",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Filter by notification user ID",
+      "default": "",
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/notification_delivery_decisions_list.go"
+    },
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/notification_delivery_decisions.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_delivery_decision_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_delivery_decision_policy.rb"
+    }
+  ]
+}

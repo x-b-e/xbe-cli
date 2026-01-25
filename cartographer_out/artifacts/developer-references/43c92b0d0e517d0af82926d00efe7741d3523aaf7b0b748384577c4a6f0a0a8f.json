@@ -1,0 +1,51 @@
+{
+  "id": "43c92b0d0e517d0af82926d00efe7741d3523aaf7b0b748384577c4a6f0a0a8f",
+  "full_path": "do developer-references update",
+  "description": "Update a developer reference.",
+  "permissions": "Admin users can update developer references. Non-admin users can update a developer reference only if they are authorized to update the referenced subject (subject policy update? must allow).",
+  "side_effects": "Updates a developer reference record.",
+  "validation_notes": "At least one of --value or the pair --subject-type/--subject-id must be provided; otherwise the CLI returns an error. --subject-type must be used with --subject-id (and vice versa). Server validations require value to be present if set, subject type to be valid for the developer reference type, and subject broker to match the developer reference type broker.",
+  "flags": [
+    {
+      "name": "--value",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Reference value.",
+      "default": null,
+      "validation": "Example: EXT-67890. Server requires value to be present."
+    },
+    {
+      "name": "--subject-type",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject type.",
+      "default": null,
+      "validation": "Must be used with --subject-id. Example: customers."
+    },
+    {
+      "name": "--subject-id",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Subject ID.",
+      "default": null,
+      "validation": "Must be used with --subject-type. Example: 456."
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_developer_references_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/developer_reference.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/developer_reference_policy.rb"
+    }
+  ]
+}

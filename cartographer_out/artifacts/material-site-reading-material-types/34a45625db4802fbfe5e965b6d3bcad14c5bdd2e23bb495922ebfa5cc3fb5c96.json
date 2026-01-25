@@ -1,0 +1,23 @@
+{
+  "id": "34a45625db4802fbfe5e965b6d3bcad14c5bdd2e23bb495922ebfa5cc3fb5c96",
+  "full_path": "view material-site-reading-material-types show",
+  "description": "Show material site reading material type details.",
+  "permissions": "User must be a member of the material supplier associated with the material site or a member of the broker that owns that material supplier.",
+  "side_effects": null,
+  "validation_notes": "Requires the material site reading material type ID argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/material_site_reading_material_types_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/material_site_reading_material_type_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/material_site_reading_material_type_policy.rb"
+    }
+  ]
+}

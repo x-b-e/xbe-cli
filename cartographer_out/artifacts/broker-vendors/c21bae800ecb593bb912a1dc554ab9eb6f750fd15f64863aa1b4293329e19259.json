@@ -1,0 +1,23 @@
+{
+  "id": "c21bae800ecb593bb912a1dc554ab9eb6f750fd15f64863aa1b4293329e19259",
+  "full_path": "view broker-vendors show",
+  "description": "Show full broker-vendor details by ID.",
+  "permissions": "User can view a broker-vendor record only if it is within TradingPartnerPolicy scope for the current user (record must be accessible via policy scopes for related organizations/partners).",
+  "side_effects": null,
+  "validation_notes": "Requires <id> argument.",
+  "flags": [],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/broker_vendors_show.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_vendor_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/trading_partner_policy.rb"
+    }
+  ]
+}

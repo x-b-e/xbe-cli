@@ -1,0 +1,42 @@
+{
+  "description": "Update samsara vehicle assignments",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Trailer ID",
+      "name": "--trailer",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "Tractor ID",
+      "name": "--tractor",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "do samsara-vehicles update",
+  "id": "19ba984a5572a25fbc33055b14285ef330166799c1d54cd32a4fe3ba1b664544",
+  "permissions": "Admins can update any samsara vehicle; non-admin users can update samsara vehicles for brokers they are members of.",
+  "side_effects": "Updates trailer and/or tractor assignments on a samsara vehicle.",
+  "sources": [
+    {
+      "file_path": "internal/cli/do_samsara_vehicles_update.go",
+      "repo_name": "cli"
+    },
+    {
+      "file_path": "app/resources/v1/samsara_vehicle_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb",
+      "repo_name": "server"
+    }
+  ],
+  "validation_notes": "The <id> argument is required and must be a samsara vehicle ID. At least one of --trailer or --tractor must be specified. If --trailer or --tractor is provided with an empty value, the corresponding assignment is cleared."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "951b52201e7bc59c1606e593d51bd1449d7aac9e9a35de6bea1db6750c918b93",
+  "full_path": "view place-predictions list",
+  "description": "List place predictions for a location query.",
+  "permissions": "No users are authorized to list place predictions; the policy scope resolves to an empty set for anonymous, admin, and non-admin users.",
+  "side_effects": "Queries the Google Places Autocomplete API when a GOOGLE_KEY is configured; does not persist data.",
+  "validation_notes": null,
+  "flags": [
+    {
+      "name": "--q",
+      "aliases": null,
+      "required": false,
+      "type": "string",
+      "description": "Query string for place predictions",
+      "default": null,
+      "validation": null
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/place_predictions_list.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/place_prediction_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/place_prediction_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/models/place_prediction.rb"
+    }
+  ]
+}

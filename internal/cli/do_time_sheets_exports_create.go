@@ -194,16 +194,3 @@ func parseDoTimeSheetsExportsCreateOptions(cmd *cobra.Command) (doTimeSheetsExpo
 		TimeSheetIDs:          timeSheetIDs,
 	}, nil
 }
-
-func normalizeIDList(values []string) []string {
-	cleaned := make([]string, 0, len(values))
-	for _, value := range values {
-		for _, part := range strings.Split(value, ",") {
-			trimmed := strings.TrimSpace(part)
-			if trimmed != "" {
-				cleaned = append(cleaned, trimmed)
-			}
-		}
-	}
-	return cleaned
-}

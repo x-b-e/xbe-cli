@@ -1,0 +1,37 @@
+{
+  "id": "156d3d4b482f7ea7b20c90907086dcaf1b99f73a4e8d92a1fa203168091dc326",
+  "full_path": "do broker-tender-cancelled-seller-notifications update",
+  "description": "Update a broker tender cancelled seller notification",
+  "permissions": "Only the notification user can update it (policy requires user == record.user).",
+  "side_effects": "Updates the notification read status.",
+  "validation_notes": "The notification id argument is required. At least one writable field must be provided. Only the read attribute is updatable.",
+  "flags": [
+    {
+      "name": "--read",
+      "aliases": null,
+      "required": false,
+      "type": "boolean",
+      "description": "Mark notification as read (true/false)",
+      "default": null,
+      "validation": "true/false"
+    }
+  ],
+  "sources": [
+    {
+      "repo_name": "cli",
+      "file_path": "internal/cli/do_broker_tender_cancelled_seller_notifications_update.go"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/notification_resource.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/policies/notification_policy.rb"
+    },
+    {
+      "repo_name": "server",
+      "file_path": "app/resources/v1/broker_tender_cancelled_seller_notification_resource.rb"
+    }
+  ]
+}
