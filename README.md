@@ -159,6 +159,8 @@ xbe
 │   │   └── update           Update a notification
 │   ├── broker-tender-offered-seller-notifications  Manage broker tender offered seller notifications
 │   │   └── update           Update a notification
+│   ├── tender-job-schedule-shift-fill-out-time-card-seller-notifications  Manage tender job schedule shift fill out time card seller notifications
+│   │   └── update           Update a notification
 │   ├── broker-tender-offered-seller-notification-subscriptions  Manage broker tender offered seller notification subscriptions
 │   │   ├── create           Create a subscription
 │   │   ├── update           Update a subscription
@@ -698,6 +700,9 @@ xbe
 │   │   ├── list            List notifications with filtering
 │   │   └── show <id>       Show notification details
 │   ├── broker-tender-offered-seller-notifications  Browse broker tender offered seller notifications
+│   │   ├── list            List notifications with filtering
+│   │   └── show <id>       Show notification details
+│   ├── tender-job-schedule-shift-fill-out-time-card-seller-notifications  Browse tender job schedule shift fill out time card seller notifications
 │   │   ├── list            List notifications with filtering
 │   │   └── show <id>       Show notification details
 │   ├── broker-tender-offered-seller-notification-subscriptions  Browse broker tender offered seller notification subscriptions

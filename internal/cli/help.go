@@ -130,10 +130,11 @@ var resourceCategories = map[string][]string{
 	"broker-tender-offered-seller-notifications":                   {CatProjects},
 	"broker-tender-offered-seller-notification-subscriptions":      {CatProjects},
 	"customer-tender-offered-buyer-notification-subscriptions":     {CatProjects},
-	"shift-acknowledgement-reminder-notification-subscriptions":    {CatProjects},
-	"tender-raters":                                                {CatProjects},
-	"retainer-deductions":                                          {CatProjects},
-	"retainer-periods":                                             {CatProjects},
+	"tender-job-schedule-shift-fill-out-time-card-seller-notifications": {CatProjects},
+	"shift-acknowledgement-reminder-notification-subscriptions":         {CatProjects},
+	"tender-raters":       {CatProjects},
+	"retainer-deductions": {CatProjects},
+	"retainer-periods":    {CatProjects},
 
 	// Fleet & Transport
 	"equipment-location-events":                         {CatFleet},
