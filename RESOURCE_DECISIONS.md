@@ -154,6 +154,7 @@ open-ai-vector-stores
 parking-sites
 places
 posts
+post-router-jobs
 prediction-knowledge-bases
 prediction-subject-recap-generations
 press-releases

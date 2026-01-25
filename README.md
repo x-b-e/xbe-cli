@@ -451,6 +451,9 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── post-router-jobs    Browse post router jobs
+│   │   ├── list            List post router jobs with filtering
+│   │   └── show <id>       Show post router job details
 │   ├── places              Lookup place details
 │   │   └── show <place-id> Show place details
 │   ├── proffer-likes       Browse proffer likes
@@ -887,6 +890,25 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Post Router Jobs
+
+```bash
+# List post router jobs
+xbe view post-router-jobs list
+
+# Filter by post router
+xbe view post-router-jobs list --post-router 123
+
+# Filter by post
+xbe view post-router-jobs list --post 456
+
+# Filter by worker class
+xbe view post-router-jobs list --post-worker-class-name "Posters::FooWorker"
+
+# Show post router job details
+xbe view post-router-jobs show 789
 ```
 
 ### Places
