@@ -153,6 +153,7 @@ newsletters
 parking-sites
 posts
 prediction-agents
+prediction-knowledge-base-questions
 press-releases
 prompt-prescriptions
 process-non-processed-time-card-time-changes
@@ -771,7 +772,6 @@ post-router-jobs
 post-routers
 post-views
 prediction-knowledge-base-answers
-prediction-knowledge-base-questions
 prompters
 questions
 samsara-integrations

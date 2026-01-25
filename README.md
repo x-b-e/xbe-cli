@@ -414,6 +414,10 @@ xbe
 │   │   ├── create           Create a prediction agent
 │   │   ├── update           Update a prediction agent
 │   │   └── delete           Delete a prediction agent
+│   ├── prediction-knowledge-base-questions  Manage prediction knowledge base questions
+│   │   ├── create           Create a prediction knowledge base question
+│   │   ├── update           Update a prediction knowledge base question
+│   │   └── delete           Delete a prediction knowledge base question
 │   ├── prediction-subject-memberships  Manage prediction subject memberships
 │   │   ├── create           Create a prediction subject membership
 │   │   ├── update           Update a prediction subject membership
@@ -539,6 +543,9 @@ xbe
 │   ├── prediction-agents   Browse prediction agents
 │   │   ├── list            List prediction agents with filtering
 │   │   └── show <id>       Show prediction agent details
+│   ├── prediction-knowledge-base-questions  Browse prediction knowledge base questions
+│   │   ├── list            List prediction knowledge base questions with filtering
+│   │   └── show <id>       Show prediction knowledge base question details
 │   ├── prediction-subject-memberships  Browse prediction subject memberships
 │   │   ├── list            List prediction subject memberships with filtering
 │   │   └── show <id>       Show prediction subject membership details
@@ -1508,6 +1515,33 @@ xbe do prediction-agents update 456 --custom-instructions "Focus on recent perfo
 
 # Delete a prediction agent (requires --confirm)
 xbe do prediction-agents delete 456 --confirm
+```
+
+### Prediction Knowledge Base Questions
+
+Prediction knowledge base questions capture prompts used to generate answers for prediction subjects.
+
+```bash
+# List knowledge base questions
+xbe view prediction-knowledge-base-questions list
+
+# Filter by knowledge base
+xbe view prediction-knowledge-base-questions list --prediction-knowledge-base 123
+
+# Filter by status
+xbe view prediction-knowledge-base-questions list --status open
+
+# Show knowledge base question details
+xbe view prediction-knowledge-base-questions show 456
+
+# Create a knowledge base question
+xbe do prediction-knowledge-base-questions create --prediction-knowledge-base 123 --title "What are the key risks?"
+
+# Update a knowledge base question
+xbe do prediction-knowledge-base-questions update 456 --status resolved
+
+# Delete a knowledge base question (requires --confirm)
+xbe do prediction-knowledge-base-questions delete 456 --confirm
 ```
 
 ### Prediction Subject Memberships
