@@ -128,6 +128,8 @@ xbe
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
 │   │   └── delete           Delete a glossary term
+│   ├── gauge-vehicles       Manage gauge vehicles
+│   │   └── update           Update gauge vehicle assignments
 │   ├── platform-statuses    Manage platform status updates
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
@@ -741,6 +743,9 @@ xbe
 │   ├── version-events      Browse version events
 │   │   ├── list            List version events with filtering
 │   │   └── show <id>       Show version event details
+│   ├── gauge-vehicles       Browse gauge vehicles
+│   │   ├── list            List gauge vehicles with filtering
+│   │   └── show <id>       Show gauge vehicle details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
