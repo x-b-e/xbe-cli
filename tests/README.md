@@ -259,6 +259,7 @@ Some resources may have dependencies preventing deletion. Check staging manually
 ### View-Only Resources (list only)
 - features
 - incident-tags
+- job-production-plan-inspectable-summaries
 - job-production-plans
 - languages
 - place-predictions
@@ -266,6 +267,7 @@ Some resources may have dependencies preventing deletion. Check staging manually
 - material-types
 - newsletters
 - posts
+- post-router-jobs
 - press-releases
 - profit-improvement-categories
 - project-categories

@@ -14,6 +14,7 @@ or compare metrics across dimensions.
 Resources:
   lane-summary                         Aggregate hauling/cycle data by origin, destination, etc.
   material-transaction-summary         Aggregate material transactions by site, customer, date, etc.
+  material-site-reading-summary        Aggregate material site readings by time bucket, site, measure, etc.
   shift-summary                        Aggregate shift data by driver, trucker, date, etc.
   job-production-plan-summary          Aggregate job production plan data by customer, project, etc.
   driver-day-summary                   Aggregate driver day data by driver, trucker, date, etc.

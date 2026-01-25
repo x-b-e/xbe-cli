@@ -49,9 +49,9 @@ Use this checklist for every resource. Treat it as the definition of “done.”
 ## Status Summary
 
 - Server resources (routes): 665
-- CLI command resources: 103
-- Server resources covered by commands: 103
-- Remaining (after skips + pending + not yet reviewed): 555
+- CLI command resources: 104
+- Server resources covered by commands: 104
+- Remaining (after skips + pending + not yet reviewed): 554
 
 ## CLI Alias Notes
 
@@ -76,10 +76,10 @@ When a CLI command does not match a server resource name, use these mappings.
 
 ```
 action-items
-action-item-tracker-update-requests
-api-tokens
-broker-certification-types
-broker-equipment-classifications
+answer-feedbacks
+broker-commitments
+broker-tenders
+broker-memberships
 broker-settings
 broker-tender-offered-seller-notifications
 broker-tender-offered-seller-notification-subscriptions
@@ -97,12 +97,12 @@ craft-classes
 crafts
 culture-values
 custom-work-order-statuses
-customer-certification-types
-customer-memberships
+customer-application-approvals
 customer-settings
-customer-tender-offered-buyer-notification-subscriptions
-customer-truckers
+customer-tender-offered-buyer-notifications
+customer-tenders
 customers
+developer-memberships
 developer-reference-types
 developer-references
 developer-trucker-certification-classifications
@@ -111,6 +111,7 @@ dispatch-user-matchers
 device-location-event-summary
 devices
 driver-day-summary
+driver-day-shortfall-allocations
 equipment
 equipment-classifications
 equipment-location-estimates
@@ -122,39 +123,56 @@ features
 follows
 geofences
 glossary-terms
-hos-annotations
+hos-violations
+incident-participants
 incident-tags
 incident-tag-incidents
 incidents
-jobs
+invoice-addresses
+invoices
 job-production-plan-cancellation-reason-types
-job-production-plan-duplications
+job-production-plan-completions
+job-production-plan-job-site-changes
+job-production-plan-inspectable-summaries
+job-production-plan-segments
 job-production-plan-summary
+job-production-plan-supply-demand-balances
 job-production-plans
 job-sites
 labor-classifications
 laborers
 lane-summary
 languages
-maintenance-requirement-rule-maintenance-requirement-sets
+lineups
+login-code-requests
 material-mix-designs
 material-sites
+material-site-readings
 material-suppliers
 material-transaction-inspection-rejections
 material-transaction-summary
+material-transaction-cost-code-allocations
 material-transactions
-material-type-material-site-inventory-locations
+material-type-conversions
 material-types
+meetings
 memberships
 newsletters
+notification-subscriptions
+open-ai-vector-stores
 parking-sites
+places
 posts
-prediction-agents
-prediction-knowledge-base-questions
+post-routers
+post-router-jobs
+prediction-knowledge-base-answers
+prediction-knowledge-bases
+prediction-subject-recap-generations
 press-releases
 prompt-prescriptions
 process-non-processed-time-card-time-changes
 profit-improvement-categories
+project-abandonments
 project-categories
 project-cost-classifications
 project-cost-codes
@@ -162,14 +180,13 @@ project-divisions
 project-estimate-sets
 project-offices
 project-phases
-project-rejections
+project-phase-revenue-items
 project-resource-classifications
 project-revenue-classifications
+project-status-changes
 project-transport-event-types
-project-transport-locations
-project-transport-plans
-project-transport-plan-drivers
-project-transport-plan-strategy-sets
+project-transport-plan-event-times
+project-transport-plan-segment-tractors
 projects
 ptp-driver-summary
 ptp-event-summary
@@ -187,22 +204,24 @@ raw-transport-exports
 raw-transport-tractors
 reaction-classifications
 release-notes
-service-events
+resource-classification-project-cost-classifications
 service-types
-shift-acknowledgement-reminder-notification-subscriptions
+service-type-unit-of-measure-cohorts
 shift-feedback-reasons
 shift-feedbacks
+shift-scope-tenders
 shift-summary
 shift-time-card-requisitions
 stakeholder-classifications
 tag-categories
 tags
-time-card-approval-audits
-time-card-payroll-certifications
-time-card-status-changes
-time-card-unsubmissions
+tender-returns
+ticket-reports
+time-card-invoices
+time-sheet-line-items
 time-sheet-line-item-classifications
 tractor-credentials
+tractor-fuel-consumption-readings
 tractor-trailer-credential-classifications
 tractors
 trailer-classifications
@@ -215,13 +234,20 @@ transport-references
 transport-summary
 trips
 truck-scopes
+trucker-application-approvals
+trucker-invoices
 trucker-insurances
 truckers
-ui-tour-steps
+ui-tours
 unit-of-measures
+user-device-location-tracking-requests
 user-credential-classifications
 user-credentials
+user-location-estimates
+user-location-requests
+user-post-feed-posts
 users
+work-order-assignments
 work-orders
 ```
 
@@ -247,7 +273,6 @@ driver-assignment-rules
 driver-day-adjustment-plans
 driver-day-adjustments
 driver-day-constraints
-driver-day-shortfall-allocations
 driver-day-shortfall-calculations
 driver-day-trips-adjustments
 driver-managers
@@ -275,7 +300,6 @@ hos-day-regulation-sets
 hos-days
 hos-events
 hos-ruleset-assignments
-hos-violations
 inventory-capacities
 inventory-changes
 inventory-estimates
@@ -292,7 +316,6 @@ job-production-plan-display-unit-of-measures
 job-production-plan-driver-movements
 job-production-plan-duplication-works
 job-production-plan-inspectors
-job-production-plan-job-site-changes
 job-production-plan-job-site-location-estimates
 job-production-plan-locations
 job-production-plan-material-site-changes
@@ -317,7 +340,6 @@ job-production-plan-status-changes
 job-production-plan-submissions
 job-production-plan-subscriptions
 job-production-plan-supply-demand-balance-calculators
-job-production-plan-supply-demand-balances
 job-production-plan-time-card-approvers
 job-production-plan-trailer-classifications
 job-production-plan-trucking-incident-detectors
@@ -369,7 +391,6 @@ material-site-subscriptions
 material-site-unavailabilities
 material-supplier-memberships
 material-transaction-acceptances
-material-transaction-cost-code-allocations
 material-transaction-denials
 material-transaction-diversions
 material-transaction-field-scopes
@@ -537,7 +558,6 @@ tender-offers
 tender-raters
 tender-re-rates
 tender-rejections
-tender-returns
 tender-status-changes
 ```
 
@@ -555,7 +575,6 @@ base-summary-templates
 broker-customers
 broker-equipment-classifications
 broker-invoices
-broker-memberships
 broker-project-transport-event-types
 broker-retainer-payment-forecasts
 broker-retainers
@@ -592,7 +611,6 @@ file-attachment-signed-urls
 file-attachments
 file-imports
 incident-headline-suggestions
-incident-participants
 incident-request-approvals
 incident-request-cancellations
 incident-request-rejections
@@ -606,7 +624,6 @@ key-result-status-changes
 key-result-unscrappages
 key-results
 liability-incidents
-lineups
 login-code-redemptions
 login-code-requests
 lowest-losing-bid-prediction-subject-details
@@ -645,7 +662,6 @@ prediction-subject-bids
 prediction-subject-gap-portions
 prediction-subject-gaps
 prediction-subject-memberships
-prediction-subject-recap-generations
 prediction-subject-recaps
 prediction-subjects
 predictions
@@ -666,7 +682,6 @@ raw-transport-orders
 raw-transport-projects
 raw-transport-tractors
 raw-transport-trailers
-resource-classification-project-cost-classifications
 rmt-adjustments
 root-causes
 safety-incidents
@@ -678,11 +693,9 @@ tenders
 ticket-report-dispatches
 ticket-report-imports
 trading-partners
-trucker-application-approvals
 trucker-applications
 trucker-brokerages
 trucker-invoice-payments
-trucker-invoices
 trucker-memberships
 trucker-referral-codes
 trucker-referrals
@@ -691,11 +704,9 @@ trucker-shift-sets
 user-auth-token-resets
 user-creator-feed-creators
 user-creator-feeds
-user-device-location-tracking-requests
 user-languages
 user-location-estimates
 user-location-events
-user-location-requests
 user-searches
 user-sourced-material-transaction-image-attribute-extractions
 vehicle-location-events
@@ -768,7 +779,7 @@ post-children
 post-router-jobs
 post-routers
 post-views
-prediction-knowledge-base-answers
+prediction-knowledge-base-questions
 prompters
 questions
 samsara-integrations
@@ -785,8 +796,7 @@ tender-job-schedule-shift-starting-seller-notifications
 tenna-vehicles
 text-messages
 textractions
-ui-tours
-user-post-feed-posts
+ui-tour-steps
 user-post-feeds
 user-ui-tours
 verizon-reveal-vehicles
