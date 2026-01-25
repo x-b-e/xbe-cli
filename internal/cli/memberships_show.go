@@ -42,6 +42,7 @@ type membershipDetails struct {
 	StartAt                              string `json:"start_at,omitempty"`
 	EndAt                                string `json:"end_at,omitempty"`
 	DrivesShiftType                      string `json:"drives_shift_type,omitempty"`
+	TrailerCoassignmentsResetOn          string `json:"trailer_coassignments_reset_on,omitempty"`
 	CanSeeRatesAsDriver                  bool   `json:"can_see_rates_as_driver"`
 	CanSeeRatesAsManager                 bool   `json:"can_see_rates_as_manager"`
 	CanValidateProfitImprovements        bool   `json:"can_validate_profit_improvements"`
@@ -212,6 +213,7 @@ func buildMembershipDetails(resp jsonAPISingleResponse) membershipDetails {
 		StartAt:                              stringAttr(attrs, "start-at"),
 		EndAt:                                stringAttr(attrs, "end-at"),
 		DrivesShiftType:                      stringAttr(attrs, "drives-shift-type"),
+		TrailerCoassignmentsResetOn:          stringAttr(attrs, "trailer-coassignments-reset-on"),
 		CanSeeRatesAsDriver:                  boolAttr(attrs, "can-see-rates-as-driver"),
 		CanSeeRatesAsManager:                 boolAttr(attrs, "can-see-rates-as-manager"),
 		CanValidateProfitImprovements:        boolAttr(attrs, "can-validate-profit-improvements"),
@@ -338,6 +340,9 @@ func renderMembershipDetails(cmd *cobra.Command, d membershipDetails) error {
 	}
 	if d.DrivesShiftType != "" {
 		fmt.Fprintf(out, "  Drives Shift Type: %s\n", d.DrivesShiftType)
+	}
+	if d.TrailerCoassignmentsResetOn != "" {
+		fmt.Fprintf(out, "  Trailer Coassignments Reset On: %s\n", formatDate(d.TrailerCoassignmentsResetOn))
 	}
 	fmt.Fprintln(out, "")
 

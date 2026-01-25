@@ -58,248 +58,235 @@ xbe
 │   ├── whoami              Show the current authenticated user
 │   └── logout              Remove stored token
 ├── do                      Create, update, and delete XBE resources
-│   ├── action-item-line-items Manage action item line items
-│   │   ├── create           Create an action item line item
-│   │   ├── update           Update an action item line item
-│   │   └── delete           Delete an action item line item
+│   ├── bidders             Manage bidders
+│   │   ├── create           Create a bidder
+│   │   ├── update           Update a bidder
+│   │   └── delete           Delete a bidder
+│   ├── contractors         Manage contractors
+│   │   ├── create           Create a contractor
+│   │   ├── update           Update a contractor
+│   │   └── delete           Delete a contractor
 │   ├── application-settings Manage global application settings
 │   │   ├── create           Create an application setting
 │   │   ├── update           Update an application setting
 │   │   └── delete           Delete an application setting
-│   ├── administrative-incidents Manage administrative incidents
-│   │   ├── create           Create an administrative incident
-│   │   ├── update           Update an administrative incident
-│   │   └── delete           Delete an administrative incident
-│   ├── efficiency-incidents Manage efficiency incidents
-│   │   ├── create           Create an efficiency incident
-│   │   ├── update           Update an efficiency incident
-│   │   └── delete           Delete an efficiency incident
-│   ├── incident-participants Manage incident participants
-│   │   ├── create           Create an incident participant
-│   │   ├── update           Update an incident participant
-│   │   └── delete           Delete an incident participant
-│   ├── incident-requests     Manage incident requests
-│   │   ├── create           Create an incident request
-│   │   ├── update           Update an incident request
-│   │   └── delete           Delete an incident request
-│   ├── customer-incident-default-assignees Manage customer incident default assignees
-│   │   ├── create           Create a customer incident default assignee
-│   │   ├── update           Update a customer incident default assignee
-│   │   └── delete           Delete a customer incident default assignee
-│   ├── deere-integrations  Manage Deere integrations
-│   │   ├── create           Create a Deere integration
-│   │   ├── update           Update a Deere integration
-│   │   └── delete           Delete a Deere integration
-│   ├── samsara-integrations Manage Samsara integrations
-│   │   ├── create           Create a Samsara integration
-│   │   ├── update           Update a Samsara integration
-│   │   └── delete           Delete a Samsara integration
-│   ├── exporter-configurations Manage exporter configurations
-│   │   ├── create           Create an exporter configuration
-│   │   ├── update           Update an exporter configuration
-│   │   └── delete           Delete an exporter configuration
-│   ├── importer-configurations Manage importer configurations
-│   │   ├── create           Create an importer configuration
-│   │   ├── update           Update an importer configuration
-│   │   └── delete           Delete an importer configuration
-│   ├── device-diagnostics  Manage device diagnostics
-│   │   └── create           Create a device diagnostic
-│   ├── file-attachment-signed-urls Generate signed URLs for file attachments
-│   │   └── create           Generate a signed URL for a file attachment
-│   ├── login-code-requests  Request login codes
-│   │   └── create           Request a login code
-│   ├── post-routers         Manage post routers
-│   │   └── create           Create a post router
-│   ├── user-device-location-tracking-requests Request user device location tracking
-│   │   └── create           Send a location tracking request
-│   ├── user-location-requests Request user location
-│   │   └── create           Create a user location request
-│   ├── user-post-feed-posts Manage user post feed posts
-│   │   └── update           Update a user post feed post
-│   ├── saml-code-redemptions Redeem SAML login codes
-│   │   └── create           Redeem a SAML login code
-│   ├── sourcing-searches    Find matching truckers and trailers for a customer tender
-│   │   └── create           Run a sourcing search
-│   ├── file-imports         Manage file imports
-│   │   ├── create           Create a file import
-│   │   ├── update           Update a file import
-│   │   └── delete           Delete a file import
-│   ├── ticket-reports       Manage ticket reports
-│   │   ├── create           Create a ticket report
-│   │   ├── update           Update a ticket report
-│   │   └── delete           Delete a ticket report
-│   ├── organization-invoices-batches Manage organization invoices batches
-│   │   └── create           Create an organization invoices batch
-│   ├── organization-invoices-batch-files Manage organization invoices batch files
-│   │   └── create           Create an organization invoices batch file
-│   ├── organization-invoices-batch-invoice-unbatchings Unbatch organization invoices batch invoices
-│   │   └── create           Unbatch an organization invoices batch invoice
-│   ├── organization-invoices-batch-pdf-generations Manage organization invoices batch PDF generations
-│   │   └── create           Create an organization invoices batch PDF generation
+│   ├── base-summary-templates Manage base summary templates
+│   │   ├── create           Create a base summary template
+│   │   └── delete           Delete a base summary template
+│   ├── email-address-statuses Check email address status
+│   │   └── create           Check an email address
+│   ├── model-filter-infos   Fetch filter options for resources
+│   │   └── create           Fetch filter options for a resource
 │   ├── glossary-terms       Manage glossary terms
 │   │   ├── create           Create a glossary term
 │   │   ├── update           Update a glossary term
 │   │   └── delete           Delete a glossary term
-│   ├── native-app-releases  Manage native app releases
-│   │   ├── create           Create a native app release
-│   │   ├── update           Update a native app release
-│   │   └── delete           Delete a native app release
-│   ├── gauge-vehicles       Manage gauge vehicles
-│   │   └── update           Update gauge vehicle assignments
-│   ├── geotab-vehicles      Manage geotab vehicles
-│   │   └── update           Update geotab vehicle assignments
-│   ├── gps-insight-vehicles Manage GPS Insight vehicles
-│   │   └── update           Update GPS Insight vehicle assignments
-│   ├── one-step-gps-vehicles Manage One Step GPS vehicles
-│   │   └── update           Update One Step GPS vehicle assignments
-│   ├── samsara-vehicles     Manage samsara vehicles
-│   │   └── update           Update samsara vehicle assignments
-│   ├── temeda-vehicles      Manage temeda vehicles
-│   │   └── update           Update temeda vehicle assignments
-│   ├── t3-equipmentshare-vehicles Manage T3 EquipmentShare vehicles
-│   │   └── update           Update T3 EquipmentShare vehicle assignments
-│   ├── verizon-reveal-vehicles Manage Verizon Reveal vehicles
-│   │   └── update           Update Verizon Reveal vehicle assignments
-│   ├── keep-truckin-users  Manage KeepTruckin users
-│   │   └── update           Update a KeepTruckin user assignment
+│   ├── file-attachments     Manage file attachments
+│   │   ├── create           Create a file attachment
+│   │   ├── update           Update a file attachment
+│   │   └── delete           Delete a file attachment
 │   ├── platform-statuses    Manage platform status updates
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
 │   │   └── delete           Delete a platform status
-│   ├── commitment-items     Manage commitment items
-│   │   ├── create           Create a commitment item
-│   │   ├── update           Update a commitment item
-│   │   └── delete           Delete a commitment item
-│   ├── driver-day-constraints Manage driver day constraints
-│   │   ├── create           Create a driver day constraint
-│   │   ├── update           Update a driver day constraint
-│   │   └── delete           Delete a driver day constraint
-│   ├── shift-set-time-card-constraints Manage shift set time card constraints
-│   │   ├── create           Create a shift set time card constraint
-│   │   ├── update           Update a shift set time card constraint
-│   │   └── delete           Delete a shift set time card constraint
-│   ├── time-card-cost-code-allocations Manage time card cost code allocations
-│   │   ├── create           Create a time card cost code allocation
-│   │   ├── update           Update a time card cost code allocation
-│   │   └── delete           Delete a time card cost code allocation
-│   ├── time-card-scrappages Scrap time cards
-│   │   └── create           Scrap a time card
-│   ├── time-card-unapprovals Unapprove time cards
-│   │   └── create           Unapprove a time card
-│   ├── invoice-approvals    Approve invoices
-│   │   └── create           Approve an invoice
-│   ├── invoice-sends Send invoices
-│   │   └── create           Send an invoice
-│   ├── invoice-pdf-emails   Email invoice PDFs
-│   │   └── create           Email an invoice PDF
-│   ├── time-sheet-approvals Approve time sheets
-│   │   └── create           Approve a time sheet
-│   ├── time-sheet-unapprovals Unapprove time sheets
-│   │   └── create           Unapprove a time sheet
-│   ├── time-sheet-no-shows  Manage time sheet no-shows
-│   │   ├── create           Create a time sheet no-show
-│   │   ├── update           Update a time sheet no-show
-│   │   └── delete           Delete a time sheet no-show
-│   ├── resource-unavailabilities Manage resource unavailabilities
-│   │   ├── create           Create a resource unavailability
-│   │   ├── update           Update a resource unavailability
-│   │   └── delete           Delete a resource unavailability
-│   ├── tractor-odometer-readings Manage tractor odometer readings
-│   │   ├── create           Create a tractor odometer reading
-│   │   ├── update           Update a tractor odometer reading
-│   │   └── delete           Delete a tractor odometer reading
-│   ├── equipment-movement-requirements Manage equipment movement requirements
-│   │   ├── create           Create an equipment movement requirement
-│   │   ├── update           Update an equipment movement requirement
-│   │   └── delete           Delete an equipment movement requirement
-│   ├── maintenance-requirement-rules Manage maintenance requirement rules
-│   │   ├── create           Create a maintenance requirement rule
-│   │   ├── update           Update a maintenance requirement rule
-│   │   └── delete           Delete a maintenance requirement rule
-│   ├── equipment-movement-trip-job-production-plans Manage equipment movement trip job production plans
-│   │   ├── create           Create an equipment movement trip job production plan link
-│   │   └── delete           Delete an equipment movement trip job production plan link
-│   ├── labor-requirements   Manage labor requirements
-│   │   ├── create           Create a labor requirement
-│   │   ├── update           Update a labor requirement
-│   │   └── delete           Delete a labor requirement
-│   ├── job-production-plan-cancellations Cancel job production plans
-│   │   └── create           Cancel a job production plan
-│   ├── job-production-plan-rejections Reject job production plans
-│   │   └── create           Reject a job production plan
-│   ├── job-production-plan-unabandonments Unabandon job production plans
-│   │   └── create           Unabandon a job production plan
-│   ├── job-production-plan-recap-generations Generate job production plan recaps
-│   │   └── create           Generate a job production plan recap
-│   ├── job-production-plan-schedule-changes Apply schedule changes to job production plans
-│   │   └── create           Apply a job production plan schedule change
-│   ├── job-schedule-shift-splits Split job schedule shifts
-│   │   └── create           Split a job schedule shift
-│   ├── lineup-scenario-solutions Solve lineup scenarios
-│   │   └── create           Create a lineup scenario solution
-│   ├── lineup-summary-requests Request lineup summaries
-│   │   └── create           Create a lineup summary request
-│   ├── job-production-plan-display-unit-of-measures Manage job production plan display unit of measures
-│   │   ├── create           Add a display unit of measure
-│   │   ├── update           Update a display unit of measure
-│   │   └── delete           Delete a display unit of measure
-│   ├── job-production-plan-service-type-unit-of-measures Manage job production plan service type unit of measures
-│   │   ├── create           Add a service type unit of measure
-│   │   ├── update           Update a service type unit of measure
-│   │   └── delete           Delete a service type unit of measure
-│   ├── job-production-plan-trailer-classifications Manage job production plan trailer classifications
-│   │   ├── create           Add a trailer classification
-│   │   ├── update           Update a trailer classification
-│   │   └── delete           Delete a trailer classification
-│   ├── job-production-plan-locations Manage job production plan locations
-│   │   ├── create           Create a job production plan location
-│   │   ├── update           Update a job production plan location
-│   │   └── delete           Delete a job production plan location
-│   ├── project-bid-location-material-types Manage project bid location material types
-│   │   ├── create           Create a project bid location material type
-│   │   ├── update           Update a project bid location material type
-│   │   └── delete           Delete a project bid location material type
-│   ├── project-material-types Manage project material types
-│   │   ├── create           Create a project material type
-│   │   ├── update           Update a project material type
-│   │   └── delete           Delete a project material type
-│   ├── project-revenue-items Manage project revenue items
-│   │   ├── create           Create a project revenue item
-│   │   ├── update           Update a project revenue item
-│   │   └── delete           Delete a project revenue item
-│   ├── project-customers   Manage project customers
-│   │   ├── create           Create a project customer
-│   │   └── delete           Delete a project customer
-│   ├── project-truckers   Manage project truckers
-│   │   ├── create           Create a project trucker
-│   │   ├── update           Update a project trucker
-│   │   └── delete           Delete a project trucker
-│   ├── project-transport-organizations Manage project transport organizations
-│   │   ├── create           Create a project transport organization
-│   │   ├── update           Update a project transport organization
-│   │   └── delete           Delete a project transport organization
-│   ├── project-transport-plan-events Manage project transport plan events
-│   │   ├── create           Create a project transport plan event
-│   │   ├── update           Update a project transport plan event
-│   │   └── delete           Delete a project transport plan event
-│   ├── project-transport-plan-stop-insertions Manage project transport plan stop insertions
-│   │   └── create           Create a project transport plan stop insertion
-│   ├── project-transport-plan-segment-drivers Manage project transport plan segment drivers
-│   │   ├── create           Create a project transport plan segment driver
-│   │   └── delete           Delete a project transport plan segment driver
-│   ├── project-transport-plan-segment-trailers Manage project transport plan segment trailers
-│   │   ├── create           Create a project transport plan segment trailer
-│   │   └── delete           Delete a project transport plan segment trailer
-│   ├── project-project-cost-classifications Manage project project cost classifications
-│   │   ├── create           Create a project project cost classification
-│   │   ├── update           Update a project project cost classification
-│   │   └── delete           Delete a project project cost classification
-│   ├── project-import-file-verifications Verify project import files
-│   │   └── create           Create a project import file verification
-│   ├── geofence-restrictions Manage geofence restrictions
-│   │   ├── create           Create a geofence restriction
-│   │   ├── update           Update a geofence restriction
-│   │   └── delete           Delete a geofence restriction
+│   ├── pave-frame-actual-hours Manage pave frame actual hours
+│   │   ├── create           Create a pave frame actual hour
+│   │   ├── update           Update a pave frame actual hour
+│   │   └── delete           Delete a pave frame actual hour
+│   ├── device-location-events Record device location events
+│   │   └── create           Create a device location event
+│   ├── user-location-events Manage user location events
+│   │   ├── create           Create a user location event
+│   │   ├── update           Update a user location event
+│   │   └── delete           Delete a user location event
+│   ├── driver-day-adjustment-plans Manage driver day adjustment plans
+│   │   ├── create           Create a driver day adjustment plan
+│   │   ├── update           Update a driver day adjustment plan
+│   │   └── delete           Delete a driver day adjustment plan
+│   ├── driver-day-shortfall-calculations Calculate driver day shortfall allocations
+│   │   └── create           Create a driver day shortfall calculation
+│   ├── shift-counters       Count accepted shifts
+│   │   └── create           Create a shift counter
+│   ├── inventory-estimates  Manage inventory estimates
+│   │   ├── create           Create an inventory estimate
+│   │   ├── update           Update an inventory estimate
+│   │   └── delete           Delete an inventory estimate
+│   ├── customer-applications Manage customer applications
+│   │   ├── create           Create a customer application
+│   │   ├── update           Update a customer application
+│   │   └── delete           Delete a customer application
+│   ├── customer-commitments Manage customer commitments
+│   │   ├── create           Create a customer commitment
+│   │   ├── update           Update a customer commitment
+│   │   └── delete           Delete a customer commitment
+│   ├── customer-retainers   Manage customer retainers
+│   │   ├── create           Create a customer retainer
+│   │   ├── update           Update a customer retainer
+│   │   └── delete           Delete a customer retainer
+│   ├── action-item-key-results Manage action item key result links
+│   │   ├── create           Create an action item key result link
+│   │   └── delete           Delete an action item key result link
+│   ├── key-result-scrappages Manage key result scrappages
+│   │   └── create           Create a key result scrappage
+│   ├── action-item-trackers Manage action item trackers
+│   │   ├── create           Create an action item tracker
+│   │   ├── update           Update an action item tracker
+│   │   └── delete           Delete an action item tracker
+│   ├── job-production-plan-approvals Approve job production plans
+│   │   └── create           Approve a job production plan
+│   ├── project-approvals    Approve projects
+│   │   └── create           Approve a project
+│   ├── project-unabandonments Unabandon projects
+│   │   └── create           Unabandon a project
+│   ├── project-submissions  Submit projects
+│   │   └── create           Submit a project
+│   ├── project-bid-locations Manage project bid locations
+│   │   ├── create           Create a project bid location
+│   │   ├── update           Update a project bid location
+│   │   └── delete           Delete a project bid location
+│   ├── project-estimate-file-imports Import project estimate files
+│   │   └── create           Import a project estimate file
+│   ├── projects-file-imports Import projects files
+│   │   └── create           Import projects from a file
+│   ├── project-labor-classifications Manage project labor classifications
+│   │   ├── create           Create a project labor classification
+│   │   ├── update           Update a project labor classification
+│   │   └── delete           Delete a project labor classification
+│   ├── project-transport-location-event-types Manage project transport location event types
+│   │   ├── create           Create a project transport location event type
+│   │   └── delete           Delete a project transport location event type
+│   ├── project-transport-plan-event-location-predictions Manage project transport plan event location predictions
+│   │   ├── create           Create a location prediction
+│   │   ├── update           Update a location prediction
+│   │   └── delete           Delete a location prediction
+│   ├── predictions         Manage predictions
+│   │   ├── create           Create a prediction
+│   │   ├── update           Update a prediction
+│   │   └── delete           Delete a prediction
+│   ├── prediction-subject-bids Manage prediction subject bids
+│   │   ├── create           Create a prediction subject bid
+│   │   ├── update           Update a prediction subject bid
+│   │   └── delete           Delete a prediction subject bid
+│   ├── prediction-subject-gaps Manage prediction subject gaps
+│   │   ├── create           Create a prediction subject gap
+│   │   ├── update           Update a prediction subject gap
+│   │   └── delete           Delete a prediction subject gap
+│   ├── project-transport-plan-planned-event-time-schedules Generate planned event time schedules
+│   │   └── create           Generate a planned event time schedule
+│   ├── project-transport-plan-segments Manage project transport plan segments
+│   │   ├── create           Create a project transport plan segment
+│   │   ├── update           Update a project transport plan segment
+│   │   └── delete           Delete a project transport plan segment
+│   ├── project-transport-plan-trailers Manage project transport plan trailers
+│   │   ├── create           Create a project transport plan trailer assignment
+│   │   ├── update           Update a project transport plan trailer assignment
+│   │   └── delete           Delete a project transport plan trailer assignment
+│   ├── project-transport-plan-driver-assignment-recommendations Generate driver assignment recommendations
+│   │   └── create           Generate driver assignment recommendations
+│   ├── project-transport-plan-trailer-assignment-recommendations Generate trailer assignment recommendations
+│   │   └── create           Generate trailer assignment recommendations
+│   ├── project-phase-cost-item-actuals Manage project phase cost item actuals
+│   │   ├── create           Create a project phase cost item actual
+│   │   ├── update           Update a project phase cost item actual
+│   │   └── delete           Delete a project phase cost item actual
+│   ├── project-phase-revenue-item-actuals Manage project phase revenue item actuals
+│   │   ├── create           Create a project phase revenue item actual
+│   │   ├── update           Update a project phase revenue item actual
+│   │   └── delete           Delete a project phase revenue item actual
+│   ├── project-revenue-item-price-estimates Manage project revenue item price estimates
+│   │   ├── create           Create a project revenue item price estimate
+│   │   ├── update           Update a project revenue item price estimate
+│   │   └── delete           Delete a project revenue item price estimate
+│   ├── job-production-plan-uncompletions Uncomplete job production plans
+│   │   └── create           Uncomplete a job production plan
+│   ├── job-schedule-shift-start-site-changes Manage job schedule shift start site changes
+│   │   └── create           Create a job schedule shift start site change
+│   ├── site-events          Manage site events
+│   │   ├── create           Create a site event
+│   │   ├── update           Update a site event
+│   │   └── delete           Delete a site event
+│   ├── service-sites       Manage service sites
+│   │   ├── create           Create a service site
+│   │   ├── update           Update a service site
+│   │   └── delete           Delete a service site
+│   ├── lineup-dispatches    Manage lineup dispatches
+│   │   ├── create           Create a lineup dispatch
+│   │   ├── update           Update a lineup dispatch
+│   │   └── delete           Delete a lineup dispatch
+│   ├── lineup-scenario-generators Generate lineup scenarios
+│   │   ├── create           Create a lineup scenario generator
+│   │   └── delete           Delete a lineup scenario generator
+│   ├── lineup-scenarios     Manage lineup scenarios
+│   │   ├── create           Create a lineup scenario
+│   │   ├── update           Update a lineup scenario
+│   │   └── delete           Delete a lineup scenario
+│   ├── job-production-plan-material-types Manage job production plan material types
+│   │   ├── create           Create a job production plan material type
+│   │   ├── update           Update a job production plan material type
+│   │   └── delete           Delete a job production plan material type
+│   ├── job-production-plan-time-card-approvers Manage job production plan time card approvers
+│   │   ├── create           Create a job production plan time card approver
+│   │   └── delete           Delete a job production plan time card approver
+│   ├── time-card-pre-approvals Manage time card pre-approvals
+│   │   ├── create           Create a time card pre-approval
+│   │   ├── update           Update a time card pre-approval
+│   │   └── delete           Delete a time card pre-approval
+│   ├── time-card-unscrappages Manage time card unscrappages
+│   │   └── create           Create a time card unscrappage
+│   ├── time-sheets           Manage time sheets
+│   │   ├── create           Create a time sheet
+│   │   ├── update           Update a time sheet
+│   │   └── delete           Delete a time sheet
+│   ├── time-sheet-rejections Manage time sheet rejections
+│   │   └── create           Reject a time sheet
+│   ├── incident-request-approvals Approve incident requests
+│   │   └── create           Approve an incident request
+│   ├── incident-request-rejections Reject incident requests
+│   │   └── create           Reject an incident request
+│   ├── incident-subscriptions Manage incident subscriptions
+│   │   ├── create           Create an incident subscription
+│   │   ├── update           Update an incident subscription
+│   │   └── delete           Delete an incident subscription
+│   ├── incident-unit-of-measure-quantities Manage incident unit of measure quantities
+│   │   ├── create           Create an incident unit of measure quantity
+│   │   ├── update           Update an incident unit of measure quantity
+│   │   └── delete           Delete an incident unit of measure quantity
+│   ├── root-causes          Manage root causes
+│   │   ├── create           Create a root cause
+│   │   ├── update           Update a root cause
+│   │   └── delete           Delete a root cause
+│   ├── liability-incidents  Manage liability incidents
+│   │   ├── create           Create a liability incident
+│   │   ├── update           Update a liability incident
+│   │   └── delete           Delete a liability incident
+│   ├── production-incidents Manage production incidents
+│   │   ├── create           Create a production incident
+│   │   ├── update           Update a production incident
+│   │   └── delete           Delete a production incident
+│   ├── tender-acceptances   Accept tenders
+│   │   └── create           Accept a tender
+│   ├── tender-offers        Offer tenders
+│   │   └── create           Offer a tender
+│   ├── tender-re-rates      Re-rate tenders
+│   │   └── create           Re-rate tenders
+│   ├── tender-job-schedule-shift-time-card-reviews Manage tender job schedule shift time card reviews
+│   │   ├── create           Create a time card review
+│   │   └── delete           Delete a time card review
+│   ├── time-sheet-line-item-equipment-requirements Manage time sheet line item equipment requirements
+│   │   ├── create           Create a time sheet line item equipment requirement
+│   │   ├── update           Update a time sheet line item equipment requirement
+│   │   └── delete           Delete a time sheet line item equipment requirement
+│   ├── job-production-plan-service-type-unit-of-measure-cohorts Manage job production plan service type unit of measure cohorts
+│   │   ├── create           Create a job production plan service type unit of measure cohort link
+│   │   └── delete           Delete a job production plan service type unit of measure cohort link
+│   ├── maintenance-requirement-sets Manage maintenance requirement sets
+│   │   ├── create           Create a maintenance requirement set
+│   │   ├── update           Update a maintenance requirement set
+│   │   └── delete           Delete a maintenance requirement set
+│   ├── maintenance-requirement-maintenance-requirement-parts Manage maintenance requirement parts
+│   │   ├── create           Create a maintenance requirement part link
+│   │   ├── update           Update a maintenance requirement part link
+│   │   └── delete           Delete a maintenance requirement part link
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── job-production-plan-abandonments Abandon job production plans
@@ -435,53 +422,77 @@ xbe
 │   │   └── create           Allocate driver day shortfall quantities
 │   ├── material-transaction-summary  Generate material transaction summaries
 │   │   └── create           Create a material transaction summary
-│   ├── material-transaction-field-scopes Manage material transaction field scopes
-│   │   └── create           Create a material transaction field scope
-│   ├── tender-job-schedule-shifts-material-transactions-checksums Generate tender job schedule shift material transaction checksums
-│   │   └── create           Create a checksum
-│   ├── tender-rejections    Reject tenders
-│   │   └── create           Reject a tender
-│   ├── material-transaction-rejections Reject material transactions
-│   │   └── create           Reject a material transaction
-│   ├── material-transaction-submissions Submit material transactions
-│   │   └── create           Submit a material transaction
-│   ├── material-transaction-ticket-generators Manage material transaction ticket generators
-│   │   ├── create           Create a material transaction ticket generator
-│   │   ├── update           Update a material transaction ticket generator
-│   │   └── delete           Delete a material transaction ticket generator
-│   ├── inventory-changes   Manage inventory changes
-│   │   ├── create           Create an inventory change
-│   │   └── delete           Delete an inventory change
-│   ├── material-site-inventory-locations Manage material site inventory locations
-│   │   ├── create           Create a material site inventory location
-│   │   ├── update           Update a material site inventory location
-│   │   └── delete           Delete a material site inventory location
-│   ├── material-site-subscriptions Manage material site subscriptions
-│   │   ├── create           Create a material site subscription
-│   │   ├── update           Update a material site subscription
-│   │   └── delete           Delete a material site subscription
-│   ├── profit-improvement-subscriptions Manage profit improvement subscriptions
-│   │   ├── create           Create a profit improvement subscription
-│   │   ├── update           Update a profit improvement subscription
-│   │   └── delete           Delete a profit improvement subscription
+│   ├── material-transaction-inspections Manage material transaction inspections
+│   │   ├── create           Create a material transaction inspection
+│   │   ├── update           Update a material transaction inspection
+│   │   └── delete           Delete a material transaction inspection
+│   ├── raw-material-transactions Manage raw material transactions
+│   │   └── update           Update a raw material transaction
+│   ├── raw-transport-orders Manage raw transport orders
+│   │   ├── create           Create a raw transport order
+│   │   ├── update           Update a raw transport order
+│   │   └── delete           Delete a raw transport order
+│   ├── material-type-unavailabilities Manage material type unavailabilities
+│   │   ├── create           Create a material type unavailability
+│   │   ├── update           Update a material type unavailability
+│   │   └── delete           Delete a material type unavailability
+│   ├── material-supplier-memberships Manage material supplier memberships
+│   │   ├── create           Create a material supplier membership
+│   │   ├── update           Update a material supplier membership
+│   │   └── delete           Delete a material supplier membership
+│   ├── trucker-memberships  Manage trucker memberships
+│   │   ├── create           Create a trucker membership
+│   │   ├── update           Update a trucker membership
+│   │   └── delete           Delete a trucker membership
+│   ├── trucker-settings     Manage trucker settings
+│   │   ├── create           Create trucker settings
+│   │   └── update           Update trucker settings
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
 │   │   └── delete           Delete a membership
-│   ├── retainers            Manage retainers
-│   │   ├── create           Create a retainer
-│   │   ├── update           Update a retainer
-│   │   └── delete           Delete a retainer
-│   ├── rate-agreements-copiers Copy rate agreements from a template
-│   │   └── create           Copy a template rate agreement
-│   ├── work-order-service-codes Manage work order service codes
-│   │   ├── create           Create a work order service code
-│   │   ├── update           Update a work order service code
-│   │   └── delete           Delete a work order service code
-│   └── transport-order-stop-materials Manage transport order stop materials
-│       ├── create           Create a transport order stop material
-│       ├── update           Update a transport order stop material
-│       └── delete           Delete a transport order stop material
+│   ├── user-languages       Manage user languages
+│   │   ├── create           Create a user language
+│   │   ├── update           Update a user language
+│   │   └── delete           Delete a user language
+│   ├── meeting-attendees    Manage meeting attendees
+│   │   ├── create           Create a meeting attendee
+│   │   ├── update           Update a meeting attendee
+│   │   └── delete           Delete a meeting attendee
+│   ├── rate-agreements      Manage rate agreements
+│   │   ├── create           Create a rate agreement
+│   │   ├── update           Update a rate agreement
+│   │   └── delete           Delete a rate agreement
+│   ├── proffers             Manage proffers
+│   │   ├── create           Create a proffer
+│   │   ├── update           Update a proffer
+│   │   └── delete           Delete a proffer
+│   ├── public-praise-reactions Manage public praise reactions
+│   │   ├── create           Create a public praise reaction
+│   │   └── delete           Delete a public praise reaction
+│   ├── developer-trucker-certification-multipliers Manage developer trucker certification multipliers
+│   │   ├── create           Create a developer trucker certification multiplier
+│   │   ├── update           Update a developer trucker certification multiplier
+│   │   └── delete           Delete a developer trucker certification multiplier
+│   ├── objective-stakeholder-classification-quotes Manage objective stakeholder classification quotes
+│   │   ├── create           Create an objective stakeholder classification quote
+│   │   ├── update           Update an objective stakeholder classification quote
+│   │   └── delete           Delete an objective stakeholder classification quote
+│   ├── organization-invoices-batch-invoice-batchings Batch organization invoices batch invoices
+│   │   └── create           Batch an organization invoices batch invoice
+│   ├── organization-invoices-batch-invoice-failures Fail organization invoices batch invoices
+│   │   └── create           Fail an organization invoices batch invoice
+│   ├── organization-invoices-batch-processes Process organization invoices batches
+│   │   └── create           Process an organization invoices batch
+│   ├── organization-invoices-batch-pdf-files Download organization invoices batch PDF files
+│   │   └── download         Download an organization invoices batch PDF file
+│   ├── open-door-issues     Manage open door issues
+│   │   ├── create           Create an open door issue
+│   │   ├── update           Update an open door issue
+│   │   └── delete           Delete an open door issue
+│   └── taggings             Manage taggings
+│       ├── create           Create a tagging
+│       └── delete           Delete a tagging
 ├── view                    Browse and view XBE content
 │   ├── action-item-line-items Browse action item line items
 │   │   ├── list            List action item line items
@@ -489,301 +500,275 @@ xbe
 │   ├── application-settings Browse application settings
 │   │   ├── list            List application settings
 │   │   └── show <id>       Show application setting details
-│   ├── commitment-items    Browse commitment items
-│   │   ├── list            List commitment items
-│   │   └── show <id>       Show commitment item details
-│   ├── commitments         Browse commitments
-│   │   ├── list            List commitments
-│   │   └── show <id>       Show commitment details
-│   ├── driver-day-constraints Browse driver day constraints
-│   │   ├── list            List driver day constraints
-│   │   └── show <id>       Show driver day constraint details
-│   ├── shift-set-time-card-constraints Browse shift set time card constraints
-│   │   ├── list            List shift set time card constraints
-│   │   └── show <id>       Show shift set time card constraint details
-│   ├── time-card-cost-code-allocations Browse time card cost code allocations
-│   │   ├── list            List time card cost code allocations
-│   │   └── show <id>       Show time card cost code allocation details
-│   ├── time-card-scrappages Browse time card scrappages
-│   │   ├── list            List time card scrappages
-│   │   └── show <id>       Show time card scrappage details
-│   ├── time-card-unapprovals Browse time card unapprovals
-│   │   ├── list            List time card unapprovals
-│   │   └── show <id>       Show time card unapproval details
-│   ├── invoice-approvals   Browse invoice approvals
-│   │   ├── list            List invoice approvals
-│   │   └── show <id>       Show invoice approval details
-│   ├── invoice-sends       Browse invoice sends
-│   │   ├── list            List invoice sends
-│   │   └── show <id>       Show invoice send details
-│   ├── invoice-status-changes Browse invoice status changes
-│   │   ├── list            List invoice status changes
-│   │   └── show <id>       Show invoice status change details
-│   ├── invoice-revisionizing-invoice-revisions Browse invoice revisionizing invoice revisions
-│   │   ├── list            List invoice revisionizing invoice revisions
-│   │   └── show <id>       Show invoice revisionizing invoice revision details
-│   ├── time-sheet-approvals Browse time sheet approvals
-│   │   ├── list            List time sheet approvals
-│   │   └── show <id>       Show time sheet approval details
-│   ├── time-sheet-unapprovals Browse time sheet unapprovals
-│   │   ├── list            List time sheet unapprovals
-│   │   └── show <id>       Show time sheet unapproval details
-│   ├── time-sheet-no-shows Browse time sheet no-shows
-│   │   ├── list            List time sheet no-shows
-│   │   └── show <id>       Show time sheet no-show details
-│   ├── time-sheet-status-changes Browse time sheet status changes
-│   │   ├── list            List time sheet status changes
-│   │   └── show <id>       Show time sheet status change details
-│   ├── resource-unavailabilities Browse resource unavailabilities
-│   │   ├── list            List resource unavailabilities
-│   │   └── show <id>       Show resource unavailability details
-│   ├── retainers           Browse retainers
-│   │   ├── list            List retainers
-│   │   └── show <id>       Show retainer details
-│   ├── rate-agreements-copiers Browse rate agreements copiers
-│   │   ├── list            List rate agreements copiers
-│   │   └── show <id>       Show rate agreements copier details
-│   ├── tractor-odometer-readings Browse tractor odometer readings
-│   │   ├── list            List tractor odometer readings
-│   │   └── show <id>       Show tractor odometer reading details
-│   ├── driver-movement-segment-sets Browse driver movement segment sets
-│   │   ├── list            List driver movement segment sets
-│   │   └── show <id>       Show driver movement segment set details
-│   ├── equipment-movement-requirements Browse equipment movement requirements
-│   │   ├── list            List equipment movement requirements
-│   │   └── show <id>       Show equipment movement requirement details
-│   ├── maintenance-requirement-rules Browse maintenance requirement rules
-│   │   ├── list            List maintenance requirement rules
-│   │   └── show <id>       Show maintenance requirement rule details
-│   ├── equipment-movement-trip-job-production-plans Browse equipment movement trip job production plans
-│   │   ├── list            List equipment movement trip job production plans
-│   │   └── show <id>       Show equipment movement trip job production plan details
-│   ├── labor-requirements   Browse labor requirements
-│   │   ├── list            List labor requirements
-│   │   └── show <id>       Show labor requirement details
-│   ├── job-production-plan-cancellations Browse job production plan cancellations
-│   │   ├── list            List job production plan cancellations
-│   │   └── show <id>       Show job production plan cancellation details
-│   ├── job-production-plan-rejections Browse job production plan rejections
-│   │   ├── list            List job production plan rejections
-│   │   └── show <id>       Show job production plan rejection details
-│   ├── job-production-plan-unabandonments Browse job production plan unabandonments
-│   │   ├── list            List job production plan unabandonments
-│   │   └── show <id>       Show job production plan unabandonment details
-│   ├── job-production-plan-display-unit-of-measures Browse job production plan display unit of measures
-│   │   ├── list            List job production plan display unit of measures
-│   │   └── show <id>       Show job production plan display unit of measure details
-│   ├── job-production-plan-service-type-unit-of-measures Browse job production plan service type unit of measures
-│   │   ├── list            List job production plan service type unit of measures
-│   │   └── show <id>       Show job production plan service type unit of measure details
-│   ├── service-type-unit-of-measures Browse service type unit of measures
-│   │   ├── list            List service type unit of measures
-│   │   └── show <id>       Show service type unit of measure details
-│   ├── job-production-plan-trailer-classifications Browse job production plan trailer classifications
-│   │   ├── list            List job production plan trailer classifications
-│   │   └── show <id>       Show job production plan trailer classification details
-│   ├── job-production-plan-locations Browse job production plan locations
-│   │   ├── list            List job production plan locations
-│   │   └── show <id>       Show job production plan location details
-│   ├── project-bid-location-material-types Browse project bid location material types
-│   │   ├── list            List project bid location material types
-│   │   └── show <id>       Show project bid location material type details
-│   ├── project-material-types Browse project material types
-│   │   ├── list            List project material types
-│   │   └── show <id>       Show project material type details
-│   ├── project-revenue-items Browse project revenue items
-│   │   ├── list            List project revenue items
-│   │   └── show <id>       Show project revenue item details
-│   ├── project-customers   Browse project customers
-│   │   ├── list            List project customers
-│   │   └── show <id>       Show project customer details
-│   ├── project-truckers   Browse project truckers
-│   │   ├── list            List project truckers
-│   │   └── show <id>       Show project trucker details
-│   ├── project-transport-organizations Browse project transport organizations
-│   │   ├── list            List project transport organizations
-│   │   └── show <id>       Show project transport organization details
-│   ├── project-transport-plan-events Browse project transport plan events
-│   │   ├── list            List project transport plan events
-│   │   └── show <id>       Show project transport plan event details
-│   ├── project-transport-plan-stop-insertions Browse project transport plan stop insertions
-│   │   ├── list            List project transport plan stop insertions
-│   │   └── show <id>       Show project transport plan stop insertion details
-│   ├── project-transport-plan-segment-drivers Browse project transport plan segment drivers
-│   │   ├── list            List project transport plan segment drivers
-│   │   └── show <id>       Show project transport plan segment driver details
-│   ├── project-transport-plan-segment-trailers Browse project transport plan segment trailers
-│   │   ├── list            List project transport plan segment trailers
-│   │   └── show <id>       Show project transport plan segment trailer details
-│   ├── project-transport-plan-strategy-steps Browse project transport plan strategy steps
-│   │   ├── list            List project transport plan strategy steps
-│   │   └── show <id>       Show project transport plan strategy step details
-│   ├── project-transport-plan-event-location-prediction-autopsies Browse project transport plan event location prediction autopsies
-│   │   ├── list            List project transport plan event location prediction autopsies
-│   │   └── show <id>       Show project transport plan event location prediction autopsy details
-│   ├── project-project-cost-classifications Browse project project cost classifications
-│   │   ├── list            List project project cost classifications
-│   │   └── show <id>       Show project project cost classification details
-│   ├── project-import-file-verifications Browse project import file verifications
-│   │   └── list            List project import file verifications
-│   ├── job-production-plan-job-site-location-estimates Browse job site location estimates
-│   │   ├── list            List job site location estimates
-│   │   └── show <id>       Show job site location estimate details
-│   ├── job-schedule-shift-splits Browse job schedule shift splits
-│   │   ├── list            List job schedule shift splits
-│   │   └── show <id>       Show job schedule shift split details
-│   ├── lineup-scenario-solutions Browse lineup scenario solutions
-│   │   ├── list            List lineup scenario solutions
-│   │   └── show <id>       Show lineup scenario solution details
-│   ├── lineup-summary-requests Browse lineup summary requests
-│   │   ├── list            List lineup summary requests
-│   │   └── show <id>       Show lineup summary request details
-│   ├── geofence-restrictions Browse geofence restrictions
-│   │   ├── list            List geofence restrictions
-│   │   └── show <id>       Show geofence restriction details
+│   ├── file-attachments     Browse file attachments
+│   │   ├── list            List file attachments with filtering
+│   │   └── show <id>       Show file attachment details
 │   ├── newsletters         Browse and view newsletters
 │   │   ├── list            List newsletters with filtering
 │   │   └── show <id>       Show newsletter details
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
-│   ├── post-routers        Browse post routers
-│   │   ├── list            List post routers with filtering
-│   │   └── show <id>       Show post router details
-│   ├── post-router-jobs    Browse post router jobs
-│   │   ├── list            List post router jobs with filtering
-│   │   └── show <id>       Show post router job details
-│   ├── places              Lookup place details
-│   │   └── show <place-id> Show place details
-│   ├── proffer-likes       Browse proffer likes
-│   │   ├── list            List proffer likes with filtering
-│   │   └── show <id>       Show proffer like details
-│   ├── public-praise-culture-values Browse public praise culture values
-│   │   ├── list            List public praise culture values with filtering
-│   │   └── show <id>       Show public praise culture value details
+│   ├── proffers            Browse and view proffers
+│   │   ├── list            List proffers with filtering
+│   │   └── show <id>       Show proffer details
 │   ├── brokers             Browse broker/branch information
 │   │   └── list            List brokers with filtering
-│   ├── administrative-incidents Browse administrative incidents
-│   │   ├── list            List administrative incidents with filtering
-│   │   └── show <id>       Show administrative incident details
-│   ├── efficiency-incidents Browse efficiency incidents
-│   │   ├── list            List efficiency incidents with filtering
-│   │   └── show <id>       Show efficiency incident details
-│   ├── incident-participants Browse incident participants
-│   │   ├── list            List incident participants
-│   │   └── show <id>       Show incident participant details
-│   ├── incident-requests    Browse incident requests
-│   │   ├── list            List incident requests
-│   │   └── show <id>       Show incident request details
-│   ├── customer-incident-default-assignees Browse customer incident default assignees
-│   │   ├── list            List customer incident default assignees
-│   │   └── show <id>       Show customer incident default assignee details
-│   ├── device-diagnostics  Browse device diagnostics
-│   │   ├── list            List device diagnostics
-│   │   └── show <id>       Show device diagnostic details
-│   ├── user-location-estimates Browse user location estimates
-│   │   └── list            List user location estimates
-│   ├── user-location-requests Browse user location requests
-│   │   ├── list            List user location requests
-│   │   └── show <id>       Show user location request details
-│   ├── user-post-feed-posts Browse user post feed posts
-│   │   ├── list            List user post feed posts
-│   │   └── show <id>       Show user post feed post details
-│   ├── file-imports        Browse file imports
-│   │   ├── list            List file imports with filtering
-│   │   └── show <id>       Show file import details
-│   ├── ticket-reports      Browse ticket reports
-│   │   ├── list            List ticket reports with filtering
-│   │   └── show <id>       Show ticket report details
-│   ├── organization-invoices-batches Browse organization invoices batches
-│   │   ├── list            List organization invoices batches with filtering
-│   │   └── show <id>       Show organization invoices batch details
-│   ├── organization-invoices-batch-files Browse organization invoices batch files
-│   │   ├── list            List organization invoices batch files with filtering
-│   │   └── show <id>       Show organization invoices batch file details
-│   ├── organization-invoices-batch-invoice-unbatchings Browse organization invoices batch invoice unbatchings
-│   │   ├── list            List organization invoices batch invoice unbatchings
-│   │   └── show <id>       Show organization invoices batch invoice unbatching details
-│   ├── organization-invoices-batch-pdf-generations Browse organization invoices batch PDF generations
-│   │   ├── list            List organization invoices batch PDF generations with filtering
-│   │   ├── show <id>       Show organization invoices batch PDF generation details
-│   │   └── download-all <id> Download all completed PDFs for a PDF generation
-│   ├── integration-invoices-batch-exports Browse integration invoices batch exports
-│   │   ├── list            List integration invoices batch exports with filtering
-│   │   └── show <id>       Show integration invoices batch export details
+│   ├── bidders             Browse bidders
+│   │   ├── list            List bidders with filtering
+│   │   └── show <id>       Show bidder details
+│   ├── contractors         Browse contractors
+│   │   ├── list            List contractors with filtering
+│   │   └── show <id>       Show contractor details
 │   ├── users               Browse users (for creator lookup)
 │   │   └── list            List users with filtering
-│   ├── user-creator-feeds   Browse user creator feeds
-│   │   ├── list            List user creator feeds with filtering
-│   │   └── show <id>       Show user creator feed details
-│   ├── user-post-feeds      Browse user post feeds
-│   │   ├── list            List user post feeds with filtering
-│   │   └── show <id>       Show user post feed details
-│   ├── user-searches        Browse user searches
-│   │   └── list            List user searches
-│   ├── api-tokens          Browse API tokens
-│   │   ├── list            List API tokens with filtering
-│   │   └── show <id>       Show API token details
+│   ├── user-languages       Browse user language preferences
+│   │   ├── list            List user languages with filtering
+│   │   └── show <id>       Show user language details
+│   ├── user-creator-feed-creators Browse user creator feed creators
+│   │   ├── list            List user creator feed creators with filtering
+│   │   └── show <id>       Show user creator feed creator details
 │   ├── material-suppliers  Browse material suppliers
 │   │   └── list            List suppliers with filtering
-│   ├── material-transaction-field-scopes Browse material transaction field scopes
-│   │   ├── list            List material transaction field scopes
-│   │   └── show <id>       Show material transaction field scope details
-│   ├── tender-job-schedule-shifts-material-transactions-checksums Browse tender job schedule shift material transaction checksums
-│   │   ├── list            List checksum records
-│   │   └── show <id>       Show checksum details
-│   ├── tender-rejections   Browse tender rejections
-│   │   ├── list            List tender rejections
-│   │   └── show <id>       Show tender rejection details
-│   ├── material-transaction-rejections Browse material transaction rejections
-│   │   ├── list            List material transaction rejections
-│   │   └── show <id>       Show material transaction rejection details
-│   ├── material-transaction-submissions Browse material transaction submissions
-│   │   ├── list            List material transaction submissions
-│   │   └── show <id>       Show material transaction submission details
-│   ├── material-transaction-ticket-generators Browse material transaction ticket generators
-│   │   ├── list            List material transaction ticket generators
-│   │   └── show <id>       Show material transaction ticket generator details
-│   ├── material-site-inventory-locations Browse material site inventory locations
-│   │   ├── list            List material site inventory locations
-│   │   └── show <id>       Show material site inventory location details
-│   ├── material-site-subscriptions Browse material site subscriptions
-│   │   ├── list            List material site subscriptions
-│   │   └── show <id>       Show material site subscription details
-│   ├── profit-improvement-subscriptions Browse profit improvement subscriptions
-│   │   ├── list            List profit improvement subscriptions
-│   │   └── show <id>       Show profit improvement subscription details
-│   ├── inventory-changes   Browse and view inventory changes
-│   │   ├── list            List inventory changes with filtering
-│   │   └── show <id>       Show inventory change details
+│   ├── material-supplier-memberships Browse material supplier memberships
+│   │   ├── list            List material supplier memberships with filtering
+│   │   └── show <id>       Show material supplier membership details
+│   ├── trucker-memberships Browse trucker memberships
+│   │   ├── list            List trucker memberships with filtering
+│   │   └── show <id>       Show trucker membership details
+│   ├── trucker-settings    Browse trucker settings
+│   │   ├── list            List trucker settings
+│   │   └── show <id>       Show trucker setting details
+│   ├── material-site-measures Browse material site measures
+│   │   ├── list            List material site measures with filtering
+│   │   └── show <id>       Show material site measure details
+│   ├── material-site-mixing-lots Browse material site mixing lots
+│   │   ├── list            List material site mixing lots with filtering
+│   │   └── show <id>       Show material site mixing lot details
+│   ├── material-type-unavailabilities Browse material type unavailabilities
+│   │   ├── list            List material type unavailabilities with filtering
+│   │   └── show <id>       Show material type unavailability details
+│   ├── material-transaction-inspections Browse material transaction inspections
+│   │   ├── list            List material transaction inspections with filtering
+│   │   └── show <id>       Show material transaction inspection details
+│   ├── raw-material-transactions Browse raw material transactions
+│   │   ├── list            List raw material transactions with filtering
+│   │   └── show <id>       Show raw material transaction details
+│   ├── raw-transport-orders Browse raw transport orders
+│   │   ├── list            List raw transport orders with filtering
+│   │   └── show <id>       Show raw transport order details
+│   ├── inventory-estimates Browse inventory estimates
+│   │   ├── list            List inventory estimates with filtering
+│   │   └── show <id>       Show inventory estimate details
+│   ├── customer-applications Browse customer applications
+│   │   ├── list            List customer applications with filtering
+│   │   └── show <id>       Show customer application details
+│   ├── invoice-revisionizing-works Browse invoice revisionizing work
+│   │   ├── list            List invoice revisionizing work with filtering
+│   │   └── show <id>       Show invoice revisionizing work details
+│   ├── service-sites       Browse service sites
+│   │   ├── list            List service sites with filtering
+│   │   └── show <id>       Show service site details
 │   ├── customers           Browse customers
 │   │   └── list            List customers with filtering
-│   ├── commitment-simulation-sets  Browse commitment simulation sets
-│   │   ├── list            List commitment simulation sets with filtering
-│   │   └── show <id>       Show commitment simulation set details
-│   ├── commitment-simulation-periods  Browse commitment simulation periods
-│   │   ├── list            List commitment simulation periods with filtering
-│   │   └── show <id>       Show commitment simulation period details
+│   ├── rate-agreements     Browse rate agreements
+│   │   ├── list            List rate agreements with filtering
+│   │   └── show <id>       Show rate agreement details
+│   ├── customer-retainers  Browse customer retainers
+│   │   ├── list            List customer retainers with filtering
+│   │   └── show <id>       Show customer retainer details
+│   ├── retainer-payment-deductions Browse retainer payment deductions
+│   │   ├── list            List retainer payment deductions
+│   │   └── show <id>       Show retainer payment deduction details
+│   ├── customer-commitments Browse customer commitments
+│   │   ├── list            List customer commitments with filtering
+│   │   └── show <id>       Show customer commitment details
+│   ├── action-item-key-results Browse action item key result links
+│   │   ├── list            List action item key result links with filtering
+│   │   └── show <id>       Show action item key result details
+│   ├── key-result-scrappages Browse key result scrappages
+│   │   ├── list            List key result scrappages
+│   │   └── show <id>       Show key result scrappage details
+│   ├── action-item-trackers Browse action item trackers
+│   │   ├── list            List action item trackers
+│   │   └── show <id>       Show action item tracker details
 │   ├── truckers            Browse trucking companies
 │   │   └── list            List truckers with filtering
-│   ├── trucker-brokerages  Browse trucker brokerages
-│   │   ├── list            List trucker brokerages
-│   │   └── show <id>       Show trucker brokerage details
-│   ├── trucker-referrals   Browse trucker referrals
-│   │   ├── list            List trucker referrals
-│   │   └── show <id>       Show trucker referral details
-│   ├── trucker-shift-sets  Browse trucker shift sets
-│   │   ├── list            List trucker shift sets with filtering
-│   │   └── show <id>       Show trucker shift set details
+│   ├── trucker-invoice-payments Browse trucker invoice payments
+│   │   ├── list            List trucker invoice payments
+│   │   └── show <id>       Show trucker invoice payment details
+│   ├── driver-day-adjustment-plans Browse driver day adjustment plans
+│   │   ├── list            List driver day adjustment plans
+│   │   └── show <id>       Show driver day adjustment plan details
+│   ├── driver-day-shortfall-calculations Browse driver day shortfall calculations
+│   │   ├── list            List driver day shortfall calculations
+│   │   └── show <id>       Show driver day shortfall calculation details
+│   ├── shift-counters      Browse shift counters
+│   │   └── list            List shift counters
+│   ├── job-production-plan-duplication-works Browse job production plan duplication work
+│   │   ├── list            List duplication work with filtering
+│   │   └── show <id>       Show duplication work details
+│   ├── job-production-plan-material-types Browse job production plan material types
+│   │   ├── list            List job production plan material types with filtering
+│   │   └── show <id>       Show job production plan material type details
+│   ├── job-production-plan-service-type-unit-of-measure-cohorts Browse job production plan service type unit of measure cohorts
+│   │   ├── list            List job production plan service type unit of measure cohorts with filtering
+│   │   └── show <id>       Show job production plan service type unit of measure cohort details
+│   ├── job-production-plan-time-card-approvers Browse job production plan time card approvers
+│   │   ├── list            List job production plan time card approvers with filtering
+│   │   └── show <id>       Show job production plan time card approver details
+│   ├── project-approvals   Browse project approvals
+│   │   ├── list            List project approvals
+│   │   └── show <id>       Show project approval details
+│   ├── project-unabandonments Browse project unabandonments
+│   │   ├── list            List project unabandonments
+│   │   └── show <id>       Show project unabandonment details
+│   ├── project-submissions Browse project submissions
+│   │   ├── list            List project submissions
+│   │   └── show <id>       Show project submission details
+│   ├── project-bid-locations Browse project bid locations
+│   │   ├── list            List project bid locations with filtering
+│   │   └── show <id>       Show project bid location details
+│   ├── project-estimate-file-imports Browse project estimate file imports
+│   │   └── list            List project estimate file imports
+│   ├── projects-file-imports Browse projects file imports
+│   │   ├── list            List projects file imports
+│   │   └── show <id>       Show projects file import details
+│   ├── project-labor-classifications Browse project labor classifications
+│   │   ├── list            List project labor classifications with filtering
+│   │   └── show <id>       Show project labor classification details
+│   ├── project-transport-location-event-types Browse project transport location event types
+│   │   ├── list            List project transport location event types with filtering
+│   │   └── show <id>       Show project transport location event type details
+│   ├── project-transport-plan-event-location-predictions Browse project transport plan event location predictions
+│   │   ├── list            List project transport plan event location predictions
+│   │   └── show <id>       Show project transport plan event location prediction details
+│   ├── predictions         Browse predictions
+│   │   ├── list            List predictions
+│   │   └── show <id>       Show prediction details
+│   ├── prediction-subject-bids Browse prediction subject bids
+│   │   ├── list            List prediction subject bids with filtering
+│   │   └── show <id>       Show prediction subject bid details
+│   ├── prediction-subject-gaps Browse prediction subject gaps
+│   │   ├── list            List prediction subject gaps with filtering
+│   │   └── show <id>       Show prediction subject gap details
+│   ├── project-transport-plan-planned-event-time-schedules Browse project transport plan planned event time schedules
+│   │   ├── list            List project transport plan planned event time schedules
+│   │   └── show <id>       Show project transport plan planned event time schedule details
+│   ├── project-transport-plan-segments Browse project transport plan segments
+│   │   ├── list            List project transport plan segments with filtering
+│   │   └── show <id>       Show project transport plan segment details
+│   ├── project-transport-plan-trailers Browse project transport plan trailers
+│   │   ├── list            List project transport plan trailers with filtering
+│   │   └── show <id>       Show project transport plan trailer details
+│   ├── project-transport-plan-strategies Browse project transport plan strategies
+│   │   ├── list            List project transport plan strategies with filtering
+│   │   └── show <id>       Show project transport plan strategy details
+│   ├── project-transport-plan-driver-assignment-recommendations Browse project transport plan driver assignment recommendations
+│   │   ├── list            List project transport plan driver assignment recommendations
+│   │   └── show <id>       Show project transport plan driver assignment recommendation details
+│   ├── project-transport-plan-trailer-assignment-recommendations Browse project transport plan trailer assignment recommendations
+│   │   ├── list            List project transport plan trailer assignment recommendations
+│   │   └── show <id>       Show project transport plan trailer assignment recommendation details
+│   ├── project-phase-cost-item-actuals Browse project phase cost item actuals
+│   │   ├── list            List project phase cost item actuals with filtering
+│   │   └── show <id>       Show project phase cost item actual details
+│   ├── project-phase-revenue-item-actuals Browse project phase revenue item actuals
+│   │   ├── list            List project phase revenue item actuals with filtering
+│   │   └── show <id>       Show project phase revenue item actual details
+│   ├── project-revenue-item-price-estimates Browse project revenue item price estimates
+│   │   ├── list            List project revenue item price estimates with filtering
+│   │   └── show <id>       Show project revenue item price estimate details
+│   ├── time-card-pre-approvals Browse time card pre-approvals
+│   │   ├── list            List time card pre-approvals with filtering
+│   │   └── show <id>       Show time card pre-approval details
+│   ├── time-card-unscrappages Browse time card unscrappages
+│   │   ├── list            List time card unscrappages
+│   │   └── show <id>       Show time card unscrappage details
+│   ├── time-sheets         Browse time sheets
+│   │   ├── list            List time sheets with filtering
+│   │   └── show <id>       Show time sheet details
+│   ├── time-sheet-rejections Browse time sheet rejections
+│   │   ├── list            List time sheet rejections
+│   │   └── show <id>       Show time sheet rejection details
+│   ├── incident-request-approvals Browse incident request approvals
+│   │   ├── list            List incident request approvals
+│   │   └── show <id>       Show incident request approval details
+│   ├── incident-request-rejections Browse incident request rejections
+│   │   ├── list            List incident request rejections
+│   │   └── show <id>       Show incident request rejection details
+│   ├── incident-subscriptions Browse incident subscriptions
+│   │   ├── list            List incident subscriptions with filtering
+│   │   └── show <id>       Show incident subscription details
+│   ├── incident-unit-of-measure-quantities Browse incident unit of measure quantities
+│   │   ├── list            List incident unit of measure quantities
+│   │   └── show <id>       Show incident unit of measure quantity details
+│   ├── root-causes          Browse root causes
+│   │   ├── list            List root causes
+│   │   └── show <id>       Show root cause details
+│   ├── liability-incidents  Browse liability incidents
+│   │   ├── list            List liability incidents
+│   │   └── show <id>       Show liability incident details
+│   ├── production-incidents Browse production incidents
+│   │   ├── list            List production incidents
+│   │   └── show <id>       Show production incident details
+│   ├── tender-acceptances  Browse tender acceptances
+│   │   ├── list            List tender acceptances
+│   │   └── show <id>       Show tender acceptance details
+│   ├── tender-offers       Browse tender offers
+│   │   ├── list            List tender offers
+│   │   └── show <id>       Show tender offer details
+│   ├── tender-re-rates     Browse tender re-rates
+│   │   ├── list            List tender re-rates
+│   │   └── show <id>       Show tender re-rate details
+│   ├── tender-job-schedule-shift-time-card-reviews Browse tender job schedule shift time card reviews
+│   │   ├── list            List tender job schedule shift time card reviews
+│   │   └── show <id>       Show tender job schedule shift time card review details
+│   ├── time-sheet-line-item-equipment-requirements Browse time sheet line item equipment requirements
+│   │   ├── list            List time sheet line item equipment requirements with filtering
+│   │   └── show <id>       Show time sheet line item equipment requirement details
+│   ├── maintenance-requirement-sets Browse maintenance requirement sets
+│   │   ├── list            List maintenance requirement sets with filtering
+│   │   └── show <id>       Show maintenance requirement set details
+│   ├── maintenance-requirement-maintenance-requirement-parts Browse maintenance requirement parts
+│   │   ├── list            List maintenance requirement parts with filtering
+│   │   └── show <id>       Show maintenance requirement part details
+│   ├── job-schedule-shift-start-site-changes Browse job schedule shift start site changes
+│   │   ├── list            List job schedule shift start site changes
+│   │   └── show <id>       Show job schedule shift start site change details
+│   ├── lineup-dispatches   Browse lineup dispatches
+│   │   ├── list            List lineup dispatches with filtering
+│   │   └── show <id>       Show lineup dispatch details
+│   ├── lineup-scenario-generators Browse lineup scenario generators
+│   │   ├── list            List lineup scenario generators with filtering
+│   │   └── show <id>       Show lineup scenario generator details
+│   ├── lineup-scenarios    Browse lineup scenarios
+│   │   ├── list            List lineup scenarios with filtering
+│   │   └── show <id>       Show lineup scenario details
+│   ├── lineup-dispatch-shifts Browse lineup dispatch shifts
+│   │   ├── list            List lineup dispatch shifts with filtering
+│   │   └── show <id>       Show lineup dispatch shift details
+│   ├── hos-events          Browse hours-of-service (HOS) events
+│   │   ├── list            List HOS events with filtering
+│   │   └── show <id>       Show HOS event details
+│   ├── user-location-events Browse user location events
+│   │   ├── list            List user location events with filtering
+│   │   └── show <id>       Show user location event details
+│   ├── transport-routes    Browse transport routes
+│   │   ├── list            List transport routes with filtering
+│   │   └── show <id>       Show transport route details
+│   ├── site-events         Browse site events
+│   │   ├── list            List site events with filtering
+│   │   └── show <id>       Show site event details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
-│   ├── transport-order-stop-materials Browse transport order stop materials
-│   │   ├── list            List transport order stop materials
-│   │   └── show <id>       Show transport order stop material details
-│   ├── work-order-service-codes Browse work order service codes
-│   │   ├── list            List work order service codes
-│   │   └── show <id>       Show work order service code details
+│   ├── meeting-attendees   Browse meeting attendees
+│   │   ├── list            List meeting attendees with filtering
+│   │   └── show <id>       Show meeting attendee details
+│   ├── search-catalog-entries Browse search catalog entries
+│   │   ├── list            List search catalog entries with filtering
+│   │   └── show <id>       Show search catalog entry details
 │   ├── features            Browse product features
 │   │   ├── list            List features with filtering
 │   │   └── show <id>       Show feature details
@@ -793,44 +778,48 @@ xbe
 │   ├── press-releases      Browse press releases
 │   │   ├── list            List press releases
 │   │   └── show <id>       Show press release details
-│   ├── place-predictions   Browse place predictions
-│   │   └── list            List place predictions by query
+│   ├── public-praise-reactions Browse public praise reactions
+│   │   ├── list            List public praise reactions
+│   │   └── show <id>       Show public praise reaction details
 │   ├── platform-statuses   Browse platform status updates
 │   │   ├── list            List platform statuses
 │   │   └── show <id>       Show platform status details
-│   ├── version-events      Browse version events
-│   │   ├── list            List version events with filtering
-│   │   └── show <id>       Show version event details
-│   ├── gauge-vehicles       Browse gauge vehicles
-│   │   ├── list            List gauge vehicles with filtering
-│   │   └── show <id>       Show gauge vehicle details
-│   ├── geotab-vehicles      Browse geotab vehicles
-│   │   ├── list            List geotab vehicles with filtering
-│   │   └── show <id>       Show geotab vehicle details
-│   ├── gps-insight-vehicles Browse GPS Insight vehicles
-│   │   ├── list            List GPS Insight vehicles with filtering
-│   │   └── show <id>       Show GPS Insight vehicle details
-│   ├── one-step-gps-vehicles Browse One Step GPS vehicles
-│   │   ├── list            List One Step GPS vehicles with filtering
-│   │   └── show <id>       Show One Step GPS vehicle details
-│   ├── samsara-vehicles     Browse samsara vehicles
-│   │   ├── list            List samsara vehicles with filtering
-│   │   └── show <id>       Show samsara vehicle details
-│   ├── temeda-vehicles      Browse temeda vehicles
-│   │   ├── list            List temeda vehicles with filtering
-│   │   └── show <id>       Show temeda vehicle details
-│   ├── t3-equipmentshare-vehicles Browse T3 EquipmentShare vehicles
-│   │   ├── list            List T3 EquipmentShare vehicles with filtering
-│   │   └── show <id>       Show T3 EquipmentShare vehicle details
-│   ├── verizon-reveal-vehicles Browse Verizon Reveal vehicles
-│   │   ├── list            List Verizon Reveal vehicles with filtering
-│   │   └── show <id>       Show Verizon Reveal vehicle details
-│   ├── keep-truckin-users  Browse KeepTruckin users
-│   │   ├── list            List KeepTruckin users with filtering
-│   │   └── show <id>       Show KeepTruckin user details
-│   └── glossary-terms      Browse glossary terms
-│       ├── list            List glossary terms with filtering
-│       └── show <id>       Show glossary term details
+│   ├── pave-frame-actual-hours Browse pave frame actual hours
+│   │   ├── list            List pave frame actual hours
+│   │   └── show <id>       Show pave frame actual hour details
+│   ├── base-summary-templates Browse base summary templates
+│   │   ├── list            List base summary templates with filtering
+│   │   └── show <id>       Show base summary template details
+│   ├── glossary-terms      Browse glossary terms
+│   │   ├── list            List glossary terms with filtering
+│   │   └── show <id>       Show glossary term details
+│   ├── developer-trucker-certification-multipliers Browse developer trucker certification multipliers
+│   │   ├── list            List developer trucker certification multipliers with filtering
+│   │   └── show <id>       Show developer trucker certification multiplier details
+│   ├── objective-stakeholder-classification-quotes Browse objective stakeholder classification quotes
+│   │   ├── list            List objective stakeholder classification quotes with filtering
+│   │   └── show <id>       Show objective stakeholder classification quote details
+│   ├── organization-invoices-batch-invoice-batchings Browse organization invoices batch invoice batchings
+│   │   ├── list            List organization invoices batch invoice batchings
+│   │   └── show <id>       Show organization invoices batch invoice batching details
+│   ├── organization-invoices-batch-invoice-failures Browse organization invoices batch invoice failures
+│   │   ├── list            List organization invoices batch invoice failures
+│   │   └── show <id>       Show organization invoices batch invoice failure details
+│   ├── organization-invoices-batch-processes Browse organization invoices batch processes
+│   │   ├── list            List organization invoices batch processes
+│   │   └── show <id>       Show organization invoices batch process details
+│   ├── organization-invoices-batch-status-changes Browse organization invoices batch status changes
+│   │   ├── list            List organization invoices batch status changes
+│   │   └── show <id>       Show organization invoices batch status change details
+│   ├── organization-invoices-batch-pdf-files Browse organization invoices batch PDF files
+│   │   ├── list            List organization invoices batch PDF files
+│   │   └── show <id>       Show organization invoices batch PDF file details
+│   ├── open-door-issues    Browse open door issues
+│   │   ├── list            List open door issues with filtering
+│   │   └── show <id>       Show open door issue details
+│   └── taggings            Browse taggings
+│       ├── list            List taggings with filtering
+│       └── show <id>       Show tagging details
 ├── update                  Show update instructions
 └── version                 Print the CLI version
 ```
@@ -927,16 +916,36 @@ xbe view posts show 789
 xbe view posts list --json --limit 10
 ```
 
-### Project Material Types
+### Proffers
 
 ```bash
-# List material types for a project
-xbe view project-material-types list --project 123
+# List proffers
+xbe view proffers list
 
-# Filter by pickup-at-min window
-xbe view project-material-types list \
-  --pickup-at-min-min 2026-01-01T00:00:00Z \
-  --pickup-at-min-max 2026-01-02T00:00:00Z
+# Filter by kind
+xbe view proffers list --kind hot_feed_post
+
+# Find similar proffers (uses embeddings)
+xbe view proffers list --similar-to-text "export to CSV"
+
+# View full proffer details
+xbe view proffers show 123
+
+# Create a proffer
+xbe do proffers create --title "Add CSV export"
+```
+
+### Public Praise Reactions
+
+```bash
+# List reactions on public praises
+xbe view public-praise-reactions list
+
+# Create a reaction
+xbe do public-praise-reactions create --public-praise 123 --reaction-classification 45
+
+# Delete a reaction
+xbe do public-praise-reactions delete 987 --confirm
 ```
 
 ### Brokers
@@ -952,348 +961,187 @@ xbe view brokers list --company-name "Acme"
 xbe view brokers list --company-name "Acme" --json | jq '.[0].id'
 ```
 
-### Broker Commitments
+### Open Door Issues
 
 ```bash
-# List broker commitments
-xbe view broker-commitments list
+# List open door issues
+xbe view open-door-issues list
 
-# Filter by broker or trucker
-xbe view broker-commitments list --broker 123
-xbe view broker-commitments list --trucker 456
+# Filter by organization
+xbe view open-door-issues list --organization "Broker|123"
 
-# Create a broker commitment
-xbe do broker-commitments create --status active --broker 123 --trucker 456 --label "Q1"
+# Show open door issue details
+xbe view open-door-issues show 456
 
-# Show broker commitment details
-xbe view broker-commitments show 789
+# Create an open door issue
+xbe do open-door-issues create \
+  --description "Safety concern reported by driver" \
+  --status editing \
+  --organization "Broker|123" \
+  --reported-by 789
 ```
 
-### Broker Tenders
+### Business Unit Customers
 
 ```bash
-# List broker tenders
-xbe view broker-tenders list
+# List business unit customer links
+xbe view business-unit-customers list
 
-# Filter by broker, job, or status
-xbe view broker-tenders list --broker 123 --status editing
-xbe view broker-tenders list --job 456
+# Filter by business unit
+xbe view business-unit-customers list --business-unit 123
 
-# Create a broker tender
-xbe do broker-tenders create --job 456 --broker 123 --trucker 789
+# Filter by customer
+xbe view business-unit-customers list --customer 456
 
-# Show broker tender details
-xbe view broker-tenders show 789
+# Show a business unit customer link
+xbe view business-unit-customers show 789
+
+# Create a business unit customer link
+xbe do business-unit-customers create --business-unit 123 --customer 456
+
+# Delete a business unit customer link
+xbe do business-unit-customers delete 789 --confirm
 ```
 
-### Broker Tender Cancelled Seller Notifications
+### Business Unit Laborers
 
 ```bash
-# List notifications
-xbe view broker-tender-cancelled-seller-notifications list
+# List business unit laborer links
+xbe view business-unit-laborers list
 
-# Filter by read status
-xbe view broker-tender-cancelled-seller-notifications list --read false
+# Filter by business unit
+xbe view business-unit-laborers list --business-unit 123
 
-# Show notification details
-xbe view broker-tender-cancelled-seller-notifications show 123
+# Filter by laborer
+xbe view business-unit-laborers list --laborer 456
 
-# Mark as read
-xbe do broker-tender-cancelled-seller-notifications update 123 --read
+# Show a business unit laborer link
+xbe view business-unit-laborers show 789
+
+# Create a business unit laborer link
+xbe do business-unit-laborers create --business-unit 123 --laborer 456
+
+# Delete a business unit laborer link
+xbe do business-unit-laborers delete 789 --confirm
 ```
 
-### Broker Tender Returned Buyer Notifications
+### Broker Customers
 
 ```bash
-# List notifications
-xbe view broker-tender-returned-buyer-notifications list
+# List broker-customer relationships
+xbe view broker-customers list
 
-# Filter by read status
-xbe view broker-tender-returned-buyer-notifications list --read false
+# Filter by broker and customer
+xbe view broker-customers list --broker 123
+xbe view broker-customers list --partner "Customer|456"
 
-# Show notification details
-xbe view broker-tender-returned-buyer-notifications show 123
+# Show a broker-customer relationship
+xbe view broker-customers show 789
 
-# Mark as read
-xbe do broker-tender-returned-buyer-notifications update 123 --read
+# Create a broker-customer relationship
+xbe do broker-customers create --broker 123 --customer 456 \
+  --external-accounting-broker-customer-id "ACCT-42"
+
+# Update external accounting ID
+xbe do broker-customers update 789 --external-accounting-broker-customer-id "ACCT-43"
+
+# Delete a broker-customer relationship
+xbe do broker-customers delete 789 --confirm
 ```
 
-### Customer Tender Offered Buyer Notifications
+### Broker Vendors
 
 ```bash
-# List notifications
-xbe view customer-tender-offered-buyer-notifications list
+# List broker-vendor relationships
+xbe view broker-vendors list
 
-# Filter by read status
-xbe view customer-tender-offered-buyer-notifications list --read false
+# Filter by broker and vendor
+xbe view broker-vendors list --broker 123
+xbe view broker-vendors list --partner "Trucker|456"
 
-# Show notification details
-xbe view customer-tender-offered-buyer-notifications show 123
+# Show a broker-vendor relationship
+xbe view broker-vendors show 789
 
-# Mark as read
-xbe do customer-tender-offered-buyer-notifications update 123 --read
+# Create a broker-vendor relationship
+xbe do broker-vendors create --broker 123 --vendor "Trucker|456" \
+  --external-accounting-broker-vendor-id "ACCT-42"
+
+# Update external accounting ID
+xbe do broker-vendors update 789 --external-accounting-broker-vendor-id "ACCT-43"
+
+# Delete a broker-vendor relationship
+xbe do broker-vendors delete 789 --confirm
 ```
 
-### Tender Job Schedule Shift Cancelled Trucker Contact Notifications
+### Customer Vendors
 
 ```bash
-# List notifications
-xbe view tender-job-schedule-shift-cancelled-trucker-contact-notifications list
+# List customer-vendor relationships
+xbe view customer-vendors list
 
-# Filter by read status
-xbe view tender-job-schedule-shift-cancelled-trucker-contact-notifications list --read false
+# Filter by customer and vendor
+xbe view customer-vendors list --customer 123
+xbe view customer-vendors list --partner "Trucker|456"
 
-# Show notification details
-xbe view tender-job-schedule-shift-cancelled-trucker-contact-notifications show 123
+# Show a customer-vendor relationship
+xbe view customer-vendors show 789
 
-# Mark as read
-xbe do tender-job-schedule-shift-cancelled-trucker-contact-notifications update 123 --read
+# Create a customer-vendor relationship
+xbe do customer-vendors create --customer 123 --vendor "Trucker|456" \
+  --external-accounting-customer-vendor-id "ACCT-42"
+
+# Update external accounting ID
+xbe do customer-vendors update 789 --external-accounting-customer-vendor-id "ACCT-43"
+
+# Delete a customer-vendor relationship
+xbe do customer-vendors delete 789 --confirm
 ```
 
-### Tender Job Schedule Shift Starting Seller Notifications
+### Trading Partners
 
 ```bash
-# List notifications
-xbe view tender-job-schedule-shift-starting-seller-notifications list
+# List trading partner links
+xbe view trading-partners list
 
-# Filter by read status
-xbe view tender-job-schedule-shift-starting-seller-notifications list --read false
+# Filter by organization and partner
+xbe view trading-partners list --organization "Broker|123"
+xbe view trading-partners list --partner "Customer|456"
 
-# Show notification details
-xbe view tender-job-schedule-shift-starting-seller-notifications show 123
+# Show a trading partner link
+xbe view trading-partners show 789
 
-# Mark as read
-xbe do tender-job-schedule-shift-starting-seller-notifications update 123 --read
+# Create a trading partner link
+xbe do trading-partners create --organization "Broker|123" --partner "Customer|456" \
+  --trading-partner-type BrokerCustomer
+
+# Delete a trading partner link
+xbe do trading-partners delete 789 --confirm
 ```
 
-### Notification Subscriptions
+### Broker Project Transport Event Types
 
 ```bash
-# List notification subscriptions
-xbe view notification-subscriptions list
-
-# Filter by user
-xbe view notification-subscriptions list --user 123
-
-# Show notification subscription details
-xbe view notification-subscriptions show 456
-```
-
-### Site Wait Time Notification Triggers
-
-```bash
-# List site wait time notification triggers
-xbe view site-wait-time-notification-triggers list
-
-# Filter by job production plan
-xbe view site-wait-time-notification-triggers list --job-production-plan 123
-
-# Filter by site type
-xbe view site-wait-time-notification-triggers list --site-type job_site
-
-# Show trigger details
-xbe view site-wait-time-notification-triggers show 456
-```
-
-### OpenAI Vector Stores
-
-```bash
-# List vector stores
-xbe view open-ai-vector-stores list
-
-# Filter by purpose
-xbe view open-ai-vector-stores list --purpose user_post_feed
-
-# Filter by scope
-xbe view open-ai-vector-stores list --scope "UserPostFeed|123"
-
-# Show vector store details
-xbe view open-ai-vector-stores show 789
-```
-
-### Prompters
-
-```bash
-# List prompters
-xbe view prompters list
-
-# Filter by active status
-xbe view prompters list --is-active true
-
-# Show prompter details
-xbe view prompters show 123
-
-# Create a prompter
-xbe do prompters create --name "Release Notes" --is-active=false
-
-# Update a prompt template
-xbe do prompters update 123 --release-note-headline-suggestions-prompt-template "New template"
-
-# Delete a prompter
-xbe do prompters delete 123 --confirm
-```
-
-### Communications
-
-```bash
-# List communications
-xbe view communications list
-
-# Filter by subject or delivery status
-xbe view communications list --subject-type Project --subject-id 123
-xbe view communications list --delivery-status incoming_received
-
-# Show communication details
-xbe view communications show 123
-```
-
-### Text Messages
-
-```bash
-# List today's text messages
-xbe view text-messages list
-
-# Filter by recipient and date
-xbe view text-messages list --to +15551234567 --date-sent 2025-01-20
-
-# Show text message details
-xbe view text-messages show SM123
-```
-
-### Tenders
-
-```bash
-# List tenders
-xbe view tenders list
-
-# Filter by buyer, job number, or status
-xbe view tenders list --buyer 123 --status editing
-xbe view tenders list --job-number "JOB-1001"
-
-# Show tender details
-xbe view tenders show 789
-```
-
-### Customer Tenders
-
-```bash
-# List customer tenders
-xbe view customer-tenders list
-
-# Filter by broker, job, or status
-xbe view customer-tenders list --broker 123 --status editing
-xbe view customer-tenders list --job 456
-
-# Create a customer tender
-xbe do customer-tenders create --job 456 --customer 123 --broker 789
-
-# Show customer tender details
-xbe view customer-tenders show 789
-```
-
-### Broker Retainer Payment Forecasts
-
-```bash
-# Forecast upcoming broker retainer payments starting today
-xbe do broker-retainer-payment-forecasts create --broker 123
-
-# Forecast starting on a specific date
-xbe do broker-retainer-payment-forecasts create --broker 123 --date 2025-02-01
-
-# Output as JSON
-xbe do broker-retainer-payment-forecasts create --broker 123 --json
-```
-
-### Customer Application Approvals
-
-```bash
-# Approve a customer application
-xbe do customer-application-approvals create --customer-application 123 --credit-limit 1000000
-
-# Output as JSON
-xbe do customer-application-approvals create --customer-application 123 --credit-limit 1000000 --json
-```
-
-### Trucker Application Approvals
-
-```bash
-# Approve a trucker application
-xbe do trucker-application-approvals create --trucker-application 123
-
-# Also add the application user as a trucker manager
-xbe do trucker-application-approvals create --trucker-application 123 --add-application-user-as-trucker-manager
-
-# Output as JSON
-xbe do trucker-application-approvals create --trucker-application 123 --json
-```
-
-### Customer Incident Default Assignees
-
-```bash
-# List default assignees for a customer
-xbe view customer-incident-default-assignees list --customer 123
-
-# Create a default assignee
-xbe do customer-incident-default-assignees create --customer 123 --default-assignee 456 --kind safety
-```
-
-### Project Status Changes
-
-```bash
-# List project status changes
-xbe view project-status-changes list
-
-# Filter by project
-xbe view project-status-changes list --project 123
-
-# Filter by status
-xbe view project-status-changes list --status active
-
-# Show status change details
-xbe view project-status-changes show 456
-```
-
-### Key Result Changes
-
-```bash
-# List key result changes
-xbe view key-result-changes list
-
-# Filter by key result
-xbe view key-result-changes list --key-result 123
-
-# Filter by objective
-xbe view key-result-changes list --objective 456
-
-# Show key result change details
-xbe view key-result-changes show 789
-```
-
-### Meetings
-
-```bash
-# List meetings
-xbe view meetings list
-
-# Filter by organization (Type|ID)
-xbe view meetings list --organization "Broker|123"
-
-# Filter by organizer
-xbe view meetings list --organizer 456
-
-# Show meeting details
-xbe view meetings show 789
-
-# Create a meeting
-xbe do meetings create --organization-type brokers --organization-id 123 \
-  --subject "Weekly Safety Meeting" \
-  --start-at 2025-01-15T14:00:00Z --end-at 2025-01-15T15:00:00Z
-
-# Update a meeting summary
-xbe do meetings update 789 --summary "Reviewed safety topics and action items"
-
-# Delete a meeting
-xbe do meetings delete 789 --confirm
+# List broker project transport event types
+xbe view broker-project-transport-event-types list
+
+# Filter by broker or event type
+xbe view broker-project-transport-event-types list --broker 123
+xbe view broker-project-transport-event-types list --project-transport-event-type 456
+
+# Show a broker project transport event type
+xbe view broker-project-transport-event-types show 789
+
+# Create a broker project transport event type
+xbe do broker-project-transport-event-types create \
+  --broker 123 \
+  --project-transport-event-type 456 \
+  --code "PICK"
+
+# Update the broker-specific code
+xbe do broker-project-transport-event-types update 789 --code "DROP"
+
+# Delete a broker project transport event type
+xbe do broker-project-transport-event-types delete 789 --confirm
 ```
 
 ### Users, Material Suppliers, Customers, Truckers
@@ -1345,6 +1193,26 @@ xbe view press-releases show 789
 # List glossary terms
 xbe view glossary-terms list
 xbe view glossary-terms show 101
+```
+
+### Base Summary Templates
+
+```bash
+# List base summary templates
+xbe view base-summary-templates list
+
+# Show a base summary template
+xbe view base-summary-templates show 123
+
+# Create a base summary template
+xbe do base-summary-templates create \
+  --label "Weekly Summary" \
+  --broker 123 \
+  --group-bys broker \
+  --filter broker=123
+
+# Delete a base summary template
+xbe do base-summary-templates delete 123 --confirm
 ```
 
 ### Lane Summary (Cycle Summary)
@@ -1414,25 +1282,54 @@ xbe do material-transaction-summary create \
   --min-transactions 100
 ```
 
-### Tender Job Schedule Shift Material Transaction Checksums
+### Commitment Simulations
 
 ```bash
-# Generate checksum diagnostics for a job number and time window
-xbe do tender-job-schedule-shifts-material-transactions-checksums create \
-  --raw-job-number 3882 \
-  --transaction-at-min 2025-01-01T00:00:00Z \
-  --transaction-at-max 2025-01-02T00:00:00Z
+# List commitment simulations
+xbe view commitment-simulations list
 
-# Include material sites and a job production plan context
-xbe do tender-job-schedule-shifts-material-transactions-checksums create \
-  --raw-job-number 3882 \
-  --transaction-at-min 2025-01-01T00:00:00Z \
-  --transaction-at-max 2025-01-02T00:00:00Z \
-  --material-site-ids 101,102 \
-  --job-production-plan-id 555
+# Filter by commitment and status
+xbe view commitment-simulations list --commitment 123 --status enqueued
 
-# View a checksum record
-xbe view tender-job-schedule-shifts-material-transactions-checksums show 123
+# Create a commitment simulation
+xbe do commitment-simulations create \
+  --commitment-type commitments \
+  --commitment-id 123 \
+  --start-on 2026-01-23 \
+  --end-on 2026-01-23 \
+  --iteration-count 100
+```
+
+### Meeting Attendees
+
+```bash
+# List meeting attendees
+xbe view meeting-attendees list
+
+# Filter by meeting
+xbe view meeting-attendees list --meeting 123
+
+# Filter by user
+xbe view meeting-attendees list --user 456
+
+# Filter by location kind
+xbe view meeting-attendees list --location-kind on_site
+
+# Filter by presence requirement or present status
+xbe view meeting-attendees list --is-presence-required true
+xbe view meeting-attendees list --is-present false
+
+# Show a meeting attendee
+xbe view meeting-attendees show 789
+
+# Create a meeting attendee
+xbe do meeting-attendees create --meeting 123 --user 456 --location-kind on_site --is-present true
+
+# Update a meeting attendee
+xbe do meeting-attendees update 789 --location-kind remote --is-present false
+
+# Delete a meeting attendee
+xbe do meeting-attendees delete 789 --confirm
 ```
 
 ### Memberships
@@ -1479,70 +1376,149 @@ xbe do memberships update 789 \
 xbe do memberships delete 789 --confirm
 ```
 
-### Broker Memberships
+### User Languages
 
-Broker memberships define the relationship between users and broker organizations.
+User languages associate users with preferred languages and default settings.
 
 ```bash
-# List broker memberships
-xbe view broker-memberships list --broker 123
+# List user languages
+xbe view user-languages list
 
-# Search broker memberships by user name
-xbe view broker-memberships list --q "Jane"
+# Filter by user
+xbe view user-languages list --user 123
 
-# Show broker membership details
-xbe view broker-memberships show 456
+# Filter by language
+xbe view user-languages list --language 456
 
-# Create a broker membership
-xbe do broker-memberships create --user 123 --broker 456 --kind manager
+# Filter by default status
+xbe view user-languages list --is-default true
 
-# Update a broker membership
-xbe do broker-memberships update 789 --title "Dispatcher" --is-rate-editor true
+# Show a user language
+xbe view user-languages show 789
 
-# Delete a broker membership (requires --confirm)
-xbe do broker-memberships delete 789 --confirm
+# Create a user language
+xbe do user-languages create --user 123 --language 456 --is-default true
+
+# Update default status
+xbe do user-languages update 789 --is-default false
+
+# Delete a user language
+xbe do user-languages delete 789 --confirm
 ```
 
-### Developer Memberships
-
-Developer memberships define the relationship between users and developer organizations.
+### Developer Trucker Certification Multipliers
 
 ```bash
-# List developer memberships
-xbe view developer-memberships list --organization "Developer|123"
+# List multipliers
+xbe view developer-trucker-certification-multipliers list
 
-# Show developer membership details
-xbe view developer-memberships show 456
+# Filter by developer trucker certification
+xbe view developer-trucker-certification-multipliers list --developer-trucker-certification 123
 
-# Create a developer membership
-xbe do developer-memberships create --user 123 --developer 456 --kind manager
+# Filter by trailer
+xbe view developer-trucker-certification-multipliers list --trailer 456
 
-# Update a developer membership
-xbe do developer-memberships update 789 --title "Project Manager" --can-see-rates-as-manager true
+# Show multiplier details
+xbe view developer-trucker-certification-multipliers show 789
 
-# Delete a developer membership (requires --confirm)
-xbe do developer-memberships delete 789 --confirm
+# Create a multiplier
+xbe do developer-trucker-certification-multipliers create \
+  --developer-trucker-certification 123 \
+  --trailer 456 \
+  --multiplier 0.85
+
+# Update a multiplier
+xbe do developer-trucker-certification-multipliers update 789 --multiplier 0.9
+
+# Delete a multiplier
+xbe do developer-trucker-certification-multipliers delete 789 --confirm
 ```
 
-### Business Unit Memberships
-
-Business unit memberships associate broker memberships with specific business units.
+### Objective Stakeholder Classification Quotes
 
 ```bash
-# List business unit memberships
-xbe view business-unit-memberships list --business-unit 123
+# List quotes
+xbe view objective-stakeholder-classification-quotes list
 
-# Show business unit membership details
-xbe view business-unit-memberships show 456
+# Filter by classification
+xbe view objective-stakeholder-classification-quotes list --objective-stakeholder-classification 123
 
-# Create a business unit membership
-xbe do business-unit-memberships create --business-unit 123 --membership 456 --kind technician
+# Filter by interest degree range
+xbe view objective-stakeholder-classification-quotes list --interest-degree-min 2 --interest-degree-max 5
 
-# Update a business unit membership
-xbe do business-unit-memberships update 789 --kind general
+# Show quote details
+xbe view objective-stakeholder-classification-quotes show 456
 
-# Delete a business unit membership (requires --confirm)
-xbe do business-unit-memberships delete 789 --confirm
+# Create a quote
+xbe do objective-stakeholder-classification-quotes create \
+  --objective-stakeholder-classification 123 \
+  --content "Stakeholder values transparency"
+
+# Create a generated quote
+xbe do objective-stakeholder-classification-quotes create \
+  --objective-stakeholder-classification 123 \
+  --content "Generated summary" \
+  --is-generated
+
+# Update a quote
+xbe do objective-stakeholder-classification-quotes update 456 --content "Updated content"
+
+# Delete a quote (requires --confirm)
+xbe do objective-stakeholder-classification-quotes delete 456 --confirm
+```
+
+### Material Supplier Memberships
+
+Material supplier memberships link users to material suppliers and control role settings and notifications.
+
+```bash
+# List material supplier memberships
+xbe view material-supplier-memberships list
+
+# Filter by material supplier
+xbe view material-supplier-memberships list --material-supplier 123
+
+# Show membership details
+xbe view material-supplier-memberships show 456
+
+# Create a membership
+xbe do material-supplier-memberships create --user 123 --material-supplier 456
+
+# Update a membership
+xbe do material-supplier-memberships update 456 --kind manager --title "Operations Manager"
+
+# Update notifications
+xbe do material-supplier-memberships update 456 --enable-recap-notifications true
+
+# Delete a membership (requires --confirm)
+xbe do material-supplier-memberships delete 456 --confirm
+```
+
+### Trucker Memberships
+
+Trucker memberships link users to truckers and control role settings and notifications.
+
+```bash
+# List trucker memberships
+xbe view trucker-memberships list
+
+# Filter by trucker
+xbe view trucker-memberships list --trucker 123
+
+# Show membership details
+xbe view trucker-memberships show 456
+
+# Create a membership
+xbe do trucker-memberships create --user 123 --trucker 456
+
+# Update a membership
+xbe do trucker-memberships update 456 --kind manager --title "Operations Manager"
+
+# Update trailer coassignment reset date
+xbe do trucker-memberships update 456 --trailer-coassignments-reset-on 2025-01-15
+
+# Delete a membership (requires --confirm)
+xbe do trucker-memberships delete 456 --confirm
 ```
 
 ### Crew Assignment Confirmations
@@ -1579,66 +1555,31 @@ xbe do crew-assignment-confirmations create \
 xbe do crew-assignment-confirmations update 789 --note "Updated note" --is-explicit true
 ```
 
-### Resource Unavailabilities
+### Project Transport Plan Driver Confirmations
 
-Resource unavailabilities define time ranges when a user, equipment, trailer, or tractor is unavailable.
-
-```bash
-# List resource unavailabilities
-xbe view resource-unavailabilities list
-
-# Filter by resource
-xbe view resource-unavailabilities list --resource-type User --resource-id 123
-
-# Filter by organization
-xbe view resource-unavailabilities list --organization "Broker|456"
-
-# Show unavailability details
-xbe view resource-unavailabilities show 789
-
-# Create a resource unavailability
-xbe do resource-unavailabilities create \
-  --resource-type User \
-  --resource-id 123 \
-  --start-at "2025-01-01T08:00:00Z" \
-  --end-at "2025-01-01T17:00:00Z" \
-  --description "PTO"
-
-# Update an unavailability
-xbe do resource-unavailabilities update 789 --end-at "2025-01-01T18:00:00Z"
-
-# Delete an unavailability (requires --confirm)
-xbe do resource-unavailabilities delete 789 --confirm
-```
-
-### Tractor Odometer Readings
-
-Tractor odometer readings capture mileage readings for tractors.
+Project transport plan driver confirmations track when drivers confirm or reject assignments.
 
 ```bash
-# List tractor odometer readings
-xbe view tractor-odometer-readings list
+# List confirmations
+xbe view project-transport-plan-driver-confirmations list
 
-# Filter by tractor
-xbe view tractor-odometer-readings list --tractor 123
+# Filter by status
+xbe view project-transport-plan-driver-confirmations list --status pending
 
-# Show reading details
-xbe view tractor-odometer-readings show 456
+# Filter by project transport plan driver
+xbe view project-transport-plan-driver-confirmations list --project-transport-plan-driver 123
 
-# Create a reading
-xbe do tractor-odometer-readings create \
-  --tractor 123 \
-  --unit-of-measure 456 \
-  --value 120345.6 \
-  --state-code IL \
-  --reading-on 2025-01-15 \
-  --reading-time 08:30
+# Show confirmation details
+xbe view project-transport-plan-driver-confirmations show 456
 
-# Update a reading
-xbe do tractor-odometer-readings update 456 --value 120400 --state-code CA
+# Update status
+xbe do project-transport-plan-driver-confirmations update 456 --status confirmed
 
-# Delete a reading (requires --confirm)
-xbe do tractor-odometer-readings delete 456 --confirm
+# Append a note
+xbe do project-transport-plan-driver-confirmations update 456 --note "Reviewed"
+
+# Update confirmation deadline
+xbe do project-transport-plan-driver-confirmations update 456 --confirm-at-max "2025-01-01T12:00:00Z"
 ```
 
 ### Crew Rates
@@ -1663,176 +1604,510 @@ xbe do crew-rates update 789 --price-per-unit 80.00 --end-on 2025-12-31
 xbe do crew-rates delete 789 --confirm
 ```
 
-### Rate Adjustments
+### Rate Agreements
 
-Rate adjustments connect rates to cost indexes and define how pricing changes as index values move.
+Rate agreements define negotiated pricing between sellers (brokers or truckers) and buyers (customers or brokers).
 
 ```bash
-# List rate adjustments
-xbe view rate-adjustments list
+# List rate agreements
+xbe view rate-agreements list
 
-# Filter by rate or cost index
-xbe view rate-adjustments list --rate 123 --cost-index 456
+# Filter by seller and buyer
+xbe view rate-agreements list --seller "Broker|123" --buyer "Customer|456"
 
-# Show rate adjustment details
-xbe view rate-adjustments show 789
+# Show a rate agreement
+xbe view rate-agreements show 789
 
-# Create a rate adjustment
-xbe do rate-adjustments create --rate 123 --cost-index 456 \
-  --zero-intercept-value 100 --zero-intercept-ratio 0.25 \
-  --adjustment-min 1.00 --adjustment-max 5.00 \
-  --prevent-rating-when-index-value-missing
+# Create a rate agreement
+xbe do rate-agreements create --name "Standard" --status active --seller "Broker|123" --buyer "Customer|456"
 
-# Update a rate adjustment
-xbe do rate-adjustments update 789 --adjustment-max 6.00
+# Update a rate agreement
+xbe do rate-agreements update 789 --status inactive
 
-# Delete a rate adjustment (requires --confirm)
-xbe do rate-adjustments delete 789 --confirm
+# Delete a rate agreement (requires --confirm)
+xbe do rate-agreements delete 789 --confirm
 ```
 
-### Rate Agreements Copiers
+### Equipment Movement Requirement Locations
 
-Rate agreements copiers copy a template rate agreement to multiple customers or truckers.
-
-```bash
-# List rate agreements copiers
-xbe view rate-agreements-copiers list
-
-# Filter by broker or template
-xbe view rate-agreements-copiers list --broker 123
-xbe view rate-agreements-copiers list --rate-agreement-template 456
-
-# Show copier details
-xbe view rate-agreements-copiers show 789
-
-# Copy a template to customers
-xbe do rate-agreements-copiers create \
-  --rate-agreement-template 456 \
-  --target-customers 111,222 \
-  --note "Annual renewal"
-
-# Copy a template to truckers
-xbe do rate-agreements-copiers create \
-  --rate-agreement-template 456 \
-  --target-truckers 333,444
-```
-
-### Driver Assignment Rules
-
-Driver assignment rules define constraints or guidance used when assigning drivers.
+Equipment movement requirement locations define named coordinates used as origins and destinations.
 
 ```bash
-# List driver assignment rules
-xbe view driver-assignment-rules list
+# List locations
+xbe view equipment-movement-requirement-locations list
 
-# Filter by level
-xbe view driver-assignment-rules list --level-type Broker --level-id 123
+# Filter by broker
+xbe view equipment-movement-requirement-locations list --broker 123
 
-# Create a broker-level rule
-xbe do driver-assignment-rules create \
-  --rule "Drivers must be assigned by 6am" \
-  --level-type Broker \
-  --level-id 123 \
-  --is-active
+# Show a location
+xbe view equipment-movement-requirement-locations show 456
 
-# Update a rule
-xbe do driver-assignment-rules update 789 --rule "Updated rule" --is-active=false
-
-# Delete a rule (requires --confirm)
-xbe do driver-assignment-rules delete 789 --confirm
-```
-
-### Driver Movement Segment Sets
-
-Driver movement segment sets summarize driver movement segments for a driver day.
-
-```bash
-# List driver movement segment sets
-xbe view driver-movement-segment-sets list
-
-# Filter by driver day
-xbe view driver-movement-segment-sets list --driver-day 123
-
-# Filter by driver
-xbe view driver-movement-segment-sets list --driver 456
-
-# Show full details
-xbe view driver-movement-segment-sets show 789
-```
-
-### HOS Ruleset Assignments
-
-HOS ruleset assignments track which HOS rule set applies to a driver at a given time.
-
-```bash
-# List HOS ruleset assignments
-xbe view hos-ruleset-assignments list
-
-# Filter by driver
-xbe view hos-ruleset-assignments list --driver 123
-
-# Filter by effective-at range
-xbe view hos-ruleset-assignments list --effective-at-min 2025-01-01T00:00:00Z --effective-at-max 2025-01-31T23:59:59Z
-
-# Show full details
-xbe view hos-ruleset-assignments show 456
-```
-
-### Equipment Movement Requirements
-
-Equipment movement requirements define equipment movement timing and locations.
-
-```bash
-# List requirements
-xbe view equipment-movement-requirements list
-
-# Filter by broker or equipment
-xbe view equipment-movement-requirements list --broker 123
-xbe view equipment-movement-requirements list --equipment 456
-
-# Show details
-xbe view equipment-movement-requirements show 789
-
-# Create a requirement
-xbe do equipment-movement-requirements create --broker 123 --equipment 456 \
-  --origin-at-min "2025-01-01T08:00:00Z" --destination-at-max "2025-01-01T17:00:00Z" \
-  --note "Move to yard"
-
-# Update a requirement
-xbe do equipment-movement-requirements update 789 --note "Updated note"
-
-# Delete a requirement (requires --confirm)
-xbe do equipment-movement-requirements delete 789 --confirm
-```
-
-### Maintenance Requirement Rules
-
-Maintenance requirement rules define maintenance or inspection requirements for equipment,
-equipment classifications, or business units.
-
-```bash
-# List rules
-xbe view maintenance-requirement-rules list
-
-# Filter by scope
-xbe view maintenance-requirement-rules list --broker 111
-xbe view maintenance-requirement-rules list --equipment 123
-xbe view maintenance-requirement-rules list --equipment-classification 456
-xbe view maintenance-requirement-rules list --business-unit 789
-xbe view maintenance-requirement-rules list --is-active false
-
-# Create a rule
-xbe do maintenance-requirement-rules create \
-  --rule "Service every 100 hours" \
+# Create a location
+xbe do equipment-movement-requirement-locations create \
   --broker 123 \
-  --equipment-classification 456 \
-  --is-active
+  --latitude 37.7749 \
+  --longitude -122.4194 \
+  --name "Main Yard"
 
-# Update a rule
-xbe do maintenance-requirement-rules update 789 --rule "Updated rule" --is-active=false
+# Update a location
+xbe do equipment-movement-requirement-locations update 456 --name "Updated Yard"
 
-# Delete a rule (requires --confirm)
-xbe do maintenance-requirement-rules delete 789 --confirm
+# Delete a location (requires --confirm)
+xbe do equipment-movement-requirement-locations delete 456 --confirm
+```
+
+### Equipment Movement Stops
+
+Equipment movement stops define the ordered locations within an equipment movement trip.
+
+```bash
+# List stops
+xbe view equipment-movement-stops list
+
+# Filter by trip
+xbe view equipment-movement-stops list --trip 123
+
+# Show a stop
+xbe view equipment-movement-stops show 456
+
+# Create a stop
+xbe do equipment-movement-stops create \
+  --trip 123 \
+  --location 456 \
+  --sequence-position 1 \
+  --scheduled-arrival-at "2025-01-01T08:00:00Z"
+
+# Update a stop
+xbe do equipment-movement-stops update 456 --sequence-position 2
+
+# Delete a stop (requires --confirm)
+xbe do equipment-movement-stops delete 456 --confirm
+```
+
+### Equipment Utilization Readings
+
+Equipment utilization readings capture odometer and hourmeter values for equipment.
+
+```bash
+# List readings
+xbe view equipment-utilization-readings list
+
+# Filter by equipment
+xbe view equipment-utilization-readings list --equipment 123
+
+# Filter by reported-at range
+xbe view equipment-utilization-readings list --reported-at-min 2025-01-01T00:00:00Z --reported-at-max 2025-01-31T23:59:59Z
+
+# Show a reading
+xbe view equipment-utilization-readings show 456
+
+# Create a reading
+xbe do equipment-utilization-readings create --equipment 123 --reported-at 2025-01-01T08:00:00Z --odometer 100
+
+# Update a reading
+xbe do equipment-utilization-readings update 456 --hourmeter 12
+
+# Delete a reading (requires --confirm)
+xbe do equipment-utilization-readings delete 456 --confirm
+```
+
+### Transport Routes
+
+Transport routes represent computed paths between origin and destination coordinates.
+
+```bash
+# List routes near an origin location
+xbe view transport-routes list --near-origin-location "40.7128|-74.0060|10"
+
+# List routes near a destination location
+xbe view transport-routes list --near-destination-location "34.0522|-118.2437|25"
+
+# Show a route
+xbe view transport-routes show 123
+
+# JSON output
+xbe view transport-routes list --json --limit 10
+```
+
+### Driver Day Adjustment Plans
+
+Driver day adjustment plans define per-trucker adjustments applied to driver day recaps.
+
+```bash
+# List plans for a trucker
+xbe view driver-day-adjustment-plans list --trucker 123
+
+# Show a plan
+xbe view driver-day-adjustment-plans show 456
+
+# Create a plan
+xbe do driver-day-adjustment-plans create --trucker 123 --content "Adjusted start time" \
+  --start-at "2025-01-15T08:00:00Z"
+
+# Update a plan
+xbe do driver-day-adjustment-plans update 456 --content "Updated plan" \
+  --start-at "2025-01-16T06:00:00Z"
+
+# Delete a plan (requires --confirm)
+xbe do driver-day-adjustment-plans delete 456 --confirm
+```
+
+### Driver Day Shortfall Calculations
+
+Driver day shortfall calculations allocate shortfall quantities across time cards and constraints.
+
+```bash
+# Create a calculation
+xbe do driver-day-shortfall-calculations create \
+  --time-card-ids 101,102 \
+  --driver-day-time-card-constraint-ids 55,56
+
+# Exclude time cards from allocation
+xbe do driver-day-shortfall-calculations create \
+  --time-card-ids 101,102,103 \
+  --unallocatable-time-card-ids 103 \
+  --driver-day-time-card-constraint-ids 55,56
+
+# Show a calculation (when available)
+xbe view driver-day-shortfall-calculations show <id>
+```
+
+### Project Transport Plan Driver Assignment Recommendations
+
+Project transport plan driver assignment recommendations rank candidate drivers for a project transport plan driver.
+
+```bash
+# Generate recommendations for a driver assignment
+xbe do project-transport-plan-driver-assignment-recommendations create \
+  --project-transport-plan-driver 123
+
+# List recommendations (optionally filter by driver)
+xbe view project-transport-plan-driver-assignment-recommendations list \
+  --project-transport-plan-driver 123
+
+# Show recommendation details
+xbe view project-transport-plan-driver-assignment-recommendations show <id>
+```
+
+### Project Transport Plan Trailer Assignment Recommendations
+
+Project transport plan trailer assignment recommendations rank candidate trailers for a project transport plan trailer.
+
+```bash
+# Generate recommendations for a trailer assignment
+xbe do project-transport-plan-trailer-assignment-recommendations create \
+  --project-transport-plan-trailer 123
+
+# List recommendations (optionally filter by trailer)
+xbe view project-transport-plan-trailer-assignment-recommendations list \
+  --project-transport-plan-trailer 123
+
+# Show recommendation details
+xbe view project-transport-plan-trailer-assignment-recommendations show <id>
+```
+
+### Project Transport Plan Event Location Predictions
+
+Project transport plan event location predictions rank candidate locations for a transport plan event.
+
+```bash
+# Create predictions for a project transport plan event
+xbe do project-transport-plan-event-location-predictions create \
+  --project-transport-plan-event 123 \
+  --transport-order 456
+
+# Create predictions with explicit context
+xbe do project-transport-plan-event-location-predictions create \
+  --transport-order 456 \
+  --project-transport-event-type-id-explicit 789 \
+  --event-position-explicit 1 \
+  --broker-id-explicit 321
+
+# List predictions filtered by event
+xbe view project-transport-plan-event-location-predictions list \
+  --project-transport-plan-event 123
+
+# Show prediction details
+xbe view project-transport-plan-event-location-predictions show <id>
+
+# Delete a prediction (requires --confirm)
+xbe do project-transport-plan-event-location-predictions delete <id> --confirm
+```
+
+### Predictions
+
+Predictions capture probability distributions for a prediction subject, along with status and scoring metadata.
+
+```bash
+# Create a prediction
+xbe do predictions create \
+  --prediction-subject 123 \
+  --status draft \
+  --probability-distribution '{"class_name":"TriangularDistribution","minimum":100,"mode":120,"maximum":140}'
+
+# List predictions filtered by prediction subject
+xbe view predictions list --prediction-subject 123
+
+# Show prediction details
+xbe view predictions show <id>
+
+# Update prediction status
+xbe do predictions update <id> --status submitted
+
+# Delete a prediction (requires --confirm)
+xbe do predictions delete <id> --confirm
+```
+
+### Prediction Subject Bids
+
+Prediction subject bids capture bidder amounts tied to a prediction subject's lowest losing bid detail.
+
+```bash
+# Create a prediction subject bid
+xbe do prediction-subject-bids create \
+  --bidder 123 \
+  --lowest-losing-bid-prediction-subject-detail 456 \
+  --amount 120000
+
+# List bids filtered by prediction subject
+xbe view prediction-subject-bids list --prediction-subject 789
+
+# Show bid details
+xbe view prediction-subject-bids show <id>
+
+# Update a bid amount
+xbe do prediction-subject-bids update <id> --amount 125000
+
+# Delete a bid (requires --confirm)
+xbe do prediction-subject-bids delete <id> --confirm
+```
+
+### Prediction Subject Gaps
+
+Prediction subject gaps capture differences between primary and secondary prediction amounts.
+
+```bash
+# Create a prediction subject gap
+xbe do prediction-subject-gaps create \
+  --prediction-subject 123 \
+  --gap-type actual_vs_consensus
+
+# List gaps filtered by prediction subject
+xbe view prediction-subject-gaps list --prediction-subject 123
+
+# Show gap details
+xbe view prediction-subject-gaps show <id>
+
+# Approve a gap
+xbe do prediction-subject-gaps update <id> --status approved
+
+# Delete a gap (requires --confirm)
+xbe do prediction-subject-gaps delete <id> --confirm
+```
+
+### Project Transport Plan Strategies
+
+Project transport plan strategies define ordered steps and patterns used for transport planning.
+
+```bash
+# List strategies
+xbe view project-transport-plan-strategies list
+
+# Filter by name
+xbe view project-transport-plan-strategies list --name "Default"
+
+# Filter by step pattern
+xbe view project-transport-plan-strategies list --step-pattern "pickup-dropoff"
+
+# Show strategy details
+xbe view project-transport-plan-strategies show <id>
+```
+
+### Project Transport Plan Segments
+
+Project transport plan segments connect origin and destination stops within a plan.
+
+```bash
+# Create a segment
+xbe do project-transport-plan-segments create \
+  --project-transport-plan 123 \
+  --origin 456 \
+  --destination 789
+
+# Update segment miles
+xbe do project-transport-plan-segments update 101 --miles 12.5
+
+# List segments for a plan
+xbe view project-transport-plan-segments list --project-transport-plan 123
+
+# Show segment details
+xbe view project-transport-plan-segments show <id>
+
+# Delete a segment (requires --confirm)
+xbe do project-transport-plan-segments delete <id> --confirm
+```
+
+### Project Transport Plan Trailers
+
+Project transport plan trailers assign trailers across a segment range within a plan.
+
+```bash
+# Create a trailer assignment
+xbe do project-transport-plan-trailers create \
+  --project-transport-plan 123 \
+  --segment-start 456 \
+  --segment-end 789
+
+# Update status or trailer
+xbe do project-transport-plan-trailers update 101 --status active --trailer 555
+
+# List trailer assignments for a plan
+xbe view project-transport-plan-trailers list --project-transport-plan 123
+
+# Show trailer assignment details
+xbe view project-transport-plan-trailers show <id>
+
+# Delete a trailer assignment (requires --confirm)
+xbe do project-transport-plan-trailers delete <id> --confirm
+```
+
+### Project Transport Plan Planned Event Time Schedules
+
+Project transport plan planned event time schedules compute planned event times and warnings.
+
+```bash
+# Generate a schedule for a project transport plan
+xbe do project-transport-plan-planned-event-time-schedules create \
+  --project-transport-plan 123
+
+# Generate a schedule from explicit event data
+xbe do project-transport-plan-planned-event-time-schedules create \
+  --transport-order 456 \
+  --plan-data '{"events":[{"location_id":1,"event_type_id":2}]}'
+
+# List schedules filtered by project transport plan
+xbe view project-transport-plan-planned-event-time-schedules list \
+  --project-transport-plan 123
+
+# Show schedule details
+xbe view project-transport-plan-planned-event-time-schedules show <id>
+```
+
+### Device Location Events
+
+Device location events capture device-reported GPS activity for users. The API currently supports create-only access.
+
+```bash
+# Create an event from payload
+xbe do device-location-events create --device-identifier "ios:ABC123" \
+  --payload '{"uuid":"evt-1","timestamp":"2025-01-01T00:00:00Z","activity":{"type":"walking"},"coords":{"latitude":40.0,"longitude":-74.0}}'
+
+# Create an event with explicit fields
+xbe do device-location-events create --device-identifier "ios:ABC123" \
+  --event-id "evt-2" --event-at 2025-01-01T00:05:00Z --event-description "moving" \
+  --event-latitude 40.1 --event-longitude -74.1
+
+# JSON output
+xbe do device-location-events create --device-identifier "ios:ABC123" \
+  --payload '{"uuid":"evt-3","timestamp":"2025-01-01T00:10:00Z","activity":{"type":"still"},"coords":{"latitude":40.2,"longitude":-74.2}}' \
+  --json
+```
+
+### User Location Events
+
+User location events capture user-reported latitude/longitude with a provenance (gps/map).
+
+```bash
+# List events
+xbe view user-location-events list
+
+# Filter by user and time
+xbe view user-location-events list --user 123 --event-at-min 2025-01-01T00:00:00Z
+
+# Show event details
+xbe view user-location-events show <id>
+
+# Create a user location event
+xbe do user-location-events create \
+  --user 123 \
+  --provenance gps \
+  --event-at 2025-01-01T12:00:00Z \
+  --event-latitude 40.7128 \
+  --event-longitude -74.0060
+
+# Update a user location event
+xbe do user-location-events update <id> --event-latitude 41.0 --event-longitude -87.0
+
+# Delete a user location event
+xbe do user-location-events delete <id> --confirm
+```
+
+### Root Causes
+
+Root causes capture underlying issues for incidents and can be linked to parent root causes.
+
+```bash
+# List root causes
+xbe view root-causes list
+
+# Filter by incident
+xbe view root-causes list --incident-type production-incidents --incident-id 123
+
+# Create a root cause
+xbe do root-causes create \
+  --incident-type production-incidents \
+  --incident-id 123 \
+  --title "Mechanical failure" \
+  --description "Hydraulic leak caused downtime" \
+  --is-triaged
+
+# Update a root cause
+xbe do root-causes update 456 --title "Updated root cause"
+
+# Delete a root cause
+xbe do root-causes delete 456 --confirm
+```
+
+### Shift Counters
+
+Shift counters return the number of accepted tender job schedule shifts after a minimum start time.
+
+```bash
+# Count accepted shifts (default start)
+xbe do shift-counters create
+
+# Count accepted shifts after a date
+xbe do shift-counters create --start-at-min 2025-01-01T00:00:00Z
+
+# List counters (typically empty)
+xbe view shift-counters list
+```
+
+### Email Address Statuses
+
+Email address statuses report whether an email address is on the rejection list (create-only).
+
+```bash
+# Check an email address
+xbe do email-address-statuses create --email-address "user@example.com"
+
+# JSON output
+xbe do email-address-statuses create --email-address "user@example.com" --json
+```
+
+### Model Filter Infos
+
+Model filter infos return available option values for resource filters (create-only).
+
+```bash
+# Fetch filter options for projects
+xbe do model-filter-infos create --resource-type projects
+
+# Limit to selected filter keys
+xbe do model-filter-infos create --resource-type projects --filter-keys customer,project_manager
+
+# Scope options to a broker
+xbe do model-filter-infos create --resource-type projects --scope-filter broker=123
 ```
 
 ## Output Formats

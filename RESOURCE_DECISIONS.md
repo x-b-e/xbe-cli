@@ -76,14 +76,13 @@ When a CLI command does not match a server resource name, use these mappings.
 
 ```
 action-items
-answer-feedbacks
-broker-commitments
-broker-tenders
-broker-memberships
+bidders
+broker-customers
+broker-project-transport-event-types
 broker-settings
-broker-tender-offered-seller-notifications
-broker-tender-offered-seller-notification-subscriptions
+broker-vendors
 brokers
+business-unit-laborers
 business-units
 certification-requirements
 certification-types
@@ -97,7 +96,8 @@ craft-classes
 crafts
 culture-values
 custom-work-order-statuses
-customer-application-approvals
+customer-applications
+customer-commitments
 customer-settings
 customer-tender-offered-buyer-notifications
 customer-tenders
@@ -106,12 +106,13 @@ developer-memberships
 developer-reference-types
 developer-references
 developer-trucker-certification-classifications
+developer-trucker-certification-multipliers
 developers
 dispatch-user-matchers
 device-location-event-summary
 devices
 driver-day-summary
-driver-movement-segment-sets
+driver-day-shortfall-calculations
 equipment
 equipment-classifications
 equipment-location-estimates
@@ -120,26 +121,29 @@ equipment-suppliers
 external-identification-types
 external-identifications
 features
-follows
+file-attachments
 geofences
 geofence-restrictions
 glossary-terms
-hos-violations
-incident-participants
+hos-events
+incident-request-approvals
+incident-request-rejections
 incident-tags
 incident-tag-incidents
 incidents
-inventory-changes
-invoice-approvals
-invoice-sends
-invoice-status-changes
+inventory-estimates
+invoice-revisionizing-works
 job-production-plan-cancellation-reason-types
 job-production-plan-job-site-location-estimates
 job-production-plan-summary
 job-production-plan-service-type-unit-of-measures
 job-production-plan-unabandonments
 job-production-plans
+job-production-plan-uncompletions
+job-production-plan-service-type-unit-of-measure-cohorts
 job-sites
+lineup-dispatches
+lineup-dispatch-shifts
 labor-classifications
 laborers
 lane-summary
@@ -154,7 +158,7 @@ material-transaction-inspection-rejections
 material-transaction-summary
 material-transaction-ticket-generators
 material-transactions
-material-type-conversions
+material-type-unavailabilities
 material-types
 meetings
 memberships
@@ -162,16 +166,12 @@ newsletters
 notification-subscriptions
 open-ai-vector-stores
 parking-sites
-places
+pave-frame-actual-hours
 posts
-post-routers
-post-router-jobs
-prediction-knowledge-base-answers
-prediction-knowledge-bases
-prediction-subject-recap-generations
+prediction-subject-bids
+prediction-subject-gaps
 press-releases
-prompt-prescriptions
-process-non-processed-time-card-time-changes
+proffers
 profit-improvement-categories
 project-abandonments
 project-categories
@@ -179,7 +179,8 @@ project-cost-classifications
 project-cost-codes
 project-customers
 project-divisions
-project-estimate-sets
+project-estimate-file-imports
+project-labor-classifications
 project-offices
 project-phases
 project-project-cost-classifications
@@ -187,8 +188,9 @@ project-resource-classifications
 project-revenue-classifications
 project-status-changes
 project-transport-event-types
-project-transport-plan-event-times
-project-transport-plan-segment-tractors
+project-transport-plan-event-location-predictions
+project-transport-plan-segments
+project-unabandonments
 projects
 ptp-driver-summary
 ptp-event-summary
@@ -202,16 +204,13 @@ quality-control-classifications
 rate-agreements-copiers
 rate-adjustments
 rates
-raw-material-transaction-sales-customers
-raw-records
-raw-transport-exports
-raw-transport-tractors
+raw-transport-orders
 reaction-classifications
 release-notes
-resource-unavailabilities
-retainers
+retainer-payment-deductions
+search-catalog-entries
 service-types
-service-type-unit-of-measure-cohorts
+site-events
 shift-feedback-reasons
 shift-feedbacks
 shift-scope-tenders
@@ -219,11 +218,13 @@ shift-summary
 shift-time-card-requisitions
 stakeholder-classifications
 tag-categories
+taggings
 tags
-tender-job-schedule-shifts-material-transactions-checksums
+tender-acceptances
+tender-re-rates
+tender-job-schedule-shift-time-card-reviews
 time-sheet-line-item-classifications
-time-sheet-status-changes
-time-sheet-unapprovals
+time-sheet-line-item-equipment-requirements
 tractor-credentials
 tractor-odometer-readings
 tractor-trailer-credential-classifications
@@ -247,9 +248,7 @@ unit-of-measures
 user-device-location-tracking-requests
 user-credential-classifications
 user-credentials
-user-location-estimates
-user-location-requests
-user-post-feed-posts
+user-languages
 users
 work-order-service-codes
 work-orders
@@ -264,7 +263,7 @@ These need a decision before implementation work proceeds.
 
 ## Remaining (by priority)
 
-### Highest (Core operations & scheduling) (201)
+### Highest (Core operations & scheduling) (200)
 
 ```
 crew-assignment-confirmations
@@ -277,7 +276,7 @@ driver-assignment-rules
 driver-day-adjustment-plans
 driver-day-adjustments
 driver-day-constraints
-driver-day-shortfall-calculations
+driver-day-shortfall-allocations
 driver-day-trips-adjustments
 driver-managers
 driver-movement-observations
@@ -301,7 +300,6 @@ hos-annotations
 hos-availability-snapshots
 hos-day-regulation-sets
 hos-days
-hos-events
 hos-ruleset-assignments
 inventory-capacities
 inventory-changes
@@ -413,7 +411,8 @@ shift-counters
 shift-scope-matches
 shift-scope-tenders
 shift-set-time-card-constraints
-site-events
+shift-time-card-requisitions
+time-card-approval-audits
 time-card-approvals
 time-card-cost-code-allocations
 time-card-invoices
@@ -522,7 +521,6 @@ project-transport-plan-segment-drivers
 project-transport-plan-segment-sets
 project-transport-plan-segment-tractors
 project-transport-plan-segment-trailers
-project-transport-plan-segments
 project-transport-plan-stop-insertions
 project-transport-plan-stop-order-stops
 project-transport-plan-stops
@@ -534,7 +532,7 @@ project-transport-plan-trailer-assignment-recommendations
 project-transport-plan-trailers
 project-transport-plans
 project-truckers
-project-unabandonments
+rate-adjustments
 rate-agreement-copier-works
 rate-agreement-copiers
 rate-agreements
@@ -548,11 +546,9 @@ tender-acceptances
 tender-cancellations
 tender-job-schedule-shift-cancellations
 tender-job-schedule-shift-drivers
-tender-job-schedule-shift-time-card-reviews
 tender-job-schedule-shifts
 tender-offers
 tender-raters
-tender-re-rates
 tender-rejections
 tender-status-changes
 ```
@@ -580,7 +576,6 @@ broker-vendors
 built-time-cards
 business-unit-customers
 business-unit-equipments
-business-unit-laborers
 business-unit-memberships
 change-requests
 contractors
@@ -604,7 +599,6 @@ efficiency-incidents
 email-address-statuses
 expected-time-of-arrivals
 file-attachment-signed-urls
-file-attachments
 file-imports
 incident-headline-suggestions
 incident-request-approvals
@@ -647,16 +641,12 @@ organization-invoices-batch-pdf-templates
 organization-invoices-batch-processes
 organization-invoices-batch-status-changes
 organization-invoices-batches
-organization-project-actuals-exports
-pave-frame-actual-hours
 place-predictions
 places
 platform-statuses
 prediction-agents
 prediction-knowledge-bases
-prediction-subject-bids
 prediction-subject-gap-portions
-prediction-subject-gaps
 prediction-subject-memberships
 prediction-subject-recaps
 prediction-subjects
@@ -674,7 +664,6 @@ raw-material-transaction-sales-customers
 raw-material-transactions
 raw-records
 raw-transport-drivers
-raw-transport-orders
 raw-transport-projects
 raw-transport-tractors
 raw-transport-trailers

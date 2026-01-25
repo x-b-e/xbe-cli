@@ -234,7 +234,7 @@ Some resources may have dependencies preventing deletion. Check staging manually
 - material-suppliers
 - memberships
 - project-cost-classifications
-- project-bid-location-material-types
+- project-labor-classifications
 - project-offices
 - project-resource-classifications
 - project-revenue-classifications
