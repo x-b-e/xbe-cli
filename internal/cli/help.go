@@ -660,6 +660,8 @@ func printGlobalFlags(out io.Writer) {
 	fmt.Fprintln(out, "  --token string       API token (overrides stored token)")
 	fmt.Fprintln(out, "  --no-auth            Disable automatic token lookup")
 	fmt.Fprintln(out, "  --json               Output in JSON format (machine-readable)")
+	fmt.Fprintln(out, "  --fields string      Sparse fieldset for primary/related resources")
+	fmt.Fprintln(out, "  --include string     Include direct relationships (comma-separated)")
 	fmt.Fprintln(out, "  -h, --help           Show help for any command")
 }
 
@@ -781,6 +783,7 @@ var (
 	paginationFlags = map[string]bool{"limit": true, "offset": true, "sort": true}
 	outputFlags     = map[string]bool{"json": true}
 	connectionFlags = map[string]bool{"base-url": true, "token": true, "no-auth": true}
+	sparseFlags     = map[string]bool{"fields": true, "include": true}
 )
 
 func printFlags(out io.Writer, cmd *cobra.Command) {
@@ -796,7 +799,7 @@ func printFlags(out io.Writer, cmd *cobra.Command) {
 		}
 
 		// Check if this is a global flag
-		if paginationFlags[f.Name] || outputFlags[f.Name] || connectionFlags[f.Name] {
+		if paginationFlags[f.Name] || outputFlags[f.Name] || connectionFlags[f.Name] || sparseFlags[f.Name] {
 			hasGlobalFlags = true
 			return
 		}
