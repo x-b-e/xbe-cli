@@ -458,6 +458,8 @@ xbe
 │   │   └── delete           Delete a GoMotive integration
 │   ├── keep-truckin-vehicles  Manage KeepTruckin vehicles
 │   │   └── update           Update a KeepTruckin vehicle
+│   ├── tenna-vehicles        Manage Tenna vehicles
+│   │   └── update           Update a Tenna vehicle
 │   ├── teletrac-navman-vehicles  Manage Teletrac Navman vehicles
 │   │   └── update           Update a Teletrac Navman vehicle
 │   ├── memberships          Manage user-organization memberships
@@ -672,6 +674,9 @@ xbe
 │   ├── keep-truckin-vehicles  Browse KeepTruckin vehicles
 │   │   ├── list            List KeepTruckin vehicles with filtering
 │   │   └── show <id>       Show KeepTruckin vehicle details
+│   ├── tenna-vehicles       Browse Tenna vehicles
+│   │   ├── list            List Tenna vehicles with filtering
+│   │   └── show <id>       Show Tenna vehicle details
 │   ├── teletrac-navman-vehicles  Browse Teletrac Navman vehicles
 │   │   ├── list            List Teletrac Navman vehicles with filtering
 │   │   └── show <id>       Show Teletrac Navman vehicle details
