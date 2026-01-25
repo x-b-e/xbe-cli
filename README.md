@@ -132,6 +132,8 @@ xbe
 │   │   └── update           Update gauge vehicle assignments
 │   ├── geotab-vehicles      Manage geotab vehicles
 │   │   └── update           Update geotab vehicle assignments
+│   ├── gps-insight-vehicles Manage GPS Insight vehicles
+│   │   └── update           Update GPS Insight vehicle assignments
 │   ├── platform-statuses    Manage platform status updates
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
@@ -751,6 +753,9 @@ xbe
 │   ├── geotab-vehicles      Browse geotab vehicles
 │   │   ├── list            List geotab vehicles with filtering
 │   │   └── show <id>       Show geotab vehicle details
+│   ├── gps-insight-vehicles Browse GPS Insight vehicles
+│   │   ├── list            List GPS Insight vehicles with filtering
+│   │   └── show <id>       Show GPS Insight vehicle details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
