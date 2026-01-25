@@ -1,23 +1,37 @@
 {
-  "id": "ed8dd038696e7145881e2c89d2ed3704802b6683f4f34de53fb19f5e231850d2",
+  "description": "Show tractor fuel consumption reading details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view tractor-fuel-consumption-readings show",
-  "description": "Show the full details of a tractor fuel consumption reading.",
-  "permissions": "Admins can view any tractor fuel consumption reading. Non-admins can view a reading only if it is within their policy scope (associated with brokers or truckers they can see, including customer members with trucker visibility).",
+  "id": "ed8dd038696e7145881e2c89d2ed3704802b6683f4f34de53fb19f5e231850d2",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The reading id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/tractor_fuel_consumption_readings_show.go"
+      "file_path": "internal/cli/tractor_fuel_consumption_readings_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/tractor_fuel_consumption_reading_policy.rb"
+      "file_path": "app/resources/v1/tractor_fuel_consumption_reading_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/tractor_fuel_consumption_reading_resource.rb"
+      "file_path": "app/models/tractor_fuel_consumption_reading.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tractor_fuel_consumption_reading_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

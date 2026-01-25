@@ -1,23 +1,29 @@
 {
-  "id": "b02e5879035bd4ff5e490b84576285495c0ceb0a275d406b8f49fbcdf8d68542",
+  "description": "Show tender re-rate details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view tender-re-rates show",
-  "description": "Show tender re-rate details.",
-  "permissions": "Not permitted; tender re-rates are write-only and the policy denies show access.",
+  "id": "b02e5879035bd4ff5e490b84576285495c0ceb0a275d406b8f49fbcdf8d68542",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/tender_re_rates_show.go"
+      "file_path": "internal/cli/tender_re_rates_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/sombreros/tender_re_rate_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/sombreros/tender_re_rate_resource.rb"
+      "file_path": "app/resources/v1/sombreros/tender_re_rate_resource.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

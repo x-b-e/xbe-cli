@@ -1,27 +1,37 @@
 {
-  "id": "d66c7ebeee49fb3efddc06d2c81fa4d65a454c6dd0e96eebf8863bcdef22c342",
+  "description": "View the full details of a specific release note",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view release-notes show",
-  "description": "Show the full details of a specific release note",
-  "permissions": "Anonymous users can view only published release notes with released_on on or before the current date; non-admin users can view published release notes matching their membership scopes or custom user scopes; admins can view all release notes.",
+  "id": "d66c7ebeee49fb3efddc06d2c81fa4d65a454c6dd0e96eebf8863bcdef22c342",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/release_notes_show.go"
+      "file_path": "internal/cli/release_notes_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/release_notes_controller.rb"
+      "file_path": "app/resources/v1/release_note_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/release_note_policy.rb"
+      "file_path": "app/models/release_note.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/release_note_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

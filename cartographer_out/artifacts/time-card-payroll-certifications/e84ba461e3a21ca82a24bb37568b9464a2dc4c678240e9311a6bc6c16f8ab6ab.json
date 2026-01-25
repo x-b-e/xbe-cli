@@ -1,6 +1,16 @@
 {
   "description": "Show time card payroll certification details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-card-payroll-certifications show",
   "id": "e84ba461e3a21ca82a24bb37568b9464a2dc4c678240e9311a6bc6c16f8ab6ab",
   "permissions": null,
@@ -11,9 +21,17 @@
       "repo_name": "cli"
     },
     {
+      "file_path": "app/resources/v1/time_card_payroll_certification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/time_card_payroll_certification.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/time_card_payroll_certification_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument (time card payroll certification ID)."
+  "validation_notes": null
 }

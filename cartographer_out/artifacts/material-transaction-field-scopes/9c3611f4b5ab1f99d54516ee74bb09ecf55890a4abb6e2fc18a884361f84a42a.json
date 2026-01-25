@@ -1,19 +1,37 @@
 {
-  "id": "9c3611f4b5ab1f99d54516ee74bb09ecf55890a4abb6e2fc18a884361f84a42a",
+  "description": "Show details for a material transaction field scope",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view material-transaction-field-scopes show",
-  "description": "Show details for a material transaction field scope.",
+  "id": "9c3611f4b5ab1f99d54516ee74bb09ecf55890a4abb6e2fc18a884361f84a42a",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "material-transaction-id argument is required. If the material transaction field scope cannot be built because a required shift is missing, the server returns an unprocessable entity error. If the material transaction ID is not found, the server returns record not found.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_transaction_field_scopes_show.go"
+      "file_path": "internal/cli/material_transaction_field_scopes_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_transaction_field_scope_resource.rb"
+      "file_path": "app/resources/v1/material_transaction_field_scope_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/material_transaction_field_scope.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_transaction_field_scope_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

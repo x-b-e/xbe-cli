@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a retainer payment.",
-  "flags": [],
+  "description": "Show full details of a retainer payment",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view retainer-payments show",
   "id": "3965e663eb332acd5a4d276b418706431efcbc721433a9302766c9c0e3b63989",
-  "permissions": "Read access is limited to retainer payments within RetainerPaymentPolicy scope: retainer_id must be in the Retainer policy scope, which includes retainers where the user is a member/manager of the buyer or seller organization (customer, broker, or trucker) per RetainerPolicy scope rules.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/retainer_payment_policy.rb",
+      "file_path": "app/resources/v1/retainer_payment_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/policies/retainer_policy.rb",
+      "file_path": "app/models/retainer_payment.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/retainer_payment_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument (retainer payment ID)."
+  "validation_notes": null
 }

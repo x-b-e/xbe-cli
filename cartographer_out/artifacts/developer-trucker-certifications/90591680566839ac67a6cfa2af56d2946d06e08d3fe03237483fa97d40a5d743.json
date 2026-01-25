@@ -1,27 +1,37 @@
 {
-  "id": "90591680566839ac67a6cfa2af56d2946d06e08d3fe03237483fa97d40a5d743",
+  "description": "Show developer trucker certification details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view developer-trucker-certifications show",
-  "description": "Show the full details of a developer trucker certification.",
-  "permissions": "Requires access to the related developer via DeveloperPolicy scope (admin, broker member, customer manager for the broker, or developer member).",
+  "id": "90591680566839ac67a6cfa2af56d2946d06e08d3fe03237483fa97d40a5d743",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (developer trucker certification ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/developer_trucker_certifications_show.go"
+      "file_path": "internal/cli/developer_trucker_certifications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/developer_trucker_certification_resource.rb"
+      "file_path": "app/resources/v1/developer_trucker_certification_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/developer_trucker_certification_policy.rb"
+      "file_path": "app/models/developer_trucker_certification.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/developer_policy.rb"
+      "file_path": "app/policies/developer_trucker_certification_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

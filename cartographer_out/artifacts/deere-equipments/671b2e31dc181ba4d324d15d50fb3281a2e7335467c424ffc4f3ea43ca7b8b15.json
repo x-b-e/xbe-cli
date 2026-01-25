@@ -1,23 +1,37 @@
 {
-  "id": "671b2e31dc181ba4d324d15d50fb3281a2e7335467c424ffc4f3ea43ca7b8b15",
+  "description": "Show Deere equipment details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view deere-equipments show",
-  "description": "Show the full details of a Deere equipment record.",
-  "permissions": "Admins can view any Deere equipment. Non-admin users can only view Deere equipment scoped to brokers they are members of (policy scope filters by broker membership).",
+  "id": "671b2e31dc181ba4d324d15d50fb3281a2e7335467c424ffc4f3ea43ca7b8b15",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/deere_equipments_show.go"
+      "file_path": "internal/cli/deere_equipments_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb"
+      "file_path": "app/resources/v1/deere_equipment_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/models/deere_equipment.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/deere_equipment_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,23 +1,37 @@
 {
-  "id": "c40fbf494f0c3d6b9b5a10945f544a4fece835de6625b3f445744ee98ee9f374",
-  "full_path": "view raw-material-transaction-sales-customers show",
   "description": "Show raw material transaction sales customer details",
-  "permissions": "Admins can view any raw material transaction sales customer. Non-admin users can view records scoped to brokers they are a member of or customers they manage.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view raw-material-transaction-sales-customers show",
+  "id": "c40fbf494f0c3d6b9b5a10945f544a4fece835de6625b3f445744ee98ee9f374",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The raw material transaction sales customer ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/raw_material_transaction_sales_customers_show.go"
+      "file_path": "internal/cli/raw_material_transaction_sales_customers_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/raw_material_transaction_sales_customer_resource.rb"
+      "file_path": "app/resources/v1/raw_material_transaction_sales_customer_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/raw_material_transaction_sales_customer_policy.rb"
+      "file_path": "app/models/raw_material_transaction_sales_customer.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_material_transaction_sales_customer_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

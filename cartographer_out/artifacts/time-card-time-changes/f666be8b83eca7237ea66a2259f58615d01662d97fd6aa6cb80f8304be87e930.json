@@ -1,23 +1,37 @@
 {
-  "id": "f666be8b83eca7237ea66a2259f58615d01662d97fd6aa6cb80f8304be87e930",
+  "description": "Show time card time change details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-card-time-changes show",
-  "description": "Show time card time change details.",
-  "permissions": "Admins can view any time card time change; non-admins can view time card time changes for time cards they are allowed to see via TimeCardPolicy scope.",
+  "id": "f666be8b83eca7237ea66a2259f58615d01662d97fd6aa6cb80f8304be87e930",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a time card time change ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_card_time_changes_show.go"
+      "file_path": "internal/cli/time_card_time_changes_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_card_time_change_policy.rb"
+      "file_path": "app/resources/v1/time_card_time_change_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/time_card_time_change_resource.rb"
+      "file_path": "app/models/time_card_time_change.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/time_card_time_change_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

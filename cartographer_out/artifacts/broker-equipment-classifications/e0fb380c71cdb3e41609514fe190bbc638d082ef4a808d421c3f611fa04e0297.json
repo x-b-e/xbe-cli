@@ -1,19 +1,37 @@
 {
-  "id": "e0fb380c71cdb3e41609514fe190bbc638d082ef4a808d421c3f611fa04e0297",
-  "full_path": "view broker-equipment-classifications show",
   "description": "Show broker equipment classification details",
-  "permissions": "User must be authorized to view broker equipment classifications; non-admin users are limited to brokers in their policy scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view broker-equipment-classifications show",
+  "id": "e0fb380c71cdb3e41609514fe190bbc638d082ef4a808d421c3f611fa04e0297",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires broker equipment classification ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_equipment_classifications_show.go"
+      "file_path": "internal/cli/broker_equipment_classifications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/broker_equipment_classification_policy.rb"
+      "file_path": "app/resources/v1/broker_equipment_classification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/broker_equipment_classification.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/broker_equipment_classification_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

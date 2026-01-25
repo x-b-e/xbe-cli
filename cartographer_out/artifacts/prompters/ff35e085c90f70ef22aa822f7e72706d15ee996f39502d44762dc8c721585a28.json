@@ -1,19 +1,37 @@
 {
-  "id": "ff35e085c90f70ef22aa822f7e72706d15ee996f39502d44762dc8c721585a28",
+  "description": "Show prompter details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view prompters show",
-  "description": "Show the full details of a specific prompter.",
-  "permissions": "User must be an admin to access prompters; non-admin scope resolves to no records.",
+  "id": "ff35e085c90f70ef22aa822f7e72706d15ee996f39502d44762dc8c721585a28",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Prompter id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/prompters_show.go"
+      "file_path": "internal/cli/prompters_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/prompter_policy.rb"
+      "file_path": "app/resources/v1/prompter_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prompter.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prompter_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

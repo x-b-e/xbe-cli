@@ -76,6 +76,7 @@ func init() {
 
 func initLineupsShowFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Bool("omit-null", false, "Omit null values in JSON output")
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().Bool("include-trucker-assignment-statistics", false, "Include trucker assignment statistics meta")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
@@ -127,6 +128,15 @@ func runLineupsShow(cmd *cobra.Command, args []string) error {
 	if err := json.Unmarshal(body, &resp); err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
+	}
+
+	handled, err := renderSparseShowIfRequested(cmd, resp)
+	if err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
+	if handled {
+		return nil
 	}
 
 	details := buildLineupDetails(resp)

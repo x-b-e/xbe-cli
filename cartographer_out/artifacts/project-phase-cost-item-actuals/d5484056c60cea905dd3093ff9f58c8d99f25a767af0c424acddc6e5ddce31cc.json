@@ -1,9 +1,19 @@
 {
-  "description": "Show project phase cost item actual details.",
-  "flags": [],
+  "description": "Show project phase cost item actual details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-phase-cost-item-actuals show",
   "id": "d5484056c60cea905dd3093ff9f58c8d99f25a767af0c424acddc6e5ddce31cc",
-  "permissions": "Access is limited to records within the ProjectPhaseCostItem policy scope (delegated by ProjectPhaseCostItemActualPolicy).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,15 +21,7 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "internal/cli/project_phase_cost_item_actuals.go",
-      "repo_name": "cli"
-    },
-    {
       "file_path": "app/resources/v1/project_phase_cost_item_actual_resource.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/project_phase_cost_item_actual_policy.rb",
       "repo_name": "server"
     },
     {
@@ -27,9 +29,13 @@
       "repo_name": "server"
     },
     {
-      "file_path": "app/models/concerns/validate_created_by_permitted_to_update.rb",
+      "file_path": "app/policies/project_phase_cost_item_actual_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/serializers/project_phase_cost_item_actual_serializer.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument."
+  "validation_notes": null
 }

@@ -1,23 +1,37 @@
 {
-  "id": "20e6855aadfc5cb116308da423f3f5ef68cf06e48af4fd9e42967bfc04a18b54",
+  "description": "Show project transport plan event location prediction autopsy details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-transport-plan-event-location-prediction-autopsies show",
-  "description": "Show the full details of a project transport plan event location prediction autopsy.",
-  "permissions": "User must be authorized to view related project transport plan events; access is scoped via the ProjectTransportPlanEvent policy through the autopsy relationship.",
+  "id": "20e6855aadfc5cb116308da423f3f5ef68cf06e48af4fd9e42967bfc04a18b54",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument; it must be non-empty after trimming whitespace.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_transport_plan_event_location_prediction_autopsies_show.go"
+      "file_path": "internal/cli/project_transport_plan_event_location_prediction_autopsies_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_transport_plan_event_location_prediction_autopsy_resource.rb"
+      "file_path": "app/resources/v1/project_transport_plan_event_location_prediction_autopsy_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_plan_event_location_prediction_autopsy_policy.rb"
+      "file_path": "app/models/project_transport_plan_event_location_prediction_autopsy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_event_location_prediction_autopsy_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

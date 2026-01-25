@@ -1,27 +1,37 @@
 {
-  "id": "264599995f7f668f613b9ab498de6cc1af6157fcef77d188c28f3d3b8b58879d",
+  "description": "Show site wait time notification trigger details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view site-wait-time-notification-triggers show",
-  "description": "Show the full details of a site wait time notification trigger.",
-  "permissions": "Admin users can view all triggers. Non-admin users can view triggers tied to job production plans for customers of their broker memberships or for their own customer memberships; access is scoped by SiteWaitTimeNotificationTriggerPolicy.",
+  "id": "264599995f7f668f613b9ab498de6cc1af6157fcef77d188c28f3d3b8b58879d",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/site_wait_time_notification_triggers_show.go"
+      "file_path": "internal/cli/site_wait_time_notification_triggers_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/site_wait_time_notification_trigger_resource.rb"
+      "file_path": "app/resources/v1/site_wait_time_notification_trigger_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/site_wait_time_notification_trigger_policy.rb"
+      "file_path": "app/models/site_wait_time_notification_trigger.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/site_wait_time_notification_trigger_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

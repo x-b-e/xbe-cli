@@ -1,23 +1,37 @@
 {
-  "id": "f626313b3f82fc29d02deeaff793c71ab015fb575b4fecd8fa0f2b778258c8b1",
-  "full_path": "view broker-certification-types show",
   "description": "Show broker certification type details",
-  "permissions": "Admins can show any broker certification type. Non-admins can show broker certification types when the broker is in their Broker policy scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view broker-certification-types show",
+  "id": "f626313b3f82fc29d02deeaff793c71ab015fb575b4fecd8fa0f2b778258c8b1",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required and cannot be empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_certification_types_show.go"
+      "file_path": "internal/cli/broker_certification_types_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/broker_certification_type_policy.rb"
+      "file_path": "app/resources/v1/broker_certification_type_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/broker_certification_type_resource.rb"
+      "file_path": "app/models/broker_certification_type.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/broker_certification_type_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

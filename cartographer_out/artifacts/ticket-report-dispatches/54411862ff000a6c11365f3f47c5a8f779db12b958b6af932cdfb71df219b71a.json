@@ -1,9 +1,19 @@
 {
   "description": "Show ticket report dispatch details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view ticket-report-dispatches show",
   "id": "54411862ff000a6c11365f3f47c5a8f779db12b958b6af932cdfb71df219b71a",
-  "permissions": "Accessible to users who can view the related ticket report (delegated to TicketReportPolicy scope; broker members or admins for the ticket report).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,17 +25,13 @@
       "repo_name": "server"
     },
     {
+      "file_path": "app/models/ticket_report_dispatch.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/ticket_report_dispatch_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/concerns/delegated_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/ticket_report_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires ticket report dispatch ID argument."
+  "validation_notes": null
 }

@@ -117,6 +117,7 @@ func init() {
 
 func initTransportOrdersListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Bool("omit-null", false, "Omit null values in JSON output")
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().Int("limit", 0, "Page size (defaults to fetching all pages)")
 	cmd.Flags().Int("offset", 0, "Page offset (used with --limit or as start offset for full fetch)")
@@ -200,6 +201,12 @@ func runTransportOrdersList(cmd *cobra.Command, _ []string) error {
 	data, included, err := fetchTransportOrders(cmd, client, query, opts.Limit, opts.Offset)
 	if err != nil {
 		return err
+	}
+	if handled, err := renderSparseListIfRequested(cmd, jsonAPIResponse{Data: data, Included: included}); err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	} else if handled {
+		return nil
 	}
 
 	apiData := newTransportOrdersAPIData(data, included)

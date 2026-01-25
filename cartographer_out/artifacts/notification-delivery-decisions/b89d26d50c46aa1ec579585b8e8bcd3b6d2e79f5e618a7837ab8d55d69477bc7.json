@@ -1,27 +1,37 @@
 {
-  "id": "b89d26d50c46aa1ec579585b8e8bcd3b6d2e79f5e618a7837ab8d55d69477bc7",
+  "description": "Show notification delivery decision details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view notification-delivery-decisions show",
-  "description": "Show the full details of a notification delivery decision.",
-  "permissions": "Readable by users who have access to the related notifications; non-admin scope is limited to decisions whose notification is in the user Notification policy scope (admins typically see all).",
-  "side_effects": "None (read-only).",
-  "validation_notes": "Requires a notification delivery decision ID argument.",
-  "flags": [],
+  "id": "b89d26d50c46aa1ec579585b8e8bcd3b6d2e79f5e618a7837ab8d55d69477bc7",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/notification_delivery_decisions_show.go"
+      "file_path": "internal/cli/notification_delivery_decisions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/notification_delivery_decisions.go"
+      "file_path": "app/resources/v1/notification_delivery_decision_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/notification_delivery_decision_resource.rb"
+      "file_path": "app/models/notification_delivery_decision.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/notification_delivery_decision_policy.rb"
+      "file_path": "app/policies/notification_delivery_decision_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

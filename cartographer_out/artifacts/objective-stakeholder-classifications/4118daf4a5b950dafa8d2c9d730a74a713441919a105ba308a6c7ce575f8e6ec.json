@@ -1,23 +1,37 @@
 {
-  "id": "4118daf4a5b950dafa8d2c9d730a74a713441919a105ba308a6c7ce575f8e6ec",
-  "full_path": "view objective-stakeholder-classifications show",
   "description": "Show objective stakeholder classification details",
-  "permissions": "No special role required; policy scope resolves anonymous and non-admin users for read access.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view objective-stakeholder-classifications show",
+  "id": "4118daf4a5b950dafa8d2c9d730a74a713441919a105ba308a6c7ce575f8e6ec",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument for the objective stakeholder classification.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/objective_stakeholder_classifications_show.go"
+      "file_path": "internal/cli/objective_stakeholder_classifications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/objective_stakeholder_classification_resource.rb"
+      "file_path": "app/resources/v1/objective_stakeholder_classification_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/objective_stakeholder_classification_policy.rb"
+      "file_path": "app/models/objective_stakeholder_classification.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/objective_stakeholder_classification_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

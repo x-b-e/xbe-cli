@@ -1,23 +1,37 @@
 {
-  "id": "ea890a594fbfa7a5c491b2697bb4227702fd794bf8394601aa61c17de35dd316",
-  "full_path": "view post-actions show",
   "description": "Show post action details",
-  "permissions": "Any user can view post action details; the policy allows show for all users.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view post-actions show",
+  "id": "ea890a594fbfa7a5c491b2697bb4227702fd794bf8394601aa61c17de35dd316",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument; it must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/post_actions_show.go"
+      "file_path": "internal/cli/post_actions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/post_action_policy.rb"
+      "file_path": "app/resources/v1/post_action_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/post_action_resource.rb"
+      "file_path": "app/models/post_action.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/post_action_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

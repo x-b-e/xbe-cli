@@ -1,19 +1,37 @@
 {
-  "id": "bfbed1455663b2696920d99790bb590a57061f35a0ccd280d5d0e75c9b5730e0",
-  "full_path": "view commitment-items show",
   "description": "Show full details of a commitment item",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view commitment-items show",
+  "id": "bfbed1455663b2696920d99790bb590a57061f35a0ccd280d5d0e75c9b5730e0",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> positional argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/commitment_items_show.go"
+      "file_path": "internal/cli/commitment_items_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/commitment_items_controller.rb"
+      "file_path": "app/resources/v1/commitment_item_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/commitment_item.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/commitment_item_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

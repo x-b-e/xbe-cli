@@ -1,9 +1,19 @@
 {
-  "description": "Show project revenue item details.",
-  "flags": [],
+  "description": "Show project revenue item details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-revenue-items show",
   "id": "b9240e4899ca0bfcd27d2fb6d48205db3a66a94ac93fc6ace7838ca2250b0e23",
-  "permissions": "Allowed for users who can view the related project via delegated policy scope: admins, members/managers of the project developer, members of the project broker, or members of material suppliers/customers tied to the project broker.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,17 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "/Users/seandevine/Code/server/app/resources/v1/project_revenue_item_resource.rb",
+      "file_path": "app/resources/v1/project_revenue_item_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "/Users/seandevine/Code/server/app/policies/project_revenue_item_policy.rb",
+      "file_path": "app/models/project_revenue_item.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "/Users/seandevine/Code/server/app/policies/project_policy.rb",
+      "file_path": "app/policies/project_revenue_item_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The project revenue item ID argument is required."
+  "validation_notes": null
 }

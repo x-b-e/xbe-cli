@@ -1,23 +1,37 @@
 {
-  "id": "55a17aaf6b175dd21baaea9ccd4411b869abfbf86d3e37b8560530e85a6bb895",
-  "full_path": "view commitment-simulation-periods show",
   "description": "Show commitment simulation period details",
-  "permissions": "Read access is scoped via the CommitmentSimulation policy; users must be authorized to access related commitment simulations.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view commitment-simulation-periods show",
+  "id": "55a17aaf6b175dd21baaea9ccd4411b869abfbf86d3e37b8560530e85a6bb895",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The commitment simulation period ID argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/commitment_simulation_periods_show.go"
+      "file_path": "internal/cli/commitment_simulation_periods_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/commitment_simulation_period_resource.rb"
+      "file_path": "app/resources/v1/commitment_simulation_period_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/commitment_simulation_period_policy.rb"
+      "file_path": "app/models/commitment_simulation_period.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/commitment_simulation_period_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

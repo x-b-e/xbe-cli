@@ -1,27 +1,37 @@
 {
-  "id": "1472571cc1f1604cc659d3eee7edcdb9bc79e566f0997bbcd3076b9a8c24f10a",
+  "description": "Show project transport plan stop order stop details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-transport-plan-stop-order-stops show",
-  "description": "Show the full details of a project transport plan stop order stop.",
-  "permissions": "User must be authorized to view the related project transport plan stop; authorization is delegated through the project transport plan stop to the project transport plan.",
+  "id": "1472571cc1f1604cc659d3eee7edcdb9bc79e566f0997bbcd3076b9a8c24f10a",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_transport_plan_stop_order_stops_show.go"
+      "file_path": "internal/cli/project_transport_plan_stop_order_stops_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_transport_plan_stop_order_stop_resource.rb"
+      "file_path": "app/resources/v1/project_transport_plan_stop_order_stop_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_plan_stop_order_stop_policy.rb"
+      "file_path": "app/models/project_transport_plan_stop_order_stop.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_plan_stop_policy.rb"
+      "file_path": "app/policies/project_transport_plan_stop_order_stop_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

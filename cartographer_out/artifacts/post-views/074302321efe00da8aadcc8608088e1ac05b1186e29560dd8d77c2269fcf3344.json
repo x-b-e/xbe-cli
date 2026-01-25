@@ -1,23 +1,37 @@
 {
-  "id": "074302321efe00da8aadcc8608088e1ac05b1186e29560dd8d77c2269fcf3344",
-  "full_path": "view post-views show",
   "description": "Show post view details",
-  "permissions": "User can show a post view only if it is within policy scope; for non-admins the scope is limited to post views where the viewer is the user and the post is in the users Post policy scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view post-views show",
+  "id": "074302321efe00da8aadcc8608088e1ac05b1186e29560dd8d77c2269fcf3344",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The post view id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/post_views_show.go"
+      "file_path": "internal/cli/post_views_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/post_view_policy.rb"
+      "file_path": "app/resources/v1/post_view_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "config/routes.rb"
+      "file_path": "app/models/post_view.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/post_view_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

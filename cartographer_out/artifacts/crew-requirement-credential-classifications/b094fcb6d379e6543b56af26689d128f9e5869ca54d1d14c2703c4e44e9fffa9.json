@@ -1,19 +1,37 @@
 {
-  "id": "b094fcb6d379e6543b56af26689d128f9e5869ca54d1d14c2703c4e44e9fffa9",
+  "description": "Show full details of a link",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view crew-requirement-credential-classifications show",
-  "description": "Show the full details of a crew requirement credential classification.",
-  "permissions": "Record must be within the CrewRequirement policy scope for the user.",
+  "id": "b094fcb6d379e6543b56af26689d128f9e5869ca54d1d14c2703c4e44e9fffa9",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (link ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/crew_requirement_credential_classifications_show.go"
+      "file_path": "internal/cli/crew_requirement_credential_classifications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/crew_requirement_credential_classification_policy.rb"
+      "file_path": "app/resources/v1/crew_requirement_credential_classification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/crew_requirement_credential_classification.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/crew_requirement_credential_classification_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

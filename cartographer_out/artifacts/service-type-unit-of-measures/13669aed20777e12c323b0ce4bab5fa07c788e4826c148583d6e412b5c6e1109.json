@@ -1,23 +1,37 @@
 {
-  "id": "13669aed20777e12c323b0ce4bab5fa07c788e4826c148583d6e412b5c6e1109",
+  "description": "Show service type unit of measure details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view service-type-unit-of-measures show",
-  "description": "Show service type unit of measure details.",
-  "permissions": "Any user, including anonymous users, can view service type unit of measures; the policy scope resolves all records for anonymous and non-admin users.",
+  "id": "13669aed20777e12c323b0ce4bab5fa07c788e4826c148583d6e412b5c6e1109",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The service type unit of measure ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/service_type_unit_of_measures_show.go"
+      "file_path": "internal/cli/service_type_unit_of_measures_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/service_type_unit_of_measure_resource.rb"
+      "file_path": "app/resources/v1/service_type_unit_of_measure_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/service_type_unit_of_measure_policy.rb"
+      "file_path": "app/models/service_type_unit_of_measure.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/service_type_unit_of_measure_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

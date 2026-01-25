@@ -1,27 +1,37 @@
 {
-  "id": "525292a4fd6b48ffa84e67d8a30c66c9f7cd37b31a83e5cbe6e6c04eae04e1a5",
-  "full_path": "view notifications show",
   "description": "Show notification details",
-  "permissions": "Authenticated user can view only notifications where the notification user matches the current user (policy scope).",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view notifications show",
+  "id": "525292a4fd6b48ffa84e67d8a30c66c9f7cd37b31a83e5cbe6e6c04eae04e1a5",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required and cannot be blank.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/notifications_show.go"
+      "file_path": "internal/cli/notifications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/notification_policy.rb"
+      "file_path": "app/resources/v1/notification_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/models/notification.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/notification_resource.rb"
+      "file_path": "app/policies/notification_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

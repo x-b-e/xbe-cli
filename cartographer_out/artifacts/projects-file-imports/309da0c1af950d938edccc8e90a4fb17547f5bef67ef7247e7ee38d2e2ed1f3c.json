@@ -1,23 +1,37 @@
 {
-  "id": "309da0c1af950d938edccc8e90a4fb17547f5bef67ef7247e7ee38d2e2ed1f3c",
+  "description": "Show projects file import details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view projects-file-imports show",
-  "description": "Show projects file import details.",
-  "permissions": "Admin users can view all projects file imports. Non-admin users can view imports for brokers they are members of (via the related file import broker).",
+  "id": "309da0c1af950d938edccc8e90a4fb17547f5bef67ef7247e7ee38d2e2ed1f3c",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires the projects file import ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/projects_file_imports_show.go"
+      "file_path": "internal/cli/projects_file_imports_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/projects_file_import_policy.rb"
+      "file_path": "app/resources/v1/projects_file_import_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/projects_file_import_resource.rb"
+      "file_path": "app/models/projects_file_import.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/projects_file_import_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

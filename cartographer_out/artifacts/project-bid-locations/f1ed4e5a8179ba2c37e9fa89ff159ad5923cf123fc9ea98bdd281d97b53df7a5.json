@@ -1,23 +1,37 @@
 {
-  "id": "f1ed4e5a8179ba2c37e9fa89ff159ad5923cf123fc9ea98bdd281d97b53df7a5",
+  "description": "Show project bid location details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-bid-locations show",
-  "description": "Show the full details of a project bid location.",
-  "permissions": "Visible if allowed by ProjectBidLocationPolicy scope. Non-admin users can see locations for projects that have prediction subjects visible to them or projects whose broker they administer.",
+  "id": "f1ed4e5a8179ba2c37e9fa89ff159ad5923cf123fc9ea98bdd281d97b53df7a5",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a project bid location ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_bid_locations_show.go"
+      "file_path": "internal/cli/project_bid_locations_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_bid_location_resource.rb"
+      "file_path": "app/resources/v1/project_bid_location_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_bid_location_policy.rb"
+      "file_path": "app/models/project_bid_location.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_bid_location_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

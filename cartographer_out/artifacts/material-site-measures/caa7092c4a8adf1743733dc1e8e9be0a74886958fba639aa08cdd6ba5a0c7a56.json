@@ -1,23 +1,37 @@
 {
-  "id": "caa7092c4a8adf1743733dc1e8e9be0a74886958fba639aa08cdd6ba5a0c7a56",
+  "description": "Show material site measure details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view material-site-measures show",
-  "description": "Show the full details of a material site measure.",
-  "permissions": "Authorized by MaterialSiteMeasurePolicy; show is allowed when the record is in scope (the non-admin scope resolves to all material site measures).",
+  "id": "caa7092c4a8adf1743733dc1e8e9be0a74886958fba639aa08cdd6ba5a0c7a56",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument; it must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_site_measures_show.go"
+      "file_path": "internal/cli/material_site_measures_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_site_measure_resource.rb"
+      "file_path": "app/resources/v1/material_site_measure_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_site_measure_policy.rb"
+      "file_path": "app/models/material_site_measure.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_site_measure_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

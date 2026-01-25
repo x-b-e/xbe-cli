@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a work order assignment.",
-  "flags": [],
+  "description": "Show full details of an assignment",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view work-order-assignments show",
   "id": "09f02d28ce5de4e4d3d92b850f696894e9a254acf0583bc1e8efb919c6fc61a5",
-  "permissions": "Allowed for users who can access related work orders via delegated policy scope.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/work_order_assignment_policy.rb",
+      "file_path": "app/resources/v1/work_order_assignment_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/resources/v1/work_order_assignment_resource.rb",
+      "file_path": "app/models/work_order_assignment.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/work_order_assignment_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires assignment ID argument."
+  "validation_notes": null
 }

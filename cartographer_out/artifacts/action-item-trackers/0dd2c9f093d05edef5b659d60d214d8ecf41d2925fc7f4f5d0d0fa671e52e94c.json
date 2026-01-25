@@ -1,23 +1,37 @@
 {
-  "id": "0dd2c9f093d05edef5b659d60d214d8ecf41d2925fc7f4f5d0d0fa671e52e94c",
+  "description": "Show action item tracker details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view action-item-trackers show",
-  "description": "Show action item tracker details.",
-  "permissions": "Requires an admin user (policy allows only users with is_admin?; non-admin scope is empty).",
+  "id": "0dd2c9f093d05edef5b659d60d214d8ecf41d2925fc7f4f5d0d0fa671e52e94c",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires an action item tracker ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/action_item_trackers_show.go"
+      "file_path": "internal/cli/action_item_trackers_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/action_item_tracker_policy.rb"
+      "file_path": "app/resources/v1/action_item_tracker_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/action_item_tracker_resource.rb"
+      "file_path": "app/models/action_item_tracker.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/action_item_tracker_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

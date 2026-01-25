@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a project phase revenue item quantity estimate.",
-  "flags": [],
+  "description": "Show quantity estimate details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-phase-revenue-item-quantity-estimates show",
   "id": "e5f36afe41f61bce958b3b794bc58a34c6cfea02d05b7fbf288d30a725f6b92e",
-  "permissions": "Allowed for users who can view the related project via delegated policy scope: admins, members/managers of the project developer, members of the project broker, or members of material suppliers/customers tied to the project broker.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,17 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "/Users/seandevine/Code/server/app/resources/v1/project_phase_revenue_item_quantity_estimate_resource.rb",
+      "file_path": "app/resources/v1/project_phase_revenue_item_quantity_estimate_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "/Users/seandevine/Code/server/app/policies/project_phase_revenue_item_quantity_estimate_policy.rb",
+      "file_path": "app/models/project_phase_revenue_item_quantity_estimate.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "/Users/seandevine/Code/server/app/policies/project_policy.rb",
+      "file_path": "app/policies/project_phase_revenue_item_quantity_estimate_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The <id> argument is required and must be non-empty."
+  "validation_notes": null
 }

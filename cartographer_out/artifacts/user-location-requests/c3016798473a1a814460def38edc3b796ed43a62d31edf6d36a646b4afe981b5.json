@@ -1,23 +1,37 @@
 {
-  "id": "c3016798473a1a814460def38edc3b796ed43a62d31edf6d36a646b4afe981b5",
-  "full_path": "view user-location-requests show",
   "description": "Show user location request details",
-  "permissions": "Admin users can view any user location request. Non-admin users can view requests where the requested user is related via broker, customer, trucker, or material supplier memberships with the requester, or where the requester created the request.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view user-location-requests show",
+  "id": "c3016798473a1a814460def38edc3b796ed43a62d31edf6d36a646b4afe981b5",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/user_location_requests_show.go"
+      "file_path": "internal/cli/user_location_requests_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/user_location_request_resource.rb"
+      "file_path": "app/resources/v1/user_location_request_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/user_location_request_policy.rb"
+      "file_path": "app/models/user_location_request.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_location_request_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

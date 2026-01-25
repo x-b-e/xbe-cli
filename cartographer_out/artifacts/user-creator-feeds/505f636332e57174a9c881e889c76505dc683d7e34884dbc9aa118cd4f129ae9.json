@@ -1,9 +1,19 @@
 {
-  "description": "Show user creator feed details.",
-  "flags": [],
+  "description": "Show user creator feed details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view user-creator-feeds show",
   "id": "505f636332e57174a9c881e889c76505dc683d7e34884dbc9aa118cd4f129ae9",
-  "permissions": "UserCreatorFeedPolicy permits access only when the feed belongs to the current user; non-admin access is limited to their own records.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/user_creator_feed_policy.rb",
+      "file_path": "app/resources/v1/user_creator_feed_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "spec/policies/user_creator_feed_policy_spec.rb",
+      "file_path": "app/models/user_creator_feed.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_creator_feed_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument (user creator feed ID)."
+  "validation_notes": null
 }

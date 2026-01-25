@@ -1,23 +1,37 @@
 {
-  "id": "38879f13c15267c098b923c4eb7c2c0ab718373f1b09a5d16650ffbb76f7be2d",
+  "description": "Show project bid location material type details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-bid-location-material-types show",
-  "description": "Show details for a single project bid location material type.",
-  "permissions": "User must be authorized to view the associated project bid location via the ProjectBidLocation policy scope.",
+  "id": "38879f13c15267c098b923c4eb7c2c0ab718373f1b09a5d16650ffbb76f7be2d",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a project bid location material type ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_bid_location_material_types_show.go"
+      "file_path": "internal/cli/project_bid_location_material_types_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_bid_location_material_type_resource.rb"
+      "file_path": "app/resources/v1/project_bid_location_material_type_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_bid_location_material_type_policy.rb"
+      "file_path": "app/models/project_bid_location_material_type.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_bid_location_material_type_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

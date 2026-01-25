@@ -1,23 +1,37 @@
 {
-  "id": "f277a15c3e01d0e325ef4d501f19682934b82adfff06552857c6543224c4d26d",
+  "description": "Show objective details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view objectives show",
-  "description": "Show objective details.",
-  "permissions": "Anonymous users can view template objectives; authenticated non-admin users can view template objectives plus objectives tied to organizations they belong to (including organizations under brokers they belong to); admins can view all objectives.",
+  "id": "f277a15c3e01d0e325ef4d501f19682934b82adfff06552857c6543224c4d26d",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires an objective ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/objectives_show.go"
+      "file_path": "internal/cli/objectives_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/objectives_controller.rb"
+      "file_path": "app/resources/v1/objective_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/objective_policy.rb"
+      "file_path": "app/models/objective.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/objective_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

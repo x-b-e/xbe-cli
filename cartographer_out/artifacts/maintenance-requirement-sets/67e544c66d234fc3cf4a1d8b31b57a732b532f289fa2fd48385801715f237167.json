@@ -1,9 +1,19 @@
 {
   "description": "Show maintenance requirement set details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view maintenance-requirement-sets show",
   "id": "67e544c66d234fc3cf4a1d8b31b57a732b532f289fa2fd48385801715f237167",
-  "permissions": "Admin users can view all sets. Managers can view all sets for their brokers. Operations users with manager business unit membership can view template sets, non-template empty sets, and non-template sets with equipment in their business units. General or technician business unit members can view sets only when they have at least one assigned maintenance requirement. Operations users without manager business unit membership can view only non-template sets with equipment in their business units.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,9 +21,17 @@
       "repo_name": "cli"
     },
     {
+      "file_path": "app/resources/v1/maintenance_requirement_set_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/maintenance_requirement_set.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/maintenance_requirement_set_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The maintenance requirement set ID argument is required and must be non-empty."
+  "validation_notes": null
 }

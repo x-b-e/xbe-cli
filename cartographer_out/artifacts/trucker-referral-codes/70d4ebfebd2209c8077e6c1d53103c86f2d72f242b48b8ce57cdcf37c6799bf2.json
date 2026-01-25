@@ -1,23 +1,37 @@
 {
-  "id": "70d4ebfebd2209c8077e6c1d53103c86f2d72f242b48b8ce57cdcf37c6799bf2",
+  "description": "Show trucker referral code details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view trucker-referral-codes show",
-  "description": "Show trucker referral code details.",
-  "permissions": "Requires authentication. Admins can view any trucker referral codes; non-admins are limited to brokers they belong to.",
+  "id": "70d4ebfebd2209c8077e6c1d53103c86f2d72f242b48b8ce57cdcf37c6799bf2",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/trucker_referral_codes_show.go"
+      "file_path": "internal/cli/trucker_referral_codes_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/trucker_referral_code_resource.rb"
+      "file_path": "app/resources/v1/trucker_referral_code_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/trucker_referral_code_policy.rb"
+      "file_path": "app/models/trucker_referral_code.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/trucker_referral_code_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -15,6 +15,32 @@
 3) Run `build_tools/worker.py` to generate artifacts (uses an agent).
 4) Run `build_tools/compile.py` to build `cartographer_out/db/knowledge.sqlite`.
 
+`compile.py` also loads `internal/cli/resource_map.json` into these tables:
+- `resources`
+- `resource_fields`
+- `resource_field_targets`
+
+It creates a `command_resources` view that links list/show commands to their
+resource by parsing `commands.full_path`. Example query:
+
+```
+SELECT c.full_path, cr.resource, cr.verb, r.label_fields
+FROM command_resources cr
+JOIN commands c ON c.id = cr.command_id
+JOIN resources r ON r.name = cr.resource
+ORDER BY c.full_path;
+```
+
+## Resource map pipeline (for CLI --fields)
+1) Run `build_tools/resource_map_dispatcher.py` to create resource batches.
+2) Run `build_tools/resource_map_worker.py` (or `resource_map_swarm.py`) to generate artifacts.
+3) Run `build_tools/resource_map_compile.py` to merge into `internal/cli/resource_map.json`.
+
+## Deterministic show backfill
+Use this to backfill show-command artifacts without an agent (uses CLI help + resource_map):
+1) Ensure `internal/cli/resource_map.json` is up to date.
+2) Run `python3 build_tools/deterministic_show_backfill.py`.
+
 ## Bootstrap (Python deps)
 If your system Python is externally managed (PEP 668), run:
 `bash build_tools/bootstrap.sh`

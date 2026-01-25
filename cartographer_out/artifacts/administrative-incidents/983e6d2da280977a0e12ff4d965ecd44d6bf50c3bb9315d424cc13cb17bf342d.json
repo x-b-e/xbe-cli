@@ -1,23 +1,33 @@
 {
-  "id": "983e6d2da280977a0e12ff4d965ecd44d6bf50c3bb9315d424cc13cb17bf342d",
-  "full_path": "view administrative-incidents show",
   "description": "Show administrative incident details",
-  "permissions": "Admins can view any administrative incident. Non-admins can view an incident if the subject is in scope for them (subject policy show) or if they created the incident.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view administrative-incidents show",
+  "id": "983e6d2da280977a0e12ff4d965ecd44d6bf50c3bb9315d424cc13cb17bf342d",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The administrative incident ID argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/administrative_incidents_show.go"
+      "file_path": "internal/cli/administrative_incidents_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/incident_policy.rb"
+      "file_path": "app/resources/v1/administrative_incident_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/administrative_incident_policy.rb"
+      "file_path": "app/policies/administrative_incident_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,27 +1,37 @@
 {
-  "id": "751d99e151ec8f8f2389668a67a4aa0dba8ff14c28ad4437933bd83384753ae8",
-  "full_path": "view material-transaction-diversions show",
   "description": "Show diversion details",
-  "permissions": "Admin users; non-admin users can view diversions tied to material transactions they are authorized to view via the MaterialTransaction policy scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view material-transaction-diversions show",
+  "id": "751d99e151ec8f8f2389668a67a4aa0dba8ff14c28ad4437933bd83384753ae8",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_transaction_diversions_show.go"
+      "file_path": "internal/cli/material_transaction_diversions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_transaction_diversions.go"
+      "file_path": "app/resources/v1/material_transaction_diversion_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_transaction_diversion_resource.rb"
+      "file_path": "app/models/material_transaction_diversion.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_transaction_diversion_policy.rb"
+      "file_path": "app/policies/material_transaction_diversion_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,23 +1,37 @@
 {
-  "id": "70ad1b4d1e7d7954c5f6cb87709f77a0722ac0767645fb046ba6f625e5801e61",
+  "description": "Show service type unit of measure quantity details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view service-type-unit-of-measure-quantities show",
-  "description": "Show the full details of a service type unit of measure quantity, including quantities, relationship details, and customer/broker calculated amounts and rates when visible.",
-  "permissions": "Access is controlled by ServiceTypeUnitOfMeasureQuantityPolicy scope. Non-admin access is limited to time-card quantified quantities tied to tenders/jobs the user can access as a broker, trucker, or customer member; customer/trucker visibility requires exclude_from_time_card_invoices to be false.",
+  "id": "70ad1b4d1e7d7954c5f6cb87709f77a0722ac0767645fb046ba6f625e5801e61",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/service_type_unit_of_measure_quantities_show.go"
+      "file_path": "internal/cli/service_type_unit_of_measure_quantities_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/service_type_unit_of_measure_quantity_resource.rb"
+      "file_path": "app/resources/v1/service_type_unit_of_measure_quantity_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/service_type_unit_of_measure_quantity_policy.rb"
+      "file_path": "app/models/service_type_unit_of_measure_quantity.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/service_type_unit_of_measure_quantity_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

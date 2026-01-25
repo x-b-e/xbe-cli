@@ -1,27 +1,29 @@
 {
-  "id": "477e3539b929fcc5598cd5274698888fc2a37d6d5cc645d803485f4993d6691f",
-  "full_path": "view broker-tender-cancelled-seller-notifications show",
   "description": "Show broker tender cancelled seller notification details",
-  "permissions": "Notification policy scope limits access to notifications where user_id matches the current user.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view broker-tender-cancelled-seller-notifications show",
+  "id": "477e3539b929fcc5598cd5274698888fc2a37d6d5cc645d803485f4993d6691f",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The notification id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_tender_cancelled_seller_notifications_show.go"
+      "file_path": "internal/cli/broker_tender_cancelled_seller_notifications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/notification_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/notification_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/broker_tender_cancelled_seller_notification_resource.rb"
+      "file_path": "app/resources/v1/broker_tender_cancelled_seller_notification_resource.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

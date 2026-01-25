@@ -1,23 +1,37 @@
 {
-  "id": "d0760587195740a808bd178d1ae8aa1680c7ffd4ecc2d5d146ba2a2616a12f1d",
-  "full_path": "view raw-transport-orders show",
   "description": "View full details for a raw transport order",
-  "permissions": "Requires authentication. Admins can view all raw transport orders. Non-admin users can only view orders for brokers where they are admin members.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view raw-transport-orders show",
+  "id": "d0760587195740a808bd178d1ae8aa1680c7ffd4ecc2d5d146ba2a2616a12f1d",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The raw transport order ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/raw_transport_orders_show.go"
+      "file_path": "internal/cli/raw_transport_orders_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/raw_transport_order_resource.rb"
+      "file_path": "app/resources/v1/raw_transport_order_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/raw_transport_order_policy.rb"
+      "file_path": "app/models/raw_transport_order.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/raw_transport_order_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

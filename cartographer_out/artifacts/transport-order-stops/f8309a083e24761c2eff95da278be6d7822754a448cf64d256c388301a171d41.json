@@ -1,23 +1,37 @@
 {
-  "id": "f8309a083e24761c2eff95da278be6d7822754a448cf64d256c388301a171d41",
+  "description": "Show transport order stop details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view transport-order-stops show",
-  "description": "Show the full details of a transport order stop.",
-  "permissions": "User must be authorized to view the related transport order; access is delegated through TransportOrderStopPolicy to the associated transport order.",
+  "id": "f8309a083e24761c2eff95da278be6d7822754a448cf64d256c388301a171d41",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (transport order stop ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/transport_order_stops_show.go"
+      "file_path": "internal/cli/transport_order_stops_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/transport_order_stop_resource.rb"
+      "file_path": "app/resources/v1/transport_order_stop_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/transport_order_stop_policy.rb"
+      "file_path": "app/models/transport_order_stop.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/transport_order_stop_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

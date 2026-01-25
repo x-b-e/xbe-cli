@@ -1,23 +1,37 @@
 {
-  "id": "6ac5d8da38dea7c7c979fcbaeaff2f0bc9cbdd186de83c74ddea85f06a26dc0f",
+  "description": "Show project transport organization details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-transport-organizations show",
-  "description": "Show the full details of a project transport organization.",
-  "permissions": "Admin users can view any project transport organization. Non-admin users can view organizations for brokers they are members of (policy scope).",
+  "id": "6ac5d8da38dea7c7c979fcbaeaff2f0bc9cbdd186de83c74ddea85f06a26dc0f",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a project transport organization ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_transport_organizations_show.go"
+      "file_path": "internal/cli/project_transport_organizations_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_organization_policy.rb"
+      "file_path": "app/resources/v1/project_transport_organization_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_transport_organization_resource.rb"
+      "file_path": "app/models/project_transport_organization.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_organization_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,23 +1,33 @@
 {
-  "id": "998c800e17045d92b02915ca17902c70ed8a603f0e61c89c250f30f5aa34663d",
+  "description": "Show time sheet rejection details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-sheet-rejections show",
-  "description": "Show full details of a time sheet rejection.",
-  "permissions": "Not specified for show in TimeSheetRejectionPolicy; CLI treats time sheet rejections as write-only (show may be unavailable).",
+  "id": "998c800e17045d92b02915ca17902c70ed8a603f0e61c89c250f30f5aa34663d",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (time sheet rejection ID). CLI reports show unavailable if the API returns 404 (write-only endpoint).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_sheet_rejections_show.go"
+      "file_path": "internal/cli/time_sheet_rejections_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_sheet_rejection_policy.rb"
+      "file_path": "app/resources/v1/time_sheet_rejection_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/time_sheet_rejection_resource.rb"
+      "file_path": "app/policies/time_sheet_rejection_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

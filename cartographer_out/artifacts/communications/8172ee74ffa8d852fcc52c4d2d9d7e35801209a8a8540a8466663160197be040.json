@@ -1,9 +1,19 @@
 {
-  "description": "Show full details of a communication.",
-  "flags": [],
+  "description": "Show full details of a communication",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view communications show",
   "id": "8172ee74ffa8d852fcc52c4d2d9d7e35801209a8a8540a8466663160197be040",
-  "permissions": "Any authenticated admin can view any communication. Non-admin users can view communications that are within their scope (their own or users they can access via active broker memberships).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/communication_policy.rb",
+      "file_path": "app/resources/v1/communication_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "spec/policies/communication_policy_spec.rb",
+      "file_path": "app/models/communication.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/communication_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "id argument is required and cannot be blank."
+  "validation_notes": null
 }

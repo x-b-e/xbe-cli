@@ -1,23 +1,37 @@
 {
-  "id": "d3aa51787abb1f349b2c00b866a3a7c6f3b6732882166b20cc479be94dc2e544",
+  "description": "Show full details of a copier work item",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view rate-agreement-copier-works show",
-  "description": "Show the full details of a rate agreement copier work item.",
-  "permissions": "Access is governed by RateAgreementCopierWorkPolicy scope, which limits visibility to copier works tied to rate agreements the user can access via the RateAgreement policy scope.",
+  "id": "d3aa51787abb1f349b2c00b866a3a7c6f3b6732882166b20cc479be94dc2e544",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The copier work ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/rate_agreement_copier_works_show.go"
+      "file_path": "internal/cli/rate_agreement_copier_works_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/rate_agreement_copier_work_resource.rb"
+      "file_path": "app/resources/v1/rate_agreement_copier_work_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/rate_agreement_copier_work_policy.rb"
+      "file_path": "app/models/rate_agreement_copier_work.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/rate_agreement_copier_work_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

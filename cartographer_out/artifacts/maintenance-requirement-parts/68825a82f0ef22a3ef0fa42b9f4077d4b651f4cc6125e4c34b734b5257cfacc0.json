@@ -1,19 +1,37 @@
 {
-  "id": "68825a82f0ef22a3ef0fa42b9f4077d4b651f4cc6125e4c34b734b5257cfacc0",
-  "full_path": "view maintenance-requirement-parts show",
   "description": "Show maintenance requirement part details",
-  "permissions": "Admins can view any maintenance requirement part. Template parts are viewable by broker members except operations users with manager business unit membership; technicians can view all template parts for their broker. Non-template parts are viewable by broker managers, by technicians, by general business unit members only when the maintenance requirement is assigned to them, and by operations members only when the requirement equipment is in their accessible business units; operations users with manager business unit membership can view only those non-template parts with equipment in their accessible business units.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view maintenance-requirement-parts show",
+  "id": "68825a82f0ef22a3ef0fa42b9f4077d4b651f4cc6125e4c34b734b5257cfacc0",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The maintenance requirement part id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/maintenance_requirement_parts_show.go"
+      "file_path": "internal/cli/maintenance_requirement_parts_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/maintenance_requirement_part_policy.rb"
+      "file_path": "app/resources/v1/maintenance_requirement_part_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/maintenance_requirement_part.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/maintenance_requirement_part_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

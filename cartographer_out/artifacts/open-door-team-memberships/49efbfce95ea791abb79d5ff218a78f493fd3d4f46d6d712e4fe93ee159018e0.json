@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of an open door team membership.",
-  "flags": [],
+  "description": "Show open door team membership details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view open-door-team-memberships show",
   "id": "49efbfce95ea791abb79d5ff218a78f493fd3d4f46d6d712e4fe93ee159018e0",
-  "permissions": "Admins can view any open door team membership. Non-admins can view only memberships within their accessible broker, trucker, or customer organizations via policy scope.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/open_door_team_membership_policy.rb",
+      "file_path": "app/resources/v1/open_door_team_membership_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/resources/v1/open_door_team_membership_resource.rb",
+      "file_path": "app/models/open_door_team_membership.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/open_door_team_membership_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The <id> argument is required."
+  "validation_notes": null
 }

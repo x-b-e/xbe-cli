@@ -1,23 +1,37 @@
 {
-  "id": "aece528a99efe1b3055c8a4bf8cc7eb7ef34703fbc91133f482f2c60e6a546db",
-  "full_path": "view prediction-agents show",
   "description": "Show prediction agent details",
-  "permissions": "Requires access permitted by PredictionAgent policy scope: admin users can view all; non-admins must be a member of the prediction subject, an admin of the subject's broker organization, or the creator of the prediction agent.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view prediction-agents show",
+  "id": "aece528a99efe1b3055c8a4bf8cc7eb7ef34703fbc91133f482f2c60e6a546db",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Prediction agent ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/prediction_agents_show.go"
+      "file_path": "internal/cli/prediction_agents_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/prediction_agent_policy.rb"
+      "file_path": "app/resources/v1/prediction_agent_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/prediction_agent_resource.rb"
+      "file_path": "app/models/prediction_agent.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_agent_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

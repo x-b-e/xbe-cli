@@ -1,31 +1,33 @@
 {
-  "id": "873498c8e3f33f2962355e497eca516eafa9e1fd217211379cdab3c96fbb8f77",
+  "description": "Show tender rejection details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view tender-rejections show",
-  "description": "Show the full details of a tender rejection.",
+  "id": "873498c8e3f33f2962355e497eca516eafa9e1fd217211379cdab3c96fbb8f77",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/tender_rejections_show.go"
+      "file_path": "internal/cli/tender_rejections_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/tender_rejections_controller.rb"
+      "file_path": "app/resources/v1/tender_rejection_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/tender_rejection_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/tender_rejection_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/tender_rejection_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

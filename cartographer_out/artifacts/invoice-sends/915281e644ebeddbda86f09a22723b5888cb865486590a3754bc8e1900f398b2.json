@@ -1,31 +1,33 @@
 {
-  "id": "915281e644ebeddbda86f09a22723b5888cb865486590a3754bc8e1900f398b2",
-  "full_path": "view invoice-sends show",
   "description": "Show invoice send details",
-  "permissions": "Showing an invoice send is allowed when the record is in policy scope (ApplicationPolicy#show? uses policy scope); admins can access all records.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view invoice-sends show",
+  "id": "915281e644ebeddbda86f09a22723b5888cb865486590a3754bc8e1900f398b2",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The send ID argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/invoice_sends_show.go"
+      "file_path": "internal/cli/invoice_sends_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/invoice_sends.go"
+      "file_path": "app/resources/v1/invoice_send_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/invoice_send_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/resources/concerns/action_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/invoice_send_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

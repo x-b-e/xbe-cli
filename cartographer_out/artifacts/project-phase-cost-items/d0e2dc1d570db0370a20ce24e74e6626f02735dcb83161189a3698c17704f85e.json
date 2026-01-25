@@ -1,19 +1,37 @@
 {
-  "id": "d0e2dc1d570db0370a20ce24e74e6626f02735dcb83161189a3698c17704f85e",
-  "full_path": "view project-phase-cost-items show",
   "description": "Show project phase cost item details",
-  "permissions": "Allowed when the user is in the ProjectPhaseCostItemPolicy scope, which is delegated to the related ProjectPhaseRevenueItem policy.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-phase-cost-items show",
+  "id": "d0e2dc1d570db0370a20ce24e74e6626f02735dcb83161189a3698c17704f85e",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_phase_cost_items_show.go"
+      "file_path": "internal/cli/project_phase_cost_items_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_phase_cost_item_resource.rb"
+      "file_path": "app/resources/v1/project_phase_cost_item_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_phase_cost_item.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_phase_cost_item_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,23 +1,37 @@
 {
-  "id": "e66a65fb05171dd032b8ebf48793ec80cafc6e299bab4a4b8a994bec6fc212b2",
+  "description": "View UI tour step details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view ui-tour-steps show",
-  "description": "Show the full details of a UI tour step.",
-  "permissions": "Authorized via UiTourStepPolicy; access is delegated to the related UI tour (policy scope delegates to UiTour).",
+  "id": "e66a65fb05171dd032b8ebf48793ec80cafc6e299bab4a4b8a994bec6fc212b2",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/ui_tour_steps_show.go"
+      "file_path": "internal/cli/ui_tour_steps_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/ui_tour_step_resource.rb"
+      "file_path": "app/resources/v1/ui_tour_step_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/ui_tour_step_policy.rb"
+      "file_path": "app/models/ui_tour_step.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/ui_tour_step_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

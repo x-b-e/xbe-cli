@@ -1,23 +1,37 @@
 {
-  "id": "9b9c45529e4521815db5f72ed0daf5b8c719fcde3a857661b87cce8e3613f4dd",
+  "description": "Show maintenance requirement part details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view maintenance-requirement-maintenance-requirement-parts show",
-  "description": "Show the full details of a maintenance requirement part link.",
-  "permissions": "Allowed when the user can view the related maintenance requirement part per MaintenanceRequirementPartPolicy (same access rules as list: admin; managers can view all parts for broker; technicians can view all non-template parts and template parts for their broker; general business unit members can view template parts for their broker and parts on assigned requirements; operations members can view non-template parts with equipment in accessible business units, and operations-with-manager-business-unit cannot view template parts).",
+  "id": "9b9c45529e4521815db5f72ed0daf5b8c719fcde3a857661b87cce8e3613f4dd",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/maintenance_requirement_maintenance_requirement_parts_show.go"
+      "file_path": "internal/cli/maintenance_requirement_maintenance_requirement_parts_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/maintenance_requirement_maintenance_requirement_part_resource.rb"
+      "file_path": "app/resources/v1/maintenance_requirement_maintenance_requirement_part_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/maintenance_requirement_maintenance_requirement_part_policy.rb"
+      "file_path": "app/models/maintenance_requirement_maintenance_requirement_part.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/maintenance_requirement_maintenance_requirement_part_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

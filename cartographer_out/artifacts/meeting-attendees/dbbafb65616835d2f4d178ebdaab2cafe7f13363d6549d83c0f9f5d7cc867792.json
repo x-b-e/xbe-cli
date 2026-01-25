@@ -1,27 +1,37 @@
 {
-  "id": "dbbafb65616835d2f4d178ebdaab2cafe7f13363d6549d83c0f9f5d7cc867792",
+  "description": "Show meeting attendee details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view meeting-attendees show",
-  "description": "Show the full details of a meeting attendee.",
-  "permissions": "Allowed for admins, users who can update the meeting, or the attendee user when they can view the meeting.",
+  "id": "dbbafb65616835d2f4d178ebdaab2cafe7f13363d6549d83c0f9f5d7cc867792",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Meeting attendee ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/meeting_attendees_show.go"
+      "file_path": "internal/cli/meeting_attendees_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/meeting_attendee_policy.rb"
+      "file_path": "app/resources/v1/meeting_attendee_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/models/meeting_attendee.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "spec/policies/meeting_attendee_policy_spec.rb"
+      "file_path": "app/policies/meeting_attendee_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

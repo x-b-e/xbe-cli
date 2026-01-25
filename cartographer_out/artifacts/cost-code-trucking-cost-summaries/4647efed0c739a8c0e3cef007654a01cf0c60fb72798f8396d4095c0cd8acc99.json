@@ -1,27 +1,37 @@
 {
-  "id": "4647efed0c739a8c0e3cef007654a01cf0c60fb72798f8396d4095c0cd8acc99",
+  "description": "Show cost code trucking cost summary details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view cost-code-trucking-cost-summaries show",
-  "description": "Show cost code trucking cost summary details.",
-  "permissions": "Admins can view any summary. Non-admins can view summaries only for brokers where they are manager members.",
+  "id": "4647efed0c739a8c0e3cef007654a01cf0c60fb72798f8396d4095c0cd8acc99",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Summary ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/cost_code_trucking_cost_summaries_show.go"
+      "file_path": "internal/cli/cost_code_trucking_cost_summaries_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/cost_code_trucking_cost_summary_resource.rb"
+      "file_path": "app/resources/v1/cost_code_trucking_cost_summary_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/cost_code_trucking_cost_summary_policy.rb"
+      "file_path": "app/models/cost_code_trucking_cost_summary.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/models/cost_code_trucking_cost_summary.rb"
+      "file_path": "app/policies/cost_code_trucking_cost_summary_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

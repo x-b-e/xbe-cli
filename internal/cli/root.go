@@ -77,6 +77,7 @@ func ExecuteContext(ctx context.Context, tp *telemetry.Provider) error {
 
 func telemetryPreRun(cmd *cobra.Command, args []string) error {
 	if telemetryProvider == nil || !telemetryProvider.Enabled() {
+		setJSONOmitNulls(cmd)
 		return applySparseFieldOverrides(cmd)
 	}
 
@@ -111,6 +112,7 @@ func telemetryPreRun(cmd *cobra.Command, args []string) error {
 	if err := applySparseFieldOverrides(cmd); err != nil {
 		return err
 	}
+	setJSONOmitNulls(cmd)
 
 	// Track this command for finalization
 	lastExecutedCmd = cmd

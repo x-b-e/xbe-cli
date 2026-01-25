@@ -1,23 +1,37 @@
 {
-  "id": "2690d85b3a6b67375b37370e31bf4b2e68362dafbea9c8ec266154d1e4b97733",
+  "description": "Show full details of a post router job",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view post-router-jobs show",
-  "description": "Show the full details of a post router job.",
-  "permissions": "Allowed for users authorized to view the related Post; non-admin scope limits results to post router jobs whose post_router belongs to a post in the user Post policy scope.",
+  "id": "2690d85b3a6b67375b37370e31bf4b2e68362dafbea9c8ec266154d1e4b97733",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (post router job ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/post_router_jobs_show.go"
+      "file_path": "internal/cli/post_router_jobs_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/post_router_job_resource.rb"
+      "file_path": "app/resources/v1/post_router_job_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/post_router_job_policy.rb"
+      "file_path": "app/models/post_router_job.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/post_router_job_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

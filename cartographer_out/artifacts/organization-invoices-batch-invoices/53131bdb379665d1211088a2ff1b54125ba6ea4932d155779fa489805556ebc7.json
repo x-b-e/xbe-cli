@@ -1,35 +1,37 @@
 {
-  "id": "53131bdb379665d1211088a2ff1b54125ba6ea4932d155779fa489805556ebc7",
-  "full_path": "view organization-invoices-batch-invoices show",
   "description": "Show organization invoices batch invoice details",
-  "permissions": "Allowed for users who can access the related organization invoices batch via policy scope; scope delegates to OrganizationInvoicesBatch and permits admins, broker members, and manager-level members of other organization types (e.g., customer/trucker) tied to the batch.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view organization-invoices-batch-invoices show",
+  "id": "53131bdb379665d1211088a2ff1b54125ba6ea4932d155779fa489805556ebc7",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The batch invoice id argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/organization_invoices_batch_invoices_show.go"
+      "file_path": "internal/cli/organization_invoices_batch_invoices_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/organization_invoices_batch_invoice_resource.rb"
+      "file_path": "app/resources/v1/organization_invoices_batch_invoice_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/organization_invoices_batch_invoice_policy.rb"
+      "file_path": "app/models/organization_invoices_batch_invoice.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/organization_invoices_batch_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/concerns/delegated_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/organization_invoices_batch_invoice_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

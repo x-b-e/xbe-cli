@@ -1,19 +1,33 @@
 {
-  "id": "e837c5b5fc1b37a887aff57c05daf9ea31a287d8e453d51b9efbe9bfbca9d8d6",
-  "full_path": "view time-card-unscrappages show",
   "description": "Show time card unscrappage details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view time-card-unscrappages show",
+  "id": "e837c5b5fc1b37a887aff57c05daf9ea31a287d8e453d51b9efbe9bfbca9d8d6",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a time card unscrappage ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_card_unscrappages_show.go"
+      "file_path": "internal/cli/time_card_unscrappages_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/time_card_unscrappage_resource.rb"
+      "file_path": "app/resources/v1/time_card_unscrappage_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/time_card_unscrappage_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

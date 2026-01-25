@@ -1,19 +1,33 @@
 {
-  "id": "1cfc1a1f58e94ad56126773fd4e95c1c50b3d460b23bcde17d99063457caaeab",
+  "description": "Show organization invoices batch invoice batching details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view organization-invoices-batch-invoice-batchings show",
-  "description": "Show organization invoices batch invoice batching details.",
+  "id": "1cfc1a1f58e94ad56126773fd4e95c1c50b3d460b23bcde17d99063457caaeab",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (organization invoices batch invoice batching ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/organization_invoices_batch_invoice_batchings_show.go"
+      "file_path": "internal/cli/organization_invoices_batch_invoice_batchings_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/organization_invoices_batch_invoice_batchings_controller.rb"
+      "file_path": "app/resources/v1/organization_invoices_batch_invoice_batching_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_invoices_batch_invoice_batching_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,23 +1,37 @@
 {
-  "id": "d80e21628369d322863fe28d0d80c698a6178155e8afbd6bbddfd55bbd785008",
-  "full_path": "view equipment-movement-stop-completions show",
   "description": "Show equipment movement stop completion details",
-  "permissions": "Admin users can view all equipment movement stop completions. Non-admin users can view records scoped to equipment movement trips where the trip broker is in their broker memberships, or where the trip is linked to a job production plan with a shift whose seller operations contact is the user, or where the trip is linked to a broker tender for truckers managed by the user.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view equipment-movement-stop-completions show",
+  "id": "d80e21628369d322863fe28d0d80c698a6178155e8afbd6bbddfd55bbd785008",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The stop completion ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/equipment_movement_stop_completions_show.go"
+      "file_path": "internal/cli/equipment_movement_stop_completions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/equipment_movement_stop_completion_policy.rb"
+      "file_path": "app/resources/v1/equipment_movement_stop_completion_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/models/equipment_movement_stop_completion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_movement_stop_completion_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

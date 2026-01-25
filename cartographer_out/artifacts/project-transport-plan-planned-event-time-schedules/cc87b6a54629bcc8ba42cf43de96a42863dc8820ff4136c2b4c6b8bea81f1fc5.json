@@ -1,23 +1,37 @@
 {
-  "id": "cc87b6a54629bcc8ba42cf43de96a42863dc8820ff4136c2b4c6b8bea81f1fc5",
-  "full_path": "view project-transport-plan-planned-event-time-schedules show",
   "description": "Show full schedule details",
-  "permissions": "Allowed for admins or users with access to the related project transport plan or transport order via policy scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-transport-plan-planned-event-time-schedules show",
+  "id": "cc87b6a54629bcc8ba42cf43de96a42863dc8820ff4136c2b4c6b8bea81f1fc5",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The schedule ID argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_transport_plan_planned_event_time_schedules_show.go"
+      "file_path": "internal/cli/project_transport_plan_planned_event_time_schedules_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_plan_planned_event_time_schedule_policy.rb"
+      "file_path": "app/resources/v1/project_transport_plan_planned_event_time_schedule_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_transport_plan_planned_event_time_schedule_resource.rb"
+      "file_path": "app/models/project_transport_plan_planned_event_time_schedule.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_planned_event_time_schedule_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

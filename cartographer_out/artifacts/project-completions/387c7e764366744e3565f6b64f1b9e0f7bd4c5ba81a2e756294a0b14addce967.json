@@ -1,19 +1,33 @@
 {
-  "id": "387c7e764366744e3565f6b64f1b9e0f7bd4c5ba81a2e756294a0b14addce967",
+  "description": "Show project completion details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-completions show",
-  "description": "Show the full details of a project completion.",
+  "id": "387c7e764366744e3565f6b64f1b9e0f7bd4c5ba81a2e756294a0b14addce967",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires the project completion id argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_completions_show.go"
+      "file_path": "internal/cli/project_completions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_completion_resource.rb"
+      "file_path": "app/resources/v1/project_completion_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_completion_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

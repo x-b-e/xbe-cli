@@ -1,27 +1,37 @@
 {
-  "id": "614f08262e35d91961f981f5d3074270854472ce6bc610d932290185115c43a6",
+  "description": "Show integration invoices batch export details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view integration-invoices-batch-exports show",
-  "description": "Show the full details of an integration invoices batch export.",
-  "permissions": "Admin users can view any integration invoices batch export. Non-admin users can view a specific export only if it is within the policy scope, meaning it is linked to an integration export whose integration config belongs to a broker the user is a visible member of.",
+  "id": "614f08262e35d91961f981f5d3074270854472ce6bc610d932290185115c43a6",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument; empty or whitespace-only IDs are rejected.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/integration_invoices_batch_exports_show.go"
+      "file_path": "internal/cli/integration_invoices_batch_exports_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/integration_invoices_batch_export_resource.rb"
+      "file_path": "app/resources/v1/integration_invoices_batch_export_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/integration_invoices_batch_export_policy.rb"
+      "file_path": "app/models/integration_invoices_batch_export.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/integration_invoices_batch_export_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

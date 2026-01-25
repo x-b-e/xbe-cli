@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a specific inventory capacity.",
-  "flags": [],
+  "description": "Show inventory capacity details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view inventory-capacities show",
   "id": "9c4ccce24fce1c613aacdb66cf3e4afe080db1db9d936698cae3e0155b83e988",
-  "permissions": "Admins can view all inventory capacities. Non-admin users can view inventory capacities for material sites whose material suppliers belong to a broker the user can see or whose material suppliers are directly visible to the user.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,9 +25,13 @@
       "repo_name": "server"
     },
     {
+      "file_path": "app/models/inventory_capacity.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/inventory_capacity_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires the <id> argument."
+  "validation_notes": null
 }

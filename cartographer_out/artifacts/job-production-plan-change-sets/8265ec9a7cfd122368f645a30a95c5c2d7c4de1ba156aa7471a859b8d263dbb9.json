@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a specific job production plan change set.",
-  "flags": [],
+  "description": "Show change set details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view job-production-plan-change-sets show",
   "id": "8265ec9a7cfd122368f645a30a95c5c2d7c4de1ba156aa7471a859b8d263dbb9",
-  "permissions": "Admin users can view all change sets. Non-admins can view change sets for brokers they manage, customers they manage, or customers of brokers they manage.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,9 +25,13 @@
       "repo_name": "server"
     },
     {
+      "file_path": "app/models/job_production_plan_change_set.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/job_production_plan_change_set_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The change set ID argument is required."
+  "validation_notes": null
 }

@@ -1,19 +1,33 @@
 {
-  "id": "4583a272222f5d2938223477334a66b8b4d3162270c7409dae2e431588ffe513",
-  "full_path": "view time-sheet-approvals show",
   "description": "Show time sheet approval details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view time-sheet-approvals show",
+  "id": "4583a272222f5d2938223477334a66b8b4d3162270c7409dae2e431588ffe513",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (time sheet approval ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_sheet_approvals_show.go"
+      "file_path": "internal/cli/time_sheet_approvals_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/time_sheet_approval_resource.rb"
+      "file_path": "app/resources/v1/time_sheet_approval_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/time_sheet_approval_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,27 +1,37 @@
 {
-  "id": "c47d0eb72703ff5b3d1f53963b4897e7add218748b51814953bc9c2eec5666ec",
+  "description": "View platform status details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view platform-statuses show",
-  "description": "Show platform status details",
-  "permissions": "Any authenticated user can view a platform status.",
+  "id": "c47d0eb72703ff5b3d1f53963b4897e7add218748b51814953bc9c2eec5666ec",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The platform status ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/platform_statuses_show.go"
+      "file_path": "internal/cli/platform_statuses_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/platform_statuses.go"
+      "file_path": "app/resources/v1/platform_status_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/platform_status_policy.rb"
+      "file_path": "app/models/platform_status.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "spec/policies/platform_status_policy_spec.rb"
+      "file_path": "app/policies/platform_status_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

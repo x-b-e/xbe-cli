@@ -62,6 +62,7 @@ func init() {
 
 func initPlacePredictionsListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Bool("omit-null", false, "Omit null values in JSON output")
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().String("q", "", "Query string for place predictions")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
@@ -107,6 +108,15 @@ func runPlacePredictionsList(cmd *cobra.Command, _ []string) error {
 	if err := json.Unmarshal(body, &resp); err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
+	}
+
+	handled, err := renderSparseListIfRequested(cmd, resp)
+	if err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
+	if handled {
+		return nil
 	}
 
 	rows := buildPlacePredictionRows(resp)

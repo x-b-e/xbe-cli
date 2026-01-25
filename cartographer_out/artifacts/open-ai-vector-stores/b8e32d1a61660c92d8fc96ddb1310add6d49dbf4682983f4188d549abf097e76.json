@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of an OpenAI vector store.",
-  "flags": [],
+  "description": "Show vector store details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view open-ai-vector-stores show",
   "id": "b8e32d1a61660c92d8fc96ddb1310add6d49dbf4682983f4188d549abf097e76",
-  "permissions": "Admins can view any vector store. Non-admins can view vector stores scoped to UserPostFeeds they can access or Brokers they are members of.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/open_ai_vector_store_policy.rb",
+      "file_path": "app/resources/v1/open_ai_vector_store_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/resources/v1/open_ai_vector_store_resource.rb",
+      "file_path": "app/models/open_ai_vector_store.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/open_ai_vector_store_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires the vector store <id> argument."
+  "validation_notes": null
 }

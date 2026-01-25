@@ -1,23 +1,33 @@
 {
-  "id": "aadaeb21d819bc5434ecae51dff767657bdd149209786e0dc3aac7acf884a749",
+  "description": "Show broker retainer details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view broker-retainers show",
-  "description": "Show the full details of a broker retainer",
+  "id": "aadaeb21d819bc5434ecae51dff767657bdd149209786e0dc3aac7acf884a749",
   "permissions": null,
-  "side_effects": "Reads a broker retainer.",
-  "validation_notes": "The broker retainer ID argument is required.",
-  "flags": [],
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_retainers_show.go"
+      "file_path": "internal/cli/broker_retainers_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/broker_retainers_controller.rb"
+      "file_path": "app/resources/v1/broker_retainer_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/broker_retainer_policy.rb"
+      "file_path": "app/policies/broker_retainer_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

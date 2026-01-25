@@ -1,23 +1,37 @@
 {
-  "id": "d362d4defcc8fa8bd6a510319633e9d3b3be647ca4b41db9ebbcb29529c8213e",
+  "description": "Show organization invoices batch PDF template details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view organization-invoices-batch-pdf-templates show",
-  "description": "Show organization invoices batch PDF template details.",
-  "permissions": "Admins can view any template. Non-admins can view global templates and templates for organizations where they are broker members or organization managers (non-broker memberships).",
+  "id": "d362d4defcc8fa8bd6a510319633e9d3b3be647ca4b41db9ebbcb29529c8213e",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (template ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/organization_invoices_batch_pdf_templates_show.go"
+      "file_path": "internal/cli/organization_invoices_batch_pdf_templates_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/organization_invoices_batch_pdf_template_resource.rb"
+      "file_path": "app/resources/v1/organization_invoices_batch_pdf_template_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/organization_invoices_batch_pdf_template_policy.rb"
+      "file_path": "app/models/organization_invoices_batch_pdf_template.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_invoices_batch_pdf_template_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

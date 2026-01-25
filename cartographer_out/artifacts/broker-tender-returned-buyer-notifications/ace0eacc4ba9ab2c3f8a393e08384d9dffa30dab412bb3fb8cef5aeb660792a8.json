@@ -1,23 +1,29 @@
 {
-  "id": "ace0eacc4ba9ab2c3f8a393e08384d9dffa30dab412bb3fb8cef5aeb660792a8",
-  "full_path": "view broker-tender-returned-buyer-notifications show",
   "description": "Show broker tender returned buyer notification details",
-  "permissions": "Authenticated user can view a broker tender returned buyer notification only if it belongs to them (policy scope limits records to user_id for non-admins).",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view broker-tender-returned-buyer-notifications show",
+  "id": "ace0eacc4ba9ab2c3f8a393e08384d9dffa30dab412bb3fb8cef5aeb660792a8",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (notification ID) and it cannot be blank.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_tender_returned_buyer_notifications_show.go"
+      "file_path": "internal/cli/broker_tender_returned_buyer_notifications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/notification_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/notification_policy.rb"
+      "file_path": "app/resources/v1/broker_tender_returned_buyer_notification_resource.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

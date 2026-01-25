@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a project phase dates estimate.",
-  "flags": [],
+  "description": "Show date estimate details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-phase-dates-estimates show",
   "id": "ddebc571a730ad254e2b3521ed77ad56bd43231e4d7f7c65cc13a09f55bdb923",
-  "permissions": "Authorized via ProjectPhaseDatesEstimatePolicy; access is delegated to the related project phase (same permissions as project phase).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,9 +25,13 @@
       "repo_name": "server"
     },
     {
+      "file_path": "app/models/project_phase_dates_estimate.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/project_phase_dates_estimate_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Project phase dates estimate id argument is required."
+  "validation_notes": null
 }
