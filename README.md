@@ -152,6 +152,8 @@ xbe
 │   │   └── update           Update One Step GPS vehicle assignments
 │   ├── samsara-vehicles     Manage samsara vehicles
 │   │   └── update           Update samsara vehicle assignments
+│   ├── temeda-vehicles      Manage temeda vehicles
+│   │   └── update           Update temeda vehicle assignments
 │   ├── t3-equipmentshare-vehicles Manage T3 EquipmentShare vehicles
 │   │   └── update           Update T3 EquipmentShare vehicle assignments
 │   ├── keep-truckin-users  Manage KeepTruckin users
@@ -822,6 +824,9 @@ xbe
 │   ├── samsara-vehicles     Browse samsara vehicles
 │   │   ├── list            List samsara vehicles with filtering
 │   │   └── show <id>       Show samsara vehicle details
+│   ├── temeda-vehicles      Browse temeda vehicles
+│   │   ├── list            List temeda vehicles with filtering
+│   │   └── show <id>       Show temeda vehicle details
 │   ├── t3-equipmentshare-vehicles Browse T3 EquipmentShare vehicles
 │   │   ├── list            List T3 EquipmentShare vehicles with filtering
 │   │   └── show <id>       Show T3 EquipmentShare vehicle details
