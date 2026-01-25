@@ -35,25 +35,30 @@ func newDoProjectMaterialTypesUpdateCmd() *cobra.Command {
 		Short: "Update a project material type",
 		Long: `Update a project material type.
 
-Optional attributes:
+Note: project and material type cannot be changed after creation.
+
+Optional flags:
   --quantity               Quantity
-  --explicit-display-name  Display name override
-  --pickup-at-min          Pickup window start (ISO 8601)
-  --pickup-at-max          Pickup window end (ISO 8601)
-  --deliver-at-min         Delivery window start (ISO 8601)
-  --deliver-at-max         Delivery window end (ISO 8601)
+  --explicit-display-name  Explicit display name override (use empty to clear)
+  --pickup-at-min          Earliest pickup time (ISO 8601, use empty to clear)
+  --pickup-at-max          Latest pickup time (ISO 8601, use empty to clear)
+  --deliver-at-min         Earliest delivery time (ISO 8601, use empty to clear)
+  --deliver-at-max         Latest delivery time (ISO 8601, use empty to clear)
+  --unit-of-measure        Unit of measure ID (use empty to clear)
+  --material-site          Material site ID (use empty to clear)
+  --job-site               Job site ID (use empty to clear)
+  --pickup-location        Pickup location ID (use empty to clear)
+  --delivery-location      Delivery location ID (use empty to clear)
 
-Optional relationships:
-  --unit-of-measure    Unit of measure ID (empty to clear)
-  --material-site      Material site ID (empty to clear)
-  --job-site           Job site ID (empty to clear)
-  --pickup-location    Pickup location ID (empty to clear)
-  --delivery-location  Delivery location ID (empty to clear)`,
-		Example: `  # Update quantity
-  xbe do project-material-types update 123 --quantity 750
+Global flags (see xbe --help): --json, --base-url, --token`,
+		Example: `  # Update quantity and display name
+  xbe do project-material-types update 123 --quantity 15 --explicit-display-name "Washed Rock"
 
-  # Update delivery window
-  xbe do project-material-types update 123 --deliver-at-min 2026-01-01T10:00:00Z --deliver-at-max 2026-01-01T12:00:00Z`,
+  # Update pickup/delivery windows
+  xbe do project-material-types update 123 --pickup-at-min 2026-01-01T08:00:00Z --deliver-at-max 2026-01-01T18:00:00Z
+
+  # Clear unit of measure
+  xbe do project-material-types update 123 --unit-of-measure ""`,
 		Args: cobra.ExactArgs(1),
 		RunE: runDoProjectMaterialTypesUpdate,
 	}
@@ -68,16 +73,16 @@ func init() {
 func initDoProjectMaterialTypesUpdateFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
 	cmd.Flags().String("quantity", "", "Quantity")
-	cmd.Flags().String("explicit-display-name", "", "Display name override")
-	cmd.Flags().String("pickup-at-min", "", "Pickup window start (ISO 8601)")
-	cmd.Flags().String("pickup-at-max", "", "Pickup window end (ISO 8601)")
-	cmd.Flags().String("deliver-at-min", "", "Delivery window start (ISO 8601)")
-	cmd.Flags().String("deliver-at-max", "", "Delivery window end (ISO 8601)")
-	cmd.Flags().String("unit-of-measure", "", "Unit of measure ID (empty to clear)")
-	cmd.Flags().String("material-site", "", "Material site ID (empty to clear)")
-	cmd.Flags().String("job-site", "", "Job site ID (empty to clear)")
-	cmd.Flags().String("pickup-location", "", "Pickup location ID (empty to clear)")
-	cmd.Flags().String("delivery-location", "", "Delivery location ID (empty to clear)")
+	cmd.Flags().String("explicit-display-name", "", "Explicit display name override (use empty to clear)")
+	cmd.Flags().String("pickup-at-min", "", "Earliest pickup time (ISO 8601, use empty to clear)")
+	cmd.Flags().String("pickup-at-max", "", "Latest pickup time (ISO 8601, use empty to clear)")
+	cmd.Flags().String("deliver-at-min", "", "Earliest delivery time (ISO 8601, use empty to clear)")
+	cmd.Flags().String("deliver-at-max", "", "Latest delivery time (ISO 8601, use empty to clear)")
+	cmd.Flags().String("unit-of-measure", "", "Unit of measure ID (use empty to clear)")
+	cmd.Flags().String("material-site", "", "Material site ID (use empty to clear)")
+	cmd.Flags().String("job-site", "", "Job site ID (use empty to clear)")
+	cmd.Flags().String("pickup-location", "", "Pickup location ID (use empty to clear)")
+	cmd.Flags().String("delivery-location", "", "Delivery location ID (use empty to clear)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -124,7 +129,7 @@ func runDoProjectMaterialTypesUpdate(cmd *cobra.Command, args []string) error {
 	}
 
 	if cmd.Flags().Changed("unit-of-measure") {
-		if opts.UnitOfMeasure == "" {
+		if strings.TrimSpace(opts.UnitOfMeasure) == "" {
 			relationships["unit-of-measure"] = map[string]any{"data": nil}
 		} else {
 			relationships["unit-of-measure"] = map[string]any{
@@ -135,8 +140,9 @@ func runDoProjectMaterialTypesUpdate(cmd *cobra.Command, args []string) error {
 			}
 		}
 	}
+
 	if cmd.Flags().Changed("material-site") {
-		if opts.MaterialSite == "" {
+		if strings.TrimSpace(opts.MaterialSite) == "" {
 			relationships["material-site"] = map[string]any{"data": nil}
 		} else {
 			relationships["material-site"] = map[string]any{
@@ -147,8 +153,9 @@ func runDoProjectMaterialTypesUpdate(cmd *cobra.Command, args []string) error {
 			}
 		}
 	}
+
 	if cmd.Flags().Changed("job-site") {
-		if opts.JobSite == "" {
+		if strings.TrimSpace(opts.JobSite) == "" {
 			relationships["job-site"] = map[string]any{"data": nil}
 		} else {
 			relationships["job-site"] = map[string]any{
@@ -159,8 +166,9 @@ func runDoProjectMaterialTypesUpdate(cmd *cobra.Command, args []string) error {
 			}
 		}
 	}
+
 	if cmd.Flags().Changed("pickup-location") {
-		if opts.PickupLocation == "" {
+		if strings.TrimSpace(opts.PickupLocation) == "" {
 			relationships["pickup-location"] = map[string]any{"data": nil}
 		} else {
 			relationships["pickup-location"] = map[string]any{
@@ -171,8 +179,9 @@ func runDoProjectMaterialTypesUpdate(cmd *cobra.Command, args []string) error {
 			}
 		}
 	}
+
 	if cmd.Flags().Changed("delivery-location") {
-		if opts.DeliveryLocation == "" {
+		if strings.TrimSpace(opts.DeliveryLocation) == "" {
 			relationships["delivery-location"] = map[string]any{"data": nil}
 		} else {
 			relationships["delivery-location"] = map[string]any{
@@ -185,7 +194,7 @@ func runDoProjectMaterialTypesUpdate(cmd *cobra.Command, args []string) error {
 	}
 
 	if len(attributes) == 0 && len(relationships) == 0 {
-		err := fmt.Errorf("at least one field must be specified for update")
+		err := fmt.Errorf("no fields to update")
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
 	}
@@ -201,7 +210,9 @@ func runDoProjectMaterialTypesUpdate(cmd *cobra.Command, args []string) error {
 		data["relationships"] = relationships
 	}
 
-	requestBody := map[string]any{"data": data}
+	requestBody := map[string]any{
+		"data": data,
+	}
 
 	jsonBody, err := json.Marshal(requestBody)
 	if err != nil {
@@ -226,7 +237,7 @@ func runDoProjectMaterialTypesUpdate(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	row := projectMaterialTypeRowFromSingle(resp)
+	row := buildProjectMaterialTypeRowFromSingle(resp)
 	if opts.JSON {
 		return writeJSON(cmd.OutOrStdout(), row)
 	}

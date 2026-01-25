@@ -36,29 +36,36 @@ func newDoProjectMaterialTypesCreateCmd() *cobra.Command {
 		Short: "Create a project material type",
 		Long: `Create a project material type.
 
-Required:
-  --project        Project ID
-  --material-type  Material type ID
+Required flags:
+  --project            Project ID (required)
+  --material-type      Material type ID (required)
 
-Optional attributes:
-  --quantity               Quantity
-  --explicit-display-name  Display name override
-  --pickup-at-min          Pickup window start (ISO 8601)
-  --pickup-at-max          Pickup window end (ISO 8601)
-  --deliver-at-min         Delivery window start (ISO 8601)
-  --deliver-at-max         Delivery window end (ISO 8601)
-
-Optional relationships:
+Optional flags:
+  --quantity           Quantity
+  --explicit-display-name  Explicit display name override
+  --pickup-at-min      Earliest pickup time (ISO 8601)
+  --pickup-at-max      Latest pickup time (ISO 8601)
+  --deliver-at-min     Earliest delivery time (ISO 8601)
+  --deliver-at-max     Latest delivery time (ISO 8601)
   --unit-of-measure    Unit of measure ID
   --material-site      Material site ID
   --job-site           Job site ID
-  --pickup-location    Pickup location ID
-  --delivery-location  Delivery location ID`,
+  --pickup-location    Pickup location ID (project transport location)
+  --delivery-location  Delivery location ID (project transport location)`,
 		Example: `  # Create a project material type
-  xbe do project-material-types create --project 123 --material-type 456
+  xbe do project-material-types create \
+    --project 123 \
+    --material-type 456 \
+    --quantity 12.5 \
+    --unit-of-measure 789
 
-  # Create with quantity and unit of measure
-  xbe do project-material-types create --project 123 --material-type 456 --quantity 500 --unit-of-measure 7`,
+  # Create with pickup/delivery windows
+  xbe do project-material-types create \
+    --project 123 \
+    --material-type 456 \
+    --pickup-at-min 2026-01-01T08:00:00Z \
+    --deliver-at-max 2026-01-01T18:00:00Z`,
+		Args: cobra.NoArgs,
 		RunE: runDoProjectMaterialTypesCreate,
 	}
 	initDoProjectMaterialTypesCreateFlags(cmd)
@@ -71,24 +78,21 @@ func init() {
 
 func initDoProjectMaterialTypesCreateFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
-	cmd.Flags().String("project", "", "Project ID")
-	cmd.Flags().String("material-type", "", "Material type ID")
+	cmd.Flags().String("project", "", "Project ID (required)")
+	cmd.Flags().String("material-type", "", "Material type ID (required)")
 	cmd.Flags().String("quantity", "", "Quantity")
-	cmd.Flags().String("explicit-display-name", "", "Display name override")
-	cmd.Flags().String("pickup-at-min", "", "Pickup window start (ISO 8601)")
-	cmd.Flags().String("pickup-at-max", "", "Pickup window end (ISO 8601)")
-	cmd.Flags().String("deliver-at-min", "", "Delivery window start (ISO 8601)")
-	cmd.Flags().String("deliver-at-max", "", "Delivery window end (ISO 8601)")
+	cmd.Flags().String("explicit-display-name", "", "Explicit display name override")
+	cmd.Flags().String("pickup-at-min", "", "Earliest pickup time (ISO 8601)")
+	cmd.Flags().String("pickup-at-max", "", "Latest pickup time (ISO 8601)")
+	cmd.Flags().String("deliver-at-min", "", "Earliest delivery time (ISO 8601)")
+	cmd.Flags().String("deliver-at-max", "", "Latest delivery time (ISO 8601)")
 	cmd.Flags().String("unit-of-measure", "", "Unit of measure ID")
 	cmd.Flags().String("material-site", "", "Material site ID")
 	cmd.Flags().String("job-site", "", "Job site ID")
-	cmd.Flags().String("pickup-location", "", "Pickup location ID")
-	cmd.Flags().String("delivery-location", "", "Delivery location ID")
+	cmd.Flags().String("pickup-location", "", "Pickup location ID (project transport location)")
+	cmd.Flags().String("delivery-location", "", "Delivery location ID (project transport location)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
-
-	_ = cmd.MarkFlagRequired("project")
-	_ = cmd.MarkFlagRequired("material-type")
 }
 
 func runDoProjectMaterialTypesCreate(cmd *cobra.Command, _ []string) error {
@@ -110,12 +114,13 @@ func runDoProjectMaterialTypesCreate(cmd *cobra.Command, _ []string) error {
 		}
 	}
 
-	if opts.Project == "" {
+	if strings.TrimSpace(opts.Project) == "" {
 		err := fmt.Errorf("--project is required")
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
 	}
-	if opts.MaterialType == "" {
+
+	if strings.TrimSpace(opts.MaterialType) == "" {
 		err := fmt.Errorf("--material-type is required")
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
@@ -156,7 +161,7 @@ func runDoProjectMaterialTypesCreate(cmd *cobra.Command, _ []string) error {
 		},
 	}
 
-	if opts.UnitOfMeasure != "" {
+	if strings.TrimSpace(opts.UnitOfMeasure) != "" {
 		relationships["unit-of-measure"] = map[string]any{
 			"data": map[string]any{
 				"type": "unit-of-measures",
@@ -164,7 +169,7 @@ func runDoProjectMaterialTypesCreate(cmd *cobra.Command, _ []string) error {
 			},
 		}
 	}
-	if opts.MaterialSite != "" {
+	if strings.TrimSpace(opts.MaterialSite) != "" {
 		relationships["material-site"] = map[string]any{
 			"data": map[string]any{
 				"type": "material-sites",
@@ -172,7 +177,7 @@ func runDoProjectMaterialTypesCreate(cmd *cobra.Command, _ []string) error {
 			},
 		}
 	}
-	if opts.JobSite != "" {
+	if strings.TrimSpace(opts.JobSite) != "" {
 		relationships["job-site"] = map[string]any{
 			"data": map[string]any{
 				"type": "job-sites",
@@ -180,7 +185,7 @@ func runDoProjectMaterialTypesCreate(cmd *cobra.Command, _ []string) error {
 			},
 		}
 	}
-	if opts.PickupLocation != "" {
+	if strings.TrimSpace(opts.PickupLocation) != "" {
 		relationships["pickup-location"] = map[string]any{
 			"data": map[string]any{
 				"type": "project-transport-locations",
@@ -188,7 +193,7 @@ func runDoProjectMaterialTypesCreate(cmd *cobra.Command, _ []string) error {
 			},
 		}
 	}
-	if opts.DeliveryLocation != "" {
+	if strings.TrimSpace(opts.DeliveryLocation) != "" {
 		relationships["delivery-location"] = map[string]any{
 			"data": map[string]any{
 				"type": "project-transport-locations",
@@ -228,7 +233,7 @@ func runDoProjectMaterialTypesCreate(cmd *cobra.Command, _ []string) error {
 		return err
 	}
 
-	row := projectMaterialTypeRowFromSingle(resp)
+	row := buildProjectMaterialTypeRowFromSingle(resp)
 	if opts.JSON {
 		return writeJSON(cmd.OutOrStdout(), row)
 	}
@@ -275,12 +280,18 @@ func parseDoProjectMaterialTypesCreateOptions(cmd *cobra.Command) (doProjectMate
 	}, nil
 }
 
-func projectMaterialTypeRowFromSingle(resp jsonAPISingleResponse) projectMaterialTypeRow {
+func buildProjectMaterialTypeRowFromSingle(resp jsonAPISingleResponse) projectMaterialTypeRow {
 	attrs := resp.Data.Attributes
+
 	row := projectMaterialTypeRow{
-		ID:          resp.Data.ID,
-		DisplayName: stringAttr(attrs, "display-name"),
-		Quantity:    stringAttr(attrs, "quantity"),
+		ID:                  resp.Data.ID,
+		Quantity:            stringAttr(attrs, "quantity"),
+		DisplayName:         stringAttr(attrs, "display-name"),
+		ExplicitDisplayName: stringAttr(attrs, "explicit-display-name"),
+		PickupAtMin:         formatDateTime(stringAttr(attrs, "pickup-at-min")),
+		PickupAtMax:         formatDateTime(stringAttr(attrs, "pickup-at-max")),
+		DeliverAtMin:        formatDateTime(stringAttr(attrs, "deliver-at-min")),
+		DeliverAtMax:        formatDateTime(stringAttr(attrs, "deliver-at-max")),
 	}
 
 	if rel, ok := resp.Data.Relationships["project"]; ok && rel.Data != nil {

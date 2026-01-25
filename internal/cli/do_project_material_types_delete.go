@@ -23,7 +23,8 @@ func newDoProjectMaterialTypesDeleteCmd() *cobra.Command {
 		Short: "Delete a project material type",
 		Long: `Delete a project material type.
 
-Requires --confirm flag to prevent accidental deletion.`,
+Required flags:
+  --confirm    Confirm deletion`,
 		Example: `  # Delete a project material type
   xbe do project-material-types delete 123 --confirm`,
 		Args: cobra.ExactArgs(1),
@@ -41,8 +42,6 @@ func initDoProjectMaterialTypesDeleteFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("confirm", false, "Confirm deletion")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
-
-	_ = cmd.MarkFlagRequired("confirm")
 }
 
 func runDoProjectMaterialTypesDelete(cmd *cobra.Command, args []string) error {
@@ -53,7 +52,7 @@ func runDoProjectMaterialTypesDelete(cmd *cobra.Command, args []string) error {
 	}
 
 	if !opts.Confirm {
-		err := fmt.Errorf("deletion requires --confirm flag")
+		err := fmt.Errorf("--confirm flag is required to delete")
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
 	}

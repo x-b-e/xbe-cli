@@ -49,9 +49,9 @@ Use this checklist for every resource. Treat it as the definition of “done.”
 ## Status Summary
 
 - Server resources (routes): 665
-- CLI command resources: 104
-- Server resources covered by commands: 104
-- Remaining (after skips + pending + not yet reviewed): 554
+- CLI command resources: 103
+- Server resources covered by commands: 103
+- Remaining (after skips + pending + not yet reviewed): 555
 
 ## CLI Alias Notes
 
@@ -111,7 +111,7 @@ dispatch-user-matchers
 device-location-event-summary
 devices
 driver-day-summary
-driver-day-shortfall-allocations
+driver-movement-segment-sets
 equipment
 equipment-classifications
 equipment-location-estimates
@@ -122,36 +122,37 @@ external-identifications
 features
 follows
 geofences
+geofence-restrictions
 glossary-terms
 hos-violations
 incident-participants
 incident-tags
 incident-tag-incidents
 incidents
-invoice-addresses
-invoices
+inventory-changes
+invoice-approvals
+invoice-sends
+invoice-status-changes
 job-production-plan-cancellation-reason-types
-job-production-plan-completions
-job-production-plan-job-site-changes
-job-production-plan-inspectable-summaries
-job-production-plan-segments
+job-production-plan-job-site-location-estimates
 job-production-plan-summary
-job-production-plan-supply-demand-balances
+job-production-plan-service-type-unit-of-measures
+job-production-plan-unabandonments
 job-production-plans
 job-sites
 labor-classifications
 laborers
 lane-summary
 languages
-lineups
-login-code-requests
+lineup-scenario-solutions
+maintenance-requirement-rules
 material-mix-designs
 material-sites
-material-site-readings
+material-site-subscriptions
 material-suppliers
 material-transaction-inspection-rejections
 material-transaction-summary
-material-transaction-cost-code-allocations
+material-transaction-ticket-generators
 material-transactions
 material-type-conversions
 material-types
@@ -176,11 +177,12 @@ project-abandonments
 project-categories
 project-cost-classifications
 project-cost-codes
+project-customers
 project-divisions
 project-estimate-sets
 project-offices
 project-phases
-project-phase-revenue-items
+project-project-cost-classifications
 project-resource-classifications
 project-revenue-classifications
 project-status-changes
@@ -197,6 +199,8 @@ public-praise-summary
 public-praises
 questions
 quality-control-classifications
+rate-agreements-copiers
+rate-adjustments
 rates
 raw-material-transaction-sales-customers
 raw-records
@@ -204,7 +208,8 @@ raw-transport-exports
 raw-transport-tractors
 reaction-classifications
 release-notes
-resource-classification-project-cost-classifications
+resource-unavailabilities
+retainers
 service-types
 service-type-unit-of-measure-cohorts
 shift-feedback-reasons
@@ -215,13 +220,12 @@ shift-time-card-requisitions
 stakeholder-classifications
 tag-categories
 tags
-tender-returns
-ticket-reports
-time-card-invoices
-time-sheet-line-items
+tender-job-schedule-shifts-material-transactions-checksums
 time-sheet-line-item-classifications
+time-sheet-status-changes
+time-sheet-unapprovals
 tractor-credentials
-tractor-fuel-consumption-readings
+tractor-odometer-readings
 tractor-trailer-credential-classifications
 tractors
 trailer-classifications
@@ -247,7 +251,7 @@ user-location-estimates
 user-location-requests
 user-post-feed-posts
 users
-work-order-assignments
+work-order-service-codes
 work-orders
 ```
 
@@ -277,7 +281,6 @@ driver-day-shortfall-calculations
 driver-day-trips-adjustments
 driver-managers
 driver-movement-observations
-driver-movement-segment-sets
 driver-movement-segments
 equipment-location-events
 equipment-movement-requirement-locations
@@ -316,7 +319,7 @@ job-production-plan-display-unit-of-measures
 job-production-plan-driver-movements
 job-production-plan-duplication-works
 job-production-plan-inspectors
-job-production-plan-job-site-location-estimates
+job-production-plan-job-site-changes
 job-production-plan-locations
 job-production-plan-material-site-changes
 job-production-plan-material-sites
@@ -335,7 +338,6 @@ job-production-plan-scrappages
 job-production-plan-segment-sets
 job-production-plan-segments
 job-production-plan-service-type-unit-of-measure-cohorts
-job-production-plan-service-type-unit-of-measures
 job-production-plan-status-changes
 job-production-plan-submissions
 job-production-plan-subscriptions
@@ -343,7 +345,6 @@ job-production-plan-supply-demand-balance-calculators
 job-production-plan-time-card-approvers
 job-production-plan-trailer-classifications
 job-production-plan-trucking-incident-detectors
-job-production-plan-unabandonments
 job-production-plan-unapprovals
 job-production-plan-uncancellations
 job-production-plan-uncompletions
@@ -387,7 +388,6 @@ material-site-mergers
 material-site-mixing-lots
 material-site-reading-material-types
 material-site-readings
-material-site-subscriptions
 material-site-unavailabilities
 material-supplier-memberships
 material-transaction-acceptances
@@ -432,9 +432,7 @@ time-sheet-line-item-equipment-requirements
 time-sheet-line-items
 time-sheet-no-shows
 time-sheet-rejections
-time-sheet-status-changes
 time-sheet-submissions
-time-sheet-unapprovals
 time-sheet-unsubmissions
 time-sheets
 tractor-fuel-consumption-readings
@@ -500,7 +498,7 @@ project-phase-dates-estimates
 project-phase-revenue-item-actuals
 project-phase-revenue-item-quantity-estimates
 project-phase-revenue-items
-project-project-cost-classifications
+project-rejections
 project-revenue-item-price-estimates
 project-revenue-item-quantity-estimates
 project-revenue-items
@@ -537,7 +535,6 @@ project-transport-plan-trailers
 project-transport-plans
 project-truckers
 project-unabandonments
-rate-adjustments
 rate-agreement-copier-works
 rate-agreement-copiers
 rate-agreements
@@ -546,14 +543,13 @@ retainer-deductions
 retainer-earning-statuses
 retainer-payment-deductions
 retainer-payments
-retainers
+retainer-periods
 tender-acceptances
 tender-cancellations
 tender-job-schedule-shift-cancellations
 tender-job-schedule-shift-drivers
 tender-job-schedule-shift-time-card-reviews
 tender-job-schedule-shifts
-tender-job-schedule-shifts-material-transactions-checksums
 tender-offers
 tender-raters
 tender-re-rates

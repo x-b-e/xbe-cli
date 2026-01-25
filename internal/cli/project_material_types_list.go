@@ -21,6 +21,7 @@ type projectMaterialTypesListOptions struct {
 	NoAuth           bool
 	Limit            int
 	Offset           int
+	Sort             string
 	Project          string
 	MaterialType     string
 	PickupLocation   string
@@ -36,21 +37,30 @@ type projectMaterialTypesListOptions struct {
 }
 
 type projectMaterialTypeRow struct {
-	ID                 string `json:"id"`
-	DisplayName        string `json:"display_name,omitempty"`
-	Quantity           string `json:"quantity,omitempty"`
-	ProjectID          string `json:"project_id,omitempty"`
-	ProjectName        string `json:"project_name,omitempty"`
-	MaterialTypeID     string `json:"material_type_id,omitempty"`
-	MaterialTypeName   string `json:"material_type_name,omitempty"`
-	UnitOfMeasureID    string `json:"unit_of_measure_id,omitempty"`
-	UnitOfMeasure      string `json:"unit_of_measure,omitempty"`
-	MaterialSiteID     string `json:"material_site_id,omitempty"`
-	MaterialSiteName   string `json:"material_site_name,omitempty"`
-	JobSiteID          string `json:"job_site_id,omitempty"`
-	JobSiteName        string `json:"job_site_name,omitempty"`
-	PickupLocationID   string `json:"pickup_location_id,omitempty"`
-	DeliveryLocationID string `json:"delivery_location_id,omitempty"`
+	ID                   string `json:"id"`
+	ProjectID            string `json:"project_id,omitempty"`
+	ProjectName          string `json:"project_name,omitempty"`
+	ProjectNumber        string `json:"project_number,omitempty"`
+	MaterialTypeID       string `json:"material_type_id,omitempty"`
+	MaterialTypeName     string `json:"material_type_name,omitempty"`
+	DisplayName          string `json:"display_name,omitempty"`
+	ExplicitDisplayName  string `json:"explicit_display_name,omitempty"`
+	Quantity             string `json:"quantity,omitempty"`
+	UnitOfMeasureID      string `json:"unit_of_measure_id,omitempty"`
+	UnitOfMeasureName    string `json:"unit_of_measure_name,omitempty"`
+	UnitOfMeasureAbbrev  string `json:"unit_of_measure_abbreviation,omitempty"`
+	MaterialSiteID       string `json:"material_site_id,omitempty"`
+	MaterialSiteName     string `json:"material_site_name,omitempty"`
+	JobSiteID            string `json:"job_site_id,omitempty"`
+	JobSiteName          string `json:"job_site_name,omitempty"`
+	PickupLocationID     string `json:"pickup_location_id,omitempty"`
+	PickupLocationName   string `json:"pickup_location_name,omitempty"`
+	DeliveryLocationID   string `json:"delivery_location_id,omitempty"`
+	DeliveryLocationName string `json:"delivery_location_name,omitempty"`
+	PickupAtMin          string `json:"pickup_at_min,omitempty"`
+	PickupAtMax          string `json:"pickup_at_max,omitempty"`
+	DeliverAtMin         string `json:"deliver_at_min,omitempty"`
+	DeliverAtMax         string `json:"deliver_at_max,omitempty"`
 }
 
 func newProjectMaterialTypesListCmd() *cobra.Command {
@@ -59,34 +69,32 @@ func newProjectMaterialTypesListCmd() *cobra.Command {
 		Short: "List project material types",
 		Long: `List project material types with filtering and pagination.
 
-Project material types associate material types with projects and capture
-optional quantities, units, and pickup/delivery windows.
+Project material types define material requirements for a project and can be
+scoped to material sites, job sites, or transport-only pickup/delivery locations.
 
 Output Columns:
   ID             Project material type identifier
-  DISPLAY        Display name
-  PROJECT        Project name
-  MATERIAL       Material type name
-  QTY            Quantity
-  UOM            Unit of measure
-  MATERIAL SITE  Material site name
-  JOB SITE       Job site name
+  PROJECT        Project name/number (or ID)
+  MATERIAL TYPE  Material type name (or ID)
+  DISPLAY NAME   Display name (explicit or material type)
+  UNIT           Unit of measure (abbreviation or name)
+  QUANTITY       Quantity
 
 Filters:
-  --project               Filter by project ID
-  --material-type         Filter by material type ID
-  --pickup-location       Filter by pickup location ID
-  --delivery-location     Filter by delivery location ID
-  --pickup-at-min-min     Filter by pickup_at_min on/after timestamp (ISO 8601)
-  --pickup-at-min-max     Filter by pickup_at_min on/before timestamp (ISO 8601)
-  --pickup-at-max-min     Filter by pickup_at_max on/after timestamp (ISO 8601)
-  --pickup-at-max-max     Filter by pickup_at_max on/before timestamp (ISO 8601)
-  --deliver-at-min-min    Filter by deliver_at_min on/after timestamp (ISO 8601)
-  --deliver-at-min-max    Filter by deliver_at_min on/before timestamp (ISO 8601)
-  --deliver-at-max-min    Filter by deliver_at_max on/after timestamp (ISO 8601)
-  --deliver-at-max-max    Filter by deliver_at_max on/before timestamp (ISO 8601)
+  --project            Filter by project ID
+  --material-type      Filter by material type ID
+  --pickup-location    Filter by pickup location ID
+  --delivery-location  Filter by delivery location ID
+  --pickup-at-min-min  Filter by pickup-at-min on/after (ISO 8601)
+  --pickup-at-min-max  Filter by pickup-at-min on/before (ISO 8601)
+  --pickup-at-max-min  Filter by pickup-at-max on/after (ISO 8601)
+  --pickup-at-max-max  Filter by pickup-at-max on/before (ISO 8601)
+  --deliver-at-min-min Filter by deliver-at-min on/after (ISO 8601)
+  --deliver-at-min-max Filter by deliver-at-min on/before (ISO 8601)
+  --deliver-at-max-min Filter by deliver-at-max on/after (ISO 8601)
+  --deliver-at-max-max Filter by deliver-at-max on/before (ISO 8601)
 
-Global flags (see xbe --help): --json, --limit, --offset, --base-url, --token, --no-auth`,
+Global flags (see xbe --help): --json, --limit, --offset, --sort, --base-url, --token, --no-auth`,
 		Example: `  # List project material types
   xbe view project-material-types list
 
@@ -96,11 +104,12 @@ Global flags (see xbe --help): --json, --limit, --offset, --base-url, --token, -
   # Filter by material type
   xbe view project-material-types list --material-type 456
 
-  # Filter by pickup window
-  xbe view project-material-types list --pickup-at-min-min 2026-01-01T08:00:00Z --pickup-at-min-max 2026-01-01T10:00:00Z
+  # Filter by pickup-at-min window
+  xbe view project-material-types list --pickup-at-min-min 2026-01-01T00:00:00Z --pickup-at-min-max 2026-01-02T00:00:00Z
 
   # Output as JSON
   xbe view project-material-types list --json`,
+		Args: cobra.NoArgs,
 		RunE: runProjectMaterialTypesList,
 	}
 	initProjectMaterialTypesListFlags(cmd)
@@ -116,18 +125,19 @@ func initProjectMaterialTypesListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().Int("limit", 50, "Page size")
 	cmd.Flags().Int("offset", 0, "Page offset")
+	cmd.Flags().String("sort", "", "Sort by field")
 	cmd.Flags().String("project", "", "Filter by project ID")
 	cmd.Flags().String("material-type", "", "Filter by material type ID")
 	cmd.Flags().String("pickup-location", "", "Filter by pickup location ID")
 	cmd.Flags().String("delivery-location", "", "Filter by delivery location ID")
-	cmd.Flags().String("pickup-at-min-min", "", "Filter by pickup_at_min on/after timestamp (ISO 8601)")
-	cmd.Flags().String("pickup-at-min-max", "", "Filter by pickup_at_min on/before timestamp (ISO 8601)")
-	cmd.Flags().String("pickup-at-max-min", "", "Filter by pickup_at_max on/after timestamp (ISO 8601)")
-	cmd.Flags().String("pickup-at-max-max", "", "Filter by pickup_at_max on/before timestamp (ISO 8601)")
-	cmd.Flags().String("deliver-at-min-min", "", "Filter by deliver_at_min on/after timestamp (ISO 8601)")
-	cmd.Flags().String("deliver-at-min-max", "", "Filter by deliver_at_min on/before timestamp (ISO 8601)")
-	cmd.Flags().String("deliver-at-max-min", "", "Filter by deliver_at_max on/after timestamp (ISO 8601)")
-	cmd.Flags().String("deliver-at-max-max", "", "Filter by deliver_at_max on/before timestamp (ISO 8601)")
+	cmd.Flags().String("pickup-at-min-min", "", "Filter by pickup-at-min on/after (ISO 8601)")
+	cmd.Flags().String("pickup-at-min-max", "", "Filter by pickup-at-min on/before (ISO 8601)")
+	cmd.Flags().String("pickup-at-max-min", "", "Filter by pickup-at-max on/after (ISO 8601)")
+	cmd.Flags().String("pickup-at-max-max", "", "Filter by pickup-at-max on/before (ISO 8601)")
+	cmd.Flags().String("deliver-at-min-min", "", "Filter by deliver-at-min on/after (ISO 8601)")
+	cmd.Flags().String("deliver-at-min-max", "", "Filter by deliver-at-min on/before (ISO 8601)")
+	cmd.Flags().String("deliver-at-max-min", "", "Filter by deliver-at-max on/after (ISO 8601)")
+	cmd.Flags().String("deliver-at-max-max", "", "Filter by deliver-at-max on/before (ISO 8601)")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
 }
@@ -155,13 +165,14 @@ func runProjectMaterialTypesList(cmd *cobra.Command, _ []string) error {
 	client := api.NewClient(opts.BaseURL, opts.Token)
 
 	query := url.Values{}
-	query.Set("fields[project-material-types]", "display-name,quantity,pickup-at-min,pickup-at-max,deliver-at-min,deliver-at-max")
+	query.Set("fields[project-material-types]", "quantity,explicit-display-name,display-name,pickup-at-min,pickup-at-max,deliver-at-min,deliver-at-max,project,material-type,unit-of-measure,material-site,job-site,pickup-location,delivery-location")
+	query.Set("include", "project,material-type,unit-of-measure,material-site,job-site,pickup-location,delivery-location")
 	query.Set("fields[projects]", "name,number")
-	query.Set("fields[material-types]", "display-name,name")
+	query.Set("fields[material-types]", "name")
 	query.Set("fields[unit-of-measures]", "name,abbreviation")
 	query.Set("fields[material-sites]", "name")
 	query.Set("fields[job-sites]", "name")
-	query.Set("include", "project,material-type,unit-of-measure,material-site,job-site")
+	query.Set("fields[project-transport-locations]", "name")
 
 	if opts.Limit > 0 {
 		query.Set("page[limit]", strconv.Itoa(opts.Limit))
@@ -169,19 +180,21 @@ func runProjectMaterialTypesList(cmd *cobra.Command, _ []string) error {
 	if opts.Offset > 0 {
 		query.Set("page[offset]", strconv.Itoa(opts.Offset))
 	}
-
+	if opts.Sort != "" {
+		query.Set("sort", opts.Sort)
+	}
 	setFilterIfPresent(query, "filter[project]", opts.Project)
 	setFilterIfPresent(query, "filter[material-type]", opts.MaterialType)
 	setFilterIfPresent(query, "filter[pickup-location]", opts.PickupLocation)
 	setFilterIfPresent(query, "filter[delivery-location]", opts.DeliveryLocation)
-	setFilterIfPresent(query, "filter[pickup-at-min-min]", opts.PickupAtMinMin)
-	setFilterIfPresent(query, "filter[pickup-at-min-max]", opts.PickupAtMinMax)
-	setFilterIfPresent(query, "filter[pickup-at-max-min]", opts.PickupAtMaxMin)
-	setFilterIfPresent(query, "filter[pickup-at-max-max]", opts.PickupAtMaxMax)
-	setFilterIfPresent(query, "filter[deliver-at-min-min]", opts.DeliverAtMinMin)
-	setFilterIfPresent(query, "filter[deliver-at-min-max]", opts.DeliverAtMinMax)
-	setFilterIfPresent(query, "filter[deliver-at-max-min]", opts.DeliverAtMaxMin)
-	setFilterIfPresent(query, "filter[deliver-at-max-max]", opts.DeliverAtMaxMax)
+	setFilterIfPresent(query, "filter[pickup_at_min_min]", opts.PickupAtMinMin)
+	setFilterIfPresent(query, "filter[pickup_at_min_max]", opts.PickupAtMinMax)
+	setFilterIfPresent(query, "filter[pickup_at_max_min]", opts.PickupAtMaxMin)
+	setFilterIfPresent(query, "filter[pickup_at_max_max]", opts.PickupAtMaxMax)
+	setFilterIfPresent(query, "filter[deliver_at_min_min]", opts.DeliverAtMinMin)
+	setFilterIfPresent(query, "filter[deliver_at_min_max]", opts.DeliverAtMinMax)
+	setFilterIfPresent(query, "filter[deliver_at_max_min]", opts.DeliverAtMaxMin)
+	setFilterIfPresent(query, "filter[deliver_at_max_max]", opts.DeliverAtMaxMax)
 
 	body, _, err := client.Get(cmd.Context(), "/v1/project-material-types", query)
 	if err != nil {
@@ -211,6 +224,7 @@ func parseProjectMaterialTypesListOptions(cmd *cobra.Command) (projectMaterialTy
 	noAuth, _ := cmd.Flags().GetBool("no-auth")
 	limit, _ := cmd.Flags().GetInt("limit")
 	offset, _ := cmd.Flags().GetInt("offset")
+	sort, _ := cmd.Flags().GetString("sort")
 	project, _ := cmd.Flags().GetString("project")
 	materialType, _ := cmd.Flags().GetString("material-type")
 	pickupLocation, _ := cmd.Flags().GetString("pickup-location")
@@ -233,6 +247,7 @@ func parseProjectMaterialTypesListOptions(cmd *cobra.Command) (projectMaterialTy
 		NoAuth:           noAuth,
 		Limit:            limit,
 		Offset:           offset,
+		Sort:             sort,
 		Project:          project,
 		MaterialType:     materialType,
 		PickupLocation:   pickupLocation,
@@ -256,60 +271,76 @@ func buildProjectMaterialTypeRows(resp jsonAPIResponse) []projectMaterialTypeRow
 
 	rows := make([]projectMaterialTypeRow, 0, len(resp.Data))
 	for _, resource := range resp.Data {
-		row := projectMaterialTypeRow{
-			ID:          resource.ID,
-			DisplayName: stringAttr(resource.Attributes, "display-name"),
-			Quantity:    stringAttr(resource.Attributes, "quantity"),
-		}
+		rows = append(rows, buildProjectMaterialTypeRow(resource, included))
+	}
+	return rows
+}
 
-		if rel, ok := resource.Relationships["project"]; ok && rel.Data != nil {
-			row.ProjectID = rel.Data.ID
-			if project, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
-				row.ProjectName = firstNonEmpty(
-					stringAttr(project.Attributes, "name"),
-					stringAttr(project.Attributes, "number"),
-				)
-			}
-		}
-
-		if rel, ok := resource.Relationships["material-type"]; ok && rel.Data != nil {
-			row.MaterialTypeID = rel.Data.ID
-			if materialType, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
-				row.MaterialTypeName = firstNonEmpty(
-					stringAttr(materialType.Attributes, "display-name"),
-					stringAttr(materialType.Attributes, "name"),
-				)
-			}
-		}
-
-		if rel, ok := resource.Relationships["unit-of-measure"]; ok && rel.Data != nil {
-			row.UnitOfMeasureID = rel.Data.ID
-			if uom, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
-				row.UnitOfMeasure = firstNonEmpty(
-					stringAttr(uom.Attributes, "abbreviation"),
-					stringAttr(uom.Attributes, "name"),
-				)
-			}
-		}
-
-		if rel, ok := resource.Relationships["material-site"]; ok && rel.Data != nil {
-			row.MaterialSiteID = rel.Data.ID
-			if site, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
-				row.MaterialSiteName = stringAttr(site.Attributes, "name")
-			}
-		}
-
-		if rel, ok := resource.Relationships["job-site"]; ok && rel.Data != nil {
-			row.JobSiteID = rel.Data.ID
-			if site, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
-				row.JobSiteName = stringAttr(site.Attributes, "name")
-			}
-		}
-
-		rows = append(rows, row)
+func buildProjectMaterialTypeRow(resource jsonAPIResource, included map[string]jsonAPIResource) projectMaterialTypeRow {
+	attrs := resource.Attributes
+	row := projectMaterialTypeRow{
+		ID:                  resource.ID,
+		Quantity:            stringAttr(attrs, "quantity"),
+		DisplayName:         stringAttr(attrs, "display-name"),
+		ExplicitDisplayName: stringAttr(attrs, "explicit-display-name"),
+		PickupAtMin:         formatDateTime(stringAttr(attrs, "pickup-at-min")),
+		PickupAtMax:         formatDateTime(stringAttr(attrs, "pickup-at-max")),
+		DeliverAtMin:        formatDateTime(stringAttr(attrs, "deliver-at-min")),
+		DeliverAtMax:        formatDateTime(stringAttr(attrs, "deliver-at-max")),
 	}
 
-	return rows
+	if rel, ok := resource.Relationships["project"]; ok && rel.Data != nil {
+		row.ProjectID = rel.Data.ID
+		if inc, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+			row.ProjectName = stringAttr(inc.Attributes, "name")
+			row.ProjectNumber = stringAttr(inc.Attributes, "number")
+		}
+	}
+
+	if rel, ok := resource.Relationships["material-type"]; ok && rel.Data != nil {
+		row.MaterialTypeID = rel.Data.ID
+		if inc, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+			row.MaterialTypeName = stringAttr(inc.Attributes, "name")
+		}
+	}
+
+	if rel, ok := resource.Relationships["unit-of-measure"]; ok && rel.Data != nil {
+		row.UnitOfMeasureID = rel.Data.ID
+		if inc, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+			row.UnitOfMeasureName = stringAttr(inc.Attributes, "name")
+			row.UnitOfMeasureAbbrev = stringAttr(inc.Attributes, "abbreviation")
+		}
+	}
+
+	if rel, ok := resource.Relationships["material-site"]; ok && rel.Data != nil {
+		row.MaterialSiteID = rel.Data.ID
+		if inc, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+			row.MaterialSiteName = stringAttr(inc.Attributes, "name")
+		}
+	}
+
+	if rel, ok := resource.Relationships["job-site"]; ok && rel.Data != nil {
+		row.JobSiteID = rel.Data.ID
+		if inc, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+			row.JobSiteName = stringAttr(inc.Attributes, "name")
+		}
+	}
+
+	if rel, ok := resource.Relationships["pickup-location"]; ok && rel.Data != nil {
+		row.PickupLocationID = rel.Data.ID
+		if inc, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+			row.PickupLocationName = stringAttr(inc.Attributes, "name")
+		}
+	}
+
+	if rel, ok := resource.Relationships["delivery-location"]; ok && rel.Data != nil {
+		row.DeliveryLocationID = rel.Data.ID
+		if inc, ok := included[resourceKey(rel.Data.Type, rel.Data.ID)]; ok {
+			row.DeliveryLocationName = stringAttr(inc.Attributes, "name")
+		}
+	}
+
+	return row
 }
 
 func renderProjectMaterialTypesTable(cmd *cobra.Command, rows []projectMaterialTypeRow) error {
@@ -319,38 +350,18 @@ func renderProjectMaterialTypesTable(cmd *cobra.Command, rows []projectMaterialT
 	}
 
 	writer := tabwriter.NewWriter(cmd.OutOrStdout(), 2, 4, 2, ' ', 0)
-	fmt.Fprintln(writer, "ID\tDISPLAY\tPROJECT\tMATERIAL\tQTY\tUOM\tMATERIAL SITE\tJOB SITE")
+	fmt.Fprintln(writer, "ID\tPROJECT\tMATERIAL TYPE\tDISPLAY NAME\tUNIT\tQUANTITY")
 	for _, row := range rows {
-		project := row.ProjectName
-		if project == "" {
-			project = row.ProjectID
-		}
-		material := row.MaterialTypeName
-		if material == "" {
-			material = row.MaterialTypeID
-		}
-		uom := row.UnitOfMeasure
-		if uom == "" {
-			uom = row.UnitOfMeasureID
-		}
-		materialSite := row.MaterialSiteName
-		if materialSite == "" {
-			materialSite = row.MaterialSiteID
-		}
-		jobSite := row.JobSiteName
-		if jobSite == "" {
-			jobSite = row.JobSiteID
-		}
-
-		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
+		projectLabel := firstNonEmpty(row.ProjectName, row.ProjectNumber, row.ProjectID)
+		materialTypeLabel := firstNonEmpty(row.MaterialTypeName, row.MaterialTypeID)
+		unitLabel := firstNonEmpty(row.UnitOfMeasureAbbrev, row.UnitOfMeasureName, row.UnitOfMeasureID)
+		fmt.Fprintf(writer, "%s\t%s\t%s\t%s\t%s\t%s\n",
 			row.ID,
-			row.DisplayName,
-			project,
-			material,
+			projectLabel,
+			materialTypeLabel,
+			truncateString(row.DisplayName, 40),
+			unitLabel,
 			row.Quantity,
-			uom,
-			materialSite,
-			jobSite,
 		)
 	}
 	return writer.Flush()
