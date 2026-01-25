@@ -114,6 +114,8 @@ xbe
 │   │   └── create           Send a location tracking request
 │   ├── user-location-requests Request user location
 │   │   └── create           Create a user location request
+│   ├── user-post-feed-posts Manage user post feed posts
+│   │   └── update           Update a user post feed post
 │   ├── saml-code-redemptions Redeem SAML login codes
 │   │   └── create           Redeem a SAML login code
 │   ├── sourcing-searches    Find matching truckers and trailers for a customer tender
@@ -513,6 +515,9 @@ xbe
 │   ├── user-location-requests Browse user location requests
 │   │   ├── list            List user location requests
 │   │   └── show <id>       Show user location request details
+│   ├── user-post-feed-posts Browse user post feed posts
+│   │   ├── list            List user post feed posts
+│   │   └── show <id>       Show user post feed post details
 │   ├── file-imports        Browse file imports
 │   │   ├── list            List file imports with filtering
 │   │   └── show <id>       Show file import details

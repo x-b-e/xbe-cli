@@ -59,6 +59,7 @@ var resourceCategories = map[string][]string{
 	"open-ai-vector-stores": {CatContent},
 	"platform-statuses":     {CatContent},
 	"posts":                 {CatContent},
+	"user-post-feed-posts":  {CatContent},
 	"press-releases":        {CatContent},
 	"prompters":             {CatContent},
 	"release-notes":         {CatContent},

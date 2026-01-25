@@ -225,6 +225,7 @@ user-credential-classifications
 user-credentials
 user-location-estimates
 user-location-requests
+user-post-feed-posts
 users
 work-order-assignments
 work-orders
@@ -798,7 +799,6 @@ tenna-vehicles
 text-messages
 textractions
 ui-tour-steps
-user-post-feed-posts
 user-post-feeds
 user-ui-tours
 verizon-reveal-vehicles
