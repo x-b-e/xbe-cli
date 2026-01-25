@@ -590,6 +590,9 @@ xbe
 │   ├── customer-tender-offered-buyer-notifications Browse customer tender offered buyer notifications
 │   │   ├── list            List customer tender offered buyer notifications
 │   │   └── show <id>       Show customer tender offered buyer notification details
+│   ├── notification-subscriptions Browse notification subscriptions
+│   │   ├── list            List notification subscriptions
+│   │   └── show <id>       Show notification subscription details
 │   ├── communications      Browse communications
 │   │   ├── list            List communications
 │   │   └── show <id>       Show communication details
@@ -977,6 +980,19 @@ xbe view customer-tender-offered-buyer-notifications show 123
 
 # Mark as read
 xbe do customer-tender-offered-buyer-notifications update 123 --read
+```
+
+### Notification Subscriptions
+
+```bash
+# List notification subscriptions
+xbe view notification-subscriptions list
+
+# Filter by user
+xbe view notification-subscriptions list --user 123
+
+# Show notification subscription details
+xbe view notification-subscriptions show 456
 ```
 
 ### Communications

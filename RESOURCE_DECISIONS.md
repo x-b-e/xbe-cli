@@ -49,9 +49,9 @@ Use this checklist for every resource. Treat it as the definition of “done.”
 ## Status Summary
 
 - Server resources (routes): 665
-- CLI command resources: 103
-- Server resources covered by commands: 103
-- Remaining (after skips + pending + not yet reviewed): 555
+- CLI command resources: 104
+- Server resources covered by commands: 104
+- Remaining (after skips + pending + not yet reviewed): 554
 
 ## CLI Alias Notes
 
@@ -149,6 +149,7 @@ material-types
 meetings
 memberships
 newsletters
+notification-subscriptions
 parking-sites
 places
 posts
