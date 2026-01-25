@@ -87,6 +87,10 @@ xbe
 │   │   ├── create           Create a UI tour step
 │   │   ├── update           Update a UI tour step
 │   │   └── delete           Delete a UI tour step
+│   ├── user-ui-tours        Manage user UI tours
+│   │   ├── create           Create a user UI tour
+│   │   ├── update           Update a user UI tour
+│   │   └── delete           Delete a user UI tour
 │   ├── platform-statuses    Manage platform status updates
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
@@ -535,6 +539,9 @@ xbe
 │   ├── ui-tour-steps       Browse UI tour steps
 │   │   ├── list            List UI tour steps with filtering
 │   │   └── show <id>       Show UI tour step details
+│   ├── user-ui-tours       Browse user UI tours
+│   │   ├── list            List user UI tours with filtering
+│   │   └── show <id>       Show user UI tour details
 │   ├── comment-reactions   Browse comment reactions
 │   │   ├── list            List comment reactions with filtering
 │   │   └── show <id>       Show comment reaction details
