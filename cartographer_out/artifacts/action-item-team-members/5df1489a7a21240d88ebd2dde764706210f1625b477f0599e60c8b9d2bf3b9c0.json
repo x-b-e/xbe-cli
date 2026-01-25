@@ -1,23 +1,37 @@
 {
-  "id": "5df1489a7a21240d88ebd2dde764706210f1625b477f0599e60c8b9d2bf3b9c0",
-  "full_path": "view action-item-team-members show",
   "description": "Show full details of an action item team member",
-  "permissions": "Allowed for users who can access the related action items under ActionItemTeamMemberPolicy scope (delegated to ActionItem policy scope), including admins and users with qualifying memberships or who are team members on the action item.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view action-item-team-members show",
+  "id": "5df1489a7a21240d88ebd2dde764706210f1625b477f0599e60c8b9d2bf3b9c0",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/action_item_team_members_show.go"
+      "file_path": "internal/cli/action_item_team_members_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/action_item_team_member_policy.rb"
+      "file_path": "app/resources/v1/action_item_team_member_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/action_item_policy.rb"
+      "file_path": "app/models/action_item_team_member.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/action_item_team_member_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

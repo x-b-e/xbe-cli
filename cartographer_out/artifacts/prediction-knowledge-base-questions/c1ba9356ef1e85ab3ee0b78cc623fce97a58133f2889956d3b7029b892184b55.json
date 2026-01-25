@@ -1,9 +1,19 @@
 {
   "description": "Show prediction knowledge base question details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view prediction-knowledge-base-questions show",
   "id": "c1ba9356ef1e85ab3ee0b78cc623fce97a58133f2889956d3b7029b892184b55",
-  "permissions": "Available to admins. Non-admin access is limited by policy scope to questions in prediction knowledge bases where the user is a broker member, plus questions tied to prediction subjects where the user is a member.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/prediction_knowledge_base_question_policy.rb",
+      "file_path": "app/resources/v1/prediction_knowledge_base_question_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/resources/v1/prediction_knowledge_base_question_resource.rb",
+      "file_path": "app/models/prediction_knowledge_base_question.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_knowledge_base_question_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument (prediction knowledge base question ID)."
+  "validation_notes": null
 }

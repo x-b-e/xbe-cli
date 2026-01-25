@@ -1,23 +1,37 @@
 {
-  "id": "dfcd2094271d43ab6ec1fa68bb7a26a13122df812d0cf45a23f0fb5a5442c035",
+  "description": "View the full details of a specific feature",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view features show",
-  "description": "Show the full details of a specific feature.",
-  "permissions": "No authentication required; feature details are viewable by anonymous users.",
+  "id": "dfcd2094271d43ab6ec1fa68bb7a26a13122df812d0cf45a23f0fb5a5442c035",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "A feature id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/features_show.go"
+      "file_path": "internal/cli/features_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/features_controller.rb"
+      "file_path": "app/resources/v1/feature_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/feature_policy.rb"
+      "file_path": "app/models/feature.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/feature_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

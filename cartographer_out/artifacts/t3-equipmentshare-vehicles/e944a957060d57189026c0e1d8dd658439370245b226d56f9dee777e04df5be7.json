@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a T3 EquipmentShare vehicle.",
-  "flags": [],
+  "description": "Show T3 EquipmentShare vehicle details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view t3-equipmentshare-vehicles show",
   "id": "e944a957060d57189026c0e1d8dd658439370245b226d56f9dee777e04df5be7",
-  "permissions": "Admins can view all T3 EquipmentShare vehicles. Non-admins can view a vehicle only if it falls within the broker-scoped policy (broker membership).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/vehicle_location_event_source_vehicle_policy.rb",
+      "file_path": "app/resources/v1/t3_equipmentshare_vehicle_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/resources/v1/t3_equipmentshare_vehicle_resource.rb",
+      "file_path": "app/models/t3_equipmentshare_vehicle.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/t3_equipmentshare_vehicle_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The <id> argument is required and must be a non-empty T3 EquipmentShare vehicle ID."
+  "validation_notes": null
 }

@@ -1,9 +1,19 @@
 {
   "description": "Show project transport plan driver details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-transport-plan-drivers show",
   "id": "fa839b2c237afc0e5b174f3c55ea03c4f90512265cd014ed183b7ec457c1dbf2",
-  "permissions": "Access is delegated to the related project transport plan; users can show records within the ProjectTransportPlanPolicy scope (project access or active driver assignment to a plan).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,13 +25,13 @@
       "repo_name": "server"
     },
     {
-      "file_path": "app/policies/project_transport_plan_driver_policy.rb",
+      "file_path": "app/models/project_transport_plan_driver.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/policies/project_transport_plan_policy.rb",
+      "file_path": "app/policies/project_transport_plan_driver_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "<id> argument is required."
+  "validation_notes": null
 }

@@ -1,31 +1,37 @@
 {
-  "id": "ef3b6e0d8ce90ac279955819016196885bde3db772be34b5215aba7179b94dca",
-  "full_path": "view customer-applications show",
   "description": "Show customer application details",
-  "permissions": "Authenticated users can view customer applications within their policy scope: records where they are the application user or are members of the broker; admins can see all.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view customer-applications show",
+  "id": "ef3b6e0d8ce90ac279955819016196885bde3db772be34b5215aba7179b94dca",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "requires <id> argument (customer application ID)",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/customer_applications_show.go"
+      "file_path": "internal/cli/customer_applications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/customer_application_resource.rb"
+      "file_path": "app/resources/v1/customer_application_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/concerns/customer_like_resource.rb"
+      "file_path": "app/models/customer_application.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/customer_application_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/customer_application_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

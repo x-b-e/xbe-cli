@@ -1,9 +1,19 @@
 {
-  "description": "Show prediction subject details.",
-  "flags": [],
+  "description": "Show prediction subject details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view prediction-subjects show",
   "id": "3b1aaca8011c0d07099d34ab9fad0125df3a08aac10a1b27c16dbcd78e9a72f7",
-  "permissions": "Admins can view all prediction subjects. Non-admin users can view prediction subjects where they are a prediction subject member or are an admin member of the subjects broker.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,9 +21,17 @@
       "repo_name": "cli"
     },
     {
+      "file_path": "app/resources/v1/prediction_subject_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/prediction_subject_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The prediction subject ID argument is required."
+  "validation_notes": null
 }

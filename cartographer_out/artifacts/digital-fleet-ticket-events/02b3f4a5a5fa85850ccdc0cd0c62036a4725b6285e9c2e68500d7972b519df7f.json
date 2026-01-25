@@ -1,27 +1,37 @@
 {
-  "id": "02b3f4a5a5fa85850ccdc0cd0c62036a4725b6285e9c2e68500d7972b519df7f",
+  "description": "Show full details of a digital fleet ticket event",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view digital-fleet-ticket-events show",
-  "description": "Show the full details of a digital fleet ticket event.",
-  "permissions": "User can view a digital fleet ticket event if it is within their policy scope: events tied to brokers in the user's visible member broker IDs or events whose site event is within the user's SiteEvent policy scope.",
+  "id": "02b3f4a5a5fa85850ccdc0cd0c62036a4725b6285e9c2e68500d7972b519df7f",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument; the CLI errors if it is empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/digital_fleet_ticket_events.go"
+      "file_path": "internal/cli/digital_fleet_ticket_events_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/digital_fleet_ticket_events_show.go"
+      "file_path": "app/resources/v1/digital_fleet_ticket_event_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/digital_fleet_ticket_event_policy.rb"
+      "file_path": "app/models/digital_fleet_ticket_event.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/digital_fleet_ticket_event_resource.rb"
+      "file_path": "app/policies/digital_fleet_ticket_event_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

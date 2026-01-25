@@ -1,23 +1,37 @@
 {
-  "id": "bf9e2bca48de19c26f7a30225c2464bcb149f03daddc4ad12e27e986ec47a5f7",
+  "description": "Show material site mixing lot details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view material-site-mixing-lots show",
-  "description": "Show the full details of a material site mixing lot.",
-  "permissions": "Admin users, or users with material supplier memberships for the material site's material supplier, or broker memberships for the material supplier's broker; scope is limited by policy.",
+  "id": "bf9e2bca48de19c26f7a30225c2464bcb149f03daddc4ad12e27e986ec47a5f7",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Material site mixing lot id argument is required and cannot be blank.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_site_mixing_lots_show.go"
+      "file_path": "internal/cli/material_site_mixing_lots_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_site_mixing_lot_resource.rb"
+      "file_path": "app/resources/v1/material_site_mixing_lot_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_site_mixing_lot_policy.rb"
+      "file_path": "app/models/material_site_mixing_lot.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_site_mixing_lot_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

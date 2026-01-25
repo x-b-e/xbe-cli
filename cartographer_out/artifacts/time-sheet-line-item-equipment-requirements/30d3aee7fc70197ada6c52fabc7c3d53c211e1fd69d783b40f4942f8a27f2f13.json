@@ -1,27 +1,37 @@
 {
-  "id": "30d3aee7fc70197ada6c52fabc7c3d53c211e1fd69d783b40f4942f8a27f2f13",
+  "description": "Show time sheet line item equipment requirement details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-sheet-line-item-equipment-requirements show",
-  "description": "Show the full details of a time sheet line item equipment requirement.",
-  "permissions": "Allowed if the user is authorized for the related time sheet line item via delegated policy to the time sheet. Admins are allowed. Non-admin access follows TimeSheetPolicy based on the time sheet subject (e.g., broker members, customer managers, trucker/driver roles, laborer users on labor requirements, or authorized work order roles/assignments).",
+  "id": "30d3aee7fc70197ada6c52fabc7c3d53c211e1fd69d783b40f4942f8a27f2f13",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_sheet_line_item_equipment_requirements_show.go"
+      "file_path": "internal/cli/time_sheet_line_item_equipment_requirements_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_sheet_line_item_equipment_requirement_policy.rb"
+      "file_path": "app/resources/v1/time_sheet_line_item_equipment_requirement_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/concerns/delegated_policy.rb"
+      "file_path": "app/models/time_sheet_line_item_equipment_requirement.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_sheet_policy.rb"
+      "file_path": "app/policies/time_sheet_line_item_equipment_requirement_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

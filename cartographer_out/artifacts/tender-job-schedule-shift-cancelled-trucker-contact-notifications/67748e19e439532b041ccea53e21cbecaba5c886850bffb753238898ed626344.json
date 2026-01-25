@@ -1,9 +1,19 @@
 {
   "description": "Show tender job schedule shift cancelled trucker contact notification details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view tender-job-schedule-shift-cancelled-trucker-contact-notifications show",
   "id": "67748e19e439532b041ccea53e21cbecaba5c886850bffb753238898ed626344",
-  "permissions": "Accessible to authenticated users; non-admin access is limited to notifications where user_id matches the current user.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,9 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/resources/v1/notification_resource.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/notification_policy.rb",
+      "file_path": "app/resources/v1/tender_job_schedule_shift_cancelled_trucker_contact_notification_resource.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires a notification id argument."
+  "validation_notes": null
 }

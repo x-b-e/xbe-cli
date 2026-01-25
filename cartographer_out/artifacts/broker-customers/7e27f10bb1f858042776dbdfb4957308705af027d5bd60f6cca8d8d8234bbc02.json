@@ -1,23 +1,29 @@
 {
-  "id": "7e27f10bb1f858042776dbdfb4957308705af027d5bd60f6cca8d8d8234bbc02",
+  "description": "Show a broker customer by ID",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view broker-customers show",
-  "description": "Show full broker-customer details by ID.",
-  "permissions": "Access is limited by TradingPartnerPolicy::Scope; broker-customer records are visible only when the user can see both the broker and customer via their policy scopes.",
+  "id": "7e27f10bb1f858042776dbdfb4957308705af027d5bd60f6cca8d8d8234bbc02",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a broker-customer ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_customers_show.go"
+      "file_path": "internal/cli/broker_customers_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/trading_partner_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/broker_customer_resource.rb"
+      "file_path": "app/resources/v1/broker_customer_resource.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

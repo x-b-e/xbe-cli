@@ -1,9 +1,19 @@
 {
-  "description": "Show lineup scenario generator details.",
-  "flags": [],
+  "description": "Show lineup scenario generator details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view lineup-scenario-generators show",
   "id": "6825d95639c541a8dd3360ad826ef1b32d761cc463bc8e8c7458afe5cfea30d0",
-  "permissions": "Admins can view all lineup scenario generators; non-admin users can view generators for brokers where they have membership.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/lineup_scenario_generator_policy.rb",
+      "file_path": "app/resources/v1/lineup_scenario_generator_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/resources/v1/lineup_scenario_generator_resource.rb",
+      "file_path": "app/models/lineup_scenario_generator.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/lineup_scenario_generator_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument (lineup scenario generator ID)."
+  "validation_notes": null
 }

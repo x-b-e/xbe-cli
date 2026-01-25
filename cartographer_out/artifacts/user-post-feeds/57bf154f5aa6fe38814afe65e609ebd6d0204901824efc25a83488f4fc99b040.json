@@ -1,19 +1,37 @@
 {
-  "id": "57bf154f5aa6fe38814afe65e609ebd6d0204901824efc25a83488f4fc99b040",
-  "full_path": "view user-post-feeds show",
   "description": "Show user post feed details",
-  "permissions": "Authenticated users can view user post feeds; non-admin users are limited to feeds where the feed user is themselves.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view user-post-feeds show",
+  "id": "57bf154f5aa6fe38814afe65e609ebd6d0204901824efc25a83488f4fc99b040",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/user_post_feeds_show.go"
+      "file_path": "internal/cli/user_post_feeds_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/user_post_feed_policy.rb"
+      "file_path": "app/resources/v1/user_post_feed_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/user_post_feed.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_post_feed_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

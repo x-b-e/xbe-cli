@@ -177,6 +177,7 @@ func init() {
 
 func initLiabilityIncidentsListFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Bool("omit-null", false, "Omit null values in JSON output")
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().Int("limit", 50, "Page size")
 	cmd.Flags().Int("offset", 0, "Page offset")
@@ -328,6 +329,15 @@ func runLiabilityIncidentsList(cmd *cobra.Command, _ []string) error {
 	if err := json.Unmarshal(body, &resp); err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
+	}
+
+	handled, err := renderSparseListIfRequested(cmd, resp)
+	if err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
+	if handled {
+		return nil
 	}
 
 	rows := buildLiabilityIncidentRows(resp)

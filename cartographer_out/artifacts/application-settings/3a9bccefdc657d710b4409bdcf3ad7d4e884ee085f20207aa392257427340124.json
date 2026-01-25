@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a specific application setting.",
-  "flags": [],
+  "description": "View full details of a specific setting",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view application-settings show",
   "id": "3a9bccefdc657d710b4409bdcf3ad7d4e884ee085f20207aa392257427340124",
-  "permissions": "Admin users only; non-admin scope resolves no application settings.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,9 +21,17 @@
       "repo_name": "cli"
     },
     {
+      "file_path": "app/resources/v1/application_setting_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/application_setting.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/application_setting_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires application setting ID argument. Access restricted to admin users."
+  "validation_notes": null
 }

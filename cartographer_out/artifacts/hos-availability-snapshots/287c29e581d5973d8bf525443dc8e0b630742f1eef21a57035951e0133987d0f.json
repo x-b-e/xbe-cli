@@ -1,27 +1,37 @@
 {
-  "id": "287c29e581d5973d8bf525443dc8e0b630742f1eef21a57035951e0133987d0f",
+  "description": "Show full details of an availability snapshot",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view hos-availability-snapshots show",
-  "description": "Show the full details of an HOS availability snapshot.",
-  "permissions": "Authenticated users can show HOS availability snapshots for brokers they are members of; admins can access all records. Anonymous users have no access.",
+  "id": "287c29e581d5973d8bf525443dc8e0b630742f1eef21a57035951e0133987d0f",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires an <id> argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/hos_availability_snapshots_show.go"
+      "file_path": "internal/cli/hos_availability_snapshots_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/hos_availability_snapshot_policy.rb"
+      "file_path": "app/resources/v1/hos_availability_snapshot_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/models/hos_availability_snapshot.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/hos_availability_snapshot_resource.rb"
+      "file_path": "app/policies/hos_availability_snapshot_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

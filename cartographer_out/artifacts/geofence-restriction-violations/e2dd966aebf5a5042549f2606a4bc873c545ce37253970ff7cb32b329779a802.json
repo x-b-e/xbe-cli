@@ -1,27 +1,37 @@
 {
-  "id": "e2dd966aebf5a5042549f2606a4bc873c545ce37253970ff7cb32b329779a802",
+  "description": "Show geofence restriction violation details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view geofence-restriction-violations show",
-  "description": "Show the full details of a specific geofence restriction violation.",
-  "permissions": "Admins can view any geofence restriction violation. Non-admin users can view violations for geofences belonging to brokers where they have memberships.",
+  "id": "e2dd966aebf5a5042549f2606a4bc873c545ce37253970ff7cb32b329779a802",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/geofence_restriction_violations_show.go"
+      "file_path": "internal/cli/geofence_restriction_violations_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/geofence_restriction_violation_resource.rb"
+      "file_path": "app/resources/v1/geofence_restriction_violation_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/base_resource.rb"
+      "file_path": "app/models/geofence_restriction_violation.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/geofence_restriction_violation_policy.rb"
+      "file_path": "app/policies/geofence_restriction_violation_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

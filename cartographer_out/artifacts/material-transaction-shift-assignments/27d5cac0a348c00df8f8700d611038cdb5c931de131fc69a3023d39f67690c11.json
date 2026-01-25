@@ -1,23 +1,37 @@
 {
-  "id": "27d5cac0a348c00df8f8700d611038cdb5c931de131fc69a3023d39f67690c11",
+  "description": "Show assignment details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view material-transaction-shift-assignments show",
-  "description": "Show the full details of a material transaction shift assignment.",
-  "permissions": "Access is scoped by MaterialTransactionShiftAssignmentPolicy (delegated to JobProductionPlan). Users must be authorized for the related job production plan to view an assignment.",
+  "id": "27d5cac0a348c00df8f8700d611038cdb5c931de131fc69a3023d39f67690c11",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The assignment ID argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_transaction_shift_assignments_show.go"
+      "file_path": "internal/cli/material_transaction_shift_assignments_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_transaction_shift_assignment_resource.rb"
+      "file_path": "app/resources/v1/material_transaction_shift_assignment_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_transaction_shift_assignment_policy.rb"
+      "file_path": "app/models/material_transaction_shift_assignment.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_transaction_shift_assignment_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

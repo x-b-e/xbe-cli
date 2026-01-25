@@ -1,23 +1,37 @@
 {
-  "id": "3854bd7b829888166e529b1eea7dd99a5be45d70bd5900314f91972e9c5dfa3b",
+  "description": "Show tender details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view tenders show",
-  "description": "Show the full details of a tender.",
-  "permissions": "Allowed for users within the TenderPolicy scope: admins, customer members for customer tenders, broker members for broker or customer tenders, and eligible trucker members/drivers on non-editing broker tenders (including assigned/operations-contact drivers).",
-  "side_effects": "None (read-only).",
-  "validation_notes": "Requires <id> argument (tender ID); blank IDs are rejected.",
-  "flags": [],
+  "id": "3854bd7b829888166e529b1eea7dd99a5be45d70bd5900314f91972e9c5dfa3b",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/tenders_show.go"
+      "file_path": "internal/cli/tenders_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/tender_resource.rb"
+      "file_path": "app/resources/v1/tender_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/tender_policy.rb"
+      "file_path": "app/models/tender.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/tender_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

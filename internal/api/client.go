@@ -60,11 +60,14 @@ func (c *Client) Get(ctx context.Context, path string, query url.Values) ([]byte
 		return nil, 0, fmt.Errorf("invalid base url: %w", err)
 	}
 
+	if query == nil {
+		query = url.Values{}
+	}
+	ApplySparseFieldOverrides(ctx, path, query)
+
 	path = "/" + strings.TrimLeft(path, "/")
 	base.Path = strings.TrimRight(base.Path, "/") + path
-	if query != nil {
-		base.RawQuery = query.Encode()
-	}
+	base.RawQuery = query.Encode()
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, base.String(), nil)
 	if err != nil {

@@ -1,19 +1,33 @@
 {
-  "id": "4b21cbb7322d5df0321be5173388452d5e853150c185e2ab7f1f5488517a2d21",
+  "description": "Show broker commitment details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view broker-commitments show",
-  "description": "Show the full details of a broker commitment, including buyer (broker) and seller (trucker).",
-  "permissions": "Admin users can view all broker commitments. Non-admin users can view a broker commitment only if it is within policy scope based on their customer, broker, or trucker memberships.",
-  "side_effects": "None.",
-  "validation_notes": "The broker commitment ID argument is required.",
-  "flags": [],
+  "id": "4b21cbb7322d5df0321be5173388452d5e853150c185e2ab7f1f5488517a2d21",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_commitments_show.go"
+      "file_path": "internal/cli/broker_commitments_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/commitment_policy.rb"
+      "file_path": "app/resources/v1/broker_commitment_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/broker_commitment_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

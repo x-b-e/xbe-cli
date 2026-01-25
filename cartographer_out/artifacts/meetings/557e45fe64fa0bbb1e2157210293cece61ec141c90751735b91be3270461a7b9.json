@@ -1,46 +1,55 @@
 {
-  "id": "557e45fe64fa0bbb1e2157210293cece61ec141c90751735b91be3270461a7b9",
-  "full_path": "view meetings show",
   "description": "Show meeting details",
-  "permissions": "Admins can view meetings. Non-admins can view meetings tied to organizations they are members of, including access via broker memberships for the meeting's organization (polymorphic membership scope).",
-  "side_effects": null,
-  "validation_notes": "The meeting ID argument is required.",
   "flags": [
     {
-      "name": "--include-description-links",
       "aliases": null,
+      "default": null,
+      "description": "description links meta",
+      "name": "--include-description-links",
       "required": false,
-      "type": "boolean",
-      "description": "Include description links meta",
-      "default": "false",
+      "type": "string",
       "validation": null
     },
     {
-      "name": "--include-safety-meeting-plans-info",
       "aliases": null,
+      "default": null,
+      "description": "safety meeting job plan info meta",
+      "name": "--include-safety-meeting-plans-info",
       "required": false,
-      "type": "boolean",
-      "description": "Include safety meeting job plan info meta",
-      "default": "false",
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
       "validation": null
     }
   ],
+  "full_path": "view meetings show",
+  "id": "557e45fe64fa0bbb1e2157210293cece61ec141c90751735b91be3270461a7b9",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/meetings_show.go"
+      "file_path": "internal/cli/meetings_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/meeting_resource.rb"
+      "file_path": "app/resources/v1/meeting_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/meeting_policy.rb"
+      "file_path": "app/models/meeting.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/meeting_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

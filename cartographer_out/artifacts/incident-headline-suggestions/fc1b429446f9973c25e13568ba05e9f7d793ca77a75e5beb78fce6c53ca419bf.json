@@ -1,23 +1,37 @@
 {
-  "id": "fc1b429446f9973c25e13568ba05e9f7d793ca77a75e5beb78fce6c53ca419bf",
-  "full_path": "view incident-headline-suggestions show",
   "description": "Show incident headline suggestion details",
-  "permissions": "Access is delegated to the related incident; the user must be authorized to view the incident per IncidentHeadlineSuggestionPolicy.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view incident-headline-suggestions show",
+  "id": "fc1b429446f9973c25e13568ba05e9f7d793ca77a75e5beb78fce6c53ca419bf",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (incident headline suggestion ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/incident_headline_suggestions_show.go"
+      "file_path": "internal/cli/incident_headline_suggestions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/incident_headline_suggestion_resource.rb"
+      "file_path": "app/resources/v1/incident_headline_suggestion_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/incident_headline_suggestion_policy.rb"
+      "file_path": "app/models/incident_headline_suggestion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/incident_headline_suggestion_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

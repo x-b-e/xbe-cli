@@ -1,27 +1,37 @@
 {
-  "id": "82e38301dddbb349a45a87106939501a39f12e4f10c81d8f289760f5635e9600",
-  "full_path": "view raw-material-transaction-import-results show",
   "description": "Show raw material transaction import result details",
-  "permissions": "Admins can view all raw material transaction import results. Non-admin users can only view results for brokers where they have broker memberships (scoped by broker_id).",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view raw-material-transaction-import-results show",
+  "id": "82e38301dddbb349a45a87106939501a39f12e4f10c81d8f289760f5635e9600",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required and cannot be blank.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/raw_material_transaction_import_results_show.go"
+      "file_path": "internal/cli/raw_material_transaction_import_results_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/raw_material_transaction_import_result_resource.rb"
+      "file_path": "app/resources/v1/raw_material_transaction_import_result_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/raw_material_transaction_import_result_policy.rb"
+      "file_path": "app/models/raw_material_transaction_import_result.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/raw_material_transaction_import_result_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

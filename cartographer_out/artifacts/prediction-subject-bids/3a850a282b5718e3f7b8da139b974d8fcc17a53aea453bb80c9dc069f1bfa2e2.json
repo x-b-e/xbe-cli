@@ -1,23 +1,37 @@
 {
-  "id": "3a850a282b5718e3f7b8da139b974d8fcc17a53aea453bb80c9dc069f1bfa2e2",
+  "description": "Show prediction subject bid details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view prediction-subject-bids show",
-  "description": "Show prediction subject bid details.",
-  "permissions": "Requires authorization to view prediction subject bids via the delegated LowestLosingBidPredictionSubjectDetail policy.",
+  "id": "3a850a282b5718e3f7b8da139b974d8fcc17a53aea453bb80c9dc069f1bfa2e2",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a prediction subject bid ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/prediction_subject_bids_show.go"
+      "file_path": "internal/cli/prediction_subject_bids_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/prediction_subject_bid_policy.rb"
+      "file_path": "app/resources/v1/prediction_subject_bid_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/prediction_subject_bid_resource.rb"
+      "file_path": "app/models/prediction_subject_bid.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_bid_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

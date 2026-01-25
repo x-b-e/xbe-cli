@@ -1,23 +1,37 @@
 {
-  "id": "b67515b0c74a21f142e00ea73aeec69f5cb3b492398fbaac7ebeff65384b2075",
+  "description": "Show job schedule shift split details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view job-schedule-shift-splits show",
-  "description": "Show the full details of a job schedule shift split.",
-  "permissions": "Admin users or users whose broker or trucker-manager memberships grant access to the referenced job schedule shifts.",
+  "id": "b67515b0c74a21f142e00ea73aeec69f5cb3b492398fbaac7ebeff65384b2075",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The shift split ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/job_schedule_shift_splits_show.go"
+      "file_path": "internal/cli/job_schedule_shift_splits_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/job_schedule_shift_split_resource.rb"
+      "file_path": "app/resources/v1/job_schedule_shift_split_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/job_schedule_shift_split_policy.rb"
+      "file_path": "app/models/job_schedule_shift_split.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_schedule_shift_split_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

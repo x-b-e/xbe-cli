@@ -1,9 +1,19 @@
 {
   "description": "Show job schedule shift start site change details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view job-schedule-shift-start-site-changes show",
   "id": "d460f9bac0f9dd4b03fbec319b331af66ad65d98e4334ed1f40a207a2f39f4c8",
-  "permissions": "Admin users can view all job schedule shift start site changes. Non-admin users can view changes tied to job schedule shifts whose job customer broker is in the user broker memberships.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,9 +21,17 @@
       "repo_name": "cli"
     },
     {
+      "file_path": "app/resources/v1/job_schedule_shift_start_site_change_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/job_schedule_shift_start_site_change.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/job_schedule_shift_start_site_change_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The <id> argument is required and must be a non-empty start site change ID."
+  "validation_notes": null
 }

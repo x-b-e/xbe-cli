@@ -1,23 +1,37 @@
 {
-  "id": "5ffa04781b38979c988feb53f57a68a93c182a5948baa17d5bebc239cb6f0f30",
+  "description": "Show full details of a driver day constraint",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view driver-day-constraints show",
-  "description": "Show the full details of a driver day constraint.",
-  "permissions": "Authorized via DriverDayConstraintPolicy scope; access is limited to driver day constraints tied to driver days within the TruckerShiftSet scope for the user.",
+  "id": "5ffa04781b38979c988feb53f57a68a93c182a5948baa17d5bebc239cb6f0f30",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a driver day constraint ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/driver_day_constraints_show.go"
+      "file_path": "internal/cli/driver_day_constraints_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/driver_day_constraint_resource.rb"
+      "file_path": "app/resources/v1/driver_day_constraint_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/driver_day_constraint_policy.rb"
+      "file_path": "app/models/driver_day_constraint.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/driver_day_constraint_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

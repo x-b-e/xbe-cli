@@ -1,23 +1,37 @@
 {
-  "id": "202b31521fbad561ce4576c3a4020411fd6826af2897067d3f6d8a4be79d84b3",
+  "description": "Show project transport plan trailer assignment recommendation details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-transport-plan-trailer-assignment-recommendations show",
-  "description": "Show the full details of a project transport plan trailer assignment recommendation.",
-  "permissions": "Read access is limited to recommendations linked to project transport plan trailers in the user\u0027s policy scope.",
+  "id": "202b31521fbad561ce4576c3a4020411fd6826af2897067d3f6d8a4be79d84b3",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_transport_plan_trailer_assignment_recommendations_show.go"
+      "file_path": "internal/cli/project_transport_plan_trailer_assignment_recommendations_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_transport_plan_trailer_assignment_recommendation_resource.rb"
+      "file_path": "app/resources/v1/project_transport_plan_trailer_assignment_recommendation_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_plan_trailer_assignment_recommendation_policy.rb"
+      "file_path": "app/models/project_transport_plan_trailer_assignment_recommendation.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_trailer_assignment_recommendation_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

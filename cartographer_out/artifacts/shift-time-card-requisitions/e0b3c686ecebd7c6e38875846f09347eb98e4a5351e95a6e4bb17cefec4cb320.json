@@ -1,23 +1,37 @@
 {
-  "id": "e0b3c686ecebd7c6e38875846f09347eb98e4a5351e95a6e4bb17cefec4cb320",
+  "description": "Show shift time card requisition details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view shift-time-card-requisitions show",
-  "description": "Show shift time card requisition details.",
-  "permissions": "Requires authentication. Admins can view any shift time card requisition. Non-admins can only view requisitions for tender job schedule shifts within their TenderJobScheduleShift policy scope.",
+  "id": "e0b3c686ecebd7c6e38875846f09347eb98e4a5351e95a6e4bb17cefec4cb320",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/shift_time_card_requisitions_show.go"
+      "file_path": "internal/cli/shift_time_card_requisitions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/shift_time_card_requisition_resource.rb"
+      "file_path": "app/resources/v1/shift_time_card_requisition_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/shift_time_card_requisition_policy.rb"
+      "file_path": "app/models/shift_time_card_requisition.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/shift_time_card_requisition_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

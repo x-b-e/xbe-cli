@@ -1,9 +1,19 @@
 {
   "description": "Show full details of a strategy",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-transport-plan-strategies show",
   "id": "be9675ab82e3fcfbd6d31c7a4f0f9bf667cee29429c7960aca6f4c01bf4d9610",
-  "permissions": "Policy scope allows anonymous and non-admin users to access all project transport plan strategies; show? is allowed when the record is in scope.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,21 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "internal/cli/project_transport_plan_strategies.go",
-      "repo_name": "cli"
+      "file_path": "app/resources/v1/project_transport_plan_strategy_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_transport_plan_strategy.rb",
+      "repo_name": "server"
     },
     {
       "file_path": "app/policies/project_transport_plan_strategy_policy.rb",
       "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/application_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/resources/v1/project_transport_plan_strategy_resource.rb",
-      "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires a strategy id argument; CLI rejects empty/whitespace id."
+  "validation_notes": null
 }

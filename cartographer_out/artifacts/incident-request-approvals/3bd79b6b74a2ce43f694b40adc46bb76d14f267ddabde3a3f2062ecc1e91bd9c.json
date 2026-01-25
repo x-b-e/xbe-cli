@@ -1,19 +1,33 @@
 {
-  "id": "3bd79b6b74a2ce43f694b40adc46bb76d14f267ddabde3a3f2062ecc1e91bd9c",
-  "full_path": "view incident-request-approvals show",
   "description": "Show incident request approval details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view incident-request-approvals show",
+  "id": "3bd79b6b74a2ce43f694b40adc46bb76d14f267ddabde3a3f2062ecc1e91bd9c",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required. Example: 123.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/incident_request_approvals_show.go"
+      "file_path": "internal/cli/incident_request_approvals_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/concerns/action_resource.rb"
+      "file_path": "app/resources/v1/incident_request_approval_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/incident_request_approval_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

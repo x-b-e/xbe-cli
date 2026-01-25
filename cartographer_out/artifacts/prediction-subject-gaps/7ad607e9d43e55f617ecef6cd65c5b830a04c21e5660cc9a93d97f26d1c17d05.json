@@ -1,23 +1,37 @@
 {
-  "id": "7ad607e9d43e55f617ecef6cd65c5b830a04c21e5660cc9a93d97f26d1c17d05",
-  "full_path": "view prediction-subject-gaps show",
   "description": "Show prediction subject gap details",
-  "permissions": "Admins can view all prediction subject gaps. Non-admins can view gaps only for prediction subjects returned by the PredictionSubject policy scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view prediction-subject-gaps show",
+  "id": "7ad607e9d43e55f617ecef6cd65c5b830a04c21e5660cc9a93d97f26d1c17d05",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/prediction_subject_gaps_show.go"
+      "file_path": "internal/cli/prediction_subject_gaps_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/prediction_subject_gap_policy.rb"
+      "file_path": "app/resources/v1/prediction_subject_gap_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/prediction_subject_gap_resource.rb"
+      "file_path": "app/models/prediction_subject_gap.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_gap_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

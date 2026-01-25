@@ -1,19 +1,37 @@
 {
-  "id": "c85ff4becb7da9136dd8b15be7dfad38345484c589f64c5b997e2b382c22746a",
-  "full_path": "view business-unit-memberships show",
   "description": "Show business unit membership details",
-  "permissions": "Admins can view any business unit membership. Non-admins can view memberships for business units where they have a membership.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view business-unit-memberships show",
+  "id": "c85ff4becb7da9136dd8b15be7dfad38345484c589f64c5b997e2b382c22746a",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The business unit membership ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/business_unit_memberships_show.go"
+      "file_path": "internal/cli/business_unit_memberships_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/business_unit_membership_policy.rb"
+      "file_path": "app/resources/v1/business_unit_membership_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/business_unit_membership.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/business_unit_membership_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

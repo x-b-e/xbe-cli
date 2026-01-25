@@ -1,27 +1,37 @@
 {
-  "id": "960e2ce51ba638ad473d8b64ffd6d9086980eb01c149b3dab3a28e6cbe8523c3",
+  "description": "Show full details of a notification subscription",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view notification-subscriptions show",
-  "description": "Show the full details of a notification subscription.",
-  "permissions": "Admins can view any notification subscription. Non-admin users can view a notification subscription only if the subscription ID is within the policy scopes for CustomerTenderOfferedBuyerNotificationSubscription or BrokerTenderOfferedSellerNotificationSubscription. Anonymous users have no access.",
+  "id": "960e2ce51ba638ad473d8b64ffd6d9086980eb01c149b3dab3a28e6cbe8523c3",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The id argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/notification_subscriptions_show.go"
+      "file_path": "internal/cli/notification_subscriptions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/notification_subscription_resource.rb"
+      "file_path": "app/resources/v1/notification_subscription_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/notification_subscription_policy.rb"
+      "file_path": "app/models/notification_subscription.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/notification_subscription_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

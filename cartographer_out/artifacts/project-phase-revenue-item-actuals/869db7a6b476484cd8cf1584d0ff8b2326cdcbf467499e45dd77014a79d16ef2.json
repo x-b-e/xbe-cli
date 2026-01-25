@@ -1,35 +1,41 @@
 {
-  "id": "869db7a6b476484cd8cf1584d0ff8b2326cdcbf467499e45dd77014a79d16ef2",
+  "description": "Show project phase revenue item actual details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-phase-revenue-item-actuals show",
-  "description": "Show the full details of a project phase revenue item actual.",
-  "permissions": "User must be authorized via ProjectPhaseRevenueItemActualPolicy scope (delegated to ProjectPhaseRevenueItem -> ProjectPhase -> Project). Non-admin access is granted per ProjectPolicy scope for projects tied to the users developer, broker, material supplier, or customer memberships.",
+  "id": "869db7a6b476484cd8cf1584d0ff8b2326cdcbf467499e45dd77014a79d16ef2",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_phase_revenue_item_actuals_show.go"
+      "file_path": "internal/cli/project_phase_revenue_item_actuals_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_phase_revenue_item_actual_policy.rb"
+      "file_path": "app/resources/v1/project_phase_revenue_item_actual_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_phase_revenue_item_policy.rb"
+      "file_path": "app/models/project_phase_revenue_item_actual.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_phase_policy.rb"
+      "file_path": "app/policies/project_phase_revenue_item_actual_policy.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_phase_revenue_item_actual_resource.rb"
+      "file_path": "app/serializers/project_phase_revenue_item_actual_serializer.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

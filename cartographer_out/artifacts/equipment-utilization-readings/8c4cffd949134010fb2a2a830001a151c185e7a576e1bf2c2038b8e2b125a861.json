@@ -1,23 +1,37 @@
 {
-  "id": "8c4cffd949134010fb2a2a830001a151c185e7a576e1bf2c2038b8e2b125a861",
+  "description": "Show reading details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view equipment-utilization-readings show",
-  "description": "Show the full details of a specific equipment utilization reading.",
-  "permissions": "Admins can view all readings. Otherwise, users can view readings tied to equipment in organizations or brokers they are members of (including managed customer and broker memberships as resolved by EquipmentUtilizationReadingPolicy scope).",
+  "id": "8c4cffd949134010fb2a2a830001a151c185e7a576e1bf2c2038b8e2b125a861",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/equipment_utilization_readings_show.go"
+      "file_path": "internal/cli/equipment_utilization_readings_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/equipment_utilization_reading_policy.rb"
+      "file_path": "app/resources/v1/equipment_utilization_reading_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/equipment_utilization_reading_resource.rb"
+      "file_path": "app/models/equipment_utilization_reading.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_utilization_reading_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

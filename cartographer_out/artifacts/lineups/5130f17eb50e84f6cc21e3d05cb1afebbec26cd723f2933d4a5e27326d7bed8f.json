@@ -1,37 +1,46 @@
 {
-  "id": "5130f17eb50e84f6cc21e3d05cb1afebbec26cd723f2933d4a5e27326d7bed8f",
-  "full_path": "view lineups show",
   "description": "Show lineup details",
-  "permissions": "Admins can view any lineup. Non-admins can view lineups for customers they manage, customers tied to brokers they belong to, or lineups associated with job production plans where the user is a manager laborer.",
-  "side_effects": null,
-  "validation_notes": "The lineup ID argument is required. If trucker assignment statistics are requested, the lineup must have start/end times and a broker; statistics require end time after start time.",
   "flags": [
     {
-      "name": "--include-trucker-assignment-statistics",
       "aliases": null,
-      "required": false,
-      "type": "boolean",
-      "description": "Include trucker assignment statistics meta",
       "default": null,
+      "description": "trucker assignment statistics meta",
+      "name": "--include-trucker-assignment-statistics",
+      "required": false,
+      "type": "string",
+      "validation": null
+    },
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
       "validation": null
     }
   ],
+  "full_path": "view lineups show",
+  "id": "5130f17eb50e84f6cc21e3d05cb1afebbec26cd723f2933d4a5e27326d7bed8f",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/lineups_show.go"
+      "file_path": "internal/cli/lineups_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/lineup_resource.rb"
+      "file_path": "app/resources/v1/lineup_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/models/trucker_assignment_statistics.rb"
+      "file_path": "app/models/lineup.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/lineup_policy.rb"
+      "file_path": "app/policies/lineup_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

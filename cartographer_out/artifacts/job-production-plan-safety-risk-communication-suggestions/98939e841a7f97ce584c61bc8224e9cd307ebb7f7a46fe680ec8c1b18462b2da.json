@@ -1,19 +1,37 @@
 {
-  "id": "98939e841a7f97ce584c61bc8224e9cd307ebb7f7a46fe680ec8c1b18462b2da",
+  "description": "Show safety risk communication suggestion details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view job-production-plan-safety-risk-communication-suggestions show",
-  "description": "Show the full details of a job production plan safety risk communication suggestion.",
+  "id": "98939e841a7f97ce584c61bc8224e9cd307ebb7f7a46fe680ec8c1b18462b2da",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "The suggestion ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/job_production_plan_safety_risk_communication_suggestions_show.go"
+      "file_path": "internal/cli/job_production_plan_safety_risk_communication_suggestions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/job_production_plan_safety_risk_communication_suggestion_policy.rb"
+      "file_path": "app/resources/v1/job_production_plan_safety_risk_communication_suggestion_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/job_production_plan_safety_risk_communication_suggestion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/job_production_plan_safety_risk_communication_suggestion_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

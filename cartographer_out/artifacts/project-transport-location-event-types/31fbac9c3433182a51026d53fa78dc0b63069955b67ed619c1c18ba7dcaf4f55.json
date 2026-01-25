@@ -1,23 +1,37 @@
 {
-  "id": "31fbac9c3433182a51026d53fa78dc0b63069955b67ed619c1c18ba7dcaf4f55",
+  "description": "Show project transport location event type details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-transport-location-event-types show",
-  "description": "Show the full details of a project transport location event type.",
-  "permissions": "Authorization is delegated to the related project transport event type. Access is allowed for admins, and for users who are members of the broker associated with the related project transport event type; global event types (broker_id nil) are also visible via the policy scope.",
+  "id": "31fbac9c3433182a51026d53fa78dc0b63069955b67ed619c1c18ba7dcaf4f55",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (project transport location event type ID) and it must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_transport_location_event_types_show.go"
+      "file_path": "internal/cli/project_transport_location_event_types_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_location_event_type_policy.rb"
+      "file_path": "app/resources/v1/project_transport_location_event_type_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_event_type_policy.rb"
+      "file_path": "app/models/project_transport_location_event_type.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_location_event_type_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

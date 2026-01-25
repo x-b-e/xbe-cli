@@ -1,31 +1,33 @@
 {
-  "id": "f45cf9ea38a91cbafe144b91f973de23291f1356c4c385fc6439eae4f2203f52",
+  "description": "Show labor requirement details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view labor-requirements show",
-  "description": "Show the full details of a labor requirement.",
-  "permissions": "User must be authorized to view the labor requirement within the CrewRequirementPolicy scope; access is limited to labor requirements tied to job production plans the user can access.",
-  "side_effects": "Read-only: fetches a labor requirement from the API.",
-  "validation_notes": "Requires <id> argument.",
-  "flags": [],
+  "id": "f45cf9ea38a91cbafe144b91f973de23291f1356c4c385fc6439eae4f2203f52",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/labor_requirements.go"
+      "file_path": "internal/cli/labor_requirements_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/labor_requirements_show.go"
+      "file_path": "app/resources/v1/labor_requirement_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/labor_requirement_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/crew_requirement_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/labor_requirement_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

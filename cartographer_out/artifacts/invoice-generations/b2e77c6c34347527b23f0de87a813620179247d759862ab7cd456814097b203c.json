@@ -1,23 +1,37 @@
 {
-  "id": "b2e77c6c34347527b23f0de87a813620179247d759862ab7cd456814097b203c",
-  "full_path": "view invoice-generations show",
   "description": "Show invoice generation details",
-  "permissions": "Admins can view invoice generations. Non-admin users must be manager members of a broker; they can view invoice generations for that broker and its associated customers/truckers.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view invoice-generations show",
+  "id": "b2e77c6c34347527b23f0de87a813620179247d759862ab7cd456814097b203c",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/invoice_generations_show.go"
+      "file_path": "internal/cli/invoice_generations_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/invoice_generation_resource.rb"
+      "file_path": "app/resources/v1/invoice_generation_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/invoice_generation_policy.rb"
+      "file_path": "app/models/invoice_generation.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/invoice_generation_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

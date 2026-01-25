@@ -1,23 +1,37 @@
 {
-  "id": "f00bb86655f817b74a116f57cb1195bb9ef6b88ba02a33ee5e751943244d7e54",
+  "description": "Show production measurement details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view production-measurements show",
-  "description": "Show production measurement details.",
-  "permissions": "Access is authorized via the associated job_production_plan_segment relationship; the user must be permitted to view the related segment.",
+  "id": "f00bb86655f817b74a116f57cb1195bb9ef6b88ba02a33ee5e751943244d7e54",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (production measurement ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/production_measurements_show.go"
+      "file_path": "internal/cli/production_measurements_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/production_measurement_policy.rb"
+      "file_path": "app/resources/v1/production_measurement_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/production_measurement_resource.rb"
+      "file_path": "app/models/production_measurement.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/production_measurement_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

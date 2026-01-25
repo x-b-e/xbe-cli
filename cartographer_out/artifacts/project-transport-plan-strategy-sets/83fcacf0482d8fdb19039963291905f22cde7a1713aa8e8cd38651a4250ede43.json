@@ -1,23 +1,37 @@
 {
-  "id": "83fcacf0482d8fdb19039963291905f22cde7a1713aa8e8cd38651a4250ede43",
-  "full_path": "view project-transport-plan-strategy-sets show",
   "description": "Show project transport plan strategy set details",
-  "permissions": "Accessible to all users, including anonymous and non-admin users; policy scope resolves all project transport plan strategy sets.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-transport-plan-strategy-sets show",
+  "id": "83fcacf0482d8fdb19039963291905f22cde7a1713aa8e8cd38651a4250ede43",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_transport_plan_strategy_sets_show.go"
+      "file_path": "internal/cli/project_transport_plan_strategy_sets_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/project_transport_plan_strategy_set_resource.rb"
+      "file_path": "app/resources/v1/project_transport_plan_strategy_set_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_transport_plan_strategy_set_policy.rb"
+      "file_path": "app/models/project_transport_plan_strategy_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_transport_plan_strategy_set_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

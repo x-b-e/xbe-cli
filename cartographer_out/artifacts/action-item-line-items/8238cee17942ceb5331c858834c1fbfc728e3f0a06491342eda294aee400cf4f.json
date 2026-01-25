@@ -1,27 +1,37 @@
 {
-  "id": "8238cee17942ceb5331c858834c1fbfc728e3f0a06491342eda294aee400cf4f",
+  "description": "Show action item line item details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view action-item-line-items show",
-  "description": "Show action item line item details.",
-  "permissions": "User must be authorized to view the related action item via ActionItemLineItemPolicy (delegated to action_item); access is constrained by the action item scope rules (e.g., org membership or team membership).",
+  "id": "8238cee17942ceb5331c858834c1fbfc728e3f0a06491342eda294aee400cf4f",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The action item line item ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/action_item_line_items_show.go"
+      "file_path": "internal/cli/action_item_line_items_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/action_item_line_item_resource.rb"
+      "file_path": "app/resources/v1/action_item_line_item_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/action_item_line_item_policy.rb"
+      "file_path": "app/models/action_item_line_item.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/models/action_item_line_item.rb"
+      "file_path": "app/policies/action_item_line_item_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

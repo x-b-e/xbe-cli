@@ -1,27 +1,37 @@
 {
-  "id": "a19fb45cd72d96e86614fd55ccbc324c03d7921b010d6e4fa0f1ed3ac41c2950",
-  "full_path": "view prediction-subject-memberships show",
   "description": "Show prediction subject membership details",
-  "permissions": "Admins can view prediction subject memberships. Non-admins can view memberships for prediction subjects they can access (members of the prediction subject or broker admins for the prediction subject broker).",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view prediction-subject-memberships show",
+  "id": "a19fb45cd72d96e86614fd55ccbc324c03d7921b010d6e4fa0f1ed3ac41c2950",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "<id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/prediction_subject_memberships_show.go"
+      "file_path": "internal/cli/prediction_subject_memberships_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/prediction_subject_membership_resource.rb"
+      "file_path": "app/resources/v1/prediction_subject_membership_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/prediction_subject_membership_policy.rb"
+      "file_path": "app/models/prediction_subject_membership.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/prediction_subject_policy.rb"
+      "file_path": "app/policies/prediction_subject_membership_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,23 +1,37 @@
 {
-  "id": "c5e956dda1463db6728f736b2b729f669d682ab0e71af6e4da37631c574d879b",
-  "full_path": "view broker-project-transport-event-types show",
   "description": "Show broker project transport event type details",
-  "permissions": "Visible to admins; non-admins can only access records whose broker is within their broker policy scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view broker-project-transport-event-types show",
+  "id": "c5e956dda1463db6728f736b2b729f669d682ab0e71af6e4da37631c574d879b",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires broker project transport event type ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_project_transport_event_types_show.go"
+      "file_path": "internal/cli/broker_project_transport_event_types_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/broker_project_transport_event_type_policy.rb"
+      "file_path": "app/resources/v1/broker_project_transport_event_type_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/broker_project_transport_event_type_resource.rb"
+      "file_path": "app/models/broker_project_transport_event_type.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/broker_project_transport_event_type_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

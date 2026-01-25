@@ -1,23 +1,37 @@
 {
-  "id": "906ef4d710857029bd6d271b837909aa2bc24a033e1ae5273efb32d6073bf22b",
+  "description": "Show full details of a stop requirement",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view equipment-movement-stop-requirements show",
-  "description": "Show the full details of an equipment movement stop requirement.",
-  "permissions": "Requires permission to view the related equipment movement stop (delegated via equipment movement stop requirement policy).",
+  "id": "906ef4d710857029bd6d271b837909aa2bc24a033e1ae5273efb32d6073bf22b",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/equipment_movement_stop_requirements_show.go"
+      "file_path": "internal/cli/equipment_movement_stop_requirements_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/equipment_movement_stop_requirement_policy.rb"
+      "file_path": "app/resources/v1/equipment_movement_stop_requirement_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/equipment_movement_stop_requirement_resource.rb"
+      "file_path": "app/models/equipment_movement_stop_requirement.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_movement_stop_requirement_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

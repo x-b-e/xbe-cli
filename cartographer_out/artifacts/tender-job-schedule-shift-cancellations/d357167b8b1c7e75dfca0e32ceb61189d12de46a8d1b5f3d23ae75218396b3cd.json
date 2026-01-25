@@ -1,23 +1,33 @@
 {
-  "id": "d357167b8b1c7e75dfca0e32ceb61189d12de46a8d1b5f3d23ae75218396b3cd",
+  "description": "Show tender job schedule shift cancellation details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view tender-job-schedule-shift-cancellations show",
-  "description": "Show the full details of a tender job schedule shift cancellation.",
-  "permissions": "Show is allowed when the record is within the policy scope; scope rules for this resource are not specified here.",
+  "id": "d357167b8b1c7e75dfca0e32ceb61189d12de46a8d1b5f3d23ae75218396b3cd",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Cancellation ID argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/tender_job_schedule_shift_cancellations_show.go"
+      "file_path": "internal/cli/tender_job_schedule_shift_cancellations_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/resources/v1/tender_job_schedule_shift_cancellation_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/tender_job_schedule_shift_cancellation_resource.rb"
+      "file_path": "app/policies/tender_job_schedule_shift_cancellation_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

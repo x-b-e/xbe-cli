@@ -7,6 +7,8 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/spf13/cobra"
 )
 
 type jsonAPIResponse struct {
@@ -202,7 +204,55 @@ func formatDate(value string) string {
 	return value
 }
 
+var jsonOmitNulls bool
+
+func setJSONOmitNulls(cmd *cobra.Command) {
+	if cmd == nil {
+		jsonOmitNulls = false
+		return
+	}
+	value, err := cmd.Flags().GetBool("omit-null")
+	if err != nil {
+		jsonOmitNulls = false
+		return
+	}
+	jsonOmitNulls = value
+}
+
+func pruneNulls(value any) any {
+	switch typed := value.(type) {
+	case map[string]any:
+		cleaned := make(map[string]any, len(typed))
+		for key, val := range typed {
+			if val == nil {
+				continue
+			}
+			cleaned[key] = pruneNulls(val)
+		}
+		return cleaned
+	case []any:
+		items := make([]any, len(typed))
+		for idx, item := range typed {
+			items[idx] = pruneNulls(item)
+		}
+		return items
+	default:
+		return value
+	}
+}
+
 func writeJSON(out io.Writer, value any) error {
+	if jsonOmitNulls {
+		raw, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+		var decoded any
+		if err := json.Unmarshal(raw, &decoded); err != nil {
+			return err
+		}
+		value = pruneNulls(decoded)
+	}
 	pretty, err := json.MarshalIndent(value, "", "  ")
 	if err != nil {
 		return err

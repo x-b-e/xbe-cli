@@ -1,23 +1,37 @@
 {
-  "id": "4714eaf60cbe5666abd71e0f7b5d61568efcd9bdae6a1d8d297635e7cb9da375",
-  "full_path": "view incident-unit-of-measure-quantities show",
   "description": "Show incident unit of measure quantity details",
-  "permissions": "User must be authorized to view the related incident per IncidentPolicy scope; non-admins can only access quantities tied to incidents within their scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view incident-unit-of-measure-quantities show",
+  "id": "4714eaf60cbe5666abd71e0f7b5d61568efcd9bdae6a1d8d297635e7cb9da375",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/incident_unit_of_measure_quantities_show.go"
+      "file_path": "internal/cli/incident_unit_of_measure_quantities_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/incident_unit_of_measure_quantity_resource.rb"
+      "file_path": "app/resources/v1/incident_unit_of_measure_quantity_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/incident_unit_of_measure_quantity_policy.rb"
+      "file_path": "app/models/incident_unit_of_measure_quantity.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/incident_unit_of_measure_quantity_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

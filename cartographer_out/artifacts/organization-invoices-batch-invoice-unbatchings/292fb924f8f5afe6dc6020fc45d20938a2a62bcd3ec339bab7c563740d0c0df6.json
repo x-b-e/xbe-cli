@@ -1,23 +1,33 @@
 {
-  "id": "292fb924f8f5afe6dc6020fc45d20938a2a62bcd3ec339bab7c563740d0c0df6",
+  "description": "Show organization invoices batch invoice unbatching details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view organization-invoices-batch-invoice-unbatchings show",
-  "description": "Show organization invoices batch invoice unbatching details.",
-  "permissions": "Authorization is governed by OrganizationInvoicesBatchInvoiceUnbatchingPolicy. show? is allowed only when the record is within the policy scope (ApplicationPolicy#show?).",
+  "id": "292fb924f8f5afe6dc6020fc45d20938a2a62bcd3ec339bab7c563740d0c0df6",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument; it must be non-empty (whitespace-only is rejected).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/organization_invoices_batch_invoice_unbatchings_show.go"
+      "file_path": "internal/cli/organization_invoices_batch_invoice_unbatchings_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/organization_invoices_batch_invoice_unbatching_resource.rb"
+      "file_path": "app/resources/v1/organization_invoices_batch_invoice_unbatching_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/application_policy.rb"
+      "file_path": "app/policies/organization_invoices_batch_invoice_unbatching_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

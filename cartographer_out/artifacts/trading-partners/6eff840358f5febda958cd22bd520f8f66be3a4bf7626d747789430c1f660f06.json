@@ -1,27 +1,37 @@
 {
-  "id": "6eff840358f5febda958cd22bd520f8f66be3a4bf7626d747789430c1f660f06",
+  "description": "Show a trading partner by ID",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view trading-partners show",
-  "description": "Show full trading-partner details by ID.",
-  "permissions": "Any authenticated user can view trading partners within their TradingPartnerPolicy scope; non-admin access is limited to trading partners that match their broker/customer/trucker/material site scopes.",
+  "id": "6eff840358f5febda958cd22bd520f8f66be3a4bf7626d747789430c1f660f06",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "<id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/trading_partners_show.go"
+      "file_path": "internal/cli/trading_partners_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/trading_partners.go"
+      "file_path": "app/resources/v1/trading_partner_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/trading_partner_policy.rb"
+      "file_path": "app/models/trading_partner.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "spec/policies/trading_partner_policy_spec.rb"
+      "file_path": "app/policies/trading_partner_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

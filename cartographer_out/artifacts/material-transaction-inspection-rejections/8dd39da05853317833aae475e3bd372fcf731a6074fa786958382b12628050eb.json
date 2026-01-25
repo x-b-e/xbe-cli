@@ -1,23 +1,37 @@
 {
-  "id": "8dd39da05853317833aae475e3bd372fcf731a6074fa786958382b12628050eb",
-  "full_path": "view material-transaction-inspection-rejections show",
   "description": "Show material transaction inspection rejection details",
-  "permissions": "Allowed for users authorized to access the related material transaction inspection; policy is delegated to MaterialTransactionInspectionPolicy.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view material-transaction-inspection-rejections show",
+  "id": "8dd39da05853317833aae475e3bd372fcf731a6074fa786958382b12628050eb",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "<id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_transaction_inspection_rejections_show.go"
+      "file_path": "internal/cli/material_transaction_inspection_rejections_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_transaction_inspection_rejection_resource.rb"
+      "file_path": "app/resources/v1/material_transaction_inspection_rejection_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_transaction_inspection_rejection_policy.rb"
+      "file_path": "app/models/material_transaction_inspection_rejection.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_transaction_inspection_rejection_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

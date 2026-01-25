@@ -101,6 +101,7 @@ func initDevicesListFlags(cmd *cobra.Command) {
 
 	// Global flags
 	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Bool("omit-null", false, "Omit null values in JSON output")
 	cmd.Flags().Int("limit", 0, "Limit results")
 	cmd.Flags().Int("offset", 0, "Offset results")
 	cmd.Flags().String("sort", "", "Sort by field")
@@ -185,6 +186,15 @@ func runDevicesList(cmd *cobra.Command, args []string) error {
 	if err := json.Unmarshal(body, &resp); err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
+	}
+
+	handled, err := renderSparseListIfRequested(cmd, resp)
+	if err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
+	if handled {
+		return nil
 	}
 
 	rows := buildDeviceRows(resp)

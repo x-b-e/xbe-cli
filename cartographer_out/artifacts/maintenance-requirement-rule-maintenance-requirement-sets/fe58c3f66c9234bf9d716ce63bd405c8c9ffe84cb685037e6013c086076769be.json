@@ -1,23 +1,37 @@
 {
-  "id": "fe58c3f66c9234bf9d716ce63bd405c8c9ffe84cb685037e6013c086076769be",
-  "full_path": "view maintenance-requirement-rule-maintenance-requirement-sets show",
   "description": "Show maintenance requirement rule maintenance requirement set details",
-  "permissions": "User must be authorized to view the related maintenance requirement rule. Access follows MaintenanceRequirementRulePolicy#show?: admins; broker managers; operations users with appropriate business unit membership; and technician business unit members within scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view maintenance-requirement-rule-maintenance-requirement-sets show",
+  "id": "fe58c3f66c9234bf9d716ce63bd405c8c9ffe84cb685037e6013c086076769be",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument for the maintenance requirement rule maintenance requirement set.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/maintenance_requirement_rule_maintenance_requirement_sets_show.go"
+      "file_path": "internal/cli/maintenance_requirement_rule_maintenance_requirement_sets_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/maintenance_requirement_rule_maintenance_requirement_set_policy.rb"
+      "file_path": "app/resources/v1/maintenance_requirement_rule_maintenance_requirement_set_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/maintenance_requirement_rule_policy.rb"
+      "file_path": "app/models/maintenance_requirement_rule_maintenance_requirement_set.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/maintenance_requirement_rule_maintenance_requirement_set_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

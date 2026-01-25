@@ -1,23 +1,37 @@
 {
-  "id": "b367d6867ed4931cb72fe6f5f21e7259828d5c3c38775f8b62fe02ac2831ab73",
+  "description": "Show material site subscription details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view material-site-subscriptions show",
-  "description": "Show material site subscription details.",
-  "permissions": "Admins can view any material site subscription. Non-admin users can view subscriptions for material sites belonging to material suppliers or brokers they are members of (per policy scope).",
+  "id": "b367d6867ed4931cb72fe6f5f21e7259828d5c3c38775f8b62fe02ac2831ab73",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires a material site subscription ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_site_subscriptions_show.go"
+      "file_path": "internal/cli/material_site_subscriptions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_site_subscription_policy.rb"
+      "file_path": "app/resources/v1/material_site_subscription_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_site_subscription_resource.rb"
+      "file_path": "app/models/material_site_subscription.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_site_subscription_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

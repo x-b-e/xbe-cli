@@ -1,35 +1,37 @@
 {
-  "id": "c3561aa10dd4acc9a550ca8388ed26dc3fb808e2bbdd66db1dbd48afac51d140",
+  "description": "Show lineup dispatch details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view lineup-dispatches show",
-  "description": "Show lineup dispatch details.",
-  "permissions": "Allowed when the user is authorized for the related lineup via LineupDispatchPolicy, which delegates to LineupPolicy. LineupPolicy allows admins, customer managers or broker members for the lineup customer, and manager laborers on job production plans tied to the lineup; scope limits listing/showing to lineups visible under that policy.",
+  "id": "c3561aa10dd4acc9a550ca8388ed26dc3fb808e2bbdd66db1dbd48afac51d140",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The lineup dispatch ID argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/lineup_dispatches_show.go"
+      "file_path": "internal/cli/lineup_dispatches_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/lineup_dispatches.go"
+      "file_path": "app/resources/v1/lineup_dispatch_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/lineup_dispatch_resource.rb"
+      "file_path": "app/models/lineup_dispatch.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/lineup_dispatch_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/lineup_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/concerns/delegated_policy.rb"
+      "file_path": "app/policies/lineup_dispatch_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

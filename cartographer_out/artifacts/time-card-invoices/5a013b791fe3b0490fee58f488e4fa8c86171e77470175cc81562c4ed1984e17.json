@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a time card invoice.",
-  "flags": [],
+  "description": "Show time card invoice details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-card-invoices show",
   "id": "5a013b791fe3b0490fee58f488e4fa8c86171e77470175cc81562c4ed1984e17",
-  "permissions": "Requires an authenticated user with access to the related invoice via InvoicePolicy scope. Admins can view all; non-admins are limited to invoices where they are a member of the buyer customer (including management-service-type customer visibility), a manager member of the seller trucker, or a member of the broker.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,17 +21,17 @@
       "repo_name": "cli"
     },
     {
+      "file_path": "app/resources/v1/time_card_invoice_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/time_card_invoice.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/time_card_invoice_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/invoice_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/application_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "id argument is required and must be non-empty."
+  "validation_notes": null
 }

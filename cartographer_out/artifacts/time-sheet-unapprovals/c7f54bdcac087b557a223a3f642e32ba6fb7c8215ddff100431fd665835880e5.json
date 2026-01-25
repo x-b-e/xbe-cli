@@ -1,31 +1,33 @@
 {
-  "id": "c7f54bdcac087b557a223a3f642e32ba6fb7c8215ddff100431fd665835880e5",
+  "description": "Show time sheet unapproval details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-sheet-unapprovals show",
-  "description": "Show time sheet unapproval details.",
-  "permissions": "Authorization uses TimeSheetUnapprovalPolicy; show? is allowed when the record is within the policy scope (scope implementation not defined in policy source).",
+  "id": "c7f54bdcac087b557a223a3f642e32ba6fb7c8215ddff100431fd665835880e5",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_sheet_unapprovals_show.go"
+      "file_path": "internal/cli/time_sheet_unapprovals_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_sheet_unapprovals.go"
+      "file_path": "app/resources/v1/time_sheet_unapproval_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/concerns/action_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/time_sheet_unapproval_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/policies/time_sheet_unapproval_policy.rb"
+      "file_path": "app/policies/time_sheet_unapproval_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

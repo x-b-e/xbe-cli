@@ -1,6 +1,16 @@
 {
-  "description": "Show organization invoices batch process details.",
-  "flags": [],
+  "description": "Show organization invoices batch process details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view organization-invoices-batch-processes show",
   "id": "8de20b872b1882d17ecacefb0fe66e82e97ae3d4b9072f37405d8b9734fb4a71",
   "permissions": null,
@@ -13,7 +23,11 @@
     {
       "file_path": "app/resources/v1/organization_invoices_batch_process_resource.rb",
       "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_invoices_batch_process_policy.rb",
+      "repo_name": "server"
     }
   ],
-  "validation_notes": "Organization invoices batch process ID is required."
+  "validation_notes": null
 }

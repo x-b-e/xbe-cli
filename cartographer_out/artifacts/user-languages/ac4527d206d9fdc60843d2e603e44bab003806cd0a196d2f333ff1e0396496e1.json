@@ -1,23 +1,37 @@
 {
-  "id": "ac4527d206d9fdc60843d2e603e44bab003806cd0a196d2f333ff1e0396496e1",
+  "description": "Show user language details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view user-languages show",
-  "description": "Show the full details of a user language preference.",
-  "permissions": "Admins can view any user language; non-admins can view user languages whose users are within the calling user permitted User policy scope.",
+  "id": "ac4527d206d9fdc60843d2e603e44bab003806cd0a196d2f333ff1e0396496e1",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Argument <id> is required and cannot be blank.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/user_languages_show.go"
+      "file_path": "internal/cli/user_languages_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/user_language_policy.rb"
+      "file_path": "app/resources/v1/user_language_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/user_language_resource.rb"
+      "file_path": "app/models/user_language.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_language_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,19 +1,37 @@
 {
-  "id": "6cc24e9985fc5564b49b9cc34115375ec1dd9d0cf8066199b37e4827ff8a42fe",
+  "description": "Show project project cost classification details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-project-cost-classifications show",
-  "description": "Show the full details of a project project cost classification.",
-  "permissions": "Access is delegated to the related project; the user must be authorized for the project via Project policy.",
+  "id": "6cc24e9985fc5564b49b9cc34115375ec1dd9d0cf8066199b37e4827ff8a42fe",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (project project cost classification ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_project_cost_classifications_show.go"
+      "file_path": "internal/cli/project_project_cost_classifications_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/project_project_cost_classification_policy.rb"
+      "file_path": "app/resources/v1/project_project_cost_classification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/project_project_cost_classification.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_project_cost_classification_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

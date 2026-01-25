@@ -1,9 +1,19 @@
 {
   "description": "Show rate agreement details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view rate-agreements show",
   "id": "bdaf9d9f089191e52115924cb19a522dbf235f0c99f6e738b6d92d0f8ded8fde",
-  "permissions": "Authentication required unless --no-auth is used (global flag).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,11 +21,11 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/controllers/v1/rate_agreements_controller.rb",
+      "file_path": "app/resources/v1/rate_agreement_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/resources/v1/rate_agreement_resource.rb",
+      "file_path": "app/models/rate_agreement.rb",
       "repo_name": "server"
     },
     {
@@ -23,5 +33,5 @@
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Argument <id> is required and must be a non-empty rate agreement ID."
+  "validation_notes": null
 }

@@ -1,23 +1,37 @@
 {
-  "id": "93bf4caaefeaf0164d590c18b670853fc272cb6878791a2b1fc3bd62f2adc96d",
+  "description": "Show details for a user creator feed creator",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view user-creator-feed-creators show",
-  "description": "Show the full details of a user creator feed creator.",
-  "permissions": "Authenticated users can view user creator feed creator details; non-admin users are limited to records where the user_creator_feed belongs to the current user (policy scope).",
-  "side_effects": "None (read-only).",
-  "validation_notes": "The user creator feed creator id argument is required.",
-  "flags": [],
+  "id": "93bf4caaefeaf0164d590c18b670853fc272cb6878791a2b1fc3bd62f2adc96d",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/user_creator_feed_creators_show.go"
+      "file_path": "internal/cli/user_creator_feed_creators_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/user_creator_feed_creator_resource.rb"
+      "file_path": "app/resources/v1/user_creator_feed_creator_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/user_creator_feed_creator_policy.rb"
+      "file_path": "app/models/user_creator_feed_creator.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_creator_feed_creator_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,35 +1,33 @@
 {
-  "id": "3ec0efa18add45e8a07282d6c29389a9cd713c77d5fe07d47857e7b6352af8e8",
-  "full_path": "view safety-incidents show",
   "description": "Show safety incident details",
-  "permissions": "Admins can view all safety incidents. Non-admins can view an incident only if the subject is visible via its policy scope (show?) or if they created the incident.",
-  "side_effects": "None (read-only).",
-  "validation_notes": "Requires <id> argument (safety incident ID).",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view safety-incidents show",
+  "id": "3ec0efa18add45e8a07282d6c29389a9cd713c77d5fe07d47857e7b6352af8e8",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/safety_incidents_show.go"
+      "file_path": "internal/cli/safety_incidents_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/incident_policy.rb"
+      "file_path": "app/resources/v1/safety_incident_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/incident_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/safety_incident_resource.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/models/incident.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/models/incidents/safety_incident.rb"
+      "file_path": "app/policies/safety_incident_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

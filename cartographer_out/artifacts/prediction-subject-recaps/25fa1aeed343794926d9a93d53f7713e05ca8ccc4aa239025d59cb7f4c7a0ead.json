@@ -1,23 +1,37 @@
 {
-  "id": "25fa1aeed343794926d9a93d53f7713e05ca8ccc4aa239025d59cb7f4c7a0ead",
-  "full_path": "view prediction-subject-recaps show",
   "description": "Show prediction subject recap details",
-  "permissions": "Access is delegated to the related prediction subject; the user must be authorized to view the associated prediction subject (per PredictionSubjectPolicy scope, such as membership or broker admin access).",
-  "side_effects": "None (read-only).",
-  "validation_notes": "Requires prediction subject recap ID argument.",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view prediction-subject-recaps show",
+  "id": "25fa1aeed343794926d9a93d53f7713e05ca8ccc4aa239025d59cb7f4c7a0ead",
+  "permissions": null,
+  "side_effects": null,
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/prediction_subject_recaps_show.go"
+      "file_path": "internal/cli/prediction_subject_recaps_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/prediction_subject_recap_resource.rb"
+      "file_path": "app/resources/v1/prediction_subject_recap_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/prediction_subject_recap_policy.rb"
+      "file_path": "app/models/prediction_subject_recap.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_recap_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

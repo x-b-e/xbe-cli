@@ -1,9 +1,19 @@
 {
   "description": "Show time card review details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view tender-job-schedule-shift-time-card-reviews show",
   "id": "01c2d1a09d8ed8020737cbc2b1b637f0d129df606d03414124f7b010ba60e8c9",
-  "permissions": "Admin users can view any time card review. Non-admin users can view reviews only for tender job schedule shifts within their TenderJobScheduleShift policy scope (typically shifts associated with their broker membership).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,9 +25,13 @@
       "repo_name": "server"
     },
     {
+      "file_path": "app/models/tender_job_schedule_shift_time_card_review.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/tender_job_schedule_shift_time_card_review_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The <id> argument is required and must be non-empty."
+  "validation_notes": null
 }

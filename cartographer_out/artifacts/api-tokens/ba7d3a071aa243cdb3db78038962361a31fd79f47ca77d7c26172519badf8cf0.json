@@ -1,19 +1,37 @@
 {
-  "id": "ba7d3a071aa243cdb3db78038962361a31fd79f47ca77d7c26172519badf8cf0",
+  "description": "Show API token details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view api-tokens show",
-  "description": "Show the full details of a specific API token.",
+  "id": "ba7d3a071aa243cdb3db78038962361a31fd79f47ca77d7c26172519badf8cf0",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires API token ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/api_tokens_show.go"
+      "file_path": "internal/cli/api_tokens_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/api_tokens_controller.rb"
+      "file_path": "app/resources/v1/api_token_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/api_token.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/api_token_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

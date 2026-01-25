@@ -1,23 +1,37 @@
 {
-  "id": "16e55d4ae46483548448828bf1a45825028a1156eed3131b19a1fd19a2a5ef51",
+  "description": "Show broker invoice details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view broker-invoices show",
-  "description": "Show the full details of a broker invoice.",
-  "permissions": "Admins can view all invoices. Non-admin access is limited to invoices where the user is a member of the buyer customer (including management-service-type invoices with customer_ids_cached overlap), a manager member of the seller trucker, or a member of the seller broker as scoped by InvoicePolicy.",
+  "id": "16e55d4ae46483548448828bf1a45825028a1156eed3131b19a1fd19a2a5ef51",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_invoices_show.go"
+      "file_path": "internal/cli/broker_invoices_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/invoice_resource.rb"
+      "file_path": "app/resources/v1/broker_invoice_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/invoice_policy.rb"
+      "file_path": "app/policies/broker_invoice_policy.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/serializers/broker_invoice_serializer.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

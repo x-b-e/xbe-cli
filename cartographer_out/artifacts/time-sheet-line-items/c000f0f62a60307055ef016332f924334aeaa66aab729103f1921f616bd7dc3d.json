@@ -1,31 +1,37 @@
 {
-  "id": "c000f0f62a60307055ef016332f924334aeaa66aab729103f1921f616bd7dc3d",
+  "description": "Show time sheet line item details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-sheet-line-items show",
-  "description": "Show the full details of a time sheet line item.",
-  "permissions": "Delegated to the related time sheet. Allowed if the user is an admin or is authorized for the associated time sheet per TimeSheetPolicy scope (e.g., driver/shift driver, trucker manager, broker member, customer member/manager, laborer on the crew requirement, or work-order roles such as manager/operations/technician).",
+  "id": "c000f0f62a60307055ef016332f924334aeaa66aab729103f1921f616bd7dc3d",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (time sheet line item ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_sheet_line_items_show.go"
+      "file_path": "internal/cli/time_sheet_line_items_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/time_sheet_line_item_resource.rb"
+      "file_path": "app/resources/v1/time_sheet_line_item_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_sheet_line_item_policy.rb"
+      "file_path": "app/models/time_sheet_line_item.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_sheet_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/models/time_sheet_line_item.rb"
+      "file_path": "app/policies/time_sheet_line_item_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,6 +1,16 @@
 {
-  "description": "Show full details of a project approval.",
-  "flags": [],
+  "description": "Show project approval details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-approvals show",
   "id": "9f3c14faadf963dbce5010b6be4fa2a64fb3e4024657567617523f551e7f3750",
   "permissions": null,
@@ -13,7 +23,11 @@
     {
       "file_path": "app/resources/v1/project_approval_resource.rb",
       "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_approval_policy.rb",
+      "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires a project approval ID argument."
+  "validation_notes": null
 }

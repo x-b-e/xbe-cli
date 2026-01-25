@@ -1,19 +1,33 @@
 {
-  "id": "87d36d6612e0935a2ef86450b9d78c414cde0968298d013bb26793aa2feebf98",
-  "full_path": "view project-submissions show",
   "description": "Show project submission details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view project-submissions show",
+  "id": "87d36d6612e0935a2ef86450b9d78c414cde0968298d013bb26793aa2feebf98",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Project submission ID argument is required. Project submissions are write-only in the API; show is not available because routes only allow create.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/project_submissions_show.go"
+      "file_path": "internal/cli/project_submissions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "config/routes.rb"
+      "file_path": "app/resources/v1/project_submission_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/project_submission_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

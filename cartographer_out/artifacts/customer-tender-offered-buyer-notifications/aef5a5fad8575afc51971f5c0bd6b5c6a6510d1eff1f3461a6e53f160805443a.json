@@ -1,9 +1,19 @@
 {
   "description": "Show customer tender offered buyer notification details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view customer-tender-offered-buyer-notifications show",
   "id": "aef5a5fad8575afc51971f5c0bd6b5c6a6510d1eff1f3461a6e53f160805443a",
-  "permissions": "Authentication required. Admins can view all notifications; non-admins are limited to notifications where user_id matches the current user.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,9 +21,13 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/notification_policy.rb",
+      "file_path": "app/resources/v1/customer_tender_offered_buyer_notification_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/customer_tender_offered_buyer_notification_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The notification id argument is required and cannot be blank."
+  "validation_notes": null
 }

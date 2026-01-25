@@ -1,27 +1,37 @@
 {
-  "id": "e0fa6af21052c83ead35d460ff65aaecec64038348ddedd5e85d5762d7670937",
+  "description": "Show material type unavailability details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view material-type-unavailabilities show",
-  "description": "Show the full details of a material type unavailability.",
-  "permissions": "Allowed for users who can access the related material types under MaterialTypePolicy scope (delegated via material_type relationship).",
+  "id": "e0fa6af21052c83ead35d460ff65aaecec64038348ddedd5e85d5762d7670937",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires material type unavailability ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_type_unavailabilities_show.go"
+      "file_path": "internal/cli/material_type_unavailabilities_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_type_unavailability_resource.rb"
+      "file_path": "app/resources/v1/material_type_unavailability_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_type_unavailability_policy.rb"
+      "file_path": "app/models/material_type_unavailability.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_type_policy.rb"
+      "file_path": "app/policies/material_type_unavailability_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,27 +1,37 @@
 {
-  "id": "f061f0db4b8174f1a26bdc67a760af709ceea0dd37090b165704332490972bb9",
+  "description": "Show full details of an annotation",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view hos-annotations show",
-  "description": "Show the full details of a HOS annotation.",
-  "permissions": "Admins can view HOS annotations; non-admin users can view annotations for brokers they are allowed to see (via membership visibility).",
+  "id": "f061f0db4b8174f1a26bdc67a760af709ceea0dd37090b165704332490972bb9",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/hos_annotations_show.go"
+      "file_path": "internal/cli/hos_annotations_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/hos_annotation_resource.rb"
+      "file_path": "app/resources/v1/hos_annotation_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/hos_annotation_policy.rb"
+      "file_path": "app/models/hos_annotation.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/hos_annotations_controller.rb"
+      "file_path": "app/policies/hos_annotation_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,23 +1,37 @@
 {
-  "id": "ff0d8f9576885c7b19bbc89a663352fa2f2b0d014d08ddb2cc3d84eb4e45b6fa",
+  "description": "Show user location event details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view user-location-events show",
-  "description": "Show user location event details.",
-  "permissions": "Admins can view any user location event. Non-admin users can view only events where the user is themselves.",
+  "id": "ff0d8f9576885c7b19bbc89a663352fa2f2b0d014d08ddb2cc3d84eb4e45b6fa",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The user location event ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/user_location_events_show.go"
+      "file_path": "internal/cli/user_location_events_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/user_location_event_policy.rb"
+      "file_path": "app/resources/v1/user_location_event_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/models/user_location_event.rb"
+      "file_path": "app/models/user_location_event.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/user_location_event_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

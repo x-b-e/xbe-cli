@@ -1,9 +1,19 @@
 {
   "description": "Show job production plan subscription details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view job-production-plan-subscriptions show",
   "id": "5b891a84fe88c972996fa18f219a656f7f5037fd42e2591fb9f5102250db4f54",
-  "permissions": "Available to users visible in policy scope: admins; customer members (or broker members for the customer) see subscriptions for their customer job production plans; material supplier members see only their own subscriptions tied to job production plans that use their material sites.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,9 +21,17 @@
       "repo_name": "cli"
     },
     {
+      "file_path": "app/resources/v1/job_production_plan_subscription_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/job_production_plan_subscription.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/job_production_plan_subscription_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "<id> argument is required and must be a job production plan subscription ID."
+  "validation_notes": null
 }

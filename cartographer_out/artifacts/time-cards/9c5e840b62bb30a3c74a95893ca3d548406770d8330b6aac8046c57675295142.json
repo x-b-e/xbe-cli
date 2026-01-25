@@ -1,27 +1,37 @@
 {
-  "id": "9c5e840b62bb30a3c74a95893ca3d548406770d8330b6aac8046c57675295142",
+  "description": "Show time card details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-cards show",
-  "description": "Show time card details.",
-  "permissions": "User must be in TimeCard policy scope: admin users can view all; non-admins can view time cards tied to their broker membership, customer membership, managed truckers, or trucker membership when they are the seller operations contact, a managed driver, or a shift driver on the tender job schedule shift.",
+  "id": "9c5e840b62bb30a3c74a95893ca3d548406770d8330b6aac8046c57675295142",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_cards_show.go"
+      "file_path": "internal/cli/time_cards_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/time_card_resource.rb"
+      "file_path": "app/resources/v1/time_card_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_card_policy.rb"
+      "file_path": "app/models/time_card.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/time_cards_controller.rb"
+      "file_path": "app/policies/time_card_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

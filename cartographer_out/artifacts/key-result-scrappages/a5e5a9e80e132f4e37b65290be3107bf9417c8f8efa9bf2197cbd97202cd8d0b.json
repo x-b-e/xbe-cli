@@ -1,23 +1,33 @@
 {
-  "id": "a5e5a9e80e132f4e37b65290be3107bf9417c8f8efa9bf2197cbd97202cd8d0b",
+  "description": "Show key result scrappage details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view key-result-scrappages show",
-  "description": "Show full details of a key result scrappage.",
+  "id": "a5e5a9e80e132f4e37b65290be3107bf9417c8f8efa9bf2197cbd97202cd8d0b",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (key result scrappage ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/key_result_scrappages_show.go"
+      "file_path": "internal/cli/key_result_scrappages_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/key_result_scrappage_resource.rb"
+      "file_path": "app/resources/v1/key_result_scrappage_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/concerns/action_resource.rb"
+      "file_path": "app/policies/key_result_scrappage_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

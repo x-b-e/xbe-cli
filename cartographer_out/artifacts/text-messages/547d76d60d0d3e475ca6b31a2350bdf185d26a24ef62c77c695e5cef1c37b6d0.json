@@ -1,19 +1,33 @@
 {
-  "id": "547d76d60d0d3e475ca6b31a2350bdf185d26a24ef62c77c695e5cef1c37b6d0",
-  "full_path": "view text-messages show",
   "description": "Show text message details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view text-messages show",
+  "id": "547d76d60d0d3e475ca6b31a2350bdf185d26a24ef62c77c695e5cef1c37b6d0",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <sid> argument (Twilio message SID) is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/text_messages_show.go"
+      "file_path": "internal/cli/text_messages_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/text_message_resource.rb"
+      "file_path": "app/resources/v1/text_message_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/text_message.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

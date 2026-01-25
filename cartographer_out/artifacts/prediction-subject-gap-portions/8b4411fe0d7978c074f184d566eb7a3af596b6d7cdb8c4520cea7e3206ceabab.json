@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a prediction subject gap portion.",
-  "flags": [],
+  "description": "Show prediction subject gap portion details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view prediction-subject-gap-portions show",
   "id": "8b4411fe0d7978c074f184d566eb7a3af596b6d7cdb8c4520cea7e3206ceabab",
-  "permissions": "Visible to admins and users who can access the related prediction subject via policy scope: prediction subject members and broker admins for the prediction subject.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,25 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/prediction_subject_gap_portion_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/prediction_subject_gap_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/prediction_subject_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "spec/policies/prediction_subject_gap_portion_policy_spec.rb",
-      "repo_name": "server"
-    },
-    {
       "file_path": "app/resources/v1/prediction_subject_gap_portion_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/prediction_subject_gap_portion.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/prediction_subject_gap_portion_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The <id> argument is required."
+  "validation_notes": null
 }

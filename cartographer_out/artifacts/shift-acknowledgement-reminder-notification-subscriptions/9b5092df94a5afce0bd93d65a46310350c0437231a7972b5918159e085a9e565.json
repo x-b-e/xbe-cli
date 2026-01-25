@@ -1,9 +1,19 @@
 {
-  "description": "Show shift acknowledgement reminder notification subscription details.",
-  "flags": [],
+  "description": "Show shift acknowledgement reminder notification subscription details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view shift-acknowledgement-reminder-notification-subscriptions show",
   "id": "9b5092df94a5afce0bd93d65a46310350c0437231a7972b5918159e085a9e565",
-  "permissions": "Visible to admins. Non-admins can view subscriptions for truckers where they are a trucker manager or a member of the trucker's broker; scope is limited to those truckers.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -19,5 +29,5 @@
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument."
+  "validation_notes": null
 }

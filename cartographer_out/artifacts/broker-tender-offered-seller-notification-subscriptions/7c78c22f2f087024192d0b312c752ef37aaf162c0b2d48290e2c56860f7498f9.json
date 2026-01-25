@@ -1,23 +1,33 @@
 {
-  "id": "7c78c22f2f087024192d0b312c752ef37aaf162c0b2d48290e2c56860f7498f9",
+  "description": "Show broker tender offered seller notification subscription details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view broker-tender-offered-seller-notification-subscriptions show",
-  "description": "Show broker tender offered seller notification subscription details.",
-  "permissions": "User can view subscriptions for truckers they are a member of or truckers belonging to brokers they are a member of.",
+  "id": "7c78c22f2f087024192d0b312c752ef37aaf162c0b2d48290e2c56860f7498f9",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Subscription ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/broker_tender_offered_seller_notification_subscriptions_show.go"
+      "file_path": "internal/cli/broker_tender_offered_seller_notification_subscriptions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/broker_tender_offered_seller_notification_subscription_policy.rb"
+      "file_path": "app/resources/v1/broker_tender_offered_seller_notification_subscription_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/broker_tender_offered_seller_notification_subscription_resource.rb"
+      "file_path": "app/policies/broker_tender_offered_seller_notification_subscription_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

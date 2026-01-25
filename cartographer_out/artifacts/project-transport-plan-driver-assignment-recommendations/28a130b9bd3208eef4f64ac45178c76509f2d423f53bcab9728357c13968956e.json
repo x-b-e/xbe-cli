@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a project transport plan driver assignment recommendation.",
-  "flags": [],
+  "description": "Show project transport plan driver assignment recommendation details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view project-transport-plan-driver-assignment-recommendations show",
   "id": "28a130b9bd3208eef4f64ac45178c76509f2d423f53bcab9728357c13968956e",
-  "permissions": "User must be authorized to view project transport plan driver assignment recommendations. For non-admin users, access is limited to recommendations whose project_transport_plan_driver is within the ProjectTransportPlanDriver policy scope (delegated to the related project transport plan).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,9 +25,13 @@
       "repo_name": "server"
     },
     {
+      "file_path": "app/models/project_transport_plan_driver_assignment_recommendation.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/project_transport_plan_driver_assignment_recommendation_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Recommendation id argument is required and must be non-empty."
+  "validation_notes": null
 }

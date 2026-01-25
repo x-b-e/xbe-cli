@@ -1,23 +1,37 @@
 {
-  "id": "0d9267b8eed926b04f22e9cb732e76810f4b5241bf4f8b3c2d756bd633b14430",
-  "full_path": "view inventory-estimates show",
   "description": "Show inventory estimate details",
-  "permissions": "Admins can view inventory estimate details. Non-admins can view inventory estimates for material sites whose material supplier broker is in their visible member brokers or whose material supplier is in their visible material suppliers.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view inventory-estimates show",
+  "id": "0d9267b8eed926b04f22e9cb732e76810f4b5241bf4f8b3c2d756bd633b14430",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (inventory estimate ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/inventory_estimates_show.go"
+      "file_path": "internal/cli/inventory_estimates_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/inventory_estimate_resource.rb"
+      "file_path": "app/resources/v1/inventory_estimate_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/inventory_estimate_policy.rb"
+      "file_path": "app/models/inventory_estimate.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/inventory_estimate_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

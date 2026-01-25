@@ -1,23 +1,37 @@
 {
-  "id": "23438da7a451f88c3de85b19ea2fba4b79b5100138ebc72c16e181d130b60c71",
+  "description": "View the full content of a specific post",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view posts show",
-  "description": "Show the full details of a specific post.",
-  "permissions": "Users can view posts they created, and published posts that appear in their user post feed; other posts are not included in the non-admin scope.",
+  "id": "23438da7a451f88c3de85b19ea2fba4b79b5100138ebc72c16e181d130b60c71",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument for the post ID.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/posts_show.go"
+      "file_path": "internal/cli/posts_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/post_policy.rb"
+      "file_path": "app/resources/v1/post_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/post_resource.rb"
+      "file_path": "app/models/post.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/post_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

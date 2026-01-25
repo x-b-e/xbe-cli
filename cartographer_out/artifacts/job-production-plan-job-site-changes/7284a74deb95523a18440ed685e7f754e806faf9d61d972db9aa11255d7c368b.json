@@ -1,27 +1,37 @@
 {
-  "id": "7284a74deb95523a18440ed685e7f754e806faf9d61d972db9aa11255d7c368b",
+  "description": "Show full details of a job site change",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view job-production-plan-job-site-changes show",
-  "description": "Show the full details of a job production plan job site change.",
-  "permissions": "Visible to users within the JobProductionPlanJobSiteChangePolicy scope (non-admin access limited to job production plans in policy scope).",
+  "id": "7284a74deb95523a18440ed685e7f754e806faf9d61d972db9aa11255d7c368b",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (job site change ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/job_production_plan_job_site_changes_show.go"
+      "file_path": "internal/cli/job_production_plan_job_site_changes_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/job_production_plan_job_site_changes.go"
+      "file_path": "app/resources/v1/job_production_plan_job_site_change_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/job_production_plan_job_site_change_policy.rb"
+      "file_path": "app/models/job_production_plan_job_site_change.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/job_production_plan_job_site_change_resource.rb"
+      "file_path": "app/policies/job_production_plan_job_site_change_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

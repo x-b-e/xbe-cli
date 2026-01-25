@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a developer trucker certification multiplier.",
-  "flags": [],
+  "description": "Show multiplier details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view developer-trucker-certification-multipliers show",
   "id": "2ece9357e99b543063f830885f8a5d2635526851205f99b9ddb09fa318a27619",
-  "permissions": "Allowed when the record is within the DeveloperTruckerCertificationMultiplierPolicy scope delegated through the related developer trucker certification to the developer policy; admins and users with applicable broker/customer/developer memberships can view.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,17 +25,13 @@
       "repo_name": "server"
     },
     {
+      "file_path": "app/models/developer_trucker_certification_multiplier.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/developer_trucker_certification_multiplier_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/developer_trucker_certification_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/developer_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument."
+  "validation_notes": null
 }

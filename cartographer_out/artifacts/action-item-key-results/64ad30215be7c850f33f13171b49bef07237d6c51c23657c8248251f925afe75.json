@@ -1,9 +1,19 @@
 {
   "description": "Show action item key result details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view action-item-key-results show",
   "id": "64ad30215be7c850f33f13171b49bef07237d6c51c23657c8248251f925afe75",
-  "permissions": "User must be authorized to access the related key result via the ActionItemKeyResultPolicy delegated to KeyResultPolicy.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,17 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/action_item_key_result_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/key_result_policy.rb",
-      "repo_name": "server"
-    },
-    {
       "file_path": "app/resources/v1/action_item_key_result_resource.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/models/action_item_key_result.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/action_item_key_result_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument (action item key result ID)."
+  "validation_notes": null
 }

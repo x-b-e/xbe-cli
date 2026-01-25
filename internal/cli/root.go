@@ -48,6 +48,7 @@ var lastExecutedCmd *cobra.Command
 
 func init() {
 	initHelp(rootCmd)
+	initSparseFieldFlags(rootCmd)
 	rootCmd.AddCommand(versionCmd)
 
 	// Set up telemetry hook for span creation
@@ -76,7 +77,8 @@ func ExecuteContext(ctx context.Context, tp *telemetry.Provider) error {
 
 func telemetryPreRun(cmd *cobra.Command, args []string) error {
 	if telemetryProvider == nil || !telemetryProvider.Enabled() {
-		return nil
+		setJSONOmitNulls(cmd)
+		return applySparseFieldOverrides(cmd)
 	}
 
 	ctx := cmd.Context()
@@ -106,6 +108,11 @@ func telemetryPreRun(cmd *cobra.Command, args []string) error {
 	ctx = context.WithValue(ctx, spanKey, span)
 	ctx = context.WithValue(ctx, startTimeKey, time.Now())
 	cmd.SetContext(ctx)
+
+	if err := applySparseFieldOverrides(cmd); err != nil {
+		return err
+	}
+	setJSONOmitNulls(cmd)
 
 	// Track this command for finalization
 	lastExecutedCmd = cmd

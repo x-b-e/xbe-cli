@@ -1,23 +1,37 @@
 {
-  "id": "85fa6c51bc80bab601c349103812fba913214c14ebb5335d82de888ed38a1ea0",
+  "description": "Show shift set time card constraint details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view shift-set-time-card-constraints show",
-  "description": "Show shift set time card constraint details.",
-  "permissions": "User must be within the policy scope for shift set time card constraints, which is limited to rate agreements and tenders accessible to the user (broker/customer tender scope or rate agreement scope).",
+  "id": "85fa6c51bc80bab601c349103812fba913214c14ebb5335d82de888ed38a1ea0",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required and must be a non-empty constraint ID.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/shift_set_time_card_constraints_show.go"
+      "file_path": "internal/cli/shift_set_time_card_constraints_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/shift_set_time_card_constraint_resource.rb"
+      "file_path": "app/resources/v1/shift_set_time_card_constraint_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/shift_set_time_card_constraint_policy.rb"
+      "file_path": "app/models/shift_set_time_card_constraint.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/shift_set_time_card_constraint_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

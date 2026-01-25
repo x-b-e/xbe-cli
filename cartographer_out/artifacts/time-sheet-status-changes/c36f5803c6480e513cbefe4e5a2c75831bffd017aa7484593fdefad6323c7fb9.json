@@ -1,31 +1,37 @@
 {
-  "id": "c36f5803c6480e513cbefe4e5a2c75831bffd017aa7484593fdefad6323c7fb9",
-  "full_path": "view time-sheet-status-changes show",
   "description": "Show time sheet status change details",
-  "permissions": "Visible only for time sheet status changes whose time_sheet is within the user TimeSheet policy scope.",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view time-sheet-status-changes show",
+  "id": "c36f5803c6480e513cbefe4e5a2c75831bffd017aa7484593fdefad6323c7fb9",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "<id> argument is required and must be non-empty.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_sheet_status_changes_show.go"
+      "file_path": "internal/cli/time_sheet_status_changes_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/time_sheet_status_change_resource.rb"
+      "file_path": "app/resources/v1/time_sheet_status_change_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/concerns/status_changes_resource.rb"
+      "file_path": "app/models/time_sheet_status_change.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_sheet_status_change_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/models/concerns/action_model.rb"
+      "file_path": "app/policies/time_sheet_status_change_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

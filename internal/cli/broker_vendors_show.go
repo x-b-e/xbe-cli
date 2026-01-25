@@ -56,6 +56,7 @@ func init() {
 
 func initBrokerVendorsShowFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool("json", false, "Output JSON")
+	cmd.Flags().Bool("omit-null", false, "Omit null values in JSON output")
 	cmd.Flags().Bool("no-auth", false, "Disable auth token lookup")
 	cmd.Flags().String("base-url", defaultBaseURL(), "API base URL")
 	cmd.Flags().String("token", "", "API token (optional)")
@@ -100,6 +101,15 @@ func runBrokerVendorsShow(cmd *cobra.Command, args []string) error {
 	if err := json.Unmarshal(body, &resp); err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
+	}
+
+	handled, err := renderSparseShowIfRequested(cmd, resp)
+	if err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
+	if handled {
+		return nil
 	}
 
 	details := buildBrokerVendorDetails(resp)

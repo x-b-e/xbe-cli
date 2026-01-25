@@ -1,31 +1,37 @@
 {
-  "id": "5f3b8f9250d48d6c98a3c4e980f47205cb1ce5db5d553539f3cba335271200f7",
-  "full_path": "view objective-changes show",
   "description": "Show objective change details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
+  "full_path": "view objective-changes show",
+  "id": "5f3b8f9250d48d6c98a3c4e980f47205cb1ce5db5d553539f3cba335271200f7",
   "permissions": null,
   "side_effects": null,
-  "validation_notes": "Objective change ID is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/objective_changes_show.go"
+      "file_path": "internal/cli/objective_changes_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/objective_changes.go"
+      "file_path": "app/resources/v1/objective_change_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/controllers/v1/objective_changes_controller.rb"
+      "file_path": "app/models/objective_change.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/objective_change_policy.rb"
-    },
-    {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/objective_change_resource.rb"
+      "file_path": "app/policies/objective_change_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

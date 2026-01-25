@@ -1,23 +1,37 @@
 {
-  "id": "49cb5c1c746c2690691fe6f49532c0954bf659568b0636a4fcfa5ef1915adb6f",
+  "description": "Show time sheet no-show details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view time-sheet-no-shows show",
-  "description": "Show the full details of a time sheet no-show.",
-  "permissions": "User must be authorized to view the related time sheet; access is delegated to the time sheet policy via DelegatedPolicy.",
+  "id": "49cb5c1c746c2690691fe6f49532c0954bf659568b0636a4fcfa5ef1915adb6f",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/time_sheet_no_shows_show.go"
+      "file_path": "internal/cli/time_sheet_no_shows_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/time_sheet_no_show_policy.rb"
+      "file_path": "app/resources/v1/time_sheet_no_show_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/concerns/delegated_policy.rb"
+      "file_path": "app/models/time_sheet_no_show.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/time_sheet_no_show_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

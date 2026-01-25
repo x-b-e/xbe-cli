@@ -1,23 +1,37 @@
 {
-  "id": "a00f9ad7efa77a78c3279d36a35650dc08ea1eef6d505313f764fcbd980d6185",
+  "description": "Show release redemption details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view material-purchase-order-release-redemptions show",
-  "description": "Show the full details of a material purchase order release redemption.",
-  "permissions": "User must be an admin, a broker/customer/material supplier member on the linked purchase order, a manager member of the release trucker, or the tender job schedule shift seller operations contact.",
+  "id": "a00f9ad7efa77a78c3279d36a35650dc08ea1eef6d505313f764fcbd980d6185",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires <id> argument (release redemption ID).",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/material_purchase_order_release_redemptions_show.go"
+      "file_path": "internal/cli/material_purchase_order_release_redemptions_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/material_purchase_order_release_redemption_resource.rb"
+      "file_path": "app/resources/v1/material_purchase_order_release_redemption_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/material_purchase_order_release_redemption_policy.rb"
+      "file_path": "app/models/material_purchase_order_release_redemption.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/material_purchase_order_release_redemption_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

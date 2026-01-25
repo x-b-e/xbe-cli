@@ -1,23 +1,37 @@
 {
-  "id": "4d83dd997ac21c65382c59a5e6f054f431f7bbde19168bec056611633ba4850d",
+  "description": "Show stop details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view equipment-movement-stops show",
-  "description": "Show the full details of an equipment movement stop.",
-  "permissions": "Allowed for users authorized to view the related equipment movement trip; access is delegated to the trip relationship.",
+  "id": "4d83dd997ac21c65382c59a5e6f054f431f7bbde19168bec056611633ba4850d",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The <id> argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/equipment_movement_stops_show.go"
+      "file_path": "internal/cli/equipment_movement_stops_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/equipment_movement_stop_resource.rb"
+      "file_path": "app/resources/v1/equipment_movement_stop_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/equipment_movement_stop_policy.rb"
+      "file_path": "app/models/equipment_movement_stop.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/equipment_movement_stop_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

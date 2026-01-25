@@ -1,9 +1,19 @@
 {
   "description": "Show organization invoices batch PDF generation details",
-  "flags": [],
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view organization-invoices-batch-pdf-generations show",
   "id": "79ba6c5c919bc2c29585bb88ecdbfb0342382ecbf8e8601bad6e44b2c9c4c7ed",
-  "permissions": "Allowed if the PDF generation record is visible in the OrganizationInvoicesBatchPdfGeneration policy scope (delegated to the related organization invoices batch).",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -15,17 +25,13 @@
       "repo_name": "server"
     },
     {
+      "file_path": "app/models/organization_invoices_batch_pdf_generation.rb",
+      "repo_name": "server"
+    },
+    {
       "file_path": "app/policies/organization_invoices_batch_pdf_generation_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/application_policy.rb",
-      "repo_name": "server"
-    },
-    {
-      "file_path": "app/policies/concerns/delegated_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "The <id> argument is required."
+  "validation_notes": null
 }

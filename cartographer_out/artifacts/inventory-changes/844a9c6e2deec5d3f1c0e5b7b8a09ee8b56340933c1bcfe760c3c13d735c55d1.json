@@ -1,23 +1,37 @@
 {
-  "id": "844a9c6e2deec5d3f1c0e5b7b8a09ee8b56340933c1bcfe760c3c13d735c55d1",
+  "description": "View full inventory change details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view inventory-changes show",
-  "description": "Show the full details of a specific inventory change.",
-  "permissions": "Admins can view all inventory changes. Non-admins can view inventory changes for material suppliers they are manager members of or for brokers they are manager members of (via the material supplier).",
+  "id": "844a9c6e2deec5d3f1c0e5b7b8a09ee8b56340933c1bcfe760c3c13d735c55d1",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "Requires an inventory change ID argument.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/inventory_changes_show.go"
+      "file_path": "internal/cli/inventory_changes_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/inventory_change_resource.rb"
+      "file_path": "app/resources/v1/inventory_change_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/inventory_change_policy.rb"
+      "file_path": "app/models/inventory_change.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/inventory_change_policy.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

@@ -1,27 +1,37 @@
 {
-  "id": "26234b172d406ddc13bd73be1d722f6cf7b723522f7302548a63ee4636d839ec",
+  "description": "Show trucker invoice details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view trucker-invoices show",
-  "description": "Show the full details of a trucker invoice.",
-  "permissions": "Requires invoice visibility: admin users, or members of a customer buyer (including management-service invoices for their customer IDs), manager members of the trucker seller, or members of a broker associated with the invoice.",
+  "id": "26234b172d406ddc13bd73be1d722f6cf7b723522f7302548a63ee4636d839ec",
+  "permissions": null,
   "side_effects": null,
-  "validation_notes": "The trucker invoice ID argument is required.",
-  "flags": [],
   "sources": [
     {
-      "repo_name": "cli",
-      "file_path": "internal/cli/trucker_invoices_show.go"
+      "file_path": "internal/cli/trucker_invoices_show.go",
+      "repo_name": "cli"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/invoice_resource.rb"
+      "file_path": "app/resources/v1/trucker_invoice_resource.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/resources/v1/trucker_invoice_resource.rb"
+      "file_path": "app/policies/trucker_invoice_policy.rb",
+      "repo_name": "server"
     },
     {
-      "repo_name": "server",
-      "file_path": "app/policies/invoice_policy.rb"
+      "file_path": "app/serializers/trucker_invoice_serializer.rb",
+      "repo_name": "server"
     }
-  ]
+  ],
+  "validation_notes": null
 }

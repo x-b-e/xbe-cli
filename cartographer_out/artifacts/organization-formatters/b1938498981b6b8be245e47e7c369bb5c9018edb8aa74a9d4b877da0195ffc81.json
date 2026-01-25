@@ -1,9 +1,19 @@
 {
-  "description": "Show the full details of a specific organization formatter.",
-  "flags": [],
+  "description": "Show organization formatter details",
+  "flags": [
+    {
+      "aliases": null,
+      "default": null,
+      "description": "null values in JSON output",
+      "name": "--omit-null",
+      "required": false,
+      "type": "string",
+      "validation": null
+    }
+  ],
   "full_path": "view organization-formatters show",
   "id": "b1938498981b6b8be245e47e7c369bb5c9018edb8aa74a9d4b877da0195ffc81",
-  "permissions": "Any authenticated user can view organization formatter details. Non-admin users can only view formatters tied to organizations where they are members (manager for non-broker orgs) or members of the broker organization; admins can view all.",
+  "permissions": null,
   "side_effects": null,
   "sources": [
     {
@@ -11,13 +21,17 @@
       "repo_name": "cli"
     },
     {
-      "file_path": "app/policies/organization_formatter_policy.rb",
+      "file_path": "app/resources/v1/organization_formatter_resource.rb",
       "repo_name": "server"
     },
     {
-      "file_path": "app/resources/v1/organization_formatter_resource.rb",
+      "file_path": "app/models/organization_formatter.rb",
+      "repo_name": "server"
+    },
+    {
+      "file_path": "app/policies/organization_formatter_policy.rb",
       "repo_name": "server"
     }
   ],
-  "validation_notes": "Requires <id> argument. Resource scope limits visibility to permitted organizations for non-admin users."
+  "validation_notes": null
 }
