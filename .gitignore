@@ -12,3 +12,8 @@
 logs/
 tmp/
 .outer_loop_scripts/
+cartographer_out/*
+!cartographer_out/artifacts/
+!cartographer_out/artifacts/**
+!cartographer_out/db/
+!cartographer_out/db/**

@@ -1,0 +1,67 @@
+{
+  "cli": {
+    "root_path": "/Users/seandevine/Code/xbe-cli",
+    "search_paths": [
+      "internal/cli",
+      "cmd/xbe"
+    ],
+    "structure_hint": "CLI repo (this repo). Commands are defined in internal/cli; entrypoint is cmd/xbe/main.go. Each command file typically maps to a noun/verb (e.g., do_* or *_list) and wires flags and descriptions."
+  },
+  "client": {
+    "root_path": "/Users/seandevine/Code/client",
+    "search_paths": [
+      "app/routes",
+      "app/templates",
+      "app/components",
+      "app/controllers",
+      "app/models",
+      "app/adapters",
+      "app/serializers",
+      "app/transforms",
+      "app/services",
+      "app/validators",
+      "app/helpers",
+      "app/modifiers",
+      "app/utilities",
+      "app/utils",
+      "app/constants",
+      "app/styles"
+    ],
+    "structure_hint": "Client repo is an Ember app. Route map lives in app/router.js; each route typically has a class in app/routes/<route>.js and a template in app/templates/<route>.hbs. Reusable UI lives in app/components (template-only components are often .hbs files there; some templates can also live in app/templates/components); controllers in app/controllers mirror route names and hold state/actions. Data models are in app/models/<model>.js, with Ember Data behavior in app/adapters, app/serializers, and app/transforms (files usually named after the model). Shared state/logic lives in app/services; validation rules are in app/validators. Helpers and modifiers are in app/helpers and app/modifiers; utilities are in app/utilities and app/utils. Constants and config live in app/constants and app/config; styling is in app/styles. For UI text or form behavior, start with templates + components, then trace to route/controller and services."
+  },
+  "server": {
+    "root_path": "/Users/seandevine/Code/server",
+    "search_paths": [
+      "app/controllers",
+      "app/resources",
+      "app/models",
+      "app/policies",
+      "app/serializers",
+      "app/services",
+      "app/queries",
+      "app/validators",
+      "app/processors",
+      "app/formatters",
+      "app/value_formatters",
+      "app/workers",
+      "app/mailers",
+      "app/txters",
+      "app/notifiers",
+      "app/views",
+      "config",
+      "lib",
+      "db/structure_split",
+      "spec/controllers",
+      "spec/requests",
+      "spec/resources",
+      "spec/models",
+      "spec/policies",
+      "spec/services",
+      "spec/serializers",
+      "spec/queries",
+      "spec/validators",
+      "spec/workers"
+    ],
+    "structure_hint": "Server repo is a Rails monolith. Routes are wired in config/routes.rb and point into app/controllers (v1 is the JSON API surface; controller filenames are plural *_controller.rb and generally map to resources). API resources live in app/resources/v1 (JSONAPI::Resources-style classes) with filenames *_resource.rb; they usually mirror controller/model names and define attributes, relationships, and filtering. Authorization is handled in app/policies with *_policy.rb; domain data/persistence is in app/models with filenames matching the class. Business logic is split across app/services (orchestrators), app/queries (read/query objects), app/validators (custom validation), and app/processors/formatters/value_formatters for data shaping. Background jobs run in app/workers (Sidekiq). Notifications and outbound messaging live in app/mailers, app/txters, and app/notifiers. Shared framework/extensions can live in lib; schema snapshots live in db/structure_split. Specs are in spec/controllers, spec/requests, spec/resources, spec/policies, spec/models, spec/services, spec/serializers, spec/queries, spec/validators, and spec/workers; they often show expected params, permission outcomes, and validations. To trace an endpoint: routes.rb -> controller -> resource -> policy -> model/service."
+  }
+}

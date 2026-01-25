@@ -74,6 +74,10 @@ xbe
 │   │   ├── create           Create a driver day adjustment plan
 │   │   ├── update           Update a driver day adjustment plan
 │   │   └── delete           Delete a driver day adjustment plan
+│   ├── project-material-types Manage project material types
+│   │   ├── create           Create a project material type
+│   │   ├── update           Update a project material type
+│   │   └── delete           Delete a project material type
 │   ├── lane-summary         Generate lane (cycle) summaries
 │   │   └── create           Create a lane summary
 │   ├── material-transaction-summary  Generate material transaction summaries
@@ -105,6 +109,9 @@ xbe
 │   ├── driver-day-adjustment-plans Browse driver day adjustment plans
 │   │   ├── list            List driver day adjustment plans
 │   │   └── show <id>       Show driver day adjustment plan details
+│   ├── project-material-types Browse project material types
+│   │   ├── list            List project material types with filtering
+│   │   └── show <id>       Show project material type details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
