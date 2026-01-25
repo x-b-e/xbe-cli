@@ -433,6 +433,8 @@ xbe
 │   │   ├── create           Create a GoMotive integration
 │   │   ├── update           Update a GoMotive integration
 │   │   └── delete           Delete a GoMotive integration
+│   ├── keep-truckin-vehicles  Manage KeepTruckin vehicles
+│   │   └── update           Update a KeepTruckin vehicle
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -625,6 +627,9 @@ xbe
 │   ├── go-motive-integrations  Browse GoMotive integrations
 │   │   ├── list            List GoMotive integrations with filtering
 │   │   └── show <id>       Show GoMotive integration details
+│   ├── keep-truckin-vehicles  Browse KeepTruckin vehicles
+│   │   ├── list            List KeepTruckin vehicles with filtering
+│   │   └── show <id>       Show KeepTruckin vehicle details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
