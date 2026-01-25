@@ -36,6 +36,7 @@ var resourceCategories = map[string][]string{
 	"broker-memberships":                {CatOrganizations},
 	"broker-retainer-payment-forecasts": {CatOrganizations},
 	"brokers":                           {CatOrganizations},
+	"prediction-knowledge-base-answers": {CatOrganizations},
 	"prediction-knowledge-bases":        {CatOrganizations},
 	"prediction-subjects":               {CatOrganizations},
 	"business-unit-memberships":         {CatOrganizations},

@@ -156,6 +156,7 @@ places
 posts
 post-routers
 post-router-jobs
+prediction-knowledge-base-answers
 prediction-knowledge-bases
 prediction-subject-recap-generations
 press-releases
@@ -778,7 +779,6 @@ post-children
 post-router-jobs
 post-routers
 post-views
-prediction-knowledge-base-answers
 prediction-knowledge-base-questions
 prompters
 questions

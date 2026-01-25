@@ -714,6 +714,9 @@ xbe
 │   ├── project-margin-matrices Browse project margin matrices
 │   │   ├── list            List project margin matrices
 │   │   └── show <id>       Show project margin matrix details
+│   ├── prediction-knowledge-base-answers Browse prediction knowledge base answers
+│   │   ├── list            List prediction knowledge base answers
+│   │   └── show <id>       Show prediction knowledge base answer details
 │   ├── prediction-knowledge-bases Browse prediction knowledge bases
 │   │   ├── list            List prediction knowledge bases
 │   │   └── show <id>       Show prediction knowledge base details
