@@ -429,6 +429,10 @@ xbe
 │   │   └── update           Update a Deere equipment
 │   ├── digital-fleet-trucks  Manage digital fleet trucks
 │   │   └── update           Update a digital fleet truck
+│   ├── go-motive-integrations  Manage GoMotive integrations
+│   │   ├── create           Create a GoMotive integration
+│   │   ├── update           Update a GoMotive integration
+│   │   └── delete           Delete a GoMotive integration
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -615,6 +619,9 @@ xbe
 │   ├── digital-fleet-trucks  Browse digital fleet trucks
 │   │   ├── list            List digital fleet trucks with filtering
 │   │   └── show <id>       Show digital fleet truck details
+│   ├── go-motive-integrations  Browse GoMotive integrations
+│   │   ├── list            List GoMotive integrations with filtering
+│   │   └── show <id>       Show GoMotive integration details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
