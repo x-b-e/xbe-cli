@@ -395,6 +395,8 @@ xbe
 │   │   └── update           Update a customer tender offered buyer notification
 │   ├── tender-job-schedule-shift-cancelled-trucker-contact-notifications Manage tender job schedule shift cancelled trucker contact notifications
 │   │   └── update           Update a tender job schedule shift cancelled trucker contact notification
+│   ├── tender-job-schedule-shift-starting-seller-notifications Manage tender job schedule shift starting seller notifications
+│   │   └── update           Update a tender job schedule shift starting seller notification
 │   ├── broker-tenders       Manage broker tenders
 │   │   ├── create           Create a broker tender
 │   │   ├── update           Update a broker tender
@@ -626,6 +628,9 @@ xbe
 │   ├── tender-job-schedule-shift-cancelled-trucker-contact-notifications Browse tender job schedule shift cancelled trucker contact notifications
 │   │   ├── list            List tender job schedule shift cancelled trucker contact notifications
 │   │   └── show <id>       Show tender job schedule shift cancelled trucker contact notification details
+│   ├── tender-job-schedule-shift-starting-seller-notifications Browse tender job schedule shift starting seller notifications
+│   │   ├── list            List tender job schedule shift starting seller notifications
+│   │   └── show <id>       Show tender job schedule shift starting seller notification details
 │   ├── notification-subscriptions Browse notification subscriptions
 │   │   ├── list            List notification subscriptions
 │   │   └── show <id>       Show notification subscription details
@@ -1091,6 +1096,22 @@ xbe view tender-job-schedule-shift-cancelled-trucker-contact-notifications show 
 
 # Mark as read
 xbe do tender-job-schedule-shift-cancelled-trucker-contact-notifications update 123 --read
+```
+
+### Tender Job Schedule Shift Starting Seller Notifications
+
+```bash
+# List notifications
+xbe view tender-job-schedule-shift-starting-seller-notifications list
+
+# Filter by read status
+xbe view tender-job-schedule-shift-starting-seller-notifications list --read false
+
+# Show notification details
+xbe view tender-job-schedule-shift-starting-seller-notifications show 123
+
+# Mark as read
+xbe do tender-job-schedule-shift-starting-seller-notifications update 123 --read
 ```
 
 ### Notification Subscriptions
