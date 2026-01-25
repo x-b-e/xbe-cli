@@ -104,6 +104,8 @@ xbe
 │   │   └── create           Generate a signed URL for a file attachment
 │   ├── login-code-requests  Request login codes
 │   │   └── create           Request a login code
+│   ├── post-routers         Manage post routers
+│   │   └── create           Create a post router
 │   ├── user-device-location-tracking-requests Request user device location tracking
 │   │   └── create           Send a location tracking request
 │   ├── user-location-requests Request user location
@@ -451,6 +453,9 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── post-routers        Browse post routers
+│   │   ├── list            List post routers with filtering
+│   │   └── show <id>       Show post router details
 │   ├── post-router-jobs    Browse post router jobs
 │   │   ├── list            List post router jobs with filtering
 │   │   └── show <id>       Show post router job details
@@ -890,6 +895,22 @@ xbe view posts show 789
 
 # Get JSON output for scripting
 xbe view posts list --json --limit 10
+```
+
+### Post Routers
+
+```bash
+# Create a post router for a post
+xbe do post-routers create --post 123
+
+# List post routers
+xbe view post-routers list
+
+# Filter by status
+xbe view post-routers list --status analyzing
+
+# Show post router details
+xbe view post-routers show 456
 ```
 
 ### Post Router Jobs
