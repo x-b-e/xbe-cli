@@ -490,6 +490,9 @@ xbe
 │   ├── posts               Browse and view posts
 │   │   ├── list            List posts with filtering
 │   │   └── show <id>       Show post details
+│   ├── post-actions        Browse post actions
+│   │   ├── list            List post actions with filtering
+│   │   └── show <id>       Show post action details
 │   ├── comment-reactions   Browse comment reactions
 │   │   ├── list            List comment reactions with filtering
 │   │   └── show <id>       Show comment reaction details
