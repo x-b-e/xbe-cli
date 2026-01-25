@@ -218,6 +218,7 @@ trucker-application-approvals
 trucker-invoices
 trucker-insurances
 truckers
+ui-tours
 unit-of-measures
 user-device-location-tracking-requests
 user-credential-classifications
@@ -797,7 +798,6 @@ tenna-vehicles
 text-messages
 textractions
 ui-tour-steps
-ui-tours
 user-post-feed-posts
 user-post-feeds
 user-ui-tours

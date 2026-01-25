@@ -980,6 +980,28 @@ xbe view post-router-jobs list --post-worker-class-name "Posters::FooWorker"
 xbe view post-router-jobs show 789
 ```
 
+### UI Tours
+
+```bash
+# List UI tours
+xbe view ui-tours list
+
+# Filter by abbreviation
+xbe view ui-tours list --abbreviation "driver-onboarding"
+
+# Show UI tour details
+xbe view ui-tours show 123
+
+# Create a UI tour
+xbe do ui-tours create --name "Driver Onboarding" --abbreviation "driver-onboarding"
+
+# Update a UI tour
+xbe do ui-tours update 123 --description "Updated walkthrough"
+
+# Delete a UI tour (requires --confirm)
+xbe do ui-tours delete 123 --confirm
+```
+
 ### Places
 
 ```bash
