@@ -130,6 +130,8 @@ xbe
 │   │   └── delete           Delete a glossary term
 │   ├── gauge-vehicles       Manage gauge vehicles
 │   │   └── update           Update gauge vehicle assignments
+│   ├── geotab-vehicles      Manage geotab vehicles
+│   │   └── update           Update geotab vehicle assignments
 │   ├── platform-statuses    Manage platform status updates
 │   │   ├── create           Create a platform status
 │   │   ├── update           Update a platform status
@@ -746,6 +748,9 @@ xbe
 │   ├── gauge-vehicles       Browse gauge vehicles
 │   │   ├── list            List gauge vehicles with filtering
 │   │   └── show <id>       Show gauge vehicle details
+│   ├── geotab-vehicles      Browse geotab vehicles
+│   │   ├── list            List geotab vehicles with filtering
+│   │   └── show <id>       Show geotab vehicle details
 │   └── glossary-terms      Browse glossary terms
 │       ├── list            List glossary terms with filtering
 │       └── show <id>       Show glossary term details
