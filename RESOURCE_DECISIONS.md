@@ -96,6 +96,7 @@ culture-values
 custom-work-order-statuses
 customer-application-approvals
 customer-settings
+customer-tender-offered-buyer-notifications
 customer-tenders
 customers
 developer-memberships

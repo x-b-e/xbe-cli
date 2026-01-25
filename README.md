@@ -345,6 +345,8 @@ xbe
 │   │   └── update           Update a broker tender cancelled seller notification
 │   ├── broker-tender-returned-buyer-notifications Manage broker tender returned buyer notifications
 │   │   └── update           Update a broker tender returned buyer notification
+│   ├── customer-tender-offered-buyer-notifications Manage customer tender offered buyer notifications
+│   │   └── update           Update a customer tender offered buyer notification
 │   ├── broker-tenders       Manage broker tenders
 │   │   ├── create           Create a broker tender
 │   │   ├── update           Update a broker tender
@@ -549,6 +551,9 @@ xbe
 │   ├── broker-tender-returned-buyer-notifications Browse broker tender returned buyer notifications
 │   │   ├── list            List broker tender returned buyer notifications
 │   │   └── show <id>       Show broker tender returned buyer notification details
+│   ├── customer-tender-offered-buyer-notifications Browse customer tender offered buyer notifications
+│   │   ├── list            List customer tender offered buyer notifications
+│   │   └── show <id>       Show customer tender offered buyer notification details
 │   ├── communications      Browse communications
 │   │   ├── list            List communications
 │   │   └── show <id>       Show communication details
@@ -908,6 +913,22 @@ xbe view broker-tender-returned-buyer-notifications show 123
 
 # Mark as read
 xbe do broker-tender-returned-buyer-notifications update 123 --read
+```
+
+### Customer Tender Offered Buyer Notifications
+
+```bash
+# List notifications
+xbe view customer-tender-offered-buyer-notifications list
+
+# Filter by read status
+xbe view customer-tender-offered-buyer-notifications list --read false
+
+# Show notification details
+xbe view customer-tender-offered-buyer-notifications show 123
+
+# Mark as read
+xbe do customer-tender-offered-buyer-notifications update 123 --read
 ```
 
 ### Communications
