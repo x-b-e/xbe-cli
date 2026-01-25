@@ -648,6 +648,9 @@ xbe
 │   ├── job-production-plan-alarm-subscribers  Browse job production plan alarm subscribers
 │   │   ├── list            List alarm subscribers with filtering
 │   │   └── show <id>       Show alarm subscriber details
+│   ├── notification-delivery-decisions  Browse notification delivery decisions
+│   │   ├── list            List notification delivery decisions with filtering
+│   │   └── show <id>       Show notification delivery decision details
 │   ├── broker-tender-offered-seller-notifications  Browse broker tender offered seller notifications
 │   │   ├── list            List notifications with filtering
 │   │   └── show <id>       Show notification details
