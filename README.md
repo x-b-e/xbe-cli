@@ -90,6 +90,10 @@ xbe
 │   │   ├── create           Create a Deere integration
 │   │   ├── update           Update a Deere integration
 │   │   └── delete           Delete a Deere integration
+│   ├── samsara-integrations Manage Samsara integrations
+│   │   ├── create           Create a Samsara integration
+│   │   ├── update           Update a Samsara integration
+│   │   └── delete           Delete a Samsara integration
 │   ├── exporter-configurations Manage exporter configurations
 │   │   ├── create           Create an exporter configuration
 │   │   ├── update           Update an exporter configuration
@@ -442,6 +446,9 @@ xbe
 │   ├── deere-integrations  Browse Deere integrations
 │   │   ├── list            List Deere integrations
 │   │   └── show <id>       Show Deere integration details
+│   ├── samsara-integrations Browse Samsara integrations
+│   │   ├── list            List Samsara integrations
+│   │   └── show <id>       Show Samsara integration details
 │   ├── exporter-configurations Browse exporter configurations
 │   │   ├── list            List exporter configurations
 │   │   └── show <id>       Show exporter configuration details
