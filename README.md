@@ -158,6 +158,8 @@ xbe
 │   │   └── update           Update temeda vehicle assignments
 │   ├── t3-equipmentshare-vehicles Manage T3 EquipmentShare vehicles
 │   │   └── update           Update T3 EquipmentShare vehicle assignments
+│   ├── verizon-reveal-vehicles Manage Verizon Reveal vehicles
+│   │   └── update           Update Verizon Reveal vehicle assignments
 │   ├── keep-truckin-users  Manage KeepTruckin users
 │   │   └── update           Update a KeepTruckin user assignment
 │   ├── platform-statuses    Manage platform status updates
@@ -848,6 +850,9 @@ xbe
 │   ├── t3-equipmentshare-vehicles Browse T3 EquipmentShare vehicles
 │   │   ├── list            List T3 EquipmentShare vehicles with filtering
 │   │   └── show <id>       Show T3 EquipmentShare vehicle details
+│   ├── verizon-reveal-vehicles Browse Verizon Reveal vehicles
+│   │   ├── list            List Verizon Reveal vehicles with filtering
+│   │   └── show <id>       Show Verizon Reveal vehicle details
 │   ├── keep-truckin-users  Browse KeepTruckin users
 │   │   ├── list            List KeepTruckin users with filtering
 │   │   └── show <id>       Show KeepTruckin user details
