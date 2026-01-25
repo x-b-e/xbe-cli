@@ -646,6 +646,9 @@ xbe
 │   ├── communications      Browse communications
 │   │   ├── list            List communications
 │   │   └── show <id>       Show communication details
+│   ├── text-messages       Browse text messages
+│   │   ├── list            List text messages
+│   │   └── show <id>       Show text message details
 │   ├── broker-tenders      Browse broker tenders
 │   │   ├── list            List broker tenders
 │   │   └── show <id>       Show broker tender details
@@ -1193,6 +1196,19 @@ xbe view communications list --delivery-status incoming_received
 
 # Show communication details
 xbe view communications show 123
+```
+
+### Text Messages
+
+```bash
+# List today's text messages
+xbe view text-messages list
+
+# Filter by recipient and date
+xbe view text-messages list --to +15551234567 --date-sent 2025-01-20
+
+# Show text message details
+xbe view text-messages show SM123
 ```
 
 ### Tenders
