@@ -549,6 +549,9 @@ xbe
 │   ├── broker-tender-returned-buyer-notifications Browse broker tender returned buyer notifications
 │   │   ├── list            List broker tender returned buyer notifications
 │   │   └── show <id>       Show broker tender returned buyer notification details
+│   ├── communications      Browse communications
+│   │   ├── list            List communications
+│   │   └── show <id>       Show communication details
 │   ├── broker-tenders      Browse broker tenders
 │   │   ├── list            List broker tenders
 │   │   └── show <id>       Show broker tender details
@@ -905,6 +908,20 @@ xbe view broker-tender-returned-buyer-notifications show 123
 
 # Mark as read
 xbe do broker-tender-returned-buyer-notifications update 123 --read
+```
+
+### Communications
+
+```bash
+# List communications
+xbe view communications list
+
+# Filter by subject or delivery status
+xbe view communications list --subject-type Project --subject-id 123
+xbe view communications list --delivery-status incoming_received
+
+# Show communication details
+xbe view communications show 123
 ```
 
 ### Tenders
