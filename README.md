@@ -456,6 +456,8 @@ xbe
 │   │   └── delete           Delete a GoMotive integration
 │   ├── keep-truckin-vehicles  Manage KeepTruckin vehicles
 │   │   └── update           Update a KeepTruckin vehicle
+│   ├── teletrac-navman-vehicles  Manage Teletrac Navman vehicles
+│   │   └── update           Update a Teletrac Navman vehicle
 │   ├── memberships          Manage user-organization memberships
 │   │   ├── create           Create a membership
 │   │   ├── update           Update a membership
@@ -668,6 +670,9 @@ xbe
 │   ├── keep-truckin-vehicles  Browse KeepTruckin vehicles
 │   │   ├── list            List KeepTruckin vehicles with filtering
 │   │   └── show <id>       Show KeepTruckin vehicle details
+│   ├── teletrac-navman-vehicles  Browse Teletrac Navman vehicles
+│   │   ├── list            List Teletrac Navman vehicles with filtering
+│   │   └── show <id>       Show Teletrac Navman vehicle details
 │   ├── memberships         Browse user-organization memberships
 │   │   ├── list            List memberships with filtering
 │   │   └── show <id>       Show membership details
