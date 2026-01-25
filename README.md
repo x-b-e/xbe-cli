@@ -178,6 +178,8 @@ xbe
 │   │   ├── create           Create an objective
 │   │   ├── update           Update an objective
 │   │   └── delete           Delete an objective
+│   ├── open-ai-realtime-sessions  Manage OpenAI realtime sessions
+│   │   └── create           Create an OpenAI realtime session
 │   ├── job-production-plan-change-sets        Manage job production plan change sets
 │   │   ├── create           Create a change set
 │   │   ├── update           Update a change set
@@ -692,6 +694,9 @@ xbe
 │   ├── objectives          Browse objectives
 │   │   ├── list            List objectives with filtering
 │   │   └── show <id>       Show objective details
+│   ├── open-ai-realtime-sessions  Browse OpenAI realtime sessions
+│   │   ├── list            List OpenAI realtime sessions with filtering
+│   │   └── show <id>       Show OpenAI realtime session details
 │   ├── key-result-status-changes  Browse key result status changes
 │   │   ├── list            List key result status changes
 │   │   └── show <id>       Show key result status change details
