@@ -241,6 +241,8 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 		fmt.Fprintln(out)
 		printGlobalFlags(out)
 		fmt.Fprintln(out)
+		printTimeNotes(out)
+		fmt.Fprintln(out)
 		printAuthOverview(out)
 		fmt.Fprintln(out)
 		printRunHelp(out)
@@ -735,6 +737,11 @@ func printGlobalFlags(out io.Writer) {
 	fmt.Fprintln(out, "  --fields             sparse fieldsets for list/show")
 	fmt.Fprintln(out, "  --base-url/--token/--no-auth  auth/targeting")
 	fmt.Fprintln(out, "  -h, --help           show help for any command")
+}
+
+func printTimeNotes(out io.Writer) {
+	fmt.Fprintln(out, "TIMEZONES:")
+	fmt.Fprintln(out, "  Timestamps are UTC unless explicitly labeled as local.")
 }
 
 func printAuthOverview(out io.Writer) {

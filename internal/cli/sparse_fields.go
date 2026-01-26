@@ -71,6 +71,7 @@ func fieldsHelpForResource(resource string) string {
 	if !ok {
 		return ""
 	}
+	spec.Attributes = appendUniversalFields(spec.Attributes)
 	lines := []string{
 		"Available fields:",
 	}
@@ -133,6 +134,8 @@ func fieldsHelpForResource(resource string) string {
 		}
 	}
 	lines = append(lines, "", "  Tip: Relationships automatically add <rel>-id (e.g., customer adds customer-id)")
+	lines = append(lines, "  Tip: created-at and updated-at are always available.")
+	lines = append(lines, "  Tip: timestamps are UTC unless labeled as local.")
 	return strings.Join(lines, "\n")
 }
 
@@ -153,7 +156,7 @@ func fieldsExamples(resource string) (string, string) {
 	if !ok {
 		return "", ""
 	}
-	attributes := append([]string(nil), spec.Attributes...)
+	attributes := append([]string(nil), appendUniversalFields(spec.Attributes)...)
 	sort.Strings(attributes)
 	attrExample := ""
 	if len(attributes) >= 2 {
@@ -284,6 +287,7 @@ func resolveSparseSelection(resource string, values []string) (sparseSelection, 
 	if !ok {
 		return sparseSelection{}, fmt.Errorf("--fields is not configured for resource %q yet", resource)
 	}
+	spec.Attributes = appendUniversalFields(spec.Attributes)
 	requested := parseFieldsValues(values)
 	if len(requested) == 0 {
 		return sparseSelection{}, fmt.Errorf("--fields requires at least one field")
@@ -301,6 +305,31 @@ func resolveSparseSelection(resource string, values []string) (sparseSelection, 
 		RelationLabels:   relationLabels,
 		RelationIDFields: relationIDFields,
 	}, nil
+}
+
+func appendUniversalFields(attributes []string) []string {
+	hasCreated := false
+	hasUpdated := false
+	for _, field := range attributes {
+		switch field {
+		case "created-at":
+			hasCreated = true
+		case "updated-at":
+			hasUpdated = true
+		}
+	}
+	if hasCreated && hasUpdated {
+		return attributes
+	}
+	out := make([]string, 0, len(attributes)+2)
+	out = append(out, attributes...)
+	if !hasCreated {
+		out = append(out, "created-at")
+	}
+	if !hasUpdated {
+		out = append(out, "updated-at")
+	}
+	return out
 }
 
 func buildSparseRows(resp jsonAPIResponse, selection sparseSelection) []map[string]any {
