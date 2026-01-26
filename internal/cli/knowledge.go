@@ -65,28 +65,39 @@ func init() {
 	rootCmd.AddCommand(knowledgeCmd)
 }
 
-func resolveKnowledgeDBPath(cmd *cobra.Command) string {
+func resolveKnowledgeDBPath(cmd *cobra.Command) (string, error) {
 	if value := strings.TrimSpace(os.Getenv(knowledgeDBEnv)); value != "" {
-		return value
+		return value, nil
 	}
 	if value, err := cmd.Flags().GetString("db"); err == nil && strings.TrimSpace(value) != "" {
-		return value
+		return value, nil
 	}
 	if value, err := cmd.InheritedFlags().GetString("db"); err == nil && strings.TrimSpace(value) != "" {
-		return value
+		return value, nil
 	}
-	return defaultKnowledgeDB
+	if path, err := ensureEmbeddedKnowledgeDB(); err == nil {
+		return path, nil
+	} else if err != nil {
+		if _, statErr := os.Stat(defaultKnowledgeDB); statErr == nil {
+			return defaultKnowledgeDB, nil
+		}
+		return "", err
+	}
+	return defaultKnowledgeDB, nil
 }
 
 func openKnowledgeDB(cmd *cobra.Command) (*sql.DB, string, error) {
-	path := resolveKnowledgeDBPath(cmd)
+	path, err := resolveKnowledgeDBPath(cmd)
+	if err != nil {
+		return nil, "", err
+	}
 	absPath, err := filepath.Abs(path)
 	if err != nil {
 		return nil, path, fmt.Errorf("resolve knowledge database path")
 	}
 	if _, err := os.Stat(absPath); err != nil {
 		if errors.Is(err, os.ErrNotExist) {
-			return nil, absPath, fmt.Errorf("knowledge database not found; run `python3 build_tools/compile.py` to generate it")
+			return nil, absPath, fmt.Errorf("knowledge database not found; reinstall the CLI or run build_tools/compile.py when building from source")
 		}
 		if os.IsPermission(err) {
 			return nil, absPath, fmt.Errorf("knowledge database is not accessible (permission denied)")

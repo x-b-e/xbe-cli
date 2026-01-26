@@ -6,6 +6,7 @@ import json
 import os
 import re
 import sqlite3
+import shutil
 import subprocess
 import tempfile
 from pathlib import Path
@@ -1571,6 +1572,9 @@ def main() -> None:
 
     conn.commit()
     conn.close()
+    embedded_db_path = repo_root / "internal" / "cli" / "knowledge_db" / "knowledge.sqlite"
+    embedded_db_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(db_path, embedded_db_path)
     print(f"Compiled {inserted} artifacts into {db_path} (skipped {skipped})")
 
 

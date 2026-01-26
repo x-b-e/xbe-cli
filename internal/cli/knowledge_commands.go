@@ -11,6 +11,9 @@ import (
 type knowledgeCommandRow struct {
 	Path        string `json:"path"`
 	Description string `json:"description,omitempty"`
+	Permissions string `json:"permissions,omitempty"`
+	SideEffects string `json:"side_effects,omitempty"`
+	Validation  string `json:"validation_notes,omitempty"`
 	Kind        string `json:"kind,omitempty"`
 	Verb        string `json:"verb,omitempty"`
 	Resource    string `json:"resource,omitempty"`
@@ -49,7 +52,8 @@ func runKnowledgeCommands(cmd *cobra.Command, _ []string) error {
 	ctx := context.Background()
 	args := []any{}
 	querySQL := `
-SELECT c.full_path, c.description, COALESCE(crl.command_kind, ''), COALESCE(crl.verb, ''), COALESCE(crl.resource, '')
+SELECT c.full_path, c.description, COALESCE(c.permissions, ''), COALESCE(c.side_effects, ''), COALESCE(c.validation_notes, ''),
+       COALESCE(crl.command_kind, ''), COALESCE(crl.verb, ''), COALESCE(crl.resource, '')
 FROM commands c
 LEFT JOIN command_resource_links crl ON crl.command_id = c.id
 WHERE 1=1`
@@ -91,13 +95,16 @@ WHERE 1=1`
 
 	results := []knowledgeCommandRow{}
 	for rows.Next() {
-		var path, desc, cmdKind, cmdVerb, cmdResource string
-		if err := rows.Scan(&path, &desc, &cmdKind, &cmdVerb, &cmdResource); err != nil {
+		var path, desc, perms, sideEffects, validation, cmdKind, cmdVerb, cmdResource string
+		if err := rows.Scan(&path, &desc, &perms, &sideEffects, &validation, &cmdKind, &cmdVerb, &cmdResource); err != nil {
 			return checkDBError(err, dbPath)
 		}
 		results = append(results, knowledgeCommandRow{
 			Path:        path,
 			Description: desc,
+			Permissions: perms,
+			SideEffects: sideEffects,
+			Validation:  validation,
 			Kind:        cmdKind,
 			Verb:        cmdVerb,
 			Resource:    cmdResource,
@@ -116,10 +123,26 @@ WHERE 1=1`
 		return renderKnowledgeJSON(cmd, results)
 	}
 
-	w := newTabWriter(cmd)
-	fmt.Fprintln(w, "COMMAND\tKIND\tVERB\tRESOURCE\tDESCRIPTION")
 	for _, row := range results {
-		fmt.Fprintf(w, "%s\t%s\t%s\t%s\t%s\n", row.Path, row.Kind, row.Verb, row.Resource, row.Description)
+		fmt.Fprintf(cmd.OutOrStdout(), "%s\n", row.Path)
+		if row.Kind != "" || row.Verb != "" || row.Resource != "" {
+			fmt.Fprintf(cmd.OutOrStdout(), "  kind: %s\n", row.Kind)
+			fmt.Fprintf(cmd.OutOrStdout(), "  verb: %s\n", row.Verb)
+			fmt.Fprintf(cmd.OutOrStdout(), "  resource: %s\n", row.Resource)
+		}
+		if row.Description != "" {
+			fmt.Fprintf(cmd.OutOrStdout(), "  description: %s\n", row.Description)
+		}
+		if row.Permissions != "" {
+			fmt.Fprintf(cmd.OutOrStdout(), "  permissions: %s\n", row.Permissions)
+		}
+		if row.SideEffects != "" {
+			fmt.Fprintf(cmd.OutOrStdout(), "  side_effects: %s\n", row.SideEffects)
+		}
+		if row.Validation != "" {
+			fmt.Fprintf(cmd.OutOrStdout(), "  validation_notes: %s\n", row.Validation)
+		}
+		fmt.Fprintln(cmd.OutOrStdout())
 	}
-	return w.Flush()
+	return nil
 }

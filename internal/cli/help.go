@@ -264,6 +264,12 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 			fmt.Fprintln(out, "EXAMPLES:")
 			fmt.Fprintln(out, cmd.Example)
 		}
+
+		if intel := commandIntelHint(cmd); intel != "" {
+			fmt.Fprintln(out)
+			fmt.Fprintln(out, "COMMAND INTEL:")
+			fmt.Fprintln(out, intel)
+		}
 	}
 }
 
@@ -290,6 +296,7 @@ func printQuickStart(out io.Writer) {
 	fmt.Fprintln(out, "  xbe knowledge resource jobs")
 	fmt.Fprintln(out, "  xbe knowledge commands --resource jobs")
 	fmt.Fprintln(out, "  xbe view jobs list --help")
+	fmt.Fprintln(out, "  xbe view jobs list --limit 5")
 }
 
 func printBootstrapLoop(out io.Writer) {
@@ -299,6 +306,7 @@ func printBootstrapLoop(out io.Writer) {
 	fmt.Fprintln(out, "  3) Choose:   xbe knowledge commands --resource <resource> [--kind view|do|summarize]")
 	fmt.Fprintln(out, "  4) Verify:   xbe <view|do|summarize> <resource> <action> --help")
 	fmt.Fprintln(out, "  5) Explore:  xbe knowledge relations|neighbors|filters --resource <resource>")
+	fmt.Fprintln(out, "  Note: xbe knowledge commands shows permissions, side effects, and validation notes.")
 }
 
 func printCommandGrammar(out io.Writer) {
@@ -307,13 +315,14 @@ func printCommandGrammar(out io.Writer) {
 	fmt.Fprintln(out, "  read       xbe view <resource> <list|show> [flags]")
 	fmt.Fprintln(out, "  write      xbe do <resource> <create|update|delete|action> [flags]")
 	fmt.Fprintln(out, "  analyze    xbe summarize <summary> create [flags]")
+	fmt.Fprintln(out, "  resource = the noun in view/do commands (e.g., jobs, customers)")
 }
 
 func printKnowledgeTools(out io.Writer) {
 	fmt.Fprintln(out, "KNOWLEDGE TOOLS (what they answer):")
 	fmt.Fprintln(out, "  search     find resources/commands/fields/summaries by term")
 	fmt.Fprintln(out, "  resource   see fields, relationships, summaries, commands for one resource")
-	fmt.Fprintln(out, "  commands   list CLI commands by resource/kind/verb")
+	fmt.Fprintln(out, "  commands   list CLI commands + permissions/side effects/validation")
 	fmt.Fprintln(out, "  flags      map flags to field semantics (filter vs setter)")
 	fmt.Fprintln(out, "  relations  discover related resources")
 	fmt.Fprintln(out, "  neighbors  rank next-best resources to explore")
@@ -740,6 +749,43 @@ func printUsage(out io.Writer, cmd *cobra.Command) {
 	}
 }
 
+func commandIntelHint(cmd *cobra.Command) string {
+	if cmd == nil || cmd.HasAvailableSubCommands() {
+		return ""
+	}
+	path := cmd.CommandPath()
+	if path == "" {
+		return ""
+	}
+
+	if rootCmd != nil {
+		prefix := rootCmd.Name() + " "
+		if strings.HasPrefix(path, prefix) {
+			path = strings.TrimPrefix(path, prefix)
+		}
+	}
+
+	root := commandRootName(cmd)
+	if root != "view" && root != "do" && root != "summarize" {
+		return ""
+	}
+	return fmt.Sprintf("  xbe knowledge commands --query %q\n  xbe knowledge commands --resource <resource>", path)
+}
+
+func commandRootName(cmd *cobra.Command) string {
+	if cmd == nil {
+		return ""
+	}
+	current := cmd
+	for current.Parent() != nil && current.Parent().Parent() != nil {
+		current = current.Parent()
+	}
+	if current == nil {
+		return ""
+	}
+	return current.Name()
+}
+
 func printSubcommands(out io.Writer, cmd *cobra.Command) {
 	// Use grouped output for view and do commands
 	if cmd.Name() == "view" || cmd.Name() == "do" {
@@ -833,7 +879,7 @@ func printFlags(out io.Writer, cmd *cobra.Command) {
 	filters := []string{}
 	hasGlobalFlags := false
 
-	cmd.LocalFlags().VisitAll(func(f *pflag.Flag) {
+	cmd.NonInheritedFlags().VisitAll(func(f *pflag.Flag) {
 		if f.Hidden || f.Name == "help" {
 			return
 		}
@@ -853,6 +899,16 @@ func printFlags(out io.Writer, cmd *cobra.Command) {
 	}
 
 	// Reference global flags if any were present
+	if !hasGlobalFlags {
+		cmd.InheritedFlags().VisitAll(func(f *pflag.Flag) {
+			if f.Hidden || f.Name == "help" {
+				return
+			}
+			if paginationFlags[f.Name] || outputFlags[f.Name] || connectionFlags[f.Name] || sparseFlags[f.Name] {
+				hasGlobalFlags = true
+			}
+		})
+	}
 	if hasGlobalFlags {
 		if len(filters) > 0 {
 			fmt.Fprintln(out)

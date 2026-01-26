@@ -27,6 +27,7 @@ xbe view newsletters show <id>
 The knowledge explorer lets you query a local graph of resources, commands, fields,
 summaries, and neighborhood relationships built by the Cartographer pipeline. It is
 built for AI agents and power users who need to orient quickly without prior context.
+The knowledge database is embedded in the CLI, so no separate setup is required.
 
 ### How to use it (fast mental model)
 
@@ -176,6 +177,8 @@ FLAGS:
       --query string        Substring filter for command path or description
       --resource string     Only commands that operate on a resource
       --verb string         Filter by verb (list, show, create, update, delete)
+
+  Use 'xbe --help' for global flags (--json, --limit, --base-url, etc.)
 
 EXAMPLES:
   # Search commands by keyword
