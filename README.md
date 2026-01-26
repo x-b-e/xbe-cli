@@ -22,6 +22,531 @@ xbe view newsletters list
 xbe view newsletters show <id>
 ```
 
+## Knowledge Explorer
+
+The knowledge explorer lets you query a local graph of resources, commands, fields,
+summaries, and neighborhood relationships built by the Cartographer pipeline. It is
+built for AI agents and power users who need to orient quickly without prior context.
+
+### How to use it (fast mental model)
+
+- **Resources** are the core entities (jobs, projects, brokers, etc.).
+- **Fields** are attributes/relationships on resources.
+- **Commands** show how the CLI can read or mutate those resources.
+- **Flags** show how commands filter or set fields.
+- **Summaries** expose analytics dimensions + metrics.
+- **Neighbors** rank “next best” resources for exploration.
+- **Metapaths** show similarity via shared features (shared commands/fields/etc.).
+- **Filter paths** show multi-hop filters inferred from CLI flags.
+
+### Typical exploration flow (what an agent should do first)
+
+1) **Search** for a term (`xbe knowledge search job`).
+2) **Open the resource** (`xbe knowledge resource jobs`).
+3) **Inspect relationships** (`xbe knowledge relations --resource jobs`).
+4) **Find commands** (`xbe knowledge commands --resource jobs`).
+5) **Inspect flags / filter paths** (`xbe knowledge flags ...`, `xbe knowledge filters ...`).
+6) **Check summaries** for analytics (`xbe knowledge summaries --details`).
+7) **Expand neighbors** for adjacent exploration (`xbe knowledge neighbors jobs`).
+
+### Knowledge command help (with output)
+
+These are the exact `--help` outputs for every knowledge command.
+
+#### `xbe knowledge --help`
+
+```bash
+$ xbe knowledge --help
+Explore the local knowledge database produced by the Cartographer pipeline.
+
+This toolkit is designed for AI agents and power users who need to quickly map
+resources, commands, fields, summaries, and neighborhood relationships without
+prior context.
+
+USAGE:
+  xbe knowledge [command]
+
+AVAILABLE COMMANDS:
+  commands           List or search CLI commands in the knowledge base
+  fields             List fields and their resources
+  filters            Show inferred filter paths for list commands
+  flags              List flags and their field semantics
+  metapath           Show similarity via shared features (metapaths)
+  neighbors          Rank neighborhood resources for exploration
+  relations          List relationships between resources
+  resource           Show details about a resource
+  resources          List resources in the knowledge base
+  search             Search across resources, commands, fields, and summaries
+  summaries          List summary resources and their features
+
+FLAGS:
+  Use 'xbe --help' for global flags (--json, --limit, --base-url, etc.)
+
+EXAMPLES:
+  # Search across resources, commands, fields, and summaries
+  xbe knowledge search job
+
+  # Show a resource with relationships, summaries, and commands
+  xbe knowledge resource jobs
+
+  # Rank neighbors for exploration
+  xbe knowledge neighbors jobs --limit 20
+
+  # Show multi-hop filter paths inferred from commands
+  xbe knowledge filters --resource jobs
+```
+
+#### `xbe knowledge search --help`
+
+```bash
+$ xbe knowledge search --help
+Search across resources, commands, fields, and summaries
+
+USAGE:
+  xbe knowledge search <query> [flags]
+
+FLAGS:
+      --kind string         Comma-separated kinds to search (resources,commands,fields,flags,relationships,summaries,dimensions,metrics)
+
+EXAMPLES:
+  # Search everything
+  xbe knowledge search job
+
+  # Limit to resources + commands
+  xbe knowledge search job --kind resources,commands
+```
+
+#### `xbe knowledge resources --help`
+
+```bash
+$ xbe knowledge resources --help
+List resources in the knowledge base
+
+USAGE:
+  xbe knowledge resources [flags]
+
+FLAGS:
+      --field string        Only resources that define a field (attribute or relationship)
+      --query string        Substring filter for resource names
+      --relationship string Only resources with a relationship name
+      --target string       Only resources with relationships targeting this resource
+
+EXAMPLES:
+  # List all resources
+  xbe knowledge resources
+
+  # Filter resources that include a field
+  xbe knowledge resources --field status
+
+  # Filter resources that relate to brokers
+  xbe knowledge resources --target brokers
+```
+
+#### `xbe knowledge resource --help`
+
+```bash
+$ xbe knowledge resource --help
+Show details about a resource
+
+USAGE:
+  xbe knowledge resource <name> [flags]
+
+FLAGS:
+      --sections string     Comma-separated sections (fields,relationships,summaries,summary-features,commands)
+
+EXAMPLES:
+  # Show all details
+  xbe knowledge resource jobs
+
+  # Only show relationships and commands
+  xbe knowledge resource jobs --sections relationships,commands
+```
+
+#### `xbe knowledge commands --help`
+
+```bash
+$ xbe knowledge commands --help
+List or search CLI commands in the knowledge base
+
+USAGE:
+  xbe knowledge commands [flags]
+
+FLAGS:
+      --kind string         Filter by command kind (view, do, summarize)
+      --query string        Substring filter for command path or description
+      --resource string     Only commands that operate on a resource
+      --verb string         Filter by verb (list, show, create, update, delete)
+
+EXAMPLES:
+  # Search commands by keyword
+  xbe knowledge commands --query project
+
+  # Commands tied to a resource
+  xbe knowledge commands --resource jobs
+```
+
+#### `xbe knowledge fields --help`
+
+```bash
+$ xbe knowledge fields --help
+List fields and their resources
+
+USAGE:
+  xbe knowledge fields [flags]
+
+FLAGS:
+      --kind string         Filter by kind (attribute, relationship)
+      --query string        Substring filter for field or resource
+      --resource string     Only fields for a resource
+
+EXAMPLES:
+  # Fields for a resource
+  xbe knowledge fields --resource jobs
+
+  # Search field names
+  xbe knowledge fields --query status
+```
+
+#### `xbe knowledge flags --help`
+
+```bash
+$ xbe knowledge flags --help
+List flags and their field semantics
+
+USAGE:
+  xbe knowledge flags [flags]
+
+FLAGS:
+      --command string      Filter by command path (substring match)
+      --mapped string       Filter by mapping status (true/false)
+      --query string        Substring filter for flag name or description
+      --resource string     Filter by resource
+
+EXAMPLES:
+  # Flags for a specific command
+  xbe knowledge flags --command "view jobs list"
+
+  # Unmapped flags
+  xbe knowledge flags --mapped=false
+```
+
+#### `xbe knowledge relations --help`
+
+```bash
+$ xbe knowledge relations --help
+List relationships between resources
+
+USAGE:
+  xbe knowledge relations [flags]
+
+FLAGS:
+      --kind string         Filter by edge kind (relationship, summary)
+      --resource string     Filter by source resource
+      --target string       Filter by target resource
+
+EXAMPLES:
+  # Relationships from a resource
+  xbe knowledge relations --resource jobs
+
+  # Relationships targeting a resource
+  xbe knowledge relations --target brokers
+```
+
+#### `xbe knowledge summaries --help`
+
+```bash
+$ xbe knowledge summaries --help
+List summary resources and their features
+
+USAGE:
+  xbe knowledge summaries [flags]
+
+FLAGS:
+      --details             Include dimensions and metrics
+      --summary string      Filter by summary resource
+
+EXAMPLES:
+  # List summary resources
+  xbe knowledge summaries
+
+  # Show details for a summary
+  xbe knowledge summaries --summary transport-summaries --details
+```
+
+#### `xbe knowledge neighbors --help`
+
+```bash
+$ xbe knowledge neighbors --help
+Rank neighborhood resources for exploration
+
+USAGE:
+  xbe knowledge neighbors <resource> [flags]
+
+FLAGS:
+      --explain             Include component-level evidence
+      --min-score float     Minimum neighbor score
+
+EXAMPLES:
+  # Top neighbors
+  xbe knowledge neighbors jobs --limit 20
+
+  # Explain why neighbors are connected
+  xbe knowledge neighbors jobs --explain
+```
+
+#### `xbe knowledge metapath --help`
+
+```bash
+$ xbe knowledge metapath --help
+Show similarity via shared features (metapaths)
+
+USAGE:
+  xbe knowledge metapath <resource> [flags]
+
+FLAGS:
+      --kind string         Filter by feature kind (command_field, summary_dimension, summary_metric, filter_target)
+
+EXAMPLES:
+  # Shared command-field similarity
+  xbe knowledge metapath jobs --kind command_field
+```
+
+#### `xbe knowledge filters --help`
+
+```bash
+$ xbe knowledge filters --help
+Show inferred filter paths for list commands
+
+USAGE:
+  xbe knowledge filters [flags]
+
+FLAGS:
+      --command string      Filter by command path (substring)
+      --flag string         Filter by flag name
+      --resource string     Filter by resource
+
+EXAMPLES:
+  # Filter paths for a resource
+  xbe knowledge filters --resource jobs
+
+  # Filter paths for a command
+  xbe knowledge filters --command "view jobs list"
+
+  # Filter paths for a specific flag
+  xbe knowledge filters --flag broker
+```
+
+### 20 Examples (with output)
+
+Note: Output is abbreviated and will vary with your local knowledge database.
+
+1) Global search across resources, commands, fields, and summaries
+
+```bash
+$ xbe knowledge search job
+KIND    NAME                                   DETAIL
+field   jobs.status                            attribute
+resource jobs
+command view jobs list                         List jobs
+...
+```
+
+2) Find resources that define a field
+
+```bash
+$ xbe knowledge resources --field status
+RESOURCE                 LABEL_FIELDS          SERVER_TYPES
+jobs                     name,code             Job
+projects                 name                  Project
+...
+```
+
+3) Show a full resource profile
+
+```bash
+$ xbe knowledge resource jobs
+Resource: jobs
+Label fields: name, code
+
+Fields:
+NAME            KIND        LABEL
+status          attribute
+broker          relationship
+...
+```
+
+4) Show relationships from a resource
+
+```bash
+$ xbe knowledge relations --resource jobs
+SOURCE   RELATION   TARGET          KIND
+jobs     broker     brokers         relationship
+jobs     project    projects        relationship
+...
+```
+
+5) Show relationships that target a resource
+
+```bash
+$ xbe knowledge relations --target brokers
+SOURCE           RELATION   TARGET    KIND
+jobs             broker     brokers   relationship
+projects         broker     brokers   relationship
+...
+```
+
+6) Commands that operate on a resource
+
+```bash
+$ xbe knowledge commands --resource jobs
+COMMAND                 KIND   VERB   RESOURCE   DESCRIPTION
+view jobs list           view   list   jobs       List jobs
+view jobs show           view   show   jobs       Show job details
+...
+```
+
+7) List attributes only for a resource
+
+```bash
+$ xbe knowledge fields --resource jobs --kind attribute
+RESOURCE   FIELD       KIND       LABEL
+jobs       status      attribute
+jobs       created-at  attribute
+...
+```
+
+8) Unmapped flags for a specific command
+
+```bash
+$ xbe knowledge flags --command "view jobs list" --mapped=false
+FLAG         COMMAND            RESOURCE   RELATION   FIELD   MATCH   MODIFIER
+q            view jobs list
+...
+```
+
+9) Mapped flags for a resource
+
+```bash
+$ xbe knowledge flags --resource jobs --mapped=true
+FLAG      COMMAND            RESOURCE   RELATION   FIELD        MATCH     MODIFIER
+broker    view jobs list     jobs       broker     broker       exact
+status    view jobs list     jobs       jobs       status       exact
+...
+```
+
+10) List summary resources
+
+```bash
+$ xbe knowledge summaries
+SUMMARY                     PRIMARIES                 DIMENSIONS   METRICS
+transport-summaries         transport-orders          8            12
+shift-summaries             job-schedule-shifts       6            9
+...
+```
+
+11) Show summary dimensions + metrics
+
+```bash
+$ xbe knowledge summaries --summary transport-summaries --details
+Summary: transport-summaries
+  Primaries: transport-orders
+  Dimensions:
+    broker
+    project
+  Metrics:
+    total_distance
+    total_hours
+```
+
+12) Neighborhood ranking for exploration
+
+```bash
+$ xbe knowledge neighbors jobs --limit 5
+NEIGHBOR   SCORE   REL   SUMMARY   FILTERS   SHARED_FIELDS   SHARED_DIMS   SHARED_METRICS   SHARED_FILTERS
+projects   9.50    1     0         2         4              0             0                1
+brokers    7.00    1     0         1         2              0             0                0
+...
+```
+
+13) Explain why neighbors are connected
+
+```bash
+$ xbe knowledge neighbors jobs --limit 2 --explain
+Neighbor: projects (score 9.50)
+  relationship (1) - project
+  filter_path (2) - project.customer
+  shared_command_field (4)
+```
+
+14) Metapath similarity via shared command fields
+
+```bash
+$ xbe knowledge metapath jobs --kind command_field
+TARGET     PATH_KIND       SHARED
+projects   command_field   6
+brokers    command_field   4
+...
+```
+
+15) Multi-hop filter paths for a resource
+
+```bash
+$ xbe knowledge filters --resource jobs
+COMMAND           RESOURCE   FLAG     PATH                TARGET     TARGET_FIELD   HOPS   MATCH      MODIFIER
+view jobs list    jobs       broker   broker              brokers                  1      rel
+view jobs list    jobs       customer project.customer    customers  customer       2      rel_attr
+...
+```
+
+16) Filter paths for a specific command/flag
+
+```bash
+$ xbe knowledge filters --command "view projects list" --flag broker
+COMMAND              RESOURCE   FLAG     PATH     TARGET    TARGET_FIELD   HOPS   MATCH   MODIFIER
+view projects list   projects   broker   broker   brokers                 1      rel
+```
+
+17) Search summary-related terms
+
+```bash
+$ xbe knowledge search "transport summary"
+KIND    NAME                           DETAIL
+summary transport-summaries
+command summarize transport-summary create
+...
+```
+
+18) Find resources that relate to brokers
+
+```bash
+$ xbe knowledge resources --target brokers
+RESOURCE           LABEL_FIELDS   SERVER_TYPES
+jobs               name,code      Job
+projects           name           Project
+transport-orders   name           TransportOrder
+...
+```
+
+19) List summarize commands
+
+```bash
+$ xbe knowledge commands --query summarize --kind summarize
+COMMAND                                KIND       VERB    RESOURCE
+summarize transport-summary create     summarize  create  transport-summaries
+summarize shift-summary create         summarize  create  shift-summaries
+...
+```
+
+20) Field search by name fragment
+
+```bash
+$ xbe knowledge fields --query created-at
+RESOURCE   FIELD        KIND
+jobs       created-at   attribute
+projects   created-at   attribute
+...
+```
+
 ## Installation
 
 ### macOS and Linux

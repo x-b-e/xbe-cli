@@ -12,9 +12,10 @@ import (
 
 // Command group annotations
 const (
-	GroupCore    = "core"
-	GroupAuth    = "auth"
-	GroupUtility = "utility"
+	GroupKnowledge = "knowledge"
+	GroupCore      = "core"
+	GroupAuth      = "auth"
+	GroupUtility   = "utility"
 )
 
 // Resource categories for view/do subcommands
@@ -230,15 +231,19 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 	// If this is the root command, print the full command reference
 	if cmd.Parent() == nil {
 		fmt.Fprintln(out)
+		printBootstrapLoop(out)
+		fmt.Fprintln(out)
+		printCommandGrammar(out)
+		fmt.Fprintln(out)
 		printQuickStart(out)
 		fmt.Fprintln(out)
-		printCommandTree(out, cmd)
+		printKnowledgeTools(out)
 		fmt.Fprintln(out)
 		printGlobalFlags(out)
 		fmt.Fprintln(out)
-		printConfiguration(out)
+		printAuthOverview(out)
 		fmt.Fprintln(out)
-		printLearnMore(out, cmd)
+		printRunHelp(out)
 	} else {
 		// For subcommands, print standard help
 		fmt.Fprintln(out)
@@ -281,21 +286,41 @@ func customUsageFunc(cmd *cobra.Command) error {
 
 func printQuickStart(out io.Writer) {
 	fmt.Fprintln(out, "QUICK START:")
-	fmt.Fprintln(out, "  # Authenticate (token stored securely in system keychain)")
-	fmt.Fprintln(out, "  xbe auth login")
-	fmt.Fprintln(out)
-	fmt.Fprintln(out, "  # View: browse and read data")
-	fmt.Fprintln(out, "  xbe view brokers list                      # List all brokers")
-	fmt.Fprintln(out, "  xbe view projects list --status active     # Filter by status")
-	fmt.Fprintln(out, "  xbe view newsletters show 123              # Show specific record")
-	fmt.Fprintln(out)
-	fmt.Fprintln(out, "  # Do: create, update, delete data")
-	fmt.Fprintln(out, "  xbe do customers create --name \"Acme Corp\"")
-	fmt.Fprintln(out, "  xbe do projects update 456 --status complete")
-	fmt.Fprintln(out, "  xbe do posts delete 789 --confirm")
-	fmt.Fprintln(out)
-	fmt.Fprintln(out, "  # Summarize: aggregate data for analysis")
-	fmt.Fprintln(out, "  xbe summarize shift-summary create --project 123 --start-on 2025-01-01")
+	fmt.Fprintln(out, "  xbe knowledge search job")
+	fmt.Fprintln(out, "  xbe knowledge resource jobs")
+	fmt.Fprintln(out, "  xbe knowledge commands --resource jobs")
+	fmt.Fprintln(out, "  xbe view jobs list --help")
+}
+
+func printBootstrapLoop(out io.Writer) {
+	fmt.Fprintln(out, "BOOTSTRAP LOOP (for unknown tasks):")
+	fmt.Fprintln(out, "  1) Find:     xbe knowledge search <term>")
+	fmt.Fprintln(out, "  2) Inspect:  xbe knowledge resource <resource>")
+	fmt.Fprintln(out, "  3) Choose:   xbe knowledge commands --resource <resource> [--kind view|do|summarize]")
+	fmt.Fprintln(out, "  4) Verify:   xbe <view|do|summarize> <resource> <action> --help")
+	fmt.Fprintln(out, "  5) Explore:  xbe knowledge relations|neighbors|filters --resource <resource>")
+}
+
+func printCommandGrammar(out io.Writer) {
+	fmt.Fprintln(out, "COMMAND GRAMMAR:")
+	fmt.Fprintln(out, "  knowledge  xbe knowledge <search|resources|resource|commands|fields|flags|relations|neighbors|metapath|filters|summaries> [filters]")
+	fmt.Fprintln(out, "  read       xbe view <resource> <list|show> [flags]")
+	fmt.Fprintln(out, "  write      xbe do <resource> <create|update|delete|action> [flags]")
+	fmt.Fprintln(out, "  analyze    xbe summarize <summary> create [flags]")
+}
+
+func printKnowledgeTools(out io.Writer) {
+	fmt.Fprintln(out, "KNOWLEDGE TOOLS (what they answer):")
+	fmt.Fprintln(out, "  search     find resources/commands/fields/summaries by term")
+	fmt.Fprintln(out, "  resource   see fields, relationships, summaries, commands for one resource")
+	fmt.Fprintln(out, "  commands   list CLI commands by resource/kind/verb")
+	fmt.Fprintln(out, "  flags      map flags to field semantics (filter vs setter)")
+	fmt.Fprintln(out, "  relations  discover related resources")
+	fmt.Fprintln(out, "  neighbors  rank next-best resources to explore")
+	fmt.Fprintln(out, "  filters    infer multi-hop filter paths from commands")
+	fmt.Fprintln(out, "  metapath   similarity via shared features")
+	fmt.Fprintln(out, "  fields     list fields + owning resources")
+	fmt.Fprintln(out, "  summaries  list summary resources + group-by/metrics")
 }
 
 func printCommandTree(out io.Writer, root *cobra.Command) {
@@ -303,9 +328,10 @@ func printCommandTree(out io.Writer, root *cobra.Command) {
 
 	// Group commands by annotation
 	groups := map[string][]*cobra.Command{
-		GroupCore:    {},
-		GroupAuth:    {},
-		GroupUtility: {},
+		GroupKnowledge: {},
+		GroupCore:      {},
+		GroupAuth:      {},
+		GroupUtility:   {},
 	}
 
 	for _, cmd := range root.Commands() {
@@ -324,6 +350,7 @@ func printCommandTree(out io.Writer, root *cobra.Command) {
 		key   string
 		title string
 	}{
+		{GroupKnowledge, "Knowledge & Exploration"},
 		{GroupCore, "Core Commands"},
 		{GroupAuth, "Authentication"},
 		{GroupUtility, "Utility"},
@@ -356,18 +383,20 @@ func printCommandTree(out io.Writer, root *cobra.Command) {
 			}
 		}
 
-		// Print view and do with consolidated resources
+		// Print view and do with a knowledge discovery hint
 		if viewCmd != nil && doCmd != nil {
-			fmt.Fprintf(out, "    %-20s %s\n", "view", viewCmd.Short)
-			fmt.Fprintf(out, "    %-20s %s\n", "do", doCmd.Short)
+			printCommandLine(out, viewCmd, "    ")
+			printCommandLine(out, doCmd, "    ")
 			fmt.Fprintln(out)
-			printConsolidatedResources(out, viewCmd, doCmd)
+			printResourceDiscoveryHint(out, "    ")
 		} else {
 			if viewCmd != nil {
-				printCommandCompact(out, viewCmd, "    ")
+				printCommandLine(out, viewCmd, "    ")
+				printResourceDiscoveryHint(out, "    ")
 			}
 			if doCmd != nil {
-				printCommandCompact(out, doCmd, "    ")
+				printCommandLine(out, doCmd, "    ")
+				printResourceDiscoveryHint(out, "    ")
 			}
 		}
 
@@ -473,9 +502,8 @@ func printCommandCompact(out io.Writer, cmd *cobra.Command, indent string) {
 	// Print the command itself
 	fmt.Fprintf(out, "%s%-20s %s\n", indent, cmd.Name(), cmd.Short)
 
-	// For view and do commands, use consolidated resource list
+	// Avoid printing the full resource list in root help.
 	if cmd.Name() == "view" || cmd.Name() == "do" {
-		printResourcesCompact(out, cmd, indent+"  ")
 		return
 	}
 
@@ -575,6 +603,32 @@ func printSummarizeCompact(out io.Writer, cmd *cobra.Command, indent string) {
 	fmt.Fprintf(out, "%sUse 'xbe summarize --help' for descriptions\n", indent)
 }
 
+func printResourceDiscoveryExample(out io.Writer) {
+	fmt.Fprintln(out, "RESOURCE DISCOVERY (EXAMPLE OUTPUT):")
+	fmt.Fprintln(out, "  $ xbe knowledge resources --query project")
+	fmt.Fprintln(out, "  RESOURCE           LABEL_FIELDS   SERVER_TYPES")
+	fmt.Fprintln(out, "  projects           name           Project")
+	fmt.Fprintln(out, "  project-phases     name           ProjectPhase")
+	fmt.Fprintln(out, "  project-offices    name           ProjectOffice")
+	fmt.Fprintln(out)
+	fmt.Fprintln(out, "  $ xbe knowledge commands --resource projects")
+	fmt.Fprintln(out, "  COMMAND              KIND   VERB   RESOURCE   DESCRIPTION")
+	fmt.Fprintln(out, "  view projects list   view   list   projects   List projects")
+	fmt.Fprintln(out, "  view projects show   view   show   projects   Show project details")
+	fmt.Fprintln(out, "  do projects update   do     update projects   Update a project")
+}
+
+func printCommandLine(out io.Writer, cmd *cobra.Command, indent string) {
+	fmt.Fprintf(out, "%s%-20s %s\n", indent, cmd.Name(), cmd.Short)
+}
+
+func printResourceDiscoveryHint(out io.Writer, indent string) {
+	fmt.Fprintf(out, "%sResource discovery:\n", indent)
+	fmt.Fprintf(out, "%s  xbe knowledge resources\n", indent)
+	fmt.Fprintf(out, "%s  xbe knowledge resource <name>\n", indent)
+	fmt.Fprintf(out, "%s  xbe knowledge commands --resource <name>\n", indent)
+}
+
 func printCommandWithSubcommands(out io.Writer, cmd *cobra.Command, indent string) {
 	// Print the command itself
 	fmt.Fprintf(out, "%s%-20s %s\n", indent, cmd.Name(), cmd.Short)
@@ -658,40 +712,23 @@ func printSubcommandsInTree(out io.Writer, cmd *cobra.Command, indent string) {
 
 func printGlobalFlags(out io.Writer) {
 	fmt.Fprintln(out, "GLOBAL FLAGS:")
-	fmt.Fprintln(out, "  These flags are available on most commands:")
-	fmt.Fprintln(out)
-	fmt.Fprintln(out, "  --base-url string    API base URL (default: https://app.x-b-e.com)")
-	fmt.Fprintln(out, "  --token string       API token (overrides stored token)")
-	fmt.Fprintln(out, "  --no-auth            Disable automatic token lookup")
-	fmt.Fprintln(out, "  --json               Output in JSON format (machine-readable)")
-	fmt.Fprintln(out, "  --fields string      Sparse fieldset for list/show (e.g. company-name,broker)")
-	fmt.Fprintln(out, "  -h, --help           Show help for any command")
+	fmt.Fprintln(out, "  --json               machine-readable output")
+	fmt.Fprintln(out, "  --limit/--offset/--sort  pagination for list commands")
+	fmt.Fprintln(out, "  --fields             sparse fieldsets for list/show")
+	fmt.Fprintln(out, "  --base-url/--token/--no-auth  auth/targeting")
+	fmt.Fprintln(out, "  -h, --help           show help for any command")
 }
 
-func printConfiguration(out io.Writer) {
-	fmt.Fprintln(out, "CONFIGURATION:")
-	fmt.Fprintln(out, "  Token Resolution (in order of precedence):")
-	fmt.Fprintln(out, "    1. --token flag")
-	fmt.Fprintln(out, "    2. XBE_TOKEN or XBE_API_TOKEN environment variable")
-	fmt.Fprintln(out, "    3. System keychain (macOS Keychain, Windows Credential Manager, Linux Secret Service)")
-	fmt.Fprintln(out, "    4. Config file at ~/.config/xbe/config.json")
-	fmt.Fprintln(out)
-	fmt.Fprintln(out, "  Environment Variables:")
-	fmt.Fprintln(out, "    XBE_TOKEN          API access token")
-	fmt.Fprintln(out, "    XBE_API_TOKEN      API access token (alternative)")
-	fmt.Fprintln(out, "    XBE_BASE_URL       API base URL")
-	fmt.Fprintln(out, "    XDG_CONFIG_HOME    Config directory (default: ~/.config)")
+func printAuthOverview(out io.Writer) {
+	fmt.Fprintln(out, "AUTH:")
+	fmt.Fprintln(out, "  xbe auth status | login | logout")
+	fmt.Fprintln(out, "  Token precedence: --token > XBE_TOKEN/XBE_API_TOKEN > keychain > config")
 }
 
-func printLearnMore(out io.Writer, root *cobra.Command) {
-	fmt.Fprintln(out, "LEARN MORE:")
-	fmt.Fprintln(out, "  Use 'xbe <command> --help' for detailed information about a command.")
-	fmt.Fprintln(out, "  Use 'xbe <command> <subcommand> --help' for subcommand details.")
-	fmt.Fprintln(out)
-	fmt.Fprintln(out, "  Examples:")
-	fmt.Fprintln(out, "    xbe auth --help              Learn about authentication")
-	fmt.Fprintln(out, "    xbe view newsletters --help  Learn about newsletter commands")
-	fmt.Fprintln(out, "    xbe view brokers list --help See all filtering options for brokers")
+func printRunHelp(out io.Writer) {
+	fmt.Fprintln(out, "RUN HELP:")
+	fmt.Fprintln(out, "  xbe <command> --help")
+	fmt.Fprintln(out, "  xbe <command> <subcommand> --help")
 }
 
 func printUsage(out io.Writer, cmd *cobra.Command) {

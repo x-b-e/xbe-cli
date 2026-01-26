@@ -21,7 +21,8 @@ var rootCmd = &cobra.Command{
 
 The XBE command-line interface provides programmatic access to the XBE platform,
 enabling you to browse newsletters, manage broker data, and integrate XBE
-capabilities into your workflows.
+capabilities into your workflows. It also includes a local knowledge explorer
+that can map resources, commands, and relationships for fast discovery.
 
 This CLI is designed for both interactive use and automation. All commands
 support JSON output (--json) for easy parsing and integration with other tools.`,

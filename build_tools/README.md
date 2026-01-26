@@ -16,9 +16,41 @@
 4) Run `build_tools/compile.py` to build `cartographer_out/db/knowledge.sqlite`.
 
 `compile.py` also loads `internal/cli/resource_map.json` into these tables:
-- `resources`
+- `resources` (includes `server_types`)
 - `resource_fields`
 - `resource_field_targets`
+
+`compile.py` also loads `internal/cli/summary_map.json` into:
+- `summary_resource_targets`
+- `summary_sources`
+- `resource_graph_edges` (view; unions relationships + summary links)
+
+`compile.py` also builds command-to-resource links:
+- `command_resource_links`
+
+`compile.py` also builds flag-to-field semantics:
+- `command_field_links` (use `--llm` to enable LLM fallback for unmapped flags)
+  - `--llm-workers` controls parallelism (default 8)
+  - `--llm-cache` sets the cache path (default `cartographer_out/db/llm_flag_cache.json`)
+
+`compile.py` also extracts summary dimensions + metrics:
+- `summary_dimensions`
+- `summary_metrics`
+- `command_summary_dimensions`
+- `command_summary_metrics`
+
+`compile.py` also builds filter-path links (multi-hop):
+- `command_filter_paths`
+
+`compile.py` also builds neighborhood mining views:
+- `resource_filter_path_neighbors` (aggregated filter-path neighbors)
+- `summary_resource_features` (summary dimensions + metrics)
+- `summary_resource_neighbors` (summary ↔ primary resources)
+- `resource_feature_links` (actionable features for similarity)
+- `resource_feature_similarity` (bipartite projection by feature kind)
+- `resource_metapath_similarity` (metapath similarity by feature kind)
+- `resource_neighbor_components` (component-level evidence)
+- `resource_neighbor_scores` (weighted neighborhood ranking)
 
 It creates a `command_resources` view that links list/show commands to their
 resource by parsing `commands.full_path`. Example query:

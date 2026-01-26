@@ -1,0 +1,211 @@
+{
+  "summaries": {
+    "cycle-summaries": {
+      "primary_resources": [
+        "material-transactions"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/cycle_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "device-location-event-summaries": {
+      "primary_resources": [
+        "device-location-events"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/device_location_event_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "driver-day-summaries": {
+      "primary_resources": [
+        "driver-days"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/driver_day_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "job-production-plan-summaries": {
+      "primary_resources": [
+        "job-production-plans"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/job_production_plan_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "material-site-reading-summaries": {
+      "primary_resources": [
+        "material-site-readings"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/material_site_reading_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "material-transaction-rate-summaries": {
+      "primary_resources": [
+        "material-transactions"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/material_transaction_rate_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "material-transaction-summaries": {
+      "primary_resources": [
+        "material-transactions"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/material_transaction_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "project-transport-plan-driver-summaries": {
+      "primary_resources": [
+        "project-transport-plan-drivers"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/project_transport_plan_driver_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "project-transport-plan-event-summaries": {
+      "primary_resources": [
+        "project-transport-plan-events"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/project_transport_plan_event_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "project-transport-plan-event-time-summaries": {
+      "primary_resources": [
+        "project-transport-plan-event-times"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/project_transport_plan_event_time_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "project-transport-plan-summaries": {
+      "primary_resources": [
+        "project-transport-plans"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/project_transport_plan_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "project-transport-plan-trailer-summaries": {
+      "primary_resources": [
+        "project-transport-plan-trailers"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/project_transport_plan_trailer_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "public-praise-summaries": {
+      "primary_resources": [
+        "public-praises"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/public_praise_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "shift-summaries": {
+      "primary_resources": [
+        "tender-job-schedule-shifts"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/shift_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "transport-order-efficiency-summaries": {
+      "primary_resources": [
+        "transport-orders"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/transport_order_efficiency_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
+    "transport-summaries": {
+      "conditions": [
+        {
+          "filter": {
+            "entity_type": "transport_order"
+          },
+          "primary_resources": [
+            "transport-orders"
+          ]
+        },
+        {
+          "filter": {
+            "entity_type": "transport_plan"
+          },
+          "primary_resources": [
+            "project-transport-plans"
+          ]
+        },
+        {
+          "filter": {
+            "entity_type": "driver_assignment"
+          },
+          "primary_resources": [
+            "project-transport-plan-drivers"
+          ]
+        },
+        {
+          "filter": {
+            "entity_type": "live_loads"
+          },
+          "primary_resources": [
+            "transport-orders"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/transport_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    }
+  }
+}
