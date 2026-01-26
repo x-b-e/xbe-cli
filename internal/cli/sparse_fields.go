@@ -79,12 +79,17 @@ func fieldsHelpForResource(resource string) string {
 	}
 	relations := resourceMap.Relationships[resource]
 	if len(relations) == 0 {
+		attributeExample, _ := fieldsExamples(resource)
 		lines = append(lines,
 			"",
-			"Fields usage:",
-			"  --fields name,broker",
-			"  List default: label fields (or ID only). Show default: all fields.",
+			"Expanding output with --fields:",
+			"  By default, list commands show ID and label fields. Show commands return all fields.",
+			"  Use --fields to include additional columns from \"Available fields\" above.",
 		)
+		if attributeExample != "" {
+			lines = append(lines, "", "  Examples:", "    --fields "+attributeExample)
+		}
+		lines = append(lines, "", "  Tip: Relationships automatically add <rel>-id (e.g., customer adds customer-id)")
 		return strings.Join(lines, "\n")
 	}
 
@@ -113,11 +118,21 @@ func fieldsHelpForResource(resource string) string {
 	}
 	lines = append(lines,
 		"",
-		"Fields usage:",
-		"  --fields name,broker",
-		"  List default: label fields (or ID only). Show default: all fields.",
-		"  Relationships add <rel>-id automatically.",
+		"Expanding output with --fields:",
+		"  By default, list commands show ID and label fields. Show commands return all fields.",
+		"  Use --fields to include additional columns from \"Available fields\" above.",
 	)
+	attributeExample, relationshipExample := fieldsExamples(resource)
+	if attributeExample != "" || relationshipExample != "" {
+		lines = append(lines, "", "  Examples:")
+		if attributeExample != "" {
+			lines = append(lines, "    --fields "+attributeExample+"     # Add specific fields")
+		}
+		if relationshipExample != "" {
+			lines = append(lines, "    --fields "+relationshipExample+"               # Add relationship labels + IDs")
+		}
+	}
+	lines = append(lines, "", "  Tip: Relationships automatically add <rel>-id (e.g., customer adds customer-id)")
 	return strings.Join(lines, "\n")
 }
 
@@ -127,6 +142,42 @@ func fieldsHelpForCommand(cmd *cobra.Command) string {
 		return ""
 	}
 	return fieldsHelpForResource(resource)
+}
+
+func fieldsExamples(resource string) (string, string) {
+	resourceMap, err := loadResourceMap()
+	if err != nil {
+		return "", ""
+	}
+	spec, ok := resourceMap.Resources[resource]
+	if !ok {
+		return "", ""
+	}
+	attributes := append([]string(nil), spec.Attributes...)
+	sort.Strings(attributes)
+	attrExample := ""
+	if len(attributes) >= 2 {
+		attrExample = strings.Join(attributes[:2], ",")
+	} else if len(attributes) == 1 {
+		attrExample = attributes[0]
+	}
+
+	relations := resourceMap.Relationships[resource]
+	if len(relations) == 0 {
+		return attrExample, ""
+	}
+	relationNames := make([]string, 0, len(relations))
+	for rel := range relations {
+		relationNames = append(relationNames, rel)
+	}
+	sort.Strings(relationNames)
+	relExample := ""
+	if len(relationNames) >= 2 {
+		relExample = strings.Join(relationNames[:2], ",")
+	} else if len(relationNames) == 1 {
+		relExample = relationNames[0]
+	}
+	return attrExample, relExample
 }
 
 func resourceForSparseList(cmd *cobra.Command) (string, bool) {

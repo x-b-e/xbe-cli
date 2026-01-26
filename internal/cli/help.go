@@ -219,9 +219,9 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 
 	// Print Long description if available, otherwise Short
 	if cmd.Long != "" {
-		fmt.Fprintln(out, cmd.Long)
+		fmt.Fprintln(out, formatCommandHelpText(cmd, cmd.Long))
 	} else if cmd.Short != "" {
-		fmt.Fprintln(out, cmd.Short)
+		fmt.Fprintln(out, formatCommandHelpText(cmd, cmd.Short))
 	}
 	if fieldsHelp := fieldsHelpForCommand(cmd); fieldsHelp != "" {
 		fmt.Fprintln(out)
@@ -263,6 +263,15 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 			fmt.Fprintln(out)
 			fmt.Fprintln(out, "EXAMPLES:")
 			fmt.Fprintln(out, cmd.Example)
+		}
+
+		if fieldsExample := fieldsExampleForCommand(cmd); fieldsExample != "" {
+			if cmd.Example == "" {
+				fmt.Fprintln(out)
+				fmt.Fprintln(out, "EXAMPLES:")
+			}
+			fmt.Fprintln(out, "  # Include additional fields in output")
+			fmt.Fprintln(out, fieldsExample)
 		}
 
 		if intel := commandIntelHint(cmd); intel != "" {
@@ -749,6 +758,18 @@ func printUsage(out io.Writer, cmd *cobra.Command) {
 	}
 }
 
+func formatCommandHelpText(cmd *cobra.Command, text string) string {
+	if text == "" {
+		return text
+	}
+	if _, ok := resourceForSparseFields(cmd); ok {
+		if strings.Contains(text, "Output Columns:") {
+			text = strings.Replace(text, "Output Columns:", "Output Columns (default - use --fields for more):", 1)
+		}
+	}
+	return text
+}
+
 func commandIntelHint(cmd *cobra.Command) string {
 	if cmd == nil || cmd.HasAvailableSubCommands() {
 		return ""
@@ -784,6 +805,29 @@ func commandRootName(cmd *cobra.Command) string {
 		return ""
 	}
 	return current.Name()
+}
+
+func fieldsExampleForCommand(cmd *cobra.Command) string {
+	resource, ok := resourceForSparseFields(cmd)
+	if !ok {
+		return ""
+	}
+	attributeExample, _ := fieldsExamples(resource)
+	if attributeExample == "" {
+		return ""
+	}
+	path := cmd.CommandPath()
+	if rootCmd != nil {
+		prefix := rootCmd.Name() + " "
+		if strings.HasPrefix(path, prefix) {
+			path = strings.TrimPrefix(path, prefix)
+		}
+	}
+	arg := ""
+	if cmd.Name() == "show" {
+		arg = " 123"
+	}
+	return fmt.Sprintf("  xbe %s%s --fields %s", path, arg, attributeExample)
 }
 
 func printSubcommands(out io.Writer, cmd *cobra.Command) {
