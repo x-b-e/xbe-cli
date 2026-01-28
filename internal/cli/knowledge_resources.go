@@ -2,6 +2,7 @@ package cli
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"strings"
 
@@ -9,9 +10,11 @@ import (
 )
 
 type knowledgeResourceRow struct {
-	Name        string   `json:"name"`
-	LabelFields []string `json:"label_fields,omitempty"`
-	ServerTypes []string `json:"server_types,omitempty"`
+	Name                          string   `json:"name"`
+	LabelFields                   []string `json:"label_fields,omitempty"`
+	ServerTypes                   []string `json:"server_types,omitempty"`
+	VersionChanges                bool     `json:"version_changes"`
+	VersionChangesOptionalFeature []string `json:"version_changes_optional_features,omitempty"`
 }
 
 func newKnowledgeResourcesCmd() *cobra.Command {
@@ -26,12 +29,16 @@ func newKnowledgeResourcesCmd() *cobra.Command {
   xbe knowledge resources --field status
 
   # Filter resources that relate to brokers
-  xbe knowledge resources --target brokers`,
+  xbe knowledge resources --target brokers
+
+  # Only resources with version changes
+  xbe knowledge resources --version-changes`,
 	}
 	cmd.Flags().String("query", "", "Substring filter for resource names")
 	cmd.Flags().String("field", "", "Only resources that define a field (attribute or relationship)")
 	cmd.Flags().String("relationship", "", "Only resources with a relationship name")
 	cmd.Flags().String("target", "", "Only resources with relationships targeting this resource")
+	cmd.Flags().Bool("version-changes", false, "Only resources that support version changes")
 	return cmd
 }
 
@@ -40,6 +47,7 @@ func runKnowledgeResources(cmd *cobra.Command, _ []string) error {
 	field := strings.TrimSpace(getStringFlag(cmd, "field"))
 	relationship := strings.TrimSpace(getStringFlag(cmd, "relationship"))
 	target := strings.TrimSpace(getStringFlag(cmd, "target"))
+	versionChangesOnly := getBoolFlag(cmd, "version-changes")
 
 	db, dbPath, err := openKnowledgeDB(cmd)
 	if err != nil {
@@ -56,7 +64,7 @@ func runKnowledgeResources(cmd *cobra.Command, _ []string) error {
 
 	ctx := context.Background()
 	querySQL := `
-SELECT r.name, r.label_fields, r.server_types
+SELECT r.name, r.label_fields, r.server_types, r.version_changes, r.version_changes_optional_features
 FROM resources r
 WHERE 1=1`
 	args := []any{}
@@ -76,6 +84,9 @@ WHERE 1=1`
 	if target != "" {
 		querySQL += " AND EXISTS (SELECT 1 FROM resource_field_targets rft WHERE rft.resource = r.name AND rft.target_resource LIKE ?)"
 		args = append(args, pattern(target))
+	}
+	if versionChangesOnly {
+		querySQL += " AND r.version_changes = 1"
 	}
 
 	querySQL += " ORDER BY r.name LIMIT ? OFFSET ?"
@@ -98,13 +109,17 @@ WHERE 1=1`
 	results := []knowledgeResourceRow{}
 	for rows.Next() {
 		var name, labelFieldsRaw, serverTypesRaw string
-		if err := rows.Scan(&name, &labelFieldsRaw, &serverTypesRaw); err != nil {
+		var versionChangesRaw sql.NullInt64
+		var versionChangesFeaturesRaw sql.NullString
+		if err := rows.Scan(&name, &labelFieldsRaw, &serverTypesRaw, &versionChangesRaw, &versionChangesFeaturesRaw); err != nil {
 			return checkDBError(err, dbPath)
 		}
 		results = append(results, knowledgeResourceRow{
-			Name:        name,
-			LabelFields: parseJSONList(labelFieldsRaw),
-			ServerTypes: parseJSONList(serverTypesRaw),
+			Name:                          name,
+			LabelFields:                   parseJSONList(labelFieldsRaw),
+			ServerTypes:                   parseJSONList(serverTypesRaw),
+			VersionChanges:                versionChangesRaw.Valid && versionChangesRaw.Int64 == 1,
+			VersionChangesOptionalFeature: parseJSONList(versionChangesFeaturesRaw.String),
 		})
 	}
 	if err := rows.Err(); err != nil {
@@ -121,9 +136,17 @@ WHERE 1=1`
 	}
 
 	w := newTabWriter(cmd)
-	fmt.Fprintln(w, "RESOURCE\tLABEL_FIELDS\tSERVER_TYPES")
+	fmt.Fprintln(w, "RESOURCE\tLABEL_FIELDS\tSERVER_TYPES\tVERSION_CHANGES\tVERSION_CHANGES_FEATURES")
 	for _, row := range results {
-		fmt.Fprintf(w, "%s\t%s\t%s\n", row.Name, joinOrDash(row.LabelFields), joinOrDash(row.ServerTypes))
+		fmt.Fprintf(
+			w,
+			"%s\t%s\t%s\t%s\t%s\n",
+			row.Name,
+			joinOrDash(row.LabelFields),
+			joinOrDash(row.ServerTypes),
+			boolToYesNo(row.VersionChanges),
+			joinOrDash(row.VersionChangesOptionalFeature),
+		)
 	}
 	return w.Flush()
 }

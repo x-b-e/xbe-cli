@@ -64,6 +64,7 @@ func (c *Client) Get(ctx context.Context, path string, query url.Values) ([]byte
 		query = url.Values{}
 	}
 	ApplySparseFieldOverrides(ctx, path, query)
+	ApplyMetaOverrides(ctx, query)
 
 	path = "/" + strings.TrimLeft(path, "/")
 	base.Path = strings.TrimRight(base.Path, "/") + path

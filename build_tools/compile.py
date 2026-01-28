@@ -166,13 +166,19 @@ def init_db(db_path: Path) -> sqlite3.Connection:
         CREATE TABLE IF NOT EXISTS resources (
             name TEXT PRIMARY KEY,
             label_fields TEXT,
-            server_types TEXT
+            server_types TEXT,
+            version_changes INTEGER,
+            version_changes_optional_features TEXT
         )
         """
     )
     resource_columns = {row[1] for row in conn.execute("PRAGMA table_info(resources)")}
     if "server_types" not in resource_columns:
         conn.execute("ALTER TABLE resources ADD COLUMN server_types TEXT")
+    if "version_changes" not in resource_columns:
+        conn.execute("ALTER TABLE resources ADD COLUMN version_changes INTEGER")
+    if "version_changes_optional_features" not in resource_columns:
+        conn.execute("ALTER TABLE resources ADD COLUMN version_changes_optional_features TEXT")
     conn.execute(
         """
         CREATE TABLE IF NOT EXISTS resource_fields (
@@ -573,12 +579,16 @@ def upsert_resource_map(conn: sqlite3.Connection, resource_map: dict) -> None:
     for resource_name, data in resources.items():
         label_fields = data.get("label_fields", [])
         server_types = data.get("server_types", [])
+        version_changes = 1 if data.get("version_changes") else 0
+        version_changes_optional_features = data.get("version_changes_optional_features", [])
         conn.execute(
-            "INSERT INTO resources (name, label_fields, server_types) VALUES (?, ?, ?)",
+            "INSERT INTO resources (name, label_fields, server_types, version_changes, version_changes_optional_features) VALUES (?, ?, ?, ?, ?)",
             (
                 resource_name,
                 json.dumps(label_fields),
                 json.dumps(server_types) if server_types else None,
+                version_changes,
+                json.dumps(version_changes_optional_features) if version_changes_optional_features else None,
             ),
         )
 

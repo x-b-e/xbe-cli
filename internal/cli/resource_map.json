@@ -10379,7 +10379,8 @@
       "label_fields": [],
       "server_types": [
         "action-item-key-results"
-      ]
+      ],
+      "version_changes": true
     },
     "action-item-line-items": {
       "attributes": [
@@ -10392,7 +10393,8 @@
       ],
       "server_types": [
         "action-item-line-items"
-      ]
+      ],
+      "version_changes": true
     },
     "action-item-team-members": {
       "attributes": [
@@ -10401,7 +10403,8 @@
       "label_fields": [],
       "server_types": [
         "action-item-team-members"
-      ]
+      ],
+      "version_changes": true
     },
     "action-item-tracker-update-requests": {
       "attributes": [
@@ -10412,7 +10415,8 @@
       "label_fields": [],
       "server_types": [
         "action-item-tracker-update-requests"
-      ]
+      ],
+      "version_changes": true
     },
     "action-item-trackers": {
       "attributes": [
@@ -10428,7 +10432,8 @@
       "label_fields": [],
       "server_types": [
         "action-item-trackers"
-      ]
+      ],
+      "version_changes": true
     },
     "action-items": {
       "attributes": [
@@ -10454,7 +10459,8 @@
       ],
       "server_types": [
         "action-items"
-      ]
+      ],
+      "version_changes": true
     },
     "administrative-incidents": {
       "attributes": [
@@ -10479,7 +10485,8 @@
       ],
       "server_types": [
         "administrative-incidents"
-      ]
+      ],
+      "version_changes": false
     },
     "ai-work-order-generations": {
       "attributes": [
@@ -10501,7 +10508,8 @@
       ],
       "server_types": [
         "ai-work-order-generations"
-      ]
+      ],
+      "version_changes": true
     },
     "answer-feedbacks": {
       "attributes": [
@@ -10512,7 +10520,8 @@
       "label_fields": [],
       "server_types": [
         "answer-feedbacks"
-      ]
+      ],
+      "version_changes": true
     },
     "answer-related-contents": {
       "attributes": [
@@ -10521,7 +10530,8 @@
       "label_fields": [],
       "server_types": [
         "answer-related-contents"
-      ]
+      ],
+      "version_changes": true
     },
     "answers": {
       "attributes": [
@@ -10533,7 +10543,8 @@
       ],
       "server_types": [
         "answers"
-      ]
+      ],
+      "version_changes": true
     },
     "api-tokens": {
       "attributes": [
@@ -10548,7 +10559,8 @@
       ],
       "server_types": [
         "api-tokens"
-      ]
+      ],
+      "version_changes": true
     },
     "application-settings": {
       "attributes": [
@@ -10561,14 +10573,16 @@
       ],
       "server_types": [
         "application-settings"
-      ]
+      ],
+      "version_changes": true
     },
     "base-plains": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "base-plains"
-      ]
+      ],
+      "version_changes": false
     },
     "base-summary-templates": {
       "attributes": [
@@ -10584,14 +10598,16 @@
       ],
       "server_types": [
         "base-summary-templates"
-      ]
+      ],
+      "version_changes": false
     },
     "bases": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "bases"
-      ]
+      ],
+      "version_changes": false
     },
     "bidders": {
       "attributes": [
@@ -10603,14 +10619,16 @@
       ],
       "server_types": [
         "bidders"
-      ]
+      ],
+      "version_changes": true
     },
     "broker-certification-types": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "broker-certification-types"
-      ]
+      ],
+      "version_changes": true
     },
     "broker-commitments": {
       "attributes": [
@@ -10623,7 +10641,8 @@
       ],
       "server_types": [
         "broker-commitments"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-customers": {
       "attributes": [
@@ -10633,14 +10652,16 @@
       "label_fields": [],
       "server_types": [
         "broker-customers"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-equipment-classifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "broker-equipment-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "broker-invoices": {
       "attributes": [
@@ -10669,7 +10690,8 @@
       "label_fields": [],
       "server_types": [
         "broker-invoices"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-memberships": {
       "attributes": [
@@ -10700,7 +10722,8 @@
       ],
       "server_types": [
         "broker-memberships"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-project-transport-event-types": {
       "attributes": [
@@ -10711,7 +10734,8 @@
       ],
       "server_types": [
         "broker-project-transport-event-types"
-      ]
+      ],
+      "version_changes": true
     },
     "broker-retainer-payment-forecasts": {
       "attributes": [
@@ -10723,7 +10747,8 @@
       ],
       "server_types": [
         "broker-retainer-payment-forecasts"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-retainers": {
       "attributes": [
@@ -10741,7 +10766,8 @@
       "label_fields": [],
       "server_types": [
         "broker-retainers"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-settings": {
       "attributes": [
@@ -10850,14 +10876,16 @@
       "label_fields": [],
       "server_types": [
         "broker-settings"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-tender-cancelled-seller-notifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "broker-tender-cancelled-seller-notifications"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-tender-offered-seller-notification-subscriptions": {
       "attributes": [
@@ -10867,21 +10895,24 @@
       "label_fields": [],
       "server_types": [
         "broker-tender-offered-seller-notification-subscriptions"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-tender-offered-seller-notifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "broker-tender-offered-seller-notifications"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-tender-returned-buyer-notifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "broker-tender-returned-buyer-notifications"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-tenders": {
       "attributes": [
@@ -10904,7 +10935,8 @@
       "label_fields": [],
       "server_types": [
         "broker-tenders"
-      ]
+      ],
+      "version_changes": false
     },
     "broker-trucker-ratings": {
       "attributes": [
@@ -10915,7 +10947,8 @@
       ],
       "server_types": [
         "broker-trucker-ratings"
-      ]
+      ],
+      "version_changes": true
     },
     "broker-vendors": {
       "attributes": [
@@ -10925,7 +10958,8 @@
       "label_fields": [],
       "server_types": [
         "broker-vendors"
-      ]
+      ],
+      "version_changes": false
     },
     "brokers": {
       "attributes": [
@@ -10989,7 +11023,8 @@
       ],
       "server_types": [
         "brokers"
-      ]
+      ],
+      "version_changes": true
     },
     "built-time-cards": {
       "attributes": [
@@ -11006,28 +11041,32 @@
       "label_fields": [],
       "server_types": [
         "built-time-cards"
-      ]
+      ],
+      "version_changes": false
     },
     "business-unit-customers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "business-unit-customers"
-      ]
+      ],
+      "version_changes": false
     },
     "business-unit-equipments": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "business-unit-equipments"
-      ]
+      ],
+      "version_changes": true
     },
     "business-unit-laborers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "business-unit-laborers"
-      ]
+      ],
+      "version_changes": true
     },
     "business-unit-memberships": {
       "attributes": [
@@ -11038,7 +11077,8 @@
       ],
       "server_types": [
         "business-unit-memberships"
-      ]
+      ],
+      "version_changes": true
     },
     "business-units": {
       "attributes": [
@@ -11050,7 +11090,8 @@
       ],
       "server_types": [
         "business-units"
-      ]
+      ],
+      "version_changes": true
     },
     "certification-requirements": {
       "attributes": [
@@ -11060,7 +11101,8 @@
       "label_fields": [],
       "server_types": [
         "certification-requirements"
-      ]
+      ],
+      "version_changes": true
     },
     "certification-types": {
       "attributes": [
@@ -11075,7 +11117,8 @@
       ],
       "server_types": [
         "certification-types"
-      ]
+      ],
+      "version_changes": true
     },
     "certifications": {
       "attributes": [
@@ -11086,7 +11129,8 @@
       "label_fields": [],
       "server_types": [
         "certifications"
-      ]
+      ],
+      "version_changes": true
     },
     "change-requests": {
       "attributes": [
@@ -11095,7 +11139,8 @@
       "label_fields": [],
       "server_types": [
         "change-requests"
-      ]
+      ],
+      "version_changes": false
     },
     "comment-reactions": {
       "attributes": [
@@ -11105,7 +11150,8 @@
       "label_fields": [],
       "server_types": [
         "comment-reactions"
-      ]
+      ],
+      "version_changes": true
     },
     "comments": {
       "attributes": [
@@ -11120,7 +11166,8 @@
       ],
       "server_types": [
         "comments"
-      ]
+      ],
+      "version_changes": true
     },
     "commitment-items": {
       "attributes": [
@@ -11144,7 +11191,8 @@
       ],
       "server_types": [
         "commitment-items"
-      ]
+      ],
+      "version_changes": true
     },
     "commitment-material-sites": {
       "attributes": [
@@ -11154,7 +11202,8 @@
       "label_fields": [],
       "server_types": [
         "commitment-material-sites"
-      ]
+      ],
+      "version_changes": true
     },
     "commitment-simulation-periods": {
       "attributes": [
@@ -11170,7 +11219,8 @@
       ],
       "server_types": [
         "commitment-simulation-periods"
-      ]
+      ],
+      "version_changes": true
     },
     "commitment-simulation-sets": {
       "attributes": [
@@ -11182,7 +11232,8 @@
       "label_fields": [],
       "server_types": [
         "commitment-simulation-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "commitment-simulations": {
       "attributes": [
@@ -11194,7 +11245,8 @@
       "label_fields": [],
       "server_types": [
         "commitment-simulations"
-      ]
+      ],
+      "version_changes": true
     },
     "commitments": {
       "attributes": [
@@ -11207,7 +11259,8 @@
       ],
       "server_types": [
         "commitments"
-      ]
+      ],
+      "version_changes": true
     },
     "communications": {
       "attributes": [
@@ -11227,7 +11280,8 @@
       ],
       "server_types": [
         "communications"
-      ]
+      ],
+      "version_changes": false
     },
     "contractors": {
       "attributes": [
@@ -11238,7 +11292,8 @@
       ],
       "server_types": [
         "contractors"
-      ]
+      ],
+      "version_changes": true
     },
     "cost-code-trucking-cost-summaries": {
       "attributes": [
@@ -11249,7 +11304,8 @@
       "label_fields": [],
       "server_types": [
         "cost-code-trucking-cost-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "cost-codes": {
       "attributes": [
@@ -11263,7 +11319,8 @@
       ],
       "server_types": [
         "cost-codes"
-      ]
+      ],
+      "version_changes": true
     },
     "cost-index-entries": {
       "attributes": [
@@ -11275,7 +11332,8 @@
       "label_fields": [],
       "server_types": [
         "cost-index-entries"
-      ]
+      ],
+      "version_changes": true
     },
     "cost-indexes": {
       "attributes": [
@@ -11290,7 +11348,8 @@
       ],
       "server_types": [
         "cost-indexes"
-      ]
+      ],
+      "version_changes": true
     },
     "craft-classes": {
       "attributes": [
@@ -11304,7 +11363,8 @@
       ],
       "server_types": [
         "craft-classes"
-      ]
+      ],
+      "version_changes": true
     },
     "crafts": {
       "attributes": [
@@ -11316,7 +11376,8 @@
       ],
       "server_types": [
         "crafts"
-      ]
+      ],
+      "version_changes": true
     },
     "crew-assignment-confirmations": {
       "attributes": [
@@ -11332,7 +11393,8 @@
       ],
       "server_types": [
         "crew-assignment-confirmations"
-      ]
+      ],
+      "version_changes": false
     },
     "crew-rates": {
       "attributes": [
@@ -11347,14 +11409,16 @@
       ],
       "server_types": [
         "crew-rates"
-      ]
+      ],
+      "version_changes": true
     },
     "crew-requirement-credential-classifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "crew-requirement-credential-classifications"
-      ]
+      ],
+      "version_changes": false
     },
     "crew-requirements": {
       "attributes": [
@@ -11383,7 +11447,8 @@
       "label_fields": [],
       "server_types": [
         "crew-requirements"
-      ]
+      ],
+      "version_changes": true
     },
     "culture-values": {
       "attributes": [
@@ -11397,7 +11462,8 @@
       ],
       "server_types": [
         "culture-values"
-      ]
+      ],
+      "version_changes": false
     },
     "curran-cost-codes": {
       "attributes": [
@@ -11410,7 +11476,8 @@
       ],
       "server_types": [
         "curran-cost-codes"
-      ]
+      ],
+      "version_changes": false
     },
     "custom-work-order-statuses": {
       "attributes": [
@@ -11424,7 +11491,8 @@
       ],
       "server_types": [
         "custom-work-order-statuses"
-      ]
+      ],
+      "version_changes": true
     },
     "customer-application-approvals": {
       "attributes": [
@@ -11435,7 +11503,8 @@
       "label_fields": [],
       "server_types": [
         "customer-application-approvals"
-      ]
+      ],
+      "version_changes": false
     },
     "customer-applications": {
       "attributes": [
@@ -11463,14 +11532,16 @@
       ],
       "server_types": [
         "customer-applications"
-      ]
+      ],
+      "version_changes": true
     },
     "customer-certification-types": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "customer-certification-types"
-      ]
+      ],
+      "version_changes": true
     },
     "customer-commitments": {
       "attributes": [
@@ -11486,7 +11557,8 @@
       ],
       "server_types": [
         "customer-commitments"
-      ]
+      ],
+      "version_changes": false
     },
     "customer-incident-default-assignees": {
       "attributes": [
@@ -11497,7 +11569,8 @@
       ],
       "server_types": [
         "customer-incident-default-assignees"
-      ]
+      ],
+      "version_changes": true
     },
     "customer-memberships": {
       "attributes": [
@@ -11527,7 +11600,8 @@
       ],
       "server_types": [
         "customer-memberships"
-      ]
+      ],
+      "version_changes": false
     },
     "customer-retainers": {
       "attributes": [
@@ -11545,7 +11619,8 @@
       "label_fields": [],
       "server_types": [
         "customer-retainers"
-      ]
+      ],
+      "version_changes": false
     },
     "customer-settings": {
       "attributes": [
@@ -11634,7 +11709,8 @@
       "label_fields": [],
       "server_types": [
         "customer-settings"
-      ]
+      ],
+      "version_changes": false
     },
     "customer-tender-offered-buyer-notification-subscriptions": {
       "attributes": [
@@ -11645,7 +11721,8 @@
       "label_fields": [],
       "server_types": [
         "customer-tender-offered-buyer-notification-subscriptions"
-      ]
+      ],
+      "version_changes": false
     },
     "customer-tender-offered-buyer-notifications": {
       "attributes": [
@@ -11659,7 +11736,8 @@
       "label_fields": [],
       "server_types": [
         "customer-tender-offered-buyer-notifications"
-      ]
+      ],
+      "version_changes": false
     },
     "customer-tenders": {
       "attributes": [
@@ -11682,14 +11760,16 @@
       "label_fields": [],
       "server_types": [
         "customer-tenders"
-      ]
+      ],
+      "version_changes": false
     },
     "customer-truckers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "customer-truckers"
-      ]
+      ],
+      "version_changes": true
     },
     "customer-vendors": {
       "attributes": [
@@ -11699,7 +11779,8 @@
       "label_fields": [],
       "server_types": [
         "customer-vendors"
-      ]
+      ],
+      "version_changes": false
     },
     "customers": {
       "attributes": [
@@ -11849,7 +11930,8 @@
       ],
       "server_types": [
         "customers"
-      ]
+      ],
+      "version_changes": true
     },
     "cycle-summaries": {
       "attributes": [
@@ -11863,7 +11945,8 @@
       "label_fields": [],
       "server_types": [
         "cycle-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "cycle-time-comparisons": {
       "attributes": [
@@ -11879,7 +11962,8 @@
       "label_fields": [],
       "server_types": [
         "cycle-time-comparisons"
-      ]
+      ],
+      "version_changes": false
     },
     "deere-equipments": {
       "attributes": [
@@ -11895,7 +11979,8 @@
       ],
       "server_types": [
         "deere-equipments"
-      ]
+      ],
+      "version_changes": false
     },
     "deere-integrations": {
       "attributes": [
@@ -11910,7 +11995,8 @@
       ],
       "server_types": [
         "deere-integrations"
-      ]
+      ],
+      "version_changes": true
     },
     "developer-certified-weighers": {
       "attributes": [
@@ -11922,7 +12008,8 @@
       ],
       "server_types": [
         "developer-certified-weighers"
-      ]
+      ],
+      "version_changes": false
     },
     "developer-memberships": {
       "attributes": [
@@ -11953,7 +12040,8 @@
       ],
       "server_types": [
         "developer-memberships"
-      ]
+      ],
+      "version_changes": false
     },
     "developer-reference-types": {
       "attributes": [
@@ -11965,7 +12053,8 @@
       ],
       "server_types": [
         "developer-reference-types"
-      ]
+      ],
+      "version_changes": false
     },
     "developer-references": {
       "attributes": [
@@ -11976,7 +12065,8 @@
       ],
       "server_types": [
         "developer-references"
-      ]
+      ],
+      "version_changes": false
     },
     "developer-trucker-certification-classifications": {
       "attributes": [
@@ -11987,7 +12077,8 @@
       ],
       "server_types": [
         "developer-trucker-certification-classifications"
-      ]
+      ],
+      "version_changes": false
     },
     "developer-trucker-certification-multipliers": {
       "attributes": [
@@ -11998,7 +12089,8 @@
       ],
       "server_types": [
         "developer-trucker-certification-multipliers"
-      ]
+      ],
+      "version_changes": false
     },
     "developer-trucker-certifications": {
       "attributes": [
@@ -12009,7 +12101,8 @@
       "label_fields": [],
       "server_types": [
         "developer-trucker-certifications"
-      ]
+      ],
+      "version_changes": false
     },
     "developers": {
       "attributes": [
@@ -12026,7 +12119,8 @@
       ],
       "server_types": [
         "developers"
-      ]
+      ],
+      "version_changes": true
     },
     "device-diagnostics": {
       "attributes": [
@@ -12057,7 +12151,8 @@
       ],
       "server_types": [
         "device-diagnostics"
-      ]
+      ],
+      "version_changes": false
     },
     "device-location-event-summaries": {
       "attributes": [
@@ -12073,7 +12168,8 @@
       "label_fields": [],
       "server_types": [
         "device-location-event-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "device-location-events": {
       "attributes": [
@@ -12094,7 +12190,8 @@
       ],
       "server_types": [
         "device-location-events"
-      ]
+      ],
+      "version_changes": false
     },
     "devices": {
       "attributes": [
@@ -12118,7 +12215,8 @@
       ],
       "server_types": [
         "devices"
-      ]
+      ],
+      "version_changes": true
     },
     "digital-fleet-ticket-events": {
       "attributes": [
@@ -12136,7 +12234,8 @@
       ],
       "server_types": [
         "digital-fleet-ticket-events"
-      ]
+      ],
+      "version_changes": false
     },
     "digital-fleet-trucks": {
       "attributes": [
@@ -12154,7 +12253,8 @@
       ],
       "server_types": [
         "digital-fleet-trucks"
-      ]
+      ],
+      "version_changes": false
     },
     "dispatch-user-matchers": {
       "attributes": [
@@ -12166,7 +12266,8 @@
       ],
       "server_types": [
         "dispatch-user-matchers"
-      ]
+      ],
+      "version_changes": false
     },
     "down-minutes-estimates": {
       "attributes": [
@@ -12186,14 +12287,16 @@
       "label_fields": [],
       "server_types": [
         "down-minutes-estimates"
-      ]
+      ],
+      "version_changes": false
     },
     "driver-assignment-acknowledgements": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "driver-assignment-acknowledgements"
-      ]
+      ],
+      "version_changes": false
     },
     "driver-assignment-refusals": {
       "attributes": [
@@ -12204,7 +12307,8 @@
       ],
       "server_types": [
         "driver-assignment-refusals"
-      ]
+      ],
+      "version_changes": true
     },
     "driver-assignment-rules": {
       "attributes": [
@@ -12216,7 +12320,8 @@
       ],
       "server_types": [
         "driver-assignment-rules"
-      ]
+      ],
+      "version_changes": true
     },
     "driver-day-adjustment-plans": {
       "attributes": [
@@ -12229,7 +12334,8 @@
       ],
       "server_types": [
         "driver-day-adjustment-plans"
-      ]
+      ],
+      "version_changes": true
     },
     "driver-day-adjustments": {
       "attributes": [
@@ -12245,14 +12351,16 @@
       ],
       "server_types": [
         "driver-day-adjustments"
-      ]
+      ],
+      "version_changes": true
     },
     "driver-day-constraints": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "driver-day-constraints"
-      ]
+      ],
+      "version_changes": true
     },
     "driver-day-shortfall-allocations": {
       "attributes": [
@@ -12265,7 +12373,8 @@
       "label_fields": [],
       "server_types": [
         "driver-day-shortfall-allocations"
-      ]
+      ],
+      "version_changes": false
     },
     "driver-day-shortfall-calculations": {
       "attributes": [
@@ -12281,7 +12390,8 @@
       ],
       "server_types": [
         "driver-day-shortfall-calculations"
-      ]
+      ],
+      "version_changes": false
     },
     "driver-day-summaries": {
       "attributes": [
@@ -12293,7 +12403,8 @@
       "label_fields": [],
       "server_types": [
         "driver-day-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "driver-day-trips-adjustments": {
       "attributes": [
@@ -12309,7 +12420,8 @@
       ],
       "server_types": [
         "driver-day-trips-adjustments"
-      ]
+      ],
+      "version_changes": true
     },
     "driver-days": {
       "attributes": [
@@ -12346,7 +12458,8 @@
       ],
       "server_types": [
         "trucker-shift-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "driver-managers": {
       "attributes": [
@@ -12356,7 +12469,8 @@
       "label_fields": [],
       "server_types": [
         "driver-managers"
-      ]
+      ],
+      "version_changes": false
     },
     "driver-movement-observations": {
       "attributes": [
@@ -12369,7 +12483,8 @@
       "label_fields": [],
       "server_types": [
         "driver-movement-observations"
-      ]
+      ],
+      "version_changes": false
     },
     "driver-movement-segment-sets": {
       "attributes": [
@@ -12386,7 +12501,8 @@
       ],
       "server_types": [
         "driver-movement-segment-sets"
-      ]
+      ],
+      "version_changes": false
     },
     "driver-movement-segments": {
       "attributes": [
@@ -12405,7 +12521,8 @@
       "label_fields": [],
       "server_types": [
         "driver-movement-segments"
-      ]
+      ],
+      "version_changes": false
     },
     "efficiency-incidents": {
       "attributes": [
@@ -12430,7 +12547,8 @@
       ],
       "server_types": [
         "efficiency-incidents"
-      ]
+      ],
+      "version_changes": false
     },
     "email-address-statuses": {
       "attributes": [
@@ -12446,7 +12564,8 @@
       ],
       "server_types": [
         "email-address-statuses"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment": {
       "attributes": [
@@ -12473,7 +12592,8 @@
       ],
       "server_types": [
         "equipment"
-      ]
+      ],
+      "version_changes": true
     },
     "equipment-classifications": {
       "attributes": [
@@ -12488,7 +12608,8 @@
       ],
       "server_types": [
         "equipment-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "equipment-location-estimates": {
       "attributes": [
@@ -12503,7 +12624,8 @@
       "label_fields": [],
       "server_types": [
         "equipment-location-estimates"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-location-events": {
       "attributes": [
@@ -12517,7 +12639,8 @@
       ],
       "server_types": [
         "equipment-location-events"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-movement-requirement-locations": {
       "attributes": [
@@ -12530,7 +12653,8 @@
       ],
       "server_types": [
         "equipment-movement-requirement-locations"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-movement-requirements": {
       "attributes": [
@@ -12541,7 +12665,8 @@
       "label_fields": [],
       "server_types": [
         "equipment-movement-requirements"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-movement-stop-completions": {
       "attributes": [
@@ -12556,7 +12681,8 @@
       ],
       "server_types": [
         "equipment-movement-stop-completions"
-      ]
+      ],
+      "version_changes": true
     },
     "equipment-movement-stop-requirements": {
       "attributes": [
@@ -12566,7 +12692,8 @@
       "label_fields": [],
       "server_types": [
         "equipment-movement-stop-requirements"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-movement-stops": {
       "attributes": [
@@ -12577,7 +12704,8 @@
       "label_fields": [],
       "server_types": [
         "equipment-movement-stops"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-movement-trip-customer-cost-allocations": {
       "attributes": [
@@ -12587,14 +12715,16 @@
       "label_fields": [],
       "server_types": [
         "equipment-movement-trip-customer-cost-allocations"
-      ]
+      ],
+      "version_changes": true
     },
     "equipment-movement-trip-dispatch-fulfillment-clerks": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "equipment-movement-trip-dispatch-fulfillment-clerks"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-movement-trip-dispatches": {
       "attributes": [
@@ -12610,14 +12740,16 @@
       "label_fields": [],
       "server_types": [
         "equipment-movement-trip-dispatches"
-      ]
+      ],
+      "version_changes": true
     },
     "equipment-movement-trip-job-production-plans": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "equipment-movement-trip-job-production-plans"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-movement-trips": {
       "attributes": [
@@ -12631,7 +12763,8 @@
       ],
       "server_types": [
         "equipment-movement-trips"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-rentals": {
       "attributes": [
@@ -12652,7 +12785,8 @@
       ],
       "server_types": [
         "equipment-rentals"
-      ]
+      ],
+      "version_changes": true
     },
     "equipment-requirements": {
       "attributes": [
@@ -12684,7 +12818,8 @@
       ],
       "server_types": [
         "equipment-requirements"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-suppliers": {
       "attributes": [
@@ -12696,7 +12831,8 @@
       ],
       "server_types": [
         "equipment-suppliers"
-      ]
+      ],
+      "version_changes": false
     },
     "equipment-utilization-readings": {
       "attributes": [
@@ -12712,7 +12848,8 @@
       ],
       "server_types": [
         "equipment-utilization-readings"
-      ]
+      ],
+      "version_changes": true
     },
     "expected-time-of-arrivals": {
       "attributes": [
@@ -12726,7 +12863,8 @@
       ],
       "server_types": [
         "expected-time-of-arrivals"
-      ]
+      ],
+      "version_changes": true
     },
     "exporter-configurations": {
       "attributes": [
@@ -12742,7 +12880,8 @@
       ],
       "server_types": [
         "exporter-configurations"
-      ]
+      ],
+      "version_changes": false
     },
     "external-data-results": {
       "attributes": [
@@ -12758,7 +12897,8 @@
       ],
       "server_types": [
         "external-data-results"
-      ]
+      ],
+      "version_changes": false
     },
     "external-identification-types": {
       "attributes": [
@@ -12773,7 +12913,8 @@
       ],
       "server_types": [
         "external-identification-types"
-      ]
+      ],
+      "version_changes": true
     },
     "external-identifications": {
       "attributes": [
@@ -12785,7 +12926,8 @@
       ],
       "server_types": [
         "external-identifications"
-      ]
+      ],
+      "version_changes": true
     },
     "features": {
       "attributes": [
@@ -12804,7 +12946,8 @@
       ],
       "server_types": [
         "features"
-      ]
+      ],
+      "version_changes": true
     },
     "file-attachment-signed-urls": {
       "attributes": [
@@ -12814,7 +12957,8 @@
       "label_fields": [],
       "server_types": [
         "file-attachment-signed-urls"
-      ]
+      ],
+      "version_changes": false
     },
     "file-attachments": {
       "attributes": [
@@ -12831,7 +12975,8 @@
       ],
       "server_types": [
         "file-attachments"
-      ]
+      ],
+      "version_changes": true
     },
     "file-imports": {
       "attributes": [
@@ -12844,14 +12989,16 @@
       ],
       "server_types": [
         "file-imports"
-      ]
+      ],
+      "version_changes": true
     },
     "follows": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "follows"
-      ]
+      ],
+      "version_changes": true
     },
     "gauge-vehicles": {
       "attributes": [
@@ -12866,7 +13013,8 @@
       ],
       "server_types": [
         "gauge-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "geofence-restriction-violations": {
       "attributes": [
@@ -12884,7 +13032,8 @@
       ],
       "server_types": [
         "geofence-restriction-violations"
-      ]
+      ],
+      "version_changes": true
     },
     "geofence-restrictions": {
       "attributes": [
@@ -12896,7 +13045,8 @@
       ],
       "server_types": [
         "geofence-restrictions"
-      ]
+      ],
+      "version_changes": true
     },
     "geofences": {
       "attributes": [
@@ -12913,7 +13063,8 @@
       ],
       "server_types": [
         "geofences"
-      ]
+      ],
+      "version_changes": true
     },
     "geotab-vehicles": {
       "attributes": [
@@ -12929,7 +13080,8 @@
       ],
       "server_types": [
         "geotab-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "glossary-terms": {
       "attributes": [
@@ -12944,7 +13096,8 @@
       ],
       "server_types": [
         "glossary-terms"
-      ]
+      ],
+      "version_changes": true
     },
     "go-motive-integrations": {
       "attributes": [
@@ -12957,7 +13110,8 @@
       ],
       "server_types": [
         "go-motive-integrations"
-      ]
+      ],
+      "version_changes": true
     },
     "gps-insight-vehicles": {
       "attributes": [
@@ -12972,7 +13126,8 @@
       ],
       "server_types": [
         "gps-insight-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "haskell-lemon-inbound-material-transaction-exports": {
       "attributes": [
@@ -12985,7 +13140,8 @@
       "label_fields": [],
       "server_types": [
         "haskell-lemon-inbound-material-transaction-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "haskell-lemon-outbound-material-transaction-exports": {
       "attributes": [
@@ -12998,7 +13154,8 @@
       "label_fields": [],
       "server_types": [
         "haskell-lemon-outbound-material-transaction-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "hos-annotations": {
       "attributes": [
@@ -13011,7 +13168,8 @@
       ],
       "server_types": [
         "hos-annotations"
-      ]
+      ],
+      "version_changes": true
     },
     "hos-availability-snapshots": {
       "attributes": [
@@ -13035,7 +13193,8 @@
       ],
       "server_types": [
         "hos-availability-snapshots"
-      ]
+      ],
+      "version_changes": true
     },
     "hos-day-regulation-sets": {
       "attributes": [
@@ -13052,7 +13211,8 @@
       ],
       "server_types": [
         "hos-day-regulation-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "hos-days": {
       "attributes": [
@@ -13066,7 +13226,8 @@
       ],
       "server_types": [
         "hos-days"
-      ]
+      ],
+      "version_changes": true
     },
     "hos-events": {
       "attributes": [
@@ -13088,7 +13249,8 @@
       ],
       "server_types": [
         "hos-events"
-      ]
+      ],
+      "version_changes": true
     },
     "hos-ruleset-assignments": {
       "attributes": [
@@ -13101,7 +13263,8 @@
       ],
       "server_types": [
         "hos-ruleset-assignments"
-      ]
+      ],
+      "version_changes": true
     },
     "hos-violations": {
       "attributes": [
@@ -13119,14 +13282,16 @@
       ],
       "server_types": [
         "hos-violations"
-      ]
+      ],
+      "version_changes": true
     },
     "identifies": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "identifies"
-      ]
+      ],
+      "version_changes": false
     },
     "importer-configurations": {
       "attributes": [
@@ -13138,7 +13303,8 @@
       "label_fields": [],
       "server_types": [
         "importer-configurations"
-      ]
+      ],
+      "version_changes": false
     },
     "incident-headline-suggestions": {
       "attributes": [
@@ -13154,7 +13320,8 @@
       ],
       "server_types": [
         "incident-headline-suggestions"
-      ]
+      ],
+      "version_changes": false
     },
     "incident-participants": {
       "attributes": [
@@ -13169,7 +13336,8 @@
       ],
       "server_types": [
         "incident-participants"
-      ]
+      ],
+      "version_changes": true
     },
     "incident-request-actions": {
       "attributes": [
@@ -13178,7 +13346,8 @@
       "label_fields": [],
       "server_types": [
         "incident-request-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "incident-request-approvals": {
       "attributes": [
@@ -13189,7 +13358,8 @@
       ],
       "server_types": [
         "incident-request-approvals"
-      ]
+      ],
+      "version_changes": false
     },
     "incident-request-cancellations": {
       "attributes": [
@@ -13198,7 +13368,8 @@
       "label_fields": [],
       "server_types": [
         "incident-request-cancellations"
-      ]
+      ],
+      "version_changes": false
     },
     "incident-request-rejections": {
       "attributes": [
@@ -13209,7 +13380,8 @@
       ],
       "server_types": [
         "incident-request-rejections"
-      ]
+      ],
+      "version_changes": false
     },
     "incident-requests": {
       "attributes": [
@@ -13225,7 +13397,8 @@
       ],
       "server_types": [
         "incident-requests"
-      ]
+      ],
+      "version_changes": true
     },
     "incident-subscriptions": {
       "attributes": [
@@ -13239,14 +13412,16 @@
       ],
       "server_types": [
         "incident-subscriptions"
-      ]
+      ],
+      "version_changes": true
     },
     "incident-tag-incidents": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "incident-tag-incidents"
-      ]
+      ],
+      "version_changes": true
     },
     "incident-tags": {
       "attributes": [
@@ -13261,7 +13436,8 @@
       ],
       "server_types": [
         "incident-tags"
-      ]
+      ],
+      "version_changes": true
     },
     "incident-unit-of-measure-quantities": {
       "attributes": [
@@ -13273,7 +13449,8 @@
       ],
       "server_types": [
         "incident-unit-of-measure-quantities"
-      ]
+      ],
+      "version_changes": true
     },
     "incidents": {
       "attributes": [
@@ -13297,7 +13474,8 @@
       ],
       "server_types": [
         "incidents"
-      ]
+      ],
+      "version_changes": true
     },
     "integration-configs": {
       "attributes": [
@@ -13314,7 +13492,8 @@
       ],
       "server_types": [
         "integration-configs"
-      ]
+      ],
+      "version_changes": false
     },
     "integration-exports": {
       "attributes": [
@@ -13331,7 +13510,8 @@
       ],
       "server_types": [
         "integration-exports"
-      ]
+      ],
+      "version_changes": true
     },
     "integration-invoices-batch-exports": {
       "attributes": [
@@ -13340,7 +13520,8 @@
       "label_fields": [],
       "server_types": [
         "integration-invoices-batch-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "inventory-capacities": {
       "attributes": [
@@ -13354,7 +13535,8 @@
       ],
       "server_types": [
         "inventory-capacities"
-      ]
+      ],
+      "version_changes": true
     },
     "inventory-changes": {
       "attributes": [
@@ -13370,7 +13552,8 @@
       ],
       "server_types": [
         "inventory-changes"
-      ]
+      ],
+      "version_changes": true
     },
     "inventory-estimates": {
       "attributes": [
@@ -13383,7 +13566,8 @@
       ],
       "server_types": [
         "inventory-estimates"
-      ]
+      ],
+      "version_changes": true
     },
     "invoice-actions": {
       "attributes": [
@@ -13392,7 +13576,8 @@
       "label_fields": [],
       "server_types": [
         "invoice-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-addresses": {
       "attributes": [
@@ -13403,7 +13588,8 @@
       ],
       "server_types": [
         "invoice-addresses"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-approvals": {
       "attributes": [
@@ -13414,7 +13600,8 @@
       ],
       "server_types": [
         "invoice-approvals"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-exports": {
       "attributes": [
@@ -13425,7 +13612,8 @@
       ],
       "server_types": [
         "invoice-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-generations": {
       "attributes": [
@@ -13446,7 +13634,8 @@
       ],
       "server_types": [
         "invoice-generations"
-      ]
+      ],
+      "version_changes": true
     },
     "invoice-organization-batch-statuses": {
       "attributes": [
@@ -13473,7 +13662,8 @@
       ],
       "server_types": [
         "invoice-organization-batch-statuses"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-pdf-emails": {
       "attributes": [
@@ -13484,7 +13674,8 @@
       ],
       "server_types": [
         "invoice-pdf-emails"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-rejections": {
       "attributes": [
@@ -13493,7 +13684,8 @@
       "label_fields": [],
       "server_types": [
         "invoice-rejections"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-revisionables": {
       "attributes": [
@@ -13502,7 +13694,8 @@
       "label_fields": [],
       "server_types": [
         "invoice-revisionables"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-revisionizing-invoice-revisions": {
       "attributes": [
@@ -13513,7 +13706,8 @@
       ],
       "server_types": [
         "invoice-revisionizing-invoice-revisions"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-revisionizing-works": {
       "attributes": [
@@ -13534,7 +13728,8 @@
       ],
       "server_types": [
         "invoice-revisionizing-works"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-revisionizings": {
       "attributes": [
@@ -13548,7 +13743,8 @@
       ],
       "server_types": [
         "invoice-revisionizings"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-revisions": {
       "attributes": [
@@ -13561,7 +13757,8 @@
       ],
       "server_types": [
         "invoice-revisions"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-sends": {
       "attributes": [
@@ -13572,7 +13769,8 @@
       ],
       "server_types": [
         "invoice-sends"
-      ]
+      ],
+      "version_changes": false
     },
     "invoice-status-changes": {
       "attributes": [
@@ -13585,7 +13783,8 @@
       ],
       "server_types": [
         "invoice-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "invoices": {
       "attributes": [
@@ -13613,7 +13812,8 @@
       "label_fields": [],
       "server_types": [
         "invoices"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-abandonments": {
       "attributes": [
@@ -13623,7 +13823,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-abandonments"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-actions": {
       "attributes": [
@@ -13632,14 +13833,16 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-alarm-subscribers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "job-production-plan-alarm-subscribers"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-alarms": {
       "attributes": [
@@ -13660,7 +13863,8 @@
       ],
       "server_types": [
         "job-production-plan-alarms"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-approvals": {
       "attributes": [
@@ -13671,7 +13875,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-approvals"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-broadcast-messages": {
       "attributes": [
@@ -13686,7 +13891,8 @@
       ],
       "server_types": [
         "job-production-plan-broadcast-messages"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-cancellation-reason-types": {
       "attributes": [
@@ -13699,7 +13905,8 @@
       ],
       "server_types": [
         "job-production-plan-cancellation-reason-types"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-cancellations": {
       "attributes": [
@@ -13709,7 +13916,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-cancellations"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-change-sets": {
       "attributes": [
@@ -13742,7 +13950,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-change-sets"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-completions": {
       "attributes": [
@@ -13752,14 +13961,16 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-completions"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-cost-codes": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "job-production-plan-cost-codes"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-display-unit-of-measures": {
       "attributes": [
@@ -13769,7 +13980,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-display-unit-of-measures"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-driver-movements": {
       "attributes": [
@@ -13787,7 +13999,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-driver-movements"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-duplication-works": {
       "attributes": [
@@ -13833,7 +14046,8 @@
       ],
       "server_types": [
         "job-production-plan-duplication-works"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-duplications": {
       "attributes": [
@@ -13877,7 +14091,8 @@
       ],
       "server_types": [
         "job-production-plan-duplications"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-inspectable-summaries": {
       "attributes": [
@@ -13909,7 +14124,8 @@
       ],
       "server_types": [
         "job-production-plan-inspectable-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-inspectors": {
       "attributes": [
@@ -13918,14 +14134,16 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-inspectors"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-job-site-changes": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "job-production-plan-job-site-changes"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-job-site-location-estimates": {
       "attributes": [
@@ -13934,7 +14152,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-job-site-location-estimates"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-locations": {
       "attributes": [
@@ -13959,14 +14178,16 @@
       ],
       "server_types": [
         "job-production-plan-locations"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-material-site-changes": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "job-production-plan-material-site-changes"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-material-sites": {
       "attributes": [
@@ -13983,7 +14204,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-material-sites"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-material-transaction-summaries": {
       "attributes": [
@@ -13992,7 +14214,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-material-transaction-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-material-type-quality-control-requirements": {
       "attributes": [
@@ -14003,7 +14226,8 @@
       ],
       "server_types": [
         "job-production-plan-material-type-quality-control-requirements"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-material-types": {
       "attributes": [
@@ -14020,7 +14244,8 @@
       ],
       "server_types": [
         "job-production-plan-material-types"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-project-phase-revenue-items": {
       "attributes": [
@@ -14030,14 +14255,16 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-project-phase-revenue-items"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-recap-generations": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "job-production-plan-recap-generations"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-recaps": {
       "attributes": [
@@ -14050,7 +14277,8 @@
       ],
       "server_types": [
         "job-production-plan-recaps"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-rejections": {
       "attributes": [
@@ -14060,7 +14288,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-rejections"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-safety-risk-communication-suggestions": {
       "attributes": [
@@ -14074,7 +14303,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-safety-risk-communication-suggestions"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-safety-risks": {
       "attributes": [
@@ -14085,7 +14315,8 @@
       ],
       "server_types": [
         "job-production-plan-safety-risks"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-safety-risks-suggestions": {
       "attributes": [
@@ -14101,7 +14332,8 @@
       ],
       "server_types": [
         "job-production-plan-safety-risks-suggestions"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-schedule-change-works": {
       "attributes": [
@@ -14118,7 +14350,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-schedule-change-works"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-schedule-changes": {
       "attributes": [
@@ -14134,7 +14367,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-schedule-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-scrappages": {
       "attributes": [
@@ -14144,7 +14378,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-scrappages"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-segment-sets": {
       "attributes": [
@@ -14157,7 +14392,8 @@
       ],
       "server_types": [
         "job-production-plan-segment-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-segments": {
       "attributes": [
@@ -14186,14 +14422,16 @@
       ],
       "server_types": [
         "job-production-plan-segments"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-service-type-unit-of-measure-cohorts": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "job-production-plan-service-type-unit-of-measure-cohorts"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-service-type-unit-of-measures": {
       "attributes": [
@@ -14204,7 +14442,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-service-type-unit-of-measures"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-status-changes": {
       "attributes": [
@@ -14218,7 +14457,8 @@
       ],
       "server_types": [
         "job-production-plan-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-submissions": {
       "attributes": [
@@ -14228,7 +14468,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-submissions"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-subscriptions": {
       "attributes": [
@@ -14239,7 +14480,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-subscriptions"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-summaries": {
       "attributes": [
@@ -14256,7 +14498,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-supply-demand-balance-calculators": {
       "attributes": [
@@ -14283,7 +14526,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-supply-demand-balance-calculators"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-supply-demand-balances": {
       "attributes": [
@@ -14308,14 +14552,16 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-supply-demand-balances"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-time-card-approvers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "job_production_plan_time_card_approvers"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-trailer-classifications": {
       "attributes": [
@@ -14328,7 +14574,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-trailer-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-trucking-incident-detectors": {
       "attributes": [
@@ -14341,7 +14588,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-trucking-incident-detectors"
-      ]
+      ],
+      "version_changes": true
     },
     "job-production-plan-unabandonments": {
       "attributes": [
@@ -14353,7 +14601,8 @@
       ],
       "server_types": [
         "job-production-plan-unabandonments"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-unapprovals": {
       "attributes": [
@@ -14363,7 +14612,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-unapprovals"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-uncancellations": {
       "attributes": [
@@ -14373,7 +14623,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-uncancellations"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-uncompletions": {
       "attributes": [
@@ -14383,7 +14634,8 @@
       "label_fields": [],
       "server_types": [
         "job-production-plan-uncompletions"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plan-unscrappages": {
       "attributes": [
@@ -14395,7 +14647,8 @@
       ],
       "server_types": [
         "job-production-plan-unscrappages"
-      ]
+      ],
+      "version_changes": false
     },
     "job-production-plans": {
       "attributes": [
@@ -14580,6 +14833,10 @@
       ],
       "server_types": [
         "job-production-plans"
+      ],
+      "version_changes": true,
+      "version_changes_optional_features": [
+        "job_production_plan_new_version_changes"
       ]
     },
     "job-schedule-shift-is-managed-toggles": {
@@ -14587,7 +14844,8 @@
       "label_fields": [],
       "server_types": [
         "job-schedule-shift-is-managed-toggles"
-      ]
+      ],
+      "version_changes": false
     },
     "job-schedule-shift-splits": {
       "attributes": [
@@ -14598,7 +14856,8 @@
       "label_fields": [],
       "server_types": [
         "job-schedule-shift-splits"
-      ]
+      ],
+      "version_changes": false
     },
     "job-schedule-shift-start-at-changes": {
       "attributes": [
@@ -14610,14 +14869,16 @@
       ],
       "server_types": [
         "job-schedule-shift-start-at-changes"
-      ]
+      ],
+      "version_changes": true
     },
     "job-schedule-shift-start-site-changes": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "job-schedule-shift-start-site-changes"
-      ]
+      ],
+      "version_changes": true
     },
     "job-schedule-shifts": {
       "attributes": [
@@ -14653,7 +14914,8 @@
       "label_fields": [],
       "server_types": [
         "job-schedule-shifts"
-      ]
+      ],
+      "version_changes": true
     },
     "job-site-times": {
       "attributes": [
@@ -14667,7 +14929,8 @@
       ],
       "server_types": [
         "job-site-times"
-      ]
+      ],
+      "version_changes": true
     },
     "job-sites": {
       "attributes": [
@@ -14697,7 +14960,8 @@
       ],
       "server_types": [
         "job-sites"
-      ]
+      ],
+      "version_changes": true
     },
     "job-types": {
       "attributes": [
@@ -14708,7 +14972,8 @@
       ],
       "server_types": [
         "job-types"
-      ]
+      ],
+      "version_changes": true
     },
     "jobs": {
       "attributes": [
@@ -14730,7 +14995,8 @@
       ],
       "server_types": [
         "jobs"
-      ]
+      ],
+      "version_changes": true
     },
     "keep-truckin-users": {
       "attributes": [
@@ -14750,7 +15016,8 @@
       ],
       "server_types": [
         "keep-truckin-users"
-      ]
+      ],
+      "version_changes": false
     },
     "keep-truckin-vehicles": {
       "attributes": [
@@ -14770,7 +15037,8 @@
       ],
       "server_types": [
         "keep-truckin-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "key-result-actions": {
       "attributes": [
@@ -14781,7 +15049,8 @@
       ],
       "server_types": [
         "key-result-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "key-result-changes": {
       "attributes": [
@@ -14793,7 +15062,8 @@
       "label_fields": [],
       "server_types": [
         "key-result-changes"
-      ]
+      ],
+      "version_changes": true
     },
     "key-result-scrappages": {
       "attributes": [
@@ -14804,7 +15074,8 @@
       ],
       "server_types": [
         "key-result-scrappages"
-      ]
+      ],
+      "version_changes": false
     },
     "key-result-status-changes": {
       "attributes": [
@@ -14818,7 +15089,8 @@
       ],
       "server_types": [
         "key-result-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "key-result-unscrappages": {
       "attributes": [
@@ -14829,7 +15101,8 @@
       ],
       "server_types": [
         "key-result-unscrappages"
-      ]
+      ],
+      "version_changes": false
     },
     "key-results": {
       "attributes": [
@@ -14849,7 +15122,8 @@
       ],
       "server_types": [
         "key-results"
-      ]
+      ],
+      "version_changes": true
     },
     "labor-classifications": {
       "attributes": [
@@ -14867,7 +15141,8 @@
       ],
       "server_types": [
         "labor-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "labor-requirements": {
       "attributes": [
@@ -14896,7 +15171,8 @@
       "label_fields": [],
       "server_types": [
         "labor-requirements"
-      ]
+      ],
+      "version_changes": false
     },
     "laborers": {
       "attributes": [
@@ -14915,7 +15191,8 @@
       ],
       "server_types": [
         "laborers"
-      ]
+      ],
+      "version_changes": true
     },
     "languages": {
       "attributes": [
@@ -14928,7 +15205,8 @@
       ],
       "server_types": [
         "languages"
-      ]
+      ],
+      "version_changes": false
     },
     "lehman-roberts-apex-viewpoint-ticket-exports": {
       "attributes": [
@@ -14944,7 +15222,8 @@
       ],
       "server_types": [
         "lehman-roberts-apex-viewpoint-ticket-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "liability-incidents": {
       "attributes": [
@@ -14972,14 +15251,16 @@
       ],
       "server_types": [
         "liability-incidents"
-      ]
+      ],
+      "version_changes": false
     },
     "lineup-dispatch-fulfillment-clerks": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "lineup-dispatch-fulfillment-clerks"
-      ]
+      ],
+      "version_changes": false
     },
     "lineup-dispatch-shifts": {
       "attributes": [
@@ -14988,7 +15269,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-dispatch-shifts"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-dispatch-statuses": {
       "attributes": [
@@ -15002,7 +15284,8 @@
       ],
       "server_types": [
         "lineup-dispatch-statuses"
-      ]
+      ],
+      "version_changes": false
     },
     "lineup-dispatches": {
       "attributes": [
@@ -15019,7 +15302,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-dispatches"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-job-production-plans": {
       "attributes": [
@@ -15028,7 +15312,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-job-production-plans"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-job-schedule-shift-trucker-assignment-recommendations": {
       "attributes": [
@@ -15037,7 +15322,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-job-schedule-shift-trucker-assignment-recommendations"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-job-schedule-shifts": {
       "attributes": [
@@ -15055,7 +15341,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-job-schedule-shifts"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-scenario-generators": {
       "attributes": [
@@ -15071,7 +15358,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-scenario-generators"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-scenario-lineup-job-schedule-shifts": {
       "attributes": [
@@ -15081,14 +15369,16 @@
       "label_fields": [],
       "server_types": [
         "lineup-scenario-lineup-job-schedule-shifts"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-scenario-lineups": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "lineup-scenario-lineups"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-scenario-solutions": {
       "attributes": [
@@ -15101,7 +15391,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-scenario-solutions"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-scenario-trailer-lineup-job-schedule-shifts": {
       "attributes": [
@@ -15111,7 +15402,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-scenario-trailer-lineup-job-schedule-shifts"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-scenario-trailers": {
       "attributes": [
@@ -15120,7 +15412,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-scenario-trailers"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-scenario-truckers": {
       "attributes": [
@@ -15133,7 +15426,8 @@
       "label_fields": [],
       "server_types": [
         "lineup-scenario-truckers"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-scenarios": {
       "attributes": [
@@ -15148,7 +15442,8 @@
       ],
       "server_types": [
         "lineup-scenarios"
-      ]
+      ],
+      "version_changes": true
     },
     "lineup-summary-requests": {
       "attributes": [
@@ -15164,7 +15459,8 @@
       ],
       "server_types": [
         "lineup-summary-requests"
-      ]
+      ],
+      "version_changes": false
     },
     "lineups": {
       "attributes": [
@@ -15177,7 +15473,8 @@
       ],
       "server_types": [
         "lineups"
-      ]
+      ],
+      "version_changes": true
     },
     "login-code-redemptions": {
       "attributes": [
@@ -15190,7 +15487,8 @@
       ],
       "server_types": [
         "login-code-redemptions"
-      ]
+      ],
+      "version_changes": false
     },
     "login-code-requests": {
       "attributes": [
@@ -15203,7 +15501,8 @@
       ],
       "server_types": [
         "login-code-requests"
-      ]
+      ],
+      "version_changes": false
     },
     "lowest-losing-bid-prediction-subject-details": {
       "attributes": [
@@ -15217,7 +15516,8 @@
       "label_fields": [],
       "server_types": [
         "lowest-losing-bid-prediction-subject-details"
-      ]
+      ],
+      "version_changes": true
     },
     "maintenance-requirement-maintenance-requirement-parts": {
       "attributes": [
@@ -15239,7 +15539,8 @@
       ],
       "server_types": [
         "maintenance-requirement-maintenance-requirement-parts"
-      ]
+      ],
+      "version_changes": true
     },
     "maintenance-requirement-parts": {
       "attributes": [
@@ -15258,7 +15559,8 @@
       ],
       "server_types": [
         "maintenance-requirement-parts"
-      ]
+      ],
+      "version_changes": true
     },
     "maintenance-requirement-rule-evaluation-clerks": {
       "attributes": [
@@ -15269,14 +15571,16 @@
       ],
       "server_types": [
         "maintenance-requirement-rule-evaluation-clerks"
-      ]
+      ],
+      "version_changes": false
     },
     "maintenance-requirement-rule-maintenance-requirement-sets": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "maintenance-requirement-rule-maintenance-requirement-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "maintenance-requirement-rules": {
       "attributes": [
@@ -15288,14 +15592,16 @@
       ],
       "server_types": [
         "maintenance-requirement-rules"
-      ]
+      ],
+      "version_changes": true
     },
     "maintenance-requirement-set-maintenance-requirements": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "maintenance-requirement-set-maintenance-requirements"
-      ]
+      ],
+      "version_changes": true
     },
     "maintenance-requirement-sets": {
       "attributes": [
@@ -15312,7 +15618,8 @@
       ],
       "server_types": [
         "maintenance-requirement-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "maintenance-requirements": {
       "attributes": [
@@ -15332,7 +15639,8 @@
       ],
       "server_types": [
         "maintenance-requirements"
-      ]
+      ],
+      "version_changes": true
     },
     "marketing-metrics": {
       "attributes": [
@@ -15358,7 +15666,8 @@
       "label_fields": [],
       "server_types": [
         "marketing-metrics"
-      ]
+      ],
+      "version_changes": false
     },
     "material-mix-design-matches": {
       "attributes": [
@@ -15368,7 +15677,8 @@
       "label_fields": [],
       "server_types": [
         "material-mix-design-matches"
-      ]
+      ],
+      "version_changes": false
     },
     "material-mix-designs": {
       "attributes": [
@@ -15385,7 +15695,8 @@
       ],
       "server_types": [
         "material-mix-designs"
-      ]
+      ],
+      "version_changes": true
     },
     "material-purchase-order-release-redemptions": {
       "attributes": [
@@ -15396,7 +15707,8 @@
       ],
       "server_types": [
         "material-purchase-order-release-redemptions"
-      ]
+      ],
+      "version_changes": false
     },
     "material-purchase-order-releases": {
       "attributes": [
@@ -15411,7 +15723,8 @@
       ],
       "server_types": [
         "material-purchase-order-releases"
-      ]
+      ],
+      "version_changes": false
     },
     "material-purchase-orders": {
       "attributes": [
@@ -15429,7 +15742,8 @@
       ],
       "server_types": [
         "material-purchase-orders"
-      ]
+      ],
+      "version_changes": true
     },
     "material-site-a-c-temperatures": {
       "attributes": [
@@ -15444,7 +15758,8 @@
       ],
       "server_types": [
         "material-site-a-c-temperatures"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-inventory-locations": {
       "attributes": [
@@ -15459,7 +15774,8 @@
       ],
       "server_types": [
         "material-site-inventory-locations"
-      ]
+      ],
+      "version_changes": true
     },
     "material-site-measures": {
       "attributes": [
@@ -15474,14 +15790,16 @@
       ],
       "server_types": [
         "material-site-measures"
-      ]
+      ],
+      "version_changes": true
     },
     "material-site-mergers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "material-site-mergers"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-mixing-a-c-tons-per-hours": {
       "attributes": [
@@ -15496,7 +15814,8 @@
       ],
       "server_types": [
         "material-site-mixing-a-c-tons-per-hours"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-mixing-agg-tons-per-hours": {
       "attributes": [
@@ -15510,7 +15829,8 @@
       ],
       "server_types": [
         "material-site-mixing-agg-tons-per-hours"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-mixing-lots": {
       "attributes": [
@@ -15531,7 +15851,8 @@
       ],
       "server_types": [
         "material-site-mixing-lots"
-      ]
+      ],
+      "version_changes": true
     },
     "material-site-mixing-raw-material-mix-percentages": {
       "attributes": [
@@ -15546,7 +15867,8 @@
       ],
       "server_types": [
         "material-site-mixing-raw-material-mix-percentages"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-mixing-raw-material-moisture-percentages": {
       "attributes": [
@@ -15561,7 +15883,8 @@
       ],
       "server_types": [
         "material-site-mixing-raw-material-moisture-percentages"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-mixing-raw-material-tons": {
       "attributes": [
@@ -15576,7 +15899,8 @@
       ],
       "server_types": [
         "material-site-mixing-raw-material-tons"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-mixing-raw-material-tons-per-hours": {
       "attributes": [
@@ -15591,7 +15915,8 @@
       ],
       "server_types": [
         "material-site-mixing-raw-material-tons-per-hours"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-mixing-temperatures": {
       "attributes": [
@@ -15605,7 +15930,8 @@
       ],
       "server_types": [
         "material-site-mixing-temperatures"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-mixing-tons-per-hours": {
       "attributes": [
@@ -15620,7 +15946,8 @@
       ],
       "server_types": [
         "material-site-mixing-tons-per-hours"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-reading-material-types": {
       "attributes": [
@@ -15631,7 +15958,8 @@
       ],
       "server_types": [
         "material-site-reading-material-types"
-      ]
+      ],
+      "version_changes": true
     },
     "material-site-reading-summaries": {
       "attributes": [
@@ -15647,7 +15975,8 @@
       "label_fields": [],
       "server_types": [
         "material-site-reading-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "material-site-readings": {
       "attributes": [
@@ -15663,7 +15992,8 @@
       ],
       "server_types": [
         "material-site-readings"
-      ]
+      ],
+      "version_changes": true
     },
     "material-site-subscriptions": {
       "attributes": [
@@ -15673,7 +16003,8 @@
       "label_fields": [],
       "server_types": [
         "material-site-subscriptions"
-      ]
+      ],
+      "version_changes": true
     },
     "material-site-unavailabilities": {
       "attributes": [
@@ -15686,7 +16017,8 @@
       ],
       "server_types": [
         "material-site-unavailabilities"
-      ]
+      ],
+      "version_changes": true
     },
     "material-sites": {
       "attributes": [
@@ -15733,7 +16065,8 @@
       ],
       "server_types": [
         "material-sites"
-      ]
+      ],
+      "version_changes": true
     },
     "material-supplier-memberships": {
       "attributes": [
@@ -15763,7 +16096,8 @@
       ],
       "server_types": [
         "material-supplier-memberships"
-      ]
+      ],
+      "version_changes": false
     },
     "material-suppliers": {
       "attributes": [
@@ -15789,7 +16123,8 @@
       ],
       "server_types": [
         "material-suppliers"
-      ]
+      ],
+      "version_changes": true
     },
     "material-transaction-acceptances": {
       "attributes": [
@@ -15799,7 +16134,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-acceptances"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-actions": {
       "attributes": [
@@ -15810,7 +16146,8 @@
       ],
       "server_types": [
         "material-transaction-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-cost-code-allocations": {
       "attributes": [
@@ -15819,7 +16156,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-cost-code-allocations"
-      ]
+      ],
+      "version_changes": true
     },
     "material-transaction-denials": {
       "attributes": [
@@ -15828,7 +16166,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-denials"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-diversions": {
       "attributes": [
@@ -15840,7 +16179,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-diversions"
-      ]
+      ],
+      "version_changes": true
     },
     "material-transaction-field-scopes": {
       "attributes": [
@@ -15853,7 +16193,8 @@
       ],
       "server_types": [
         "material-transaction-field-scopes"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-inspection-rejections": {
       "attributes": [
@@ -15864,7 +16205,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-inspection-rejections"
-      ]
+      ],
+      "version_changes": true
     },
     "material-transaction-inspections": {
       "attributes": [
@@ -15881,7 +16223,8 @@
       ],
       "server_types": [
         "material-transaction-inspections"
-      ]
+      ],
+      "version_changes": true
     },
     "material-transaction-invalidations": {
       "attributes": [
@@ -15890,7 +16233,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-invalidations"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-preloads": {
       "attributes": [
@@ -15902,7 +16246,8 @@
       ],
       "server_types": [
         "material-transaction-preloads"
-      ]
+      ],
+      "version_changes": true
     },
     "material-transaction-rate-summaries": {
       "attributes": [
@@ -15919,7 +16264,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-rate-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-rejections": {
       "attributes": [
@@ -15928,7 +16274,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-rejections"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-shift-assignments": {
       "attributes": [
@@ -15945,7 +16292,8 @@
       ],
       "server_types": [
         "material-transaction-shift-assignments"
-      ]
+      ],
+      "version_changes": true
     },
     "material-transaction-status-changes": {
       "attributes": [
@@ -15958,7 +16306,8 @@
       ],
       "server_types": [
         "material-transaction-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-submissions": {
       "attributes": [
@@ -15967,7 +16316,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-submissions"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-summaries": {
       "attributes": [
@@ -15983,7 +16333,8 @@
       "label_fields": [],
       "server_types": [
         "material-transaction-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transaction-ticket-generators": {
       "attributes": [
@@ -15994,7 +16345,8 @@
       ],
       "server_types": [
         "material-transaction-ticket-generators"
-      ]
+      ],
+      "version_changes": true
     },
     "material-transactions": {
       "attributes": [
@@ -16027,7 +16379,8 @@
       ],
       "server_types": [
         "material-transactions"
-      ]
+      ],
+      "version_changes": false
     },
     "material-transactions-exports": {
       "attributes": [
@@ -16042,21 +16395,24 @@
       ],
       "server_types": [
         "material-transactions-exports"
-      ]
+      ],
+      "version_changes": true
     },
     "material-type-conversions": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "material-type-conversions"
-      ]
+      ],
+      "version_changes": true
     },
     "material-type-material-site-inventory-locations": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "material-type-material-site-inventory-locations"
-      ]
+      ],
+      "version_changes": true
     },
     "material-type-unavailabilities": {
       "attributes": [
@@ -16070,7 +16426,8 @@
       ],
       "server_types": [
         "material-type-unavailabilities"
-      ]
+      ],
+      "version_changes": true
     },
     "material-types": {
       "attributes": [
@@ -16102,7 +16459,8 @@
       ],
       "server_types": [
         "material-types"
-      ]
+      ],
+      "version_changes": true
     },
     "material-unit-of-measure-quantities": {
       "attributes": [
@@ -16113,14 +16471,16 @@
       ],
       "server_types": [
         "material-unit-of-measure-quantities"
-      ]
+      ],
+      "version_changes": true
     },
     "mechanic-user-associations": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "mechanic-user-associations"
-      ]
+      ],
+      "version_changes": true
     },
     "meeting-attendees": {
       "attributes": [
@@ -16140,7 +16500,8 @@
       ],
       "server_types": [
         "meeting-attendees"
-      ]
+      ],
+      "version_changes": false
     },
     "meetings": {
       "attributes": [
@@ -16171,7 +16532,8 @@
       ],
       "server_types": [
         "meetings"
-      ]
+      ],
+      "version_changes": true
     },
     "memberships": {
       "attributes": [
@@ -16203,7 +16565,8 @@
       ],
       "server_types": [
         "memberships"
-      ]
+      ],
+      "version_changes": true
     },
     "missing-rates": {
       "attributes": [
@@ -16214,7 +16577,8 @@
       "label_fields": [],
       "server_types": [
         "missing-rates"
-      ]
+      ],
+      "version_changes": true
     },
     "model-filter-infos": {
       "attributes": [
@@ -16228,7 +16592,8 @@
       ],
       "server_types": [
         "model-filter-infos"
-      ]
+      ],
+      "version_changes": false
     },
     "native-app-releases": {
       "attributes": [
@@ -16243,7 +16608,8 @@
       ],
       "server_types": [
         "native-app-releases"
-      ]
+      ],
+      "version_changes": false
     },
     "newsletters": {
       "attributes": [
@@ -16266,7 +16632,8 @@
       ],
       "server_types": [
         "newsletters"
-      ]
+      ],
+      "version_changes": true
     },
     "notification-delivery-decisions": {
       "attributes": [
@@ -16280,7 +16647,8 @@
       "label_fields": [],
       "server_types": [
         "notification-delivery-decisions"
-      ]
+      ],
+      "version_changes": true
     },
     "notification-subscriptions": {
       "attributes": [
@@ -16293,7 +16661,8 @@
       ],
       "server_types": [
         "notification-subscriptions"
-      ]
+      ],
+      "version_changes": false
     },
     "notifications": {
       "attributes": [
@@ -16309,7 +16678,8 @@
       ],
       "server_types": [
         "notifications"
-      ]
+      ],
+      "version_changes": false
     },
     "objective-changes": {
       "attributes": [
@@ -16321,7 +16691,8 @@
       "label_fields": [],
       "server_types": [
         "objective-changes"
-      ]
+      ],
+      "version_changes": true
     },
     "objective-stakeholder-classification-quotes": {
       "attributes": [
@@ -16333,7 +16704,8 @@
       ],
       "server_types": [
         "objective-stakeholder-classification-quotes"
-      ]
+      ],
+      "version_changes": true
     },
     "objective-stakeholder-classifications": {
       "attributes": [
@@ -16344,7 +16716,8 @@
       ],
       "server_types": [
         "objective-stakeholder-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "objectives": {
       "attributes": [
@@ -16370,7 +16743,8 @@
       ],
       "server_types": [
         "objectives"
-      ]
+      ],
+      "version_changes": true
     },
     "one-step-gps-vehicles": {
       "attributes": [
@@ -16387,7 +16761,8 @@
       ],
       "server_types": [
         "one-step-gps-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "open-ai-realtime-sessions": {
       "attributes": [
@@ -16402,7 +16777,8 @@
       ],
       "server_types": [
         "open-ai-realtime-sessions"
-      ]
+      ],
+      "version_changes": false
     },
     "open-ai-vector-stores": {
       "attributes": [
@@ -16419,7 +16795,8 @@
       ],
       "server_types": [
         "open-ai-vector-stores"
-      ]
+      ],
+      "version_changes": true
     },
     "open-door-issues": {
       "attributes": [
@@ -16431,14 +16808,16 @@
       ],
       "server_types": [
         "open-door-issues"
-      ]
+      ],
+      "version_changes": true
     },
     "open-door-team-memberships": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "open-door-team-memberships"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-formatters": {
       "attributes": [
@@ -16456,12 +16835,14 @@
       ],
       "server_types": [
         "organization-formatters"
-      ]
+      ],
+      "version_changes": true
     },
     "organization-invoices-batch-actions": {
       "attributes": [],
       "label_fields": [],
-      "server_types": []
+      "server_types": [],
+      "version_changes": false
     },
     "organization-invoices-batch-file-exports": {
       "attributes": [
@@ -16472,7 +16853,8 @@
       "label_fields": [],
       "server_types": [
         "organization-invoices-batch-file-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-files": {
       "attributes": [
@@ -16495,7 +16877,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-files"
-      ]
+      ],
+      "version_changes": true
     },
     "organization-invoices-batch-invoice-actions": {
       "attributes": [
@@ -16506,7 +16889,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-invoice-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-invoice-batchings": {
       "attributes": [
@@ -16517,7 +16901,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-invoice-batchings"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-invoice-failures": {
       "attributes": [
@@ -16528,7 +16913,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-invoice-failures"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-invoice-status-changes": {
       "attributes": [
@@ -16542,7 +16928,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-invoice-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-invoice-unbatchings": {
       "attributes": [
@@ -16551,7 +16938,8 @@
       "label_fields": [],
       "server_types": [
         "organization-invoices-batch-invoice-unbatchings"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-invoices": {
       "attributes": [
@@ -16567,7 +16955,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-invoices"
-      ]
+      ],
+      "version_changes": true
     },
     "organization-invoices-batch-pdf-files": {
       "attributes": [
@@ -16581,7 +16970,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-pdf-files"
-      ]
+      ],
+      "version_changes": true
     },
     "organization-invoices-batch-pdf-generations": {
       "attributes": [
@@ -16593,7 +16983,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-pdf-generations"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-pdf-templates": {
       "attributes": [
@@ -16607,7 +16998,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-pdf-templates"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-processes": {
       "attributes": [
@@ -16618,7 +17010,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-processes"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batch-status-changes": {
       "attributes": [
@@ -16631,7 +17024,8 @@
       ],
       "server_types": [
         "organization-invoices-batch-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "organization-invoices-batches": {
       "attributes": [
@@ -16641,7 +17035,8 @@
       "label_fields": [],
       "server_types": [
         "organization-invoices-batches"
-      ]
+      ],
+      "version_changes": true
     },
     "organization-project-actuals-exports": {
       "attributes": [
@@ -16652,7 +17047,8 @@
       "label_fields": [],
       "server_types": [
         "organization-project-actuals-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "ozinga-tk-batch-file-exports": {
       "attributes": [
@@ -16663,7 +17059,8 @@
       "label_fields": [],
       "server_types": [
         "ozinga-tk-batch-file-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "parking-sites": {
       "attributes": [
@@ -16688,7 +17085,8 @@
       ],
       "server_types": [
         "parking-sites"
-      ]
+      ],
+      "version_changes": true
     },
     "pave-frame-actual-hours": {
       "attributes": [
@@ -16706,7 +17104,8 @@
       ],
       "server_types": [
         "pave-frame-actual-hours"
-      ]
+      ],
+      "version_changes": true
     },
     "pave-frame-actual-statistics": {
       "attributes": [
@@ -16730,7 +17129,8 @@
       ],
       "server_types": [
         "pave-frame-actual-statistics"
-      ]
+      ],
+      "version_changes": true
     },
     "place-predictions": {
       "attributes": [
@@ -16742,7 +17142,8 @@
       ],
       "server_types": [
         "place-predictions"
-      ]
+      ],
+      "version_changes": false
     },
     "places": {
       "attributes": [
@@ -16757,7 +17158,8 @@
       ],
       "server_types": [
         "places"
-      ]
+      ],
+      "version_changes": false
     },
     "platform-statuses": {
       "attributes": [
@@ -16772,7 +17174,8 @@
       ],
       "server_types": [
         "platform-statuses"
-      ]
+      ],
+      "version_changes": true
     },
     "post-actions": {
       "attributes": [
@@ -16783,14 +17186,16 @@
       ],
       "server_types": [
         "post-actions"
-      ]
+      ],
+      "version_changes": true
     },
     "post-childs": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "post-childs"
-      ]
+      ],
+      "version_changes": true
     },
     "post-router-jobs": {
       "attributes": [
@@ -16803,7 +17208,8 @@
       ],
       "server_types": [
         "post-router-jobs"
-      ]
+      ],
+      "version_changes": true
     },
     "post-routers": {
       "attributes": [
@@ -16813,7 +17219,8 @@
       "label_fields": [],
       "server_types": [
         "post-routers"
-      ]
+      ],
+      "version_changes": true
     },
     "post-views": {
       "attributes": [
@@ -16822,7 +17229,8 @@
       "label_fields": [],
       "server_types": [
         "post-views"
-      ]
+      ],
+      "version_changes": true
     },
     "posts": {
       "attributes": [
@@ -16852,7 +17260,8 @@
       ],
       "server_types": [
         "posts"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-agents": {
       "attributes": [
@@ -16862,7 +17271,8 @@
       "label_fields": [],
       "server_types": [
         "prediction-agents"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-knowledge-base-answers": {
       "attributes": [
@@ -16873,7 +17283,8 @@
       ],
       "server_types": [
         "prediction-knowledge-base-answers"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-knowledge-base-questions": {
       "attributes": [
@@ -16886,14 +17297,16 @@
       ],
       "server_types": [
         "prediction-knowledge-base-questions"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-knowledge-bases": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "prediction-knowledge-bases"
-      ]
+      ],
+      "version_changes": false
     },
     "prediction-subject-bids": {
       "attributes": [
@@ -16902,7 +17315,8 @@
       "label_fields": [],
       "server_types": [
         "prediction-subject-bids"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-subject-gap-portions": {
       "attributes": [
@@ -16916,7 +17330,8 @@
       ],
       "server_types": [
         "prediction-subject-gap-portions"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-subject-gaps": {
       "attributes": [
@@ -16933,7 +17348,8 @@
       ],
       "server_types": [
         "prediction-subject-gaps"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-subject-memberships": {
       "attributes": [
@@ -16946,14 +17362,16 @@
       "label_fields": [],
       "server_types": [
         "prediction-subject-memberships"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-subject-recap-generations": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "prediction-subject-recap-generations"
-      ]
+      ],
+      "version_changes": false
     },
     "prediction-subject-recaps": {
       "attributes": [
@@ -16963,7 +17381,8 @@
       "label_fields": [],
       "server_types": [
         "prediction-subject-recaps"
-      ]
+      ],
+      "version_changes": true
     },
     "prediction-subjects": {
       "attributes": [
@@ -16986,7 +17405,8 @@
       ],
       "server_types": [
         "prediction-subjects"
-      ]
+      ],
+      "version_changes": true
     },
     "predictions": {
       "attributes": [
@@ -16997,7 +17417,8 @@
       "label_fields": [],
       "server_types": [
         "predictions"
-      ]
+      ],
+      "version_changes": true
     },
     "press-releases": {
       "attributes": [
@@ -17017,7 +17438,8 @@
       ],
       "server_types": [
         "press-releases"
-      ]
+      ],
+      "version_changes": false
     },
     "process-non-processed-time-card-time-changes": {
       "attributes": [
@@ -17030,7 +17452,8 @@
       "label_fields": [],
       "server_types": [
         "process-non-processed-time-card-time-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "production-incident-detectors": {
       "attributes": [
@@ -17042,7 +17465,8 @@
       "label_fields": [],
       "server_types": [
         "production-incident-detectors"
-      ]
+      ],
+      "version_changes": false
     },
     "production-incidents": {
       "attributes": [
@@ -17071,7 +17495,8 @@
       ],
       "server_types": [
         "production-incidents"
-      ]
+      ],
+      "version_changes": false
     },
     "production-measurements": {
       "attributes": [
@@ -17093,14 +17518,16 @@
       "label_fields": [],
       "server_types": [
         "production-measurements"
-      ]
+      ],
+      "version_changes": true
     },
     "proffer-likes": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "proffer-likes"
-      ]
+      ],
+      "version_changes": true
     },
     "proffers": {
       "attributes": [
@@ -17119,7 +17546,8 @@
       ],
       "server_types": [
         "proffers"
-      ]
+      ],
+      "version_changes": true
     },
     "profit-improvement-categories": {
       "attributes": [
@@ -17130,7 +17558,8 @@
       ],
       "server_types": [
         "profit-improvement-categories"
-      ]
+      ],
+      "version_changes": false
     },
     "profit-improvement-subscriptions": {
       "attributes": [
@@ -17142,7 +17571,8 @@
       ],
       "server_types": [
         "profit-improvement-subscriptions"
-      ]
+      ],
+      "version_changes": false
     },
     "profit-improvements": {
       "attributes": [
@@ -17168,7 +17598,8 @@
       ],
       "server_types": [
         "profit-improvements"
-      ]
+      ],
+      "version_changes": false
     },
     "project-abandonments": {
       "attributes": [
@@ -17177,7 +17608,8 @@
       "label_fields": [],
       "server_types": [
         "project-abandonments"
-      ]
+      ],
+      "version_changes": false
     },
     "project-actions": {
       "attributes": [
@@ -17186,7 +17618,8 @@
       "label_fields": [],
       "server_types": [
         "project-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "project-actuals-exports": {
       "attributes": [
@@ -17201,7 +17634,8 @@
       ],
       "server_types": [
         "project-actuals-exports"
-      ]
+      ],
+      "version_changes": true
     },
     "project-approvals": {
       "attributes": [
@@ -17212,7 +17646,8 @@
       ],
       "server_types": [
         "project-approvals"
-      ]
+      ],
+      "version_changes": false
     },
     "project-bid-location-material-types": {
       "attributes": [
@@ -17222,7 +17657,8 @@
       "label_fields": [],
       "server_types": [
         "project-bid-location-material-types"
-      ]
+      ],
+      "version_changes": true
     },
     "project-bid-locations": {
       "attributes": [
@@ -17240,7 +17676,8 @@
       ],
       "server_types": [
         "project-bid-locations"
-      ]
+      ],
+      "version_changes": true
     },
     "project-cancellations": {
       "attributes": [
@@ -17251,7 +17688,8 @@
       ],
       "server_types": [
         "project-cancellations"
-      ]
+      ],
+      "version_changes": false
     },
     "project-categories": {
       "attributes": [
@@ -17263,7 +17701,8 @@
       ],
       "server_types": [
         "project-categories"
-      ]
+      ],
+      "version_changes": true
     },
     "project-completions": {
       "attributes": [
@@ -17272,7 +17711,8 @@
       "label_fields": [],
       "server_types": [
         "project-completions"
-      ]
+      ],
+      "version_changes": false
     },
     "project-cost-classifications": {
       "attributes": [
@@ -17284,7 +17724,8 @@
       ],
       "server_types": [
         "project-cost-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "project-cost-codes": {
       "attributes": [
@@ -17297,14 +17738,16 @@
       ],
       "server_types": [
         "project-cost-codes"
-      ]
+      ],
+      "version_changes": true
     },
     "project-customers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "project-customers"
-      ]
+      ],
+      "version_changes": true
     },
     "project-divisions": {
       "attributes": [
@@ -17317,7 +17760,8 @@
       ],
       "server_types": [
         "project-divisions"
-      ]
+      ],
+      "version_changes": true
     },
     "project-duplications": {
       "attributes": [
@@ -17344,7 +17788,8 @@
       ],
       "server_types": [
         "project-duplications"
-      ]
+      ],
+      "version_changes": false
     },
     "project-estimate-file-imports": {
       "attributes": [
@@ -17355,7 +17800,8 @@
       "label_fields": [],
       "server_types": [
         "project-estimate-file-imports"
-      ]
+      ],
+      "version_changes": false
     },
     "project-estimate-sets": {
       "attributes": [
@@ -17370,7 +17816,8 @@
       ],
       "server_types": [
         "project-estimate-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "project-import-file-verifications": {
       "attributes": [
@@ -17390,7 +17837,8 @@
       ],
       "server_types": [
         "project-import-file-verifications"
-      ]
+      ],
+      "version_changes": false
     },
     "project-labor-classifications": {
       "attributes": [
@@ -17401,7 +17849,8 @@
       "label_fields": [],
       "server_types": [
         "project-labor-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "project-margin-matrices": {
       "attributes": [
@@ -17410,7 +17859,8 @@
       "label_fields": [],
       "server_types": [
         "project-margin-matrices"
-      ]
+      ],
+      "version_changes": false
     },
     "project-material-type-quality-control-requirements": {
       "attributes": [
@@ -17421,7 +17871,8 @@
       ],
       "server_types": [
         "project-material-type-quality-control-requirements"
-      ]
+      ],
+      "version_changes": true
     },
     "project-material-types": {
       "attributes": [
@@ -17438,7 +17889,8 @@
       ],
       "server_types": [
         "project-material-types"
-      ]
+      ],
+      "version_changes": true
     },
     "project-offices": {
       "attributes": [
@@ -17452,7 +17904,8 @@
       ],
       "server_types": [
         "project-offices"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-cost-item-actuals": {
       "attributes": [
@@ -17464,7 +17917,8 @@
       "label_fields": [],
       "server_types": [
         "project-phase-cost-item-actuals"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-cost-item-price-estimates": {
       "attributes": [
@@ -17473,7 +17927,8 @@
       "label_fields": [],
       "server_types": [
         "project-phase-cost-item-price-estimates"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-cost-item-quantity-estimates": {
       "attributes": [
@@ -17484,7 +17939,8 @@
       "label_fields": [],
       "server_types": [
         "project-phase-cost-item-quantity-estimates"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-cost-items": {
       "attributes": [
@@ -17496,7 +17952,8 @@
       ],
       "server_types": [
         "project-phase-cost-items"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-dates-estimates": {
       "attributes": [
@@ -17508,7 +17965,8 @@
       ],
       "server_types": [
         "project-phase-dates-estimates"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-revenue-item-actual-exports": {
       "attributes": [
@@ -17524,7 +17982,8 @@
       ],
       "server_types": [
         "project-phase-revenue-item-actual-exports"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-revenue-item-actuals": {
       "attributes": [
@@ -17541,7 +18000,8 @@
       ],
       "server_types": [
         "project-phase-revenue-item-actuals"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-revenue-item-quantity-estimates": {
       "attributes": [
@@ -17553,7 +18013,8 @@
       ],
       "server_types": [
         "project-phase-revenue-item-quantity-estimates"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phase-revenue-items": {
       "attributes": [
@@ -17570,7 +18031,8 @@
       ],
       "server_types": [
         "project-phase-revenue-items"
-      ]
+      ],
+      "version_changes": true
     },
     "project-phases": {
       "attributes": [
@@ -17588,7 +18050,8 @@
       ],
       "server_types": [
         "project-phases"
-      ]
+      ],
+      "version_changes": false
     },
     "project-project-cost-classifications": {
       "attributes": [
@@ -17599,7 +18062,8 @@
       ],
       "server_types": [
         "project-project-cost-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "project-rejections": {
       "attributes": [
@@ -17608,7 +18072,8 @@
       "label_fields": [],
       "server_types": [
         "project-rejections"
-      ]
+      ],
+      "version_changes": false
     },
     "project-resource-classifications": {
       "attributes": [
@@ -17619,7 +18084,8 @@
       ],
       "server_types": [
         "project-resource-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "project-revenue-classifications": {
       "attributes": [
@@ -17631,7 +18097,8 @@
       ],
       "server_types": [
         "project-revenue-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "project-revenue-item-price-estimates": {
       "attributes": [
@@ -17647,7 +18114,8 @@
       ],
       "server_types": [
         "project-revenue-item-price-estimates"
-      ]
+      ],
+      "version_changes": true
     },
     "project-revenue-item-quantity-estimates": {
       "attributes": [
@@ -17659,7 +18127,8 @@
       ],
       "server_types": [
         "project-revenue-item-quantity-estimates"
-      ]
+      ],
+      "version_changes": true
     },
     "project-revenue-items": {
       "attributes": [
@@ -17676,7 +18145,8 @@
       ],
       "server_types": [
         "project-revenue-items"
-      ]
+      ],
+      "version_changes": true
     },
     "project-status-changes": {
       "attributes": [
@@ -17689,7 +18159,8 @@
       ],
       "server_types": [
         "project-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "project-submissions": {
       "attributes": [
@@ -17700,7 +18171,8 @@
       ],
       "server_types": [
         "project-submissions"
-      ]
+      ],
+      "version_changes": false
     },
     "project-subscriptions": {
       "attributes": [
@@ -17710,14 +18182,16 @@
       "label_fields": [],
       "server_types": [
         "project-subscriptions"
-      ]
+      ],
+      "version_changes": true
     },
     "project-trailer-classifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "project-trailer-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-event-types": {
       "attributes": [
@@ -17732,14 +18206,16 @@
       ],
       "server_types": [
         "project-transport-event-types"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-location-event-types": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "project-transport-location-event-types"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-locations": {
       "attributes": [
@@ -17769,7 +18245,8 @@
       ],
       "server_types": [
         "project-transport-locations"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-organizations": {
       "attributes": [
@@ -17781,7 +18258,8 @@
       ],
       "server_types": [
         "project-transport-organizations"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-assignment-rules": {
       "attributes": [
@@ -17795,7 +18273,8 @@
       ],
       "server_types": [
         "project-transport-plan-assignment-rules"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-driver-assignment-recommendations": {
       "attributes": [
@@ -17804,7 +18283,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-driver-assignment-recommendations"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-driver-confirmations": {
       "attributes": [
@@ -17819,7 +18299,8 @@
       ],
       "server_types": [
         "project-transport-plan-driver-confirmations"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-driver-summaries": {
       "attributes": [
@@ -17834,7 +18315,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-driver-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-drivers": {
       "attributes": [
@@ -17849,7 +18331,8 @@
       ],
       "server_types": [
         "project-transport-plan-drivers"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-event-location-prediction-autopsies": {
       "attributes": [
@@ -17863,7 +18346,8 @@
       ],
       "server_types": [
         "project-transport-plan-event-location-prediction-autopsies"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-event-location-predictions": {
       "attributes": [
@@ -17876,7 +18360,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-event-location-predictions"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-event-summaries": {
       "attributes": [
@@ -17891,7 +18376,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-event-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-event-time-summaries": {
       "attributes": [
@@ -17906,7 +18392,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-event-time-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-event-times": {
       "attributes": [
@@ -17925,7 +18412,8 @@
       ],
       "server_types": [
         "project-transport-plan-event-times"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-events": {
       "attributes": [
@@ -17939,7 +18427,8 @@
       ],
       "server_types": [
         "project-transport-plan-events"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-planned-event-time-schedules": {
       "attributes": [
@@ -17952,14 +18441,16 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-planned-event-time-schedules"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-segment-drivers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "project-transport-plan-segment-drivers"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-segment-sets": {
       "attributes": [
@@ -17972,7 +18463,8 @@
       ],
       "server_types": [
         "project-transport-plan-segment-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-segment-tractors": {
       "attributes": [
@@ -17983,14 +18475,16 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-segment-tractors"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-segment-trailers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "project-transport-plan-segment-trailers"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-segments": {
       "attributes": [
@@ -18007,7 +18501,8 @@
       ],
       "server_types": [
         "project-transport-plan-segments"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-stop-insertions": {
       "attributes": [
@@ -18027,7 +18522,8 @@
       ],
       "server_types": [
         "project-transport-plan-stop-insertions"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-stop-order-stops": {
       "attributes": [
@@ -18037,7 +18533,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-stop-order-stops"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-stops": {
       "attributes": [
@@ -18050,7 +18547,8 @@
       ],
       "server_types": [
         "project-transport-plan-stops"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-strategies": {
       "attributes": [
@@ -18063,7 +18561,8 @@
       ],
       "server_types": [
         "project-transport-plan-strategies"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-strategy-sets": {
       "attributes": [
@@ -18076,7 +18575,8 @@
       ],
       "server_types": [
         "project-transport-plan-strategy-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-strategy-steps": {
       "attributes": [
@@ -18085,7 +18585,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-strategy-steps"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-summaries": {
       "attributes": [
@@ -18100,7 +18601,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-tractors": {
       "attributes": [
@@ -18118,7 +18620,8 @@
       ],
       "server_types": [
         "project-transport-plan-tractors"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plan-trailer-assignment-recommendations": {
       "attributes": [
@@ -18127,7 +18630,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-trailer-assignment-recommendations"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-trailer-summaries": {
       "attributes": [
@@ -18142,7 +18646,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-trailer-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "project-transport-plan-trailers": {
       "attributes": [
@@ -18153,7 +18658,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-trailers"
-      ]
+      ],
+      "version_changes": true
     },
     "project-transport-plans": {
       "attributes": [
@@ -18171,7 +18677,8 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plans"
-      ]
+      ],
+      "version_changes": true
     },
     "project-truckers": {
       "attributes": [
@@ -18180,7 +18687,8 @@
       "label_fields": [],
       "server_types": [
         "project-truckers"
-      ]
+      ],
+      "version_changes": true
     },
     "project-unabandonments": {
       "attributes": [
@@ -18189,7 +18697,8 @@
       "label_fields": [],
       "server_types": [
         "project-unabandonments"
-      ]
+      ],
+      "version_changes": false
     },
     "projects": {
       "attributes": [
@@ -18224,7 +18733,8 @@
       ],
       "server_types": [
         "projects"
-      ]
+      ],
+      "version_changes": true
     },
     "projects-file-imports": {
       "attributes": [
@@ -18239,7 +18749,8 @@
       ],
       "server_types": [
         "projects-file-imports"
-      ]
+      ],
+      "version_changes": true
     },
     "prompt-prescriptions": {
       "attributes": [
@@ -18257,7 +18768,8 @@
       ],
       "server_types": [
         "prompt-prescriptions"
-      ]
+      ],
+      "version_changes": true
     },
     "prompters": {
       "attributes": [
@@ -18279,21 +18791,24 @@
       ],
       "server_types": [
         "prompters"
-      ]
+      ],
+      "version_changes": true
     },
     "public-praise-culture-values": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "public-praise-culture-values"
-      ]
+      ],
+      "version_changes": false
     },
     "public-praise-reactions": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "public-praise-reactions"
-      ]
+      ],
+      "version_changes": true
     },
     "public-praise-summaries": {
       "attributes": [
@@ -18311,7 +18826,8 @@
       ],
       "server_types": [
         "public-praise-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "public-praises": {
       "attributes": [
@@ -18324,7 +18840,8 @@
       ],
       "server_types": [
         "public-praises"
-      ]
+      ],
+      "version_changes": false
     },
     "quality-control-classifications": {
       "attributes": [
@@ -18336,7 +18853,8 @@
       ],
       "server_types": [
         "quality-control-classifications"
-      ]
+      ],
+      "version_changes": false
     },
     "questions": {
       "attributes": [
@@ -18357,7 +18875,8 @@
       ],
       "server_types": [
         "questions"
-      ]
+      ],
+      "version_changes": true
     },
     "rate-adjustments": {
       "attributes": [
@@ -18370,7 +18889,8 @@
       "label_fields": [],
       "server_types": [
         "rate-adjustments"
-      ]
+      ],
+      "version_changes": true
     },
     "rate-agreement-copier-works": {
       "attributes": [
@@ -18385,14 +18905,16 @@
       ],
       "server_types": [
         "rate-agreement-copier-works"
-      ]
+      ],
+      "version_changes": true
     },
     "rate-agreement-copiers": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "rate-agreement-copiers"
-      ]
+      ],
+      "version_changes": false
     },
     "rate-agreements": {
       "attributes": [
@@ -18405,6 +18927,10 @@
       ],
       "server_types": [
         "rate-agreements"
+      ],
+      "version_changes": true,
+      "version_changes_optional_features": [
+        "rate_agreement_new_version_changes"
       ]
     },
     "rate-agreements-copiers": {
@@ -18418,7 +18944,8 @@
       "label_fields": [],
       "server_types": [
         "rate-agreements-copiers"
-      ]
+      ],
+      "version_changes": true
     },
     "rates": {
       "attributes": [
@@ -18447,6 +18974,10 @@
       ],
       "server_types": [
         "rates"
+      ],
+      "version_changes": true,
+      "version_changes_optional_features": [
+        "rate_new_version_changes"
       ]
     },
     "raw-material-transaction-backups": {
@@ -18473,7 +19004,8 @@
       ],
       "server_types": [
         "raw-material-transaction-backups"
-      ]
+      ],
+      "version_changes": false
     },
     "raw-material-transaction-import-results": {
       "attributes": [
@@ -18503,7 +19035,8 @@
       ],
       "server_types": [
         "raw-material-transaction-import-results"
-      ]
+      ],
+      "version_changes": false
     },
     "raw-material-transaction-sales-customers": {
       "attributes": [
@@ -18514,7 +19047,8 @@
       ],
       "server_types": [
         "raw-material-transaction-sales-customers"
-      ]
+      ],
+      "version_changes": true
     },
     "raw-material-transactions": {
       "attributes": [
@@ -18540,7 +19074,8 @@
       ],
       "server_types": [
         "raw-material-transactions"
-      ]
+      ],
+      "version_changes": false
     },
     "raw-records": {
       "attributes": [
@@ -18563,7 +19098,8 @@
       ],
       "server_types": [
         "raw-records"
-      ]
+      ],
+      "version_changes": false
     },
     "raw-transport-drivers": {
       "attributes": [
@@ -18578,7 +19114,8 @@
       ],
       "server_types": [
         "raw-transport-drivers"
-      ]
+      ],
+      "version_changes": true
     },
     "raw-transport-exports": {
       "attributes": [
@@ -18606,7 +19143,8 @@
       ],
       "server_types": [
         "raw-transport-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "raw-transport-orders": {
       "attributes": [
@@ -18624,7 +19162,8 @@
       ],
       "server_types": [
         "raw-transport-orders"
-      ]
+      ],
+      "version_changes": true
     },
     "raw-transport-projects": {
       "attributes": [
@@ -18642,7 +19181,8 @@
       ],
       "server_types": [
         "raw-transport-projects"
-      ]
+      ],
+      "version_changes": true
     },
     "raw-transport-tractors": {
       "attributes": [
@@ -18657,7 +19197,8 @@
       ],
       "server_types": [
         "raw-transport-tractors"
-      ]
+      ],
+      "version_changes": true
     },
     "raw-transport-trailers": {
       "attributes": [
@@ -18672,7 +19213,8 @@
       ],
       "server_types": [
         "raw-transport-trailers"
-      ]
+      ],
+      "version_changes": true
     },
     "reaction-classifications": {
       "attributes": [
@@ -18685,7 +19227,8 @@
       ],
       "server_types": [
         "reaction-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "release-notes": {
       "attributes": [
@@ -18707,14 +19250,16 @@
       ],
       "server_types": [
         "release-notes"
-      ]
+      ],
+      "version_changes": true
     },
     "resource-classification-project-cost-classifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "resource-classification-project-cost-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "resource-unavailabilities": {
       "attributes": [
@@ -18727,7 +19272,8 @@
       ],
       "server_types": [
         "resource-unavailabilities"
-      ]
+      ],
+      "version_changes": true
     },
     "retainer-deductions": {
       "attributes": [
@@ -18739,7 +19285,8 @@
       ],
       "server_types": [
         "retainer-deductions"
-      ]
+      ],
+      "version_changes": true
     },
     "retainer-earning-statuses": {
       "attributes": [
@@ -18752,7 +19299,8 @@
       ],
       "server_types": [
         "retainer-earning-statuses"
-      ]
+      ],
+      "version_changes": true
     },
     "retainer-payment-deductions": {
       "attributes": [
@@ -18761,7 +19309,8 @@
       "label_fields": [],
       "server_types": [
         "retainer-payment-deductions"
-      ]
+      ],
+      "version_changes": true
     },
     "retainer-payments": {
       "attributes": [
@@ -18777,7 +19326,8 @@
       ],
       "server_types": [
         "retainer-payments"
-      ]
+      ],
+      "version_changes": true
     },
     "retainer-periods": {
       "attributes": [
@@ -18791,7 +19341,8 @@
       ],
       "server_types": [
         "retainer-periods"
-      ]
+      ],
+      "version_changes": true
     },
     "retainers": {
       "attributes": [
@@ -18812,7 +19363,8 @@
       ],
       "server_types": [
         "retainers"
-      ]
+      ],
+      "version_changes": true
     },
     "rmt-adjustments": {
       "attributes": [
@@ -18828,7 +19380,8 @@
       ],
       "server_types": [
         "rmt-adjustments"
-      ]
+      ],
+      "version_changes": false
     },
     "root-causes": {
       "attributes": [
@@ -18841,7 +19394,8 @@
       ],
       "server_types": [
         "root-causes"
-      ]
+      ],
+      "version_changes": false
     },
     "safety-incidents": {
       "attributes": [
@@ -18866,7 +19420,8 @@
       ],
       "server_types": [
         "safety-incidents"
-      ]
+      ],
+      "version_changes": false
     },
     "saml-code-redemptions": {
       "attributes": [
@@ -18878,7 +19433,8 @@
       ],
       "server_types": [
         "saml-code-redemptions"
-      ]
+      ],
+      "version_changes": false
     },
     "samsara-integrations": {
       "attributes": [
@@ -18891,7 +19447,8 @@
       ],
       "server_types": [
         "samsara-integrations"
-      ]
+      ],
+      "version_changes": true
     },
     "samsara-vehicles": {
       "attributes": [
@@ -18906,7 +19463,8 @@
       ],
       "server_types": [
         "samsara-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "search-catalog-entries": {
       "attributes": [
@@ -18919,7 +19477,8 @@
       ],
       "server_types": [
         "search-catalog-entries"
-      ]
+      ],
+      "version_changes": true
     },
     "service-events": {
       "attributes": [
@@ -18938,7 +19497,8 @@
       ],
       "server_types": [
         "service-events"
-      ]
+      ],
+      "version_changes": true
     },
     "service-sites": {
       "attributes": [
@@ -18958,7 +19518,8 @@
       ],
       "server_types": [
         "service-sites"
-      ]
+      ],
+      "version_changes": true
     },
     "service-type-unit-of-measure-cohorts": {
       "attributes": [
@@ -18971,7 +19532,8 @@
       ],
       "server_types": [
         "service-type-unit-of-measure-cohorts"
-      ]
+      ],
+      "version_changes": true
     },
     "service-type-unit-of-measure-quantities": {
       "attributes": [
@@ -19008,7 +19570,8 @@
       ],
       "server_types": [
         "service-type-unit-of-measure-quantities"
-      ]
+      ],
+      "version_changes": true
     },
     "service-type-unit-of-measures": {
       "attributes": [
@@ -19029,7 +19592,8 @@
       ],
       "server_types": [
         "service-type-unit-of-measures"
-      ]
+      ],
+      "version_changes": true
     },
     "service-types": {
       "attributes": [
@@ -19044,7 +19608,8 @@
       ],
       "server_types": [
         "service-types"
-      ]
+      ],
+      "version_changes": true
     },
     "shift-acknowledgement-reminder-notification-subscriptions": {
       "attributes": [
@@ -19055,7 +19620,8 @@
       "label_fields": [],
       "server_types": [
         "shift-acknowledgement-reminder-notification-subscriptions"
-      ]
+      ],
+      "version_changes": false
     },
     "shift-counters": {
       "attributes": [
@@ -19067,7 +19633,8 @@
       ],
       "server_types": [
         "shift-counters"
-      ]
+      ],
+      "version_changes": false
     },
     "shift-feedback-reasons": {
       "attributes": [
@@ -19083,7 +19650,8 @@
       ],
       "server_types": [
         "shift-feedback-reasons"
-      ]
+      ],
+      "version_changes": true
     },
     "shift-feedbacks": {
       "attributes": [
@@ -19096,7 +19664,8 @@
       ],
       "server_types": [
         "shift-feedbacks"
-      ]
+      ],
+      "version_changes": true
     },
     "shift-scope-matches": {
       "attributes": [
@@ -19111,7 +19680,8 @@
       ],
       "server_types": [
         "shift-scope-matches"
-      ]
+      ],
+      "version_changes": false
     },
     "shift-scope-tenders": {
       "attributes": [
@@ -19121,7 +19691,8 @@
       "label_fields": [],
       "server_types": [
         "shift-scope-tenders"
-      ]
+      ],
+      "version_changes": false
     },
     "shift-scopes": {
       "attributes": [
@@ -19192,7 +19763,8 @@
       ],
       "server_types": [
         "shift-scopes"
-      ]
+      ],
+      "version_changes": true
     },
     "shift-set-time-card-constraints": {
       "attributes": [
@@ -19212,7 +19784,8 @@
       ],
       "server_types": [
         "shift-set-time-card-constraints"
-      ]
+      ],
+      "version_changes": true
     },
     "shift-summaries": {
       "attributes": [
@@ -19227,7 +19800,8 @@
       "label_fields": [],
       "server_types": [
         "shift-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "shift-time-card-requisitions": {
       "attributes": [
@@ -19241,7 +19815,8 @@
       ],
       "server_types": [
         "shift-time-card-requisitions"
-      ]
+      ],
+      "version_changes": false
     },
     "site-events": {
       "attributes": [
@@ -19259,7 +19834,8 @@
       ],
       "server_types": [
         "site-events"
-      ]
+      ],
+      "version_changes": true
     },
     "site-wait-time-notification-triggers": {
       "attributes": [
@@ -19277,14 +19853,16 @@
       ],
       "server_types": [
         "site-wait-time-notification-triggers"
-      ]
+      ],
+      "version_changes": true
     },
     "sourcing-search-results": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "sourcing-search-results"
-      ]
+      ],
+      "version_changes": false
     },
     "sourcing-searches": {
       "attributes": [
@@ -19295,7 +19873,8 @@
       "label_fields": [],
       "server_types": [
         "sourcing-searches"
-      ]
+      ],
+      "version_changes": false
     },
     "stakeholder-classifications": {
       "attributes": [
@@ -19311,7 +19890,8 @@
       ],
       "server_types": [
         "stakeholder-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "superior-bowen-apex-viewpoint-ticket-exports": {
       "attributes": [
@@ -19323,7 +19903,8 @@
       "label_fields": [],
       "server_types": [
         "superior-bowen-apex-viewpoint-ticket-exports"
-      ]
+      ],
+      "version_changes": false
     },
     "superior-bowen-cost-codes": {
       "attributes": [
@@ -19336,7 +19917,8 @@
       ],
       "server_types": [
         "superior-bowen-cost-codes"
-      ]
+      ],
+      "version_changes": false
     },
     "superior-bowen-crew-ledgers": {
       "attributes": [
@@ -19355,7 +19937,8 @@
       ],
       "server_types": [
         "superior-bowen-crew-ledgers"
-      ]
+      ],
+      "version_changes": false
     },
     "superior-bowen-hamm-ticket-report-types": {
       "attributes": [
@@ -19367,7 +19950,8 @@
       ],
       "server_types": [
         "superior-bowen-hamm-ticket-report-types"
-      ]
+      ],
+      "version_changes": false
     },
     "superior-bowen-holliday-sand-ticket-report-types": {
       "attributes": [
@@ -19379,7 +19963,8 @@
       ],
       "server_types": [
         "superior-bowen-holliday-sand-ticket-report-types"
-      ]
+      ],
+      "version_changes": false
     },
     "superior-bowen-johnson-county-aggregates-ticket-report-types": {
       "attributes": [
@@ -19391,7 +19976,8 @@
       ],
       "server_types": [
         "superior-bowen-johnson-county-aggregates-ticket-report-types"
-      ]
+      ],
+      "version_changes": false
     },
     "superior-bowen-martin-marietta-ticket-report-types": {
       "attributes": [
@@ -19403,7 +19989,8 @@
       ],
       "server_types": [
         "superior-bowen-martin-marietta-ticket-report-types"
-      ]
+      ],
+      "version_changes": false
     },
     "superior-bowen-williams-diversified-ticket-report-types": {
       "attributes": [
@@ -19415,7 +20002,8 @@
       ],
       "server_types": [
         "superior-bowen-williams-diversified-ticket-report-types"
-      ]
+      ],
+      "version_changes": false
     },
     "t3-equipmentshare-vehicles": {
       "attributes": [
@@ -19431,7 +20019,8 @@
       ],
       "server_types": [
         "t3-equipmentshare-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "tag-categories": {
       "attributes": [
@@ -19446,14 +20035,16 @@
       ],
       "server_types": [
         "tag-categories"
-      ]
+      ],
+      "version_changes": true
     },
     "taggings": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "taggings"
-      ]
+      ],
+      "version_changes": false
     },
     "tags": {
       "attributes": [
@@ -19464,7 +20055,8 @@
       ],
       "server_types": [
         "tags"
-      ]
+      ],
+      "version_changes": false
     },
     "teletrac-navman-vehicles": {
       "attributes": [
@@ -19479,7 +20071,8 @@
       ],
       "server_types": [
         "teletrac-navman-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "temeda-vehicles": {
       "attributes": [
@@ -19494,7 +20087,8 @@
       ],
       "server_types": [
         "temeda-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-acceptances": {
       "attributes": [
@@ -19505,7 +20099,8 @@
       "label_fields": [],
       "server_types": [
         "tender-acceptances"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-actions": {
       "attributes": [
@@ -19517,7 +20112,8 @@
       ],
       "server_types": [
         "tender-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-cancellations": {
       "attributes": [
@@ -19528,7 +20124,8 @@
       ],
       "server_types": [
         "tender-cancellations"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-job-schedule-shift-cancellations": {
       "attributes": [
@@ -19540,7 +20137,8 @@
       "label_fields": [],
       "server_types": [
         "tender-job-schedule-shift-cancellations"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-job-schedule-shift-cancelled-trucker-contact-notifications": {
       "attributes": [
@@ -19556,7 +20154,8 @@
       ],
       "server_types": [
         "tender-job-schedule-shift-cancelled-trucker-contact-notifications"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-job-schedule-shift-drivers": {
       "attributes": [
@@ -19565,21 +20164,24 @@
       "label_fields": [],
       "server_types": [
         "tender-job-schedule-shift-drivers"
-      ]
+      ],
+      "version_changes": true
     },
     "tender-job-schedule-shift-fill-out-time-card-seller-notifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "tender-job-schedule-shift-fill-out-time-card-seller-notifications"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-job-schedule-shift-starting-seller-notifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "tender-job-schedule-shift-starting-seller-notifications"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-job-schedule-shift-time-card-reviews": {
       "attributes": [
@@ -19595,7 +20197,8 @@
       ],
       "server_types": [
         "tender-job-schedule-shift-time-card-reviews"
-      ]
+      ],
+      "version_changes": true
     },
     "tender-job-schedule-shifts": {
       "attributes": [
@@ -19657,7 +20260,8 @@
       "label_fields": [],
       "server_types": [
         "tender-job-schedule-shifts"
-      ]
+      ],
+      "version_changes": true
     },
     "tender-job-schedule-shifts-material-transactions-checksums": {
       "attributes": [
@@ -19678,7 +20282,8 @@
       ],
       "server_types": [
         "tender-job-schedule-shifts-material-transactions-checksums"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-offers": {
       "attributes": [
@@ -19690,7 +20295,8 @@
       ],
       "server_types": [
         "tender-offers"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-raters": {
       "attributes": [
@@ -19703,7 +20309,8 @@
       "label_fields": [],
       "server_types": [
         "tender-raters"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-re-rates": {
       "attributes": [
@@ -19720,7 +20327,8 @@
       "label_fields": [],
       "server_types": [
         "tender-re-rates"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-rejections": {
       "attributes": [
@@ -19731,7 +20339,8 @@
       ],
       "server_types": [
         "tender-rejections"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-returns": {
       "attributes": [
@@ -19742,7 +20351,8 @@
       ],
       "server_types": [
         "tender-returns"
-      ]
+      ],
+      "version_changes": false
     },
     "tender-status-changes": {
       "attributes": [
@@ -19756,7 +20366,8 @@
       ],
       "server_types": [
         "tender-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "tenders": {
       "attributes": [
@@ -19779,6 +20390,10 @@
       "label_fields": [],
       "server_types": [
         "tenders"
+      ],
+      "version_changes": true,
+      "version_changes_optional_features": [
+        "tender_new_version_changes"
       ]
     },
     "tenna-vehicle-location-events": {
@@ -19797,7 +20412,8 @@
       ],
       "server_types": [
         "tenna-vehicle-location-events"
-      ]
+      ],
+      "version_changes": false
     },
     "tenna-vehicles": {
       "attributes": [
@@ -19815,7 +20431,8 @@
       ],
       "server_types": [
         "tenna-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "text-messages": {
       "attributes": [
@@ -19846,7 +20463,8 @@
       ],
       "server_types": [
         "text-messages"
-      ]
+      ],
+      "version_changes": false
     },
     "textractions": {
       "attributes": [
@@ -19861,7 +20479,8 @@
       ],
       "server_types": [
         "textractions"
-      ]
+      ],
+      "version_changes": true
     },
     "ticket-report-dispatches": {
       "attributes": [
@@ -19875,7 +20494,8 @@
       "label_fields": [],
       "server_types": [
         "ticket-report-dispatches"
-      ]
+      ],
+      "version_changes": true
     },
     "ticket-report-imports": {
       "attributes": [
@@ -19887,7 +20507,8 @@
       "label_fields": [],
       "server_types": [
         "ticket-report-imports"
-      ]
+      ],
+      "version_changes": true
     },
     "ticket-report-types": {
       "attributes": [
@@ -19899,7 +20520,8 @@
       ],
       "server_types": [
         "ticket-report-types"
-      ]
+      ],
+      "version_changes": true
     },
     "ticket-reports": {
       "attributes": [
@@ -19915,7 +20537,8 @@
       ],
       "server_types": [
         "ticket-reports"
-      ]
+      ],
+      "version_changes": true
     },
     "time-card-actions": {
       "attributes": [
@@ -19924,7 +20547,8 @@
       "label_fields": [],
       "server_types": [
         "time-card-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-approval-audits": {
       "attributes": [
@@ -19936,7 +20560,8 @@
       ],
       "server_types": [
         "time-card-approval-audits"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-approvals": {
       "attributes": [
@@ -19949,7 +20574,8 @@
       ],
       "server_types": [
         "time-card-approvals"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-cost-code-allocations": {
       "attributes": [
@@ -19958,21 +20584,24 @@
       "label_fields": [],
       "server_types": [
         "time-card-cost-code-allocations"
-      ]
+      ],
+      "version_changes": true
     },
     "time-card-invoices": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "time-card-invoices"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-payroll-certifications": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "time-card-payroll-certifications"
-      ]
+      ],
+      "version_changes": true
     },
     "time-card-pre-approvals": {
       "attributes": [
@@ -19993,7 +20622,8 @@
       ],
       "server_types": [
         "time-card-pre-approvals"
-      ]
+      ],
+      "version_changes": true
     },
     "time-card-rejections": {
       "attributes": [
@@ -20002,7 +20632,8 @@
       "label_fields": [],
       "server_types": [
         "time-card-rejections"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-scrappages": {
       "attributes": [
@@ -20011,7 +20642,8 @@
       "label_fields": [],
       "server_types": [
         "time-card-scrappages"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-status-changes": {
       "attributes": [
@@ -20024,7 +20656,8 @@
       ],
       "server_types": [
         "time-card-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-submissions": {
       "attributes": [
@@ -20038,7 +20671,8 @@
       ],
       "server_types": [
         "time-card-submissions"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-time-changes": {
       "attributes": [
@@ -20054,7 +20688,8 @@
       ],
       "server_types": [
         "time-card-time-changes"
-      ]
+      ],
+      "version_changes": true
     },
     "time-card-unapprovals": {
       "attributes": [
@@ -20065,7 +20700,8 @@
       ],
       "server_types": [
         "time-card-unapprovals"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-unscrappages": {
       "attributes": [
@@ -20074,7 +20710,8 @@
       "label_fields": [],
       "server_types": [
         "time-card-unscrappages"
-      ]
+      ],
+      "version_changes": false
     },
     "time-card-unsubmissions": {
       "attributes": [
@@ -20083,7 +20720,8 @@
       "label_fields": [],
       "server_types": [
         "time-card-unsubmissions"
-      ]
+      ],
+      "version_changes": false
     },
     "time-cards": {
       "attributes": [
@@ -20156,6 +20794,10 @@
       ],
       "server_types": [
         "time-cards"
+      ],
+      "version_changes": true,
+      "version_changes_optional_features": [
+        "time_card_new_version_changes"
       ]
     },
     "time-sheet-actions": {
@@ -20167,7 +20809,8 @@
       ],
       "server_types": [
         "time-sheet-actions"
-      ]
+      ],
+      "version_changes": false
     },
     "time-sheet-approvals": {
       "attributes": [
@@ -20178,7 +20821,8 @@
       ],
       "server_types": [
         "time-sheet-approvals"
-      ]
+      ],
+      "version_changes": false
     },
     "time-sheet-cost-code-allocations": {
       "attributes": [
@@ -20187,7 +20831,8 @@
       "label_fields": [],
       "server_types": [
         "time-sheet-cost-code-allocations"
-      ]
+      ],
+      "version_changes": true
     },
     "time-sheet-line-item-classifications": {
       "attributes": [
@@ -20200,7 +20845,8 @@
       ],
       "server_types": [
         "time-sheet-line-item-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "time-sheet-line-item-equipment-requirements": {
       "attributes": [
@@ -20209,7 +20855,8 @@
       "label_fields": [],
       "server_types": [
         "time-sheet-line-item-equipment-requirements"
-      ]
+      ],
+      "version_changes": true
     },
     "time-sheet-line-items": {
       "attributes": [
@@ -20227,7 +20874,8 @@
       ],
       "server_types": [
         "time-sheet-line-items"
-      ]
+      ],
+      "version_changes": true
     },
     "time-sheet-no-shows": {
       "attributes": [
@@ -20238,7 +20886,8 @@
       ],
       "server_types": [
         "time-sheet-no-shows"
-      ]
+      ],
+      "version_changes": true
     },
     "time-sheet-rejections": {
       "attributes": [
@@ -20247,7 +20896,8 @@
       "label_fields": [],
       "server_types": [
         "time-sheet-rejections"
-      ]
+      ],
+      "version_changes": false
     },
     "time-sheet-status-changes": {
       "attributes": [
@@ -20260,7 +20910,8 @@
       ],
       "server_types": [
         "time-sheet-status-changes"
-      ]
+      ],
+      "version_changes": false
     },
     "time-sheet-submissions": {
       "attributes": [
@@ -20271,7 +20922,8 @@
       ],
       "server_types": [
         "time-sheet-submissions"
-      ]
+      ],
+      "version_changes": false
     },
     "time-sheet-unapprovals": {
       "attributes": [
@@ -20282,7 +20934,8 @@
       ],
       "server_types": [
         "time-sheet-unapprovals"
-      ]
+      ],
+      "version_changes": false
     },
     "time-sheet-unsubmissions": {
       "attributes": [
@@ -20293,7 +20946,8 @@
       ],
       "server_types": [
         "time-sheet-unsubmissions"
-      ]
+      ],
+      "version_changes": false
     },
     "time-sheets": {
       "attributes": [
@@ -20316,6 +20970,10 @@
       ],
       "server_types": [
         "time-sheets"
+      ],
+      "version_changes": true,
+      "version_changes_optional_features": [
+        "time_sheet_new_version_changes"
       ]
     },
     "time-sheets-exports": {
@@ -20331,7 +20989,8 @@
       ],
       "server_types": [
         "time-sheets-exports"
-      ]
+      ],
+      "version_changes": true
     },
     "tractor-credentials": {
       "attributes": [
@@ -20341,7 +21000,8 @@
       "label_fields": [],
       "server_types": [
         "tractor-credentials"
-      ]
+      ],
+      "version_changes": true
     },
     "tractor-fuel-consumption-readings": {
       "attributes": [
@@ -20356,7 +21016,8 @@
       ],
       "server_types": [
         "tractor-fuel-consumption-readings"
-      ]
+      ],
+      "version_changes": true
     },
     "tractor-odometer-readings": {
       "attributes": [
@@ -20372,7 +21033,8 @@
       ],
       "server_types": [
         "tractor-odometer-readings"
-      ]
+      ],
+      "version_changes": true
     },
     "tractor-trailer-credential-classifications": {
       "attributes": [
@@ -20388,7 +21050,8 @@
       ],
       "server_types": [
         "tractor-trailer-credential-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "tractors": {
       "attributes": [
@@ -20415,7 +21078,8 @@
       ],
       "server_types": [
         "tractors"
-      ]
+      ],
+      "version_changes": true
     },
     "trading-partners": {
       "attributes": [
@@ -20424,7 +21088,8 @@
       "label_fields": [],
       "server_types": [
         "trading-partners"
-      ]
+      ],
+      "version_changes": true
     },
     "trailer-classifications": {
       "attributes": [
@@ -20439,7 +21104,8 @@
       ],
       "server_types": [
         "trailer-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "trailer-credentials": {
       "attributes": [
@@ -20449,7 +21115,8 @@
       "label_fields": [],
       "server_types": [
         "trailer-credentials"
-      ]
+      ],
+      "version_changes": true
     },
     "trailers": {
       "attributes": [
@@ -20479,7 +21146,8 @@
       ],
       "server_types": [
         "trailers"
-      ]
+      ],
+      "version_changes": true
     },
     "transport-order-efficiency-summaries": {
       "attributes": [
@@ -20494,7 +21162,8 @@
       "label_fields": [],
       "server_types": [
         "transport-order-efficiency-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "transport-order-materials": {
       "attributes": [
@@ -20507,7 +21176,8 @@
       ],
       "server_types": [
         "transport-order-materials"
-      ]
+      ],
+      "version_changes": true
     },
     "transport-order-project-transport-plan-strategy-set-predictions": {
       "attributes": [
@@ -20516,7 +21186,8 @@
       "label_fields": [],
       "server_types": [
         "transport-order-project-transport-plan-strategy-set-predictions"
-      ]
+      ],
+      "version_changes": true
     },
     "transport-order-stop-materials": {
       "attributes": [
@@ -20525,7 +21196,8 @@
       "label_fields": [],
       "server_types": [
         "transport-order-stop-materials"
-      ]
+      ],
+      "version_changes": true
     },
     "transport-order-stops": {
       "attributes": [
@@ -20541,7 +21213,8 @@
       ],
       "server_types": [
         "transport-order-stops"
-      ]
+      ],
+      "version_changes": true
     },
     "transport-orders": {
       "attributes": [
@@ -20560,7 +21233,8 @@
       ],
       "server_types": [
         "transport-orders"
-      ]
+      ],
+      "version_changes": true
     },
     "transport-references": {
       "attributes": [
@@ -20574,7 +21248,8 @@
       ],
       "server_types": [
         "transport-references"
-      ]
+      ],
+      "version_changes": true
     },
     "transport-routes": {
       "attributes": [
@@ -20589,7 +21264,8 @@
       "label_fields": [],
       "server_types": [
         "transport-routes"
-      ]
+      ],
+      "version_changes": true
     },
     "transport-summaries": {
       "attributes": [
@@ -20602,7 +21278,8 @@
       "label_fields": [],
       "server_types": [
         "transport-summaries"
-      ]
+      ],
+      "version_changes": false
     },
     "trips": {
       "attributes": [
@@ -20626,7 +21303,8 @@
       ],
       "server_types": [
         "trips"
-      ]
+      ],
+      "version_changes": true
     },
     "truck-scopes": {
       "attributes": [
@@ -20651,7 +21329,8 @@
       ],
       "server_types": [
         "truck-scopes"
-      ]
+      ],
+      "version_changes": true
     },
     "trucker-application-approvals": {
       "attributes": [
@@ -20662,7 +21341,8 @@
       "label_fields": [],
       "server_types": [
         "trucker-application-approvals"
-      ]
+      ],
+      "version_changes": false
     },
     "trucker-applications": {
       "attributes": [
@@ -20689,14 +21369,16 @@
       ],
       "server_types": [
         "trucker-applications"
-      ]
+      ],
+      "version_changes": true
     },
     "trucker-brokerages": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "trucker-brokerages"
-      ]
+      ],
+      "version_changes": true
     },
     "trucker-insurances": {
       "attributes": [
@@ -20711,7 +21393,8 @@
       ],
       "server_types": [
         "trucker-insurances"
-      ]
+      ],
+      "version_changes": true
     },
     "trucker-invoice-payments": {
       "attributes": [
@@ -20722,7 +21405,8 @@
       "label_fields": [],
       "server_types": [
         "trucker-invoice-payments"
-      ]
+      ],
+      "version_changes": false
     },
     "trucker-invoices": {
       "attributes": [
@@ -20753,7 +21437,8 @@
       "label_fields": [],
       "server_types": [
         "trucker-invoices"
-      ]
+      ],
+      "version_changes": false
     },
     "trucker-memberships": {
       "attributes": [
@@ -20786,7 +21471,8 @@
       ],
       "server_types": [
         "trucker-memberships"
-      ]
+      ],
+      "version_changes": false
     },
     "trucker-referral-codes": {
       "attributes": [
@@ -20798,7 +21484,8 @@
       ],
       "server_types": [
         "trucker-referral-codes"
-      ]
+      ],
+      "version_changes": true
     },
     "trucker-referrals": {
       "attributes": [
@@ -20810,7 +21497,8 @@
       "label_fields": [],
       "server_types": [
         "trucker-referrals"
-      ]
+      ],
+      "version_changes": true
     },
     "trucker-settings": {
       "attributes": [
@@ -20826,7 +21514,8 @@
       "label_fields": [],
       "server_types": [
         "trucker-settings"
-      ]
+      ],
+      "version_changes": false
     },
     "trucker-shift-sets": {
       "attributes": [
@@ -20863,7 +21552,8 @@
       ],
       "server_types": [
         "trucker-shift-sets"
-      ]
+      ],
+      "version_changes": true
     },
     "truckers": {
       "attributes": [
@@ -20954,7 +21644,8 @@
       ],
       "server_types": [
         "truckers"
-      ]
+      ],
+      "version_changes": true
     },
     "ui-tour-steps": {
       "attributes": [
@@ -20969,7 +21660,8 @@
       ],
       "server_types": [
         "ui-tour-steps"
-      ]
+      ],
+      "version_changes": true
     },
     "ui-tours": {
       "attributes": [
@@ -20982,7 +21674,8 @@
       ],
       "server_types": [
         "ui-tours"
-      ]
+      ],
+      "version_changes": true
     },
     "unit-of-measures": {
       "attributes": [
@@ -21002,7 +21695,8 @@
       ],
       "server_types": [
         "unit-of-measures"
-      ]
+      ],
+      "version_changes": true
     },
     "user-auth-token-resets": {
       "attributes": [
@@ -21012,7 +21706,8 @@
       "label_fields": [],
       "server_types": [
         "user-auth-token-resets"
-      ]
+      ],
+      "version_changes": false
     },
     "user-creator-feed-creators": {
       "attributes": [
@@ -21026,14 +21721,16 @@
       ],
       "server_types": [
         "user-creator-feed-creators"
-      ]
+      ],
+      "version_changes": true
     },
     "user-creator-feeds": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "user-creator-feeds"
-      ]
+      ],
+      "version_changes": true
     },
     "user-credential-classifications": {
       "attributes": [
@@ -21049,7 +21746,8 @@
       ],
       "server_types": [
         "user-credential-classifications"
-      ]
+      ],
+      "version_changes": true
     },
     "user-credentials": {
       "attributes": [
@@ -21062,7 +21760,8 @@
       ],
       "server_types": [
         "user-credentials"
-      ]
+      ],
+      "version_changes": true
     },
     "user-device-location-tracking-requests": {
       "attributes": [
@@ -21074,7 +21773,8 @@
       ],
       "server_types": [
         "user-device-location-tracking-requests"
-      ]
+      ],
+      "version_changes": false
     },
     "user-languages": {
       "attributes": [
@@ -21083,7 +21783,8 @@
       "label_fields": [],
       "server_types": [
         "user-languages"
-      ]
+      ],
+      "version_changes": false
     },
     "user-location-estimates": {
       "attributes": [
@@ -21101,7 +21802,8 @@
       ],
       "server_types": [
         "user-location-estimates"
-      ]
+      ],
+      "version_changes": false
     },
     "user-location-events": {
       "attributes": [
@@ -21113,14 +21815,16 @@
       "label_fields": [],
       "server_types": [
         "user-location-events"
-      ]
+      ],
+      "version_changes": false
     },
     "user-location-requests": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "user-location-requests"
-      ]
+      ],
+      "version_changes": true
     },
     "user-post-feed-posts": {
       "attributes": [
@@ -21136,7 +21840,8 @@
       ],
       "server_types": [
         "user-post-feed-posts"
-      ]
+      ],
+      "version_changes": true
     },
     "user-post-feeds": {
       "attributes": [
@@ -21146,7 +21851,8 @@
       "label_fields": [],
       "server_types": [
         "user-post-feeds"
-      ]
+      ],
+      "version_changes": true
     },
     "user-searches": {
       "attributes": [
@@ -21159,7 +21865,8 @@
       ],
       "server_types": [
         "user-searches"
-      ]
+      ],
+      "version_changes": false
     },
     "user-sourced-material-transaction-image-attribute-extractions": {
       "attributes": [
@@ -21177,7 +21884,8 @@
       ],
       "server_types": [
         "user-sourced-material-transaction-image-attribute-extractions"
-      ]
+      ],
+      "version_changes": true
     },
     "user-ui-tours": {
       "attributes": [
@@ -21187,7 +21895,8 @@
       "label_fields": [],
       "server_types": [
         "user-ui-tours"
-      ]
+      ],
+      "version_changes": true
     },
     "users": {
       "attributes": [
@@ -21235,6 +21944,10 @@
       ],
       "server_types": [
         "users"
+      ],
+      "version_changes": true,
+      "version_changes_optional_features": [
+        "user_all_version_changes"
       ]
     },
     "vehicle-location-events": {
@@ -21248,7 +21961,8 @@
       ],
       "server_types": [
         "vehicle-location-events"
-      ]
+      ],
+      "version_changes": false
     },
     "vehicle-metrics-results": {
       "attributes": [
@@ -21266,7 +21980,8 @@
       ],
       "server_types": [
         "vehicle-metrics-results"
-      ]
+      ],
+      "version_changes": false
     },
     "verizon-reveal-vehicles": {
       "attributes": [
@@ -21283,7 +21998,8 @@
       ],
       "server_types": [
         "verizon-reveal-vehicles"
-      ]
+      ],
+      "version_changes": false
     },
     "version-events": {
       "attributes": [
@@ -21297,14 +22013,16 @@
       ],
       "server_types": [
         "version-events"
-      ]
+      ],
+      "version_changes": false
     },
     "work-order-assignments": {
       "attributes": [],
       "label_fields": [],
       "server_types": [
         "work-order-assignments"
-      ]
+      ],
+      "version_changes": true
     },
     "work-order-service-codes": {
       "attributes": [
@@ -21317,7 +22035,8 @@
       ],
       "server_types": [
         "work-order-service-codes"
-      ]
+      ],
+      "version_changes": true
     },
     "work-orders": {
       "attributes": [
@@ -21336,7 +22055,8 @@
       ],
       "server_types": [
         "work-orders"
-      ]
+      ],
+      "version_changes": true
     }
   }
 }

@@ -2,6 +2,7 @@ package cli
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"sort"
 	"strings"
@@ -10,16 +11,18 @@ import (
 )
 
 type knowledgeResourceDetail struct {
-	Name              string                          `json:"name"`
-	LabelFields       []string                        `json:"label_fields,omitempty"`
-	ServerTypes       []string                        `json:"server_types,omitempty"`
-	Fields            []knowledgeResourceField        `json:"fields,omitempty"`
-	Relationships     []knowledgeResourceRelationship `json:"relationships,omitempty"`
-	SummaryTargets    []knowledgeSummaryTarget        `json:"summary_targets,omitempty"`
-	SummarySources    []knowledgeSummaryTarget        `json:"summary_sources,omitempty"`
-	SummaryDimensions []knowledgeSummaryFeature       `json:"summary_dimensions,omitempty"`
-	SummaryMetrics    []knowledgeSummaryFeature       `json:"summary_metrics,omitempty"`
-	Commands          []knowledgeResourceCommand      `json:"commands,omitempty"`
+	Name                          string                          `json:"name"`
+	LabelFields                   []string                        `json:"label_fields,omitempty"`
+	ServerTypes                   []string                        `json:"server_types,omitempty"`
+	VersionChanges                bool                            `json:"version_changes"`
+	VersionChangesOptionalFeature []string                        `json:"version_changes_optional_features,omitempty"`
+	Fields                        []knowledgeResourceField        `json:"fields,omitempty"`
+	Relationships                 []knowledgeResourceRelationship `json:"relationships,omitempty"`
+	SummaryTargets                []knowledgeSummaryTarget        `json:"summary_targets,omitempty"`
+	SummarySources                []knowledgeSummaryTarget        `json:"summary_sources,omitempty"`
+	SummaryDimensions             []knowledgeSummaryFeature       `json:"summary_dimensions,omitempty"`
+	SummaryMetrics                []knowledgeSummaryFeature       `json:"summary_metrics,omitempty"`
+	Commands                      []knowledgeResourceCommand      `json:"commands,omitempty"`
 }
 
 type knowledgeResourceField struct {
@@ -94,16 +97,20 @@ func runKnowledgeResource(cmd *cobra.Command, args []string) error {
 	defer db.Close()
 
 	ctx := context.Background()
-	row := db.QueryRowContext(ctx, "SELECT label_fields, server_types FROM resources WHERE name = ?", resourceName)
+	row := db.QueryRowContext(ctx, "SELECT label_fields, server_types, version_changes, version_changes_optional_features FROM resources WHERE name = ?", resourceName)
 	var labelRaw, serverRaw string
-	if err := row.Scan(&labelRaw, &serverRaw); err != nil {
+	var versionChangesRaw sql.NullInt64
+	var versionChangesFeaturesRaw sql.NullString
+	if err := row.Scan(&labelRaw, &serverRaw, &versionChangesRaw, &versionChangesFeaturesRaw); err != nil {
 		return checkDBError(err, dbPath)
 	}
 
 	detail := knowledgeResourceDetail{
-		Name:        resourceName,
-		LabelFields: parseJSONList(labelRaw),
-		ServerTypes: parseJSONList(serverRaw),
+		Name:                          resourceName,
+		LabelFields:                   parseJSONList(labelRaw),
+		ServerTypes:                   parseJSONList(serverRaw),
+		VersionChanges:                versionChangesRaw.Valid && versionChangesRaw.Int64 == 1,
+		VersionChangesOptionalFeature: parseJSONList(versionChangesFeaturesRaw.String),
 	}
 
 	if sectionSet["fields"] {
@@ -252,6 +259,13 @@ ORDER BY c.full_path`, resourceName)
 	}
 	if len(detail.ServerTypes) > 0 {
 		fmt.Fprintf(out, "Server types: %s\n", strings.Join(detail.ServerTypes, ", "))
+	}
+	fmt.Fprintf(out, "Version changes: %s\n", boolToYesNo(detail.VersionChanges))
+	if len(detail.VersionChangesOptionalFeature) > 0 {
+		fmt.Fprintf(out, "Version changes optional features (auto-applied): %s\n", strings.Join(detail.VersionChangesOptionalFeature, ", "))
+	}
+	if detail.VersionChanges {
+		fmt.Fprintf(out, "Version changes usage: xbe view %s show <id> --version-changes [--json]\n", detail.Name)
 	}
 
 	if len(detail.Fields) > 0 {

@@ -57,7 +57,6 @@ Output Fields:
   Is App Owned
   Is Manual Override
   Changed By ID
-
 Arguments:
   <id>    The project transport plan event time ID (required). You can find IDs using the list command.
 

@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"encoding/json"
 	"fmt"
+	"io"
 	"sort"
 	"strings"
 	"sync"
@@ -14,9 +15,11 @@ import (
 )
 
 type resourceSpec struct {
-	ServerTypes []string `json:"server_types"`
-	LabelFields []string `json:"label_fields"`
-	Attributes  []string `json:"attributes"`
+	ServerTypes                    []string `json:"server_types"`
+	LabelFields                    []string `json:"label_fields"`
+	Attributes                     []string `json:"attributes"`
+	VersionChanges                 bool     `json:"version_changes"`
+	VersionChangesOptionalFeatures []string `json:"version_changes_optional_features"`
 }
 
 type relationshipSpec struct {
@@ -373,9 +376,19 @@ func renderSparseListIfRequested(cmd *cobra.Command, resp jsonAPIResponse) (bool
 	rows := buildSparseRows(resp, selection)
 	jsonOut, _ := cmd.Flags().GetBool("json")
 	if jsonOut {
+		if versionChangesRequested(cmd) {
+			attachVersionChangesToRows(rows, resp.Data)
+		}
 		return true, writeJSON(cmd.OutOrStdout(), rows)
 	}
-	return true, renderSparseTable(cmd, selection, rows)
+	if err := renderSparseTable(cmd, selection, rows); err != nil {
+		return true, err
+	}
+	if versionChangesRequested(cmd) {
+		fmt.Fprintln(cmd.OutOrStdout(), "")
+		fmt.Fprintln(cmd.OutOrStdout(), "Version changes are available in JSON output. Re-run with --json to see version_changes per record.")
+	}
+	return true, nil
 }
 
 func renderSparseShowIfRequested(cmd *cobra.Command, resp jsonAPISingleResponse) (bool, error) {
@@ -406,9 +419,62 @@ func renderSparseShowIfRequested(cmd *cobra.Command, resp jsonAPISingleResponse)
 		if len(rows) == 0 {
 			return true, writeJSON(cmd.OutOrStdout(), map[string]any{})
 		}
+		if versionChangesRequested(cmd) {
+			attachVersionChangesToRow(rows[0], resp.Data.Meta)
+		}
 		return true, writeJSON(cmd.OutOrStdout(), rows[0])
 	}
-	return true, renderSparseTable(cmd, selection, rows)
+	if err := renderSparseTable(cmd, selection, rows); err != nil {
+		return true, err
+	}
+	if versionChangesRequested(cmd) {
+		renderVersionChangesSection(cmd.OutOrStdout(), resp.Data.Meta)
+	}
+	return true, nil
+}
+
+func attachVersionChangesToRows(rows []map[string]any, resources []jsonAPIResource) {
+	for idx := range rows {
+		if idx >= len(resources) {
+			break
+		}
+		attachVersionChangesToRow(rows[idx], resources[idx].Meta)
+	}
+}
+
+func attachVersionChangesToRow(row map[string]any, meta map[string]any) {
+	if row == nil {
+		return
+	}
+	if changes := versionChangesFromMeta(meta); changes != nil {
+		row["version_changes"] = changes
+	}
+}
+
+func renderVersionChangesSection(out io.Writer, meta map[string]any) {
+	changes := versionChangesFromMeta(meta)
+	if changes == nil {
+		return
+	}
+	pretty, err := json.MarshalIndent(changes, "", "  ")
+	if err != nil {
+		return
+	}
+	fmt.Fprintln(out, "")
+	fmt.Fprintln(out, "Version Changes:")
+	fmt.Fprintln(out, strings.Repeat("-", 40))
+	fmt.Fprintln(out, string(pretty))
+}
+
+func versionChangesFromMeta(meta map[string]any) any {
+	if meta == nil {
+		return nil
+	}
+	value, ok := meta["version_changes"]
+	if !ok || value == nil {
+		return nil
+	}
+	return value
 }
 
 func defaultListSelection(resource string) (sparseSelection, bool, error) {
