@@ -58,11 +58,13 @@ func init() {
 
 // Execute runs the root command (for backward compatibility).
 func Execute() error {
+	applyCommandMetadataSupport(rootCmd)
 	return rootCmd.Execute()
 }
 
 // ExecuteContext runs the root command with context and telemetry support.
 func ExecuteContext(ctx context.Context, tp *telemetry.Provider) error {
+	applyCommandMetadataSupport(rootCmd)
 	telemetryProvider = tp
 	api.SetTelemetryProvider(tp)
 
