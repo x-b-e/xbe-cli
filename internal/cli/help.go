@@ -276,6 +276,11 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 			fmt.Fprintln(out, fieldsExample)
 		}
 
+		if resource, ok := relatedDiscoveryResource(cmd); ok {
+			fmt.Fprintln(out)
+			printRelatedDiscovery(out, resource)
+		}
+
 		if intel := commandIntelHint(cmd); intel != "" {
 			fmt.Fprintln(out)
 			fmt.Fprintln(out, "COMMAND INTEL:")
@@ -798,6 +803,35 @@ func commandIntelHint(cmd *cobra.Command) string {
 		return ""
 	}
 	return fmt.Sprintf("  xbe knowledge commands --query %q\n  xbe knowledge commands --resource <resource>", path)
+}
+
+func relatedDiscoveryResource(cmd *cobra.Command) (string, bool) {
+	root := commandRootName(cmd)
+	if root != "view" && root != "do" && root != "summarize" {
+		return "", false
+	}
+	path := cmd.CommandPath()
+	if rootCmd != nil {
+		prefix := rootCmd.Name() + " "
+		if strings.HasPrefix(path, prefix) {
+			path = strings.TrimPrefix(path, prefix)
+		}
+	}
+	parts := strings.Fields(path)
+	if len(parts) >= 2 {
+		return parts[1], true
+	}
+	return "<resource>", true
+}
+
+func printRelatedDiscovery(out io.Writer, resource string) {
+	if strings.TrimSpace(resource) == "" {
+		resource = "<resource>"
+	}
+	fmt.Fprintln(out, "RELATED DISCOVERY:")
+	fmt.Fprintf(out, "  xbe knowledge neighbors %s    Nearby resources to explore next\n", resource)
+	fmt.Fprintf(out, "  xbe knowledge relations %s    Direct relationships for this resource\n", resource)
+	fmt.Fprintf(out, "  xbe knowledge commands --resource %s    Commands that operate on this resource\n", resource)
 }
 
 func commandRootName(cmd *cobra.Command) string {
