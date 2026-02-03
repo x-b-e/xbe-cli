@@ -18,6 +18,22 @@ go test -v ./internal/telemetry -run TestConfigFromEnv
 
 Go version required: 1.25.6 (see go.mod)
 
+## Knowledge Base
+
+After adding or updating summary actions/resources (including changes to
+`internal/cli/summary_map.json` or `internal/cli/resource_map.json`), always
+rebuild the knowledge DB:
+
+```bash
+bash -lc 'source .venv/bin/activate && python3 build_tools/compile.py'
+```
+
+If dependencies are missing, run:
+
+```bash
+bash build_tools/bootstrap.sh
+```
+
 ## Architecture
 
 XBE CLI is a Cobra-based command-line tool for the XBE platform.

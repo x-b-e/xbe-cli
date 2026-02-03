@@ -26,3 +26,8 @@ Flag categorization is defined in `internal/cli/help.go`. When adding new global
 
 ## Build
 - `make build` should produce `./xbe`.
+
+## Knowledge Base
+- After adding or updating summary actions/resources (including changes to `internal/cli/summary_map.json` or `internal/cli/resource_map.json`), always rebuild the knowledge DB:
+  - `bash -lc 'source .venv/bin/activate && python3 build_tools/compile.py'`
+  - If deps are missing, run `bash build_tools/bootstrap.sh` first.

@@ -298,6 +298,9 @@ func timeCardRowFromSingle(resp jsonAPISingleResponse) timeCardRow {
 	if rel, ok := resource.Relationships["job"]; ok && rel.Data != nil {
 		row.JobID = rel.Data.ID
 	}
+	if rel, ok := resource.Relationships["job-production-plan"]; ok && rel.Data != nil {
+		row.JobProductionPlanID = rel.Data.ID
+	}
 	if rel, ok := resource.Relationships["driver"]; ok && rel.Data != nil {
 		row.DriverID = rel.Data.ID
 	}

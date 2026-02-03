@@ -110,6 +110,17 @@
         }
       ]
     },
+    "project-transport-plan-expected-event-time-summaries": {
+      "primary_resources": [
+        "project-transport-plan-expected-event-times"
+      ],
+      "sources": [
+        {
+          "file_path": "app/models/project_transport_plan_expected_event_time_summary.rb",
+          "repo_name": "server"
+        }
+      ]
+    },
     "project-transport-plan-summaries": {
       "primary_resources": [
         "project-transport-plans"

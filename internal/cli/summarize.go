@@ -26,7 +26,8 @@ Resources:
   ptp-driver-summary                   Aggregate PTP driver data by driver, customer, etc.
   ptp-trailer-summary                  Aggregate PTP trailer data by trailer, customer, etc.
   ptp-event-summary                    Aggregate PTP events by event type, broker, etc.
-  ptp-event-time-summary               Aggregate PTP event durations by event type, location, etc.`,
+  ptp-event-time-summary               Aggregate PTP event durations by event type, location, etc.
+  ptp-expected-event-time-summary      Aggregate PTP expected event time accuracy by event type, lead time, etc.`,
 	Example: `  # Summarize hauling data by origin and destination
   xbe summarize lane-summary create --group-by origin,destination --filter broker=123
 

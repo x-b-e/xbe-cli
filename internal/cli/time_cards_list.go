@@ -84,6 +84,7 @@ type timeCardRow struct {
 	TruckerID              string  `json:"trucker_id,omitempty"`
 	DriverID               string  `json:"driver_id,omitempty"`
 	JobID                  string  `json:"job_id,omitempty"`
+	JobProductionPlanID    string  `json:"job_production_plan_id,omitempty"`
 	TenderJobScheduleShift string  `json:"tender_job_schedule_shift_id,omitempty"`
 	JobScheduleShiftID     string  `json:"job_schedule_shift_id,omitempty"`
 }
@@ -105,6 +106,7 @@ Output Columns:
   TRUCKER       Trucker ID
   DRIVER        Driver user ID
   JOB           Job ID
+  JPP           Job production plan ID
   SHIFT         Tender job schedule shift ID
 
 Filters:
@@ -270,7 +272,7 @@ func runTimeCardsList(cmd *cobra.Command, _ []string) error {
 	client := api.NewClient(opts.BaseURL, opts.Token)
 
 	query := url.Values{}
-	query.Set("fields[time-cards]", "status,ticket-number,start-at,end-at,total-hours,approval-count,tender-job-schedule-shift,job,driver,trucker,job-schedule-shift")
+	query.Set("fields[time-cards]", "status,ticket-number,start-at,end-at,total-hours,approval-count,tender-job-schedule-shift,job,job-production-plan,driver,trucker,job-schedule-shift")
 
 	if opts.Limit > 0 {
 		query.Set("page[limit]", strconv.Itoa(opts.Limit))
@@ -509,6 +511,9 @@ func buildTimeCardRows(resp jsonAPIResponse) []timeCardRow {
 		if rel, ok := resource.Relationships["job"]; ok && rel.Data != nil {
 			row.JobID = rel.Data.ID
 		}
+		if rel, ok := resource.Relationships["job-production-plan"]; ok && rel.Data != nil {
+			row.JobProductionPlanID = rel.Data.ID
+		}
 		if rel, ok := resource.Relationships["driver"]; ok && rel.Data != nil {
 			row.DriverID = rel.Data.ID
 		}
@@ -531,7 +536,7 @@ func renderTimeCardsTable(cmd *cobra.Command, rows []timeCardRow) error {
 	}
 
 	w := tabwriter.NewWriter(cmd.OutOrStdout(), 0, 0, 2, ' ', 0)
-	fmt.Fprintln(w, "ID\tSTATUS\tTICKET\tSTART\tEND\tHOURS\tAPPROVALS\tTRUCKER\tDRIVER\tJOB\tSHIFT")
+	fmt.Fprintln(w, "ID\tSTATUS\tTICKET\tSTART\tEND\tHOURS\tAPPROVALS\tTRUCKER\tDRIVER\tJOB\tJPP\tSHIFT")
 	for _, row := range rows {
 		hours := ""
 		if row.TotalHours != 0 {
@@ -541,7 +546,7 @@ func renderTimeCardsTable(cmd *cobra.Command, rows []timeCardRow) error {
 		if row.ApprovalCount != 0 {
 			approvals = strconv.Itoa(row.ApprovalCount)
 		}
-		fmt.Fprintf(w, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
+		fmt.Fprintf(w, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
 			row.ID,
 			row.Status,
 			row.TicketNumber,
@@ -552,6 +557,7 @@ func renderTimeCardsTable(cmd *cobra.Command, rows []timeCardRow) error {
 			row.TruckerID,
 			row.DriverID,
 			row.JobID,
+			row.JobProductionPlanID,
 			row.TenderJobScheduleShift,
 		)
 	}

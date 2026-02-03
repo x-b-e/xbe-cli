@@ -7350,6 +7350,7 @@
     },
     "project-transport-plan-event-summaries": {},
     "project-transport-plan-event-time-summaries": {},
+    "project-transport-plan-expected-event-time-summaries": {},
     "project-transport-plan-event-times": {
       "broker": {
         "resources": [
@@ -18392,6 +18393,22 @@
       "label_fields": [],
       "server_types": [
         "project-transport-plan-event-time-summaries"
+      ],
+      "version_changes": false
+    },
+    "project-transport-plan-expected-event-time-summaries": {
+      "attributes": [
+        "group-by",
+        "filters",
+        "sort",
+        "limit",
+        "included-metrics",
+        "headers",
+        "values"
+      ],
+      "label_fields": [],
+      "server_types": [
+        "project-transport-plan-expected-event-time-summaries"
       ],
       "version_changes": false
     },
