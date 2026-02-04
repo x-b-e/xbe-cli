@@ -267,6 +267,11 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 			fmt.Fprintln(out, cmd.Example)
 		}
 
+		if tip := clientURLHelpLine(cmd); tip != "" {
+			fmt.Fprintln(out)
+			fmt.Fprintln(out, tip)
+		}
+
 		if fieldsExample := fieldsExampleForCommand(cmd); fieldsExample != "" {
 			if cmd.Example == "" {
 				fmt.Fprintln(out)
@@ -287,6 +292,22 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 			fmt.Fprintln(out, intel)
 		}
 	}
+}
+
+func clientURLHelpLine(cmd *cobra.Command) string {
+	if cmd == nil {
+		return ""
+	}
+	if cmd.Name() == "view" {
+		return "Tip: Use --client-url with view list/show to emit client app URL(s) only (see xbe --help)."
+	}
+	if _, ok := resourceForSparseList(cmd); ok {
+		return "Tip: Use --client-url to emit client app URL(s) only (see xbe --help)."
+	}
+	if _, ok := resourceForSparseShow(cmd); ok {
+		return "Tip: Use --client-url to emit client app URL(s) only (see xbe --help)."
+	}
+	return ""
 }
 
 func customUsageFunc(cmd *cobra.Command) error {
