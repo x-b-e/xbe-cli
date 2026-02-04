@@ -348,7 +348,7 @@ func printBootstrapLoop(out io.Writer) {
 
 func printCommandGrammar(out io.Writer) {
 	fmt.Fprintln(out, "COMMAND GRAMMAR:")
-	fmt.Fprintln(out, "  knowledge  xbe knowledge <search|resources|resource|commands|fields|flags|relations|neighbors|metapath|filters|summaries> [filters]")
+	fmt.Fprintln(out, "  knowledge  xbe knowledge <search|resources|resource|commands|fields|flags|relations|neighbors|metapath|filters|summaries|client-routes> [filters]")
 	fmt.Fprintln(out, "  read       xbe view <resource> <list|show> [flags]")
 	fmt.Fprintln(out, "  write      xbe do <resource> <create|update|delete|action> [flags]")
 	fmt.Fprintln(out, "  analyze    xbe summarize <summary> create [flags]")
@@ -367,6 +367,7 @@ func printKnowledgeTools(out io.Writer) {
 	fmt.Fprintln(out, "  metapath   similarity via shared features")
 	fmt.Fprintln(out, "  fields     list fields + owning resources")
 	fmt.Fprintln(out, "  summaries  list summary resources + group-by/metrics")
+	fmt.Fprintln(out, "  client-routes  list client app routes and parameters")
 }
 
 func printCommandTree(out io.Writer, root *cobra.Command) {

@@ -61,6 +61,7 @@ func init() {
 	knowledgeCmd.AddCommand(newKnowledgeNeighborsCmd())
 	knowledgeCmd.AddCommand(newKnowledgeMetapathCmd())
 	knowledgeCmd.AddCommand(newKnowledgeFiltersCmd())
+	knowledgeCmd.AddCommand(newKnowledgeClientRoutesCmd())
 
 	rootCmd.AddCommand(knowledgeCmd)
 }
