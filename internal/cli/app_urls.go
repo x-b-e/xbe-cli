@@ -552,27 +552,45 @@ func (r *clientURLResolver) ensureRelationshipData(resource jsonAPIResource, res
 	if len(rels) == 0 {
 		return resource
 	}
-	for relName, relSpec := range rels {
-		if len(relationshipValues(resource, relName, relSpec)) > 0 {
-			return resource
+	missing := make([]string, 0, len(rels))
+	for relName := range rels {
+		if !relationshipDataPresent(resource, relName) {
+			missing = append(missing, relName)
 		}
 	}
-
-	fields := make([]string, 0, len(rels))
-	for relName := range rels {
-		fields = append(fields, relName)
+	if len(missing) == 0 {
+		return resource
 	}
-	sort.Strings(fields)
-	fetched, err := r.fetchResourceWithFields(resource.Type, resource.ID, fields)
+	sort.Strings(missing)
+	fetched, err := r.fetchResourceWithFields(resource.Type, resource.ID, missing)
 	if err != nil {
 		return resource
 	}
-	return fetched
+	merged := mergeResourceData(resource, fetched)
+	r.cacheFetched(merged)
+	return merged
 }
 
 func relationshipValues(resource jsonAPIResource, relName string, relSpec relationshipSpec) []relatedRef {
 	if rel, ok := resource.Relationships[relName]; ok && rel.Data != nil {
 		return []relatedRef{{ID: rel.Data.ID, Type: rel.Data.Type}}
+	}
+	if rel, ok := resource.Relationships[relName]; ok && len(rel.raw) > 0 {
+		if rel.raw[0] == '[' {
+			var many []jsonAPIResourceIdentifier
+			if err := json.Unmarshal(rel.raw, &many); err == nil {
+				refs := make([]relatedRef, 0, len(many))
+				for _, item := range many {
+					if item.ID == "" {
+						continue
+					}
+					refs = append(refs, relatedRef{ID: item.ID, Type: item.Type})
+				}
+				if len(refs) > 0 {
+					return refs
+				}
+			}
+		}
 	}
 
 	attrKey := relName + "-id"
@@ -659,8 +677,12 @@ func (r *clientURLResolver) fetchResourceWithFields(typ, id string, fields []str
 	if typ == "" || id == "" {
 		return jsonAPIResource{}, fmt.Errorf("missing resource type or id")
 	}
+	var cached jsonAPIResource
 	if resource, ok := r.lookupResource(typ, id); ok {
-		return resource, nil
+		if len(fields) == 0 || resourceHasRelationshipDataForFields(resource, fields) {
+			return resource, nil
+		}
+		cached = resource
 	}
 	if r.client == nil {
 		return jsonAPIResource{}, fmt.Errorf("cannot resolve related %s %s without auth", typ, id)
@@ -683,11 +705,12 @@ func (r *clientURLResolver) fetchResourceWithFields(typ, id string, fields []str
 	if err := json.Unmarshal(body, &resp); err != nil {
 		return jsonAPIResource{}, err
 	}
-	r.cacheFetched(resp.Data)
+	merged := mergeResourceData(cached, resp.Data)
+	r.cacheFetched(merged)
 	for _, inc := range resp.Included {
 		r.cacheFetched(inc)
 	}
-	return resp.Data, nil
+	return merged, nil
 }
 
 func (r *clientURLResolver) getResource(typ, id string) (jsonAPIResource, error) {
@@ -734,6 +757,80 @@ func (r *clientURLResolver) cacheFetched(res jsonAPIResource) {
 		alt := resourceKey(normalized, res.ID)
 		r.fetched[alt] = res
 	}
+}
+
+func relationshipDataPresent(resource jsonAPIResource, relName string) bool {
+	if relName == "" {
+		return false
+	}
+	if rel, ok := resource.Relationships[relName]; ok {
+		if rel.raw != nil || rel.Data != nil {
+			return true
+		}
+	}
+	if id := stringAttr(resource.Attributes, relName+"-id"); id != "" {
+		return true
+	}
+	if ids := stringSliceAttr(resource.Attributes, relName+"-ids"); len(ids) > 0 {
+		return true
+	}
+	return false
+}
+
+func resourceHasRelationshipDataForFields(resource jsonAPIResource, fields []string) bool {
+	for _, field := range fields {
+		field = strings.TrimSpace(field)
+		if field == "" {
+			continue
+		}
+		if !relationshipDataPresent(resource, field) {
+			return false
+		}
+	}
+	return true
+}
+
+func mergeResourceData(existing, fetched jsonAPIResource) jsonAPIResource {
+	if existing.ID == "" {
+		return fetched
+	}
+	out := fetched
+	if out.ID == "" {
+		out = existing
+	}
+	out.ID = firstNonEmpty(out.ID, existing.ID)
+	if out.Type == "" {
+		out.Type = existing.Type
+	}
+
+	if existing.Attributes != nil {
+		if out.Attributes == nil {
+			out.Attributes = map[string]any{}
+		}
+		for key, value := range existing.Attributes {
+			if _, ok := out.Attributes[key]; ok {
+				continue
+			}
+			out.Attributes[key] = value
+		}
+	}
+
+	if existing.Relationships != nil {
+		if out.Relationships == nil {
+			out.Relationships = map[string]jsonAPIRelationship{}
+		}
+		for key, value := range existing.Relationships {
+			if _, ok := out.Relationships[key]; ok {
+				continue
+			}
+			out.Relationships[key] = value
+		}
+	}
+
+	if out.Meta == nil && existing.Meta != nil {
+		out.Meta = existing.Meta
+	}
+	return out
 }
 
 func attributeValuesForParam(resource jsonAPIResource, param string) []string {
