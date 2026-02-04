@@ -125,6 +125,12 @@ func initCrewRequirementsShowFlags(cmd *cobra.Command) {
 }
 
 func runCrewRequirementsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseCrewRequirementsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

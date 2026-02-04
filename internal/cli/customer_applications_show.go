@@ -111,6 +111,12 @@ func initCustomerApplicationsShowFlags(cmd *cobra.Command) {
 }
 
 func runCustomerApplicationsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseCustomerApplicationsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

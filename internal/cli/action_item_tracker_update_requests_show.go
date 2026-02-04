@@ -77,6 +77,12 @@ func initActionItemTrackerUpdateRequestsShowFlags(cmd *cobra.Command) {
 }
 
 func runActionItemTrackerUpdateRequestsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseActionItemTrackerUpdateRequestsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

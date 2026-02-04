@@ -132,6 +132,12 @@ func initJobProductionPlanChangeSetsShowFlags(cmd *cobra.Command) {
 }
 
 func runJobProductionPlanChangeSetsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseJobProductionPlanChangeSetsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

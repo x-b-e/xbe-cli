@@ -68,6 +68,12 @@ func initDriverManagersShowFlags(cmd *cobra.Command) {
 }
 
 func runDriverManagersShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseDriverManagersShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

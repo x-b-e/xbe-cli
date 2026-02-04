@@ -69,6 +69,12 @@ func initPostRoutersShowFlags(cmd *cobra.Command) {
 }
 
 func runPostRoutersShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parsePostRoutersShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

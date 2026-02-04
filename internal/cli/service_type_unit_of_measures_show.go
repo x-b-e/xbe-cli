@@ -92,6 +92,12 @@ func initServiceTypeUnitOfMeasuresShowFlags(cmd *cobra.Command) {
 }
 
 func runServiceTypeUnitOfMeasuresShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseServiceTypeUnitOfMeasuresShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

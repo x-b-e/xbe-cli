@@ -62,6 +62,12 @@ func initProjectTransportPlanTrailerAssignmentRecommendationsShowFlags(cmd *cobr
 }
 
 func runProjectTransportPlanTrailerAssignmentRecommendationsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseProjectTransportPlanTrailerAssignmentRecommendationsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

@@ -91,6 +91,12 @@ func initMaintenanceRequirementMaintenanceRequirementPartsShowFlags(cmd *cobra.C
 }
 
 func runMaintenanceRequirementMaintenanceRequirementPartsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseMaintenanceRequirementMaintenanceRequirementPartsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

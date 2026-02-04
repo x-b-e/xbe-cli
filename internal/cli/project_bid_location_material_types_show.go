@@ -80,6 +80,12 @@ func initProjectBidLocationMaterialTypesShowFlags(cmd *cobra.Command) {
 }
 
 func runProjectBidLocationMaterialTypesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseProjectBidLocationMaterialTypesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

@@ -71,6 +71,12 @@ func initProjectTransportPlanSegmentSetsShowFlags(cmd *cobra.Command) {
 }
 
 func runProjectTransportPlanSegmentSetsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseProjectTransportPlanSegmentSetsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

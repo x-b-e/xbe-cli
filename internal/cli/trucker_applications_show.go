@@ -91,6 +91,12 @@ func initTruckerApplicationsShowFlags(cmd *cobra.Command) {
 }
 
 func runTruckerApplicationsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseTruckerApplicationsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

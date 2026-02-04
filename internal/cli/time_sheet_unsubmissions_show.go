@@ -59,6 +59,12 @@ func initTimeSheetUnsubmissionsShowFlags(cmd *cobra.Command) {
 }
 
 func runTimeSheetUnsubmissionsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseTimeSheetUnsubmissionsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

@@ -85,6 +85,12 @@ func initEquipmentMovementRequirementsShowFlags(cmd *cobra.Command) {
 }
 
 func runEquipmentMovementRequirementsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseEquipmentMovementRequirementsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

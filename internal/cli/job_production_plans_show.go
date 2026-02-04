@@ -98,6 +98,15 @@ func runJobProductionPlansShow(cmd *cobra.Command, args []string) error {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
 	}
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+	if err := applySparseFieldOverrides(cmd); err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
 	if opts.NoAuth {
 		opts.Token = ""
 	} else if strings.TrimSpace(opts.Token) == "" {

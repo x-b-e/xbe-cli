@@ -77,6 +77,15 @@ func runGenericShow(cmd *cobra.Command, resource string, id string) error {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
 		return err
 	}
+	if handled, err := maybeHandleClientURLShow(cmd, []string{id}); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+	if err := applySparseFieldOverrides(cmd); err != nil {
+		fmt.Fprintln(cmd.ErrOrStderr(), err)
+		return err
+	}
 
 	if opts.NoAuth {
 		opts.Token = ""
@@ -90,11 +99,6 @@ func runGenericShow(cmd *cobra.Command, resource string, id string) error {
 			fmt.Fprintln(cmd.ErrOrStderr(), err)
 			return err
 		}
-	}
-
-	id = strings.TrimSpace(id)
-	if id == "" {
-		return fmt.Errorf("%s id is required", resource)
 	}
 
 	client := api.NewClient(opts.BaseURL, opts.Token)

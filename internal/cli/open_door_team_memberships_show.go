@@ -71,6 +71,12 @@ func initOpenDoorTeamMembershipsShowFlags(cmd *cobra.Command) {
 }
 
 func runOpenDoorTeamMembershipsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseOpenDoorTeamMembershipsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

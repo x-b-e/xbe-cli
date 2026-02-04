@@ -85,6 +85,12 @@ func initGeofenceRestrictionViolationsShowFlags(cmd *cobra.Command) {
 }
 
 func runGeofenceRestrictionViolationsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseGeofenceRestrictionViolationsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

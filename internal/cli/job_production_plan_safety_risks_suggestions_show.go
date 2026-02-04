@@ -72,6 +72,12 @@ func initJobProductionPlanSafetyRisksSuggestionsShowFlags(cmd *cobra.Command) {
 }
 
 func runJobProductionPlanSafetyRisksSuggestionsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseJobProductionPlanSafetyRisksSuggestionsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

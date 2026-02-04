@@ -71,6 +71,12 @@ func initLineupScenarioTrailersShowFlags(cmd *cobra.Command) {
 }
 
 func runLineupScenarioTrailersShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseLineupScenarioTrailersShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

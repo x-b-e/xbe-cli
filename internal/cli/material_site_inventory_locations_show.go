@@ -70,6 +70,12 @@ func initMaterialSiteInventoryLocationsShowFlags(cmd *cobra.Command) {
 }
 
 func runMaterialSiteInventoryLocationsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseMaterialSiteInventoryLocationsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

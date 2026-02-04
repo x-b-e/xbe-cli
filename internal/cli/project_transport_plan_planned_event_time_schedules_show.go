@@ -72,6 +72,12 @@ func initProjectTransportPlanPlannedEventTimeSchedulesShowFlags(cmd *cobra.Comma
 }
 
 func runProjectTransportPlanPlannedEventTimeSchedulesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseProjectTransportPlanPlannedEventTimeSchedulesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

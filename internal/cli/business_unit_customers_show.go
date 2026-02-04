@@ -67,6 +67,12 @@ func initBusinessUnitCustomersShowFlags(cmd *cobra.Command) {
 }
 
 func runBusinessUnitCustomersShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseBusinessUnitCustomersShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

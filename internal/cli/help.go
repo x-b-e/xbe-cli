@@ -740,6 +740,7 @@ func printGlobalFlags(out io.Writer) {
 	fmt.Fprintln(out, "  --json               machine-readable output")
 	fmt.Fprintln(out, "  --output             output format: table (default), json, yaml")
 	fmt.Fprintln(out, "  --jq                 jq-style filter for JSON/YAML output")
+	fmt.Fprintln(out, "  --client-url         output client app URL(s) for view list/show")
 	fmt.Fprintln(out, "  --limit/--offset/--sort  pagination for list commands")
 	fmt.Fprintln(out, "  --fields             sparse fieldsets for list/show")
 	fmt.Fprintln(out, "  --base-url/--token/--no-auth  auth/targeting")
@@ -955,7 +956,7 @@ func printSubcommandsGrouped(out io.Writer, cmd *cobra.Command) {
 // Global flags that appear on most commands (documented in root help)
 var (
 	paginationFlags = map[string]bool{"limit": true, "offset": true, "sort": true}
-	outputFlags     = map[string]bool{"json": true, "output": true, "jq": true}
+	outputFlags     = map[string]bool{"json": true, "output": true, "jq": true, "client-url": true}
 	connectionFlags = map[string]bool{"base-url": true, "token": true, "no-auth": true}
 	sparseFlags     = map[string]bool{"fields": true}
 )

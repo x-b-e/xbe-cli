@@ -60,6 +60,12 @@ func initMissingRatesShowFlags(cmd *cobra.Command) {
 }
 
 func runMissingRatesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseMissingRatesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

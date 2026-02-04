@@ -84,6 +84,12 @@ func initTextMessagesShowFlags(cmd *cobra.Command) {
 }
 
 func runTextMessagesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseTextMessagesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

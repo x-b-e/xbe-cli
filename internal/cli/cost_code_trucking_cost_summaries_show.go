@@ -65,6 +65,12 @@ func initCostCodeTruckingCostSummariesShowFlags(cmd *cobra.Command) {
 }
 
 func runCostCodeTruckingCostSummariesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseCostCodeTruckingCostSummariesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

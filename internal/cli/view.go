@@ -36,4 +36,5 @@ Fields usage:
 func init() {
 	rootCmd.AddCommand(viewCmd)
 	viewCmd.PersistentFlags().Bool("version-changes", false, "Include version changes in responses (supported resources only)")
+	viewCmd.PersistentFlags().Bool("client-url", false, "Output client app URL(s) only")
 }

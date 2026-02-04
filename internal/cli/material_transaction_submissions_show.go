@@ -59,6 +59,12 @@ func initMaterialTransactionSubmissionsShowFlags(cmd *cobra.Command) {
 }
 
 func runMaterialTransactionSubmissionsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseMaterialTransactionSubmissionsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

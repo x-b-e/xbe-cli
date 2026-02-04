@@ -64,6 +64,12 @@ func initProjectMarginMatricesShowFlags(cmd *cobra.Command) {
 }
 
 func runProjectMarginMatricesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseProjectMarginMatricesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

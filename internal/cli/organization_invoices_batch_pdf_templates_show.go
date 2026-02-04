@@ -83,6 +83,12 @@ func initOrganizationInvoicesBatchPdfTemplatesShowFlags(cmd *cobra.Command) {
 }
 
 func runOrganizationInvoicesBatchPdfTemplatesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseOrganizationInvoicesBatchPdfTemplatesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

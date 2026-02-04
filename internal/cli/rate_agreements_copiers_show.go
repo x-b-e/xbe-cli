@@ -83,6 +83,12 @@ func initRateAgreementsCopiersShowFlags(cmd *cobra.Command) {
 }
 
 func runRateAgreementsCopiersShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseRateAgreementsCopiersShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

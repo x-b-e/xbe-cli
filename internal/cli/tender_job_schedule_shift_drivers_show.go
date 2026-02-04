@@ -70,6 +70,12 @@ func initTenderJobScheduleShiftDriversShowFlags(cmd *cobra.Command) {
 }
 
 func runTenderJobScheduleShiftDriversShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseTenderJobScheduleShiftDriversShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

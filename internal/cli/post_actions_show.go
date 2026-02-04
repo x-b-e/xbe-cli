@@ -65,6 +65,12 @@ func initPostActionsShowFlags(cmd *cobra.Command) {
 }
 
 func runPostActionsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parsePostActionsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

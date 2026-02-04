@@ -200,6 +200,20 @@ func resourceForSparseList(cmd *cobra.Command) (string, bool) {
 	return parts[2], true
 }
 
+func resourceForSparseShow(cmd *cobra.Command) (string, bool) {
+	parts := strings.Fields(cmd.CommandPath())
+	if len(parts) < 4 {
+		return "", false
+	}
+	if parts[1] != "view" {
+		return "", false
+	}
+	if parts[3] != "show" {
+		return "", false
+	}
+	return parts[2], true
+}
+
 func initSparseFieldFlags(cmd *cobra.Command) {
 	cmd.PersistentFlags().StringArray(
 		"fields",
@@ -215,26 +229,40 @@ func applySparseFieldOverrides(cmd *cobra.Command) error {
 	}
 
 	if !cmd.Flags().Changed("fields") {
-		resource, ok := resourceForSparseList(cmd)
-		if !ok {
+		if resource, ok := resourceForSparseList(cmd); ok {
+			selection, ok, err := defaultListSelection(resource)
+			if err != nil || !ok {
+				return err
+			}
+			overrides := api.SparseFieldOverrides{}
+			if len(selection.Primary) > 0 {
+				overrides.FieldsSet = true
+				overrides.Primary = selection.Primary
+			}
+			overrides = applyClientURLOverrides(cmd, resource, overrides)
+			if overrides.FieldsSet || overrides.IncludeSet || len(overrides.Typed) > 0 {
+				cmd.SetContext(api.WithSparseFieldOverrides(cmd.Context(), overrides))
+			}
 			return nil
 		}
-		selection, ok, err := defaultListSelection(resource)
-		if err != nil || !ok {
-			return err
-		}
-		if len(selection.Primary) == 0 {
+		if resource, ok := resourceForSparseShow(cmd); ok {
+			if clientURLRequested(cmd) {
+				overrides := api.SparseFieldOverrides{}
+				overrides = applyClientURLOverrides(cmd, resource, overrides)
+				if overrides.FieldsSet || overrides.IncludeSet || len(overrides.Typed) > 0 {
+					cmd.SetContext(api.WithSparseFieldOverrides(cmd.Context(), overrides))
+				}
+			}
 			return nil
 		}
-		overrides := api.SparseFieldOverrides{
-			FieldsSet: true,
-			Primary:   selection.Primary,
-		}
-		cmd.SetContext(api.WithSparseFieldOverrides(cmd.Context(), overrides))
 		return nil
 	}
 
-	selection, err := selectionForCommand(cmd, fieldsValues)
+	resource, ok := resourceForSparseFields(cmd)
+	if !ok {
+		return fmt.Errorf("--fields is only supported on view <resource> list/show commands")
+	}
+	selection, err := resolveSparseSelection(resource, fieldsValues)
 	if err != nil {
 		return err
 	}
@@ -246,6 +274,7 @@ func applySparseFieldOverrides(cmd *cobra.Command) error {
 		Typed:      selection.Typed,
 		Include:    selection.Include,
 	}
+	overrides = applyClientURLOverrides(cmd, resource, overrides)
 
 	cmd.SetContext(api.WithSparseFieldOverrides(cmd.Context(), overrides))
 	return nil
@@ -355,6 +384,13 @@ func buildSparseRows(resp jsonAPIResponse, selection sparseSelection) []map[stri
 }
 
 func renderSparseListIfRequested(cmd *cobra.Command, resp jsonAPIResponse) (bool, error) {
+	if clientURLRequested(cmd) {
+		resource, ok := resourceForSparseList(cmd)
+		if !ok {
+			return true, fmt.Errorf("--client-url is only supported on view <resource> list commands")
+		}
+		return true, renderClientURLsForList(cmd, resource, resp)
+	}
 	var selection sparseSelection
 	if cmd.Flags().Changed("fields") {
 		selected, err := selectionForCommand(cmd, nil)
@@ -392,6 +428,13 @@ func renderSparseListIfRequested(cmd *cobra.Command, resp jsonAPIResponse) (bool
 }
 
 func renderSparseShowIfRequested(cmd *cobra.Command, resp jsonAPISingleResponse) (bool, error) {
+	if clientURLRequested(cmd) {
+		resource, ok := resourceForSparseFields(cmd)
+		if !ok {
+			return true, fmt.Errorf("--client-url is only supported on view <resource> show commands")
+		}
+		return true, renderClientURLsForShow(cmd, resource, resp)
+	}
 	var selection sparseSelection
 	if cmd.Flags().Changed("fields") {
 		selected, err := selectionForCommand(cmd, nil)

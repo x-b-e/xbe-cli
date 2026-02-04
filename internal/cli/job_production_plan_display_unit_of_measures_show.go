@@ -61,6 +61,12 @@ func initJobProductionPlanDisplayUnitOfMeasuresShowFlags(cmd *cobra.Command) {
 }
 
 func runJobProductionPlanDisplayUnitOfMeasuresShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseJobProductionPlanDisplayUnitOfMeasuresShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

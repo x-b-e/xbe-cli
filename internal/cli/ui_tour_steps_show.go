@@ -77,6 +77,12 @@ func initUiTourStepsShowFlags(cmd *cobra.Command) {
 }
 
 func runUiTourStepsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseUiTourStepsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

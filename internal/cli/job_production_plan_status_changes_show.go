@@ -81,6 +81,12 @@ func initJobProductionPlanStatusChangesShowFlags(cmd *cobra.Command) {
 }
 
 func runJobProductionPlanStatusChangesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseJobProductionPlanStatusChangesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

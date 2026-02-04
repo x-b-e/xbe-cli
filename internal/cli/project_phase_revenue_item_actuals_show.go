@@ -89,6 +89,12 @@ func initProjectPhaseRevenueItemActualsShowFlags(cmd *cobra.Command) {
 }
 
 func runProjectPhaseRevenueItemActualsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseProjectPhaseRevenueItemActualsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

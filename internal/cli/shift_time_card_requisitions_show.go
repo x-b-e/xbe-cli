@@ -66,6 +66,12 @@ func initShiftTimeCardRequisitionsShowFlags(cmd *cobra.Command) {
 }
 
 func runShiftTimeCardRequisitionsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseShiftTimeCardRequisitionsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

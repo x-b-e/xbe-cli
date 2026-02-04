@@ -75,6 +75,12 @@ func initPlatformStatusesShowFlags(cmd *cobra.Command) {
 }
 
 func runPlatformStatusesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parsePlatformStatusesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

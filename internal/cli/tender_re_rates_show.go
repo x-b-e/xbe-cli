@@ -84,6 +84,12 @@ func initTenderReRatesShowFlags(cmd *cobra.Command) {
 }
 
 func runTenderReRatesShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parseTenderReRatesShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)

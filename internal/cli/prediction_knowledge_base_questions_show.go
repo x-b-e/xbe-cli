@@ -79,6 +79,12 @@ func initPredictionKnowledgeBaseQuestionsShowFlags(cmd *cobra.Command) {
 }
 
 func runPredictionKnowledgeBaseQuestionsShow(cmd *cobra.Command, args []string) error {
+	if handled, err := maybeHandleClientURLShow(cmd, args); err != nil {
+		return err
+	} else if handled {
+		return nil
+	}
+
 	opts, err := parsePredictionKnowledgeBaseQuestionsShowOptions(cmd)
 	if err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
