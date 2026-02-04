@@ -21,25 +21,24 @@ func maybeHandleClientURLShow(cmd *cobra.Command, args []string) (bool, error) {
 	if !ok {
 		err := fmt.Errorf("--client-url is only supported on view <resource> show commands")
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
-		return true, err
+		_ = writeClientURLOutput(cmd, nil)
+		return true, nil
 	}
 	if len(args) == 0 {
 		err := fmt.Errorf("%s id is required", resource)
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
-		return true, err
+		_ = writeClientURLOutput(cmd, nil)
+		return true, nil
 	}
 	id := strings.TrimSpace(args[0])
 	if id == "" {
 		err := fmt.Errorf("%s id is required", resource)
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
-		return true, err
+		_ = writeClientURLOutput(cmd, nil)
+		return true, nil
 	}
 
-	handled, err := renderClientURLsFromIDIfPossible(cmd, resource, id)
-	if err != nil {
-		fmt.Fprintln(cmd.ErrOrStderr(), err)
-		return true, err
-	}
+	handled := renderClientURLsFromIDIfPossible(cmd, resource, id)
 	if handled {
 		return true, nil
 	}
@@ -57,10 +56,12 @@ func maybeHandleClientURLShow(cmd *cobra.Command, args []string) (bool, error) {
 			token = resolved
 		} else if errors.Is(err, auth.ErrNotFound) {
 			fmt.Fprintln(cmd.ErrOrStderr(), "Authentication required. Run 'xbe auth login' first.")
-			return true, err
+			_ = writeClientURLOutput(cmd, nil)
+			return true, nil
 		} else {
 			fmt.Fprintln(cmd.ErrOrStderr(), err)
-			return true, err
+			_ = writeClientURLOutput(cmd, nil)
+			return true, nil
 		}
 	}
 
@@ -100,17 +101,16 @@ func maybeHandleClientURLShow(cmd *cobra.Command, args []string) (bool, error) {
 			fmt.Fprintln(cmd.ErrOrStderr(), string(body))
 		}
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
-		return true, err
+		_ = writeClientURLOutput(cmd, nil)
+		return true, nil
 	}
 
 	var resp jsonAPISingleResponse
 	if err := json.Unmarshal(body, &resp); err != nil {
 		fmt.Fprintln(cmd.ErrOrStderr(), err)
-		return true, err
+		_ = writeClientURLOutput(cmd, nil)
+		return true, nil
 	}
-	if err := renderClientURLsForShow(cmd, resource, resp); err != nil {
-		fmt.Fprintln(cmd.ErrOrStderr(), err)
-		return true, err
-	}
+	_ = renderClientURLsForShow(cmd, resource, resp)
 	return true, nil
 }

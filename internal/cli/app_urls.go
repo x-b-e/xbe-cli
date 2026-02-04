@@ -155,25 +155,30 @@ func applyClientURLOverrides(cmd *cobra.Command, resource string, overrides api.
 	return overrides
 }
 
-func renderClientURLsFromIDIfPossible(cmd *cobra.Command, resource, id string) (bool, error) {
+func renderClientURLsFromIDIfPossible(cmd *cobra.Command, resource, id string) bool {
 	canResolve, bindings, err := clientURLCanResolveFromID(resource)
 	if err != nil {
-		return false, err
+		logClientURLError(cmd, err)
+		_ = writeClientURLOutput(cmd, nil)
+		return true
 	}
 	if !canResolve {
-		return false, nil
+		return false
 	}
 	urls, err := clientURLsFromID(cmd, resource, id, bindings)
 	if err != nil {
-		return false, err
+		logClientURLError(cmd, err)
+		_ = writeClientURLOutput(cmd, nil)
+		return true
 	}
-	return true, writeClientURLOutput(cmd, urls)
+	_ = writeClientURLOutput(cmd, urls)
+	return true
 }
 
 func renderClientURLsForList(cmd *cobra.Command, resource string, resp jsonAPIResponse) error {
 	urls, err := clientURLsForResources(cmd, resource, resp.Data, resp.Included)
 	if err != nil {
-		return err
+		logClientURLError(cmd, err)
 	}
 	return writeClientURLOutput(cmd, urls)
 }
@@ -181,7 +186,7 @@ func renderClientURLsForList(cmd *cobra.Command, resource string, resp jsonAPIRe
 func renderClientURLsForShow(cmd *cobra.Command, resource string, resp jsonAPISingleResponse) error {
 	urls, err := clientURLsForResources(cmd, resource, []jsonAPIResource{resp.Data}, resp.Included)
 	if err != nil {
-		return err
+		logClientURLError(cmd, err)
 	}
 	return writeClientURLOutput(cmd, urls)
 }
@@ -939,6 +944,9 @@ func dedupeStrings(values []string) []string {
 }
 
 func writeClientURLOutput(cmd *cobra.Command, urls []string) error {
+	if urls == nil {
+		urls = []string{}
+	}
 	if getBoolFlag(cmd, "json") {
 		payload := map[string][]string{"client": urls}
 		return writeJSON(cmd.OutOrStdout(), payload)
@@ -947,6 +955,13 @@ func writeClientURLOutput(cmd *cobra.Command, urls []string) error {
 		fmt.Fprintln(cmd.OutOrStdout(), url)
 	}
 	return nil
+}
+
+func logClientURLError(cmd *cobra.Command, err error) {
+	if err == nil {
+		return
+	}
+	fmt.Fprintln(cmd.ErrOrStderr(), err)
 }
 
 func resolveClientBaseURL(cmd *cobra.Command) string {
