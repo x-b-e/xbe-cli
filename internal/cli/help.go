@@ -377,7 +377,7 @@ func printKnowledgeTools(out io.Writer) {
 	fmt.Fprintln(out, "  metapath   similarity via shared features")
 	fmt.Fprintln(out, "  fields     list fields + owning resources")
 	fmt.Fprintln(out, "  summaries  list summary resources + group-by/metrics")
-	fmt.Fprintln(out, "  client-routes  list client app routes and parameters")
+	fmt.Fprintln(out, "  client-routes  list client app routes, params, and curated docs (e.g. jump-to)")
 	fmt.Fprintln(out, "  Note: summarize command names (transport-summary) often map to summary resources (transport-summaries).")
 }
 

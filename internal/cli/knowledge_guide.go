@@ -88,10 +88,12 @@ func runKnowledgeGuide(cmd *cobra.Command, _ []string) error {
 				Notes: []string{
 					"'--client-url' works on view list/show and emits client routes only.",
 					"Some resources are not directly route-addressable; use client-routes --query for broader discovery.",
+					"The jump-to route is documented in knowledge output, including required query params.",
 				},
 				Commands: []string{
 					"xbe view jobs list --client-url",
 					"xbe knowledge client-routes --query job",
+					"xbe knowledge client-routes --query jump-to",
 				},
 			},
 			{

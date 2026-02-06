@@ -1,0 +1,76 @@
+{
+  "routes": {
+    "browse.jump-to": {
+      "summary": "Universal jump route. Resolves a resource by ID and redirects to its canonical browse route.",
+      "query_params": [
+        "toResource",
+        "toResourceId"
+      ],
+      "required_query_params": [
+        "toResource",
+        "toResourceId"
+      ],
+      "resource_values": [
+        "objective",
+        "key-result",
+        "tender",
+        "invoice",
+        "time-card",
+        "time-sheet",
+        "tender-job-schedule-shift",
+        "material-transaction",
+        "job-production-plan",
+        "incident",
+        "trucker-shift-set",
+        "rate-agreement",
+        "rate",
+        "action-item",
+        "user",
+        "material-supplier",
+        "material-site",
+        "job-site",
+        "material-type",
+        "developer",
+        "meeting",
+        "public-praise",
+        "project",
+        "customer"
+      ],
+      "examples": [
+        "/browse/jump-to?toResource=job-production-plan&toResourceId=123",
+        "/browse/jump-to?toResource=material-transaction&toResourceId=456",
+        "/browse/jump-to?toResource=customer&toResourceId=789"
+      ],
+      "notes": [
+        "The UI expects a numeric ID.",
+        "Non-admin users may be broker-scoped based on membership."
+      ],
+      "source_paths": [
+        "client/app/controllers/browse/jump-to/index.js",
+        "client/app/utilities/jump-to/actions.js",
+        "client/app/templates/browse/jump-to/index.hbs"
+      ]
+    },
+    "jump-to": {
+      "summary": "Legacy redirect route for select deep-link transitions.",
+      "query_params": [
+        "routeName",
+        "id"
+      ],
+      "required_query_params": [
+        "routeName",
+        "id"
+      ],
+      "examples": [
+        "/jump-to?routeName=browse.branches.show.customers.show.job-production-plans.show&id=123",
+        "/jump-to?routeName=browse.branches.show.truckers.show.shifts.show.time-cards.show&id=456"
+      ],
+      "notes": [
+        "This route currently supports only a small fixed routeName allow-list."
+      ],
+      "source_paths": [
+        "client/app/routes/jump-to.js"
+      ]
+    }
+  }
+}
