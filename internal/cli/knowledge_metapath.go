@@ -18,27 +18,46 @@ func newKnowledgeMetapathCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "metapath <resource>",
 		Short: "Show similarity via shared features (metapaths)",
-		Args:  cobra.MinimumNArgs(1),
-		RunE:  runKnowledgeMetapath,
+		Long: `Show resource similarity via shared feature paths.
+
+Use this when expanding exploration beyond direct relationships. Similarity can
+come from shared command fields, summary dimensions/metrics, or filter targets.`,
+		Args: cobra.MinimumNArgs(1),
+		RunE: runKnowledgeMetapath,
 		Example: `  # Shared command-field similarity
-  xbe knowledge metapath jobs --kind command_field`,
+  xbe knowledge metapath jobs --kind command_field
+
+  # Compare via shared summary dimensions
+  xbe knowledge metapath transport-summaries --kind summary_dimension`,
 	}
 	cmd.Flags().String("kind", "", "Filter by feature kind (command_field, summary_dimension, summary_metric, filter_target)")
 	return cmd
 }
 
 func runKnowledgeMetapath(cmd *cobra.Command, args []string) error {
-	resource := strings.TrimSpace(args[0])
-	if err := ensureNotEmpty(resource, "resource"); err != nil {
+	rawResource := strings.TrimSpace(args[0])
+	if err := ensureNotEmpty(rawResource, "resource"); err != nil {
 		return err
 	}
-	kind := strings.TrimSpace(getStringFlag(cmd, "kind"))
+	kind, err := validateEnum(
+		"--kind",
+		getStringFlag(cmd, "kind"),
+		allowedValues("command_field", "summary_dimension", "summary_metric", "filter_target"),
+	)
+	if err != nil {
+		return err
+	}
 
 	db, dbPath, err := openKnowledgeDB(cmd)
 	if err != nil {
 		return err
 	}
 	defer db.Close()
+
+	resource, err := normalizeKnowledgeResourceArg(cmd, db, dbPath, rawResource, "resource")
+	if err != nil {
+		return err
+	}
 
 	ctx := context.Background()
 	argsSQL := []any{resource}
@@ -83,7 +102,7 @@ WHERE source_resource = ?`
 	}
 
 	if len(results) == 0 {
-		fmt.Fprintln(cmd.OutOrStdout(), "No metapath matches found.")
+		fmt.Fprintf(cmd.OutOrStdout(), "No metapath matches found for %s.\n", resource)
 		return nil
 	}
 

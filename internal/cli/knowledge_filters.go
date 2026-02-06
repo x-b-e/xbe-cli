@@ -24,12 +24,19 @@ func newKnowledgeFiltersCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "filters",
 		Short: "Show inferred filter paths for list commands",
-		RunE:  runKnowledgeFilters,
+		Long: `Show inferred filter paths for list commands.
+
+Filter paths explain indirect flag behavior, for example when --broker filters
+through customer.broker instead of a direct jobs attribute.`,
+		RunE: runKnowledgeFilters,
 		Example: `  # Filter paths for a resource
   xbe knowledge filters --resource jobs
 
   # Filter paths for a command
   xbe knowledge filters --command "view jobs list"
+
+  # Command filter expects a specific/unique substring
+  xbe knowledge filters --command "view material-transactions list"
 
   # Filter paths for a specific flag
   xbe knowledge filters --flag broker`,
@@ -50,6 +57,14 @@ func runKnowledgeFilters(cmd *cobra.Command, _ []string) error {
 		return err
 	}
 	defer db.Close()
+
+	if resource != "" {
+		resolvedResource, err := normalizeKnowledgeResourceFlag(cmd, db, dbPath, resource, "--resource")
+		if err != nil {
+			return err
+		}
+		resource = resolvedResource
+	}
 
 	ctx := context.Background()
 

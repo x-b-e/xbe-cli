@@ -22,7 +22,12 @@ func newKnowledgeResourcesCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "resources",
 		Short: "List resources in the knowledge base",
-		RunE:  runKnowledgeResources,
+		Long: `List resources known to the CLI knowledge graph.
+
+Use --query for resource-name matching, then use:
+  xbe knowledge resource <name>
+  xbe knowledge commands --resource <name>`,
+		RunE: runKnowledgeResources,
 		Example: `  # List all resources
   xbe knowledge resources
 
@@ -61,6 +66,14 @@ func runKnowledgeResources(cmd *cobra.Command, _ []string) error {
 		return err
 	}
 	defer db.Close()
+
+	if target != "" {
+		resolvedTarget, err := normalizeKnowledgeResourceFlag(cmd, db, dbPath, target, "--target")
+		if err != nil {
+			return err
+		}
+		target = resolvedTarget
+	}
 
 	pattern := func(value string) string {
 		if value == "" {

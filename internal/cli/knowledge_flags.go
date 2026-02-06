@@ -22,7 +22,11 @@ func newKnowledgeFlagsCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "flags",
 		Short: "List flags and their field semantics",
-		RunE:  runKnowledgeFlags,
+		Long: `List CLI flags and their mapped field semantics.
+
+This helps explain whether a flag filters a direct attribute, traverses a
+relationship, or remains unmapped.`,
+		RunE: runKnowledgeFlags,
 		Example: `  # Flags for a specific command
   xbe knowledge flags --command "view jobs list"
 
@@ -59,6 +63,14 @@ func runKnowledgeFlags(cmd *cobra.Command, _ []string) error {
 		return err
 	}
 	defer db.Close()
+
+	if resource != "" {
+		resolvedResource, err := normalizeKnowledgeResourceFlag(cmd, db, dbPath, resource, "--resource")
+		if err != nil {
+			return err
+		}
+		resource = resolvedResource
+	}
 
 	ctx := context.Background()
 	args := []any{}

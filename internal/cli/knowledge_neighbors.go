@@ -37,8 +37,11 @@ func newKnowledgeNeighborsCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "neighbors <resource>",
 		Short: "Rank neighborhood resources for exploration",
-		Args:  cobra.MinimumNArgs(1),
-		RunE:  runKnowledgeNeighbors,
+		Long: `Rank adjacent resources using relationship, summary, and flag-path evidence.
+
+Use this after inspecting one resource to pick high-value next resources.`,
+		Args: cobra.MinimumNArgs(1),
+		RunE: runKnowledgeNeighbors,
 		Example: `  # Top neighbors
   xbe knowledge neighbors jobs --limit 20
 
@@ -51,8 +54,8 @@ func newKnowledgeNeighborsCmd() *cobra.Command {
 }
 
 func runKnowledgeNeighbors(cmd *cobra.Command, args []string) error {
-	resource := strings.TrimSpace(args[0])
-	if err := ensureNotEmpty(resource, "resource"); err != nil {
+	rawResource := strings.TrimSpace(args[0])
+	if err := ensureNotEmpty(rawResource, "resource"); err != nil {
 		return err
 	}
 	minScore, _ := cmd.Flags().GetFloat64("min-score")
@@ -63,6 +66,11 @@ func runKnowledgeNeighbors(cmd *cobra.Command, args []string) error {
 		return err
 	}
 	defer db.Close()
+
+	resource, err := normalizeKnowledgeResourceArg(cmd, db, dbPath, rawResource, "resource")
+	if err != nil {
+		return err
+	}
 
 	ctx := context.Background()
 	querySQL := `
@@ -119,7 +127,7 @@ LIMIT ? OFFSET ?`
 	}
 
 	if len(neighbors) == 0 {
-		fmt.Fprintln(cmd.OutOrStdout(), "No neighbors found.")
+		fmt.Fprintf(cmd.OutOrStdout(), "No neighbors found for %s.\n", resource)
 		return nil
 	}
 

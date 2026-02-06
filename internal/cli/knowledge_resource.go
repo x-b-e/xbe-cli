@@ -56,8 +56,12 @@ func newKnowledgeResourceCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "resource <name>",
 		Short: "Show details about a resource",
-		Args:  cobra.MinimumNArgs(1),
-		RunE:  runKnowledgeResource,
+		Long: `Show deep details for a single resource.
+
+Includes fields, relationship targets, summary links, and command paths that
+operate on the resource. Resource names are typically plural (jobs, customers).`,
+		Args: cobra.MinimumNArgs(1),
+		RunE: runKnowledgeResource,
 		Example: `  # Show all details
   xbe knowledge resource jobs
 
@@ -69,12 +73,18 @@ func newKnowledgeResourceCmd() *cobra.Command {
 }
 
 func runKnowledgeResource(cmd *cobra.Command, args []string) error {
-	resourceName := strings.TrimSpace(args[0])
-	if err := ensureNotEmpty(resourceName, "resource name"); err != nil {
+	rawResource := strings.TrimSpace(args[0])
+	if err := ensureNotEmpty(rawResource, "resource name"); err != nil {
 		return err
 	}
 
 	sections := parseCSVFilter(getStringFlag(cmd, "sections"))
+	validSections := allowedValues("fields", "relationships", "summaries", "summary-features", "commands")
+	for _, section := range sections {
+		if _, err := validateEnum("--sections", section, validSections); err != nil {
+			return err
+		}
+	}
 	sectionSet := map[string]bool{}
 	if len(sections) == 0 {
 		sectionSet = map[string]bool{
@@ -95,6 +105,11 @@ func runKnowledgeResource(cmd *cobra.Command, args []string) error {
 		return err
 	}
 	defer db.Close()
+
+	resourceName, err := normalizeKnowledgeResourceArg(cmd, db, dbPath, rawResource, "resource")
+	if err != nil {
+		return err
+	}
 
 	ctx := context.Background()
 	row := db.QueryRowContext(ctx, "SELECT label_fields, server_types, version_changes, version_changes_optional_features FROM resources WHERE name = ?", resourceName)

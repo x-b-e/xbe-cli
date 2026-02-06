@@ -237,7 +237,13 @@ func customHelpFunc(cmd *cobra.Command, args []string) {
 		fmt.Fprintln(out)
 		printQuickStart(out)
 		fmt.Fprintln(out)
+		printCommandTree(out, cmd)
+		fmt.Fprintln(out)
+		printResourceDiscoveryExample(out)
+		fmt.Fprintln(out)
 		printKnowledgeTools(out)
+		fmt.Fprintln(out)
+		printMetadataFlags(out)
 		fmt.Fprintln(out)
 		printGlobalFlags(out)
 		fmt.Fprintln(out)
@@ -329,6 +335,7 @@ func customUsageFunc(cmd *cobra.Command) error {
 
 func printQuickStart(out io.Writer) {
 	fmt.Fprintln(out, "QUICK START:")
+	fmt.Fprintln(out, "  xbe knowledge guide")
 	fmt.Fprintln(out, "  xbe knowledge search job")
 	fmt.Fprintln(out, "  xbe knowledge resource jobs")
 	fmt.Fprintln(out, "  xbe knowledge commands --resource jobs")
@@ -338,17 +345,19 @@ func printQuickStart(out io.Writer) {
 
 func printBootstrapLoop(out io.Writer) {
 	fmt.Fprintln(out, "BOOTSTRAP LOOP (for unknown tasks):")
+	fmt.Fprintln(out, "  0) Orient:   xbe knowledge guide")
 	fmt.Fprintln(out, "  1) Find:     xbe knowledge search <term>")
 	fmt.Fprintln(out, "  2) Inspect:  xbe knowledge resource <resource>")
 	fmt.Fprintln(out, "  3) Choose:   xbe knowledge commands --resource <resource> [--kind view|do|summarize]")
 	fmt.Fprintln(out, "  4) Verify:   xbe <view|do|summarize> <resource> <action> --help")
 	fmt.Fprintln(out, "  5) Explore:  xbe knowledge relations|neighbors|filters --resource <resource>")
+	fmt.Fprintln(out, "  Note: 'knowledge' also has alias 'kb' (example: xbe kb search job).")
 	fmt.Fprintln(out, "  Note: xbe knowledge commands shows permissions, side effects, and validation notes.")
 }
 
 func printCommandGrammar(out io.Writer) {
 	fmt.Fprintln(out, "COMMAND GRAMMAR:")
-	fmt.Fprintln(out, "  knowledge  xbe knowledge <search|resources|resource|commands|fields|flags|relations|neighbors|metapath|filters|summaries|client-routes> [filters]")
+	fmt.Fprintln(out, "  knowledge  xbe knowledge|kb <guide|search|resources|resource|commands|fields|flags|relations|neighbors|metapath|filters|summaries|client-routes> [filters]")
 	fmt.Fprintln(out, "  read       xbe view <resource> <list|show> [flags]")
 	fmt.Fprintln(out, "  write      xbe do <resource> <create|update|delete|action> [flags]")
 	fmt.Fprintln(out, "  analyze    xbe summarize <summary> create [flags]")
@@ -357,6 +366,7 @@ func printCommandGrammar(out io.Writer) {
 
 func printKnowledgeTools(out io.Writer) {
 	fmt.Fprintln(out, "KNOWLEDGE TOOLS (what they answer):")
+	fmt.Fprintln(out, "  guide      first-run playbook + non-obvious naming rules")
 	fmt.Fprintln(out, "  search     find resources/commands/fields/summaries by term")
 	fmt.Fprintln(out, "  resource   see fields, relationships, summaries, commands for one resource")
 	fmt.Fprintln(out, "  commands   list CLI commands + permissions/side effects/validation")
@@ -368,6 +378,7 @@ func printKnowledgeTools(out io.Writer) {
 	fmt.Fprintln(out, "  fields     list fields + owning resources")
 	fmt.Fprintln(out, "  summaries  list summary resources + group-by/metrics")
 	fmt.Fprintln(out, "  client-routes  list client app routes and parameters")
+	fmt.Fprintln(out, "  Note: summarize command names (transport-summary) often map to summary resources (transport-summaries).")
 }
 
 func printCommandTree(out io.Writer, root *cobra.Command) {
@@ -761,12 +772,20 @@ func printGlobalFlags(out io.Writer) {
 	fmt.Fprintln(out, "GLOBAL FLAGS:")
 	fmt.Fprintln(out, "  --json               machine-readable output")
 	fmt.Fprintln(out, "  --output             output format: table (default), json, yaml")
-	fmt.Fprintln(out, "  --jq                 jq-style filter for JSON/YAML output")
+	fmt.Fprintln(out, "  --jq                 jq-style filter for JSON/YAML output (--jq implies JSON if --output is unset)")
 	fmt.Fprintln(out, "  --client-url         output client app URL(s) for view list/show")
 	fmt.Fprintln(out, "  --limit/--offset/--sort  pagination for list commands")
 	fmt.Fprintln(out, "  --fields             sparse fieldsets for list/show")
 	fmt.Fprintln(out, "  --base-url/--token/--no-auth  auth/targeting")
 	fmt.Fprintln(out, "  -h, --help           show help for any command")
+}
+
+func printMetadataFlags(out io.Writer) {
+	fmt.Fprintln(out, "COMMAND METADATA FLAGS (view/do/summarize):")
+	fmt.Fprintln(out, "  --metadata           print permissions + side effects + validation notes")
+	fmt.Fprintln(out, "  --permissions        print only permission requirements")
+	fmt.Fprintln(out, "  --side-effects       print only side effects")
+	fmt.Fprintln(out, "  --validation-notes   print only validation notes")
 }
 
 func printTimeNotes(out io.Writer) {
@@ -776,7 +795,7 @@ func printTimeNotes(out io.Writer) {
 
 func printAuthOverview(out io.Writer) {
 	fmt.Fprintln(out, "AUTH:")
-	fmt.Fprintln(out, "  xbe auth status | login | logout")
+	fmt.Fprintln(out, "  xbe auth status | login | logout | whoami")
 	fmt.Fprintln(out, "  Token precedence: --token > XBE_TOKEN/XBE_API_TOKEN > keychain > config")
 }
 

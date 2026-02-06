@@ -20,7 +20,10 @@ func newKnowledgeRelationsCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "relations",
 		Short: "List relationships between resources",
-		RunE:  runKnowledgeRelations,
+		Long: `List resource graph edges.
+
+Includes direct model relationships and summary edges (summary -> primary).`,
+		RunE: runKnowledgeRelations,
 		Example: `  # Relationships from a resource
   xbe knowledge relations --resource jobs
 
@@ -36,13 +39,31 @@ func newKnowledgeRelationsCmd() *cobra.Command {
 func runKnowledgeRelations(cmd *cobra.Command, _ []string) error {
 	resource := strings.TrimSpace(getStringFlag(cmd, "resource"))
 	target := strings.TrimSpace(getStringFlag(cmd, "target"))
-	kind := strings.TrimSpace(getStringFlag(cmd, "kind"))
+	kind, err := validateEnum("--kind", getStringFlag(cmd, "kind"), allowedValues("relationship", "summary"))
+	if err != nil {
+		return err
+	}
 
 	db, dbPath, err := openKnowledgeDB(cmd)
 	if err != nil {
 		return err
 	}
 	defer db.Close()
+
+	if resource != "" {
+		resolvedResource, err := normalizeKnowledgeResourceFlag(cmd, db, dbPath, resource, "--resource")
+		if err != nil {
+			return err
+		}
+		resource = resolvedResource
+	}
+	if target != "" {
+		resolvedTarget, err := normalizeKnowledgeResourceFlag(cmd, db, dbPath, target, "--target")
+		if err != nil {
+			return err
+		}
+		target = resolvedTarget
+	}
 
 	ctx := context.Background()
 	args := []any{}

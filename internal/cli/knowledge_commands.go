@@ -23,12 +23,21 @@ func newKnowledgeCommandsCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "commands",
 		Short: "List or search CLI commands in the knowledge base",
-		RunE:  runKnowledgeCommands,
+		Long: `List command paths plus execution metadata.
+
+Use this to answer:
+  - Which commands operate on a resource?
+  - Is this read, write, or summarize?
+  - What permissions, side effects, and validations apply?`,
+		RunE: runKnowledgeCommands,
 		Example: `  # Search commands by keyword
   xbe knowledge commands --query project
 
   # Commands tied to a resource
-  xbe knowledge commands --resource jobs`,
+  xbe knowledge commands --resource jobs
+
+  # Only summarize commands
+  xbe knowledge commands --kind summarize`,
 	}
 	cmd.Flags().String("query", "", "Substring filter for command path or description")
 	cmd.Flags().String("resource", "", "Only commands that operate on a resource")
@@ -40,7 +49,10 @@ func newKnowledgeCommandsCmd() *cobra.Command {
 func runKnowledgeCommands(cmd *cobra.Command, _ []string) error {
 	query := strings.TrimSpace(getStringFlag(cmd, "query"))
 	resource := strings.TrimSpace(getStringFlag(cmd, "resource"))
-	kind := strings.TrimSpace(getStringFlag(cmd, "kind"))
+	kind, err := validateEnum("--kind", getStringFlag(cmd, "kind"), allowedValues("view", "do", "summarize"))
+	if err != nil {
+		return err
+	}
 	verb := strings.TrimSpace(getStringFlag(cmd, "verb"))
 
 	db, dbPath, err := openKnowledgeDB(cmd)
@@ -48,6 +60,14 @@ func runKnowledgeCommands(cmd *cobra.Command, _ []string) error {
 		return err
 	}
 	defer db.Close()
+
+	if resource != "" {
+		resolvedResource, err := normalizeKnowledgeResourceFlag(cmd, db, dbPath, resource, "--resource")
+		if err != nil {
+			return err
+		}
+		resource = resolvedResource
+	}
 
 	ctx := context.Background()
 	args := []any{}

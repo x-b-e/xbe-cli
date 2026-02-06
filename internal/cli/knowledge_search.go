@@ -19,13 +19,22 @@ func newKnowledgeSearchCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "search <query>",
 		Short: "Search across resources, commands, fields, and summaries",
-		Args:  cobra.MinimumNArgs(1),
-		RunE:  runKnowledgeSearch,
+		Long: `Search the knowledge graph by free text.
+
+Use this when you do not know the exact resource or command name yet.
+Then pivot to:
+  - xbe knowledge resource <name>
+  - xbe knowledge commands --resource <name>`,
+		Args: cobra.MinimumNArgs(1),
+		RunE: runKnowledgeSearch,
 		Example: `  # Search everything
   xbe knowledge search job
 
   # Limit to resources + commands
-  xbe knowledge search job --kind resources,commands`,
+  xbe knowledge search job --kind resources,commands
+
+  # Search only relationship edges
+  xbe knowledge search trucker --kind relationships`,
 	}
 	cmd.Flags().String("kind", "", "Comma-separated kinds to search (resources,commands,fields,flags,relationships,summaries,dimensions,metrics)")
 	return cmd
@@ -36,11 +45,18 @@ func runKnowledgeSearch(cmd *cobra.Command, args []string) error {
 	if query == "" {
 		return fmt.Errorf("query is required")
 	}
-	kinds := parseCSVFilter(getStringFlag(cmd, "kind"))
+	kinds, err := validateCSVEnum(
+		"--kind",
+		getStringFlag(cmd, "kind"),
+		allowedValues("resources", "commands", "fields", "flags", "relationships", "summaries", "dimensions", "metrics"),
+	)
+	if err != nil {
+		return err
+	}
 	includeAll := len(kinds) == 0
 	kindSet := map[string]bool{}
 	for _, kind := range kinds {
-		kindSet[strings.ToLower(kind)] = true
+		kindSet[kind] = true
 	}
 
 	db, dbPath, err := openKnowledgeDB(cmd)

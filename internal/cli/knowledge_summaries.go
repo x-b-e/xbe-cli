@@ -27,12 +27,19 @@ func newKnowledgeSummariesCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "summaries",
 		Short: "List summary resources and their features",
-		RunE:  runKnowledgeSummaries,
+		Long: `List summary resources and their dimensions/metrics.
+
+You can pass either summary resource names (transport-summaries) or summarize
+command names (transport-summary) to --summary.`,
+		RunE: runKnowledgeSummaries,
 		Example: `  # List summary resources
   xbe knowledge summaries
 
   # Show details for a summary
-  xbe knowledge summaries --summary transport-summaries --details`,
+  xbe knowledge summaries --summary transport-summaries --details
+
+  # Command-name shorthand is accepted
+  xbe knowledge summaries --summary transport-summary --details`,
 	}
 	cmd.Flags().String("summary", "", "Filter by summary resource")
 	cmd.Flags().Bool("details", false, "Include dimensions and metrics")
@@ -48,6 +55,14 @@ func runKnowledgeSummaries(cmd *cobra.Command, _ []string) error {
 		return err
 	}
 	defer db.Close()
+
+	if summaryFilter != "" {
+		resolvedSummary, err := normalizeSummaryResourceFilter(cmd, db, dbPath, summaryFilter)
+		if err != nil {
+			return err
+		}
+		summaryFilter = resolvedSummary
+	}
 
 	ctx := context.Background()
 

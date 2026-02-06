@@ -19,12 +19,19 @@ func newKnowledgeFieldsCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "fields",
 		Short: "List fields and their resources",
-		RunE:  runKnowledgeFields,
+		Long: `List resource fields discovered from resource_map metadata.
+
+Use this to confirm whether a field is an attribute or relationship before
+building filters and sparse fieldsets.`,
+		RunE: runKnowledgeFields,
 		Example: `  # Fields for a resource
   xbe knowledge fields --resource jobs
 
   # Search field names
-  xbe knowledge fields --query status`,
+  xbe knowledge fields --query status
+
+  # Only relationship fields
+  xbe knowledge fields --resource jobs --kind relationship`,
 	}
 	cmd.Flags().String("resource", "", "Only fields for a resource")
 	cmd.Flags().String("query", "", "Substring filter for field or resource")
@@ -35,13 +42,24 @@ func newKnowledgeFieldsCmd() *cobra.Command {
 func runKnowledgeFields(cmd *cobra.Command, _ []string) error {
 	resource := strings.TrimSpace(getStringFlag(cmd, "resource"))
 	query := strings.TrimSpace(getStringFlag(cmd, "query"))
-	kind := strings.TrimSpace(getStringFlag(cmd, "kind"))
+	kind, err := validateEnum("--kind", getStringFlag(cmd, "kind"), allowedValues("attribute", "relationship"))
+	if err != nil {
+		return err
+	}
 
 	db, dbPath, err := openKnowledgeDB(cmd)
 	if err != nil {
 		return err
 	}
 	defer db.Close()
+
+	if resource != "" {
+		resolvedResource, err := normalizeKnowledgeResourceFlag(cmd, db, dbPath, resource, "--resource")
+		if err != nil {
+			return err
+		}
+		resource = resolvedResource
+	}
 
 	ctx := context.Background()
 	args := []any{}

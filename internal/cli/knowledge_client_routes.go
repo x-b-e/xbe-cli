@@ -144,6 +144,15 @@ func runKnowledgeClientRoutes(cmd *cobra.Command, _ []string) error {
 	}
 
 	if len(rows) == 0 {
+		if len(resourceFilters) > 0 {
+			fmt.Fprintf(
+				cmd.OutOrStdout(),
+				"No client routes found for resource filter %q. Try 'xbe knowledge client-routes --query %s' to search route keys/paths directly.\n",
+				strings.Join(resourceFilters, ","),
+				resourceFilters[0],
+			)
+			return nil
+		}
 		fmt.Fprintln(cmd.OutOrStdout(), "No client routes found.")
 		return nil
 	}
@@ -173,6 +182,15 @@ func runKnowledgeClientRoutes(cmd *cobra.Command, _ []string) error {
 	}
 
 	if len(rows) == 0 {
+		if len(resourceFilters) > 0 {
+			fmt.Fprintf(
+				cmd.OutOrStdout(),
+				"No client routes found for resource filter %q. Try 'xbe knowledge client-routes --query %s' to search route keys/paths directly.\n",
+				strings.Join(resourceFilters, ","),
+				resourceFilters[0],
+			)
+			return nil
+		}
 		fmt.Fprintln(cmd.OutOrStdout(), "No client routes found.")
 		return nil
 	}
